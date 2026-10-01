@@ -1,0 +1,108 @@
+- id: numm.change-of-sign
+  title:
+    fa-IR: یافتن ریشه با تغییر علامت
+    en: Locating roots by change of sign
+  age:
+  - 16
+  - 18
+  requires:
+  - func.concept
+  - calc.continuity
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:9:fabcc6
+    - uk:UK_ALEVEL:9:d17e85
+- id: numm.iteration
+  title:
+    fa-IR: حل تقریبی معادله با تکرار
+    en: Solving equations by iteration
+  age:
+  - 14
+  - 18
+  requires:
+  - alg.linear-equations
+  - seq.arithmetic
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:2:cb6120
+    - uk:UK_KS4:2:02c8f0
+    - uk:UK_GCSE:3:2df8ec
+    - uk:UK_KS4:3:87a952
+    - uk:UK_ALEVEL:9:3c8a8d
+    - uk:UK_ALEVEL:9:d17e85
+- id: numm.newton-raphson
+  title:
+    fa-IR: روش نیوتن–رافسون
+    en: The Newton–Raphson method
+  age:
+  - 16
+  - 18
+  requires:
+  - numm.iteration
+  - calc.derivative.tangent-normal
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:9:3c8a8d
+    - uk:UK_ALEVEL:9:d17e85
+- id: numm.trapezium-rule
+  title:
+    fa-IR: قاعدهٔ ذوزنقه‌ای برای انتگرال تقریبی
+    en: The trapezium rule
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.integral.definite
+  - calc.area-estimate
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:9:88b18f
+    - uk:UK_ALEVEL:9:d17e85
+- id: numm.log-tables
+  title:
+    fa-IR: 'جدول لگاریتم: مفسر، مانتیس و آنتی‌لگاریتم'
+    en: 'Log tables: characteristic, mantissa and antilogarithm'
+  age:
+  - 17
+  - 17
+  requires:
+  - func.logarithm
+  - num.standard-form
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G11_riazi:5:14094d
+    - af:AF_G11_riazi:5:1a9b0b
+    - af:AF_G11_riazi:5:2c040f
+    - af:AF_G11_riazi:5:d4a537
+    - af:AF_G11_riazi:5:dbec6f
+    uk: []
+- id: numm.linear-interpolation
+  title:
+    fa-IR: درون‌یابی خطی در جدول‌ها
+    en: Linear interpolation in tables
+  age:
+  - 17
+  - 17
+  requires:
+  - numm.log-tables
+  - ratio.proportion.direct
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G11_riazi:5:14094d
+    uk: []

@@ -1,0 +1,890 @@
+- id: alg.missing-number
+  title:
+    fa-IR: پیدا کردن عدد مجهول (جانگهدار)
+    en: Missing numbers and placeholders
+  age:
+  - 6
+  - 13
+  requires:
+  - ops.add-sub.mental
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:4:4feb2d
+    af: []
+    uk:
+    - uk:UK_Y01:2:691f20
+    - uk:UK_Y06:5:01c2e1
+- id: alg.notation
+  title:
+    fa-IR: 'نمادگذاری جبری: استفاده از حرف به جای عدد'
+    en: 'Algebraic notation: letters for numbers'
+  age:
+  - 11
+  - 16
+  requires:
+  - alg.missing-number
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:4:69a5fc
+    - iran:G07_riazi_haftom:3:f18875
+    af:
+    - af:AF_G08_riazi:7:fe8ad2
+    - af:AF_G08_riazi:9:a536ac
+    uk:
+    - uk:UK_GCSE:2:9f46d8
+    - uk:UK_KS3:2:9e06c0
+    - uk:UK_Y06:5:01c2e1
+- id: alg.formulae
+  title:
+    fa-IR: استفاده از فرمول‌ها
+    en: Using simple formulae
+  age:
+  - 11
+  - 16
+  requires:
+  - alg.missing-number
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:2:a58b8f
+    - uk:UK_KS3:2:91ef0f
+    - uk:UK_Y06:5:25400c
+- id: alg.expressions
+  title:
+    fa-IR: 'عبارت جبری: جمله، ضریب و متغیر'
+    en: 'Algebraic expressions: terms, coefficients and variables'
+  age:
+  - 11
+  - 16
+  requires:
+  - alg.notation
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:4:69a5fc
+    - iran:G07_riazi_haftom:3:f18875
+    af:
+    - af:AF_G08_riazi:7:fe8ad2
+    uk:
+    - uk:UK_GCSE:2:956957
+    - uk:UK_KS3:2:83e8ed
+- id: alg.substitution
+  title:
+    fa-IR: مقدار عددی یک عبارت جبری
+    en: Substituting into expressions and formulae
+  age:
+  - 11
+  - 16
+  requires:
+  - alg.expressions
+  - ops.order-of-operations
+  - num.integers.ops
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:4:0c18a2
+    - iran:G07_riazi_haftom:3:0c18a2
+    - iran:G08_gifted_supplement:4:b93f3c
+    - iran:G08_riazi_hashtom:4:b93f3c
+    - iran:G09_gifted:4:b93f3c
+    af: []
+    uk:
+    - uk:UK_GCSE:2:74223f
+    - uk:UK_KS3:2:418336
+- id: alg.simplify
+  title:
+    fa-IR: ساده کردن عبارت‌های جبری (جمع جمله‌های متشابه)
+    en: Simplifying expressions by collecting like terms
+  age:
+  - 11
+  - 16
+  requires:
+  - alg.expressions
+  - num.integers.ops
+  level: core
+  align:
+    iran:
+    - iran:G08_gifted_supplement:4:6a32bd
+    - iran:G08_riazi_hashtom:4:6c8c95
+    af:
+    - af:AF_G08_riazi:7:fe8ad2
+    uk:
+    - uk:UK_GCSE:2:f24fd4
+    - uk:UK_KS3:2:739859
+- id: alg.monomials
+  title:
+    fa-IR: ضرب و تقسیم یک‌جمله‌ای‌ها
+    en: Multiplying and dividing monomials
+  age:
+  - 14
+  - 16
+  requires:
+  - alg.simplify
+  - num.powers
+  level: core
+  align:
+    iran:
+    - iran:G08_gifted_supplement:4:6a32bd
+    - iran:G08_riazi_hashtom:4:6c8c95
+    af:
+    - af:AF_G08_riazi:7:a97cd4
+    uk:
+    - uk:UK_GCSE:2:f24fd4
+    - uk:UK_KS4:2:599b64
+- id: alg.expand.single
+  title:
+    fa-IR: ضرب یک جمله در پرانتز (خاصیت پخشی)
+    en: Expanding a single bracket
+  age:
+  - 11
+  - 16
+  requires:
+  - alg.simplify
+  level: core
+  align:
+    iran:
+    - iran:G08_gifted_supplement:4:6a32bd
+    - iran:G08_riazi_hashtom:4:6c8c95
+    af:
+    - af:AF_G08_riazi:7:a97cd4
+    uk:
+    - uk:UK_GCSE:2:f24fd4
+    - uk:UK_KS3:2:739859
+- id: alg.expand.binomials
+  title:
+    fa-IR: ضرب دو جمله‌ای‌ها در هم
+    en: Expanding products of binomials
+  age:
+  - 11
+  - 16
+  requires:
+  - alg.expand.single
+  - alg.monomials
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:5:a1322c
+    af:
+    - af:AF_G08_riazi:7:a97cd4
+    uk:
+    - uk:UK_GCSE:2:f24fd4
+    - uk:UK_KS3:2:739859
+- id: alg.identities.square
+  title:
+    fa-IR: اتحاد مربع دوجمله‌ای و اتحاد مزدوج
+    en: Square of a binomial and difference of two squares
+  age:
+  - 14
+  - 16
+  requires:
+  - alg.expand.binomials
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:5:16075a
+    - iran:G09_riazi_nohom:5:a1322c
+    - iran:G10_riazi1_math_science:3:f18875
+    af:
+    - af:AF_G08_riazi:7:547fc0
+    uk:
+    - uk:UK_GCSE:2:f24fd4
+    - uk:UK_KS4:2:599b64
+- id: alg.identities.further
+  title:
+    fa-IR: اتحادهای مکعب دوجمله‌ای، چاق و لاغر و جملهٔ مشترک
+    en: 'Further identities: cube of a binomial, sum and difference of cubes'
+  age:
+  - 15
+  - 16
+  requires:
+  - alg.identities.square
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:5:858fc8
+    - iran:G09_riazi_nohom:5:2329b2
+    - iran:G10_riazi1_math_science:3:f18875
+    af:
+    - af:AF_G09_riazi:5:5132bc
+    uk: []
+- id: alg.equation.concept
+  title:
+    fa-IR: مفهوم معادله و جواب معادله
+    en: Equations and their solutions
+  age:
+  - 11
+  - 16
+  requires:
+  - alg.expressions
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:4:199162
+    - iran:G07_riazi_haftom:3:199162
+    af:
+    - af:AF_G08_riazi:8:bcbdb9
+    uk:
+    - uk:UK_GCSE:2:956957
+    - uk:UK_KS3:2:83e8ed
+- id: alg.identity
+  title:
+    fa-IR: اتحاد و تفاوت آن با معادله
+    en: Identities versus equations
+  age:
+  - 14
+  - 16
+  requires:
+  - alg.equation.concept
+  - alg.expand.single
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:5:a1322c
+    af:
+    - af:AF_G08_riazi:7:547fc0
+    uk:
+    - uk:UK_GCSE:2:956957
+    - uk:UK_GCSE:2:5aac15
+    - uk:UK_KS4:2:fe10dd
+- id: alg.proof
+  title:
+    fa-IR: استدلال و اثبات جبری
+    en: Algebraic argument and proof
+  age:
+  - 14
+  - 16
+  requires:
+  - alg.identity
+  - alg.expand.binomials
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:2:5aac15
+    - uk:UK_KS4:2:fe10dd
+- id: alg.factorise
+  title:
+    fa-IR: تجزیه با فاکتورگیری (عامل مشترک)
+    en: Factorising by taking out a common factor
+  age:
+  - 11
+  - 16
+  requires:
+  - alg.expand.single
+  - num.hcf-lcm
+  level: core
+  align:
+    iran:
+    - iran:G08_gifted_supplement:4:9dbd8e
+    - iran:G08_riazi_hashtom:4:04838f
+    af:
+    - af:AF_G08_riazi:7:547fc0
+    - af:AF_G09_riazi:5:c92af8
+    uk:
+    - uk:UK_GCSE:2:f24fd4
+    - uk:UK_KS3:2:739859
+- id: alg.factorise.quadratic
+  title:
+    fa-IR: تجزیهٔ عبارت‌های درجهٔ دوم
+    en: Factorising quadratic expressions
+  age:
+  - 14
+  - 18
+  requires:
+  - alg.factorise
+  - alg.identities.square
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:5:858fc8
+    - iran:G09_riazi_nohom:5:2329b2
+    - iran:G10_riazi1_math_science:3:f18875
+    af:
+    - af:AF_G09_riazi:5:c92af8
+    uk:
+    - uk:UK_ALEVEL:2:bbae5d
+    - uk:UK_GCSE:2:f24fd4
+    - uk:UK_KS4:2:599b64
+- id: alg.formulae.rearrange
+  title:
+    fa-IR: تغییر موضوع فرمول
+    en: Rearranging formulae (changing the subject)
+  age:
+  - 11
+  - 16
+  requires:
+  - alg.linear-equations
+  - alg.formulae
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:2:a58b8f
+    - uk:UK_KS3:2:91ef0f
+- id: alg.modelling
+  title:
+    fa-IR: نوشتن عبارت و معادله برای مسئله‌های توصیفی
+    en: Forming expressions and equations from situations
+  age:
+  - 11
+  - 16
+  requires:
+  - alg.expressions
+  - alg.equation.concept
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:4:199162
+    - iran:G07_riazi_haftom:3:199162
+    - iran:G10_riazi_amar1_humanities:1:19423f
+    af:
+    - af:AF_G08_riazi:8:a54652
+    uk:
+    - uk:UK_GCSE:2:f1fcd3
+    - uk:UK_KS3:2:3040b3
+    - uk:UK_KS4:2:438664
+- id: alg.linear-equations
+  title:
+    fa-IR: حل معادلهٔ درجهٔ اول یک‌مجهولی
+    en: Solving linear equations in one unknown
+  age:
+  - 11
+  - 16
+  requires:
+  - alg.equation.concept
+  - alg.simplify
+  - alg.expand.single
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:4:199162
+    - iran:G07_riazi_haftom:3:199162
+    - iran:G08_gifted_supplement:4:199162
+    - iran:G08_riazi_hashtom:4:199162
+    af:
+    - af:AF_G08_riazi:8:bcbdb9
+    - af:AF_G08_riazi:8:a54652
+    uk:
+    - uk:UK_GCSE:2:475858
+    - uk:UK_KS3:2:071288
+- id: alg.equation.two-unknowns
+  title:
+    fa-IR: معادله با دو مجهول و زوج‌های جواب
+    en: 'Equations with two unknowns: finding solution pairs'
+  age:
+  - 11
+  - 11
+  requires:
+  - alg.missing-number
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y06:5:546d5d
+    - uk:UK_Y06:5:cd0997
+- id: alg.simultaneous.linear
+  title:
+    fa-IR: دستگاه معادله‌های خطی دومجهولی
+    en: Simultaneous linear equations in two unknowns
+  age:
+  - 14
+  - 18
+  requires:
+  - alg.linear-equations
+  - alg.equation.two-unknowns
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:6:036e74
+    - iran:G09_riazi_nohom:6:036e74
+    af:
+    - af:AF_G09_riazi:3:f13f17
+    - af:AF_G09_riazi:3:7050d5
+    uk:
+    - uk:UK_ALEVEL:2:5e9b3f
+    - uk:UK_GCSE:2:f60c32
+    - uk:UK_GCSE:2:f1fcd3
+    - uk:UK_KS4:2:71f8e1
+    - uk:UK_KS4:2:438664
+- id: alg.quadratic-equations
+  title:
+    fa-IR: حل معادلهٔ درجهٔ دوم به روش تجزیه
+    en: Solving quadratic equations by factorising
+  age:
+  - 14
+  - 18
+  requires:
+  - alg.factorise.quadratic
+  - alg.linear-equations
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:4:c46add
+    - iran:G10_riazi_amar1_humanities:1:19423f
+    - iran:G10_riazi_amar1_humanities:1:3bf08e
+    - iran:G11_hesaban1_math:1:e0998c
+    - iran:G11_riazi2_science:1:93fb38
+    af:
+    - af:AF_G09_riazi:7:92dd59
+    - af:AF_G09_riazi:7:299cde
+    uk:
+    - uk:UK_ALEVEL:2:7cc3ce
+    - uk:UK_GCSE:2:68a80e
+    - uk:UK_KS4:2:0d2b45
+- id: alg.simultaneous.linear-quadratic
+  title:
+    fa-IR: دستگاه یک معادلهٔ خطی و یک معادلهٔ درجهٔ دوم
+    en: 'Simultaneous equations: one linear and one quadratic'
+  age:
+  - 14
+  - 18
+  requires:
+  - alg.simultaneous.linear
+  - alg.quadratic-equations
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:2:5e9b3f
+    - uk:UK_GCSE:2:f60c32
+    - uk:UK_KS4:2:71f8e1
+- id: alg.quadratic.complete-square
+  title:
+    fa-IR: روش مربع کامل
+    en: Completing the square
+  age:
+  - 14
+  - 18
+  requires:
+  - alg.identities.square
+  - alg.quadratic-equations
+  - num.roots
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:4:c46add
+    af:
+    - af:AF_G09_riazi:7:299cde
+    uk:
+    - uk:UK_ALEVEL:2:7cc3ce
+    - uk:UK_GCSE:2:68a80e
+    - uk:UK_KS4:2:0d2b45
+- id: alg.quadratic.formula
+  title:
+    fa-IR: حل معادلهٔ درجهٔ دوم با فرمول کلی (روش دلتا)
+    en: The quadratic formula
+  age:
+  - 14
+  - 17
+  requires:
+  - alg.quadratic.complete-square
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:4:c46add
+    - iran:G10_riazi_amar1_humanities:1:3bf08e
+    - iran:G11_hesaban1_math:1:e0998c
+    - iran:G11_riazi2_science:1:93fb38
+    af:
+    - af:AF_G09_riazi:7:92dd59
+    - af:AF_G09_riazi:7:299cde
+    uk:
+    - uk:UK_GCSE:2:68a80e
+    - uk:UK_KS4:2:0d2b45
+- id: alg.quadratic.discriminant
+  title:
+    fa-IR: دلتا (مبین) و تعداد ریشه‌های معادلهٔ درجهٔ دوم
+    en: The discriminant and the nature of roots
+  age:
+  - 15
+  - 18
+  requires:
+  - alg.quadratic.formula
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:4:c46add
+    - iran:G11_hesaban1_math:1:e0998c
+    - iran:G11_riazi2_science:1:93fb38
+    af:
+    - af:AF_G09_riazi:7:92dd59
+    uk:
+    - uk:UK_ALEVEL:2:7cc3ce
+- id: alg.quadratic.roots-relations
+  title:
+    fa-IR: مجموع و حاصل‌ضرب ریشه‌های معادلهٔ درجهٔ دوم
+    en: Sum and product of the roots of a quadratic
+  age:
+  - 16
+  - 18
+  requires:
+  - alg.quadratic.formula
+  level: extension
+  align:
+    iran:
+    - iran:G11_hesaban1_math:1:e0998c
+    - iran:G11_riazi2_science:1:93fb38
+    af: []
+    uk:
+    - uk:UK_FURTHER:4:91043c
+- id: alg.quadratic.reducible
+  title:
+    fa-IR: معادله‌های قابل تبدیل به معادلهٔ درجهٔ دوم
+    en: Equations reducible to quadratics
+  age:
+  - 14
+  - 18
+  requires:
+  - alg.quadratic-equations
+  level: extension
+  align:
+    iran:
+    - iran:G11_hesaban1_math:1:e0998c
+    af: []
+    uk:
+    - uk:UK_ALEVEL:2:7cc3ce
+    - uk:UK_GCSE:2:68a80e
+    - uk:UK_KS4:2:0d2b45
+- id: alg.polynomials
+  title:
+    fa-IR: 'چندجمله‌ای‌ها: درجه، ضرایب و اعمال روی آن‌ها'
+    en: 'Polynomials: degree, coefficients and operations'
+  age:
+  - 15
+  - 18
+  requires:
+  - alg.expand.binomials
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:5:16075a
+    af:
+    - af:AF_G10_riazi:1:02337c
+    - af:AF_G10_riazi:1:7a2cb6
+    uk:
+    - uk:UK_ALEVEL:2:bbae5d
+- id: alg.polynomial.division
+  title:
+    fa-IR: تقسیم چندجمله‌ای‌ها
+    en: Polynomial division
+  age:
+  - 15
+  - 18
+  requires:
+  - alg.polynomials
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:7:e93bf6
+    - iran:G09_riazi_nohom:7:e93bf6
+    - iran:G12_hesaban2_math:1:06772d
+    af:
+    - af:AF_G09_riazi:5:e35a53
+    - af:AF_G10_riazi:1:7a2cb6
+    - af:AF_G10_riazi:1:ea2e8e
+    uk:
+    - uk:UK_ALEVEL:2:bbae5d
+- id: alg.remainder-factor
+  title:
+    fa-IR: قضیهٔ باقی‌مانده و قضیهٔ عامل (بخش‌پذیری)
+    en: The remainder and factor theorems
+  age:
+  - 16
+  - 18
+  requires:
+  - alg.polynomial.division
+  level: extension
+  align:
+    iran:
+    - iran:G12_hesaban2_math:1:06772d
+    af:
+    - af:AF_G10_riazi:1:ea2e8e
+    uk:
+    - uk:UK_ALEVEL:2:bbae5d
+- id: alg.polynomial.equations
+  title:
+    fa-IR: حل معادله‌های چندجمله‌ای درجهٔ سه و چهار
+    en: Solving cubic and quartic equations
+  age:
+  - 16
+  - 18
+  requires:
+  - alg.remainder-factor
+  - alg.quadratic-equations
+  level: extension
+  align:
+    iran:
+    - iran:G12_hesaban2_math:1:06772d
+    af: []
+    uk:
+    - uk:UK_ALEVEL:2:bbae5d
+    - uk:UK_FURTHER:2:03b28a
+- id: alg.polynomial.roots-coefficients
+  title:
+    fa-IR: رابطهٔ بین ریشه‌ها و ضرایب چندجمله‌ای
+    en: Roots and coefficients of polynomial equations
+  age:
+  - 16
+  - 18
+  requires:
+  - alg.polynomial.equations
+  - alg.quadratic.roots-relations
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_FURTHER:4:91043c
+    - uk:UK_FURTHER:4:6433e4
+- id: alg.fractions.simplify
+  title:
+    fa-IR: ساده کردن عبارت‌های گویا
+    en: Simplifying algebraic fractions
+  age:
+  - 14
+  - 18
+  requires:
+  - alg.factorise.quadratic
+  - frac.equivalent
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:7:cfbd73
+    - iran:G09_riazi_nohom:7:bbf825
+    - iran:G10_riazi1_math_science:3:f18875
+    af: []
+    uk:
+    - uk:UK_ALEVEL:2:bbae5d
+    - uk:UK_GCSE:2:f24fd4
+    - uk:UK_KS4:2:599b64
+- id: alg.fractions.operations
+  title:
+    fa-IR: جمع، تفریق، ضرب و تقسیم عبارت‌های گویا
+    en: Operations on algebraic fractions
+  age:
+  - 14
+  - 16
+  requires:
+  - alg.fractions.simplify
+  - frac.add-sub
+  - frac.mul-div
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:7:56a525
+    af:
+    - af:AF_G09_riazi:5:b93c2d
+    - af:AF_G09_riazi:5:895a7e
+    uk:
+    - uk:UK_GCSE:2:f24fd4
+    - uk:UK_KS4:2:599b64
+- id: alg.rational-equations
+  title:
+    fa-IR: معادله‌های گویا
+    en: Equations with algebraic fractions
+  age:
+  - 16
+  - 17
+  requires:
+  - alg.fractions.operations
+  - alg.quadratic-equations
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi_amar1_humanities:1:427df3
+    - iran:G11_hesaban1_math:1:e68901
+    - iran:G11_riazi2_science:1:75bec2
+    af: []
+    uk: []
+- id: alg.radical-equations
+  title:
+    fa-IR: معادله‌های رادیکالی (گنگ)
+    en: Radical (surd) equations
+  age:
+  - 17
+  - 17
+  requires:
+  - alg.quadratic-equations
+  - num.roots
+  level: extension
+  align:
+    iran:
+    - iran:G11_hesaban1_math:1:e68901
+    - iran:G11_riazi2_science:1:75bec2
+    af: []
+    uk: []
+- id: alg.partial-fractions
+  title:
+    fa-IR: تجزیهٔ کسر به کسرهای جزئی
+    en: Partial fractions
+  age:
+  - 16
+  - 18
+  requires:
+  - alg.fractions.operations
+  - alg.simultaneous.linear
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:5:4202da
+    uk:
+    - uk:UK_ALEVEL:2:cfc8de
+    - uk:UK_FURTHER:5:b73074
+- id: alg.inequalities.concept
+  title:
+    fa-IR: نابرابری، بازه‌ها و نمایش روی محور اعداد
+    en: Inequality notation, intervals and the number line
+  age:
+  - 11
+  - 16
+  requires:
+  - num.negative
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:5:c3b32a
+    - iran:G09_riazi_nohom:5:6e871d
+    af:
+    - af:AF_G09_riazi:6:c4b783
+    uk:
+    - uk:UK_GCSE:2:956957
+    - uk:UK_GCSE:2:bece1a
+    - uk:UK_KS3:2:83e8ed
+    - uk:UK_KS4:2:9c5c8f
+- id: alg.inequalities.linear
+  title:
+    fa-IR: حل نامعادلهٔ درجهٔ اول
+    en: Solving linear inequalities
+  age:
+  - 14
+  - 18
+  requires:
+  - alg.inequalities.concept
+  - alg.linear-equations
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:5:c3b32a
+    - iran:G09_riazi_nohom:5:6e871d
+    af:
+    - af:AF_G09_riazi:6:901cc1
+    uk:
+    - uk:UK_ALEVEL:2:f3ac84
+    - uk:UK_GCSE:2:bece1a
+    - uk:UK_KS4:2:9c5c8f
+- id: alg.inequalities.two-variable
+  title:
+    fa-IR: نامعادله‌های خطی دومتغیره و ناحیهٔ جواب
+    en: Linear inequalities in two variables and graphical regions
+  age:
+  - 14
+  - 18
+  requires:
+  - alg.inequalities.linear
+  - func.linear-graphs
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G09_riazi:6:8d1cd8
+    - af:AF_G09_riazi:6:2afa11
+    uk:
+    - uk:UK_ALEVEL:2:f3ac84
+    - uk:UK_GCSE:2:bece1a
+    - uk:UK_KS4:2:9c5c8f
+- id: alg.sign-analysis
+  title:
+    fa-IR: تعیین علامت عبارت‌های جبری
+    en: Sign analysis of expressions
+  age:
+  - 15
+  - 16
+  requires:
+  - alg.inequalities.linear
+  - alg.factorise.quadratic
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:4:155c17
+    af:
+    - af:AF_G09_riazi:6:9a7a6b
+    uk: []
+- id: alg.inequalities.quadratic
+  title:
+    fa-IR: نامعادلهٔ درجهٔ دوم
+    en: Quadratic inequalities
+  age:
+  - 14
+  - 18
+  requires:
+  - alg.sign-analysis
+  - func.quadratic-graphs
+  level: extension
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:4:155c17
+    af: []
+    uk:
+    - uk:UK_ALEVEL:2:f3ac84
+    - uk:UK_GCSE:2:bece1a
+    - uk:UK_KS4:2:9c5c8f
+- id: alg.inequalities.rational
+  title:
+    fa-IR: نامعادله‌های گویا (کسری)
+    en: Rational (fractional) inequalities
+  age:
+  - 15
+  - 18
+  requires:
+  - alg.sign-analysis
+  - alg.fractions.simplify
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G09_riazi:6:9a7a6b
+    - af:AF_G09_riazi:6:8d1cd8
+    uk:
+    - uk:UK_ALEVEL:2:f3ac84
+- id: alg.binomial-expansion
+  title:
+    fa-IR: بسط دوجملهٔ نیوتن با توان طبیعی
+    en: Binomial expansion for positive integer powers
+  age:
+  - 16
+  - 18
+  requires:
+  - alg.expand.binomials
+  - disc.counting
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G11_riazi:9:3218f7
+    uk:
+    - uk:UK_ALEVEL:4:de4373
+- id: alg.binomial.rational
+  title:
+    fa-IR: بسط دوجمله‌ای با توان گویا و تقریب
+    en: Binomial expansion for rational powers and approximation
+  age:
+  - 16
+  - 18
+  requires:
+  - alg.binomial-expansion
+  - seq.geometric.infinite
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:4:de4373

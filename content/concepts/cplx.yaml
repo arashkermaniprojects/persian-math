@@ -1,0 +1,194 @@
+- id: cplx.imaginary
+  title:
+    fa-IR: عدد موهومی i و توان‌های آن
+    en: The imaginary unit i and its powers
+  age:
+  - 16
+  - 18
+  requires:
+  - num.real
+  - num.roots
+  level: extension
+  align:
+    af:
+    - af:AF_G10_riazi:6:7cb46e
+    uk:
+    - uk:UK_FURTHER:2:3f0fe7
+- id: cplx.arithmetic
+  title:
+    fa-IR: جمع، تفریق و ضرب اعداد مختلط
+    en: Adding, subtracting and multiplying complex numbers
+  age:
+  - 16
+  - 18
+  requires:
+  - cplx.imaginary
+  - alg.expressions
+  level: extension
+  align:
+    af:
+    - af:AF_G10_riazi:6:6c84c0
+    - af:AF_G10_riazi:6:7cb46e
+    - af:AF_G10_riazi:6:ee5bdc
+    uk:
+    - uk:UK_FURTHER:2:3f0fe7
+- id: cplx.conjugate-division
+  title:
+    fa-IR: مزدوج عدد مختلط و تقسیم اعداد مختلط
+    en: Complex conjugate and division
+  age:
+  - 16
+  - 18
+  requires:
+  - cplx.arithmetic
+  level: extension
+  align:
+    af:
+    - af:AF_G10_riazi:6:92af6a
+    - af:AF_G10_riazi:6:ee5bdc
+    uk:
+    - uk:UK_FURTHER:2:3f0fe7
+    - uk:UK_FURTHER:2:f804e8
+- id: cplx.quadratic
+  title:
+    fa-IR: حل معادلهٔ درجهٔ دوم در مجموعهٔ اعداد مختلط
+    en: Solving quadratics with complex roots
+  age:
+  - 16
+  - 18
+  requires:
+  - cplx.arithmetic
+  - alg.quadratic-equations
+  level: extension
+  align:
+    af:
+    - af:AF_G10_riazi:6:eb01ba
+    uk:
+    - uk:UK_FURTHER:2:03b28a
+- id: cplx.polynomial-roots
+  title:
+    fa-IR: ریشه‌های مختلط چندجمله‌ای‌ها و جفت‌های مزدوج
+    en: Complex roots of polynomials and conjugate pairs
+  age:
+  - 16
+  - 18
+  requires:
+  - cplx.quadratic
+  - cplx.conjugate-division
+  - alg.factorise
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:2:03b28a
+    - uk:UK_FURTHER:2:f804e8
+- id: cplx.argand
+  title:
+    fa-IR: نمایش اعداد مختلط در صفحهٔ مختلط (نمودار آرگان)
+    en: The Argand diagram
+  age:
+  - 16
+  - 18
+  requires:
+  - cplx.arithmetic
+  - vec.2d
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:2:74df15
+- id: cplx.modulus-argument
+  title:
+    fa-IR: اندازه و آرگومان؛ شکل قطبی عدد مختلط
+    en: Modulus–argument (polar) form
+  age:
+  - 16
+  - 18
+  requires:
+  - cplx.argand
+  - trig.unit-circle
+  - trig.radians
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:2:928dc2
+- id: cplx.polar-multiply
+  title:
+    fa-IR: ضرب و تقسیم اعداد مختلط در شکل قطبی
+    en: Multiplying and dividing in modulus–argument form
+  age:
+  - 16
+  - 18
+  requires:
+  - cplx.modulus-argument
+  - trig.compound-angle
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:2:c360b0
+- id: cplx.loci
+  title:
+    fa-IR: مکان هندسی در صفحهٔ مختلط
+    en: Loci in the Argand diagram
+  age:
+  - 16
+  - 18
+  requires:
+  - cplx.modulus-argument
+  - coord.circle-equation
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:2:527b7e
+- id: cplx.de-moivre
+  title:
+    fa-IR: قضیهٔ دموآور
+    en: De Moivre's theorem
+  age:
+  - 16
+  - 18
+  requires:
+  - cplx.polar-multiply
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:2:5fec57
+- id: cplx.euler
+  title:
+    fa-IR: شکل نمایی عدد مختلط (e^{iθ})
+    en: Exponential form re^{iθ}
+  age:
+  - 16
+  - 18
+  requires:
+  - cplx.modulus-argument
+  - func.exponential
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:2:12e6fe
+- id: cplx.nth-roots
+  title:
+    fa-IR: ریشه‌های nام عدد مختلط
+    en: The nth roots of a complex number
+  age:
+  - 16
+  - 18
+  requires:
+  - cplx.de-moivre
+  - cplx.euler
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:2:aaf355
+- id: cplx.roots-of-unity
+  title:
+    fa-IR: ریشه‌های واحد و کاربرد هندسی آن‌ها
+    en: Roots of unity in geometry
+  age:
+  - 16
+  - 18
+  requires:
+  - cplx.nth-roots
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:2:259387

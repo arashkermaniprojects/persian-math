@@ -1,0 +1,683 @@
+- id: prob.chance-language
+  title:
+    fa-IR: 'زبان شانس: حتمی، ممکن، غیرممکن'
+    en: 'Language of chance: certain, likely, impossible'
+  age:
+  - 8
+  - 16
+  requires: []
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:7:6b42e6
+    - iran:G03_riazi_sevom:7:fdfab2
+    - iran:G04_riazi_chaharom:7:fdfab2
+    af:
+    - af:AF_G07_riazi:8:8492f3
+    uk:
+    - uk:UK_KS3:5:da125c
+    - uk:UK_GCSE:5:319555
+- id: prob.basic
+  title:
+    fa-IR: احتمال یک پیشامد با حالت‌های هم‌شانس (عددی بین صفر و یک)
+    en: Probability of an event with equally likely outcomes (0–1 scale)
+  age:
+  - 8
+  - 18
+  requires:
+  - prob.chance-language
+  - frac.concept
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:7:332a93
+    - iran:G04_riazi_chaharom:7:fdfab2
+    - iran:G05_riazi_panjom:7:fdfab2
+    - iran:G06_riazi_sheshom:6:2515c8
+    - iran:G07_riazi_haftom:9:acdd6e
+    - iran:G07_gifted_supplement:10:acdd6e
+    - iran:G08_riazi_hashtom:8:acdd6e
+    - iran:G08_gifted_supplement:8:acdd6e
+    - iran:G10_riazi1_math_science:7:acdd6e
+    - iran:G12_riazi_amar3_humanities:1:fdfab2
+    af:
+    - af:AF_G07_riazi:8:fdfab2
+    - af:AF_G07_riazi:8:34a9c6
+    uk:
+    - uk:UK_KS3:5:da125c
+    - uk:UK_KS3:5:8fea75
+    - uk:UK_GCSE:5:319555
+- id: prob.sample-space
+  title:
+    fa-IR: آزمایش تصادفی، فضای نمونه و پیشامد
+    en: Random experiments, sample space and events
+  age:
+  - 11
+  - 16
+  requires:
+  - prob.basic
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:8:f217b2
+    - iran:G08_gifted_supplement:8:f217b2
+    - iran:G10_riazi1_math_science:7:acdd6e
+    af:
+    - af:AF_G07_riazi:8:bc8bca
+    - af:AF_G07_riazi:8:e8c868
+    - af:AF_G08_riazi:11:f0167e
+    uk:
+    - uk:UK_KS3:5:8fea75
+    - uk:UK_GCSE:5:418675
+- id: prob.equally-likely
+  title:
+    fa-IR: حالت‌های هم‌شانس و ناهم‌شانس؛ بازی منصفانه
+    en: Equally and unequally likely outcomes; fairness
+  age:
+  - 11
+  - 18
+  requires:
+  - prob.basic
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G08_riazi:11:c18798
+    - af:AF_G12_riazi:8:dbb646
+    uk:
+    - uk:UK_KS3:5:da125c
+    - uk:UK_GCSE:5:8809d0
+- id: prob.experimental
+  title:
+    fa-IR: احتمال تجربی و فراوانی نسبی
+    en: Experimental probability and relative frequency
+  age:
+  - 11
+  - 16
+  requires:
+  - prob.basic
+  - stat.tally-tables
+  level: core
+  align:
+    iran:
+    - iran:G07_riazi_haftom:9:c103ee
+    - iran:G07_gifted_supplement:10:c103ee
+    - iran:G08_gifted_supplement:8:5dffba
+    af:
+    - af:AF_G07_riazi:8:f8da25
+    - af:AF_G08_riazi:11:d72db3
+    uk:
+    - uk:UK_KS3:5:da125c
+    - uk:UK_GCSE:5:74fc4a
+    - uk:UK_GCSE:5:319555
+- id: prob.large-numbers
+  title:
+    fa-IR: نزدیک شدن احتمال تجربی به احتمال نظری با افزایش تعداد آزمایش
+    en: Experimental probability tends to theoretical probability with more trials
+  age:
+  - 13
+  - 16
+  requires:
+  - prob.experimental
+  level: core
+  align:
+    iran:
+    - iran:G07_riazi_haftom:9:c103ee
+    af:
+    - af:AF_G08_riazi:11:d72db3
+    uk:
+    - uk:UK_GCSE:5:44a7fe
+    - uk:UK_KS4:5:758d1d
+- id: prob.expected-frequency
+  title:
+    fa-IR: فراوانی مورد انتظار و پیش‌بینی نتیجهٔ آزمایش‌ها
+    en: 'Expected frequency: predicting outcomes of repeated trials'
+  age:
+  - 14
+  - 16
+  requires:
+  - prob.basic
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:5:8809d0
+    - uk:UK_KS4:5:758d1d
+    - uk:UK_GCSE:5:319555
+- id: prob.complement
+  title:
+    fa-IR: مجموع احتمال‌ها برابر یک و احتمال پیشامد متمم
+    en: Probabilities sum to 1; the complement of an event
+  age:
+  - 11
+  - 16
+  requires:
+  - prob.sample-space
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:1:b63c0e
+    af:
+    - af:AF_G09_riazi:9:058c71
+    - af:AF_G08_riazi:11:f0167e
+    uk:
+    - uk:UK_KS3:5:1b7d62
+    - uk:UK_GCSE:5:154ffb
+    - uk:UK_KS4:5:94561c
+- id: prob.events-sets
+  title:
+    fa-IR: 'پیشامدها به‌عنوان مجموعه: اجتماع، اشتراک و متمم'
+    en: 'Events as sets: union, intersection, complement'
+  age:
+  - 15
+  - 17
+  requires:
+  - prob.sample-space
+  - disc.sets
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:1:b63c0e
+    - iran:G09_gifted:1:849158
+    - iran:G11_amar_ehtemal_math:2:443c1c
+    af:
+    - af:AF_G09_riazi:9:965f2a
+    - af:AF_G09_riazi:9:058c71
+    - af:AF_G09_riazi:9:6ec6ab
+    uk: []
+- id: prob.venn
+  title:
+    fa-IR: نمودار ون در احتمال
+    en: Venn diagrams in probability
+  age:
+  - 11
+  - 18
+  requires:
+  - prob.events-sets
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:1:b63c0e
+    - iran:G09_gifted:1:849158
+    af:
+    - af:AF_G09_riazi:9:6ec6ab
+    uk:
+    - uk:UK_KS3:5:85ab90
+    - uk:UK_GCSE:5:805f32
+    - uk:UK_GCSE:5:6c6b9c
+    - uk:UK_KS4:5:1cf14b
+    - uk:UK_ALEVEL:13:7bab31
+- id: prob.addition-rule
+  title:
+    fa-IR: پیشامدهای ناسازگار و قانون جمع احتمال
+    en: Mutually exclusive events and the addition rule
+  age:
+  - 14
+  - 18
+  requires:
+  - prob.events-sets
+  - prob.complement
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:1:b63c0e
+    - iran:G09_gifted:1:849158
+    - iran:G11_amar_ehtemal_math:2:443c1c
+    af:
+    - af:AF_G09_riazi:9:965f2a
+    - af:AF_G08_riazi:11:f0167e
+    uk:
+    - uk:UK_GCSE:5:154ffb
+    - uk:UK_KS4:5:94561c
+    - uk:UK_ALEVEL:13:707f7f
+- id: prob.axioms
+  title:
+    fa-IR: اصول احتمال و احتمال در فضای نمونهٔ ناهم‌شانس
+    en: Axioms of probability; probability on non-equally-likely sample spaces
+  age:
+  - 17
+  - 18
+  requires:
+  - prob.addition-rule
+  - prob.equally-likely
+  level: core
+  align:
+    iran:
+    - iran:G11_amar_ehtemal_math:2:443c1c
+    - iran:G11_amar_ehtemal_math:2:e8de49
+    af:
+    - af:AF_G12_riazi:8:9767d8
+    - af:AF_G12_riazi:8:dbb646
+    uk: []
+- id: prob.continuous-space
+  title:
+    fa-IR: احتمال در فضای نمونهٔ پیوسته (احتمال هندسی)
+    en: Probability on continuous sample spaces (geometric probability)
+  age:
+  - 18
+  - 18
+  requires:
+  - prob.axioms
+  - meas.area.rectilinear
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:8:9767d8
+    - af:AF_G12_riazi:8:9cd639
+    uk: []
+- id: prob.combined
+  title:
+    fa-IR: 'پیشامدهای مرکب: فهرست حالت‌های دو آزمایش (جدول حالت‌ها)'
+    en: 'Combined events: listing outcomes of two experiments (sample space diagrams)'
+  age:
+  - 11
+  - 16
+  requires:
+  - prob.sample-space
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:8:f217b2
+    - iran:G08_gifted_supplement:8:f217b2
+    - iran:G10_riazi1_math_science:7:acdd6e
+    af: []
+    uk:
+    - uk:UK_KS3:5:8fea75
+    - uk:UK_GCSE:5:418675
+    - uk:UK_GCSE:5:805f32
+- id: prob.two-way-tables
+  title:
+    fa-IR: جدول دوطرفه در احتمال
+    en: Two-way tables in probability
+  age:
+  - 11
+  - 18
+  requires:
+  - prob.combined
+  - stat.tally-tables
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_KS3:5:85ab90
+    - uk:UK_GCSE:5:805f32
+    - uk:UK_GCSE:5:6c6b9c
+    - uk:UK_KS4:5:1cf14b
+    - uk:UK_ALEVEL:13:7bab31
+- id: prob.tree-diagram
+  title:
+    fa-IR: نمودار درختی و درخت فراوانی
+    en: Tree diagrams and frequency trees
+  age:
+  - 14
+  - 18
+  requires:
+  - prob.combined
+  - frac.mul-div
+  level: core
+  align:
+    iran:
+    - iran:G12_riazi3_science:7:0a1326
+    af:
+    - af:AF_G08_riazi:11:dbea0c
+    uk:
+    - uk:UK_GCSE:5:74fc4a
+    - uk:UK_GCSE:5:805f32
+    - uk:UK_GCSE:5:1fe507
+    - uk:UK_KS4:5:a7b907
+    - uk:UK_ALEVEL:13:7bab31
+- id: prob.independent
+  title:
+    fa-IR: پیشامدهای مستقل و قانون ضرب
+    en: Independent events and the multiplication rule
+  age:
+  - 14
+  - 18
+  requires:
+  - prob.tree-diagram
+  level: core
+  align:
+    iran:
+    - iran:G11_amar_ehtemal_math:2:29e3b4
+    - iran:G11_riazi2_science:7:ff5e6a
+    af:
+    - af:AF_G08_riazi:11:dbea0c
+    - af:AF_G12_riazi:8:2e3b53
+    uk:
+    - uk:UK_GCSE:5:1fe507
+    - uk:UK_KS4:5:a7b907
+    - uk:UK_ALEVEL:13:707f7f
+- id: prob.dependent
+  title:
+    fa-IR: پیشامدهای وابسته (انتخاب بدون جای‌گذاری)
+    en: Dependent events (selection without replacement)
+  age:
+  - 14
+  - 17
+  requires:
+  - prob.independent
+  level: core
+  align:
+    iran:
+    - iran:G11_amar_ehtemal_math:2:29e3b4
+    af: []
+    uk:
+    - uk:UK_GCSE:5:1fe507
+    - uk:UK_KS4:5:a7b907
+- id: prob.conditional
+  title:
+    fa-IR: احتمال شرطی با جدول دوطرفه، نمودار درختی و نمودار ون
+    en: Conditional probability from two-way tables, trees and Venn diagrams
+  age:
+  - 14
+  - 18
+  requires:
+  - prob.dependent
+  - prob.two-way-tables
+  - prob.venn
+  level: core
+  align:
+    iran:
+    - iran:G11_amar_ehtemal_math:2:4147b1
+    - iran:G11_riazi2_science:7:ff5e6a
+    af:
+    - af:AF_G12_riazi:8:a474f1
+    uk:
+    - uk:UK_GCSE:5:6c6b9c
+    - uk:UK_KS4:5:1cf14b
+    - uk:UK_ALEVEL:13:7bab31
+- id: prob.conditional.formula
+  title:
+    fa-IR: فرمول احتمال شرطی و قانون ضرب احتمال
+    en: Conditional probability formula P(A|B) = P(A∩B)/P(B) and the general multiplication rule
+  age:
+  - 16
+  - 18
+  requires:
+  - prob.conditional
+  - prob.addition-rule
+  level: core
+  align:
+    iran:
+    - iran:G11_amar_ehtemal_math:2:4147b1
+    - iran:G11_riazi2_science:7:ff5e6a
+    af:
+    - af:AF_G12_riazi:8:a474f1
+    - af:AF_G12_riazi:8:0a1139
+    uk:
+    - uk:UK_ALEVEL:13:7bab31
+- id: prob.independence.formal
+  title:
+    fa-IR: 'تعریف دقیق استقلال: P(A∩B) = P(A)P(B)'
+    en: 'Formal test for independence: P(A∩B) = P(A)P(B)'
+  age:
+  - 16
+  - 18
+  requires:
+  - prob.conditional.formula
+  level: core
+  align:
+    iran:
+    - iran:G11_amar_ehtemal_math:2:29e3b4
+    - iran:G11_riazi2_science:7:ff5e6a
+    af:
+    - af:AF_G12_riazi:8:2e3b53
+    uk:
+    - uk:UK_ALEVEL:13:707f7f
+- id: prob.total-probability
+  title:
+    fa-IR: قانون احتمال کل
+    en: Law of total probability
+  age:
+  - 18
+  - 18
+  requires:
+  - prob.conditional.formula
+  - prob.tree-diagram
+  level: extension
+  align:
+    iran:
+    - iran:G12_riazi3_science:7:0a1326
+    af: []
+    uk: []
+- id: prob.modelling
+  title:
+    fa-IR: مدل‌سازی با احتمال و نقد فرض‌ها
+    en: Modelling with probability and critiquing assumptions
+  age:
+  - 14
+  - 18
+  requires:
+  - prob.independent
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:13:bd54b4
+    - uk:UK_GCSE:5:1fe507
+    - uk:UK_KS4:5:a7b907
+- id: prob.random-variable
+  title:
+    fa-IR: متغیر تصادفی گسسته و توزیع احتمال آن
+    en: Discrete random variables and probability distributions
+  age:
+  - 16
+  - 18
+  requires:
+  - prob.axioms
+  - func.concept
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:7:2e55e2
+    uk:
+    - uk:UK_ALEVEL:14:72f064
+    - uk:UK_ALEVEL:13:707f7f
+- id: prob.expectation
+  title:
+    fa-IR: امید ریاضی و واریانس متغیر تصادفی گسسته
+    en: Expectation and variance of a discrete random variable
+  age:
+  - 18
+  - 18
+  requires:
+  - prob.random-variable
+  - stat.variance-sd
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:7:2e55e2
+    uk: []
+- id: prob.binomial
+  title:
+    fa-IR: آزمایش برنولی و توزیع دوجمله‌ای
+    en: Bernoulli trials and the binomial distribution
+  age:
+  - 16
+  - 18
+  requires:
+  - prob.random-variable
+  - prob.independent
+  - disc.counting
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G11_riazi:9:35ba9f
+    - af:AF_G12_riazi:7:8ecad0
+    uk:
+    - uk:UK_ALEVEL:14:72f064
+    - uk:UK_ALEVEL:4:de4373
+- id: prob.poisson
+  title:
+    fa-IR: توزیع پواسون
+    en: The Poisson distribution
+  age:
+  - 18
+  - 18
+  requires:
+  - prob.random-variable
+  - func.exponential
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:7:009f90
+    uk: []
+- id: prob.normal
+  title:
+    fa-IR: توزیع نرمال به‌عنوان مدل
+    en: The normal distribution as a model
+  age:
+  - 16
+  - 18
+  requires:
+  - prob.random-variable
+  - stat.distribution-shape
+  - stat.variance-sd
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:7:655f1a
+    uk:
+    - uk:UK_ALEVEL:14:226395
+    - uk:UK_ALEVEL:12:babc6c
+    - uk:UK_ALEVEL:13:707f7f
+- id: prob.normal.standardise
+  title:
+    fa-IR: مساحت زیر منحنی نرمال و استانداردسازی (نمرهٔ z)
+    en: Area under the normal curve and standardising (z-scores)
+  age:
+  - 16
+  - 18
+  requires:
+  - prob.normal
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:7:654b7c
+    uk:
+    - uk:UK_ALEVEL:14:226395
+- id: prob.distribution-choice
+  title:
+    fa-IR: انتخاب مدل توزیع مناسب (دوجمله‌ای یا نرمال)
+    en: Choosing an appropriate distribution (binomial or normal) for a context
+  age:
+  - 16
+  - 18
+  requires:
+  - prob.binomial
+  - prob.normal
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:14:f22279
+    - uk:UK_ALEVEL:14:226395
+- id: prob.sampling-distribution.mean
+  title:
+    fa-IR: توزیع میانگین نمونه
+    en: Sampling distribution of the sample mean
+  age:
+  - 16
+  - 18
+  requires:
+  - prob.normal.standardise
+  - stat.sampling.random
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:7:d5be9a
+    - af:AF_G12_riazi:7:c46d70
+    uk:
+    - uk:UK_ALEVEL:15:b42c66
+- id: prob.sampling-distribution.proportion
+  title:
+    fa-IR: توزیع نسبت نمونه
+    en: Sampling distribution of a sample proportion
+  age:
+  - 18
+  - 18
+  requires:
+  - prob.sampling-distribution.mean
+  - prob.binomial
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:7:8154dc
+    uk: []
+- id: prob.clt
+  title:
+    fa-IR: قضیهٔ حد مرکزی
+    en: The central limit theorem
+  age:
+  - 18
+  - 18
+  requires:
+  - prob.sampling-distribution.mean
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:7:47648b
+    uk: []
+- id: prob.hypothesis-test.binomial
+  title:
+    fa-IR: آزمون فرض آماری با مدل دوجمله‌ای (فرض صفر، سطح معنی‌داری، ناحیهٔ بحرانی)
+    en: Hypothesis testing with a binomial model (null hypothesis, significance level, critical region)
+  age:
+  - 16
+  - 18
+  requires:
+  - prob.binomial
+  - stat.inference.informal
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:15:44a4e6
+    - uk:UK_ALEVEL:15:bfb36d
+- id: prob.hypothesis-test.normal-mean
+  title:
+    fa-IR: آزمون فرض برای میانگین توزیع نرمال
+    en: Hypothesis test for the mean of a normal distribution
+  age:
+  - 16
+  - 18
+  requires:
+  - prob.hypothesis-test.binomial
+  - prob.sampling-distribution.mean
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:15:b42c66
+- id: prob.hypothesis-test.correlation
+  title:
+    fa-IR: آزمون معنی‌داری ضریب همبستگی
+    en: Testing a correlation coefficient for significance
+  age:
+  - 16
+  - 18
+  requires:
+  - prob.hypothesis-test.binomial
+  - stat.correlation-coefficient
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:15:44a4e6

@@ -14,7 +14,7 @@ SOURCES = {
     "uk": "curriculum_uk/uk_math.json",
 }
 # Entries that are not teachable content on their own.
-SKIP = re.compile(r"^(مرور فصل|تمرین|خلاصه|نکات مهم|منابع|کتاب‌نامه|پیوست|دربارهٔ طرح|گفت‌وگو|سؤال‌ها)")
+SKIP = re.compile(r"^(مرور فصل|تمرین|خلاصه|نکات مهم|منابع|کتاب‌نامه|پیوست|دربارهٔ طرح|گفت‌وگو|سؤال‌ها|جایزه نوبل)")
 UK_GRADE = {"KS3": "7-9", "KS4": "10-11", "GCSE": "10-11", "ALEVEL": "12-13", "FURTHER": "12-13"}
 
 

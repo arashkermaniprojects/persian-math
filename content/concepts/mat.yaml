@@ -1,0 +1,263 @@
+- id: mat.concept
+  title:
+    fa-IR: ماتریس، مرتبه و درایه‌ها
+    en: 'Matrices: order and entries'
+  age:
+  - 17
+  - 18
+  requires:
+  - num.real
+  level: extension
+  align:
+    iran:
+    - iran:G12_hendese3_math:1:9a572f
+    af:
+    - af:AF_G11_riazi:6:6ed925
+- id: mat.special
+  title:
+    fa-IR: ماتریس‌های خاص (صفر، همانی، قطری، مربعی)
+    en: 'Special matrices: zero, identity, diagonal, square'
+  age:
+  - 16
+  - 18
+  requires:
+  - mat.concept
+  level: extension
+  align:
+    iran:
+    - iran:G12_hendese3_math:1:9a572f
+    af:
+    - af:AF_G11_riazi:6:cdeb91
+    uk:
+    - uk:UK_FURTHER:3:350435
+- id: mat.add-scalar
+  title:
+    fa-IR: جمع و تفریق ماتریس‌ها و ضرب عدد در ماتریس
+    en: Adding matrices and multiplying by a scalar
+  age:
+  - 16
+  - 18
+  requires:
+  - mat.concept
+  level: extension
+  align:
+    iran:
+    - iran:G12_hendese3_math:1:9a572f
+    af:
+    - af:AF_G11_riazi:6:367767
+    - af:AF_G11_riazi:6:bd33aa
+    uk:
+    - uk:UK_FURTHER:3:95ef4d
+- id: mat.multiply
+  title:
+    fa-IR: ضرب دو ماتریس
+    en: Multiplying matrices
+  age:
+  - 16
+  - 18
+  requires:
+  - mat.add-scalar
+  level: extension
+  align:
+    iran:
+    - iran:G12_hendese3_math:1:9a572f
+    af:
+    - af:AF_G11_riazi:6:d72d70
+    uk:
+    - uk:UK_FURTHER:3:95ef4d
+- id: mat.transpose
+  title:
+    fa-IR: ترانهادهٔ ماتریس
+    en: Transpose of a matrix
+  age:
+  - 17
+  - 17
+  requires:
+  - mat.concept
+  level: specialist
+  align:
+    af:
+    - af:AF_G11_riazi:6:c384bb
+- id: mat.determinant-2x2
+  title:
+    fa-IR: دترمینان ماتریس ۲×۲
+    en: Determinant of a 2×2 matrix
+  age:
+  - 16
+  - 18
+  requires:
+  - mat.concept
+  level: extension
+  align:
+    iran:
+    - iran:G12_hendese3_math:1:b97dc6
+    af:
+    - af:AF_G11_riazi:6:faed6a
+    uk:
+    - uk:UK_FURTHER:3:16593a
+- id: mat.determinant-3x3
+  title:
+    fa-IR: دترمینان ماتریس ۳×۳
+    en: Determinant of a 3×3 matrix
+  age:
+  - 16
+  - 18
+  requires:
+  - mat.determinant-2x2
+  level: extension
+  align:
+    iran:
+    - iran:G12_hendese3_math:1:b97dc6
+    af:
+    - af:AF_G11_riazi:6:faed6a
+    uk:
+    - uk:UK_FURTHER:3:16593a
+- id: mat.determinant-properties
+  title:
+    fa-IR: ویژگی‌های دترمینان
+    en: Properties of determinants
+  age:
+  - 17
+  - 17
+  requires:
+  - mat.determinant-3x3
+  - mat.multiply
+  level: specialist
+  align:
+    af:
+    - af:AF_G11_riazi:6:440141
+- id: mat.inverse-2x2
+  title:
+    fa-IR: وارون ماتریس ۲×۲ و ماتریس وارون‌ناپذیر
+    en: Inverse of a 2×2 matrix; singular matrices
+  age:
+  - 16
+  - 18
+  requires:
+  - mat.multiply
+  - mat.determinant-2x2
+  - mat.special
+  level: extension
+  align:
+    iran:
+    - iran:G12_hendese3_math:1:b97dc6
+    af:
+    - af:AF_G11_riazi:6:162c52
+    uk:
+    - uk:UK_FURTHER:3:d433a7
+- id: mat.inverse-3x3
+  title:
+    fa-IR: وارون ماتریس ۳×۳
+    en: Inverse of a 3×3 matrix
+  age:
+  - 16
+  - 18
+  requires:
+  - mat.inverse-2x2
+  - mat.determinant-3x3
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:3:d433a7
+- id: mat.solve-inverse
+  title:
+    fa-IR: حل دستگاه معادلات خطی با ماتریس وارون
+    en: Solving linear systems with the inverse matrix
+  age:
+  - 16
+  - 18
+  requires:
+  - mat.inverse-2x2
+  - alg.simultaneous.linear
+  level: extension
+  align:
+    iran:
+    - iran:G12_hendese3_math:1:b97dc6
+    af:
+    - af:AF_G11_riazi:6:f192c9
+    uk:
+    - uk:UK_FURTHER:3:b75258
+- id: mat.cramer
+  title:
+    fa-IR: حل دستگاه معادلات به روش کرامر
+    en: Solving linear systems by Cramer's rule
+  age:
+  - 17
+  - 17
+  requires:
+  - mat.determinant-3x3
+  - alg.simultaneous.linear
+  level: specialist
+  align:
+    af:
+    - af:AF_G11_riazi:6:a4afa5
+- id: mat.gaussian
+  title:
+    fa-IR: حل دستگاه معادلات به روش حذفی گاوس
+    en: Solving linear systems by Gaussian elimination
+  age:
+  - 17
+  - 17
+  requires:
+  - mat.concept
+  - alg.simultaneous.linear
+  level: specialist
+  align:
+    af:
+    - af:AF_G11_riazi:6:c16b0f
+- id: mat.systems-geometry
+  title:
+    fa-IR: تعبیر هندسی جواب دستگاه سه معادلهٔ سه‌مجهولی
+    en: Geometric meaning of 3×3 linear systems
+  age:
+  - 16
+  - 18
+  requires:
+  - mat.solve-inverse
+  - mat.inverse-3x3
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:3:7b5022
+- id: mat.transformations
+  title:
+    fa-IR: نمایش تبدیل‌های خطی با ماتریس
+    en: Matrices as linear transformations
+  age:
+  - 16
+  - 18
+  requires:
+  - mat.multiply
+  - pos.transformations
+  - vec.2d
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:3:c1a50f
+- id: mat.invariant
+  title:
+    fa-IR: نقطه‌ها و خط‌های ناوردا در تبدیل خطی
+    en: Invariant points and lines of a transformation
+  age:
+  - 16
+  - 18
+  requires:
+  - mat.transformations
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:3:ec4e2a
+- id: mat.determinant-scale
+  title:
+    fa-IR: دترمینان به‌عنوان ضریب مساحت و جهت
+    en: Determinant as area scale factor and orientation
+  age:
+  - 16
+  - 18
+  requires:
+  - mat.transformations
+  - mat.determinant-2x2
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:3:16593a

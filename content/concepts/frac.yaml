@@ -1,0 +1,828 @@
+- id: frac.halves-quarters
+  title:
+    fa-IR: نصف و یک‌چهارم
+    en: Halves and quarters of shapes and quantities
+  age:
+  - 6
+  - 8
+  requires:
+  - num.count.to-20
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:7:664701
+    af: []
+    uk:
+    - uk:UK_Y01:4:e02bb9
+    - uk:UK_Y01:4:3b87d5
+- id: frac.concept
+  title:
+    fa-IR: 'مفهوم کسر: صورت و مخرج'
+    en: 'The idea of a fraction: equal parts, numerator and denominator'
+  age:
+  - 7
+  - 12
+  requires:
+  - frac.halves-quarters
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:7:3a3d0b
+    - iran:G02_riazi_dovom:7:332a93
+    - iran:G03_riazi_sevom:3:b7f195
+    - iran:G04_riazi_chaharom:2:bc0a85
+    af:
+    - af:AF_G02_riazi:10:b11a52
+    - af:AF_G02_riazi:10:737c90
+    - af:AF_G03_riazi:11:209d1d
+    - af:AF_G04_riazi:5:501ed8
+    - af:AF_G05_riazi:5:49fe8c
+    - af:AF_G05_riazi:5:09704b
+    - af:AF_G06_riazi:3:8e3273
+    uk:
+    - uk:UK_Y02:4:659f97
+    - uk:UK_Y03:4:a9a529
+- id: frac.of-amount
+  title:
+    fa-IR: کسری از یک مقدار
+    en: Finding a fraction of a set or quantity
+  age:
+  - 7
+  - 9
+  requires:
+  - frac.concept
+  - ops.mul-div.facts
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:3:1293c4
+    af: []
+    uk:
+    - uk:UK_Y02:4:659f97
+    - uk:UK_Y02:4:57bf07
+    - uk:UK_Y03:4:a9a529
+    - uk:UK_Y03:4:62e2d2
+    - uk:UK_Y04:4:78f132
+- id: frac.number-line
+  title:
+    fa-IR: کسر روی محور اعداد
+    en: Fractions as numbers on the number line
+  age:
+  - 8
+  - 9
+  requires:
+  - frac.concept
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:3:1293c4
+    af: []
+    uk:
+    - uk:UK_Y03:4:99f744
+- id: frac.tenths-hundredths
+  title:
+    fa-IR: کسرهای دهم و صدم
+    en: Tenths and hundredths as fractions
+  age:
+  - 8
+  - 9
+  requires:
+  - frac.number-line
+  - num.place-value.to-1000
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y03:4:8f2c21
+    - uk:UK_Y04:4:ae0574
+- id: frac.compare.same
+  title:
+    fa-IR: مقایسهٔ کسرهای هم‌مخرج و کسرهای واحد
+    en: Comparing unit fractions and fractions with the same denominator
+  age:
+  - 8
+  - 10
+  requires:
+  - frac.concept
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:3:642f98
+    af:
+    - af:AF_G04_riazi:5:b07096
+    uk:
+    - uk:UK_Y03:4:b8f37e
+- id: frac.equivalent
+  title:
+    fa-IR: کسرهای مساوی
+    en: Equivalent fractions
+  age:
+  - 7
+  - 11
+  requires:
+  - frac.concept
+  - ops.mul-div.facts
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:3:bd7e7d
+    - iran:G04_riazi_chaharom:2:bd7e7d
+    af:
+    - af:AF_G05_riazi:5:6aed1a
+    - af:AF_G05_riazi:5:e4378e
+    uk:
+    - uk:UK_Y02:4:57bf07
+    - uk:UK_Y03:4:60591d
+    - uk:UK_Y04:4:b349b3
+    - uk:UK_Y05:4:22714e
+- id: frac.simplify
+  title:
+    fa-IR: ساده کردن کسر
+    en: Simplifying fractions
+  age:
+  - 11
+  - 12
+  requires:
+  - frac.equivalent
+  - num.hcf-lcm
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G05_riazi:5:a511db
+    - af:AF_G05_riazi:5:472e56
+    - af:AF_G06_riazi:3:3c82b5
+    uk:
+    - uk:UK_Y06:3:5f00e5
+- id: frac.common-denominator
+  title:
+    fa-IR: هم‌مخرج کردن کسرها
+    en: Writing fractions with a common denominator
+  age:
+  - 11
+  - 12
+  requires:
+  - frac.equivalent
+  - num.hcf-lcm
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G06_riazi:3:e8fd33
+    - af:AF_G05_riazi:5:f35464
+    uk:
+    - uk:UK_Y06:3:5f00e5
+- id: frac.compare
+  title:
+    fa-IR: مقایسه و مرتب کردن کسرها
+    en: Comparing and ordering fractions
+  age:
+  - 9
+  - 12
+  requires:
+  - frac.compare.same
+  - frac.common-denominator
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:3:642f98
+    af:
+    - af:AF_G05_riazi:5:17cc32
+    - af:AF_G05_riazi:5:b21da8
+    - af:AF_G06_riazi:3:701108
+    uk:
+    - uk:UK_Y05:4:73664f
+    - uk:UK_Y06:3:f1a6d3
+- id: frac.improper
+  title:
+    fa-IR: کسرهای بزرگ‌تر از واحد
+    en: Proper and improper fractions (fractions greater than one)
+  age:
+  - 10
+  - 11
+  requires:
+  - frac.number-line
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:2:d99e99
+    af:
+    - af:AF_G05_riazi:5:b93d26
+    - af:AF_G05_riazi:5:41fff3
+    - af:AF_G05_riazi:5:5362c3
+    uk:
+    - uk:UK_Y05:4:0a7bf1
+- id: frac.mixed
+  title:
+    fa-IR: عدد مخلوط و تبدیل آن به کسر
+    en: Mixed numbers and converting to and from improper fractions
+  age:
+  - 10
+  - 12
+  requires:
+  - frac.improper
+  - ops.div.written
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:5:ae2115
+    af:
+    - af:AF_G05_riazi:5:2d8bed
+    - af:AF_G05_riazi:5:d6fde4
+    - af:AF_G05_riazi:5:448c77
+    - af:AF_G06_riazi:3:e7ea09
+    uk:
+    - uk:UK_Y05:4:0a7bf1
+- id: frac.add-sub.same
+  title:
+    fa-IR: جمع و تفریق کسرهای هم‌مخرج
+    en: Adding and subtracting fractions with the same denominator
+  age:
+  - 8
+  - 10
+  requires:
+  - frac.concept
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:2:cf1239
+    af:
+    - af:AF_G04_riazi:5:1177f9
+    - af:AF_G04_riazi:5:877f18
+    uk:
+    - uk:UK_Y03:4:8c6ea0
+    - uk:UK_Y04:4:7ae569
+    - uk:UK_Y05:4:bad438
+- id: frac.add-sub
+  title:
+    fa-IR: جمع و تفریق کسرهای با مخرج متفاوت
+    en: Adding and subtracting fractions with different denominators
+  age:
+  - 10
+  - 12
+  requires:
+  - frac.add-sub.same
+  - frac.common-denominator
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:2:fc0e65
+    af:
+    - af:AF_G05_riazi:5:66fb2b
+    - af:AF_G05_riazi:5:0014e5
+    - af:AF_G05_riazi:5:f35464
+    - af:AF_G05_riazi:5:0dc57c
+    - af:AF_G05_riazi:5:898cbb
+    - af:AF_G06_riazi:3:482325
+    uk:
+    - uk:UK_Y05:4:bad438
+    - uk:UK_Y06:3:7dfd48
+- id: frac.add-sub.mixed
+  title:
+    fa-IR: جمع و تفریق عددهای مخلوط
+    en: Adding and subtracting mixed numbers
+  age:
+  - 11
+  - 11
+  requires:
+  - frac.add-sub
+  - frac.mixed
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:2:e731d8
+    af:
+    - af:AF_G05_riazi:5:b3ea3f
+    - af:AF_G05_riazi:5:4f682d
+    - af:AF_G05_riazi:5:eb1d24
+    - af:AF_G05_riazi:5:5861e4
+    uk:
+    - uk:UK_Y06:3:7dfd48
+- id: frac.mul.whole
+  title:
+    fa-IR: ضرب عدد در کسر
+    en: Multiplying a fraction by a whole number
+  age:
+  - 10
+  - 11
+  requires:
+  - frac.of-amount
+  - frac.improper
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:2:0cd7dc
+    af:
+    - af:AF_G05_riazi:5:f19ccb
+    - af:AF_G05_riazi:5:bd8ea3
+    uk:
+    - uk:UK_Y05:4:40cefe
+- id: frac.mul
+  title:
+    fa-IR: ضرب کسرها
+    en: Multiplying fractions
+  age:
+  - 11
+  - 12
+  requires:
+  - frac.mul.whole
+  - frac.simplify
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:2:8234f4
+    - iran:G06_riazi_sheshom:2:8234f4
+    af:
+    - af:AF_G05_riazi:5:cd98d0
+    - af:AF_G05_riazi:5:52b1f8
+    uk:
+    - uk:UK_Y06:3:5d4aa9
+- id: frac.mul.mixed
+  title:
+    fa-IR: ضرب عددهای مخلوط
+    en: Multiplying mixed numbers
+  age:
+  - 10
+  - 11
+  requires:
+  - frac.mul
+  - frac.mixed
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:2:a673d8
+    af:
+    - af:AF_G05_riazi:5:dd16af
+    - af:AF_G05_riazi:5:52b1f8
+    uk:
+    - uk:UK_Y05:4:40cefe
+- id: frac.div.whole
+  title:
+    fa-IR: تقسیم کسر بر عدد طبیعی
+    en: Dividing a fraction by a whole number
+  age:
+  - 11
+  - 11
+  requires:
+  - frac.mul.whole
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G05_riazi:5:26316c
+    uk:
+    - uk:UK_Y06:3:2e5424
+- id: frac.div
+  title:
+    fa-IR: تقسیم کسرها
+    en: Dividing by a fraction
+  age:
+  - 11
+  - 12
+  requires:
+  - frac.mul
+  - frac.div.whole
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:2:87f605
+    - iran:G06_riazi_sheshom:2:87f605
+    af:
+    - af:AF_G05_riazi:5:26316c
+    - af:AF_G05_riazi:5:c2d558
+    - af:AF_G05_riazi:5:7d0dfe
+    uk: []
+- id: frac.mul-div
+  title:
+    fa-IR: ضرب و تقسیم کسرها و عددهای مخلوط
+    en: Multiplying and dividing fractions and mixed numbers fluently
+  age:
+  - 11
+  - 16
+  requires:
+  - frac.div
+  - frac.mul.mixed
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:2:8234f4
+    - iran:G06_riazi_sheshom:2:87f605
+    af:
+    - af:AF_G06_riazi:3:f2cfab
+    uk:
+    - uk:UK_KS3:1:607fa0
+    - uk:UK_GCSE:1:fed0ed
+- id: frac.complex
+  title:
+    fa-IR: کسر مرکب (کسرالکسر)
+    en: Complex fractions (a fraction of fractions)
+  age:
+  - 11
+  - 12
+  requires:
+  - frac.mul-div
+  - frac.add-sub.mixed
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G05_riazi:5:7692e9
+    - af:AF_G05_riazi:5:0110b6
+    - af:AF_G06_riazi:3:4bb149
+    - af:AF_G06_riazi:3:46ee1f
+    uk: []
+- id: frac.mixed-operations
+  title:
+    fa-IR: محاسبات ترکیبی با کسر
+    en: Mixed calculations with fractions, including negative fractions
+  age:
+  - 11
+  - 16
+  requires:
+  - frac.add-sub.mixed
+  - frac.mul-div
+  - ops.order-of-operations
+  - num.integers.ops
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:2:585eb4
+    - iran:G08_riazi_hashtom:1:778022
+    - iran:G08_riazi_hashtom:1:ec7226
+    af:
+    - af:AF_G07_riazi:4:ba13d3
+    uk:
+    - uk:UK_KS3:1:607fa0
+    - uk:UK_GCSE:1:fed0ed
+    - uk:UK_KS4:1:01328f
+    - uk:UK_GCSE:1:63d386
+- id: frac.as-division
+  title:
+    fa-IR: کسر به‌عنوان تقسیم
+    en: A fraction as a division
+  age:
+  - 11
+  - 11
+  requires:
+  - frac.concept
+  - ops.div.written
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y06:3:f61020
+- id: frac.one-of-another
+  title:
+    fa-IR: بیان یک مقدار به صورت کسری از مقدار دیگر
+    en: Expressing one quantity as a fraction of another
+  age:
+  - 11
+  - 16
+  requires:
+  - frac.simplify
+  - frac.improper
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_KS3:3:812338
+    - uk:UK_GCSE:3:af2c1e
+- id: frac.decimals
+  title:
+    fa-IR: عدد اعشاری و ارزش مکانی آن
+    en: Decimal numbers and decimal place value
+  age:
+  - 9
+  - 14
+  requires:
+  - frac.tenths-hundredths
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:5:1d0b1d
+    - iran:G04_riazi_chaharom:5:5c0182
+    - iran:G05_riazi_panjom:5:6079a3
+    - iran:G06_riazi_sheshom:3:fd2dd1
+    af:
+    - af:AF_G06_riazi:3:05455e
+    uk:
+    - uk:UK_Y04:4:ab4c71
+    - uk:UK_Y05:4:bc8485
+    - uk:UK_Y06:3:3f19b8
+    - uk:UK_KS3:1:e9bd68
+- id: frac.decimal.compare
+  title:
+    fa-IR: مقایسه و مرتب کردن عددهای اعشاری
+    en: Comparing and ordering decimals
+  age:
+  - 9
+  - 12
+  requires:
+  - frac.decimals
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G06_riazi:3:bb0f72
+    - af:AF_G06_riazi:3:ea8bc5
+    uk:
+    - uk:UK_Y04:4:73961c
+    - uk:UK_Y05:4:b35a09
+- id: frac.decimal.round
+  title:
+    fa-IR: گرد کردن عددهای اعشاری
+    en: Rounding decimals
+  age:
+  - 9
+  - 11
+  requires:
+  - frac.decimals
+  - num.rounding
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y04:4:4f9f1f
+    - uk:UK_Y05:4:2ccd4c
+    - uk:UK_Y06:3:c6dae1
+- id: frac.decimal.add-sub
+  title:
+    fa-IR: جمع و تفریق عددهای اعشاری
+    en: Adding and subtracting decimals
+  age:
+  - 9
+  - 12
+  requires:
+  - frac.decimals
+  - ops.add-sub.written
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:5:47ed3f
+    - iran:G05_riazi_panjom:5:7ceb19
+    - iran:G05_riazi_panjom:5:dddb4c
+    af:
+    - af:AF_G06_riazi:3:dc4764
+    uk:
+    - uk:UK_Y04:4:25c14e
+    - uk:UK_Y05:4:a5dc5f
+- id: frac.decimal.mul-div-10
+  title:
+    fa-IR: ضرب و تقسیم عدد اعشاری در ۱۰، ۱۰۰ و ۱۰۰۰
+    en: Multiplying and dividing decimals by 10, 100 and 1000
+  age:
+  - 9
+  - 12
+  requires:
+  - frac.decimals
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G06_riazi:3:470b53
+    - af:AF_G06_riazi:3:f284bb
+    uk:
+    - uk:UK_Y04:4:daddb0
+    - uk:UK_Y05:3:013392
+    - uk:UK_Y06:3:3f19b8
+- id: frac.decimal.mul
+  title:
+    fa-IR: ضرب عددهای اعشاری
+    en: Multiplying decimals
+  age:
+  - 11
+  - 12
+  requires:
+  - frac.decimal.mul-div-10
+  - ops.mul.written
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:5:ae5066
+    - iran:G06_riazi_sheshom:3:662e0f
+    af:
+    - af:AF_G06_riazi:3:7db461
+    uk:
+    - uk:UK_Y06:3:97d091
+- id: frac.decimal.div-whole
+  title:
+    fa-IR: تقسیم عدد اعشاری بر عدد طبیعی
+    en: Dividing a decimal by a whole number
+  age:
+  - 11
+  - 12
+  requires:
+  - frac.decimal.mul-div-10
+  - ops.div.written
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:3:a18559
+    af:
+    - af:AF_G06_riazi:3:0986b3
+    uk:
+    - uk:UK_Y06:3:d64c64
+- id: frac.decimal.div
+  title:
+    fa-IR: تقسیم بر عدد اعشاری
+    en: Dividing by a decimal
+  age:
+  - 12
+  - 12
+  requires:
+  - frac.decimal.div-whole
+  - frac.decimal.mul
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:3:9a9231
+    - iran:G06_riazi_sheshom:3:662e0f
+    af:
+    - af:AF_G06_riazi:3:5999f6
+    uk: []
+- id: frac.decimal.to-fraction
+  title:
+    fa-IR: تبدیل عدد اعشاری به کسر
+    en: Writing decimals as fractions
+  age:
+  - 9
+  - 16
+  requires:
+  - frac.decimals
+  - frac.simplify
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G06_riazi:3:8838ed
+    uk:
+    - uk:UK_Y04:4:ab4c71
+    - uk:UK_Y04:4:ab96ac
+    - uk:UK_Y05:4:5aee78
+    - uk:UK_KS3:1:37bae5
+    - uk:UK_GCSE:1:6ce608
+- id: frac.to-decimal
+  title:
+    fa-IR: تبدیل کسر به عدد اعشاری
+    en: Converting fractions to decimals
+  age:
+  - 9
+  - 16
+  requires:
+  - frac.as-division
+  - frac.decimal.div-whole
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G06_riazi:3:c3f114
+    - af:AF_G07_riazi:4:a5d056
+    uk:
+    - uk:UK_Y04:4:ab96ac
+    - uk:UK_Y06:3:f61020
+    - uk:UK_KS3:1:37bae5
+    - uk:UK_GCSE:1:6ce608
+- id: frac.decimal.recurring
+  title:
+    fa-IR: عددهای اعشاری متناوب
+    en: Terminating and recurring decimals
+  age:
+  - 12
+  - 16
+  requires:
+  - frac.to-decimal
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:2:3359f2
+    - iran:G09_gifted:2:3359f2
+    af:
+    - af:AF_G06_riazi:3:7f1ba3
+    - af:AF_G07_riazi:4:a5d056
+    uk:
+    - uk:UK_GCSE:1:6ce608
+    - uk:UK_KS4:1:c27e4d
+- id: frac.decimal.recurring-to-fraction
+  title:
+    fa-IR: تبدیل عدد اعشاری متناوب به کسر
+    en: Converting recurring decimals to fractions
+  age:
+  - 12
+  - 16
+  requires:
+  - frac.decimal.recurring
+  - alg.linear-equations
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G06_riazi:3:9f1312
+    uk:
+    - uk:UK_GCSE:1:6ce608
+    - uk:UK_KS4:1:c27e4d
+- id: frac.order-mixed-forms
+  title:
+    fa-IR: مقایسهٔ کسرها، عددهای اعشاری و عددهای منفی
+    en: Ordering fractions, decimals and negative numbers together
+  age:
+  - 11
+  - 16
+  requires:
+  - frac.compare
+  - frac.decimal.compare
+  - frac.to-decimal
+  - num.negative
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G07_riazi:4:152d1e
+    uk:
+    - uk:UK_KS3:1:ab747f
+    - uk:UK_GCSE:1:b3e14f
+- id: frac.percent
+  title:
+    fa-IR: مفهوم درصد
+    en: Percent as parts per hundred
+  age:
+  - 10
+  - 16
+  requires:
+  - frac.decimals
+  - frac.equivalent
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:3:7ba42a
+    - iran:G06_riazi_sheshom:6:7ba42a
+    af:
+    - af:AF_G06_riazi:4:09b235
+    uk:
+    - uk:UK_Y05:4:20592c
+    - uk:UK_KS3:1:e5392b
+    - uk:UK_GCSE:3:831f97
+- id: frac.fdp
+  title:
+    fa-IR: تبدیل کسر، عدد اعشاری و درصد به یکدیگر
+    en: Equivalences between fractions, decimals and percentages
+  age:
+  - 10
+  - 12
+  requires:
+  - frac.percent
+  - frac.decimal.to-fraction
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G06_riazi:3:c3f114
+    uk:
+    - uk:UK_Y05:4:20592c
+    - uk:UK_Y05:4:21df82
+    - uk:UK_Y06:3:20d784
+- id: frac.percent.of-amount
+  title:
+    fa-IR: محاسبهٔ درصدی از یک مقدار
+    en: Finding a percentage of an amount; fractions and percentages as operators
+  age:
+  - 11
+  - 16
+  requires:
+  - frac.percent
+  - frac.of-amount
+  - frac.decimal.mul
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:3:7ba42a
+    - iran:G06_riazi_sheshom:6:7ba42a
+    af:
+    - af:AF_G06_riazi:4:09b235
+    - af:AF_G08_riazi:2:1281df
+    uk:
+    - uk:UK_Y06:4:eb9c6e
+    - uk:UK_KS3:1:aeae59
+    - uk:UK_GCSE:1:d47bf3
+- id: frac.percent.one-of-another
+  title:
+    fa-IR: بیان یک مقدار به صورت درصدی از مقدار دیگر
+    en: Expressing one quantity as a percentage of another
+  age:
+  - 11
+  - 16
+  requires:
+  - frac.percent
+  - frac.one-of-another
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:6:2515c8
+    af: []
+    uk:
+    - uk:UK_Y06:4:eb9c6e
+    - uk:UK_KS3:1:e5392b
+    - uk:UK_GCSE:3:831f97

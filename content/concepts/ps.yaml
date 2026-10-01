@@ -1,0 +1,241 @@
+- id: ps.understand-problem
+  title:
+    fa-IR: فهمیدن مسئله و مراحل حل مسئله
+    en: Understanding a problem and the steps of problem solving
+  age:
+  - 7
+  - 13
+  requires:
+  - ops.add-sub.within-10
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:18:83cae4
+    - iran:G01_riazi_aval:24:6410f7
+    - iran:G01_riazi_aval:25:c3db16
+    - iran:G04_riazi_chaharom:1:b6d56c
+    - iran:G07_gifted_supplement:2:28fcee
+    - iran:G07_riazi_haftom:1:23cb45
+    af: []
+    uk: []
+- id: ps.draw-diagram
+  title:
+    fa-IR: 'حل مسئله: رسم شکل'
+    en: 'Strategy: draw a picture or diagram'
+  age:
+  - 6
+  - 13
+  requires:
+  - ps.understand-problem
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:1:4cb059
+    - iran:G03_riazi_sevom:3:4cb059
+    - iran:G07_gifted_supplement:2:28fcee
+    - iran:G07_riazi_haftom:1:23cb45
+    af: []
+    uk:
+    - uk:UK_Y01:2:691f20
+    - uk:UK_Y02:2:b0813f
+- id: ps.act-out-model
+  title:
+    fa-IR: 'حل مسئله: الگوسازی'
+    en: 'Strategy: make a model or act it out'
+  age:
+  - 8
+  - 13
+  requires:
+  - ps.understand-problem
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:2:3ab258
+    - iran:G03_riazi_sevom:2:3ab258
+    - iran:G07_gifted_supplement:2:28fcee
+    - iran:G07_riazi_haftom:1:23cb45
+    af: []
+    uk: []
+- id: ps.find-pattern
+  title:
+    fa-IR: 'حل مسئله: الگویابی'
+    en: 'Strategy: look for a pattern'
+  age:
+  - 8
+  - 13
+  requires:
+  - ps.understand-problem
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:3:826d29
+    - iran:G03_riazi_sevom:1:826d29
+    - iran:G07_gifted_supplement:2:28fcee
+    - iran:G07_riazi_haftom:1:23cb45
+    af: []
+    uk: []
+- id: ps.eliminate
+  title:
+    fa-IR: 'حل مسئله: حذف حالت‌های نامطلوب'
+    en: 'Strategy: eliminate impossible cases'
+  age:
+  - 8
+  - 13
+  requires:
+  - ps.understand-problem
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:4:8a6726
+    - iran:G03_riazi_sevom:8:8a6726
+    - iran:G07_gifted_supplement:2:28fcee
+    - iran:G07_riazi_haftom:1:23cb45
+    af: []
+    uk: []
+- id: ps.guess-check
+  title:
+    fa-IR: 'حل مسئله: حدس و آزمایش'
+    en: 'Strategy: guess and check (trial and improvement)'
+  age:
+  - 8
+  - 13
+  requires:
+  - ps.understand-problem
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:5:3fcf74
+    - iran:G03_riazi_sevom:7:3fcf74
+    - iran:G07_gifted_supplement:2:28fcee
+    - iran:G07_riazi_haftom:1:23cb45
+    af: []
+    uk: []
+- id: ps.sub-problems
+  title:
+    fa-IR: 'حل مسئله: زیرمسئله'
+    en: 'Strategy: break a problem into sub-problems (multi-step)'
+  age:
+  - 8
+  - 13
+  requires:
+  - ps.understand-problem
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:6:c63715
+    - iran:G03_riazi_sevom:5:c63715
+    - iran:G07_gifted_supplement:2:28fcee
+    - iran:G07_riazi_haftom:1:23cb45
+    af: []
+    uk:
+    - uk:UK_Y04:2:7c4de3
+    - uk:UK_Y05:2:df7090
+    - uk:UK_Y06:2:d91033
+- id: ps.simpler-problem
+  title:
+    fa-IR: 'حل مسئله: حل مسئلهٔ ساده‌تر'
+    en: 'Strategy: solve a simpler problem'
+  age:
+  - 8
+  - 13
+  requires:
+  - ps.understand-problem
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:7:cbc847
+    - iran:G03_riazi_sevom:6:cbc847
+    - iran:G07_gifted_supplement:2:28fcee
+    - iran:G07_riazi_haftom:1:23cb45
+    af: []
+    uk: []
+- id: ps.symbolic
+  title:
+    fa-IR: 'حل مسئله: روش نمادین'
+    en: 'Strategy: use symbols and number sentences'
+  age:
+  - 6
+  - 13
+  requires:
+  - ps.understand-problem
+  - ops.add-sub.inverse
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:8:e660ad
+    - iran:G03_riazi_sevom:4:82246b
+    - iran:G07_gifted_supplement:2:28fcee
+    - iran:G07_riazi_haftom:1:23cb45
+    af: []
+    uk:
+    - uk:UK_Y01:2:691f20
+    - uk:UK_Y06:5:01c2e1
+- id: ps.systematic-listing
+  title:
+    fa-IR: 'حل مسئله: فهرست‌کردن منظم حالت‌ها'
+    en: 'Strategy: systematic listing of possibilities'
+  age:
+  - 11
+  - 16
+  requires:
+  - ps.understand-problem
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:2:28fcee
+    - iran:G07_riazi_haftom:1:23cb45
+    af: []
+    uk:
+    - uk:UK_GCSE:1:ecddd0
+    - uk:UK_KS4:1:baf3be
+    - uk:UK_Y06:5:cd0997
+- id: ps.choose-strategy
+  title:
+    fa-IR: انتخاب و ترکیب راهبردهای حل مسئله
+    en: Choosing and combining problem-solving strategies
+  age:
+  - 10
+  - 14
+  requires:
+  - ps.draw-diagram
+  - ps.act-out-model
+  - ps.find-pattern
+  - ps.eliminate
+  - ps.guess-check
+  - ps.sub-problems
+  - ps.simpler-problem
+  - ps.symbolic
+  - ps.systematic-listing
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:1:b6d56c
+    - iran:G04_riazi_chaharom:2:b6d56c
+    - iran:G04_riazi_chaharom:3:b6d56c
+    - iran:G04_riazi_chaharom:4:b6d56c
+    - iran:G04_riazi_chaharom:5:b6d56c
+    - iran:G04_riazi_chaharom:6:b6d56c
+    - iran:G04_riazi_chaharom:7:b6d56c
+    - iran:G07_gifted_supplement:2:28fcee
+    - iran:G07_riazi_haftom:1:23cb45
+    - iran:G08_gifted_supplement:1:75c2b2
+    af: []
+    uk: []
+- id: ps.games
+  title:
+    fa-IR: 'کارگاه بازی: راهبرد برد در بازی‌های ریاضی'
+    en: Mathematical games and winning strategies
+  age:
+  - 13
+  - 13
+  requires:
+  - ps.understand-problem
+  level: specialist
+  align:
+    iran:
+    - iran:G07_gifted_supplement:1:e9c34a
+    - iran:G07_gifted_supplement:3:39868a
+    - iran:G07_gifted_supplement:6:760e16
+    - iran:G07_gifted_supplement:6:5c7096
+    af: []
+    uk: []

@@ -1,0 +1,314 @@
+- id: vec.2d
+  title:
+    fa-IR: 'بردار در صفحه: پاره‌خط جهت‌دار و نمایش مختصاتی'
+    en: '2D vectors: directed segments and column vectors'
+  age:
+  - 13
+  - 18
+  requires:
+  - pos.coordinates
+  level: core
+  align:
+    iran:
+    - iran:G07_riazi_haftom:8:38aa72
+    - iran:G07_riazi_haftom:8:47abce
+    af:
+    - af:AF_G11_riazi:7:91bd70
+    uk:
+    - uk:UK_ALEVEL:10:cd9e6c
+    - uk:UK_GCSE:4:8f3067
+    - uk:UK_KS4:4:980f64
+- id: vec.equal-opposite
+  title:
+    fa-IR: بردارهای مساوی و قرینه
+    en: Equal and opposite vectors
+  age:
+  - 13
+  - 13
+  requires:
+  - vec.2d
+  level: core
+  align:
+    iran:
+    - iran:G07_riazi_haftom:8:0959bc
+- id: vec.translation
+  title:
+    fa-IR: بردار انتقال
+    en: Describing translations with vectors
+  age:
+  - 13
+  - 16
+  requires:
+  - vec.2d
+  - pos.transformations
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:9:b61cb1
+    - iran:G07_riazi_haftom:8:635d04
+    uk:
+    - uk:UK_GCSE:4:083e3f
+    - uk:UK_KS4:4:e6ce21
+- id: vec.add-sub
+  title:
+    fa-IR: جمع و تفریق بردارها
+    en: Adding and subtracting vectors
+  age:
+  - 14
+  - 18
+  requires:
+  - vec.2d
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:5:618416
+    af:
+    - af:AF_G11_riazi:7:0c1c4d
+    uk:
+    - uk:UK_ALEVEL:10:fe5559
+    - uk:UK_GCSE:4:8f3067
+    - uk:UK_KS4:4:980f64
+- id: vec.scalar-multiple
+  title:
+    fa-IR: ضرب عدد در بردار
+    en: Multiplying a vector by a scalar
+  age:
+  - 14
+  - 18
+  requires:
+  - vec.2d
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:5:547029
+    af:
+    - af:AF_G11_riazi:7:0c1c4d
+    uk:
+    - uk:UK_ALEVEL:10:fe5559
+    - uk:UK_GCSE:4:8f3067
+    - uk:UK_KS4:4:980f64
+- id: vec.unit-vectors
+  title:
+    fa-IR: بردارهای واحد مختصات (i و j)
+    en: Unit vectors i and j and component form
+  age:
+  - 14
+  - 18
+  requires:
+  - vec.add-sub
+  - vec.scalar-multiple
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:5:908fab
+    af:
+    - af:AF_G11_riazi:7:91bd70
+    uk:
+    - uk:UK_ALEVEL:10:8bbf48
+- id: vec.applications-intro
+  title:
+    fa-IR: کاربردهای بردار در حرکت و جابه‌جایی
+    en: Vectors in motion and displacement problems
+  age:
+  - 13
+  - 14
+  requires:
+  - vec.add-sub
+  - vec.scalar-multiple
+  level: extension
+  align:
+    iran:
+    - iran:G07_gifted_supplement:9:7a09ea
+    - iran:G08_gifted_supplement:5:09863f
+    - iran:G08_gifted_supplement:5:7a09ea
+    - iran:G08_gifted_supplement:5:90fba9
+    - iran:G08_gifted_supplement:5:933ea7
+    - iran:G08_gifted_supplement:5:bdb750
+- id: vec.magnitude-direction
+  title:
+    fa-IR: اندازه و جهت بردار
+    en: Magnitude and direction of a vector
+  age:
+  - 16
+  - 18
+  requires:
+  - vec.unit-vectors
+  - geo.pythagoras
+  - trig.right-triangle
+  level: core
+  align:
+    af:
+    - af:AF_G11_riazi:7:91bd70
+    uk:
+    - uk:UK_ALEVEL:10:8bbf48
+- id: vec.position
+  title:
+    fa-IR: بردار مکان و فاصلهٔ دو نقطه
+    en: Position vectors and distance between points
+  age:
+  - 16
+  - 18
+  requires:
+  - vec.magnitude-direction
+  - vec.add-sub
+  level: extension
+  align:
+    af:
+    - af:AF_G11_riazi:7:8c95bf
+    uk:
+    - uk:UK_ALEVEL:10:fbbdda
+- id: vec.geometric-proof
+  title:
+    fa-IR: اثبات‌های هندسی با بردار
+    en: Geometric proof with vectors
+  age:
+  - 14
+  - 18
+  requires:
+  - vec.add-sub
+  - vec.scalar-multiple
+  level: extension
+  align:
+    uk:
+    - uk:UK_ALEVEL:10:c8168e
+    - uk:UK_GCSE:4:8f3067
+    - uk:UK_KS4:4:980f64
+- id: vec.problems
+  title:
+    fa-IR: حل مسئله با بردار در ریاضی و موقعیت‌های واقعی
+    en: Solving problems with vectors in context
+  age:
+  - 16
+  - 18
+  requires:
+  - vec.position
+  - vec.magnitude-direction
+  level: extension
+  align:
+    uk:
+    - uk:UK_ALEVEL:10:c8168e
+    - uk:UK_ALEVEL:5:762d3b
+- id: vec.3d
+  title:
+    fa-IR: دستگاه مختصات سه‌بعدی و بردار در فضا
+    en: 3D coordinates and vectors in space
+  age:
+  - 16
+  - 18
+  requires:
+  - vec.unit-vectors
+  level: extension
+  align:
+    iran:
+    - iran:G12_hendese3_math:3:25bdce
+    af:
+    - af:AF_G11_riazi:7:0c1c4d
+    - af:AF_G11_riazi:7:8c95bf
+    - af:AF_G11_riazi:7:d4508a
+    uk:
+    - uk:UK_ALEVEL:10:cd9e6c
+- id: vec.direction-cosines
+  title:
+    fa-IR: زاویه‌های هادی و کسینوس‌های هادی بردار
+    en: Direction angles and direction cosines
+  age:
+  - 17
+  - 17
+  requires:
+  - vec.3d
+  - vec.magnitude-direction
+  level: specialist
+  align:
+    af:
+    - af:AF_G11_riazi:7:502626
+- id: vec.scalar-product
+  title:
+    fa-IR: ضرب داخلی دو بردار و زاویهٔ بین آن‌ها
+    en: Scalar (dot) product and the angle between vectors
+  age:
+  - 16
+  - 18
+  requires:
+  - vec.3d
+  - trig.cosine-rule
+  level: extension
+  align:
+    iran:
+    - iran:G12_hendese3_math:3:d1e6f6
+    af:
+    - af:AF_G11_riazi:7:04a2c7
+    uk:
+    - uk:UK_FURTHER:6:1c4596
+    - uk:UK_FURTHER:6:94e647
+- id: vec.vector-product
+  title:
+    fa-IR: ضرب خارجی دو بردار
+    en: Vector (cross) product
+  age:
+  - 17
+  - 18
+  requires:
+  - vec.scalar-product
+  - mat.determinant-3x3
+  level: extension
+  align:
+    iran:
+    - iran:G12_hendese3_math:3:d1e6f6
+    af:
+    - af:AF_G11_riazi:7:5fb50a
+- id: vec.line-3d
+  title:
+    fa-IR: معادلهٔ برداری و دکارتی خط در فضا
+    en: Vector and Cartesian equations of a line in 3D
+  age:
+  - 16
+  - 18
+  requires:
+  - vec.3d
+  - vec.position
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:6:9a3303
+- id: vec.plane
+  title:
+    fa-IR: معادلهٔ صفحه در فضا
+    en: Vector and Cartesian equations of a plane
+  age:
+  - 16
+  - 18
+  requires:
+  - vec.line-3d
+  - vec.scalar-product
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:6:94e647
+    - uk:UK_FURTHER:6:b7953a
+- id: vec.angles-lines-planes
+  title:
+    fa-IR: زاویهٔ بین خط‌ها و صفحه‌ها
+    en: Angles between lines and planes
+  age:
+  - 16
+  - 18
+  requires:
+  - vec.plane
+  - vec.scalar-product
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:6:94e647
+- id: vec.intersections-distances
+  title:
+    fa-IR: تقاطع خط و صفحه و فاصله‌ها در فضا
+    en: Line–plane intersection and distances in 3D
+  age:
+  - 16
+  - 18
+  requires:
+  - vec.plane
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:6:820f51

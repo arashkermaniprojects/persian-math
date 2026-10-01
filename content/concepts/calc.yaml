@@ -1,0 +1,987 @@
+- id: calc.limits
+  title:
+    fa-IR: مفهوم حد و فرایندهای حدی
+    en: The idea of a limit
+  age:
+  - 17
+  - 18
+  requires:
+  - func.concept
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:5:5bf048
+    - iran:G11_riazi2_science:6:ed2848
+    af:
+    - af:AF_G12_riazi:1:60c32d
+    uk: []
+- id: calc.limits.one-sided
+  title:
+    fa-IR: حد چپ و حد راست
+    en: One-sided limits
+  age:
+  - 17
+  - 18
+  requires:
+  - calc.limits
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:5:ce5599
+    af:
+    - af:AF_G12_riazi:1:af8233
+    uk: []
+- id: calc.limits.laws
+  title:
+    fa-IR: قضایای حد و محاسبهٔ حد
+    en: Limit laws and evaluating limits
+  age:
+  - 17
+  - 18
+  requires:
+  - calc.limits
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:5:4b77b6
+    - iran:G11_riazi2_science:6:4f08e1
+    af:
+    - af:AF_G12_riazi:1:a4830a
+    uk: []
+- id: calc.limits.zero-over-zero
+  title:
+    fa-IR: رفع ابهام حالت ۰/۰ در توابع کسری
+    en: 'Limits of rational functions: the 0/0 form'
+  age:
+  - 17
+  - 18
+  requires:
+  - calc.limits.laws
+  - alg.factorise
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:5:896de9
+    - iran:G11_riazi2_science:6:4f08e1
+    af:
+    - af:AF_G12_riazi:1:8b52c5
+    uk: []
+- id: calc.limits.trig
+  title:
+    fa-IR: حد توابع مثلثاتی
+    en: Limits of trigonometric functions
+  age:
+  - 17
+  - 18
+  requires:
+  - calc.limits.laws
+  - trig.unit-circle
+  level: specialist
+  align:
+    iran:
+    - iran:G11_riazi2_science:6:4f08e1
+    af:
+    - af:AF_G12_riazi:1:36385d
+    uk: []
+- id: calc.limits.infinite
+  title:
+    fa-IR: حدهای نامتناهی و مجانب قائم
+    en: Infinite limits and vertical asymptotes
+  age:
+  - 18
+  - 18
+  requires:
+  - calc.limits.one-sided
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:3:66ecc5
+    - iran:G12_riazi3_science:3:c09d31
+    af: []
+    uk: []
+- id: calc.limits.at-infinity
+  title:
+    fa-IR: حد در بی‌نهایت و مجانب افقی
+    en: Limits at infinity and horizontal asymptotes
+  age:
+  - 18
+  - 18
+  requires:
+  - calc.limits.laws
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:3:c1e07a
+    - iran:G12_riazi3_science:3:c1e07a
+    af:
+    - af:AF_G12_riazi:1:671988
+    uk: []
+- id: calc.limits.indeterminate-other
+  title:
+    fa-IR: حالت‌های مبهم ∞−∞، ۰×∞ و توانی
+    en: Other indeterminate forms (∞−∞, 0·∞, 1^∞, 0^0, ∞^0)
+  age:
+  - 18
+  - 18
+  requires:
+  - calc.limits.at-infinity
+  - func.logarithm
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:1:1ee1f8
+    - af:AF_G12_riazi:1:374135
+    uk: []
+- id: calc.continuity
+  title:
+    fa-IR: پیوستگی تابع
+    en: Continuity of a function
+  age:
+  - 18
+  - 18
+  requires:
+  - calc.limits.one-sided
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:4:f48815
+    - iran:G12_riazi3_science:4:f48815
+    af:
+    - af:AF_G12_riazi:1:1743b6
+    - af:AF_G12_riazi:1:693128
+    uk: []
+- id: calc.rate-of-change
+  title:
+    fa-IR: آهنگ متوسط و آهنگ لحظه‌ای تغییر
+    en: Average and instantaneous rate of change
+  age:
+  - 14
+  - 18
+  requires:
+  - func.linear-graphs
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:4:e5f3f5
+    - iran:G12_riazi3_science:4:68c0a3
+    af: []
+    uk:
+    - uk:UK_GCSE:3:cb9cb6
+    - uk:UK_KS4:3:0b3481
+    - uk:UK_GCSE:2:431f69
+    - uk:UK_KS4:2:785269
+- id: calc.derivative
+  title:
+    fa-IR: مفهوم مشتق و تعبیر هندسی آن
+    en: The derivative as the gradient of a tangent
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.limits
+  - calc.rate-of-change
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:4:178dc6
+    - iran:G12_riazi3_science:4:178dc6
+    af:
+    - af:AF_G12_riazi:2:c4b66c
+    - af:AF_G12_riazi:2:ea60b1
+    - af:AF_G12_riazi:2:269d6b
+    uk:
+    - uk:UK_ALEVEL:7:4d7b6b
+- id: calc.derivative.first-principles
+  title:
+    fa-IR: محاسبهٔ مشتق از روی تعریف
+    en: Differentiation from first principles
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative
+  - calc.limits.zero-over-zero
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:4:178dc6
+    - iran:G12_riazi3_science:4:178dc6
+    af:
+    - af:AF_G12_riazi:2:ea60b1
+    uk:
+    - uk:UK_ALEVEL:7:4d7b6b
+- id: calc.derivative.differentiability
+  title:
+    fa-IR: مشتق‌پذیری و پیوستگی
+    en: Differentiability and continuity
+  age:
+  - 18
+  - 18
+  requires:
+  - calc.derivative
+  - calc.continuity
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:4:f48815
+    - iran:G12_riazi3_science:4:f48815
+    af: []
+    uk: []
+- id: calc.derivative.power-rule
+  title:
+    fa-IR: مشتق توابع توانی و قواعد جمع و ضرب در عدد
+    en: Differentiating powers, sums and constant multiples
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:4:f48815
+    - iran:G12_riazi3_science:4:f48815
+    af:
+    - af:AF_G12_riazi:2:2f9e97
+    uk:
+    - uk:UK_ALEVEL:7:9d6e11
+- id: calc.derivative.tangent-normal
+  title:
+    fa-IR: معادلهٔ خط مماس و قائم بر منحنی
+    en: Equations of tangents and normals
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative.power-rule
+  - coord.line-equation
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:4:178dc6
+    - iran:G12_riazi3_science:4:178dc6
+    af:
+    - af:AF_G12_riazi:2:269d6b
+    uk:
+    - uk:UK_ALEVEL:7:c81bb7
+- id: calc.derivative.product-quotient
+  title:
+    fa-IR: مشتق حاصل‌ضرب و خارج‌قسمت
+    en: Product and quotient rules
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative.power-rule
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:4:f48815
+    - iran:G12_riazi3_science:4:f48815
+    af:
+    - af:AF_G12_riazi:2:2f9e97
+    uk:
+    - uk:UK_ALEVEL:7:4cce1e
+- id: calc.derivative.chain
+  title:
+    fa-IR: مشتق تابع مرکب (قاعدهٔ زنجیره‌ای)
+    en: The chain rule
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative.power-rule
+  - func.inverse-composite
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:4:f48815
+    - iran:G12_riazi3_science:4:f48815
+    af:
+    - af:AF_G12_riazi:2:f65d2e
+    uk:
+    - uk:UK_ALEVEL:7:4cce1e
+- id: calc.derivative.trig
+  title:
+    fa-IR: مشتق توابع مثلثاتی
+    en: Derivatives of trigonometric functions
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative.chain
+  - calc.limits.trig
+  - trig.identities
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:4:f48815
+    - iran:G12_riazi3_science:4:f48815
+    af:
+    - af:AF_G12_riazi:2:cace96
+    uk:
+    - uk:UK_ALEVEL:7:4d7b6b
+    - uk:UK_ALEVEL:7:9d6e11
+- id: calc.derivative.exp-log
+  title:
+    fa-IR: مشتق توابع نمایی و لگاریتمی
+    en: Derivatives of exponential and logarithmic functions
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative.chain
+  - func.exponential
+  - func.logarithm
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:5:eb2e50
+    uk:
+    - uk:UK_ALEVEL:6:4be933
+    - uk:UK_ALEVEL:7:9d6e11
+- id: calc.derivative.inverse
+  title:
+    fa-IR: مشتق تابع وارون
+    en: Derivative of an inverse function
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative.chain
+  - func.inverse-composite
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:5:c03bf1
+    uk:
+    - uk:UK_ALEVEL:7:4cce1e
+- id: calc.derivative.inverse-trig
+  title:
+    fa-IR: مشتق توابع وارون مثلثاتی
+    en: Derivatives of inverse trigonometric functions
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative.inverse
+  - calc.derivative.trig
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:5:4b1949
+    uk:
+    - uk:UK_FURTHER:5:62b356
+- id: calc.derivative.implicit
+  title:
+    fa-IR: مشتق ضمنی
+    en: Implicit differentiation
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative.chain
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:2:c382c0
+    uk:
+    - uk:UK_ALEVEL:7:cf3176
+- id: calc.derivative.parametric
+  title:
+    fa-IR: مشتق توابع پارامتری
+    en: Differentiating parametric equations
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative.chain
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:7:cf3176
+- id: calc.derivative.second
+  title:
+    fa-IR: مشتق مرتبهٔ دوم و مشتق‌های مراتب بالاتر
+    en: Second and higher derivatives
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative.power-rule
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:5:033be4
+    af:
+    - af:AF_G12_riazi:2:b751d9
+    uk:
+    - uk:UK_ALEVEL:7:4d7b6b
+- id: calc.derivative.connected-rates
+  title:
+    fa-IR: آهنگ‌های تغییر وابسته
+    en: Connected (related) rates of change
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative.chain
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:7:4cce1e
+- id: calc.hyperbolic
+  title:
+    fa-IR: توابع هذلولوی، مشتق و انتگرال آن‌ها
+    en: Hyperbolic functions and their calculus
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative.exp-log
+  - calc.integral.standard
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_FURTHER:8:33b01a
+    - uk:UK_FURTHER:8:92075a
+    - uk:UK_FURTHER:8:1fb9a0
+    - uk:UK_FURTHER:8:cd743a
+    - uk:UK_FURTHER:8:154855
+- id: calc.app.monotonic
+  title:
+    fa-IR: توابع صعودی و نزولی با کمک مشتق
+    en: Increasing and decreasing functions via the derivative
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative.power-rule
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:5:4614df
+    af: []
+    uk:
+    - uk:UK_ALEVEL:7:c81bb7
+- id: calc.app.extrema
+  title:
+    fa-IR: نقاط بحرانی و اکسترمم‌های تابع
+    en: Stationary points, maxima and minima
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.app.monotonic
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:5:4614df
+    - iran:G12_riazi3_science:5:8fc7a6
+    af:
+    - af:AF_G12_riazi:3:af9826
+    uk:
+    - uk:UK_ALEVEL:7:c81bb7
+- id: calc.app.concavity
+  title:
+    fa-IR: جهت تقعر و نقطهٔ عطف
+    en: Concavity and points of inflection
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative.second
+  - calc.app.extrema
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:5:033be4
+    af:
+    - af:AF_G12_riazi:3:b3ca0c
+    uk:
+    - uk:UK_ALEVEL:7:4d7b6b
+    - uk:UK_ALEVEL:7:c81bb7
+- id: calc.app.curve-sketching
+  title:
+    fa-IR: رسم نمودار تابع با کمک مشتق
+    en: Curve sketching with calculus
+  age:
+  - 18
+  - 18
+  requires:
+  - calc.app.concavity
+  - calc.limits.infinite
+  - calc.limits.at-infinity
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:5:ae4e97
+    af:
+    - af:AF_G12_riazi:3:734882
+    - af:AF_G12_riazi:3:be36ba
+    - af:AF_G12_riazi:3:54db97
+    - af:AF_G12_riazi:3:7953bb
+    uk: []
+- id: calc.app.optimisation
+  title:
+    fa-IR: بهینه‌سازی
+    en: Optimisation problems
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.app.extrema
+  level: core
+  align:
+    iran:
+    - iran:G12_riazi3_science:5:ebb6c4
+    af:
+    - af:AF_G12_riazi:3:5d1dc0
+    uk:
+    - uk:UK_ALEVEL:7:c81bb7
+- id: calc.app.rolle
+  title:
+    fa-IR: قضیهٔ رول و مقدار میانگین
+    en: Rolle's theorem and the mean value theorem
+  age:
+  - 18
+  - 18
+  requires:
+  - calc.derivative.differentiability
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:3:94fa6a
+    uk: []
+- id: calc.app.lhopital
+  title:
+    fa-IR: قاعدهٔ هوپیتال
+    en: L'Hôpital's rule
+  age:
+  - 18
+  - 18
+  requires:
+  - calc.app.rolle
+  - calc.limits.zero-over-zero
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:3:e5ce47
+    uk: []
+- id: calc.maclaurin
+  title:
+    fa-IR: سری مک‌لورن
+    en: Maclaurin series
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative.second
+  - calc.derivative.exp-log
+  - calc.derivative.trig
+  - seq.geometric
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_FURTHER:4:b8353c
+    - uk:UK_FURTHER:4:800956
+- id: calc.area-estimate
+  title:
+    fa-IR: تخمین مساحت زیر نمودار
+    en: Estimating the area under a graph
+  age:
+  - 14
+  - 16
+  requires:
+  - meas.area.rectilinear
+  - func.linear-graphs
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:2:431f69
+    - uk:UK_KS4:2:785269
+- id: calc.integral.riemann
+  title:
+    fa-IR: مجموع ریمان و انتگرال به‌عنوان حد مجموع
+    en: 'Riemann sums: integration as the limit of a sum'
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.area-estimate
+  - calc.limits
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:4:a68ee9
+    uk:
+    - uk:UK_ALEVEL:8:6afbf6
+- id: calc.integral
+  title:
+    fa-IR: انتگرال نامعین (تابع اولیه)
+    en: 'Indefinite integral: antiderivatives'
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative.power-rule
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:4:7e3bc2
+    - af:AF_G12_riazi:4:7d1c20
+    - af:AF_G12_riazi:4:c58e2c
+    uk:
+    - uk:UK_ALEVEL:8:6b059d
+- id: calc.integral.definite
+  title:
+    fa-IR: انتگرال معین و ویژگی‌های آن
+    en: Definite integrals and their properties
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.integral
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:4:0d9961
+    - af:AF_G12_riazi:4:841fee
+    uk:
+    - uk:UK_ALEVEL:8:7323f4
+- id: calc.integral.ftc
+  title:
+    fa-IR: قضیهٔ اساسی حساب دیفرانسیل و انتگرال
+    en: The fundamental theorem of calculus
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.integral.definite
+  - calc.integral.riemann
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:4:133a6c
+    uk:
+    - uk:UK_ALEVEL:8:83cc74
+- id: calc.integral.standard
+  title:
+    fa-IR: انتگرال توابع نمایی، لگاریتمی و مثلثاتی
+    en: Integrating exponential, 1/x and trigonometric functions
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.integral
+  - calc.derivative.exp-log
+  - calc.derivative.trig
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:5:570e25
+    - af:AF_G12_riazi:5:bd4de2
+    uk:
+    - uk:UK_ALEVEL:8:6b059d
+- id: calc.integral.substitution
+  title:
+    fa-IR: انتگرال‌گیری با تغییر متغیر
+    en: Integration by substitution
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.integral.standard
+  - calc.derivative.chain
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:4:212679
+    uk:
+    - uk:UK_ALEVEL:8:981717
+- id: calc.integral.by-parts
+  title:
+    fa-IR: انتگرال‌گیری جزءبه‌جزء
+    en: Integration by parts
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.integral.standard
+  - calc.derivative.product-quotient
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:4:ce3c02
+    uk:
+    - uk:UK_ALEVEL:8:981717
+- id: calc.integral.partial-fractions
+  title:
+    fa-IR: انتگرال‌گیری با کسرهای جزئی
+    en: Integration using partial fractions
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.integral.standard
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:5:4202da
+    - af:AF_G12_riazi:5:ea937a
+    uk:
+    - uk:UK_ALEVEL:8:8d407b
+    - uk:UK_FURTHER:5:b73074
+- id: calc.integral.trig-substitution
+  title:
+    fa-IR: انتگرال‌گیری با جانشانی مثلثاتی و هذلولوی
+    en: Trigonometric and hyperbolic substitutions
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.integral.substitution
+  - calc.derivative.inverse-trig
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_FURTHER:5:5e8e76
+    - uk:UK_FURTHER:8:154855
+- id: calc.integral.improper
+  title:
+    fa-IR: انتگرال ناسره
+    en: Improper integrals
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.integral.definite
+  - calc.limits.at-infinity
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_FURTHER:5:21a710
+- id: calc.integral.mean-value
+  title:
+    fa-IR: مقدار میانگین تابع
+    en: Mean value of a function
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.integral.definite
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_FURTHER:5:0f1bc8
+- id: calc.app.area-under-curve
+  title:
+    fa-IR: محاسبهٔ مساحت زیر منحنی
+    en: Area under a curve
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.integral.definite
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:6:c638a5
+    uk:
+    - uk:UK_ALEVEL:8:7323f4
+- id: calc.app.area-between-curves
+  title:
+    fa-IR: مساحت ناحیهٔ بین دو منحنی
+    en: Area between two curves
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.app.area-under-curve
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:6:480347
+    uk:
+    - uk:UK_ALEVEL:8:7323f4
+- id: calc.app.volume-revolution
+  title:
+    fa-IR: حجم اجسام دوار
+    en: Volumes of revolution
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.app.area-under-curve
+  - meas.volume.prisms
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:6:a94c62
+    uk:
+    - uk:UK_FURTHER:5:ea2ff8
+- id: calc.app.arc-length
+  title:
+    fa-IR: طول قوس منحنی
+    en: Arc length of a curve
+  age:
+  - 18
+  - 18
+  requires:
+  - calc.integral.substitution
+  - geo.pythagoras
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G12_riazi:6:4c16bc
+    uk: []
+- id: calc.app.polar-area
+  title:
+    fa-IR: مساحت محصور به منحنی قطبی
+    en: Area enclosed by a polar curve
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.integral.standard
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_FURTHER:7:b6765f
+- id: calc.de.forming
+  title:
+    fa-IR: تشکیل معادلهٔ دیفرانسیل
+    en: Setting up differential equations
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.derivative.connected-rates
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:7:afdf9c
+    - uk:UK_FURTHER:9:7ebd42
+- id: calc.de.separable
+  title:
+    fa-IR: معادلات دیفرانسیل جدایی‌پذیر
+    en: Separable first-order differential equations
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.de.forming
+  - calc.integral.standard
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:8:b4a808
+    - uk:UK_ALEVEL:8:b8157d
+    - uk:UK_FURTHER:9:a8a53d
+- id: calc.de.integrating-factor
+  title:
+    fa-IR: روش عامل انتگرال‌ساز
+    en: 'First-order linear ODEs: integrating factor'
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.de.separable
+  - calc.integral.by-parts
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_FURTHER:9:efb468
+    - uk:UK_FURTHER:9:a8a53d
+- id: calc.de.second-order
+  title:
+    fa-IR: معادلات دیفرانسیل خطی مرتبهٔ دوم با ضرایب ثابت
+    en: Second-order linear ODEs with constant coefficients
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.de.integrating-factor
+  - alg.quadratic-equations
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_FURTHER:9:2ad474
+    - uk:UK_FURTHER:9:375ea9
+    - uk:UK_FURTHER:9:7b925b
+- id: calc.de.oscillations
+  title:
+    fa-IR: حرکت هماهنگ ساده و نوسان میرا
+    en: Simple harmonic motion and damped oscillations
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.de.second-order
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_FURTHER:9:fd5300
+    - uk:UK_FURTHER:9:745709
+- id: calc.de.coupled
+  title:
+    fa-IR: دستگاه معادلات دیفرانسیل مرتبهٔ اول
+    en: Coupled first-order differential equations
+  age:
+  - 16
+  - 18
+  requires:
+  - calc.de.second-order
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_FURTHER:9:e53446

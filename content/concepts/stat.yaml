@@ -1,0 +1,842 @@
+- id: stat.data-collection
+  title:
+    fa-IR: جمع‌آوری و دسته‌بندی داده‌ها
+    en: Collecting and sorting data
+  age:
+  - 7
+  - 13
+  requires: []
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:8:6b48f8
+    - iran:G05_riazi_panjom:7:98f296
+    - iran:G07_riazi_haftom:9:98f296
+    af:
+    - af:AF_G07_riazi:7:f48257
+    uk:
+    - uk:UK_Y02:8:c86d19
+    - uk:UK_Y02:8:a40d12
+- id: stat.data-collection.methods
+  title:
+    fa-IR: روش‌های گردآوری داده‌ها (پرسش‌نامه، مشاهده، آزمایش، دادگان)
+    en: Methods of data collection (questionnaire, observation, experiment, records)
+  age:
+  - 13
+  - 17
+  requires:
+  - stat.data-collection
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi_amar1_humanities:3:831f21
+    - iran:G11_amar_ehtemal_math:4:831f21
+    af:
+    - af:AF_G07_riazi:7:f48257
+    uk: []
+- id: stat.variable-types
+  title:
+    fa-IR: متغیر و انواع آن (کیفی و کمّی، گسسته و پیوسته)
+    en: Types of data and variables (categorical/numerical, discrete/continuous)
+  age:
+  - 9
+  - 16
+  requires:
+  - stat.data-collection
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:7:17edc2
+    af:
+    - af:AF_G07_riazi:7:24ee14
+    uk:
+    - uk:UK_Y04:8:8ef6da
+    - uk:UK_KS3:6:fc10b5
+- id: stat.tally-tables
+  title:
+    fa-IR: جدول داده‌ها، چوب‌خط و جدول فراوانی
+    en: Tally charts and frequency tables
+  age:
+  - 7
+  - 16
+  requires:
+  - stat.data-collection
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:7:649ff2
+    af:
+    - af:AF_G07_riazi:7:4f7f05
+    - af:AF_G08_riazi:10:57cfd2
+    uk:
+    - uk:UK_Y02:8:4a7d17
+    - uk:UK_Y03:7:e30631
+    - uk:UK_Y05:8:3ea8a9
+    - uk:UK_KS3:6:3e554f
+    - uk:UK_GCSE:6:e459f0
+- id: stat.pictogram
+  title:
+    fa-IR: نمودار تصویری
+    en: Pictograms
+  age:
+  - 7
+  - 16
+  requires:
+  - stat.tally-tables
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:8:7fab8a
+    af:
+    - af:AF_G07_riazi:7:f47fad
+    uk:
+    - uk:UK_Y02:8:4a7d17
+    - uk:UK_Y03:7:e30631
+    - uk:UK_Y03:7:c452f1
+    - uk:UK_Y04:8:63f30f
+    - uk:UK_KS3:6:3e554f
+    - uk:UK_GCSE:6:e459f0
+- id: stat.bar-chart
+  title:
+    fa-IR: نمودار ستونی (میله‌ای)
+    en: Bar charts and vertical line charts
+  age:
+  - 7
+  - 16
+  requires:
+  - stat.tally-tables
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:8:cfba95
+    af:
+    - af:AF_G08_riazi:10:decf1e
+    uk:
+    - uk:UK_Y02:8:4a7d17
+    - uk:UK_Y03:7:e30631
+    - uk:UK_Y03:7:c452f1
+    - uk:UK_Y04:8:8ef6da
+    - uk:UK_Y04:8:63f30f
+    - uk:UK_KS3:6:3e554f
+    - uk:UK_GCSE:6:e459f0
+- id: stat.pie-chart
+  title:
+    fa-IR: نمودار دایره‌ای
+    en: Pie charts
+  age:
+  - 9
+  - 16
+  requires:
+  - stat.bar-chart
+  - frac.concept
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:7:17a67f
+    - iran:G06_riazi_sheshom:6:2515c8
+    af:
+    - af:AF_G09_riazi:8:280471
+    uk:
+    - uk:UK_Y06:9:6fddeb
+    - uk:UK_KS3:6:3e554f
+    - uk:UK_GCSE:6:e459f0
+- id: stat.line-graph
+  title:
+    fa-IR: نمودار خط شکسته
+    en: Line graphs
+  age:
+  - 9
+  - 14
+  requires:
+  - stat.bar-chart
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:7:cf6aac
+    af:
+    - af:AF_G08_riazi:10:decf1e
+    uk:
+    - uk:UK_Y04:8:8ef6da
+    - uk:UK_Y05:8:1f288e
+    - uk:UK_Y06:9:6fddeb
+- id: stat.charts.choose-interpret
+  title:
+    fa-IR: انتخاب نمودار مناسب و تفسیر نمودارها
+    en: Choosing and interpreting charts
+  age:
+  - 8
+  - 18
+  requires:
+  - stat.pictogram
+  - stat.bar-chart
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:8:3147c8
+    - iran:G03_riazi_sevom:7:3147c8
+    - iran:G07_riazi_haftom:9:9e143d
+    - iran:G07_gifted_supplement:10:9e143d
+    af: []
+    uk:
+    - uk:UK_KS3:6:3e554f
+    - uk:UK_GCSE:6:e459f0
+    - uk:UK_ALEVEL:12:5bf1b0
+- id: stat.time-series
+  title:
+    fa-IR: سری‌های زمانی
+    en: Time series
+  age:
+  - 14
+  - 17
+  requires:
+  - stat.line-graph
+  level: core
+  align:
+    iran:
+    - iran:G11_riazi_amar2_humanities:3:5decec
+    af: []
+    uk:
+    - uk:UK_KS4:6:29fe4b
+    - uk:UK_GCSE:6:e459f0
+- id: stat.grouped-data
+  title:
+    fa-IR: دسته‌بندی داده‌ها و جدول فراوانی دسته‌ها
+    en: Grouping data into class intervals
+  age:
+  - 11
+  - 15
+  requires:
+  - stat.tally-tables
+  - stat.variable-types
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:8:43a13d
+    - iran:G08_gifted_supplement:8:e50b1b
+    af:
+    - af:AF_G09_riazi:8:5a8ac4
+    uk:
+    - uk:UK_KS3:6:fc10b5
+    - uk:UK_KS3:6:3e554f
+- id: stat.relative-frequency
+  title:
+    fa-IR: فراوانی نسبی و درصد فراوانی
+    en: Relative frequency in tables
+  age:
+  - 14
+  - 17
+  requires:
+  - stat.tally-tables
+  - frac.percent
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:8:43a13d
+    - iran:G11_amar_ehtemal_math:3:b97329
+    af:
+    - af:AF_G08_riazi:10:decf1e
+    uk: []
+- id: stat.cumulative-frequency
+  title:
+    fa-IR: فراوانی تجمعی و نمودار آن
+    en: Cumulative frequency and its graph
+  age:
+  - 14
+  - 16
+  requires:
+  - stat.grouped-data
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G08_riazi:10:ffbc05
+    uk:
+    - uk:UK_GCSE:6:fbf9df
+    - uk:UK_KS4:6:7c31bc
+- id: stat.histogram
+  title:
+    fa-IR: نمودار مستطیلی (هیستوگرام)
+    en: Histograms
+  age:
+  - 14
+  - 18
+  requires:
+  - stat.grouped-data
+  - stat.bar-chart
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:8:43a13d
+    - iran:G08_gifted_supplement:8:e50b1b
+    - iran:G10_riazi_amar1_humanities:4:e3b84b
+    - iran:G11_amar_ehtemal_math:3:b97329
+    af:
+    - af:AF_G09_riazi:8:280471
+    uk:
+    - uk:UK_GCSE:6:fbf9df
+    - uk:UK_KS4:6:7c31bc
+    - uk:UK_ALEVEL:12:babc6c
+- id: stat.histogram.unequal
+  title:
+    fa-IR: نمودار مستطیلی با دسته‌های نابرابر (چگالی فراوانی)
+    en: Histograms with unequal class widths (frequency density)
+  age:
+  - 14
+  - 18
+  requires:
+  - stat.histogram
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:6:fbf9df
+    - uk:UK_KS4:6:7c31bc
+    - uk:UK_ALEVEL:12:babc6c
+- id: stat.frequency-polygon
+  title:
+    fa-IR: چندبر فراوانی
+    en: Frequency polygons
+  age:
+  - 14
+  - 16
+  requires:
+  - stat.histogram
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:8:43a13d
+    af:
+    - af:AF_G10_riazi:8:cccb7d
+    uk: []
+- id: stat.stem-and-leaf
+  title:
+    fa-IR: نمودار ساقه و برگ
+    en: Stem-and-leaf diagrams
+  age:
+  - 16
+  - 16
+  requires:
+  - stat.tally-tables
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi_amar1_humanities:4:e3b84b
+    af:
+    - af:AF_G10_riazi:8:cccb7d
+    uk: []
+- id: stat.mean
+  title:
+    fa-IR: میانگین
+    en: The mean
+  age:
+  - 11
+  - 14
+  requires:
+  - ops.add-sub.written
+  - ops.div.written
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:7:b3496c
+    - iran:G08_riazi_hashtom:8:d020db
+    - iran:G08_gifted_supplement:8:e50b1b
+    af:
+    - af:AF_G07_riazi:7:b6763e
+    uk:
+    - uk:UK_Y06:9:96dccd
+    - uk:UK_KS3:6:fc10b5
+- id: stat.mode
+  title:
+    fa-IR: مُد
+    en: The mode
+  age:
+  - 11
+  - 16
+  requires:
+  - stat.tally-tables
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi_amar1_humanities:3:a6fbe3
+    af:
+    - af:AF_G07_riazi:7:1dd93e
+    uk:
+    - uk:UK_KS3:6:fc10b5
+    - uk:UK_GCSE:6:fe647e
+- id: stat.median
+  title:
+    fa-IR: میانه
+    en: The median
+  age:
+  - 11
+  - 17
+  requires:
+  - stat.tally-tables
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi_amar1_humanities:3:a6fbe3
+    - iran:G11_amar_ehtemal_math:3:a6fbe3
+    - iran:G11_riazi2_science:7:4b345d
+    af:
+    - af:AF_G09_riazi:8:d129b4
+    uk:
+    - uk:UK_KS3:6:fc10b5
+    - uk:UK_GCSE:6:fe647e
+- id: stat.averages
+  title:
+    fa-IR: 'معیارهای گرایش به مرکز: مقایسه و انتخاب میانگین، میانه و مد'
+    en: 'Measures of central tendency: comparing and choosing mean, median and mode'
+  age:
+  - 11
+  - 18
+  requires:
+  - stat.mean
+  - stat.median
+  - stat.mode
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi_amar1_humanities:3:a6fbe3
+    - iran:G11_amar_ehtemal_math:3:a6fbe3
+    - iran:G11_riazi_amar2_humanities:3:1e9545
+    - iran:G11_riazi2_science:7:4b345d
+    af:
+    - af:AF_G10_riazi:8:21a663
+    uk:
+    - uk:UK_KS3:6:fc10b5
+    - uk:UK_GCSE:6:fe647e
+    - uk:UK_KS4:6:aca3fc
+    - uk:UK_ALEVEL:12:df35ed
+    - uk:UK_GCSE:6:42a1a3
+    - uk:UK_KS4:6:e1dc1e
+- id: stat.mean.grouped
+  title:
+    fa-IR: میانگین داده‌های دسته‌بندی‌شده و میانگین وزنی
+    en: Mean from frequency tables and grouped data; weighted mean
+  age:
+  - 14
+  - 16
+  requires:
+  - stat.mean
+  - stat.grouped-data
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:8:d020db
+    - iran:G08_gifted_supplement:8:e50b1b
+    af:
+    - af:AF_G08_riazi:10:b57664
+    - af:AF_G09_riazi:8:5a8ac4
+    uk:
+    - uk:UK_GCSE:6:fe647e
+    - uk:UK_KS4:6:aca3fc
+- id: stat.spread
+  title:
+    fa-IR: پراکندگی و دامنهٔ تغییرات
+    en: Spread and the range
+  age:
+  - 11
+  - 17
+  requires:
+  - stat.tally-tables
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi_amar1_humanities:3:058195
+    - iran:G11_amar_ehtemal_math:3:058195
+    af:
+    - af:AF_G09_riazi:8:d129b4
+    uk:
+    - uk:UK_KS3:6:fc10b5
+    - uk:UK_GCSE:6:fe647e
+- id: stat.outliers
+  title:
+    fa-IR: دادهٔ پرت و پاک‌سازی داده‌ها
+    en: Outliers and cleaning data
+  age:
+  - 11
+  - 18
+  requires:
+  - stat.spread
+  level: core
+  align:
+    iran:
+    - iran:G11_amar_ehtemal_math:3:058195
+    af: []
+    uk:
+    - uk:UK_KS3:6:fc10b5
+    - uk:UK_GCSE:6:fe647e
+    - uk:UK_ALEVEL:12:5bf1b0
+- id: stat.compare-distributions
+  title:
+    fa-IR: مقایسهٔ دو مجموعه داده با معیار مرکزی و پراکندگی
+    en: Comparing distributions using an average and a measure of spread
+  age:
+  - 11
+  - 18
+  requires:
+  - stat.averages
+  - stat.spread
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G10_riazi:8:21a663
+    uk:
+    - uk:UK_KS3:6:fc10b5
+    - uk:UK_GCSE:6:fe647e
+    - uk:UK_KS4:6:aca3fc
+    - uk:UK_ALEVEL:12:df35ed
+- id: stat.quartiles
+  title:
+    fa-IR: چارک‌ها و دامنهٔ میان‌چارکی
+    en: Quartiles and interquartile range
+  age:
+  - 14
+  - 17
+  requires:
+  - stat.median
+  - stat.spread
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi_amar1_humanities:3:058195
+    - iran:G11_amar_ehtemal_math:3:058195
+    - iran:G11_riazi2_science:7:4b345d
+    af:
+    - af:AF_G10_riazi:8:cccb7d
+    - af:AF_G10_riazi:8:21a663
+    uk:
+    - uk:UK_GCSE:6:fe647e
+    - uk:UK_KS4:6:aca3fc
+- id: stat.box-plot
+  title:
+    fa-IR: نمودار جعبه‌ای
+    en: Box plots
+  age:
+  - 14
+  - 17
+  requires:
+  - stat.quartiles
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi_amar1_humanities:4:e3b84b
+    - iran:G11_amar_ehtemal_math:3:058195
+    - iran:G11_riazi2_science:7:4b345d
+    af:
+    - af:AF_G10_riazi:8:cccb7d
+    uk:
+    - uk:UK_GCSE:6:fe647e
+    - uk:UK_KS4:6:aca3fc
+- id: stat.mean-deviation
+  title:
+    fa-IR: میانگین انحراف از میانگین
+    en: Mean absolute deviation
+  age:
+  - 15
+  - 15
+  requires:
+  - stat.mean
+  - stat.spread
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G09_riazi:8:d129b4
+    uk: []
+- id: stat.variance-sd
+  title:
+    fa-IR: واریانس و انحراف معیار
+    en: Variance and standard deviation
+  age:
+  - 16
+  - 18
+  requires:
+  - stat.mean
+  - stat.spread
+  - num.roots
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi_amar1_humanities:3:058195
+    - iran:G11_amar_ehtemal_math:3:058195
+    - iran:G11_riazi2_science:7:4b345d
+    - iran:G11_riazi_amar2_humanities:3:1e9545
+    af:
+    - af:AF_G10_riazi:8:7fc66a
+    uk:
+    - uk:UK_ALEVEL:12:df35ed
+- id: stat.coefficient-of-variation
+  title:
+    fa-IR: ضریب تغییرات
+    en: Coefficient of variation
+  age:
+  - 17
+  - 17
+  requires:
+  - stat.variance-sd
+  level: core
+  align:
+    iran:
+    - iran:G11_amar_ehtemal_math:3:058195
+    - iran:G11_riazi_amar2_humanities:3:1e9545
+    af:
+    - af:AF_G11_riazi:8:ee3d18
+    uk: []
+- id: stat.distribution-shape
+  title:
+    fa-IR: 'شکل توزیع داده‌ها: تقارن، چولگی و منحنی نرمال'
+    en: 'Shape of a distribution: symmetry, skew and the normal curve'
+  age:
+  - 16
+  - 18
+  requires:
+  - stat.histogram
+  - stat.averages
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G10_riazi:8:21a663
+    - af:AF_G11_riazi:8:2e586e
+    uk:
+    - uk:UK_ALEVEL:12:babc6c
+- id: stat.normal-spread
+  title:
+    fa-IR: پراکندگی در منحنی نرمال (قاعدهٔ ۶۸–۹۵–۹۹٫۷)
+    en: Spread under the normal curve (68–95–99.7 rule)
+  age:
+  - 17
+  - 17
+  requires:
+  - stat.distribution-shape
+  - stat.variance-sd
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G11_riazi:8:6ac079
+    - af:AF_G11_riazi:8:2e586e
+    uk: []
+- id: stat.scatter
+  title:
+    fa-IR: داده‌های دومتغیره و نمودار پراکنش
+    en: Bivariate data and scatter graphs
+  age:
+  - 11
+  - 18
+  requires:
+  - stat.variable-types
+  - pos.coordinates
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi_amar1_humanities:4:0a6a15
+    af:
+    - af:AF_G11_riazi:8:5b47b2
+    - af:AF_G11_riazi:8:ddb1c3
+    uk:
+    - uk:UK_KS3:6:606fd7
+    - uk:UK_GCSE:6:0d580b
+    - uk:UK_KS4:6:fbf336
+    - uk:UK_ALEVEL:12:2176a8
+- id: stat.multivariate-charts
+  title:
+    fa-IR: نمودارهای چندمتغیره
+    en: Charts for multivariate data
+  age:
+  - 16
+  - 17
+  requires:
+  - stat.scatter
+  - stat.line-graph
+  level: specialist
+  align:
+    iran:
+    - iran:G10_riazi_amar1_humanities:4:0a6a15
+    af:
+    - af:AF_G11_riazi:8:ddb1c3
+    uk: []
+- id: stat.correlation
+  title:
+    fa-IR: همبستگی و تفاوت آن با علیت
+    en: Correlation, and why it is not causation
+  age:
+  - 14
+  - 18
+  requires:
+  - stat.scatter
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G11_riazi:8:103046
+    uk:
+    - uk:UK_GCSE:6:0d580b
+    - uk:UK_KS4:6:fbf336
+    - uk:UK_ALEVEL:12:2176a8
+- id: stat.line-of-best-fit
+  title:
+    fa-IR: خط برازش، پیش‌بینی، درون‌یابی و برون‌یابی
+    en: Line of best fit, prediction, interpolation and extrapolation
+  age:
+  - 14
+  - 18
+  requires:
+  - stat.correlation
+  - func.linear-graphs
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:6:0d580b
+    - uk:UK_KS4:6:fbf336
+    - uk:UK_ALEVEL:12:2176a8
+- id: stat.correlation-coefficient
+  title:
+    fa-IR: ضریب همبستگی
+    en: The correlation coefficient
+  age:
+  - 16
+  - 18
+  requires:
+  - stat.correlation
+  - stat.variance-sd
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G11_riazi:8:103046
+    uk:
+    - uk:UK_ALEVEL:15:44a4e6
+- id: stat.regression
+  title:
+    fa-IR: خط رگرسیون
+    en: Regression line
+  age:
+  - 16
+  - 18
+  requires:
+  - stat.line-of-best-fit
+  - stat.variance-sd
+  - coord.line-equation
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G11_riazi:8:84a995
+    uk:
+    - uk:UK_ALEVEL:12:2176a8
+- id: stat.population-sample
+  title:
+    fa-IR: جامعه و نمونه
+    en: Population and sample
+  age:
+  - 13
+  - 18
+  requires:
+  - stat.data-collection
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:7:e0e53d
+    af:
+    - af:AF_G07_riazi:7:b5c783
+    uk:
+    - uk:UK_ALEVEL:11:288b1b
+    - uk:UK_GCSE:6:89d177
+    - uk:UK_KS4:6:1d1690
+    - uk:UK_GCSE:6:42a1a3
+    - uk:UK_KS4:6:e1dc1e
+- id: stat.sampling.random
+  title:
+    fa-IR: نمونه‌گیری تصادفی و روش‌های نمونه‌گیری
+    en: Random sampling and sampling methods
+  age:
+  - 13
+  - 18
+  requires:
+  - stat.population-sample
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G07_riazi:7:8f6799
+    - af:AF_G12_riazi:7:c46d70
+    uk:
+    - uk:UK_ALEVEL:11:288b1b
+- id: stat.inference.informal
+  title:
+    fa-IR: استنباط غیررسمی دربارهٔ جامعه از روی نمونه
+    en: Informal inference about a population from a sample
+  age:
+  - 14
+  - 18
+  requires:
+  - stat.population-sample
+  - stat.averages
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:7:e0e53d
+    af: []
+    uk:
+    - uk:UK_GCSE:6:89d177
+    - uk:UK_KS4:6:1d1690
+    - uk:UK_ALEVEL:11:288b1b
+- id: stat.statistical-cycle
+  title:
+    fa-IR: چرخهٔ آمار در حل مسئله
+    en: The statistical problem-solving cycle
+  age:
+  - 16
+  - 18
+  requires:
+  - stat.data-collection.methods
+  - stat.charts.choose-interpret
+  - stat.averages
+  level: extension
+  align:
+    iran:
+    - iran:G12_riazi_amar3_humanities:1:70ee3a
+    - iran:G10_riazi1_math_science:7:e0e53d
+    af: []
+    uk:
+    - uk:UK_ALEVEL:12:5bf1b0
+- id: stat.estimation.point
+  title:
+    fa-IR: برآورد نقطه‌ای میانگین و نسبت جامعه
+    en: Point estimation of a population mean or proportion
+  age:
+  - 17
+  - 17
+  requires:
+  - stat.inference.informal
+  - stat.sampling.random
+  level: extension
+  align:
+    iran:
+    - iran:G11_amar_ehtemal_math:4:5df507
+    af: []
+    uk: []
+- id: stat.confidence-interval
+  title:
+    fa-IR: برآورد فاصله‌ای (بازهٔ اطمینان)
+    en: Interval estimation (confidence intervals)
+  age:
+  - 17
+  - 17
+  requires:
+  - stat.estimation.point
+  - stat.variance-sd
+  - stat.normal-spread
+  level: extension
+  align:
+    iran:
+    - iran:G11_amar_ehtemal_math:4:5df507
+    af: []
+    uk: []

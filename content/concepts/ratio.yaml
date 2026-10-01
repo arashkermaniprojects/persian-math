@@ -1,0 +1,537 @@
+- id: ratio.scaling
+  title:
+    fa-IR: بزرگ‌نمایی و کوچک‌نمایی مقدارها با عدد و کسر
+    en: Scaling quantities up and down by whole numbers and simple fractions
+  age:
+  - 8
+  - 10
+  requires:
+  - ops.mul-div.facts
+  - frac.of-amount
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y03:3:7d36b4
+    - uk:UK_Y04:3:d97b3e
+    - uk:UK_Y05:3:781278
+    - uk:UK_Y05:5:271f9a
+- id: ratio.ratio
+  title:
+    fa-IR: مفهوم نسبت
+    en: 'Ratio: comparing two quantities'
+  age:
+  - 11
+  - 16
+  requires:
+  - frac.concept
+  - ops.mul-div.facts
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:3:f61f45
+    - iran:G06_riazi_sheshom:6:37f4b8
+    af:
+    - af:AF_G06_riazi:4:f61f45
+    - af:AF_G08_riazi:2:a0370a
+    uk:
+    - uk:UK_Y06:4:2d83f4
+    - uk:UK_KS3:3:226b33
+    - uk:UK_GCSE:3:44e954
+- id: ratio.simplify
+  title:
+    fa-IR: نسبت‌های مساوی و ساده کردن نسبت
+    en: Equivalent ratios and simplifying ratios
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.ratio
+  - num.hcf-lcm
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:3:e62c4d
+    af: []
+    uk:
+    - uk:UK_KS3:3:226b33
+    - uk:UK_GCSE:3:44e954
+- id: ratio.ratio-fraction
+  title:
+    fa-IR: رابطهٔ نسبت و کسر
+    en: Linking ratios and fractions
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.ratio
+  - frac.equivalent
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:6:37f4b8
+    af: []
+    uk:
+    - uk:UK_KS3:3:11d1d6
+    - uk:UK_KS3:3:cac0a3
+    - uk:UK_GCSE:3:c4c85e
+    - uk:UK_GCSE:3:0b3268
+    - uk:UK_GCSE:1:c5f176
+    - uk:UK_KS4:1:fb04fe
+- id: ratio.share
+  title:
+    fa-IR: تقسیم یک مقدار به نسبت داده‌شده
+    en: Dividing a quantity in a given ratio
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.ratio
+  - frac.of-amount
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G08_riazi:2:a0370a
+    uk:
+    - uk:UK_Y06:4:94b7f5
+    - uk:UK_KS3:3:1e3c23
+    - uk:UK_GCSE:3:cbdfed
+- id: ratio.unitary
+  title:
+    fa-IR: روش واحد (یکه‌سازی)
+    en: The unitary method
+  age:
+  - 11
+  - 14
+  requires:
+  - ratio.ratio
+  - ops.div.written
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G08_riazi:2:1281df
+    uk:
+    - uk:UK_Y06:4:2d83f4
+- id: ratio.proportion
+  title:
+    fa-IR: 'تناسب: تساوی دو نسبت'
+    en: Proportion as equality of ratios; finding a missing term
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.simplify
+  - ratio.ratio-fraction
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:3:de6aee
+    af:
+    - af:AF_G06_riazi:4:de6aee
+    - af:AF_G08_riazi:2:a22ece
+    uk:
+    - uk:UK_GCSE:3:c70a2a
+- id: ratio.problems
+  title:
+    fa-IR: مسئله‌های نسبت در موقعیت‌های واقعی
+    en: 'Ratio problems in context: recipes, mixing, concentrations'
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.share
+  - ratio.proportion
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y06:4:2d83f4
+    - uk:UK_GCSE:3:cbdfed
+    - uk:UK_GCSE:1:c5f176
+    - uk:UK_KS4:1:fb04fe
+- id: ratio.proportion.direct
+  title:
+    fa-IR: تناسب مستقیم
+    en: Direct proportion
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.proportion
+  - ratio.unitary
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:6:37f4b8
+    af:
+    - af:AF_G06_riazi:4:ef9093
+    - af:AF_G08_riazi:2:a22ece
+    uk:
+    - uk:UK_KS3:3:6072c7
+    - uk:UK_GCSE:3:19dd21
+- id: ratio.proportion.inverse
+  title:
+    fa-IR: تناسب معکوس
+    en: Inverse proportion
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.proportion.direct
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G06_riazi:4:16d556
+    - af:AF_G06_riazi:4:ef9093
+    - af:AF_G08_riazi:2:a22ece
+    uk:
+    - uk:UK_KS3:3:6072c7
+    - uk:UK_GCSE:3:19dd21
+    - uk:UK_GCSE:3:6d4bf5
+    - uk:UK_KS4:3:7f503c
+- id: ratio.proportion.compound
+  title:
+    fa-IR: تناسب مرکب
+    en: Compound proportion
+  age:
+  - 14
+  - 14
+  requires:
+  - ratio.proportion.direct
+  - ratio.proportion.inverse
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G08_riazi:2:a22ece
+    uk: []
+- id: ratio.proportion.graphs
+  title:
+    fa-IR: نمودار تناسب مستقیم و معکوس
+    en: Graphs of direct and inverse proportion
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.proportion.direct
+  - ratio.proportion.inverse
+  - pos.coordinates
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_KS3:3:6072c7
+    - uk:UK_KS3:3:cac0a3
+    - uk:UK_GCSE:3:19dd21
+    - uk:UK_GCSE:3:0b3268
+    - uk:UK_GCSE:3:6f2357
+    - uk:UK_KS4:3:0c1a22
+- id: ratio.proportion.equations
+  title:
+    fa-IR: معادلهٔ تناسب (y = kx و y = k/x)
+    en: 'Equations of proportion: y = kx, y = k/x and powers'
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.proportion.graphs
+  - alg.linear-equations
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_KS3:3:6072c7
+    - uk:UK_GCSE:3:6d4bf5
+    - uk:UK_KS4:3:7f503c
+- id: ratio.scale-factor
+  title:
+    fa-IR: ضریب بزرگ‌نمایی (مقیاس) در شکل‌های متشابه
+    en: Scale factors and similar shapes
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.scaling
+  - ratio.ratio
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y06:4:412d45
+    - uk:UK_KS3:3:a8d40c
+    - uk:UK_GCSE:3:8dc247
+- id: ratio.scale-drawings
+  title:
+    fa-IR: نقشه و مقیاس
+    en: Scale drawings and map scales
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.scale-factor
+  - ratio.simplify
+  - meas.length
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_KS3:3:a8d40c
+    - uk:UK_GCSE:3:8dc247
+    - uk:UK_KS3:4:cefa19
+    - uk:UK_GCSE:4:6702c3
+- id: ratio.similarity.length-area-volume
+  title:
+    fa-IR: نسبت طول، مساحت و حجم در شکل‌های متشابه
+    en: Ratios of lengths, areas and volumes in similar figures
+  age:
+  - 14
+  - 16
+  requires:
+  - ratio.scale-factor
+  - geo.similarity
+  - meas.area.rectilinear
+  - meas.volume.prisms
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_KS4:3:4a9aff
+    - uk:UK_GCSE:3:46f548
+- id: ratio.rate
+  title:
+    fa-IR: آهنگ و نرخ واحد
+    en: Rates and unit rates
+  age:
+  - 10
+  - 16
+  requires:
+  - ratio.unitary
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y05:3:781278
+    - uk:UK_KS3:3:b9823d
+    - uk:UK_GCSE:3:5a62aa
+- id: ratio.speed
+  title:
+    fa-IR: سرعت، مسافت و زمان
+    en: Speed, distance and time
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.rate
+  - meas.length
+  - meas.time
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_KS3:3:b9823d
+    - uk:UK_GCSE:3:5a62aa
+    - uk:UK_GCSE:3:b13273
+    - uk:UK_KS4:3:40581c
+- id: ratio.density
+  title:
+    fa-IR: چگالی، جرم و حجم
+    en: Density, mass and volume
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.rate
+  - meas.volume.prisms
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_KS3:3:b9823d
+    - uk:UK_GCSE:3:5a62aa
+    - uk:UK_GCSE:3:b13273
+    - uk:UK_KS4:3:40581c
+- id: ratio.pressure
+  title:
+    fa-IR: فشار، نیرو و مساحت
+    en: Pressure, force and area
+  age:
+  - 14
+  - 16
+  requires:
+  - ratio.rate
+  - meas.area.rectilinear
+  level: specialist
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:3:5a62aa
+    - uk:UK_GCSE:3:b13273
+    - uk:UK_KS4:3:40581c
+- id: ratio.compound-units.convert
+  title:
+    fa-IR: تبدیل یکاهای مرکب
+    en: Converting between compound units (e.g. km/h to m/s)
+  age:
+  - 14
+  - 16
+  requires:
+  - ratio.speed
+  - ratio.density
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:3:b13273
+    - uk:UK_KS4:3:40581c
+- id: ratio.rate.gradient
+  title:
+    fa-IR: شیب خط به‌عنوان آهنگ تغییر
+    en: The gradient of a straight-line graph as a rate of change
+  age:
+  - 14
+  - 16
+  requires:
+  - ratio.proportion.graphs
+  - ratio.rate
+  - func.linear-graphs
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:3:6f2357
+    - uk:UK_KS4:3:0c1a22
+- id: ratio.rate.instantaneous
+  title:
+    fa-IR: آهنگ متوسط و لحظه‌ای تغییر از روی نمودار
+    en: Average and instantaneous rate of change from a graph
+  age:
+  - 14
+  - 16
+  requires:
+  - ratio.rate.gradient
+  - func.quadratic-graphs
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:3:cb9cb6
+    - uk:UK_KS4:3:0b3481
+- id: ratio.percent-change
+  title:
+    fa-IR: افزایش و کاهش درصدی
+    en: Increasing and decreasing by a percentage
+  age:
+  - 11
+  - 16
+  requires:
+  - frac.percent.of-amount
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:6:af8318
+    af:
+    - af:AF_G08_riazi:2:1281df
+    uk:
+    - uk:UK_KS3:3:ebdce8
+    - uk:UK_GCSE:3:831f97
+- id: ratio.percent-change.multiplier
+  title:
+    fa-IR: ضریب تغییر درصدی
+    en: Percentage change as a multiplier, including percentages over 100%
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.percent-change
+  - frac.fdp
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_KS3:1:e5392b
+    - uk:UK_GCSE:3:831f97
+- id: ratio.percent-change.find
+  title:
+    fa-IR: محاسبهٔ درصد تغییر
+    en: Finding the percentage change
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.percent-change
+  - frac.percent.one-of-another
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_KS3:3:ebdce8
+    - uk:UK_GCSE:3:831f97
+- id: ratio.percent-change.reverse
+  title:
+    fa-IR: یافتن مقدار اولیه پیش از تغییر درصدی
+    en: 'Reverse percentages: finding the original value'
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.percent-change.multiplier
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_KS3:3:ebdce8
+    - uk:UK_GCSE:3:831f97
+- id: ratio.growth-decay
+  title:
+    fa-IR: رشد و زوال با درصد تکراری
+    en: Growth and decay by repeated percentage change
+  age:
+  - 14
+  - 16
+  requires:
+  - ratio.percent-change.multiplier
+  - num.powers
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_KS4:3:87a952
+    - uk:UK_GCSE:3:2df8ec
+- id: ratio.growth-decay.iterative
+  title:
+    fa-IR: فرایندهای تکراری در رشد و زوال
+    en: General iterative processes in growth and decay
+  age:
+  - 14
+  - 16
+  requires:
+  - ratio.growth-decay
+  - seq.geometric
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_KS4:3:87a952
+    - uk:UK_GCSE:3:2df8ec

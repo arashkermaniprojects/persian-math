@@ -1,0 +1,249 @@
+- id: mech.units
+  title:
+    fa-IR: کمیت‌ها و یکاهای SI در مکانیک
+    en: Quantities and SI units in mechanics
+  age:
+  - 16
+  - 18
+  requires:
+  - num.standard-form
+  - meas.length
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:16:2d44ea
+- id: mech.kinematics.language
+  title:
+    fa-IR: جابه‌جایی، مسافت، سرعت و شتاب
+    en: 'Language of kinematics: displacement, velocity, acceleration'
+  age:
+  - 16
+  - 18
+  requires:
+  - mech.units
+  - vec.2d
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:17:312fd2
+- id: mech.kinematics.graphs
+  title:
+    fa-IR: نمودارهای مکان–زمان و سرعت–زمان
+    en: Displacement–time and velocity–time graphs
+  age:
+  - 14
+  - 18
+  requires:
+  - mech.kinematics.language
+  - func.linear-graphs
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:17:832e52
+    - uk:UK_GCSE:2:22bb82
+    - uk:UK_KS4:2:1f9155
+    - uk:UK_GCSE:2:431f69
+    - uk:UK_KS4:2:785269
+- id: mech.kinematics.suvat
+  title:
+    fa-IR: معادلات حرکت با شتاب ثابت
+    en: Constant-acceleration (suvat) equations
+  age:
+  - 16
+  - 18
+  requires:
+  - mech.kinematics.graphs
+  - alg.quadratic-equations
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:17:7fea17
+- id: mech.kinematics.vectors
+  title:
+    fa-IR: حرکت در دو بعد با بردارها
+    en: Kinematics in two dimensions using vectors
+  age:
+  - 16
+  - 18
+  requires:
+  - mech.kinematics.suvat
+  - vec.2d
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:17:7fea17
+    - uk:UK_ALEVEL:17:8a5264
+    - uk:UK_ALEVEL:10:c8168e
+- id: mech.kinematics.calculus
+  title:
+    fa-IR: سینماتیک با مشتق و انتگرال
+    en: Kinematics using calculus
+  age:
+  - 16
+  - 18
+  requires:
+  - mech.kinematics.graphs
+  - calc.derivative.power-rule
+  - calc.integral
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:17:8a5264
+    - uk:UK_ALEVEL:8:b8157d
+- id: mech.projectiles
+  title:
+    fa-IR: حرکت پرتابی
+    en: Projectiles
+  age:
+  - 16
+  - 18
+  requires:
+  - mech.kinematics.vectors
+  - mech.forces.weight
+  - trig.right-triangle
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:17:ec9c08
+- id: mech.forces.newton-first
+  title:
+    fa-IR: مفهوم نیرو و قانون اول نیوتن
+    en: Force and Newton's first law
+  age:
+  - 16
+  - 18
+  requires:
+  - mech.units
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:18:b1884e
+- id: mech.forces.newton-second
+  title:
+    fa-IR: قانون دوم نیوتن
+    en: Newton's second law (F = ma)
+  age:
+  - 16
+  - 18
+  requires:
+  - mech.forces.newton-first
+  - mech.kinematics.suvat
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:18:db3961
+- id: mech.forces.weight
+  title:
+    fa-IR: وزن و حرکت تحت گرانش
+    en: Weight and motion under gravity
+  age:
+  - 16
+  - 18
+  requires:
+  - mech.forces.newton-second
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:18:d65f71
+- id: mech.forces.connected
+  title:
+    fa-IR: قانون سوم نیوتن، قرقره‌ها و اجسام متصل
+    en: Newton's third law, pulleys and connected particles
+  age:
+  - 16
+  - 18
+  requires:
+  - mech.forces.weight
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:18:a543d4
+- id: mech.forces.resolving
+  title:
+    fa-IR: تجزیهٔ نیروها و تعادل ذره
+    en: Resolving forces and equilibrium of a particle
+  age:
+  - 16
+  - 18
+  requires:
+  - mech.forces.newton-second
+  - trig.right-triangle
+  - vec.2d
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:18:db3961
+    - uk:UK_ALEVEL:18:a543d4
+    - uk:UK_ALEVEL:5:762d3b
+    - uk:UK_ALEVEL:10:c8168e
+- id: mech.forces.resultant
+  title:
+    fa-IR: برایند نیروها و دینامیک در صفحه
+    en: Resultant forces and dynamics in a plane
+  age:
+  - 16
+  - 18
+  requires:
+  - mech.forces.resolving
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:18:01098c
+    - uk:UK_ALEVEL:10:c8168e
+- id: mech.friction
+  title:
+    fa-IR: اصطکاک و مدل F ≤ μR
+    en: 'Friction: the F ≤ μR model'
+  age:
+  - 16
+  - 18
+  requires:
+  - mech.forces.resolving
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:18:c01f1f
+- id: mech.moments
+  title:
+    fa-IR: گشتاور نیرو در حالت ایستا
+    en: Moments in static contexts
+  age:
+  - 16
+  - 18
+  requires:
+  - mech.forces.resolving
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:19:15d2b1
+    - uk:UK_ALEVEL:16:2d44ea

@@ -1,0 +1,1113 @@
+- id: geo.shapes.2d.recognise
+  title:
+    fa-IR: شناخت شکل‌های هندسی مسطح
+    en: Recognising and naming 2-D shapes
+  age:
+  - 6
+  - 8
+  requires: []
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:1:5691a2
+    - iran:G01_riazi_aval:3:3eb3f9
+    - iran:G01_riazi_aval:4:d8d71e
+    - iran:G01_riazi_aval:5:be6b95
+    - iran:G01_riazi_aval:7:0a31c2
+    - iran:G01_riazi_aval:24:6410f7
+    - iran:G02_riazi_dovom:3:c470a7
+    af:
+    - af:AF_G01_riazi:6:239dd9
+    - af:AF_G02_riazi:9:28fd4b
+    uk:
+    - uk:UK_Y01:6:1da14f
+    - uk:UK_Y02:6:48c1b5
+- id: geo.shapes.3d.recognise
+  title:
+    fa-IR: شناخت شکل‌های فضایی (احجام)
+    en: Recognising and naming 3-D shapes
+  age:
+  - 6
+  - 8
+  requires:
+  - geo.shapes.2d.recognise
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y01:6:1da14f
+    - uk:UK_Y02:6:8e5244
+    - uk:UK_Y02:6:c6787e
+    - uk:UK_Y02:6:48c1b5
+    - uk:UK_Y03:6:e29268
+- id: geo.shapes.2d.properties
+  title:
+    fa-IR: ضلع‌ها و رأس‌های شکل‌ها و دسته‌بندی آن‌ها
+    en: 'Properties of 2-D shapes: sides, vertices, sorting'
+  age:
+  - 7
+  - 11
+  requires:
+  - geo.shapes.2d.recognise
+  - num.count.to-20
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:4:d8d71e
+    - iran:G02_riazi_dovom:3:5a903b
+    af:
+    - af:AF_G03_riazi:8:935064
+    uk:
+    - uk:UK_Y02:6:be529c
+    - uk:UK_Y04:6:de7988
+    - uk:UK_Y06:7:42fba1
+- id: geo.lines.basic
+  title:
+    fa-IR: نقطه، خط، نیم‌خط و پاره‌خط
+    en: Points, lines, rays and line segments
+  age:
+  - 8
+  - 16
+  requires:
+  - geo.shapes.2d.recognise
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:5:582821
+    - iran:G07_riazi_haftom:4:e37949
+    - iran:G07_gifted_supplement:5:e37949
+    af:
+    - af:AF_G03_riazi:8:7e0e5a
+    - af:AF_G03_riazi:8:608a12
+    - af:AF_G05_riazi:3:ec1148
+    - af:AF_G05_riazi:3:492515
+    - af:AF_G05_riazi:3:39cb64
+    uk:
+    - uk:UK_Y03:6:607fe9
+    - uk:UK_KS3:4:efd864
+    - uk:UK_GCSE:4:dc7993
+- id: geo.lines.parallel-perpendicular
+  title:
+    fa-IR: خط‌های موازی و عمود
+    en: Parallel and perpendicular lines
+  age:
+  - 8
+  - 16
+  requires:
+  - geo.lines.basic
+  - geo.angles.basic
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:6:77082f
+    - iran:G08_riazi_hashtom:3:ff3b68
+    - iran:G08_gifted_supplement:3:ff3b68
+    af:
+    - af:AF_G05_riazi:3:8445a6
+    - af:AF_G06_riazi:6:34f03b
+    - af:AF_G06_riazi:6:2006e3
+    - af:AF_G06_riazi:6:8cdccf
+    uk:
+    - uk:UK_Y03:6:607fe9
+    - uk:UK_KS3:4:efd864
+    - uk:UK_GCSE:4:dc7993
+- id: geo.angles.basic
+  title:
+    fa-IR: زاویه و انواع آن (تند، قائمه، باز)
+    en: Angles as turns; right, acute and obtuse angles
+  age:
+  - 8
+  - 11
+  requires:
+  - geo.lines.basic
+  - pos.turns
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:4:4a1bea
+    af:
+    - af:AF_G03_riazi:8:ea0c4b
+    - af:AF_G05_riazi:3:05dc75
+    - af:AF_G05_riazi:3:f16d53
+    - af:AF_G05_riazi:3:9ac739
+    uk:
+    - uk:UK_Y03:6:31d85a
+    - uk:UK_Y03:6:914265
+    - uk:UK_Y04:6:ac6fba
+    - uk:UK_Y05:6:5742b3
+- id: geo.angles.measure
+  title:
+    fa-IR: اندازه‌گیری و رسم زاویه با نقاله
+    en: Measuring and drawing angles in degrees
+  age:
+  - 10
+  - 16
+  requires:
+  - geo.angles.basic
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:4:a0e395
+    af:
+    - af:AF_G05_riazi:3:f66d88
+    - af:AF_G06_riazi:7:39cdc1
+    uk:
+    - uk:UK_Y05:6:91f244
+    - uk:UK_Y05:6:5742b3
+    - uk:UK_KS3:4:cefa19
+    - uk:UK_GCSE:4:6702c3
+- id: geo.angles.bisector
+  title:
+    fa-IR: نیمساز زاویه
+    en: Bisecting an angle
+  age:
+  - 11
+  - 12
+  requires:
+  - geo.angles.measure
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:4:25803e
+    af:
+    - af:AF_G06_riazi:7:38731a
+    uk: []
+- id: geo.angles.facts
+  title:
+    fa-IR: زاویه‌های مجاور، متمم، مکمل و متقابل به رأس
+    en: Angles at a point, on a line, vertically opposite; complementary and supplementary
+  age:
+  - 10
+  - 16
+  requires:
+  - geo.angles.measure
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:5:35b29f
+    - iran:G07_riazi_haftom:4:6a0f9e
+    - iran:G07_gifted_supplement:5:6a0f9e
+    af:
+    - af:AF_G05_riazi:3:031ada
+    - af:AF_G05_riazi:3:46ed90
+    - af:AF_G05_riazi:3:b6883b
+    - af:AF_G05_riazi:3:25695f
+    - af:AF_G05_riazi:3:c0ce88
+    uk:
+    - uk:UK_Y05:6:42313d
+    - uk:UK_Y06:7:1ee993
+    - uk:UK_KS3:4:580d7f
+    - uk:UK_GCSE:4:4565f7
+- id: geo.angles.parallel-lines
+  title:
+    fa-IR: زاویه‌های حاصل از دو خط موازی و مورب
+    en: 'Angles with parallel lines: alternate, corresponding, co-interior'
+  age:
+  - 11
+  - 16
+  requires:
+  - geo.angles.facts
+  - geo.lines.parallel-perpendicular
+  level: core
+  align:
+    iran:
+    - iran:G07_riazi_haftom:4:6a0f9e
+    - iran:G07_gifted_supplement:5:6a0f9e
+    - iran:G08_riazi_hashtom:3:ff3b68
+    - iran:G08_gifted_supplement:3:ff3b68
+    af:
+    - af:AF_G07_riazi:6:fcd856
+    - af:AF_G07_riazi:6:a085eb
+    - af:AF_G07_riazi:6:d6c0cc
+    uk:
+    - uk:UK_KS3:4:15ab06
+    - uk:UK_GCSE:4:4565f7
+- id: geo.triangles
+  title:
+    fa-IR: انواع مثلث از نظر ضلع و زاویه
+    en: Types of triangle by sides and angles
+  age:
+  - 9
+  - 16
+  requires:
+  - geo.shapes.2d.properties
+  - geo.angles.basic
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G05_riazi:3:3757cf
+    - af:AF_G05_riazi:3:246714
+    - af:AF_G05_riazi:3:0bb35e
+    - af:AF_G06_riazi:6:15cb75
+    - af:AF_G07_riazi:5:dc798f
+    uk:
+    - uk:UK_Y04:6:de7988
+    - uk:UK_KS3:4:599148
+    - uk:UK_KS3:4:69b813
+    - uk:UK_GCSE:4:72e4df
+    - uk:UK_GCSE:4:dc7993
+- id: geo.triangles.angle-sum
+  title:
+    fa-IR: مجموع زاویه‌های مثلث و زاویهٔ خارجی
+    en: Angle sum of a triangle and exterior angles
+  age:
+  - 11
+  - 16
+  requires:
+  - geo.triangles
+  - geo.angles.facts
+  level: core
+  align:
+    iran:
+    - iran:G07_riazi_haftom:4:6a0f9e
+    af:
+    - af:AF_G07_riazi:5:5f4917
+    uk:
+    - uk:UK_Y06:7:42fba1
+    - uk:UK_KS3:4:9c070d
+    - uk:UK_GCSE:4:4565f7
+- id: geo.triangles.inequality
+  title:
+    fa-IR: نابرابری مثلث
+    en: The triangle inequality
+  age:
+  - 13
+  - 13
+  requires:
+  - geo.triangles
+  level: core
+  align:
+    iran:
+    - iran:G07_riazi_haftom:4:e37949
+    - iran:G07_gifted_supplement:5:e37949
+    af:
+    - af:AF_G07_riazi:5:19b8b7
+    uk: []
+- id: geo.triangles.special-lines
+  title:
+    fa-IR: میانه، ارتفاع، نیمساز و عمودمنصف در مثلث
+    en: Medians, altitudes, angle bisectors and perpendicular bisectors of a triangle
+  age:
+  - 13
+  - 16
+  requires:
+  - geo.triangles
+  - geo.angles.bisector
+  - geo.lines.parallel-perpendicular
+  level: core
+  align:
+    iran:
+    - iran:G10_hendese1_math:1:95ec6f
+    af:
+    - af:AF_G07_riazi:5:dc798f
+    - af:AF_G08_riazi:5:65714e
+    - af:AF_G08_riazi:5:b46782
+    uk: []
+- id: geo.triangles.isosceles
+  title:
+    fa-IR: ویژگی‌های مثلث متساوی‌الساقین
+    en: Isosceles triangle theorems
+  age:
+  - 14
+  - 16
+  requires:
+  - geo.congruence.triangles
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:3:01cb7b
+    - iran:G09_gifted:3:01cb7b
+    af:
+    - af:AF_G08_riazi:5:49ed44
+    uk:
+    - uk:UK_GCSE:4:0e19eb
+- id: geo.triangles.right-special
+  title:
+    fa-IR: قضیه‌های مثلث قائم‌الزاویه (زاویه‌های ۳۰ و ۶۰ درجه، میانهٔ وتر)
+    en: 'Right-triangle theorems: the 30°-60° triangle and the median to the hypotenuse'
+  age:
+  - 14
+  - 14
+  requires:
+  - geo.triangles.isosceles
+  - geo.triangles.angle-sum
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G08_riazi:5:28cf80
+    uk: []
+- id: geo.triangles.bisector-theorem
+  title:
+    fa-IR: قضیهٔ نیمسازهای زاویه‌های داخلی و طول نیمساز
+    en: Angle bisector theorem and bisector lengths
+  age:
+  - 17
+  - 17
+  requires:
+  - geo.thales
+  level: specialist
+  align:
+    iran:
+    - iran:G11_hendese2_math:3:e34e98
+    af: []
+    uk: []
+- id: geo.polygons
+  title:
+    fa-IR: چندضلعی‌ها، منتظم و نامنتظم
+    en: Polygons, regular and irregular
+  age:
+  - 10
+  - 16
+  requires:
+  - geo.shapes.2d.properties
+  - geo.angles.measure
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:4:537dfe
+    - iran:G08_riazi_hashtom:3:26dad3
+    - iran:G08_gifted_supplement:3:26dad3
+    - iran:G08_gifted_supplement:3:90fba9
+    - iran:G10_hendese1_math:3:9e3604
+    af:
+    - af:AF_G05_riazi:3:6c8751
+    - af:AF_G07_riazi:5:0fb548
+    uk:
+    - uk:UK_Y05:6:43956d
+    - uk:UK_KS3:4:efd864
+    - uk:UK_GCSE:4:dc7993
+- id: geo.polygons.angles
+  title:
+    fa-IR: مجموع زاویه‌های داخلی و خارجی چندضلعی
+    en: Interior and exterior angle sums of polygons
+  age:
+  - 11
+  - 16
+  requires:
+  - geo.polygons
+  - geo.triangles.angle-sum
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:4:537dfe
+    - iran:G08_riazi_hashtom:3:23c3fe
+    - iran:G08_riazi_hashtom:3:383adf
+    - iran:G08_gifted_supplement:3:e431da
+    af:
+    - af:AF_G07_riazi:5:53eee1
+    - af:AF_G07_riazi:6:0fc15e
+    uk:
+    - uk:UK_Y06:7:42fba1
+    - uk:UK_KS3:4:9c070d
+    - uk:UK_GCSE:4:4565f7
+- id: geo.quadrilaterals.types
+  title:
+    fa-IR: 'چهارضلعی‌ها: مربع، مستطیل، متوازی‌الاضلاع، لوزی و ذوزنقه'
+    en: 'Types of quadrilateral: square, rectangle, parallelogram, rhombus, trapezium, kite'
+  age:
+  - 9
+  - 16
+  requires:
+  - geo.shapes.2d.properties
+  - geo.lines.parallel-perpendicular
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:6:e19dad
+    - iran:G08_riazi_hashtom:3:e19dad
+    - iran:G08_gifted_supplement:3:e19dad
+    af:
+    - af:AF_G05_riazi:3:29753c
+    - af:AF_G05_riazi:3:2fd88c
+    - af:AF_G05_riazi:3:f87463
+    - af:AF_G06_riazi:6:1a95e6
+    - af:AF_G06_riazi:6:b3e10f
+    - af:AF_G06_riazi:6:75a419
+    - af:AF_G07_riazi:6:ee96ed
+    uk:
+    - uk:UK_Y04:6:de7988
+    - uk:UK_Y05:6:f30227
+    - uk:UK_GCSE:4:72e4df
+- id: geo.quadrilaterals.properties
+  title:
+    fa-IR: ویژگی‌های زاویه‌ها و قطرهای چهارضلعی‌ها
+    en: Angle and diagonal properties of quadrilaterals
+  age:
+  - 10
+  - 16
+  requires:
+  - geo.quadrilaterals.types
+  - geo.angles.parallel-lines
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:3:e19dad
+    - iran:G08_gifted_supplement:3:e19dad
+    - iran:G10_hendese1_math:3:9e3604
+    af:
+    - af:AF_G07_riazi:6:d7d6b2
+    - af:AF_G07_riazi:6:c7cf64
+    - af:AF_G07_riazi:6:343b49
+    - af:AF_G07_riazi:6:0fc146
+    uk:
+    - uk:UK_Y05:6:f30227
+    - uk:UK_KS3:4:69b813
+    - uk:UK_GCSE:4:72e4df
+- id: geo.tessellation
+  title:
+    fa-IR: کاشی‌کاری با چندضلعی‌ها
+    en: Tessellations with polygons
+  age:
+  - 14
+  - 14
+  requires:
+  - geo.polygons.angles
+  level: extension
+  align:
+    iran:
+    - iran:G08_gifted_supplement:3:d022b7
+    af: []
+    uk: []
+- id: geo.symmetry.line
+  title:
+    fa-IR: تقارن محوری (خط تقارن)
+    en: Line symmetry
+  age:
+  - 7
+  - 16
+  requires:
+  - geo.shapes.2d.recognise
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:9:bd850a
+    - iran:G01_riazi_aval:10:3c7e5e
+    - iran:G01_riazi_aval:14:c301d1
+    - iran:G02_riazi_dovom:3:0aa0bb
+    - iran:G02_riazi_dovom:3:23cd95
+    - iran:G03_riazi_sevom:1:f0bca5
+    - iran:G05_riazi_panjom:4:576c4b
+    - iran:G08_riazi_hashtom:3:26dad3
+    - iran:G08_gifted_supplement:3:26dad3
+    af:
+    - af:AF_G08_riazi:4:0c1364
+    uk:
+    - uk:UK_Y02:6:be529c
+    - uk:UK_Y04:6:67af1b
+    - uk:UK_Y04:6:9b9ba0
+    - uk:UK_KS3:4:efd864
+    - uk:UK_GCSE:4:dc7993
+- id: geo.symmetry.rotational
+  title:
+    fa-IR: تقارن مرکزی و تقارن چرخشی
+    en: Point and rotational symmetry
+  age:
+  - 11
+  - 16
+  requires:
+  - geo.symmetry.line
+  - pos.turns
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:4:784f15
+    - iran:G06_riazi_sheshom:4:92f070
+    - iran:G08_riazi_hashtom:3:26dad3
+    - iran:G08_gifted_supplement:3:26dad3
+    af:
+    - af:AF_G08_riazi:4:0c1364
+    uk:
+    - uk:UK_KS3:4:efd864
+    - uk:UK_GCSE:4:dc7993
+- id: geo.congruence
+  title:
+    fa-IR: شکل‌های هم‌نهشت
+    en: Congruent shapes
+  age:
+  - 11
+  - 16
+  requires:
+  - pos.transformations
+  level: core
+  align:
+    iran:
+    - iran:G07_riazi_haftom:4:644f7e
+    - iran:G07_gifted_supplement:5:fa6518
+    - iran:G08_riazi_hashtom:6:6d1a5b
+    - iran:G08_gifted_supplement:6:10fa30
+    - iran:G08_gifted_supplement:6:e42fde
+    af:
+    - af:AF_G07_riazi:5:0fcc01
+    uk:
+    - uk:UK_KS3:4:9e3082
+    - uk:UK_GCSE:4:6c1b56
+    - uk:UK_GCSE:4:6dc798
+    - uk:UK_KS4:4:9608ac
+- id: geo.congruence.triangles
+  title:
+    fa-IR: حالت‌های هم‌نهشتی مثلث‌ها
+    en: Congruence criteria for triangles (SSS, SAS, ASA, RHS)
+  age:
+  - 11
+  - 16
+  requires:
+  - geo.congruence
+  - geo.triangles
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:6:193515
+    - iran:G08_riazi_hashtom:6:37ba27
+    - iran:G08_gifted_supplement:6:193515
+    - iran:G08_gifted_supplement:6:37ba27
+    - iran:G09_riazi_nohom:3:44241f
+    - iran:G09_gifted:3:44241f
+    af:
+    - af:AF_G07_riazi:5:961380
+    uk:
+    - uk:UK_KS3:4:599148
+    - uk:UK_KS3:4:9e3082
+    - uk:UK_GCSE:4:c61023
+- id: geo.proof.intro
+  title:
+    fa-IR: استدلال و اثبات در هندسه
+    en: Reasoning and proof in geometry
+  age:
+  - 11
+  - 17
+  requires:
+  - geo.congruence.triangles
+  - geo.angles.parallel-lines
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:3:ce8aec
+    - iran:G09_riazi_nohom:3:c0eec1
+    - iran:G09_riazi_nohom:3:01cb7b
+    - iran:G09_gifted:3:c0eec1
+    - iran:G09_gifted:3:01cb7b
+    - iran:G10_hendese1_math:1:ce8aec
+    - iran:G11_riazi2_science:2:344811
+    af: []
+    uk:
+    - uk:UK_KS3:4:1a33c3
+    - uk:UK_KS3:4:f8435e
+    - uk:UK_GCSE:4:0e19eb
+- id: geo.similarity
+  title:
+    fa-IR: شکل‌های متشابه و نسبت تشابه
+    en: Similar shapes and scale factor
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.ratio
+  - pos.enlargement
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:3:6c0c74
+    - iran:G09_gifted:3:6c0c74
+    - iran:G10_hendese1_math:2:6cc7c4
+    af:
+    - af:AF_G08_riazi:3:a8861e
+    uk:
+    - uk:UK_Y06:4:412d45
+    - uk:UK_KS3:4:9e3082
+    - uk:UK_GCSE:4:6c1b56
+    - uk:UK_GCSE:4:6dc798
+    - uk:UK_KS4:4:9608ac
+- id: geo.thales
+  title:
+    fa-IR: قضیهٔ تالس و عکس آن
+    en: Thales' (intercept) theorem and its converse
+  age:
+  - 14
+  - 17
+  requires:
+  - geo.similarity
+  - geo.angles.parallel-lines
+  - ratio.proportion.direct
+  level: core
+  align:
+    iran:
+    - iran:G10_hendese1_math:2:6cc7c4
+    - iran:G10_hendese1_math:2:79a720
+    - iran:G10_hendese1_math:2:269bdb
+    - iran:G11_riazi2_science:2:344811
+    af:
+    - af:AF_G08_riazi:3:89beff
+    - af:AF_G08_riazi:3:4ae444
+    - af:AF_G09_riazi:4:f82080
+    uk: []
+- id: geo.similarity.triangles
+  title:
+    fa-IR: حالت‌های تشابه مثلث‌ها
+    en: Similarity criteria for triangles
+  age:
+  - 11
+  - 17
+  requires:
+  - geo.thales
+  - geo.congruence.triangles
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:3:6c0c74
+    - iran:G10_hendese1_math:2:020a47
+    - iran:G10_hendese1_math:2:269bdb
+    - iran:G11_riazi2_science:2:020a47
+    af:
+    - af:AF_G08_riazi:3:4ae444
+    uk:
+    - uk:UK_GCSE:4:0e19eb
+    - uk:UK_KS3:4:1a33c3
+- id: geo.similarity.area-volume
+  title:
+    fa-IR: نسبت مساحت‌ها و حجم‌های شکل‌های متشابه
+    en: Ratios of areas and volumes of similar figures
+  age:
+  - 14
+  - 16
+  requires:
+  - geo.similarity
+  - meas.area.rectilinear
+  - meas.volume.cuboid
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:4:6dc798
+    - uk:UK_GCSE:3:46f548
+    - uk:UK_KS4:3:4a9aff
+    - uk:UK_KS4:4:9608ac
+- id: geo.pythagoras
+  title:
+    fa-IR: رابطهٔ فیثاغورس و عکس آن
+    en: Pythagoras' theorem and its converse
+  age:
+  - 11
+  - 16
+  requires:
+  - geo.triangles
+  - meas.area.rectilinear
+  - num.roots
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:6:acace8
+    - iran:G08_gifted_supplement:6:acace8
+    af:
+    - af:AF_G08_riazi:5:ef6828
+    uk:
+    - uk:UK_KS3:4:1a33c3
+    - uk:UK_KS3:4:36ffe6
+    - uk:UK_GCSE:4:7bc7f4
+    - uk:UK_GCSE:4:0e19eb
+    - uk:UK_KS4:4:36091f
+- id: geo.pythagoras.3d
+  title:
+    fa-IR: رابطهٔ فیثاغورس در شکل‌های فضایی (قطر مکعب مستطیل)
+    en: Pythagoras in 3-D (e.g. the diagonal of a cuboid)
+  age:
+  - 14
+  - 16
+  requires:
+  - geo.pythagoras
+  - geo.solids.properties
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G08_riazi:6:73b079
+    uk:
+    - uk:UK_GCSE:4:7bc7f4
+    - uk:UK_KS4:4:36091f
+- id: geo.circle.parts
+  title:
+    fa-IR: 'دایره: مرکز، شعاع، قطر و وتر'
+    en: 'Parts of a circle: centre, radius, diameter, chord, arc'
+  age:
+  - 10
+  - 16
+  requires:
+  - geo.shapes.2d.recognise
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G04_riazi:4:207637
+    - af:AF_G05_riazi:3:805b9f
+    - af:AF_G06_riazi:6:07c8f7
+    - af:AF_G09_riazi:1:f5d1ba
+    uk:
+    - uk:UK_Y06:7:e89c05
+    - uk:UK_GCSE:4:30d1bb
+    - uk:UK_KS4:4:857532
+- id: geo.circle.lines
+  title:
+    fa-IR: وضعیت خط و دایره و وضعیت دو دایره
+    en: Positions of a line and a circle, and of two circles
+  age:
+  - 14
+  - 17
+  requires:
+  - geo.circle.parts
+  - geo.lines.parallel-perpendicular
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:9:a5f98a
+    - iran:G08_gifted_supplement:9:a5f98a
+    - iran:G11_hendese2_math:1:ce27c8
+    af:
+    - af:AF_G09_riazi:1:f5d1ba
+    - af:AF_G09_riazi:1:a4b9fb
+    uk: []
+- id: geo.circle.angles
+  title:
+    fa-IR: زاویه‌های مرکزی و محاطی
+    en: Central and inscribed angles
+  age:
+  - 14
+  - 17
+  requires:
+  - geo.circle.parts
+  - geo.triangles.angle-sum
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:9:d441a2
+    - iran:G08_riazi_hashtom:9:f9f9d3
+    - iran:G08_gifted_supplement:9:24d030
+    - iran:G08_gifted_supplement:9:f774cc
+    - iran:G11_hendese2_math:1:ce27c8
+    af:
+    - af:AF_G09_riazi:1:c96e44
+    - af:AF_G09_riazi:1:b880fd
+    - af:AF_G09_riazi:2:1b5a69
+    uk:
+    - uk:UK_GCSE:4:e3862a
+    - uk:UK_KS4:4:759c4a
+- id: geo.circle.tangents
+  title:
+    fa-IR: مماس بر دایره و ویژگی‌های آن
+    en: Tangents to a circle and their properties
+  age:
+  - 14
+  - 17
+  requires:
+  - geo.circle.lines
+  - geo.congruence.triangles
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:9:a5f98a
+    - iran:G08_gifted_supplement:9:a5f98a
+    - iran:G11_hendese2_math:1:ce27c8
+    af:
+    - af:AF_G09_riazi:1:b880fd
+    - af:AF_G09_riazi:2:1b5a69
+    uk:
+    - uk:UK_GCSE:4:30d1bb
+    - uk:UK_GCSE:4:e3862a
+    - uk:UK_KS4:4:857532
+    - uk:UK_KS4:4:759c4a
+- id: geo.circle.theorems
+  title:
+    fa-IR: اثبات قضیه‌های دایره
+    en: Proving the circle theorems
+  age:
+  - 14
+  - 17
+  requires:
+  - geo.circle.angles
+  - geo.circle.tangents
+  - geo.proof.intro
+  level: extension
+  align:
+    iran:
+    - iran:G11_hendese2_math:1:ce27c8
+    af: []
+    uk:
+    - uk:UK_GCSE:4:e3862a
+    - uk:UK_KS4:4:759c4a
+- id: geo.circle.cyclic-polygons
+  title:
+    fa-IR: چندضلعی‌های محاطی و محیطی، دایرهٔ محیطی و محاطی
+    en: Cyclic and tangential polygons; circumcircle and incircle
+  age:
+  - 14
+  - 17
+  requires:
+  - geo.circle.angles
+  - geo.triangles.special-lines
+  level: core
+  align:
+    iran:
+    - iran:G11_hendese2_math:1:f2c465
+    af:
+    - af:AF_G09_riazi:2:aa5673
+    - af:AF_G09_riazi:2:3102f7
+    - af:AF_G10_riazi:5:917bc9
+    uk:
+    - uk:UK_GCSE:4:e3862a
+- id: geo.circle.lengths
+  title:
+    fa-IR: روابط طولی در دایره (قوت نقطه)
+    en: 'Lengths in a circle: intersecting chords and the power of a point'
+  age:
+  - 15
+  - 17
+  requires:
+  - geo.circle.angles
+  - geo.similarity.triangles
+  level: core
+  align:
+    iran:
+    - iran:G11_hendese2_math:1:b3b2cb
+    af:
+    - af:AF_G09_riazi:2:0fe92e
+    - af:AF_G09_riazi:2:3c378a
+    uk: []
+- id: geo.construct.basic
+  title:
+    fa-IR: ترسیم‌های هندسی با خط‌کش و پرگار
+    en: 'Ruler-and-compass constructions: bisectors, perpendiculars, equal angles, parallels'
+  age:
+  - 11
+  - 17
+  requires:
+  - geo.circle.parts
+  - geo.angles.bisector
+  - geo.lines.parallel-perpendicular
+  level: core
+  align:
+    iran:
+    - iran:G10_hendese1_math:1:95ec6f
+    - iran:G11_riazi2_science:2:95ec6f
+    af:
+    - af:AF_G06_riazi:6:61df0f
+    - af:AF_G06_riazi:7:405c20
+    - af:AF_G06_riazi:7:cd41b7
+    - af:AF_G06_riazi:7:c6287f
+    - af:AF_G06_riazi:7:56f8bb
+    - af:AF_G06_riazi:7:7f180e
+    - af:AF_G06_riazi:7:2bee0c
+    - af:AF_G09_riazi:2:1c3059
+    uk:
+    - uk:UK_KS3:4:51dcb4
+    - uk:UK_GCSE:4:c16a6c
+- id: geo.construct.triangles
+  title:
+    fa-IR: رسم مثلث با اندازه‌های داده شده
+    en: Constructing triangles and shapes from given measurements
+  age:
+  - 11
+  - 16
+  requires:
+  - geo.triangles
+  - geo.angles.measure
+  level: core
+  align:
+    iran:
+    - iran:G10_hendese1_math:1:95ec6f
+    af:
+    - af:AF_G06_riazi:7:1f2ed5
+    - af:AF_G06_riazi:7:0654a2
+    - af:AF_G06_riazi:7:2300a1
+    - af:AF_G06_riazi:7:cd12ae
+    uk:
+    - uk:UK_Y06:7:d26412
+    - uk:UK_KS3:4:9e3082
+    - uk:UK_GCSE:4:dc7993
+- id: geo.loci
+  title:
+    fa-IR: مکان هندسی
+    en: Loci
+  age:
+  - 11
+  - 18
+  requires:
+  - geo.construct.basic
+  level: core
+  align:
+    iran:
+    - iran:G10_hendese1_math:1:95ec6f
+    - iran:G12_hendese3_math:2:31f899
+    af: []
+    uk:
+    - uk:UK_GCSE:4:c16a6c
+    - uk:UK_KS3:4:51dcb4
+- id: geo.area-method
+  title:
+    fa-IR: کاربرد مساحت در استدلال‌های هندسی
+    en: Using area in geometric reasoning
+  age:
+  - 16
+  - 16
+  requires:
+  - meas.area.triangle-parallelogram
+  - geo.proof.intro
+  level: specialist
+  align:
+    iran:
+    - iran:G10_hendese1_math:3:45bc62
+    af: []
+    uk: []
+- id: geo.solids.properties
+  title:
+    fa-IR: 'ویژگی‌های احجام: وجه، یال و رأس؛ منشور، هرم، استوانه، مخروط و کره'
+    en: 'Properties of solids: faces, edges, vertices; prisms, pyramids, cylinders, cones, spheres'
+  age:
+  - 7
+  - 16
+  requires:
+  - geo.shapes.3d.recognise
+  - geo.polygons
+  level: core
+  align:
+    iran:
+    - iran:G07_riazi_haftom:6:a7f3bc
+    af:
+    - af:AF_G06_riazi:6:e82c79
+    - af:AF_G06_riazi:6:9232f4
+    - af:AF_G06_riazi:6:26fdb0
+    - af:AF_G06_riazi:6:9e7534
+    - af:AF_G06_riazi:6:05c74e
+    uk:
+    - uk:UK_Y02:6:8e5244
+    - uk:UK_KS3:4:28c7f1
+    - uk:UK_GCSE:4:7d23e8
+    - uk:UK_GCSE:4:dc7993
+- id: geo.solids.nets
+  title:
+    fa-IR: گسترده و ساختن احجام
+    en: Nets and building 3-D shapes
+  age:
+  - 11
+  - 13
+  requires:
+  - geo.solids.properties
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:7:806223
+    - iran:G07_gifted_supplement:7:2d536f
+    - iran:G07_gifted_supplement:7:13fadb
+    af: []
+    uk:
+    - uk:UK_Y06:7:b5c5da
+- id: geo.solids.polyhedra
+  title:
+    fa-IR: چندوجهی‌های منتظم و رابطهٔ اویلر
+    en: Regular polyhedra and Euler's formula
+  age:
+  - 13
+  - 15
+  requires:
+  - geo.solids.nets
+  - geo.polygons.angles
+  level: extension
+  align:
+    iran:
+    - iran:G07_gifted_supplement:7:2d536f
+    - iran:G07_gifted_supplement:7:13fadb
+    - iran:G09_gifted:8:f5229f
+    af: []
+    uk: []
+- id: geo.solids.2d-representations
+  title:
+    fa-IR: شناخت احجام از روی تصویرهای دوبعدی
+    en: Recognising 3-D shapes from 2-D drawings
+  age:
+  - 8
+  - 10
+  requires:
+  - geo.shapes.3d.recognise
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y03:6:e29268
+    - uk:UK_Y05:6:35111d
+- id: geo.spatial.views
+  title:
+    fa-IR: 'تجسم فضایی: نماهای روبه‌رو، بالا و جانبی'
+    en: 'Spatial visualisation: plans and elevations'
+  age:
+  - 13
+  - 16
+  requires:
+  - geo.solids.2d-representations
+  - geo.solids.properties
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:7:088be4
+    - iran:G10_hendese1_math:4:c7274d
+    af: []
+    uk:
+    - uk:UK_GCSE:4:8afccc
+    - uk:UK_KS4:4:787bf4
+- id: geo.spatial.sections
+  title:
+    fa-IR: سطح مقطع و احجام دوار
+    en: Cross-sections and solids of revolution
+  age:
+  - 13
+  - 18
+  requires:
+  - geo.spatial.views
+  level: specialist
+  align:
+    iran:
+    - iran:G07_gifted_supplement:7:0b29b6
+    - iran:G10_hendese1_math:4:c7274d
+    - iran:G12_riazi3_science:6:6c17d6
+    af: []
+    uk: []
+- id: geo.space.lines-planes
+  title:
+    fa-IR: وضعیت نسبی خط و صفحه در فضا
+    en: Relative positions of lines and planes in space
+  age:
+  - 16
+  - 17
+  requires:
+  - geo.lines.parallel-perpendicular
+  - geo.spatial.views
+  level: specialist
+  align:
+    iran:
+    - iran:G10_hendese1_math:4:1e48ef
+    af:
+    - af:AF_G11_riazi:3:eadbb3
+    - af:AF_G11_riazi:3:7474fa
+    - af:AF_G11_riazi:3:f75f4d
+    - af:AF_G11_riazi:3:4506b6
+    - af:AF_G11_riazi:3:455db0
+    uk: []
+- id: geo.space.perpendicular
+  title:
+    fa-IR: تعامد خط و صفحه و زاویهٔ دو خط در فضا
+    en: Perpendicular lines and planes and angles between lines in space
+  age:
+  - 16
+  - 17
+  requires:
+  - geo.space.lines-planes
+  - geo.pythagoras
+  level: specialist
+  align:
+    iran:
+    - iran:G10_hendese1_math:4:1e48ef
+    af:
+    - af:AF_G11_riazi:3:eb1049
+    - af:AF_G11_riazi:3:1b03e9
+    uk: []

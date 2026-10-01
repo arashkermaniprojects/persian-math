@@ -1,5 +1,7 @@
 // Locale registry. Everything locale-specific that is not a translated string lives here.
-// Notation details (decimal mark etc.) are provisional until docs/NOTATION.md is verified against the textbooks.
+// Notation follows docs/NOTATION.md (verified against the Iranian and Afghan textbooks).
+// Afghan books switch to Latin digits and a point from grade 7; Kamangir keeps Persian digits throughout
+// and will offer a learner setting for 123 digits instead (planned).
 
 export type LocaleCode = 'fa-IR' | 'fa-AF' | 'ps' | 'en';
 
@@ -30,11 +32,11 @@ export const LOCALES: Record<LocaleCode, LocaleMeta> = {
   },
   'fa-AF': {
     code: 'fa-AF', htmlLang: 'fa-AF', dir: 'rtl', nativeName: 'دری',
-    digits: PERSIAN_DIGITS, decimalMark: '٫', defaultPath: 'afghanistan', status: 'draft',
+    digits: PERSIAN_DIGITS, decimalMark: ',', defaultPath: 'afghanistan', status: 'draft', // «ممیزه»
   },
   ps: {
     code: 'ps', htmlLang: 'ps-AF', dir: 'rtl', nativeName: 'پښتو',
-    digits: PERSIAN_DIGITS, decimalMark: '٫', defaultPath: 'afghanistan', status: 'draft',
+    digits: PERSIAN_DIGITS, decimalMark: ',', defaultPath: 'afghanistan', status: 'draft',
   },
   en: {
     code: 'en', htmlLang: 'en', dir: 'ltr', nativeName: 'English',
