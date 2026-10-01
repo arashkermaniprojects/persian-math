@@ -1,0 +1,127 @@
+---
+// Reviewer page for the glossary. Built only in the preview build (PUBLIC_PREVIEW=1), at /review/glossary/.
+// Reviewers edit Dari/Pashto terms, approve them, and download a JSON file of their decisions —
+// no accounts or network: the file is sent back to the project by hand and merged into content/glossary/*.yaml.
+import { ALL_TERMS } from '../../lib/i18n';
+
+export function getStaticPaths() {
+  return import.meta.env.PUBLIC_PREVIEW === '1' ? [{ params: { section: 'review' } }] : [];
+}
+
+const base = import.meta.env.BASE_URL;
+const fmtSrc = (src?: Record<string, string>) =>
+  src ? Object.entries(src).map(([k, v]) => `${k}: ${v}`).join(' · ') : '';
+---
+<!doctype html>
+<html lang="fa-AF" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>بازبینی واژه‌نامه · Glossary review</title>
+  </head>
+  <body>
+    <header>
+      <h1>بازبینی واژه‌نامهٔ کمانگیر <span dir="ltr">· Kamangir glossary review</span></h1>
+      <p>
+        برای هر اصطلاح، واژهٔ درست کتاب‌های درسی افغانستان را بنویسید و «تأیید» را بزنید. در پایان «دانلود اصلاحات» را بزنید و فایل را برای ما بفرستید.<br />
+        د هر اصطلاح لپاره د افغانستان د درسي کتابونو سمه کلمه ولیکئ او «تایید» کېکاږئ. په پای کې «اصلاحات ډاونلوډ» کېکاږئ او فایل موږ ته راواستوئ.<br />
+        <span dir="ltr">For each term, correct the Dari/Pashto word if needed and tick “approve”. Then download your corrections and send us the file. Your work is saved in this browser as you go.</span>
+      </p>
+      <div class="controls">
+        <label>زبان / ژبه
+          <select id="locale">
+            <option value="fa-AF">دری</option>
+            <option value="ps">پښتو</option>
+          </select>
+        </label>
+        <label>نام بازبین / د کتونکي نوم <input id="reviewer" autocomplete="name" /></label>
+        <label>جستجو <input id="q" type="search" /></label>
+        <label><input id="onlyOpen" type="checkbox" /> فقط تأییدنشده‌ها / یوازې نا تایید شوي</label>
+        <button id="download" type="button">دانلود اصلاحات / اصلاحات ډاونلوډ</button>
+        <span id="count" aria-live="polite"></span>
+      </div>
+    </header>
+
+    <table>
+      <thead>
+        <tr><th>en</th><th>fa-IR</th><th class="edit-head">—</th><th>تأیید</th><th>منبع / source</th></tr>
+      </thead>
+      <tbody>
+        {ALL_TERMS.map((t) => (
+          <tr data-id={t.id} data-fa-af={t['fa-AF'] ?? ''} data-ps={t.ps ?? ''} data-search={`${t.id} ${t.en} ${t['fa-IR']} ${t['fa-AF'] ?? ''} ${t.ps ?? ''}`}>
+            <td dir="ltr">{t.en}<br /><code>{t.id}</code></td>
+            <td>{t['fa-IR']}</td>
+            <td><input class="term" aria-label={`${t.en}`} /></td>
+            <td><input class="ok" type="checkbox" aria-label={`approve ${t.en}`} /></td>
+            <td class="src" dir="ltr">{fmtSrc(t.src)}{t.note && <><br /><em>{t.note}</em></>}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
+    <script is:inline>
+      const KEY = 'kamangir-glossary-review';
+      const rows = [...document.querySelectorAll('tbody tr')];
+      const $ = (id) => document.getElementById(id);
+      let state = { reviewer: '', 'fa-AF': {}, ps: {} };
+      try { state = { ...state, ...JSON.parse(localStorage.getItem(KEY) || '{}') }; } catch {}
+      const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {} };
+      const loc = () => $('locale').value;
+      const original = (tr) => tr.dataset[loc() === 'ps' ? 'ps' : 'faAf'];
+
+      function render() {
+        const l = loc(), q = $('q').value.trim().toLowerCase(), onlyOpen = $('onlyOpen').checked;
+        document.querySelector('.edit-head').textContent = l === 'ps' ? 'پښتو' : 'دری';
+        let open = 0;
+        for (const tr of rows) {
+          const d = state[l][tr.dataset.id] || {};
+          tr.querySelector('.term').value = d.term ?? original(tr);
+          tr.querySelector('.term').lang = l === 'ps' ? 'ps' : 'fa-AF';
+          tr.querySelector('.ok').checked = !!d.ok;
+          if (!d.ok) open++;
+          tr.hidden = (onlyOpen && d.ok) || (q && !tr.dataset.search.toLowerCase().includes(q));
+        }
+        $('count').textContent = `${rows.length - open} / ${rows.length} ✓`;
+      }
+
+      for (const tr of rows) {
+        const update = () => {
+          const l = loc(), id = tr.dataset.id;
+          const term = tr.querySelector('.term').value.trim();
+          state[l][id] = { term, ok: tr.querySelector('.ok').checked, changed: term !== original(tr) };
+          save(); render();
+        };
+        tr.querySelector('.term').addEventListener('change', update);
+        tr.querySelector('.ok').addEventListener('change', update);
+      }
+      $('reviewer').value = state.reviewer || '';
+      $('reviewer').addEventListener('change', (e) => { state.reviewer = e.target.value; save(); });
+      for (const id of ['locale', 'q', 'onlyOpen']) $(id).addEventListener('input', render);
+
+      $('download').addEventListener('click', () => {
+        const l = loc();
+        const out = { locale: l, reviewer: state.reviewer, date: new Date().toISOString().slice(0, 10), decisions: state[l] };
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([JSON.stringify(out, null, 1)], { type: 'application/json' }));
+        a.download = `kamangir-glossary-${l}-${out.date}.json`;
+        a.click();
+      });
+      render();
+    </script>
+
+    <style>
+      @font-face { font-family: 'Vazirmatn'; src: url('/fonts/Vazirmatn-Regular.woff2') format('woff2'); }
+      :root { --bg: #fbf8f2; --fg: #1f2328; --muted: #5c6370; --border: #e6dfd3; color-scheme: light dark; }
+      @media (prefers-color-scheme: dark) { :root { --bg: #16181c; --fg: #e8e6e3; --muted: #a0a6b0; --border: #30343b; } }
+      body { margin: 0; padding: 1rem; background: var(--bg); color: var(--fg); font-family: 'Vazirmatn', system-ui, sans-serif; line-height: 1.7; }
+      h1 { font-size: 1.3rem; }
+      .controls { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-block: 1rem; }
+      button, input, select { font: inherit; min-block-size: 40px; }
+      table { inline-size: 100%; border-collapse: collapse; }
+      th, td { border: 1px solid var(--border); padding: 0.35rem 0.5rem; vertical-align: top; }
+      td .term { inline-size: 100%; min-inline-size: 9rem; }
+      .src { color: var(--muted); font-size: 0.8rem; }
+      @media (max-width: 700px) { .src { display: none; } }
+    </style>
+  </body>
+</html>

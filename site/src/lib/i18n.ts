@@ -8,8 +8,12 @@ import glossary from '../../../content/glossary.json';
 type Dict = Record<string, string>;
 const UI: Record<LocaleCode, Dict> = { 'fa-IR': faIR, 'fa-AF': faAF, ps, en };
 
-interface Term { id: string; 'fa-IR': string; 'fa-AF'?: string; ps?: string; en: string }
-const TERMS = new Map((glossary.terms as Term[]).map((t) => [t.id, t]));
+export interface Term {
+  id: string; 'fa-IR': string; 'fa-AF'?: string; ps?: string; en: string;
+  status?: Record<string, string>; src?: Record<string, string>; note?: string;
+}
+export const ALL_TERMS = glossary.terms as Term[];
+const TERMS = new Map(ALL_TERMS.map((t) => [t.id, t]));
 
 /** Resolve a glossary term, falling back to Iranian Persian (for fa-AF and ps) or English. */
 export function term(id: string, locale: LocaleCode): string {
