@@ -1,0 +1,14 @@
+{
+  "site.name": "کمانگیر",
+  "site.tagline": "اکادمی ریاضی برای همهٔ اطفال",
+  "nav.language": "زبان",
+  "nav.path": "نصاب تعلیمی",
+  "path.iran": "ایران",
+  "path.afghanistan": "افغانستان",
+  "path.uk": "بریتانیا",
+  "path.explorer": "کاوشگر",
+  "home.choosePath": "نصاب تعلیمی خود را انتخاب کنید",
+  "home.offline": "کمانگیر بدون انترنت هم کار می‌کند.",
+  "home.demo": "نمونه: {{term:fraction}}",
+  "draft.banner": "این زبان هنوز بازبینی نشده است (مسوده)."
+}
