@@ -1,0 +1,234 @@
+/* Design tokens and base styles. Logical properties only (margin-inline etc.) so RTL and LTR both work. */
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('/fonts/Vazirmatn-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Vazirmatn';
+    src: url('/fonts/Vazirmatn-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+  }
+  :root {
+    --bg: #fbf8f2;
+    --fg: #1f2328;
+    --muted: #5c6370;
+    --accent: #b5462a;
+    --card: #ffffff;
+    --border: #e6dfd3;
+    --draft-bg: #fff3c4;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181c;
+      --fg: #e8e6e3;
+      --muted: #a0a6b0;
+      --accent: #e57a5c;
+      --card: #1f2227;
+      --border: #30343b;
+      --draft-bg: #4a3f12;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Vazirmatn', system-ui, sans-serif;
+    line-height: 1.8;
+    font-size: 1.05rem;
+  }
+  main { max-inline-size: 60rem; margin-inline: auto; padding: 1rem; }
+  a { color: var(--accent); }
+  .site-header {
+    display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: space-between;
+    padding: 0.75rem 1rem; border-block-end: 1px solid var(--border);
+  }
+  .brand { font-weight: 700; font-size: 1.4rem; text-decoration: none; }
+  .lang-switch { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .lang-switch a { padding: 0.35rem 0.7rem; border-radius: 999px; text-decoration: none; min-block-size: 44px; display: inline-flex; align-items: center; }
+  .lang-switch a[aria-current='page'] { background: var(--accent); color: var(--bg); }
+  .draft-banner { margin: 0; padding: 0.5rem 1rem; background: var(--draft-bg); text-align: center; }
+  /* Formulas are LTR islands inside RTL text */
+  .math { unicode-bidi: isolate; direction: ltr; }
+
+/* ---------- shared tokens for studios and engines ---------- */
+:root {
+  --ok: #2f7d4f;
+  --ok-bg: #e3f3e8;
+  --no: #a33a2a;
+  --no-bg: #fbe6e1;
+  --hint-bg: #eef1fb;
+  --shade: #e0893f;
+  --cell: #fffdf8;
+  --radius: 12px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ok: #7fd3a0;
+    --ok-bg: #1f3a2a;
+    --no: #f19a86;
+    --no-bg: #43231d;
+    --hint-bg: #232a3f;
+    --shade: #e59a55;
+    --cell: #24272d;
+  }
+}
+button { font: inherit; cursor: pointer; }
+button.primary, button.secondary {
+  min-block-size: 44px; padding-inline: 1.1rem; border-radius: 999px; border: 2px solid var(--accent);
+}
+button.primary { background: var(--accent); color: var(--bg); font-weight: 700; }
+button.secondary { background: transparent; color: var(--accent); }
+
+/* stacked fraction: never "a/b" inline (/ is the Iranian decimal mark) */
+.frac { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; line-height: 1.15; margin-inline: 0.1em; font-size: 0.95em; }
+.frac-n { border-block-end: 0.08em solid currentColor; padding-inline: 0.15em; }
+.frac-d { padding-inline: 0.15em; }
+.mixed { display: inline-flex; align-items: center; gap: 0.1em; }
+
+/* ---------- studio page ---------- */
+.studio-head h1 { margin-block-end: 0.25rem; }
+.badges { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; list-style: none; }
+.badges li { background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 0.1rem 0.7rem; font-size: 0.9rem; }
+.guide { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.25rem 1rem; }
+.guide summary { cursor: pointer; font-weight: 700; min-block-size: 44px; display: flex; align-items: center; }
+.notice { background: var(--draft-bg); padding: 0.5rem 1rem; border-radius: var(--radius); }
+#mission-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block: 1rem; }
+.mission-tab { min-block-size: 44px; border: 1px solid var(--border); background: var(--card); color: var(--fg); border-radius: 999px; padding-inline: 0.9rem; }
+.mission-tab[aria-current='step'] { border-color: var(--accent); border-width: 2px; }
+.mission-tab.done .num::after { content: ' ✓'; color: var(--ok); }
+.mission { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
+.mission h2 { margin-block-start: 0; }
+.mission .engine { display: block; margin-block: 1rem; }
+.answer-row { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-block: 0.75rem; }
+.actions { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-block: 0.75rem; }
+.feedback:empty { display: none; }
+.feedback { border-radius: var(--radius); padding: 0.6rem 0.9rem; }
+.feedback.ok { background: var(--ok-bg); color: var(--ok); font-weight: 700; }
+.feedback.no { background: var(--no-bg); color: var(--no); }
+.feedback.hint { background: var(--hint-bg); }
+.justify textarea { inline-size: 100%; font: inherit; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--fg); padding: 0.5rem; }
+.justify .model { background: var(--hint-bg); border-radius: var(--radius); padding: 0.6rem 0.9rem; }
+.justify > * + * { margin-block-start: 0.6rem; }
+.choices { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-block: 0.75rem; }
+.choice { min-block-size: 56px; min-inline-size: 56px; border: 2px solid var(--border); background: var(--bg); color: var(--fg); border-radius: var(--radius); font-size: 1.2rem; padding-inline: 0.8rem; }
+.choice[aria-checked='true'] { border-color: var(--accent); background: var(--card); }
+.int-input { font: inherit; inline-size: 6rem; min-block-size: 44px; text-align: center; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--fg); }
+
+/* ---------- engine: fraction bars ---------- */
+kg-fraction-bars { display: flex; flex-direction: column; gap: 0.9rem; }
+.kg-fb-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
+.kg-fb-bar { flex: 1 1 16rem; display: grid; min-block-size: 56px; border: 2px solid var(--fg); border-radius: 6px; overflow: hidden; }
+.kg-fb-cell { border: 0; border-inline-end: 2px solid var(--fg); background: var(--cell); min-block-size: 56px; padding: 0; }
+.kg-fb-cell:last-child { border-inline-end: 0; }
+.kg-fb-cell.on { background: var(--shade); }
+button.kg-fb-cell:focus-visible { outline: 3px solid var(--accent); outline-offset: -5px; }
+.kg-fb-parts { display: flex; align-items: center; gap: 0.3rem; }
+.kg-fb-parts button { min-inline-size: 44px; min-block-size: 44px; border-radius: 50%; border: 2px solid var(--accent); background: transparent; color: var(--accent); font-size: 1.3rem; }
+.kg-fb-parts output { min-inline-size: 2ch; text-align: center; font-weight: 700; }
+.kg-fb-label { font-size: 1.3rem; min-inline-size: 2.5rem; text-align: center; }
+
+/* ---------- fraction input ---------- */
+.kg-fi { display: inline-flex; align-items: center; gap: 0.4rem; }
+.kg-fi-stack { display: inline-flex; flex-direction: column; align-items: center; gap: 0.25rem; }
+.kg-fi-stack .kg-fi-n { border-block-end: 3px solid var(--fg); }
+.kg-fi input { inline-size: 3.6rem; min-block-size: 44px; font: inherit; font-size: 1.2rem; text-align: center; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--fg); }
+
+/* ---------- fraction bars: compare layout ---------- */
+.kg-fb-bar { position: relative; }
+/* keepAmount: where the starting amount ends, so the learner sees which partitions line up with it */
+.kg-fb-mark { position: absolute; inset-block: 0; inline-size: 4px; margin-inline-start: -2px; background: var(--accent); pointer-events: none; z-index: 1; }
+/* more than 12 parts: thin cell lines so the cells stay readable */
+.kg-fb-bar.many .kg-fb-cell { border-inline-end-width: 1px; }
+/* compare: every bar has the same width and starts at the same edge; +/− controls go under their bar */
+kg-fraction-bars[compare] { gap: 0.7rem; }
+kg-fraction-bars[compare] .kg-fb-bar { flex: 1 1 0; min-inline-size: 0; }
+kg-fraction-bars[compare] .kg-fb-label { flex: 0 0 3rem; }
+kg-fraction-bars[compare] .kg-fb-parts { order: 3; flex-basis: 100%; justify-content: center; }
+/* comparison statements such as "2/5 < 3/5" are formulas: always LTR, as in both countries' books (NOTATION.md §6) */
+.mission:has(kg-fraction-bars[compare]) .choices { direction: ltr; }
+.mission:has(kg-fraction-bars[compare]) .choice { unicode-bidi: isolate; }
+
+/* ---------- engine: number line ---------- */
+kg-number-line { display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+.kg-nl { inline-size: 100%; }
+.kg-nl-svg { display: block; inline-size: 100%; block-size: auto; direction: ltr; overflow: visible; font-family: inherit; }
+.kg-nl-svg.interactive { touch-action: pan-y; cursor: pointer; }
+.kg-nl-track { fill: transparent; }
+/* only the track and the points take taps; everything drawn on top lets them through */
+.kg-nl-axis, .kg-nl-tick, .kg-nl-frac, .kg-nl-fixed, .kg-nl-win, .kg-nl-funnel { pointer-events: none; }
+.kg-nl-track:focus-visible { outline: none; stroke: var(--accent); stroke-width: 3; stroke-dasharray: 6 4; }
+.kg-nl-axis { stroke: var(--fg); stroke-width: 3; stroke-linecap: round; }
+.kg-nl-axis.kg-nl-over { stroke: var(--muted); stroke-width: 2; }
+.kg-nl-tick { stroke: var(--fg); stroke-width: 2; }
+.kg-nl-minor { stroke: var(--muted); stroke-width: 1.5; }
+.kg-nl-lab { fill: var(--fg); font-size: 15px; text-anchor: middle; direction: ltr; pointer-events: none; }
+.kg-nl-small { font-size: 12px; fill: var(--muted); }
+.kg-nl-frac line { stroke: var(--fg); stroke-width: 1.5; }
+.kg-nl-win { fill: var(--shade); fill-opacity: 0.35; stroke: var(--shade); stroke-width: 2; }
+.kg-nl-funnel { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+.kg-nl-fixed { fill: var(--fg); stroke: var(--card); stroke-width: 2; }
+.kg-nl-hit { fill: transparent; }
+.kg-nl-dot { fill: var(--accent); stroke: var(--card); stroke-width: 3; }
+.kg-nl-pt { cursor: grab; outline: none; }
+.kg-nl-pt.active .kg-nl-dot { stroke: var(--fg); stroke-width: 2; }
+.kg-nl-pt:focus-visible .kg-nl-hit { stroke: var(--accent); stroke-width: 3; }
+.kg-nl-reset { font-size: 0.95rem; }
+
+/* ---------- engine: long division ---------- */
+/* One LTR grid in both layouts; digit columns shrink (to ≥32px wide, always 44px tall) only when a sum is too wide for the phone. */
+kg-long-division { container-type: inline-size; }
+.kg-ld-wrap { display: flex; justify-content: center; }
+.kg-ld-sheet {
+  --ld-s: 14px; --ld-m: 12px; --ld-b: 14px;
+  --ld-c: clamp(32px, calc((100cqi - 54px) / var(--ld-n)), 46px);
+  display: grid; grid-auto-rows: 44px; row-gap: 4px; direction: ltr; font-size: 1.45rem; line-height: 1;
+}
+.kg-ld-sheet > [hidden] { display: none !important; }
+.kg-ld-d { display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
+.kg-ld-added, .kg-ld-down { color: var(--muted); }
+.kg-ld-mark { font-weight: 700; color: var(--accent); }
+.kg-ld-minus { justify-content: flex-end; padding-inline-end: 2px; }
+.kg-ld-rule { border-block-end: 2px solid var(--fg); margin-block-end: -3px; pointer-events: none; }
+.kg-ld-bar { justify-self: center; inline-size: 2px; background: var(--fg); margin-block-end: -4px; }
+.kg-ld-divrule { margin-inline-start: -8px; }
+.kg-ld-bracket { border-inline-end: 2px solid var(--fg); border-start-end-radius: 14px 22px; border-end-end-radius: 6px; margin-inline-end: 4px; }
+.kg-ld-over { border-block-start: 2px solid var(--fg); pointer-events: none; }
+.kg-ld-box {
+  inline-size: calc(100% - 4px); justify-self: center; block-size: 44px; padding: 0; text-align: center; font: inherit; font-size: 1.35rem;
+  border: 2px solid var(--muted); border-radius: 8px; background: var(--bg); color: var(--fg); position: relative; z-index: 1;
+}
+.kg-ld-box:focus-visible, .kg-ld-box:focus { outline: 3px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.kg-ld-box.no { border-style: dashed; border-color: var(--no); background: var(--no-bg); }
+.kg-ld-box.ok { border-color: transparent; background: transparent; color: var(--fg); }
+.kg-ld-box.typed { color: var(--ok); font-weight: 700; }
+.kg-ld-box.shown { color: var(--accent); }
+.kg-ld-tools { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; margin-block-start: 0.6rem; text-align: center; }
+.kg-ld-ask { margin: 0; font-size: 1.15rem; min-block-size: 1.8em; }
+.kg-ld-ask bdi[dir='ltr'] { unicode-bidi: isolate; }
+.kg-ld-status { margin: 0; min-block-size: 1.8em; color: var(--no); }
+.kg-ld-status.ok { color: var(--ok); font-weight: 700; }
+
+/* ---------- fraction bars: area model ---------- */
+/* given: cells pre-coloured in a second colour ("what you already have"); dotted so they differ by more than hue */
+kg-fraction-bars {
+  --given: #3b82c4;
+  --fb-dots: radial-gradient(circle, rgb(255 255 255 / 0.45) 1.6px, transparent 2.2px);
+  --fb-hatch: repeating-linear-gradient(135deg, color-mix(in srgb, var(--given) 55%, transparent) 0 3px, transparent 3px 10px);
+}
+@media (prefers-color-scheme: dark) {
+  kg-fraction-bars { --given: #5aa6e0; --fb-dots: radial-gradient(circle, rgb(0 0 0 / 0.35) 1.6px, transparent 2.2px); }
+}
+.kg-fb-cell.given { background-color: var(--given); background-image: var(--fb-dots); background-size: 10px 10px; }
+/* tint: the columns you take a fraction of (striped); shading on top keeps the stripes visible */
+.kg-fb-cell.tint { background-image: var(--fb-hatch); }
+.kg-fb-cell.tint.on { background-color: var(--shade); background-image: var(--fb-hatch); }
+/* area model: rows × columns of cells, separated by 2px lines */
+.kg-fb-bar.grid { gap: 2px; background: var(--fg); }
+.kg-fb-bar.grid .kg-fb-cell { border: 0; min-block-size: 44px; }
+/* linkParts: the one set of −/+ controls gets its own line, so every bar keeps the same width */
+kg-fraction-bars[link-parts] .kg-fb-parts { order: 3; flex-basis: 100%; justify-content: center; }

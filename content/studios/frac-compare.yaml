@@ -1,0 +1,57 @@
+id: frac-compare
+engine: fraction-bars
+strand: frac
+order: 4
+concepts: [frac.compare.same, frac.compare]
+# Choice options are comparison statements; the compare layout shows them LTR, like formulas in the books.
+missions:
+  - id: same-denominator
+    setup:
+      bars: [{ parts: 5, shaded: 2, interactive: none }, { parts: 5, shaded: 3, interactive: none }]
+      label: true
+      compare: true
+    answer: choice
+    check:
+      type: choice
+      options: ["{{frac:2/5}} > {{frac:3/5}}", "{{frac:2/5}} < {{frac:3/5}}", "{{frac:2/5}} = {{frac:3/5}}"]
+      correct: 1
+  # Misconception: "5 is bigger than 3, so 1/5 is bigger than 1/3". Two options, so "wrong" is exactly that.
+  - id: same-numerator
+    setup:
+      bars: [{ parts: 3, shaded: 0, interactive: shade }, { parts: 5, shaded: 0, interactive: shade }]
+      label: true
+      compare: true
+    answer: choice
+    check:
+      type: choice
+      options: ["{{frac:1/5}}", "{{frac:1/3}}"]
+      correct: 1
+  # 3/4 and 5/6 each miss "one piece", so many children say they are equal; twelfths settle it.
+  - id: common-denominator
+    setup:
+      bars:
+        - { parts: 4, shaded: 3, interactive: parts, keepAmount: true, partsStep: 4, minParts: 4, maxParts: 12 }
+        - { parts: 6, shaded: 5, interactive: parts, keepAmount: true, partsStep: 6, minParts: 6, maxParts: 12 }
+      label: true
+      compare: true
+    answer: choice
+    check:
+      type: choice
+      options: ["{{frac:3/4}} = {{frac:5/6}}", "{{frac:3/4}} > {{frac:5/6}}", "{{frac:3/4}} < {{frac:5/6}}"]
+      correct: 2
+  - id: order-three
+    setup:
+      bars:
+        - { parts: 2, shaded: 1, interactive: parts, keepAmount: true, partsStep: 2, minParts: 2, maxParts: 8 }
+        - { parts: 4, shaded: 3, interactive: parts, keepAmount: true, partsStep: 4, minParts: 4, maxParts: 8 }
+        - { parts: 8, shaded: 5, interactive: none }
+      label: true
+      compare: true
+    answer: choice
+    check:
+      type: choice
+      options:
+        - "{{frac:1/2}} < {{frac:3/4}} < {{frac:5/8}}"
+        - "{{frac:5/8}} < {{frac:3/4}} < {{frac:1/2}}"
+        - "{{frac:1/2}} < {{frac:5/8}} < {{frac:3/4}}"
+      correct: 2

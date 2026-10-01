@@ -2,36 +2,44 @@
 import Base from '../../layouts/Base.astro';
 import { LOCALES, visibleLocales, type LocaleCode } from '../../i18n/locales';
 import { t } from '../../lib/i18n';
-import { renderMath } from '../../lib/math';
-import { formatNumber } from '../../lib/numerals';
 
 export function getStaticPaths() {
   return visibleLocales().map((locale) => ({ params: { locale } }));
 }
 
 const locale = Astro.params.locale as LocaleCode;
-const paths = ['iran', 'afghanistan', 'explorer'] as const;
+const base = import.meta.env.BASE_URL;
+// The learner's own country first: Afghan languages suggest the Afghanistan path, English the UK one.
 const suggested = LOCALES[locale].defaultPath;
+const main = suggested === 'afghanistan' ? ['afghanistan', 'iran', 'explorer'] : suggested === 'uk' ? ['uk', 'iran', 'afghanistan', 'explorer'] : ['iran', 'afghanistan', 'explorer'];
+const more = ['iran', 'afghanistan', 'uk', 'explorer'].filter((p) => !main.includes(p));
 ---
 <Base locale={locale}>
-  <h1>{t('site.name', locale)}</h1>
+  <h1 class="hero">{t('site.name', locale)}</h1>
   <p class="tagline">{t('site.tagline', locale)}</p>
 
   <h2>{t('home.choosePath', locale)}</h2>
   <ul class="paths">
-    {paths.map((p) => (
-      <li class:list={['path', { suggested: p === suggested }]}>{t(`path.${p}`, locale)}</li>
+    {main.map((p, i) => (
+      <li><a class:list={['path', { suggested: i === 0 }]} href={`${base}${locale}/path/${p}/`}>{t(`path.${p}`, locale)}</a></li>
     ))}
   </ul>
-
-  <p>{t('home.demo', locale)} <Fragment set:html={renderMath('\\frac{3}{4} + \\frac{1}{8} = \\frac{7}{8}', locale)} /></p>
-  <p>{formatNumber(2.5, locale)} · {formatNumber(-12, locale)}</p>
+  {more.length > 0 && (
+    <details class="more">
+      <summary>{t('home.more', locale)}</summary>
+      <ul class="paths">
+        {more.map((p) => <li><a class="path" href={`${base}${locale}/path/${p}/`}>{t(`path.${p}`, locale)}</a></li>)}
+      </ul>
+    </details>
+  )}
   <p class="muted">{t('home.offline', locale)}</p>
 </Base>
 
 <style>
+  .hero { font-size: 2.4rem; margin-block-end: 0; color: var(--accent); }
   .tagline, .muted { color: var(--muted); }
   .paths { list-style: none; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); }
-  .path { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; font-weight: 700; }
-  .suggested { border-color: var(--accent); }
+  .path { display: flex; align-items: center; min-block-size: 64px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; font-weight: 700; font-size: 1.15rem; text-decoration: none; color: var(--fg); }
+  .suggested { border: 2px solid var(--accent); }
+  .more summary { cursor: pointer; min-block-size: 44px; display: flex; align-items: center; color: var(--accent); }
 </style>

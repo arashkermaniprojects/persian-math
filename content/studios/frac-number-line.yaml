@@ -1,0 +1,19 @@
+id: frac-number-line
+engine: number-line
+strand: frac
+order: 2
+concepts: [frac.number-line, frac.improper, frac.mixed]
+missions:
+  - id: three-quarters
+    setup: { min: 0, max: 1, denominator: 4, labels: whole, addPoints: 1 }
+    check: { type: point-equals, values: [[3, 4]] }
+  - id: thirds
+    setup: { min: 0, max: 1, denominator: 3, labels: whole, addPoints: 2 }
+    check: { type: point-equals, values: [[1, 3], [2, 3]] }
+  - id: five-quarters
+    setup: { min: 0, max: 2, denominator: 4, labels: whole, addPoints: 1 }
+    check: { type: point-equals, values: [[5, 4]] }
+  - id: read-mixed
+    setup: { min: 0, max: 3, denominator: 3, labels: whole, fixedPoints: [[7, 3]], whole: true }
+    answer: fraction
+    check: { type: answer-equals, value: [7, 3], denominator: 3, mixed: true }

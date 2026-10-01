@@ -1,0 +1,74 @@
+{
+  "title": "Division and fractions",
+  "summary": "Do a division digit by digit, and see that every fraction is really a division you can turn into a decimal.",
+  "guide": [
+    "A fraction is a division! {{frac:3/4}} means 3 divided by 4, just like sharing 3 loaves of bread equally between 4 people. Each person gets {{frac:3/4}} of a loaf. So the numerator is the {{term:dividend}} and the denominator is the {{term:divisor}}.",
+    "In the written method (the bus stop), the {{term:divisor}} sits outside the bracket on the left and the {{term:dividend}} goes inside. You write the {{term:quotient}} on top, above the digits, and the subtractions underneath.",
+    "Each step has three jobs. First, work out how many times the {{term:divisor}} goes into the number and write that digit on top. Next, multiply that digit by the {{term:divisor}} and write the answer underneath. Then subtract to find the {{term:remainder}}. Bring down the next digit and do it all again.",
+    "If you run out of digits but still have a {{term:remainder}}, you can keep going: put a decimal point in the {{term:quotient}} and bring down a zero, because 3 is the same as {{num:3.0}} and {{num:3.00}}. That is how a fraction turns into a decimal: {{frac:3/4}} = {{num:0.75}}.",
+    "Every digit you get right turns green. If a digit isn't right yet, it gets a dotted border so you can work it out again. If you get stuck, press \"Show me this step\"."
+  ],
+  "engine": {
+    "layout": "busstop",
+    "label-sheet": "{a} divided by {b}",
+    "label-quotient": "quotient",
+    "label-product": "product",
+    "label-remainder": "remainder",
+    "label-step": "step",
+    "label-digit": "digit",
+    "label-reveal": "Show me this step",
+    "label-wrong": "Not yet! Work this digit out again.",
+    "label-done": "Finished! Every step is right.",
+    "label-ask-q": "How many {b}s go into {a}?",
+    "label-ask-p": "{q} × {b} = ?",
+    "label-ask-r": "{a} − {p} = ?"
+  },
+  "missions": {
+    "eighty-four": {
+      "title": "84 ÷ 4",
+      "prompt": "We want to share 84 conkers equally between 4 children. Work out 84 ÷ 4, filling in the boxes digit by digit.",
+      "hint": "Look at the 8 first: how many 4s go into 8? Write it on top. Then multiply, subtract, and bring down the 4.",
+      "success": "Well done! Each child gets 21 conkers, with none left over.",
+      "why": "The 2 in the {{term:quotient}}: is it really worth 2 or 20? Why?",
+      "model": "It is worth 20. The 8 in 84 means 8 tens. Sharing 8 tens between 4 children gives each child 2 tens, which is 20. Then sharing the 4 ones gives each child 1 more. So each child gets 20 and 1, which is 21.",
+      "feedback": {
+        "wrong": "There are still some boxes to fill. Fill them in one at a time; if you get stuck, \"Show me this step\" will help."
+      }
+    },
+    "three-quarters": {
+      "title": "{{frac:3/4}} means 3 ÷ 4",
+      "prompt": "Share 3 loaves equally between 4 people. 3 is smaller than 4, so nobody gets a whole loaf: that's why we've written 0 and a decimal point in the {{term:quotient}}. Now think of 3 as {{num:3.00}} and carry on dividing.",
+      "hint": "Now you have 30 tenths. How many 4s go into 30? 7, because 7 × 4 = 28. Subtract 28 from 30, then bring down the next zero.",
+      "success": "Brilliant! 3 ÷ 4 = {{num:0.75}}. So {{frac:3/4}} = {{num:0.75}}.",
+      "why": "Why do the fraction {{frac:3/4}} and the division 3 ÷ 4 give the same answer?",
+      "model": "If you share 3 loaves between 4 people, each person gets a quarter of every loaf. From 3 loaves that's 3 quarters, which is {{frac:3/4}}. So every fraction is the numerator divided by the denominator.",
+      "feedback": {
+        "wrong": "There are still some boxes to fill. Remember to bring down the next zero after each subtraction."
+      }
+    },
+    "seven-eighths": {
+      "title": "{{frac:7/8}} as a decimal",
+      "prompt": "Turn {{frac:7/8}} into a decimal by working out 7 ÷ 8. This time every step is up to you. The decimal point appears in the {{term:quotient}} as soon as you need it.",
+      "hint": "There are no whole 8s in 7, so write 0 first. Then divide 70 tenths by 8; remember 8 × 8 = 64.",
+      "success": "Well done! {{frac:7/8}} = {{num:0.875}}. You brought down three zeros before the {{term:remainder}} became 0.",
+      "why": "{{num:0.875}} is very close to 1. How could you have guessed that just from the fraction {{frac:7/8}}?",
+      "model": "{{frac:7/8}} is only {{frac:1/8}} less than one whole, so it must be just under 1. {{num:0.875}} is only {{num:0.125}} less than 1, and {{num:0.125}} is the same as {{frac:1/8}}.",
+      "feedback": {
+        "wrong": "There are still some boxes to fill. If you're stuck, read the question under the division or press \"Show me this step\"."
+      }
+    },
+    "three-fifths": {
+      "title": "What decimal is {{frac:3/5}}?",
+      "prompt": "First work out 3 ÷ 5. Then type {{frac:3/5}} as a decimal in the box below, using a decimal point, like {{num:0.5}}.",
+      "hint": "There are no whole 5s in 3, so the {{term:quotient}} starts with 0 and a decimal point. Then divide 30 tenths by 5.",
+      "success": "That's right! {{frac:3/5}} = {{num:0.6}}.",
+      "why": "Change {{frac:3/5}} into a fraction with denominator 10. Why does it match the answer to the division?",
+      "model": "{{frac:3/5}} = {{frac:6/10}}, which is 6 tenths, or {{num:0.6}}. The division says the same thing: 3 is 30 tenths, and 30 tenths divided by 5 is 6 tenths.",
+      "feedback": {
+        "empty": "Type your answer in the box, written like {{num:0.5}}.",
+        "too-big": "Too big. Look at the {{term:quotient}}: it starts with 0 and then a decimal point. Include the decimal point in your answer.",
+        "too-small": "Too small. The 6 goes straight after the decimal point, because it is 6 tenths, not 6 hundredths."
+      }
+    }
+  }
+}

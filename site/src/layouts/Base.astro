@@ -1,6 +1,7 @@
 ---
 import { LOCALES, visibleLocales, type LocaleCode } from '../i18n/locales';
 import { t } from '../lib/i18n';
+import '../styles/global.css';
 
 interface Props { locale: LocaleCode; title?: string }
 const { locale, title } = Astro.props;
@@ -32,66 +33,13 @@ const base = import.meta.env.BASE_URL;
       </nav>
     </header>
     <main><slot /></main>
-    <script is:inline define:vars={{ swUrl: `${base}sw.js` }}>
-      if ('serviceWorker' in navigator) navigator.serviceWorker.register(swUrl);
+    <script is:inline define:vars={{ swUrl: `${base}sw.js`, locale }}>
+      // Not on file:// (offline zip bundles): service workers need http(s).
+      if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+        navigator.serviceWorker.register(swUrl);
+        // Once active, ask it to download this locale's whole site for offline use.
+        navigator.serviceWorker.ready.then((reg) => reg.active && reg.active.postMessage({ type: 'precache', locale }));
+      }
     </script>
   </body>
 </html>
-
-<style is:global>
-  @font-face {
-    font-family: 'Vazirmatn';
-    src: url('/fonts/Vazirmatn-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Vazirmatn';
-    src: url('/fonts/Vazirmatn-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-display: swap;
-  }
-  :root {
-    --bg: #fbf8f2;
-    --fg: #1f2328;
-    --muted: #5c6370;
-    --accent: #b5462a;
-    --card: #ffffff;
-    --border: #e6dfd3;
-    --draft-bg: #fff3c4;
-    color-scheme: light dark;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #16181c;
-      --fg: #e8e6e3;
-      --muted: #a0a6b0;
-      --accent: #e57a5c;
-      --card: #1f2227;
-      --border: #30343b;
-      --draft-bg: #4a3f12;
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--fg);
-    font-family: 'Vazirmatn', system-ui, sans-serif;
-    line-height: 1.8;
-    font-size: 1.05rem;
-  }
-  main { max-inline-size: 60rem; margin-inline: auto; padding: 1rem; }
-  a { color: var(--accent); }
-  .site-header {
-    display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: space-between;
-    padding: 0.75rem 1rem; border-block-end: 1px solid var(--border);
-  }
-  .brand { font-weight: 700; font-size: 1.4rem; text-decoration: none; }
-  .lang-switch { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-  .lang-switch a { padding: 0.35rem 0.7rem; border-radius: 999px; text-decoration: none; min-block-size: 44px; display: inline-flex; align-items: center; }
-  .lang-switch a[aria-current='page'] { background: var(--accent); color: var(--bg); }
-  .draft-banner { margin: 0; padding: 0.5rem 1rem; background: var(--draft-bg); text-align: center; }
-  /* Formulas are LTR islands inside RTL text */
-  .math { unicode-bidi: isolate; direction: ltr; }
-</style>

@@ -1,0 +1,40 @@
+id: frac-equivalent
+engine: fraction-bars
+strand: frac
+order: 3
+concepts: [frac.equivalent, frac.simplify, frac.common-denominator]
+missions:
+  # Bar 0 is a reference (2/4); the learner shades the same amount on eighths (bar 1).
+  - id: same-amount
+    setup:
+      bars: [{ parts: 4, shaded: 2, interactive: none }, { parts: 8, shaded: 0, interactive: shade }]
+      label: true
+      compare: true
+    check: { type: shaded-equals, value: [1, 2], exact: false, bar: 1 }
+  # The amount is kept while re-partitioning; only 6, 9, 12 parts line up with it.
+  - id: thirds-to-sixths
+    setup:
+      bars:
+        - { parts: 3, shaded: 1, interactive: none }
+        - { parts: 3, shaded: 1, interactive: parts, keepAmount: true, minParts: 1, maxParts: 12 }
+      label: true
+      compare: true
+    check: { type: shaded-equals, value: [2, 6], exact: true, bar: 1 }
+  - id: simplify
+    setup:
+      bars:
+        - { parts: 8, shaded: 6, interactive: none }
+        - { parts: 8, shaded: 6, interactive: parts, keepAmount: true, minParts: 1, maxParts: 8 }
+      label: false
+      compare: true
+    answer: fraction
+    check: { type: answer-equals, value: [3, 4], simplest: true }
+  - id: twelfths
+    setup:
+      bars:
+        - { parts: 3, shaded: 2, interactive: none }
+        - { parts: 3, shaded: 2, interactive: parts, keepAmount: true, partsStep: 3, minParts: 3, maxParts: 12 }
+      label: false
+      compare: true
+    answer: fraction
+    check: { type: answer-equals, value: [2, 3], denominator: 12 }

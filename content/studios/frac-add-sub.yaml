@@ -1,0 +1,35 @@
+id: frac-add-sub
+engine: fraction-bars
+strand: frac
+order: 5
+concepts: [frac.add-sub.same, frac.add-sub, frac.add-sub.mixed]
+missions:
+  # 2/7 + 3/7: the blue (given) 2/7 is already there; the learner shades 3/7 more.
+  - id: same-sevenths
+    setup: { bars: [{ parts: 7, given: 2, interactive: shade }], label: true }
+    check: { type: shaded-equals, value: [5, 7] }
+  # 1/2 + 1/4: a quarter cannot be shaded on halves, so the learner re-partitions (2 → 4; 3 is skipped) and shades one.
+  - id: half-plus-quarter
+    setup: { bars: [{ parts: 2, given: 1, interactive: both, maxParts: 12 }], label: true }
+    check: { type: shaded-equals, value: [3, 4] }
+  # 3/4 − 1/3, typed. Both bars keep their amount while the learner looks for twelfths.
+  - id: subtract-unlike
+    setup:
+      bars:
+        - { parts: 4, shaded: 3, interactive: parts, keepAmount: true, maxParts: 12 }
+        - { parts: 3, shaded: 1, interactive: parts, keepAmount: true, maxParts: 12 }
+      label: true
+      compare: true
+    answer: fraction
+    check: { type: answer-equals, value: [5, 12], traps: [{ value: [2, 1], code: tops-and-bottoms }] }
+  # 1 1/2 + 3/4 = 2 1/4: the sum makes a new whole, so it needs a third bar. Answered as a mixed number.
+  - id: mixed-sum
+    setup:
+      bars:
+        - { parts: 4, given: 4, interactive: shade }
+        - { parts: 4, given: 2, interactive: shade }
+        - { parts: 4, shaded: 0, interactive: shade }
+      label: true
+      whole: true
+    answer: fraction
+    check: { type: answer-equals, value: [9, 4], mixed: true, traps: [{ value: [5, 3], code: tops-and-bottoms }] }

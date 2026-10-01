@@ -1,0 +1,19 @@
+id: frac-what-is
+engine: fraction-bars
+strand: frac
+order: 1
+concepts: [frac.halves-quarters, frac.concept]
+missions:
+  - id: one-quarter
+    setup: { bars: [{ parts: 4, shaded: 0, interactive: shade }], label: false }
+    check: { type: shaded-equals, value: [1, 4], exact: true }
+  - id: three-quarters
+    setup: { bars: [{ parts: 4, shaded: 0, interactive: shade }], label: false }
+    check: { type: shaded-equals, value: [3, 4], exact: true }
+  - id: name-it
+    setup: { bars: [{ parts: 5, shaded: 2, interactive: none }] }
+    answer: fraction
+    check: { type: answer-equals, value: [2, 5], denominator: 5 }
+  - id: make-sixths
+    setup: { bars: [{ parts: 2, shaded: 0, interactive: both, minParts: 1, maxParts: 12 }], label: true }
+    check: { type: shaded-equals, value: [1, 6], exact: true }
