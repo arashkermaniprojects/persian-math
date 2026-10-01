@@ -17,6 +17,16 @@ describe('evaluate', () => {
     expect(evaluate(check, { state }).ok).toBe(true);
   });
 
+  it('shaded-equals can check a single bar and ignore a reference bar', () => {
+    const check = { type: 'shaded-equals', value: [1, 2], bar: 1 } as const;
+    const state = { bars: [{ parts: 4, shaded: 2 }, { parts: 8, shaded: 4 }] };
+    expect(evaluate(check, { state }).ok).toBe(true);
+    expect(evaluate(check, { state: { bars: [{ parts: 4, shaded: 2 }, { parts: 8, shaded: 2 }] } }).code).toBe('too-small');
+    expect(evaluate(check, { state: { bars: [{ parts: 4, shaded: 2 }, { parts: 8, shaded: 0 }] } }).code).toBe('empty');
+    expect(evaluate({ type: 'shaded-equals', value: [2, 6], exact: true, bar: 1 }, { state: { bars: [{ parts: 3, shaded: 1 }, { parts: 9, shaded: 3 }] } }).code).toBe('wrong-denominator');
+    expect(evaluate({ ...check, bar: 5 }, { state }).code).toBe('empty');
+  });
+
   it('answer-equals checks value, denominator and simplest form', () => {
     const check = { type: 'answer-equals', value: [1, 2], simplest: true } as const;
     expect(evaluate(check, { fraction: { n: 1, d: 2 } }).ok).toBe(true);
@@ -43,5 +53,18 @@ describe('evaluate', () => {
   it('choice and integer answers', () => {
     expect(evaluate({ type: 'choice', options: ['a', 'b'], correct: 1 }, { choice: 1 }).ok).toBe(true);
     expect(evaluate({ type: 'answer-integer', value: 12 }, { integer: 9 }).code).toBe('too-small');
+  });
+
+  it('answer-equals gives a trap code for a known wrong answer and can require a mixed number', () => {
+    const sub = { type: 'answer-equals', value: [5, 12], traps: [{ value: [2, 1], code: 'tops-and-bottoms' }] } as const;
+    expect(evaluate(sub, { fraction: { n: 2, d: 1 } }).code).toBe('tops-and-bottoms');
+    expect(evaluate(sub, { fraction: { n: 4, d: 2 } }).code).toBe('tops-and-bottoms');
+    expect(evaluate(sub, { fraction: { n: 1, d: 2 } }).code).toBe('too-big');
+    expect(evaluate(sub, { fraction: { n: 5, d: 12 } }).ok).toBe(true);
+    const mixed = { type: 'answer-equals', value: [9, 4], mixed: true } as const;
+    expect(evaluate(mixed, { fraction: { whole: 2, n: 1, d: 4 } }).ok).toBe(true);
+    expect(evaluate(mixed, { fraction: { n: 9, d: 4 } }).code).toBe('not-mixed');
+    expect(evaluate(mixed, { fraction: { whole: 1, n: 5, d: 4 } }).code).toBe('not-mixed');
+    expect(evaluate(mixed, { fraction: { whole: 1, n: 1, d: 4 } }).code).toBe('too-small');
   });
 });

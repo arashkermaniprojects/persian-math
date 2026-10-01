@@ -4,9 +4,14 @@ import { Frac, isSimplest, parseDecimal, writtenValue, type WrittenFrac } from '
 type FracSpec = [number, number];
 
 export type Check =
-  | { type: 'shaded-equals'; value: FracSpec; exact?: boolean }
+  /** `bar`: check only that bar (by index), e.g. when another bar is a reference to copy. */
+  | { type: 'shaded-equals'; value: FracSpec; exact?: boolean; bar?: number }
   | { type: 'point-equals'; values: FracSpec[] }
-  | { type: 'answer-equals'; value: FracSpec; simplest?: boolean; denominator?: number }
+  /**
+   * `traps`: known wrong answers (compared by value) with their own feedback code, e.g. 2/1 for ¾ − ⅓ from
+   * subtracting tops and bottoms. `mixed`: the answer must be written as a mixed number (whole part, proper fraction).
+   */
+  | { type: 'answer-equals'; value: FracSpec; simplest?: boolean; denominator?: number; traps?: { value: FracSpec; code: string }[]; mixed?: boolean }
   | { type: 'answer-integer'; value: number }
   /** value is written with "." in the YAML, e.g. "2.5"; compared exactly. */
   | { type: 'answer-decimal'; value: string }
@@ -44,7 +49,8 @@ function sizeCode(got: Frac, want: Frac): string {
 export function evaluate(check: Check, a: Attempt): Result {
   switch (check.type) {
     case 'shaded-equals': {
-      const bars = a.state?.bars ?? [];
+      const all = a.state?.bars ?? [];
+      const bars = check.bar === undefined ? all : all.slice(check.bar, check.bar + 1);
       if (!bars.length) return fail('empty');
       const want = Frac.of(check.value);
       // Several bars of the same size act as one quantity (e.g. 5/4 over two bars).
@@ -72,7 +78,10 @@ export function evaluate(check: Check, a: Attempt): Result {
       if (f.d === 0) return fail('zero-denominator');
       const got = writtenValue(f);
       const want = Frac.of(check.value);
+      const trap = got.equals(want) ? undefined : check.traps?.find((t) => got.equals(Frac.of(t.value)));
+      if (trap) return fail(trap.code);
       if (!got.equals(want)) return fail(sizeCode(got, want));
+      if (check.mixed && want.n >= want.d && (!f.whole || f.n >= f.d)) return fail('not-mixed');
       if (check.denominator && f.d !== check.denominator) return fail('wrong-denominator');
       if (check.simplest && !isSimplest(f)) return fail('not-simplest');
       return pass;

@@ -1,0 +1,21 @@
+id: frac-long-division
+engine: long-division
+strand: frac
+order: 8
+concepts: [frac.as-division, frac.to-decimal, frac.decimal.div-whole]
+# Layout (gallows for fa-IR/fa-AF/ps, bus stop for en) comes from the locale file's engine.layout (docs/NOTATION.md §3).
+missions:
+  - id: eighty-four
+    setup: { dividend: 84, divisor: 4 }
+    check: { type: steps-correct }
+  - id: three-quarters
+    # 3 < 4: the first step (quotient 0, then the decimal mark) is given as a worked start.
+    setup: { dividend: 3, divisor: 4, decimals: 2, given: 1 }
+    check: { type: steps-correct }
+  - id: seven-eighths
+    setup: { dividend: 7, divisor: 8, decimals: 3 }
+    check: { type: steps-correct }
+  - id: three-fifths
+    setup: { dividend: 3, divisor: 5, decimals: 1 }
+    answer: decimal
+    check: { type: answer-decimal, value: "0.6" }

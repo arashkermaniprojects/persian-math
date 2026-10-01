@@ -1,0 +1,72 @@
+{
+  "title": "Fractions on a {{term:number-line}}",
+  "summary": "Fractions are numbers too, and each one has its own place on the number line. Split the space from 0 to 1 into equal parts and place points.",
+  "guide": [
+    "On a {{term:number-line}}, numbers get bigger from left to right: 0 is on the left and 1 is to its right.",
+    "The space from 0 to 1 is one whole. The small marks split it into <b>equal</b> parts. If there are 4 parts, each part is {{frac:1/4}}, and three parts along from 0 you reach {{frac:3/4}}.",
+    "Tap the line to place a point. You can drag a point, or tap it and move it with the arrow keys. A point always lands on the nearest small mark.",
+    "Some fractions are bigger than 1, like {{frac:5/4}}. These are called {{term:improper-fraction}}s. {{frac:5/4}} is one whole and another {{frac:1/4}}. Written as {{mixed:1 1/4}}, it is called a {{term:mixed-number}}."
+  ],
+  "engine": {
+    "label-line": "Number line: tap to place a point",
+    "label-point": "Point",
+    "label-given": "Given point",
+    "label-clear": "Clear points"
+  },
+  "missions": {
+    "three-quarters": {
+      "title": "Three quarters on the line",
+      "prompt": "The space from 0 to 1 is split into 4 equal parts. First predict: is {{frac:3/4}} nearer to 0 or to 1? Then place a point on {{frac:3/4}}.",
+      "hint": "Each part is {{frac:1/4}}. Start at 0 and move 3 parts to the right.",
+      "success": "Well done! You moved three quarters along from 0 and reached {{frac:3/4}}.",
+      "why": "Why is {{frac:3/4}} nearer to 1 than to 0?",
+      "model": "Because from {{frac:3/4}} to 1 there is only one part left, {{frac:1/4}}. But from 0 to {{frac:3/4}} there are three parts.",
+      "feedback": {
+        "count": "Place one point on the line. Just tap the line.",
+        "too-big": "Your point has gone too far. Move just 3 parts along from 0.",
+        "too-small": "Go a little further. You need to move 3 equal parts along from 0."
+      }
+    },
+    "thirds": {
+      "title": "One third and two thirds",
+      "prompt": "This time the space from 0 to 1 is split into 3 equal parts. Place two points: one on {{frac:1/3}} and one on {{frac:2/3}}.",
+      "hint": "Each part is {{frac:1/3}}. The first small mark after 0 is {{frac:1/3}} and the second is {{frac:2/3}}.",
+      "success": "Great! {{frac:1/3}} and {{frac:2/3}} are both in the right place.",
+      "why": "How many times as far from 0 is {{frac:2/3}} as {{frac:1/3}}? Use the line to explain.",
+      "model": "Twice as far. {{frac:2/3}} is two lots of {{frac:1/3}}. To reach {{frac:1/3}} you move one part, and to reach {{frac:2/3}} you move two equal parts.",
+      "feedback": {
+        "count": "There must be exactly two points on the line: one for {{frac:1/3}} and one for {{frac:2/3}}.",
+        "wrong": "At least one point is in the wrong place. Count the parts from 0: one, two."
+      }
+    },
+    "five-quarters": {
+      "title": "More than one",
+      "prompt": "Now the line goes from 0 to 2, and each whole has 4 equal parts. Predict: does {{frac:5/4}} come before 1 or after it? Then place a point on {{frac:5/4}}.",
+      "hint": "{{frac:4/4}} is the same as 1. Move one more part past 1.",
+      "success": "That's right! {{frac:5/4}} is just past 1: one whole and another {{frac:1/4}}.",
+      "why": "{{frac:5/4}} is an {{term:improper-fraction}}. How can you tell it is bigger than 1?",
+      "model": "Its numerator (5) is bigger than its denominator (4). Four quarters make one whole, with one {{frac:1/4}} left over. So {{frac:5/4}} is the same as {{mixed:1 1/4}}.",
+      "feedback": {
+        "count": "Place one point on the line.",
+        "too-small": "You haven't reached {{frac:5/4}} yet. First go to 1 (that is {{frac:4/4}}), then one more part.",
+        "too-big": "Too far. {{frac:5/4}} is just one part past 1."
+      }
+    },
+    "read-mixed": {
+      "title": "Read a mixed number",
+      "prompt": "The line goes from 0 to 3, and each whole has 3 equal parts. What number does the point on the line show? Write it as a {{term:mixed-number}}: the whole number in the left box and the fraction beside it.",
+      "hint": "First see which whole number the point comes after. Then count how many parts past that number it is.",
+      "success": "Well done! The point is at {{mixed:2 1/3}}: two wholes and {{frac:1/3}}.",
+      "why": "{{mixed:2 1/3}} can also be written as a single fraction. What is its numerator, and why?",
+      "model": "7, so it is {{frac:7/3}}. Each whole has 3 parts, so two wholes are 6 parts. One more part makes 7 parts: seven thirds.",
+      "feedback": {
+        "empty": "Write the whole number, the numerator and the denominator.",
+        "too-small": "Your number is smaller than the point. Don't forget to count the wholes before the point.",
+        "too-big": "Your number is bigger than the point. Check which whole number the point comes after, and how many parts past it it is.",
+        "wrong-denominator": "Each whole on this line has 3 equal parts, so the denominator is 3.",
+        "zero-denominator": "The denominator can't be 0. How many parts does each whole have?",
+        "not-mixed": "Right amount, but write it as a mixed number: the whole number in the side box and the leftover fraction."
+      }
+    }
+  }
+}

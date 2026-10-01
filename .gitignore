@@ -16,3 +16,5 @@ __pycache__/
 .DS_Store
 .venv/
 bundles/
+test-results/
+playwright-report/

@@ -1,0 +1,28 @@
+id: frac-mul-div
+engine: fraction-bars
+strand: frac
+order: 6
+concepts: [frac.mul.whole, frac.mul, frac.div.whole, frac.div]
+missions:
+  # 3 × 2/5 = 6/5: three lots of 2/5 spill over into a second bar.
+  - id: three-lots
+    setup: { bars: [{ parts: 5, interactive: shade }, { parts: 5, interactive: shade }], label: true }
+    check: { type: shaded-equals, value: [6, 5] }
+  # 1/2 × 2/3 with the area model: tinted columns show 2/3; split into 2 rows and shade half of them (2/6).
+  - id: half-of-two-thirds
+    setup: { bars: [{ parts: 3, rows: 1, tint: 2, interactive: both, maxRows: 4 }], label: true }
+    check: { type: shaded-equals, value: [2, 6], exact: true }
+  # 3/4 ÷ 3: share the tinted 3/4 between three; shade one share (1/4, or 3/12 with rows).
+  - id: share-three-quarters
+    setup: { bars: [{ parts: 4, rows: 1, tint: 3, interactive: both, maxRows: 4 }], label: true }
+    check: { type: shaded-equals, value: [1, 4] }
+  # 2 ÷ 1/4: split both wholes into quarters together and count them.
+  - id: quarters-in-two
+    setup:
+      bars:
+        - { parts: 1, shaded: 1, interactive: parts, maxParts: 8 }
+        - { parts: 1, shaded: 1, interactive: parts, maxParts: 8 }
+      linkParts: true
+      label: true
+    answer: integer
+    check: { type: answer-integer, value: 8 }

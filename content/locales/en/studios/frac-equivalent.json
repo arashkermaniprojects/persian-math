@@ -1,0 +1,66 @@
+{
+  "title": "Equivalent fractions",
+  "summary": "The same amount can be written as different fractions. See how the fraction changes when the parts get smaller or bigger, but the amount stays the same.",
+  "guide": [
+    "The bars are the same length and sit one under the other. If the shading on two bars ends in exactly the same place, the two fractions are equal.",
+    "Use the + and − buttons to change the number of parts. The coloured line shows where the amount ends. You can only show that amount with these parts when the line falls on a border between two parts.",
+    "If you split every part into 2 equal parts, the number of parts (the {{term:denominator}}) doubles and so does the number of shaded parts (the {{term:numerator}}): {{frac:1/3}} = {{frac:2/6}}.",
+    "To {{term:simplify}} a fraction you do the opposite: make the parts bigger so the numerator and denominator get smaller, while the amount stays the same."
+  ],
+  "engine": { "label-bar": "bar" },
+  "missions": {
+    "same-amount": {
+      "title": "Same amount, more parts",
+      "prompt": "The top bar shows {{frac:2/4}}. The bottom bar has 8 equal parts. Shade the same amount on the bottom bar.",
+      "hint": "Each part of the top bar is the size of 2 parts of the bottom bar. 2 parts are shaded on top, so how many should be shaded underneath?",
+      "success": "Well done! 4 parts out of 8 is the same amount as 2 parts out of 4. So {{frac:2/4}} = {{frac:4/8}}.",
+      "why": "{{frac:2/4}} and {{frac:4/8}} use different numbers. So why are they the same amount?",
+      "model": "Because in the bottom bar, every part of the top bar is split into 2 equal parts. There are twice as many parts in total (8 instead of 4) and twice as many shaded parts (4 instead of 2), but the shaded area hasn't changed at all.",
+      "feedback": {
+        "too-small": "Not enough. The shading on the bottom bar should reach the same place as on the top bar.",
+        "too-big": "Too much. The shading on the bottom bar goes further than on the top bar.",
+        "empty": "You haven't shaded anything on the bottom bar yet. Tap its parts."
+      }
+    },
+    "thirds-to-sixths": {
+      "title": "Cut thirds into sixths",
+      "prompt": "The bottom bar shows {{frac:1/3}} too. Use + and − to change its parts so it shows the same amount with 6 equal parts. The coloured line shows where the amount ends.",
+      "hint": "With 4 or 5 parts, the coloured line lands in the middle of a part. Keep going to 6 parts: there the line sits exactly on a border.",
+      "success": "Great! {{frac:1/3}} = {{frac:2/6}}. The amount stayed the same; the parts just got smaller.",
+      "why": "You couldn't show {{frac:1/3}} with 4 or 5 parts, but you could with 6. Why? What other numbers of parts would work?",
+      "model": "6 parts means each third is split into 2 equal parts, so one third becomes 2 parts. With 4 or 5 parts, the borders don't line up with the thirds. 9 parts ({{frac:3/9}}) or 12 parts ({{frac:4/12}}) also work. The number of parts has to be a multiple of 3.",
+      "feedback": {
+        "empty": "With this many parts, the coloured line lands in the middle of a part, so these parts can't show {{frac:1/3}} exactly. Change the number of parts.",
+        "wrong-denominator": "Right amount, and that is another fraction equal to {{frac:1/3}}! But this mission asks for 6 parts."
+      }
+    },
+    "simplify": {
+      "title": "Simplify the fraction",
+      "prompt": "{{frac:6/8}} of the bar is shaded. Use − to make the bottom bar's parts bigger, and find the simplest fraction that shows the same amount. Write your answer.",
+      "hint": "Take parts away one at a time and watch when the coloured line falls on a border. You can also divide the numerator and denominator by the same number: 6 and 8 can both be divided by 2.",
+      "success": "Well done! {{frac:6/8}} = {{frac:3/4}}, and {{frac:3/4}} can't be simplified any further.",
+      "why": "Why can't {{frac:3/4}} be simplified any more?",
+      "model": "Because there is no number bigger than 1 that divides both 3 and 4. You can see it on the bar too: with 2 parts, the coloured line lands in the middle of a part, so you can't make the parts any bigger than quarters.",
+      "feedback": {
+        "not-simplest": "That is equal to {{frac:6/8}}, well done! But it can still be simplified. Divide the numerator and denominator by the same number again.",
+        "too-big": "That fraction is bigger than {{frac:6/8}}. Remember to divide the numerator and denominator by the same number.",
+        "too-small": "That fraction is smaller than {{frac:6/8}}. Remember to divide the numerator and denominator by the same number.",
+        "empty": "Write the numerator and the denominator."
+      }
+    },
+    "twelfths": {
+      "title": "Denominator 12",
+      "prompt": "Write a fraction equal to {{frac:2/3}} with a denominator of 12. You can use + to split the bottom bar into smaller parts and count the shaded ones.",
+      "hint": "3 times what makes 12? Multiply the numerator by the same number.",
+      "success": "That's right! {{frac:2/3}} = {{frac:8/12}}. You split every third into 4 parts.",
+      "why": "Why do you have to multiply the numerator by 4 as well? What happens if you only multiply the denominator?",
+      "model": "When you split every part into 4 equal parts, there are 4 times as many parts in total (12) and 4 times as many shaded parts (8). If you only change the denominator you get {{frac:2/12}}, which is much less than {{frac:2/3}}. It is the same step you use for {{term:same-denominator-conversion}}, when you find a {{term:common-denominator}} for two fractions.",
+      "feedback": {
+        "wrong-denominator": "That is equal to {{frac:2/3}}, but its denominator isn't 12. Make the denominator 12.",
+        "too-small": "Not enough. If you made the denominator 4 times bigger, make the numerator 4 times bigger too.",
+        "too-big": "Too much. Work out the numerator again: how many twelfths is each shaded part?",
+        "empty": "Write the numerator and the denominator."
+      }
+    }
+  }
+}

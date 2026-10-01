@@ -1,0 +1,60 @@
+{
+  "title": "Comparing fractions",
+  "summary": "Which fraction is bigger? Line the bars up and see whose shading goes further.",
+  "guide": [
+    "The bars are the same length and sit one under the other. The bar whose shading goes further shows the bigger fraction.",
+    "The answers are written like in a maths book: the open mouth of the sign always faces the bigger fraction.",
+    "If the denominators are different, use + to split the bars into smaller parts until they have the same number of parts. This is called {{term:same-denominator-conversion}}, and the new denominator is the {{term:common-denominator}}. Then you only need to compare the numerators."
+  ],
+  "engine": { "label-bar": "bar" },
+  "missions": {
+    "same-denominator": {
+      "title": "Same denominator",
+      "prompt": "Both bars are split into 5 equal parts. First predict which fraction is bigger, then choose the true statement.",
+      "hint": "When the parts are the same size, the fraction with more shaded parts is bigger.",
+      "success": "Well done! {{frac:2/5}} is smaller than {{frac:3/5}}, because 2 parts are fewer than 3 parts of the same size.",
+      "why": "When two fractions have the same denominator, how can you tell which is bigger without drawing a bar?",
+      "model": "The same denominator means the parts are the same size. So you only need to compare how many parts there are, which is the numerators. The fraction with the bigger numerator is bigger.",
+      "feedback": {
+        "wrong": "Look at the bars again. Whose shading goes further? The open mouth of the sign should face the bigger fraction.",
+        "empty": "Choose one of the statements."
+      }
+    },
+    "same-numerator": {
+      "title": "Same numerator",
+      "prompt": "Which is bigger: {{frac:1/3}} or {{frac:1/5}}? Predict first. Then shade one part on each bar and choose the bigger one.",
+      "hint": "If you share one loaf of bread between 3 people, does each person get more than if you share it between 5?",
+      "success": "That's right! {{frac:1/3}} is bigger. The more parts you split something into, the smaller each part gets.",
+      "why": "Lots of people think {{frac:1/5}} is bigger because 5 is bigger than 3. What would you tell them?",
+      "model": "It's true that 5 is bigger than 3, but in a fraction the denominator tells you how many parts the whole is split into. 5 parts means smaller parts. So one part out of 5 is smaller than one part out of 3.",
+      "feedback": {
+        "wrong": "5 is bigger than 3, but here 5 means 5 parts. Shade one part on each bar: which bar's part is bigger?",
+        "empty": "Choose one of the two fractions."
+      }
+    },
+    "common-denominator": {
+      "title": "Different denominators",
+      "prompt": "Compare {{frac:3/4}} and {{frac:5/6}}. Use + to split both bars until they have the same number of parts. Then choose the true statement.",
+      "hint": "The first bar has 4 parts and the second has 6. Take both to 12 parts and count the shaded parts.",
+      "success": "Great! {{frac:3/4}} is the same as {{frac:9/12}}, and {{frac:5/6}} is the same as {{frac:10/12}}. So {{frac:3/4}} is smaller than {{frac:5/6}}.",
+      "why": "Both bars have only one part unshaded. So why aren't the two fractions equal?",
+      "model": "The unshaded parts aren't the same size. {{frac:3/4}} leaves a quarter empty and {{frac:5/6}} leaves a sixth. A sixth is smaller than a quarter, so the {{frac:5/6}} bar is fuller. The {{term:common-denominator}} 12 shows it too: 9 parts against 10 parts.",
+      "feedback": {
+        "wrong": "Both fractions are missing \"one part\", but those parts aren't the same size! Take the bars to 12 parts and count the shaded parts.",
+        "empty": "Choose one of the statements."
+      }
+    },
+    "order-three": {
+      "title": "Order three fractions",
+      "prompt": "Put {{frac:1/2}}, {{frac:3/4}} and {{frac:5/8}} in order from smallest to largest. Split the top two bars until all three bars have 8 parts, then choose the right order.",
+      "hint": "How many eighths is {{frac:1/2}}? How many eighths is {{frac:3/4}}? Now compare the numerators.",
+      "success": "Well done! In eighths they are {{frac:4/8}}, {{frac:6/8}} and {{frac:5/8}}. So {{frac:1/2}} is the smallest and {{frac:3/4}} is the largest.",
+      "why": "The numbers in {{frac:5/8}} are bigger than the numbers in {{frac:3/4}}. So why is {{frac:5/8}} smaller?",
+      "model": "Because eighths are smaller than quarters. {{frac:3/4}} is the same as {{frac:6/8}}, and 5 eighths is less than 6 eighths. To compare, the parts must be the same size, which means the denominators must be the same.",
+      "feedback": {
+        "wrong": "Bigger numbers don't always make a bigger fraction. Take every bar to 8 parts and count the shaded parts.",
+        "empty": "Choose one of the orders."
+      }
+    }
+  }
+}

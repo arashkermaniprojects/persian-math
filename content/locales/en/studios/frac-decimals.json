@@ -1,0 +1,71 @@
+{
+  "title": "Decimals",
+  "summary": "Find tenths and hundredths on the number line, and see how decimals are written and read.",
+  "guide": [
+    "If we split the space from 0 to 1 into 10 equal parts, each part is one {{term:tenth}}: {{frac:1/10}}. Three parts make {{frac:3/10}}.",
+    "We can also write {{frac:3/10}} as {{num:0.3}}. The dot in this number is the {{term:decimal-point}}. Whole numbers go to the left of the point, and the first digit to its right shows tenths. We read {{num:0.3}} as \"zero point three\" or \"three tenths\", and {{num:1.3}} as \"one point three\". In Iran the decimal point is written as a slash (۰/۳) and in Afghanistan as a comma (۰,۳), which is why fractions in this academy are always stacked, one number above the other.",
+    "If we split each tenth into 10 equal parts again, each part is one {{term:hundredth}}: {{frac:1/100}}, written {{num:0.01}}. The second digit after the point shows hundredths.",
+    "Hundredths are tiny, so sometimes we zoom in: the top line shows the whole number line, and the coloured piece is the part that is magnified below.",
+    "Tap the line to place a point. You can drag a point, or tap it and move it with the arrow keys."
+  ],
+  "engine": {
+    "label-line": "Number line: tap to place a point",
+    "label-point": "Point",
+    "label-given": "Given point",
+    "label-clear": "Clear points"
+  },
+  "missions": {
+    "place-tenths": {
+      "title": "Seven tenths",
+      "prompt": "The space from 0 to 1 is split into 10 equal parts. First predict: is {{num:0.7}} nearer to 0 or to 1? Then place a point on {{num:0.7}}.",
+      "hint": "{{num:0.7}} means seven tenths, {{frac:7/10}}. Move 7 parts along from 0.",
+      "success": "Well done! {{num:0.7}} is the same as {{frac:7/10}}: seven of ten equal parts.",
+      "why": "Is {{num:0.7}} nearer to 0 or to 1? How do you know?",
+      "model": "Nearer to 1. From {{num:0.7}} to 1 there are only three tenths left, but from 0 to {{num:0.7}} there are seven tenths.",
+      "feedback": {
+        "count": "Place one point on the line. Just tap the line.",
+        "too-big": "Too far. Move just 7 parts along from 0.",
+        "too-small": "Go a little further. {{num:0.7}} is 7 parts along from 0."
+      }
+    },
+    "read-decimal": {
+      "title": "Write the point as a decimal",
+      "prompt": "What number does the point on the line show? Write it as a decimal, using a decimal point.",
+      "hint": "Count how many parts past 0 the point is. There are no wholes, so write 0 before the point.",
+      "success": "That's right! {{num:0.3}}: three tenths.",
+      "why": "Why is {{num:0.3}} less than 1, but 3 is more than 1?",
+      "model": "In {{num:0.3}} the digit before the point is 0, so there are no wholes, and the 3 after the point means three tenths. But 3 with no point means three wholes.",
+      "feedback": {
+        "empty": "You haven't written a number yet, or it isn't written as a decimal. Write 0, then the point, then the tenths digit.",
+        "too-big": "Your number is bigger than the point. If you wrote 3, that means three wholes! Don't forget the decimal point.",
+        "too-small": "Your number is smaller than the point. Count the parts from 0 again."
+      }
+    },
+    "compare": {
+      "title": "Which is bigger?",
+      "prompt": "Here the piece from {{num:0.4}} to {{num:0.6}} is magnified, and each small part is one hundredth. The point already on the line shows {{num:0.5}}. First predict: which is bigger, {{num:0.45}} or {{num:0.5}}? Then place a point on {{num:0.45}} to check your prediction.",
+      "hint": "{{num:0.45}} means 45 hundredths. Start at {{num:0.4}} (40 hundredths) and move 5 small parts along.",
+      "success": "Well done! {{num:0.45}} is to the left of {{num:0.5}}, so it is smaller.",
+      "why": "Some people think {{num:0.45}} is bigger because 45 is bigger than 5. What is their mistake?",
+      "model": "{{num:0.5}} means 5 tenths, which is 50 hundredths, and 45 hundredths is less than 50 hundredths. We compare decimals digit by digit, starting with the tenths: 4 tenths is less than 5 tenths.",
+      "feedback": {
+        "count": "Place one point on {{num:0.45}}.",
+        "too-big": "Your point is past {{num:0.45}}. Move just 5 small parts along from {{num:0.4}}.",
+        "too-small": "Go a little further. You need to move 5 small parts along from {{num:0.4}}."
+      }
+    },
+    "hundredths-zoom": {
+      "title": "Hundredths under a magnifier",
+      "prompt": "On the top line, the piece between {{num:1.2}} and {{num:1.3}} is coloured, and it is magnified below. Each small part is one hundredth. Place a point on {{num:1.25}}.",
+      "hint": "{{num:1.25}} means one whole, 2 tenths and 5 hundredths. Start at {{num:1.2}} and move 5 small parts along.",
+      "success": "Great! {{num:1.25}} is exactly halfway between {{num:1.2}} and {{num:1.3}}.",
+      "why": "Why is {{num:1.25}} exactly halfway between {{num:1.2}} and {{num:1.3}}?",
+      "model": "{{num:1.2}} is the same as {{num:1.20}}, and {{num:1.3}} is the same as {{num:1.30}}. From 20 hundredths to 30 hundredths there are 10 parts, and 25 hundredths is 5 parts from each end.",
+      "feedback": {
+        "count": "Place one point on the bottom line.",
+        "too-big": "Too far. Move just 5 hundredths along from {{num:1.2}}.",
+        "too-small": "Go a little further. You need to move 5 small parts along from {{num:1.2}}."
+      }
+    }
+  }
+}

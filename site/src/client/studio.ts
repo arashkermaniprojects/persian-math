@@ -8,6 +8,8 @@ import '../engines/fraction-input';
 /** Engines load on demand so each page ships only the code it uses. */
 const ENGINES: Record<string, () => Promise<unknown>> = {
   'fraction-bars': () => import('../engines/fraction-bars'),
+  'number-line': () => import('../engines/number-line'),
+  'long-division': () => import('../engines/long-division'),
 };
 
 interface MissionData {

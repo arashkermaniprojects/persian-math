@@ -1,0 +1,69 @@
+{
+  "title": "Multiplying and dividing fractions",
+  "summary": "Use bars to see that multiplying by a fraction means \"how many lots\" or \"what fraction of\", and dividing by a fraction means \"how many fit\".",
+  "guide": [
+    "Multiplying a whole number by a fraction means taking that fraction several times: 3 × {{frac:2/5}} means three lots of {{frac:2/5}}.",
+    "{{frac:1/2}} of {{frac:2/3}} means half of two thirds. On the grid bar, the striped columns show {{frac:2/3}}. Use + and − to split the bar into rows, then shade cells.",
+    "Dividing by a fraction asks \"how many of this fraction fit into that number?\" That is why the answer can be bigger than the number you started with."
+  ],
+  "engine": {
+    "label-bar": "bar",
+    "label-fewer-rows": "fewer rows",
+    "label-more-rows": "more rows"
+  },
+  "missions": {
+    "three-lots": {
+      "title": "Three lots of two fifths",
+      "prompt": "3 × {{frac:2/5}} means three lots of {{frac:2/5}}. First, predict: will the answer be more or less than one whole? Then shade three lots of {{frac:2/5}} on these two bars.",
+      "hint": "Shade 2 fifths at a time. When the first bar is full, carry on in the second bar.",
+      "success": "Well done! 3 lots of 2 fifths is 6 fifths: 3 × {{frac:2/5}} = {{frac:6/5}}, which is {{mixed:1 1/5}}.",
+      "why": "In 3 × {{frac:2/5}}, why is only the numerator multiplied by 3, while the denominator stays 5?",
+      "model": "The denominator 5 tells you the size of each part: one fifth. Taking 2 fifths three times gives 3 times as many parts (6 of them), but each part is still one fifth. So the answer is {{frac:6/5}}, which is more than one whole: one full bar and {{frac:1/5}}.",
+      "feedback": {
+        "too-small": "Not enough yet. Three lots of {{frac:2/5}} is 6 fifths. When the first bar is full, carry on in the second bar.",
+        "too-big": "That's too much. Three lots of 2 parts is 6 parts.",
+        "empty": "You haven't shaded anything yet. Shade 2 parts, then 2 more, then 2 more."
+      }
+    },
+    "half-of-two-thirds": {
+      "title": "Half of two thirds",
+      "prompt": "The striped columns are {{frac:2/3}} of the bar. What fraction of the whole bar is {{frac:1/2}} of this {{frac:2/3}}? First, predict. Then use + to split the bar into 2 rows and shade half of the striped part.",
+      "hint": "With 2 rows, the striped part is 4 cells. Half of it is 2 cells. How many cells does the whole bar have?",
+      "success": "Great! 2 cells out of 6 are shaded: {{frac:1/2}} × {{frac:2/3}} = {{frac:2/6}}, which is the same as {{frac:1/3}}.",
+      "why": "Why is the answer {{frac:2/6}}? Point to the 2 and the 6 on the bar. Why do you think the answer is smaller than {{frac:2/3}}?",
+      "model": "The columns split the bar into 3, and the rows split each column into 2. So the whole bar has 3 × 2 = 6 cells: that's the denominator. The striped part is 2 columns, and half of it is 1 cell in each, so 2 × 1 = 2 cells: that's the numerator. That's why we multiply numerator by numerator and denominator by denominator. The answer is smaller because we only took half of {{frac:2/3}}, and half of something is less than the whole of it.",
+      "feedback": {
+        "wrong-denominator": "That's the right amount! But this time show it with rows: use + to split the bar into 2 rows, then shade half of the striped part.",
+        "too-big": "That's too much. Shade only half of the striped part, not all of it.",
+        "too-small": "Not enough. Shade half of the striped part: one cell in each striped column.",
+        "empty": "You haven't shaded any cells yet. First use + to split the bar into 2 rows."
+      }
+    },
+    "share-three-quarters": {
+      "title": "Three quarters shared by three",
+      "prompt": "{{frac:3/4}} of a cake is left (the striped columns). Three friends share it equally: {{frac:3/4}} ÷ 3. First, predict what fraction of the whole cake each friend gets. Then shade one friend's share.",
+      "hint": "The striped part has 3 pieces and there are 3 friends. How many pieces does each friend get?",
+      "success": "That's right! Each friend gets {{frac:1/4}} of the cake: {{frac:3/4}} ÷ 3 = {{frac:1/4}}",
+      "why": "If the same {{frac:3/4}} of the cake were shared by 2 friends, how much would each get? Use the rows on the bar to explain.",
+      "model": "You can't share 3 quarter-pieces equally between 2. But if you split the bar into 2 rows, the whole bar has 8 cells and the striped part has 6. Each friend gets 3 cells, which is {{frac:3/8}}. Dividing by 2 is the same as taking half: {{frac:3/4}} ÷ 2 = {{frac:1/2}} × {{frac:3/4}} = {{frac:3/8}}",
+      "feedback": {
+        "too-big": "That's more than one friend's share. Share the striped part between 3 and shade just one share.",
+        "too-small": "That's less than one friend's share. Share the striped part between 3; all of the cake should be shared, with nothing left over.",
+        "empty": "You haven't shaded anything yet. Shade one friend's share."
+      }
+    },
+    "quarters-in-two": {
+      "title": "How many quarters are in 2?",
+      "prompt": "2 ÷ {{frac:1/4}} means \"how many {{frac:1/4}}s fit into 2 wholes?\" First, predict: is the answer bigger or smaller than 2? Then use + to split both bars into quarters and count them.",
+      "hint": "Split each bar into 4 parts. One bar has 4 quarters. How many do two bars have?",
+      "success": "Well done! 8 quarters fit into 2 wholes: 2 ÷ {{frac:1/4}} = 8",
+      "why": "Dividing usually makes a number smaller. Why is 2 ÷ {{frac:1/4}} much bigger than 2?",
+      "model": "Division asks \"how many of these fit into that?\" When you divide by a number smaller than 1, each piece is smaller than a whole, so more than one piece fits into each whole. Each whole holds 4 quarters, so 2 wholes hold 2 × 4 = 8. That's why dividing by {{frac:1/4}} is the same as multiplying by 4, the {{term:reciprocal}} of {{frac:1/4}}. The smaller the piece, the more of them fit.",
+      "feedback": {
+        "too-small": "Not enough. Count the quarters in both bars.",
+        "too-big": "Too many. Split each bar into exactly 4 parts and count the parts.",
+        "empty": "Type a number: how many quarters did you count?"
+      }
+    }
+  }
+}
