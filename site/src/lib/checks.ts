@@ -1,5 +1,12 @@
 // Pure answer checking, shared by the browser runtime and the tests.
 import { Frac, isSimplest, parseDecimal, writtenValue, type WrittenFrac } from './fraction';
+import { checkCounters, type CountersCheck } from '../engines/lib/counters-check';
+import type { ZoneState } from '../engines/lib/counters-model';
+import { checkPlaceValue, type PlaceValueCheck } from '../engines/lib/place-value-check';
+import { checkFacts, type FactsCheck } from '../engines/lib/fact-fluency-check';
+import { checkCcm, type CcmCheck, type CcmState } from '../engines/lib/clock-calendar-money-check';
+import { checkMeasure, type MeasureCheck, type MeasureState } from '../engines/lib/measure-check';
+import { checkPattern, type PatternCheck, type PatternState } from '../engines/lib/pattern-machine-check';
 
 type FracSpec = [number, number];
 
@@ -12,11 +19,24 @@ export type Check =
    * subtracting tops and bottoms. `mixed`: the answer must be written as a mixed number (whole part, proper fraction).
    */
   | { type: 'answer-equals'; value: FracSpec; simplest?: boolean; denominator?: number; traps?: { value: FracSpec; code: string }[]; mixed?: boolean }
-  | { type: 'answer-integer'; value: number }
+  /** `traps`: known wrong numbers with their own feedback code, e.g. 74 (digits reversed) for 47. */
+  | { type: 'answer-integer'; value: number; traps?: { value: number; code: string }[] }
   /** value is written with "." in the YAML, e.g. "2.5"; compared exactly. */
   | { type: 'answer-decimal'; value: string }
   | { type: 'choice'; options: string[]; correct: number }
-  | { type: 'steps-correct' };
+  | { type: 'steps-correct' }
+  /** <kg-counters>: counts, marks, colours, equal groups, arrays, factor trees, picked number (engines/lib/counters-check.ts). */
+  | CountersCheck
+  /** <kg-place-value>: the number shown equals `value` (engines/lib/place-value-check.ts). */
+  | PlaceValueCheck
+  /** <kg-fact-fluency>: enough facts right first time in a round (engines/lib/fact-fluency-check.ts). */
+  | FactsCheck
+  /** <kg-clock-calendar-money>: time-equals, date-equals, money-equals, money-compare (engines/lib/clock-calendar-money-check.ts). */
+  | CcmCheck
+  /** <kg-measure>: the typed or measured value equals `value` (± tolerance), optionally lined up from zero (engines/lib/measure-check.ts). */
+  | MeasureCheck
+  /** <kg-pattern-machine>: repeating patterns, typed terms, machine rules, hundred-square shading, order of operations (engines/lib/pattern-machine-check.ts). */
+  | PatternCheck;
 
 export interface Attempt {
   /** Engine state (shape depends on the engine). */
@@ -24,7 +44,17 @@ export interface Attempt {
     bars?: { parts: number; shaded: number }[];
     points?: FracSpec[];
     stepsCorrect?: boolean;
-  };
+    zones?: ZoneState[];
+    picked?: number | null;
+    /** <kg-place-value>: the number shown (decimal string) and the counts per place, lowest first. */
+    value?: string;
+    counts?: number[];
+    /** <kg-fact-fluency>: facts in the round, answered, right first time (best round), round over. */
+    total?: number;
+    answered?: number;
+    correct?: number;
+    done?: boolean;
+  } & CcmState & MeasureState & { pattern?: PatternState };
   fraction?: WrittenFrac | null;
   integer?: number | null;
   /** Typed decimal, already parsed exactly (null if unparseable). */
@@ -89,6 +119,8 @@ export function evaluate(check: Check, a: Attempt): Result {
     case 'answer-integer': {
       if (a.integer == null) return fail('empty');
       if (a.integer === check.value) return pass;
+      const trap = check.traps?.find((t) => t.value === a.integer);
+      if (trap) return fail(trap.code);
       return fail(a.integer > check.value ? 'too-big' : 'too-small');
     }
     case 'answer-decimal': {
@@ -102,5 +134,20 @@ export function evaluate(check: Check, a: Attempt): Result {
     }
     case 'steps-correct':
       return a.state?.stepsCorrect ? pass : fail('wrong');
+    case 'counters':
+      return checkCounters(check, a.state);
+    case 'place-value':
+      return checkPlaceValue(check, a.state);
+    case 'facts-correct':
+      return checkFacts(check, a.state);
+    case 'time-equals':
+    case 'date-equals':
+    case 'money-equals':
+    case 'money-compare':
+      return checkCcm(check, a.state);
+    case 'measure':
+      return checkMeasure(check, a.state, a.integer ?? (a.decimal ? a.decimal.valueOf() : null));
+    case 'pattern':
+      return checkPattern(check, a.state);
   }
 }

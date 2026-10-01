@@ -1,0 +1,56 @@
+/* Styles for <kg-column-arithmetic>. Loaded on every page via the glob in layouts/Base.astro. */
+/* One LTR grid per sheet; digit columns shrink (to ≥36px wide, boxes always 44px tall) only on narrow phones. */
+kg-column-arithmetic { container-type: inline-size; display: flex; flex-direction: column; align-items: center; }
+.kg-ca-sheet {
+  --ca-s: 26px;
+  --ca-c: clamp(36px, calc((100cqi - 30px) / var(--ca-n)), 50px);
+  display: grid; row-gap: 3px; direction: ltr; font-size: 1.5rem; line-height: 1; position: relative;
+  margin-block: 0.25rem; margin-inline: auto; padding-inline: 2px; inline-size: fit-content;
+}
+.kg-ca-sheet[hidden], .kg-ca-sheet > [hidden] { display: none !important; }
+.kg-ca-d, .kg-ca-h, .kg-ca-mark, .kg-ca-top { display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
+.kg-ca-pad { color: var(--muted); }
+.kg-ca-sign { color: var(--accent); font-weight: 700; justify-content: flex-start; }
+.kg-ca-rule { align-self: end; border-block-end: 2px solid var(--fg); margin-block-end: -3px; pointer-events: none; }
+.kg-ca-mk { justify-self: end; align-self: center; transform: translateX(55%); font-weight: 700; color: var(--accent); z-index: 2; pointer-events: none; }
+
+/* Place-value table (Iran «جدول ارزش مکانی»): headings and column lines. */
+.kg-ca-h { font-size: 0.8rem; white-space: nowrap; color: var(--muted); border-block-end: 2px solid var(--border); }
+.kg-ca-line { border-inline-start: 1px solid var(--border); pointer-events: none; }
+.kg-ca-table .kg-ca-line:first-of-type { border-inline-start-color: transparent; }
+
+/* Subtraction: tap a top digit to borrow from it; it is crossed out and its new value written above it. */
+.kg-ca-top {
+  font: inherit; color: var(--fg); background: transparent; border: 2px dashed var(--border); border-radius: 8px;
+  inline-size: 100%; block-size: 44px; padding: 0; cursor: pointer; min-inline-size: 0;
+}
+.kg-ca-top:hover { border-color: var(--accent); }
+.kg-ca-top:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+.kg-ca-top.x { color: var(--muted); text-decoration: line-through 2px var(--no); }
+.kg-ca-mark { font-size: 1.05rem; font-weight: 700; color: var(--no); align-self: end; }
+
+.kg-ca-box {
+  inline-size: calc(100% - 4px); justify-self: center; block-size: 44px; padding: 0; text-align: center; font: inherit; font-size: 1.4rem;
+  border: 2px solid var(--muted); border-radius: 8px; background: var(--bg); color: var(--fg); position: relative; z-index: 1;
+}
+.kg-ca-box:disabled { border-style: dotted; border-color: var(--border); background: transparent; opacity: 1; }
+.kg-ca-box:focus-visible, .kg-ca-box:focus { outline: 3px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.kg-ca-box.no { border-style: dashed; border-color: var(--no); background: var(--no-bg); }
+.kg-ca-box.ok { border-color: transparent; background: transparent; color: var(--fg); }
+.kg-ca-box.typed { color: var(--ok); font-weight: 700; }
+.kg-ca-box.shown { color: var(--accent); }
+/* Carries: small digits, as written in the books. */
+.kg-ca-carry { font-size: 1.05rem; border-radius: 50%; color: var(--accent); }
+.kg-ca-carry.ok { color: var(--accent); font-weight: 700; }
+
+.kg-ca-check { padding-block-start: 1.8rem; border-block-start: 2px dashed var(--border); margin-block-start: 0.75rem; }
+.kg-ca-inv { position: absolute; inset-block-start: 0.3rem; inset-inline: 0; margin: 0; font-size: 1rem; font-weight: 700; color: var(--accent); text-align: center; white-space: nowrap; }
+
+.kg-ca-tools { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; margin-block-start: 0.5rem; text-align: center; }
+.kg-ca-align { display: flex; gap: 0.75rem; }
+.kg-ca-align button { min-inline-size: 56px; min-block-size: 44px; font-size: 1.2rem; }
+.kg-ca-ask { margin: 0; font-size: 1.15rem; min-block-size: 1.8em; }
+.kg-ca-ask bdi[dir='ltr'] { unicode-bidi: isolate; }
+.kg-ca-status { margin: 0; min-block-size: 1.8em; color: var(--no); }
+.kg-ca-status.ok { color: var(--ok); font-weight: 700; }
+.kg-ca-align[hidden] { display: none; }

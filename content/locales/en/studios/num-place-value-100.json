@@ -1,0 +1,87 @@
+{
+  "title": "Tens and ones: numbers to 100",
+  "summary": "Bundle ten ones into a ten. Build and read numbers to 100 with tens and ones.",
+  "guide": [
+    "This studio is for Year 1. The sentences are short; read them aloud if your child can't read yet. The picture above each mission shows which button to press.",
+    "Each column is a place: the ones on the right, the tens on the left. Under each column, the place-value chart shows that column's digit.",
+    "The <b>← 10</b> button bundles ten ones into one ten. The <b>1 →</b> button breaks a ten into ten ones. The number stays the same; only the way it is made changes.",
+    "If a column holds 10 or more, its digit turns red: only one digit fits in each place. So it's time to exchange.",
+    "Use the buttons above the picture to switch to the {{term:abacus}}, which shows the same thing with beads."
+  ],
+  "engine": {
+    "place-0": "ones",
+    "place-1": "tens",
+    "label-add": "Add one to the {p}",
+    "label-remove": "Take one from the {p}",
+    "label-bundle": "Exchange 10 {p} for 1 ten",
+    "label-break": "Exchange 1 ten for 10 {q}",
+    "label-views": "View",
+    "label-blocks": "Base-ten blocks",
+    "label-abacus": "Abacus",
+    "instruction-bundle": "Ten ones? Make a ten!",
+    "instruction-read": "Count and write.",
+    "instruction-add": "Add tens.",
+    "instruction-break": "Break a ten."
+  },
+  "missions": {
+    "make-a-ten": {
+      "title": "Make a ten",
+      "prompt": "Here are 14 ones. Bundle ten of them into a ten.",
+      "hint": "Ten ones have a dotted ring. Press ← 10.",
+      "success": "Well done! 1 ten and 4 ones. That's 14.",
+      "why": "You had 14 ones. Now you have 1 ten and 4 ones. Which is more? Why?",
+      "model": "Neither. Both are 14. We only bundled ten ones together. One ten is the same as ten ones.",
+      "feedback": {
+        "needs-exchange": "There are still 10 ones together. Press ← 10.",
+        "too-big": "You added some. It should stay 14. Just bundle.",
+        "too-small": "You took some away. It should stay 14. Just bundle.",
+        "empty": "You took them all away! Put 14 ones back."
+      }
+    },
+    "read-the-number": {
+      "title": "Count and write",
+      "prompt": "How many tens? How many ones? Write the number.",
+      "hint": "Count the tens first: 10, 20, 30, … Then count the ones.",
+      "success": "Well done! 4 tens and 7 ones make 47.",
+      "why": "In 47, what does the 4 show?",
+      "model": "The 4 means 4 tens. That's 40. The 7 means 7 ones.",
+      "feedback": {
+        "reversed": "You swapped the digits. The tens digit comes first, on the left.",
+        "added-digits": "You added 4 and 7. Each ten is ten ones. Count the tens in tens.",
+        "too-big": "Too many. Count the tens again.",
+        "too-small": "Too few. Each ten is ten. Count in tens.",
+        "empty": "Write the number in the box."
+      }
+    },
+    "add-tens": {
+      "title": "Add tens",
+      "prompt": "You have 25. Add 3 tens. Guess first: what will it be?",
+      "hint": "Press + under the tens three times. The ones don't change.",
+      "success": "That's right! 25 and 3 tens make 55.",
+      "why": "25 became 55. Which digit changed? Why didn't the other one?",
+      "model": "The tens digit went from 2 to 5, because we added 3 tens. The ones stayed 5, because we didn't add any ones.",
+      "feedback": {
+        "added-ones": "You added 3 ones. Add 3 <b>tens</b>. Press + under the tens.",
+        "too-small": "Not enough yet. You need 3 tens.",
+        "too-big": "Too many. Add just 3 tens.",
+        "needs-exchange": "There are 10 ones together. Make a ten first."
+      }
+    },
+    "break-a-ten": {
+      "title": "Break a ten",
+      "prompt": "You have 32. Take away 5 ones. There are only 2 ones! What can you do?",
+      "hint": "Press 1 →. A ten opens into ten ones. Then take away 5.",
+      "success": "Well done! You broke a ten and took 5 away. 27 is left.",
+      "why": "Why did you have to break a ten first?",
+      "model": "There were only 2 ones, so I couldn't take 5. I broke a ten and had 12 ones. I took 5 away: 7 ones and 2 tens are left. That's 27.",
+      "feedback": {
+        "only-two": "You took 2. Take 3 more. First break a ten with 1 →.",
+        "took-ten": "You took a whole ten: that's 10! We only want 5. Put the ten back and break it.",
+        "took-tens": "You took tens. We only want 5 ones.",
+        "too-big": "You haven't taken 5 away yet. Take ones with −.",
+        "too-small": "You took too many. Just 5 ones.",
+        "needs-exchange": "There are 10 ones together. Bundle them back into a ten."
+      }
+    }
+  }
+}

@@ -67,4 +67,38 @@ describe('evaluate', () => {
     expect(evaluate(mixed, { fraction: { whole: 1, n: 5, d: 4 } }).code).toBe('not-mixed');
     expect(evaluate(mixed, { fraction: { whole: 1, n: 1, d: 4 } }).code).toBe('too-small');
   });
+
+  it('answer-integer gives a trap code for a known wrong number', () => {
+    const c = { type: 'answer-integer', value: 47, traps: [{ value: 74, code: 'reversed' }] } as const;
+    expect(evaluate(c, { integer: 74 }).code).toBe('reversed');
+    expect(evaluate(c, { integer: 48 }).code).toBe('too-big');
+    expect(evaluate(c, { integer: 47 }).ok).toBe(true);
+  });
+
+  it('place-value checks the number shown and whether it is exchanged', () => {
+    const c = { type: 'place-value', value: 14, canonical: true } as const;
+    expect(evaluate(c, { state: { value: '14', counts: [14, 0] } }).code).toBe('needs-exchange');
+    expect(evaluate(c, { state: { value: '14', counts: [4, 1] } }).ok).toBe(true);
+    expect(evaluate(c, { state: { value: '41', counts: [1, 4] } }).code).toBe('too-big');
+  });
+});
+
+describe('facts-correct (<kg-fact-fluency>)', () => {
+  it('passes when enough facts are right first time, else says keep going or play again', () => {
+    const c = { type: 'facts-correct' as const, min: 8 };
+    expect(evaluate(c, { state: {} }).code).toBe('empty');
+    expect(evaluate(c, { state: { total: 10, answered: 4, correct: 4, done: false } }).code).toBe('not-finished');
+    expect(evaluate(c, { state: { total: 10, answered: 10, correct: 6, done: true } }).code).toBe('too-few');
+    expect(evaluate(c, { state: { total: 10, answered: 9, correct: 8, done: false } }).ok).toBe(true);
+  });
+});
+
+describe('measure (<kg-measure>)', () => {
+  it('checks the typed (integer or decimal) or measured value, and lining up from zero', () => {
+    const c = { type: 'measure' as const, value: 7, aligned: true };
+    expect(evaluate(c, { state: { tool: 'ruler', aligned: true }, integer: 7 }).ok).toBe(true);
+    expect(evaluate(c, { state: { tool: 'ruler', aligned: false, misreads: [[5, 'not-from-zero']] }, integer: 5 }).code).toBe('not-from-zero');
+    expect(evaluate({ type: 'measure', value: 6.4 }, { state: { tool: 'ruler' }, decimal: new Frac(32, 5) }).ok).toBe(true);
+    expect(evaluate({ type: 'measure', value: 600 }, { state: { tool: 'balance', measured: 500 }, integer: null }).code).toBe('too-small');
+  });
 });

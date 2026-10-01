@@ -1,0 +1,38 @@
+id: ops-times-tables
+engine: fact-fluency
+strand: ops
+order: 5
+concepts: [ops.mul-div.facts.2-5-10, ops.mul-div.facts, ops.mul-div.zero-one, ops.mul-div.mental]
+# Tables go to the locale's engine "up-to": 10 × 10 for fa-IR, fa-AF and ps (both countries' books), 12 × 12 for en
+# (UK Year 4 multiplication check). Tables above it are dropped, so 11 and 12 below are asked in en only.
+# Spaced repetition of missed facts is kept on the device (localStorage); the gentle timer is offered but starts off.
+missions:
+  # «جدول ضرب زبانی»: say the 5 table in order while the array grows by a row of 5 each time.
+  - id: say-five-table
+    setup: { mode: recite, table: 5 }
+    check: { type: facts-correct, min: 8 }
+  # 2, 5 and 10 first (both orders, so 7 × 2 as well as 2 × 7).
+  - id: two-five-ten
+    setup: { mode: quiz, tables: [2, 5, 10], count: 10 }
+    check: { type: facts-correct, min: 8 }
+  # The ×0 and ×1 rules; the picture is always shown (7 × 0 is seven empty rows).
+  - id: zero-and-one
+    setup: { mode: quiz, tables: [0, 1], count: 8, picture: always }
+    check: { type: facts-correct, min: 7 }
+  # Derived fact: 6 × 7 is 5 × 7 and one more 7. The learner moves the line, then types 6 × 7.
+  - id: split-six-sevens
+    setup: { mode: split, fact: [6, 7], split: 3 }
+    answer: integer
+    check:
+      type: answer-integer
+      value: 42
+      traps:
+        - { value: 13, code: added }
+        - { value: 49, code: one-more-row }
+        - { value: 35, code: one-less-row }
+        - { value: 48, code: near }
+        - { value: 36, code: near }
+  # The rest of the tables, with derived facts (double, near ten) and the gentle timer on offer.
+  - id: the-rest
+    setup: { mode: quiz, tables: [3, 4, 6, 7, 8, 9, 11, 12], count: 12 }
+    check: { type: facts-correct, min: 10 }

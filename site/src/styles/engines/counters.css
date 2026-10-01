@@ -1,0 +1,113 @@
+/* Styles for <kg-counters>. Loaded on every page via the glob in layouts/Base.astro. Logical properties only. */
+kg-counters {
+  --ct-red: #d9473b;
+  --ct-yellow: #f2c232;
+  --ct-edge: #6b2a1f;
+  --ct-cell: 56px;
+  display: flex; flex-direction: column; gap: 0.9rem; align-items: center;
+}
+@media (prefers-color-scheme: dark) {
+  kg-counters { --ct-red: #ef6a5c; --ct-yellow: #f5cf57; --ct-edge: #1f2328; }
+}
+
+/* instruction hint: a picture of the action, with a very short label for those who can read it */
+.kg-ct-hint { display: flex; align-items: center; gap: 0.6rem; margin: 0; font-weight: 700; align-self: stretch; justify-content: center; }
+.kg-ct-i { inline-size: 44px; block-size: 44px; flex: none; position: relative; border-radius: 50%; background: var(--hint-bg); }
+.kg-ct-i::before, .kg-ct-i::after { content: ''; position: absolute; }
+/* a counter in the middle of every icon */
+.kg-ct-i::before { inset: 11px; border-radius: 50%; background: var(--ct-red); border: 2px solid var(--ct-edge); }
+.kg-ct-i.i-tap::after, .kg-ct-i.i-pick::after { inset: 3px; border-radius: 50%; border: 3px solid var(--accent); }
+.kg-ct-i.i-cross::after { inset: 20px 6px; background: var(--fg); transform: rotate(45deg); }
+.kg-ct-i.i-ring::after { inset: 4px; border-radius: 50%; border: 3px dashed var(--accent); }
+.kg-ct-i.i-paint::before { background: linear-gradient(90deg, var(--ct-red) 50%, var(--ct-yellow) 50%); }
+.kg-ct-i.i-move::after { inset-block: 18px; inset-inline-end: -6px; inline-size: 14px; border-block: 4px solid transparent; border-inline-start: 10px solid var(--accent); inline-size: 0; }
+.kg-ct-i.i-pick::before { border-radius: 6px; background: var(--card); }
+.kg-ct-i.i-split::before { background: linear-gradient(90deg, var(--ct-red) 50%, var(--ct-yellow) 50%); border-radius: 4px; }
+.kg-ct-i.i-tree::before { inset: 6px 14px 22px; }
+.kg-ct-i.i-tree::after { inset: 24px 6px 6px; border-radius: 50%; border-inline: 10px solid var(--ct-red); }
+[dir='rtl'] .kg-ct-i.i-move::after { transform: scaleX(-1); }
+
+.kg-ct-zones { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; align-self: stretch; }
+.kg-ct-zone { flex: 1 1 100%; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; min-inline-size: 0; }
+.kg-ct-zone.group { flex: 1 1 8rem; }
+.kg-ct-cap { display: flex; gap: 0.5rem; align-items: center; font-weight: 700; }
+.kg-ct-n { min-inline-size: 2rem; padding-inline: 0.4rem; border-radius: 999px; background: var(--hint-bg); text-align: center; }
+
+/* places and counters */
+.kg-ct-cell { display: grid; place-items: center; aspect-ratio: 1; min-inline-size: 0; position: relative; }
+.kg-ct-cell > i { position: absolute; inset-block-end: -1.3rem; font-style: normal; font-size: 0.85rem; color: var(--muted); }
+.kg-ct-c, .kg-ct-empty { inline-size: 82%; block-size: 82%; min-inline-size: 28px; min-block-size: 28px; border-radius: 50%; padding: 0; position: relative; }
+button.kg-ct-c, button.kg-ct-empty { inline-size: 100%; block-size: 100%; min-inline-size: 44px; min-block-size: 44px; border: 0; background: none; }
+.kg-ct-c { background: var(--ct-red); border: 2px solid var(--ct-edge); }
+button.kg-ct-c { background: radial-gradient(circle, var(--ct-red) 0 58%, transparent 60%); border: 0; }
+button.kg-ct-c::before { content: ''; position: absolute; inset: 8%; border-radius: 50%; border: 2px solid var(--ct-edge); }
+/* yellow counters also carry a ring of dots, so the two colours differ by more than hue */
+.kg-ct-c.c1 { background: var(--ct-yellow) radial-gradient(circle, transparent 0 34%, rgb(0 0 0 / 0.28) 35% 41%, transparent 42%); }
+button.kg-ct-c.c1 { background: radial-gradient(circle, var(--ct-yellow) 0 22%, rgb(0 0 0 / 0.28) 23% 27%, var(--ct-yellow) 28% 58%, transparent 60%); }
+button.kg-ct-empty::before, span.kg-ct-empty { border: 2px dashed var(--border); }
+button.kg-ct-empty::before { content: ''; position: absolute; inset: 14%; border-radius: 50%; }
+button.kg-ct-empty:hover::before { border-color: var(--accent); }
+.kg-ct-c:focus-visible, .kg-ct-empty:focus-visible, .kg-ct-btn:focus-visible, .kg-ct-tile:focus-visible, .kg-ct-v:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+/* crossed out (taken away): faded with an X */
+.kg-ct-c.x { opacity: 0.45; }
+.kg-ct-c.x::after { content: ''; position: absolute; inset: 0; background:
+  linear-gradient(45deg, transparent 45%, var(--fg) 45% 55%, transparent 55%),
+  linear-gradient(-45deg, transparent 45%, var(--fg) 45% 55%, transparent 55%); }
+/* circled (the extras when comparing) */
+.kg-ct-c.ring { outline: 3px dashed var(--accent); outline-offset: -1px; border-radius: 50%; }
+span.kg-ct-c.ring { outline-offset: 3px; }
+/* fixed ("already there") and picked up for moving */
+.kg-ct-c.lock { box-shadow: inset 0 0 0 3px rgb(0 0 0 / 0.22); }
+.kg-ct-c.held { transform: translateY(-6px); filter: drop-shadow(0 4px 2px rgb(0 0 0 / 0.35)); }
+
+/* apples: a counter with a leaf and a stalk */
+kg-counters[apple] .kg-ct-c { border-radius: 46% 46% 50% 50%; }
+kg-counters[apple] span.kg-ct-c::before, kg-counters[apple] button.kg-ct-c:not(.x)::after { content: ''; position: absolute; inset-block-start: -18%; inset-inline-start: 46%; inline-size: 30%; block-size: 26%; border-radius: 0 80%; background: #3f8f4a; }
+kg-counters[apple] button.kg-ct-c::after { inset-block-start: 4%; }
+
+/* ten-frame: 2 rows of 5 with frame lines */
+.kg-ct-frame { display: grid; grid-template-columns: repeat(5, minmax(0, var(--ct-cell))); border: 3px solid var(--fg); border-radius: 6px; background: var(--fg); gap: 2px; inline-size: min(100%, calc(5 * var(--ct-cell) + 14px)); }
+.kg-ct-frame > .kg-ct-cell { background: var(--cell); }
+/* row: one line of places, lined up so two rows compare one-to-one */
+.kg-ct-row { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 48px)); gap: 2px; inline-size: min(100%, calc(var(--n) * 50px)); justify-content: center; }
+.kg-ct-zone.row:has(i) { padding-block-end: 1.2rem; }
+/* group: a plate */
+.kg-ct-plate { display: flex; flex-wrap: wrap; justify-content: center; align-content: center; gap: 2px; min-block-size: 88px; inline-size: 100%; padding: 0.5rem; border: 2px solid var(--border); border-radius: 999px; background: var(--cell); }
+.kg-ct-plate > .kg-ct-cell { inline-size: 44px; }
+/* array */
+.kg-ct-array { display: grid; grid-template-columns: repeat(var(--c), minmax(0, 40px)); gap: 4px; max-inline-size: 100%; }
+.kg-ct-array > .kg-ct-c { inline-size: auto; aspect-ratio: 1; block-size: auto; min-inline-size: 0; min-block-size: 0; }
+.kg-ct-array > button.kg-ct-c { min-inline-size: 0; min-block-size: 40px; }
+.kg-ct-ctl, .kg-ct-pm { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; justify-content: center; }
+.kg-ct-pm output { min-inline-size: 2ch; text-align: center; font-weight: 700; }
+.kg-ct-btn { min-inline-size: 44px; min-block-size: 44px; border-radius: 999px; border: 2px solid var(--accent); background: transparent; color: var(--accent); font-size: 1.2rem; padding-inline: 0.6rem; }
+.kg-ct-zone > .kg-ct-btn { font-size: 1.5rem; line-height: 1; }
+
+/* factor tree: always laid out left to right */
+.kg-ct-tree { max-inline-size: 100%; overflow-x: auto; }
+.kg-ct-node { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+.kg-ct-kids { display: flex; gap: 0.8rem; padding-block-start: 0.8rem; border-block-start: 2px solid var(--fg); }
+.kg-ct-v { min-inline-size: 44px; min-block-size: 44px; border-radius: 50%; border: 2px solid var(--fg); background: var(--card); color: var(--fg); display: grid; place-items: center; font-weight: 700; font-size: 1.1rem; padding-inline: 0.3rem; }
+button.kg-ct-v { border-color: var(--accent); }
+.kg-ct-v.prime { border-width: 3px; border-color: var(--ok); background: var(--ok-bg); }
+.kg-ct-pairs { display: flex; flex-wrap: wrap; gap: 0.3rem; justify-content: center; }
+
+/* part-whole model */
+.kg-ct-bond { display: grid; grid-template-columns: 1fr 1fr; justify-items: center; inline-size: 13rem; }
+.kg-ct-bond svg { grid-column: 1 / 3; inline-size: 100%; block-size: 1.6rem; stroke: var(--fg); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.kg-ct-bond path { vector-effect: non-scaling-stroke; }
+.kg-ct-bond .whole { grid-column: 1 / 3; }
+.kg-ct-bond > div { display: grid; place-items: center; inline-size: 3.6rem; block-size: 3.6rem; border-radius: 50%; border: 3px solid var(--fg); background: var(--card); font-size: 1.6rem; font-weight: 700; }
+.kg-ct-bond .part.c0 { border-color: var(--ct-red); }
+.kg-ct-bond .part.c1 { border-color: var(--ct-yellow); border-style: dashed; }
+.kg-ct-bond .kg-ct-box { border: 0; min-inline-size: 0; }
+
+/* number sentence: always left to right, big */
+.kg-ct-sent { display: flex; gap: 0.5rem; align-items: center; justify-content: center; margin: 0; font-size: 2rem; font-weight: 700; line-height: 1.2; }
+.kg-ct-box { display: inline-grid; place-items: center; min-inline-size: 2.6rem; min-block-size: 2.6rem; border: 3px dashed var(--accent); border-radius: 10px; color: var(--accent); }
+.kg-ct-box.on { border-style: solid; color: var(--fg); }
+
+/* number tiles */
+.kg-ct-pick { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; }
+.kg-ct-tile { min-inline-size: 48px; min-block-size: 48px; border-radius: 10px; border: 2px solid var(--border); background: var(--card); color: var(--fg); font-size: 1.4rem; font-weight: 700; }
+.kg-ct-tile[aria-checked='true'] { border-color: var(--accent); background: var(--accent); color: var(--bg); }

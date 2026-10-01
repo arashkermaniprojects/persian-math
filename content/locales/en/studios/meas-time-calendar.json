@@ -1,0 +1,110 @@
+{
+  "title": "Clocks and calendars",
+  "summary": "Turn the hands of a clock, write an afternoon time in 24-hour time, and find days on a calendar.",
+  "guide": [
+    "A clock has two hands. The short hand shows the {{term:hour}} and the long hand shows the {{term:minute}}s. When the long hand points to 12, it is an o'clock time, such as 3 o'clock.",
+    "When the long hand goes all the way round, 60 {{term:minute}}s pass and the short hand moves on from one number to the next. That is why, at half past 7, the short hand is halfway between 7 and 8.",
+    "A day has 24 {{term:hour}}s, so the short hand goes round twice a day. Phones and digital clocks often use 24-hour time: after 12 noon they carry on counting 13, 14, 15 … instead of starting again at 1.",
+    "On a {{term:calendar}}, each row is a {{term:week}} of 7 {{term:day}}s, starting on Monday. Months have 28, 29, 30 or 31 days.",
+    "Drag the hands with your finger, and tap a day on the calendar. With a keyboard, the arrow keys turn a hand or move between days."
+  ],
+  "engine": {
+    "label-clock": "clock",
+    "label-hour-hand": "short hand (hours)",
+    "label-minute-hand": "long hand (minutes)",
+    "label-between": "between {a} and {b}",
+    "label-digital": "digital clock",
+    "label-hours": "hours",
+    "label-minutes": "minutes",
+    "label-more": "{x} up",
+    "label-less": "{x} down",
+    "label-morning": "morning",
+    "label-afternoon": "afternoon",
+    "label-evening": "evening",
+    "label-night": "night",
+    "label-prev-month": "previous month",
+    "label-next-month": "next month",
+    "label-today": "today",
+    "instruction-drag": "Turn the hands",
+    "instruction-set": "Use ▲ and ▼ to set the numbers",
+    "instruction-tap": "Tap a day"
+  },
+  "missions": {
+    "three-oclock": {
+      "title": "3 o'clock",
+      "prompt": "Set the clock to 3 o'clock.",
+      "hint": "Leave the long hand on 12. Put the short hand on 3.",
+      "success": "Well done! It is 3 o'clock.",
+      "why": "Where is the long hand at 3 o'clock? Why?",
+      "model": "The long hand points to 12. At any o'clock time there are no minutes past the hour, so the long hand is always on 12. The short hand tells you which hour it is: 3.",
+      "feedback": {
+        "hands-swapped": "The hands have swapped places! The short hand shows the hour. The long hand should be on 12.",
+        "hour-off-by-one": "Close! Put the short hand exactly on 3.",
+        "wrong-hour": "The long hand is right. Now move the short hand to 3.",
+        "wrong-minute": "The short hand is right. Move the long hand to 12.",
+        "wrong": "First move the long hand to 12. Then move the short hand to 3."
+      }
+    },
+    "half-past-seven": {
+      "title": "Half past 7",
+      "prompt": "Set the clock to half past 7. (7:30)",
+      "hint": "Half an hour is 30 minutes, so the long hand goes to 6. The short hand sits between 7 and 8.",
+      "success": "Well done! It is half past 7.",
+      "why": "At half past 7, why isn't the short hand exactly on 7?",
+      "model": "Because half an hour has passed since 7 o'clock. In one hour the short hand moves from 7 to 8, so in half an hour it has gone half of the way. It is halfway between 7 and 8.",
+      "feedback": {
+        "hour-off-by-one": "The long hand is right, but the short hand should be between 7 and 8.",
+        "wrong-minute": "The short hand is fine. Half past means 30 minutes: put the long hand on 6.",
+        "hands-swapped": "The hands have swapped places! Long hand on 6, short hand between 7 and 8.",
+        "wrong-hour": "The long hand is right. Now move the short hand to between 7 and 8.",
+        "wrong": "First move the long hand to 6. Then move the short hand to between 7 and 8."
+      }
+    },
+    "afternoon": {
+      "title": "24-hour time",
+      "prompt": "Ali got home at half past 4 in the afternoon. His phone shows 24-hour time. Set the phone's clock.",
+      "hint": "After 12 noon the phone keeps counting: 13, 14, 15 … So 4 in the afternoon is 12 + 4.",
+      "success": "Well done! Half past 4 in the afternoon is 16:30 in 24-hour time.",
+      "why": "Why does the phone show 16 for 4 o'clock in the afternoon?",
+      "model": "The phone counts the hours from midnight all the way to 24. By noon 12 hours have passed, and 4 more hours after that: 12 + 4 = 16.",
+      "feedback": {
+        "am-pm": "That is half past 4 in the morning! It is the afternoon, so add 12 to the hour.",
+        "minute-as-number": "The long hand points to 6, but that means 30 minutes, not 6. Each number on the clock is 5 minutes.",
+        "wrong-minute": "The hour is right. Look at the minutes again: the long hand on 6 means 30 minutes.",
+        "hour-off-by-one": "The minutes are right. The hour is one out: what is 12 + 4?",
+        "wrong-hour": "The minutes are right. Work out the hour again: 12 + 4.",
+        "wrong": "The short hand is between 4 and 5 and the long hand is on 6. In the afternoon, add 12 to the hour."
+      }
+    },
+    "one-week-later": {
+      "title": "One week later",
+      "prompt": "Today is Monday 5 October. Sara's party is one week later. Tap the day of the party.",
+      "hint": "A week is 7 days. Count 7 days on from today, or go one row down in today's column.",
+      "success": "Well done! Sara's party is on Monday 12 October.",
+      "why": "Why is the party day straight below today?",
+      "model": "Each row of the calendar is one week of 7 days. One week later it is the same day of the week again, Monday, so it is one row down in the same column: 5 + 7 = 12.",
+      "feedback": {
+        "off-by-one": "Very close! Did you count today as well? Start counting from tomorrow: 6, 7, 8 … for 7 days.",
+        "wrong-week": "That is the right day of the week, but not one week later. Go just one row down.",
+        "too-late": "That is more than a week later. Count 7 days on from 5 October.",
+        "too-early": "That is less than a week later. Count a full 7 days on from 5 October.",
+        "empty": "Tap a day on the calendar."
+      }
+    },
+    "new-year": {
+      "title": "New Year's Day",
+      "prompt": "This calendar shows December, the last month of the year. Which day is the first day of the new year? Go to the next month and tap it.",
+      "hint": "After December comes January. Press \"next month\", then tap 1 January.",
+      "success": "Well done! 1 January 2026 is New Year's Day.",
+      "why": "Why is the day after 31 December the 1st of January and not the 32nd of December?",
+      "model": "December has only 31 days. When a month runs out of days, the next month starts again at 1. December is the last month, so after it a new year begins with January.",
+      "feedback": {
+        "wrong-month": "That day is in a different month. New Year's Day is in January. Press \"next month\".",
+        "off-by-one": "Right month! Now tap day 1.",
+        "too-late": "Right month! The new year starts on day 1.",
+        "wrong-week": "Right month! The new year starts on day 1.",
+        "empty": "Open the next month first, then tap a day."
+      }
+    }
+  }
+}
