@@ -1,7 +1,7 @@
 // Runs a studio's missions in the browser: Explore → Predict → Check → Justify (docs/STUDIOS.md).
 // All text arrives pre-rendered (HTML) from the server in #studio-data; nothing is fetched.
 import { evaluate, type Attempt, type Check } from '../lib/checks';
-import { asciiDigits } from '../lib/fraction';
+import { asciiDigits, parseDecimal } from '../lib/fraction';
 import type { FractionInput } from '../engines/fraction-input';
 import '../engines/fraction-input';
 
@@ -14,7 +14,7 @@ interface MissionData {
   id: string;
   engine: string;
   setup?: Record<string, unknown>;
-  answer?: 'fraction' | 'integer' | 'choice';
+  answer?: 'fraction' | 'integer' | 'decimal' | 'choice';
   check: Check;
   /** Rendered HTML of choice options, when check.type === 'choice'. */
   options?: string[];
@@ -94,7 +94,7 @@ async function show() {
     fracInput.dataset.labelWhole = data.ui.whole;
     row.append(fracInput);
     card.append(row);
-  } else if (m.answer === 'integer') {
+  } else if (m.answer === 'integer' || m.answer === 'decimal') {
     const row = el('div', 'answer-row');
     intInput = el('input', 'int-input');
     intInput.inputMode = 'numeric';
@@ -139,7 +139,8 @@ async function show() {
     const attempt: Attempt = {
       state: engine.state,
       fraction: fracInput?.value ?? null,
-      integer: intInput ? parseInt(asciiDigits(intInput.value), 10) : null,
+      integer: intInput && m.answer === 'integer' ? parseInt(asciiDigits(intInput.value), 10) : null,
+      decimal: intInput && m.answer === 'decimal' ? parseDecimal(intInput.value, data.fmt.decimal) : null,
       choice,
     };
     if (attempt.integer !== null && Number.isNaN(attempt.integer)) attempt.integer = null;

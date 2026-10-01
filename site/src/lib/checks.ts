@@ -1,5 +1,5 @@
 // Pure answer checking, shared by the browser runtime and the tests.
-import { Frac, isSimplest, writtenValue, type WrittenFrac } from './fraction';
+import { Frac, isSimplest, parseDecimal, writtenValue, type WrittenFrac } from './fraction';
 
 type FracSpec = [number, number];
 
@@ -8,6 +8,8 @@ export type Check =
   | { type: 'point-equals'; values: FracSpec[] }
   | { type: 'answer-equals'; value: FracSpec; simplest?: boolean; denominator?: number }
   | { type: 'answer-integer'; value: number }
+  /** value is written with "." in the YAML, e.g. "2.5"; compared exactly. */
+  | { type: 'answer-decimal'; value: string }
   | { type: 'choice'; options: string[]; correct: number }
   | { type: 'steps-correct' };
 
@@ -20,6 +22,8 @@ export interface Attempt {
   };
   fraction?: WrittenFrac | null;
   integer?: number | null;
+  /** Typed decimal, already parsed exactly (null if unparseable). */
+  decimal?: Frac | null;
   choice?: number | null;
 }
 
@@ -77,6 +81,11 @@ export function evaluate(check: Check, a: Attempt): Result {
       if (a.integer == null) return fail('empty');
       if (a.integer === check.value) return pass;
       return fail(a.integer > check.value ? 'too-big' : 'too-small');
+    }
+    case 'answer-decimal': {
+      if (a.decimal == null) return fail('empty');
+      const want = parseDecimal(check.value)!;
+      return a.decimal.equals(want) ? pass : fail(sizeCode(a.decimal, want));
     }
     case 'choice': {
       if (a.choice == null) return fail('empty');

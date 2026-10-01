@@ -69,3 +69,18 @@ export function parseInteger(s: string): number | null {
   const t = asciiDigits(s.trim()).replace(/[−–]/g, '-');
   return /^-?\d+$/.test(t) ? Number(t) : null;
 }
+
+/**
+ * Parse a learner's typed decimal exactly (as a fraction), accepting the locale's decimal mark
+ * ("/" in Iran, "," in Afghanistan) as well as "." and the Arabic decimal separator "٫".
+ * Returns null for anything that isn't a plain decimal number.
+ */
+export function parseDecimal(s: string, decimalMark = '.'): Frac | null {
+  let t = asciiDigits(s.trim()).replace(/[−–]/g, '-');
+  for (const mark of new Set([decimalMark, '.', '٫', ','])) t = t.split(mark).join('.');
+  const m = t.match(/^(-?)(\d*)(?:\.(\d+))?$/);
+  if (!m || (!m[2] && !m[3])) return null;
+  const frac = m[3] ?? '';
+  const value = new Frac(Number((m[2] || '0') + frac), 10 ** frac.length);
+  return m[1] ? new Frac(-value.n, value.d) : value;
+}

@@ -25,7 +25,7 @@ missions:
     check: { type: shaded-equals, value: [3, 4] }
   - id: name-the-fraction
     setup: { bars: [{ parts: 5, shaded: 2, interactive: none }] }
-    answer: fraction                              # shows a fraction input under the engine
+    answer: fraction                              # fraction | integer | decimal | choice: input shown under the engine
     check: { type: answer-equals, value: [2, 5] }
 ```
 
@@ -37,6 +37,7 @@ missions:
 | `point-equals` | every number-line point is on one of `values` | |
 | `answer-equals` | the typed fraction equals `value` | `simplest: true`; `denominator: n` |
 | `answer-integer` | the typed whole number equals `value` | |
+| `answer-decimal` | the typed decimal equals `value` exactly (`value` uses `.` in YAML) | the learner types the locale mark: ۲/۵ (fa-IR), ۲,۵ (fa-AF, ps) or 2.5 (en) |
 | `choice` | the chosen option index is `correct` | `options` is a list of placeholders, e.g. `"{{frac:2/3}}"` |
 | `steps-correct` | every step of a written method (long division) is right | |
 

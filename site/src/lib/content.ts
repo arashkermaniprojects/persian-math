@@ -11,7 +11,7 @@ const CONTENT = resolve(process.cwd(), '../content') + '/';
 export interface MissionDef {
   id: string;
   setup?: Record<string, unknown>;
-  answer?: 'fraction' | 'integer' | 'choice';
+  answer?: 'fraction' | 'integer' | 'decimal' | 'choice';
   check: Check;
 }
 

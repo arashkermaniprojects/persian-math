@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { evaluate } from './checks';
+import { Frac } from './fraction';
 
 describe('evaluate', () => {
   it('shaded-equals accepts equivalent shading unless exact', () => {
@@ -30,6 +31,13 @@ describe('evaluate', () => {
     expect(evaluate(check, { state: { points: [[2, 3], [1, 3]] } }).ok).toBe(true);
     expect(evaluate(check, { state: { points: [[1, 3]] } }).code).toBe('count');
     expect(evaluate({ type: 'point-equals', values: [[1, 2]] }, { state: { points: [[3, 4]] } }).code).toBe('too-big');
+  });
+
+  it('answer-decimal compares exactly', () => {
+    const check = { type: 'answer-decimal', value: '0.3' } as const;
+    expect(evaluate(check, { decimal: new Frac(3, 10) }).ok).toBe(true);
+    expect(evaluate(check, { decimal: new Frac(1, 3) }).code).toBe('too-big');
+    expect(evaluate(check, { decimal: null }).code).toBe('empty');
   });
 
   it('choice and integer answers', () => {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { Frac, asciiDigits, isSimplest, parseInteger, writtenValue } from './fraction';
+import { Frac, asciiDigits, isSimplest, parseDecimal, parseInteger, writtenValue } from './fraction';
 
 describe('Frac', () => {
   it('normalises to lowest terms with a positive denominator', () => {
@@ -39,5 +39,17 @@ describe('learner input', () => {
     expect(parseInteger('٤٥')).toBe(45);
     expect(parseInteger(' 7 ')).toBe(7);
     expect(parseInteger('۳/۴')).toBe(null);
+  });
+});
+
+describe('parseDecimal', () => {
+  it('reads each locale decimal mark exactly', () => {
+    expect(parseDecimal('۲/۵', '/')?.toString()).toBe('5/2');
+    expect(parseDecimal('۰,۳', ',')?.toString()).toBe('3/10');
+    expect(parseDecimal('0.1')?.toString()).toBe('1/10');
+    expect(parseDecimal('-1.25')?.toString()).toBe('-5/4');
+    expect(parseDecimal('7')?.toString()).toBe('7');
+    expect(parseDecimal('2/5/1', '/')).toBe(null);
+    expect(parseDecimal('abc')).toBe(null);
   });
 });
