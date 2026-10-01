@@ -9,7 +9,6 @@
   "path.explorer": "Explorer",
   "home.choosePath": "Choose your curriculum",
   "home.offline": "Kamangir also works without the internet.",
-  "home.demo": "Example: {{term:fraction}}",
   "draft.banner": "This language has not been reviewed yet (draft).",
   "studio.guide": "Guide",
   "studio.missions": "Missions",
@@ -41,5 +40,14 @@
   "engine.label-cell": "part",
   "engine.label-fewer": "fewer parts",
   "engine.label-more": "more parts",
-  "home.strand.frac": "Fractions"
+  "home.strand.frac": "Fractions",
+  "home.more": "Other curricula",
+  "home.start": "Start",
+  "pathpage.gradeIran": "Grade {n}",
+  "pathpage.gradeAf": "Grade {n}",
+  "pathpage.gradeUk": "Year {n}",
+  "pathpage.explorerIntro": "Every studio, from easiest to hardest.",
+  "pathpage.notTaught": "Not in this curriculum",
+  "pathpage.done": "{done} of {total}",
+  "nav.home": "Home"
 }

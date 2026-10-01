@@ -9,7 +9,6 @@
   "path.explorer": "سپړونکی",
   "home.choosePath": "خپل درسي نصاب وټاکئ",
   "home.offline": "کمانګیر پرته له انټرنېټه هم کار کوي.",
-  "home.demo": "بېلګه: {{term:fraction}}",
   "draft.banner": "دا ژبه لا نه ده کتل شوې (مسوده).",
   "studio.guide": "لارښود",
   "studio.missions": "دندې",
@@ -41,5 +40,14 @@
   "engine.label-cell": "برخه",
   "engine.label-fewer": "لږې برخې",
   "engine.label-more": "ډېرې برخې",
-  "home.strand.frac": "کسرونه"
+  "home.strand.frac": "کسرونه",
+  "home.more": "نور درسي نصابونه",
+  "home.start": "پیل یې کړئ",
+  "pathpage.gradeIran": "{n} ټولګی",
+  "pathpage.gradeAf": "{n} ټولګی",
+  "pathpage.gradeUk": "{n} کال",
+  "pathpage.explorerIntro": "ټول کارځایونه، له اسانه تر ستونزمنه.",
+  "pathpage.notTaught": "په دې نصاب کې نشته",
+  "pathpage.done": "له {total} څخه {done}",
+  "nav.home": "کور"
 }

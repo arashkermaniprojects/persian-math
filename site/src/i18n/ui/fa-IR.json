@@ -9,7 +9,6 @@
   "path.explorer": "کاوشگر",
   "home.choosePath": "برنامهٔ درسی خود را انتخاب کن",
   "home.offline": "کمانگیر بدون اینترنت هم کار می‌کند.",
-  "home.demo": "نمونه: {{term:fraction}}",
   "draft.banner": "این زبان هنوز بازبینی نشده است (پیش‌نویس).",
   "studio.guide": "راهنما",
   "studio.missions": "مأموریت‌ها",
@@ -41,5 +40,14 @@
   "engine.label-cell": "قسمت",
   "engine.label-fewer": "قسمت‌های کمتر",
   "engine.label-more": "قسمت‌های بیشتر",
-  "home.strand.frac": "کسرها"
+  "home.strand.frac": "کسرها",
+  "home.more": "برنامه‌های دیگر",
+  "home.start": "شروع کن",
+  "pathpage.gradeIran": "پایهٔ {n}",
+  "pathpage.gradeAf": "صنف {n}",
+  "pathpage.gradeUk": "سال {n}",
+  "pathpage.explorerIntro": "همهٔ کارگاه‌ها، از ساده به سخت.",
+  "pathpage.notTaught": "در این برنامه نیست",
+  "pathpage.done": "{done} از {total}",
+  "nav.home": "خانه"
 }

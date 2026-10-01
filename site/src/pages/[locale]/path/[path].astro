@@ -1,0 +1,82 @@
+---
+// A curriculum path: every studio, grouped by the grade that teaches it in that country.
+import Base from '../../../layouts/Base.astro';
+import { visibleLocales, type LocaleCode } from '../../../i18n/locales';
+import { t } from '../../../lib/i18n';
+import { rich, numberFormat } from '../../../lib/richtext';
+import { digitsOf } from '../../../lib/display';
+import { gradeFor, loadStudioText, loadStudios, type Curriculum } from '../../../lib/content';
+
+const PATHS = { iran: 'iran', afghanistan: 'af', uk: 'uk', explorer: null } as const;
+type PathId = keyof typeof PATHS;
+
+export function getStaticPaths() {
+  // getStaticPaths runs in isolation in Astro, so the path list is repeated here rather than read from PATHS.
+  return visibleLocales().flatMap((locale) => ['iran', 'afghanistan', 'uk', 'explorer'].map((path) => ({ params: { locale, path } })));
+}
+
+const locale = Astro.params.locale as LocaleCode;
+const path = Astro.params.path as PathId;
+const cur = PATHS[path] as Curriculum | null;
+const fmt = numberFormat(locale);
+const base = import.meta.env.BASE_URL;
+const gradeKey = { iran: 'pathpage.gradeIran', af: 'pathpage.gradeAf', uk: 'pathpage.gradeUk' } as const;
+
+const studios = loadStudios().map((s) => ({
+  def: s,
+  text: loadStudioText(s.id, locale).text,
+  grade: cur ? gradeFor(s.concepts, cur) : null,
+}));
+
+// Group: by grade for a country path (untaught studios last), by strand order for Explorer.
+const groups = new Map<string, typeof studios>();
+for (const s of [...studios].sort((a, b) => (a.grade ?? 99) - (b.grade ?? 99) || a.def.order - b.def.order)) {
+  const label = !cur
+    ? t(`home.strand.${s.def.strand}`, locale)
+    : s.grade === null
+      ? t('pathpage.notTaught', locale)
+      : t(gradeKey[cur], locale).replace('{n}', digitsOf(s.grade, fmt));
+  groups.set(label, [...(groups.get(label) ?? []), s]);
+}
+---
+<Base locale={locale} title={t(`path.${path}`, locale)}>
+  <p><a href={`${base}${locale}/`}>{t('nav.home', locale)}</a></p>
+  <h1>{t(`path.${path}`, locale)}</h1>
+  {!cur && <p class="muted">{t('pathpage.explorerIntro', locale)}</p>}
+  {[...groups].map(([label, list]) => (
+    <section>
+      <h2>{label}</h2>
+      <ul class="cards">
+        {list.map((s) => (
+          <li>
+            <a class="card" href={`${base}${locale}/studio/${s.def.id}/`} data-studio={s.def.id} data-total={s.def.missions.length}>
+              <strong set:html={rich(s.text.title, locale)} />
+              <span class="muted" set:html={rich(s.text.summary, locale)} />
+              <span class="progress" aria-live="off"></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+  <script is:inline define:vars={{ digits: fmt.digits, doneTpl: t('pathpage.done', locale) }}>
+    // Progress lives only on this device (see client/studio.ts).
+    for (const a of document.querySelectorAll('[data-studio]')) {
+      let p = {};
+      try { p = JSON.parse(localStorage.getItem('kamangir:progress:' + a.dataset.studio) || '{}'); } catch {}
+      const done = Object.values(p).filter((m) => m && m.done).length;
+      if (!done) continue;
+      const loc = (n) => String(n).replace(/\d/g, (d) => digits[d]);
+      a.querySelector('.progress').textContent = '✓ ' + doneTpl.replace('{done}', loc(done)).replace('{total}', loc(a.dataset.total));
+    }
+  </script>
+</Base>
+
+<style>
+  .muted { color: var(--muted); }
+  .cards { list-style: none; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); }
+  .card { display: flex; flex-direction: column; gap: 0.3rem; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; text-decoration: none; color: var(--fg); min-block-size: 100%; }
+  .card strong { font-size: 1.15rem; color: var(--accent); }
+  .progress { color: var(--ok); font-weight: 700; }
+  .progress:empty { display: none; }
+</style>

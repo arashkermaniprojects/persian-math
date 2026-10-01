@@ -33,8 +33,13 @@ const base = import.meta.env.BASE_URL;
       </nav>
     </header>
     <main><slot /></main>
-    <script is:inline define:vars={{ swUrl: `${base}sw.js` }}>
-      if ('serviceWorker' in navigator) navigator.serviceWorker.register(swUrl);
+    <script is:inline define:vars={{ swUrl: `${base}sw.js`, locale }}>
+      // Not on file:// (offline zip bundles): service workers need http(s).
+      if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+        navigator.serviceWorker.register(swUrl);
+        // Once active, ask it to download this locale's whole site for offline use.
+        navigator.serviceWorker.ready.then((reg) => reg.active && reg.active.postMessage({ type: 'precache', locale }));
+      }
     </script>
   </body>
 </html>
