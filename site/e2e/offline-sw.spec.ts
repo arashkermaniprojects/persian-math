@@ -5,10 +5,11 @@ import { spawn } from 'node:child_process';
 // the server is gone (an internet shutdown), including pages the learner never opened.
 // Uses its own server so it can really be stopped: Playwright's offline/route emulation fails navigations
 // before a service worker can answer them, which real phones don't do.
-const PORT = 4411;
+const PORT = Number(process.env.KG_PORT ?? 4400) + 11;
+const DIST = process.env.KG_DIST ?? 'dist';
 
 test('fa-IR works offline after the first visit', async ({ page }) => {
-  const server = spawn('python3', ['-m', 'http.server', String(PORT), '--bind', '127.0.0.1', '--directory', 'dist'], { stdio: 'ignore' });
+  const server = spawn('python3', ['-m', 'http.server', String(PORT), '--bind', '127.0.0.1', '--directory', DIST], { stdio: 'ignore' });
   try {
     const origin = `http://localhost:${PORT}`;
     await expect.poll(() => fetch(origin + '/fa-IR/').then((r) => r.status).catch(() => 0)).toBe(200);

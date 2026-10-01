@@ -49,5 +49,18 @@
   "pathpage.explorerIntro": "Every studio, from easiest to hardest.",
   "pathpage.notTaught": "Not in this curriculum",
   "pathpage.done": "{done} of {total}",
-  "nav.home": "Home"
+  "nav.home": "Home",
+  "home.strand.num": "Number and place value",
+  "home.strand.ops": "Calculation",
+  "home.strand.ps": "Problem solving",
+  "home.strand.ratio": "Ratio and proportion",
+  "home.strand.fin": "Money",
+  "home.strand.meas": "Measurement",
+  "home.strand.geo": "Shape and geometry",
+  "home.strand.pos": "Position and direction",
+  "home.strand.stat": "Statistics",
+  "home.strand.prob": "Probability",
+  "home.strand.alg": "Algebra",
+  "home.strand.seq": "Patterns and sequences",
+  "home.strand.disc": "Sets and logic"
 }

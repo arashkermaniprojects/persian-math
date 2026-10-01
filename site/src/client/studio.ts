@@ -5,12 +5,7 @@ import { asciiDigits, parseDecimal } from '../lib/fraction';
 import type { FractionInput } from '../engines/fraction-input';
 import '../engines/fraction-input';
 
-/** Engines load on demand so each page ships only the code it uses. */
-const ENGINES: Record<string, () => Promise<unknown>> = {
-  'fraction-bars': () => import('../engines/fraction-bars'),
-  'number-line': () => import('../engines/number-line'),
-  'long-division': () => import('../engines/long-division'),
-};
+import { ENGINES } from './engines-registry';
 
 interface MissionData {
   id: string;
@@ -73,7 +68,8 @@ async function show() {
   const card = el('section', 'mission');
   card.append(el('h2', '', m.text.title), el('p', 'prompt', m.text.prompt));
 
-  await ENGINES[m.engine]?.();
+  if (!ENGINES[m.engine]) throw new Error(`Unknown engine ${m.engine}`);
+  await ENGINES[m.engine]();
   const engine = document.createElement(`kg-${m.engine}`) as HTMLElement & { config: unknown; state: Attempt['state'] };
   engine.dataset.digits = data.fmt.digits;
   engine.dataset.decimal = data.fmt.decimal;

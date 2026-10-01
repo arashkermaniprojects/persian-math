@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { gridState, isTinted, nextPartsShowing, nextRows, totalCells } from './fraction-bars-grid';
-import { evaluate } from '../lib/checks';
+import { evaluate } from '../../lib/checks';
 
 describe('fraction-bars area model and given cells', () => {
   it('an area-model bar has rows × columns cells', () => {

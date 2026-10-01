@@ -106,3 +106,19 @@ Options in the mission `setup` (all optional; see `site/src/engines/fraction-bar
 - `tint: n` on an area-model bar: the first n columns are striped (e.g. the ⅔ you take half of). Striped cells do not count as shaded.
 - `linkParts: true` at the top level: one set of −/+ buttons re-partitions every bar together.
 
+
+
+## Adding an engine (no shared-file edits)
+- **Code:** create `site/src/engines/<name>.ts` defining `<kg-<name>>`. It's registered automatically (`site/src/client/engines-registry.ts`). Put pure helpers and their tests in `site/src/engines/lib/`.
+- **Styles:** create `site/src/styles/engines/<name>.css`; it's loaded automatically (glob in `layouts/Base.astro`). Use the tokens in `global.css` (`--accent`, `--card`, `--border`, `--shade`, `--ok`, `--no`, `--radius`, …) and logical properties only.
+- **Labels:** put them in each studio's locale JSON under `"engine"`, never in the UI files.
+
+## Testing in parallel without collisions
+Build into your own folder and serve it on your own port:
+```sh
+cd site
+npx astro build --outDir dist-<you>
+npx vitest run
+KG_DIST=dist-<you> KG_PORT=<45xx> npx playwright test
+```
+`dist-*/` is gitignored. Never kill other processes' servers.

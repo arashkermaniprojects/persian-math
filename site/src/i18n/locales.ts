@@ -1,7 +1,7 @@
 // Locale registry. Everything locale-specific that is not a translated string lives here.
 // Notation follows docs/NOTATION.md (verified against the Iranian and Afghan textbooks).
-// Afghan books switch to Latin digits and a point from grade 7; Kamangir keeps Persian digits throughout
-// and will offer a learner setting for 123 digits instead (planned).
+// Owner decision (2026-10-02): Persian digits ۱۲۳ in all three RTL locales at every grade, with no Latin-digit option,
+// even though Afghan books switch to Latin digits from grade 7.
 
 export type LocaleCode = 'fa-IR' | 'fa-AF' | 'ps' | 'en';
 

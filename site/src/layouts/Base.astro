@@ -2,6 +2,8 @@
 import { LOCALES, visibleLocales, type LocaleCode } from '../i18n/locales';
 import { t } from '../lib/i18n';
 import '../styles/global.css';
+// One stylesheet per engine (src/styles/engines/<engine>.css); new engines need no edit here.
+import.meta.glob('../styles/engines/*.css', { eager: true });
 
 interface Props { locale: LocaleCode; title?: string }
 const { locale, title } = Astro.props;

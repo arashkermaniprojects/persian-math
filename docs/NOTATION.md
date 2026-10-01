@@ -205,3 +205,7 @@ This guide sets the math notation for each of Kamangir's four locales. Every cla
 - Pashto-specific degree and ratio pages (they are assumed identical to Dari because the editions are translations; only the percent, decimal, division, algebra and calendar pages were checked in Pashto).
 - The UK column is from general knowledge.
 - The page offset for AF_G08 is approximate. Only p.16 and p.167 were checked.
+
+
+## Decisions
+- **Digits (owner decision, 2026-10-02):** fa-IR, fa-AF and ps always use Persian digits ۰۱۲۳۴۵۶۷۸۹, at every grade, with no Latin-digit setting. This holds even though Afghan books switch to Latin digits from grade 7.

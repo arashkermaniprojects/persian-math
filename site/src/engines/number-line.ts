@@ -1,7 +1,7 @@
 // <kg-number-line>: a number line the learner places points on by tapping, dragging or with the arrow keys.
 // Contract: docs/STUDIOS.md ("Engine contract"). The line always runs left → right, in every locale (docs/NOTATION.md).
 import { digitsOf, formatDecimal, type NumberFormat } from '../lib/display';
-import { clamp, decimalString, labelStep, snap, tickKind, tickX, toTick, windowOf, type FracSpec } from './number-line-math';
+import { clamp, decimalString, labelStep, snap, tickKind, tickX, toTick, windowOf, type FracSpec } from './lib/number-line-math';
 
 export interface NumberLineConfig {
   min?: number;

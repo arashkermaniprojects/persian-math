@@ -18,3 +18,4 @@ __pycache__/
 bundles/
 test-results/
 playwright-report/
+dist-*/
