@@ -7,5 +7,12 @@
   "lang": "fa-IR",
   "background_color": "#fbf8f2",
   "theme_color": "#b5462a",
-  "icons": []
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }
