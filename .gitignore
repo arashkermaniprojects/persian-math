@@ -1,0 +1,16 @@
+# Copyrighted source material: download locally with the scripts, never commit
+textbooks/
+textbooks_af/
+textbooks_uk/
+toc_pages/
+toc_pages_af/
+*.pdf
+*.part
+
+# Build / tooling
+node_modules/
+dist/
+.astro/
+.venv/
+__pycache__/
+.DS_Store
