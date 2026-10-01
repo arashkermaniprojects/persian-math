@@ -4,13 +4,20 @@
     "dev": "astro dev",
     "build": "npm run check && astro build",
     "preview": "astro preview",
-    "check": "node scripts/check-locales.mjs"
+    "check": "node scripts/check-locales.mjs",
+    "test": "vitest run",
+    "e2e": "playwright test"
   },
   "type": "module",
   "dependencies": {
     "astro": "^7.3.5",
     "katex": "^0.19.0",
-    "vazirmatn": "^33.0.3"
+    "vazirmatn": "^33.0.3",
+    "yaml": "^2.9.1"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "vitest": "^4.1.11"
+  }
 }

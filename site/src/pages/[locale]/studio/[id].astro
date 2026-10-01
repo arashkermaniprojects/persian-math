@@ -1,0 +1,87 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { LOCALES, visibleLocales, type LocaleCode } from '../../../i18n/locales';
+import { t } from '../../../lib/i18n';
+import { rich, numberFormat } from '../../../lib/richtext';
+import { digitsOf } from '../../../lib/display';
+import { assertConceptsExist, gradeFor, loadStudioText, loadStudios, type Curriculum, type StudioDef } from '../../../lib/content';
+
+export function getStaticPaths() {
+  const studios = loadStudios();
+  return visibleLocales().flatMap((locale) => studios.map((studio) => ({ params: { locale, id: studio.id }, props: { studio } })));
+}
+
+const locale = Astro.params.locale as LocaleCode;
+const { studio } = Astro.props as { studio: StudioDef };
+assertConceptsExist(studio);
+const { text, fallback } = loadStudioText(studio.id, locale);
+const fmt = numberFormat(locale);
+const r = (s?: string) => (s ? rich(s, locale) : undefined);
+
+// Show where this is taught, with the learner's own curriculum first.
+const order: Curriculum[] = LOCALES[locale].defaultPath === 'afghanistan' ? ['af', 'iran', 'uk'] : locale === 'en' ? ['uk', 'iran', 'af'] : ['iran', 'af', 'uk'];
+const badges = order
+  .map((cur) => ({ cur, grade: gradeFor(studio.concepts, cur) }))
+  .filter((b) => b.grade !== null)
+  .map((b) => t(`grade.${b.cur}`, locale).replace('{n}', digitsOf(b.grade!, fmt)));
+
+const ui: Record<string, string> = {};
+for (const k of ['check', 'hint', 'next', 'tryAgain', 'correct', 'yourAnswer', 'numerator', 'denominator', 'whole', 'explain', 'showModel', 'allDone'])
+  ui[k] = t(`studio.${k}`, locale);
+for (const code of ['too-big', 'too-small', 'empty', 'not-simplest', 'wrong-denominator', 'zero-denominator', 'count', 'wrong'])
+  ui[`fb.${code}`] = t(`fb.${code}`, locale);
+for (const k of ['label-cell', 'label-fewer', 'label-more']) ui[`engine.${k}`] = t(`engine.${k}`, locale);
+// Studio-specific engine labels (content/locales/<locale>/studios/<id>.json → "engine") override the shared ones.
+for (const [k, v] of Object.entries(text.engine ?? {})) ui[`engine.${k}`] = v;
+
+const data = {
+  studioId: studio.id,
+  fmt,
+  ui,
+  missions: studio.missions.map((m) => {
+    const mt = text.missions[m.id];
+    if (!mt) throw new Error(`Studio ${studio.id} (${locale}): no text for mission ${m.id}`);
+    return {
+      id: m.id,
+      engine: studio.engine,
+      setup: m.setup,
+      answer: m.answer,
+      check: m.check,
+      options: m.check.type === 'choice' ? m.check.options.map((o) => rich(o, locale)) : undefined,
+      text: {
+        title: rich(mt.title, locale),
+        prompt: rich(mt.prompt, locale),
+        hint: r(mt.hint),
+        success: r(mt.success),
+        why: r(mt.why),
+        model: r(mt.model),
+        feedback: Object.fromEntries(Object.entries(mt.feedback ?? {}).map(([k, v]) => [k, rich(v, locale)])),
+      },
+    };
+  }),
+};
+---
+<Base locale={locale} title={text.title}>
+  <div class="studio-head">
+    <h1 set:html={rich(text.title, locale)} />
+    <p class="muted" set:html={rich(text.summary, locale)} />
+    <ul class="badges" aria-label={t('studio.taught', locale)}>
+      {badges.map((b) => <li>{b}</li>)}
+    </ul>
+  </div>
+  {fallback && <p class="notice">{t('studio.fallback', locale)}</p>}
+  <details class="guide">
+    <summary>{t('studio.guide', locale)}</summary>
+    {text.guide.map((p) => <p set:html={rich(p, locale)} />)}
+  </details>
+  <nav id="mission-tabs" aria-label={t('studio.missions', locale)}></nav>
+  <div id="missions"></div>
+  <script type="application/json" id="studio-data" set:html={JSON.stringify(data).replace(/</g, '\\u003c')} />
+  <script>
+    import '../../../client/studio.ts';
+  </script>
+</Base>
+
+<style>
+  .muted { color: var(--muted); }
+</style>

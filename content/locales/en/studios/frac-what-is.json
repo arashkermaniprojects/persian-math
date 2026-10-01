@@ -1,0 +1,60 @@
+{
+  "title": "What is a {{term:fraction}}?",
+  "summary": "Split one whole into equal parts and use a fraction to say how many parts you took.",
+  "guide": [
+    "Each bar is one whole, like a bar of chocolate. It is split into <b>equal</b> parts.",
+    "Tap a part to shade it. Tap it again to unshade it.",
+    "In the fraction {{frac:3/4}}, the bottom number (the {{term:denominator}}) says how many equal parts the whole is split into, and the top number (the {{term:numerator}}) says how many parts are shaded."
+  ],
+  "missions": {
+    "one-quarter": {
+      "title": "One quarter",
+      "prompt": "This bar is split into 4 equal parts. Shade {{frac:1/4}} of the bar.",
+      "hint": "The bottom number is 4: four equal parts. The top number is 1, so shade just one part.",
+      "success": "Well done! One of four equal parts is {{frac:1/4}}.",
+      "why": "If the bar were split into 4 <b>unequal</b> parts, would shading one part still be {{frac:1/4}}? Why?",
+      "model": "No. {{frac:1/4}} means one of 4 <b>equal</b> parts. If the parts are different sizes, one part could be more or less than a quarter of the whole.",
+      "feedback": {
+        "too-big": "That's too much. {{frac:1/4}} is just 1 part out of 4.",
+        "empty": "You haven't shaded any parts yet. Tap one part."
+      }
+    },
+    "three-quarters": {
+      "title": "Three quarters",
+      "prompt": "Now shade {{frac:3/4}} of the bar.",
+      "hint": "The top number is 3: shade three of the four equal parts.",
+      "success": "That's right! Three of four equal parts.",
+      "why": "What fraction of the bar is <b>not</b> shaded? How do you know?",
+      "model": "{{frac:1/4}} is not shaded, because 3 of the 4 equal parts are shaded and 1 part is left.",
+      "feedback": {
+        "too-small": "Not enough. {{frac:3/4}} means 3 parts out of 4.",
+        "too-big": "Too much. {{frac:3/4}} is 3 parts, not all 4."
+      }
+    },
+    "name-it": {
+      "title": "Name the fraction",
+      "prompt": "What fraction of this bar is shaded? Write the numerator and the denominator.",
+      "hint": "First count how many equal parts the bar has (the denominator). Then count the shaded parts (the numerator).",
+      "success": "Well done! 2 of 5 equal parts is {{frac:2/5}}.",
+      "why": "Why is the denominator of this fraction 5?",
+      "model": "Because the bar is split into 5 equal parts. The denominator is always the number of equal parts in the whole.",
+      "feedback": {
+        "wrong-denominator": "Count the equal parts of the bar again; that's the denominator.",
+        "too-big": "Count the top or bottom number again. The numerator is the number of shaded parts.",
+        "too-small": "Count the top or bottom number again. The numerator is the number of shaded parts."
+      }
+    },
+    "make-sixths": {
+      "title": "Make your own parts",
+      "prompt": "Use the + and − buttons to split the bar into the right number of equal parts, then shade {{frac:1/6}} of it.",
+      "hint": "{{frac:1/6}} means 6 equal parts. Split the bar into 6 and shade one.",
+      "success": "Great! The bar has 6 equal parts and one is shaded: {{frac:1/6}}.",
+      "why": "Which is bigger, {{frac:1/6}} or {{frac:1/2}}? Use the bar to explain.",
+      "model": "{{frac:1/2}} is bigger. When you split a whole into more parts, each part gets smaller, so one part out of 6 is smaller than one part out of 2.",
+      "feedback": {
+        "wrong-denominator": "Right amount, but split the bar into exactly 6 parts.",
+        "too-big": "Either the bar doesn't have 6 parts yet, or more than one part is shaded."
+      }
+    }
+  }
+}
