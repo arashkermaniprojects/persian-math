@@ -1,0 +1,1352 @@
+- id: variable
+  en: variable
+  fa-IR: متغیر
+  fa-AF: متحول
+  ps: متحول
+  src:
+    fa-IR: G10_riazi1_math_science line 38
+    fa-AF: AF_G08_riazi line 46
+    ps: AF_G08_riazi_ps line 46
+  status:
+    fa-AF: draft
+    ps: draft
+- id: unknown
+  en: unknown
+  fa-IR: مجهول
+  fa-AF: مجهول
+  ps: مجهول
+  src:
+    fa-IR: concepts/alg.yaml (alg.missing-number)
+    fa-AF: AF_G08_riazi line 57
+    ps: AF_G08_riazi_ps line 57
+  status:
+    fa-AF: draft
+    ps: draft
+- id: constant
+  en: constant
+  fa-IR: عدد ثابت
+  fa-AF: ثابت
+  ps: ثابت
+  src:
+    fa-AF: AF_G10_riazi pdf p.10
+    ps: AF_G10_riazi_ps pdf p.10
+  status:
+    fa-AF: draft
+    ps: draft
+- id: algebraic-expression
+  en: algebraic expression
+  fa-IR: عبارت جبری
+  fa-AF: افادهٔ الجبری
+  ps: الجبري افاده
+  src:
+    fa-IR: G07_riazi_haftom line 16
+    fa-AF: AF_G08_riazi line 46
+    ps: AF_G08_riazi_ps line 46
+  status:
+    fa-AF: draft
+    ps: draft
+- id: term
+  en: term
+  fa-IR: جمله
+  fa-AF: حد
+  ps: حد
+  src:
+    fa-IR: concepts/alg.yaml (alg.expressions)
+    fa-AF: AF_G10_riazi pdf p.14 (حدود پولینوم)
+    ps: AF_G10_riazi_ps pdf p.14 (د پولینوم حدونه)
+  note: 'Term of an expression. Plural: fa-AF حدود, ps حدونه.'
+  status:
+    fa-AF: draft
+    ps: draft
+- id: coefficient
+  en: coefficient
+  fa-IR: ضریب
+  fa-AF: ضریب
+  ps: ضریب
+  src:
+    fa-IR: concepts/alg.yaml (alg.expressions)
+    fa-AF: AF_G10_riazi line 6; pdf p.10
+    ps: AF_G08_riazi_ps pdf p.172
+  status:
+    fa-AF: draft
+    ps: draft
+- id: like-terms
+  en: like terms
+  fa-IR: جمله‌های متشابه
+  fa-AF: حدود مشابه
+  ps: مشابه حدونه
+  src:
+    fa-IR: concepts/alg.yaml (alg.simplify)
+    fa-AF: AF_G08_riazi pdf p.171
+    ps: AF_G08_riazi_ps pdf p.171
+  status:
+    fa-AF: draft
+    ps: draft
+- id: simplify
+  en: simplify
+  fa-IR: ساده کردن
+  fa-AF: ساده کردن
+  ps: ساده کول
+  src:
+    fa-IR: G08_riazi_hashtom line 24
+    fa-AF: AF_G08_riazi line 46
+    ps: AF_G08_riazi_ps line 46
+  status:
+    fa-AF: draft
+    ps: draft
+- id: expand-brackets
+  en: expand (brackets)
+  fa-IR: باز کردن پرانتز
+  fa-AF: رفع قوس
+  ps: د قوسونو رفع کول
+  src:
+    fa-AF: AF_G07_riazi pdf p.96
+    ps: AF_G07_riazi_ps pdf p.96
+  note: Afghan books speak of 'removing brackets' (رفع قوس); no separate word for 'expand' was found. fa-IR wording not checked against an Iranian book.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: factorise
+  en: factorise
+  fa-IR: تجزیه کردن
+  fa-AF: تجزیه به فکتور
+  ps: په فکتورونو تجزیه
+  src:
+    fa-IR: G09_riazi_nohom line 29
+    fa-AF: AF_G09_riazi line 37
+    ps: AF_G09_riazi_ps line 37
+  status:
+    fa-AF: draft
+    ps: draft
+- id: factor-algebraic
+  en: factor (of an expression)
+  fa-IR: عامل
+  fa-AF: فکتور
+  ps: فکټور
+  src:
+    fa-IR: concepts/alg.yaml (alg.factorise)
+    fa-AF: AF_G10_riazi line 8
+    ps: AF_G10_riazi_ps line 8
+  note: Algebraic factor such as (x − 2). Not the number-theory factor.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: identity
+  en: identity
+  fa-IR: اتحاد
+  fa-AF: مطابقت
+  ps: مطابقت
+  src:
+    fa-IR: G09_riazi_nohom line 28
+    fa-AF: AF_G08_riazi line 48
+    ps: AF_G08_riazi_ps line 48
+  status:
+    fa-AF: draft
+    ps: draft
+- id: formula
+  en: formula
+  fa-IR: فرمول
+  fa-AF: فورمول
+  ps: فورمول
+  src:
+    fa-IR: concepts/alg.yaml (alg.formulae)
+    fa-AF: AF_G09_riazi line 53
+    ps: AF_G09_riazi_ps pdf p.201
+  status:
+    fa-AF: draft
+    ps: draft
+- id: equation
+  en: equation
+  fa-IR: معادله
+  fa-AF: معادله
+  ps: معادله
+  src:
+    fa-IR: G07_riazi_haftom line 18
+    fa-AF: AF_G08_riazi line 52
+    ps: AF_G08_riazi_ps line 52
+  status:
+    fa-AF: draft
+    ps: draft
+- id: solve
+  en: solve
+  fa-IR: حل کردن
+  fa-AF: حل کردن
+  ps: حل کول
+  src:
+    fa-AF: AF_G09_riazi line 51
+    ps: AF_G09_riazi_ps pdf p.163
+  status:
+    fa-AF: draft
+    ps: draft
+- id: solution
+  en: solution
+  fa-IR: جواب
+  fa-AF: حل
+  ps: حل
+  src:
+    fa-IR: concepts/alg.yaml (alg.equation.concept)
+    fa-AF: AF_G08_riazi pdf p.191 (حل و یا جواب معادله)
+    ps: AF_G09_riazi_ps pdf p.186
+  note: Dari body text also allows جواب معادله.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: root-of-equation
+  en: root (of an equation)
+  fa-IR: ریشه
+  fa-AF: جذر
+  ps: جذر
+  src:
+    fa-IR: concepts/alg.yaml (alg.quadratic.discriminant)
+    fa-AF: AF_G10_riazi pdf p.41
+    ps: AF_G10_riazi_ps pdf p.41
+  note: Afghan books use جذر for both square root and root of an equation.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: linear-equation
+  en: linear equation
+  fa-IR: معادلهٔ خطی
+  fa-AF: معادلهٔ خطی
+  ps: خطي معادله
+  src:
+    fa-IR: G09_riazi_nohom line 35
+    fa-AF: AF_G09_riazi line 25
+    ps: AF_G09_riazi_ps line 25
+  status:
+    fa-AF: draft
+    ps: draft
+- id: quadratic-equation
+  en: quadratic equation
+  fa-IR: معادلهٔ درجهٔ دوم
+  fa-AF: معادلهٔ درجه دوم
+  ps: دویمه درجه معادله
+  src:
+    fa-IR: G10_riazi1_math_science line 21
+    fa-AF: AF_G09_riazi line 51
+    ps: AF_G09_riazi_ps line 50; pdf p.184
+  status:
+    fa-AF: draft
+    ps: draft
+- id: system-of-equations
+  en: simultaneous equations
+  fa-IR: دستگاه معادله‌ها
+  fa-AF: سیستم معادلات
+  ps: د معادلو سیستم
+  src:
+    fa-IR: G09_riazi_nohom line 35
+    fa-AF: AF_G09_riazi line 25
+    ps: AF_G09_riazi_ps line 25
+  status:
+    fa-AF: draft
+    ps: draft
+- id: substitution-method
+  en: substitution method
+  fa-IR: روش جایگذاری
+  fa-AF: روش تعویضی
+  ps: تعویضي طریقه
+  src:
+    fa-AF: AF_G09_riazi line 26
+    ps: AF_G09_riazi_ps line 26
+  status:
+    fa-AF: draft
+    ps: draft
+- id: elimination-method
+  en: elimination method
+  fa-IR: روش حذفی
+  fa-AF: روش افنا
+  ps: افنا طریقه
+  src:
+    fa-AF: AF_G09_riazi line 26; pdf p.88
+    ps: AF_G09_riazi_ps line 26
+  status:
+    fa-AF: draft
+    ps: draft
+- id: completing-the-square
+  en: completing the square
+  fa-IR: روش مربع کامل
+  fa-AF: تکمیل مربع
+  ps: تکمیل مربع
+  src:
+    fa-IR: concepts/alg.yaml (alg.quadratic.complete-square)
+    fa-AF: AF_G09_riazi line 53
+    ps: AF_G09_riazi_ps pdf p.194
+  status:
+    fa-AF: draft
+    ps: draft
+- id: quadratic-formula
+  en: quadratic formula
+  fa-IR: فرمول کلی معادلهٔ درجهٔ دوم
+  fa-AF: فورمول محمد بن موسی
+  ps: د محمد بن موسی فورمول
+  src:
+    fa-IR: concepts/alg.yaml (alg.quadratic.formula)
+    fa-AF: AF_G09_riazi line 53
+    ps: AF_G09_riazi_ps pdf p.200
+  note: Afghan books name the formula after al-Khwarizmi (Muhammad ibn Musa). Pashto p.201 also says عمومي فورمول.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: discriminant
+  en: discriminant
+  fa-IR: دلتا
+  fa-AF: ''
+  ps: قاسمه
+  src:
+    fa-IR: 'concepts/alg.yaml (alg.quadratic.discriminant: دلتا (مبین))'
+    ps: AF_G09_riazi_ps pdf p.197
+  note: 'fa-AF not found: the Dari G09 PDF stops at chapter 4, before quadratics; G10 Dari writes only b²−4ac. Iranian books also say مبین.'
+  status:
+    fa-AF: draft
+    ps: draft
+- id: inequality
+  en: inequality
+  fa-IR: نامعادله
+  fa-AF: نامساوات
+  ps: نامساوي
+  src:
+    fa-IR: G09_riazi_nohom line 30
+    fa-AF: AF_G09_riazi line 44
+    ps: AF_G09_riazi_ps pdf p.162
+  note: 'Iran: نامعادله (with an unknown); نابرابری is the inequality relation itself.'
+  status:
+    fa-AF: draft
+    ps: draft
+- id: interval
+  en: interval
+  fa-IR: بازه
+  fa-AF: انتروال
+  ps: انتروال
+  src:
+    fa-IR: concepts/alg.yaml (alg.inequalities.concept)
+    fa-AF: AF_G09_riazi line 45
+    ps: AF_G09_riazi_ps line 45; pdf p.166
+  note: Dari outline also gives فاصله; Pashto body also uses واټن.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: polynomial
+  en: polynomial
+  fa-IR: چندجمله‌ای
+  fa-AF: پولینوم
+  ps: پولینوم
+  src:
+    fa-IR: G09_riazi_nohom line 40
+    fa-AF: AF_G10_riazi line 5
+    ps: AF_G10_riazi_ps line 5
+  note: Pashto G09 chapter 5 title uses څو جمله يي ګانې.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: degree-of-polynomial
+  en: degree (of a polynomial)
+  fa-IR: درجه
+  fa-AF: درجه
+  ps: درجه
+  src:
+    fa-IR: concepts/alg.yaml (alg.polynomials)
+    fa-AF: AF_G10_riazi line 6
+    ps: AF_G10_riazi_ps line 6
+  status:
+    fa-AF: draft
+    ps: draft
+- id: monomial
+  en: monomial
+  fa-IR: یک‌جمله‌ای
+  fa-AF: یک حده
+  ps: یو حده
+  src:
+    fa-IR: concepts/alg.yaml (alg.monomials)
+    fa-AF: AF_G08_riazi line 47
+    ps: AF_G08_riazi_ps line 47
+  note: G10 also uses the loanword مونوم (Dari and Pashto).
+  status:
+    fa-AF: draft
+    ps: draft
+- id: binomial
+  en: binomial
+  fa-IR: دوجمله‌ای
+  fa-AF: دو حده
+  ps: دوه حده
+  src:
+    fa-IR: concepts/alg.yaml (alg.expand.binomials)
+    fa-AF: AF_G08_riazi line 48
+    ps: AF_G08_riazi_ps line 48
+  note: G10 also uses باینوم; G09 sign-analysis line uses بینوم.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: trinomial
+  en: trinomial
+  fa-IR: سه‌جمله‌ای
+  fa-AF: سه حده
+  ps: درې حده
+  src:
+    fa-AF: AF_G10_riazi pdf p.14
+    ps: AF_G10_riazi_ps pdf p.14
+  status:
+    fa-AF: draft
+    ps: draft
+- id: algebraic-fraction
+  en: algebraic fraction
+  fa-IR: عبارت گویا
+  fa-AF: افادهٔ کسری
+  ps: کسري افاده
+  src:
+    fa-IR: G09_riazi_nohom line 37
+    fa-AF: AF_G09_riazi line 46
+    ps: AF_G09_riazi_ps line 46
+  note: Dari G10 p.12 also uses افادهٔ الجبری ناطق (rational algebraic expression).
+  status:
+    fa-AF: draft
+    ps: draft
+- id: remainder-theorem
+  en: remainder theorem
+  fa-IR: قضیهٔ باقی‌مانده
+  fa-AF: قضیهٔ باقیمانده
+  ps: د باقي مانده قضیه
+  src:
+    fa-IR: concepts/alg.yaml (alg.remainder-factor)
+    fa-AF: AF_G10_riazi line 8
+    ps: AF_G10_riazi_ps line 8
+  status:
+    fa-AF: draft
+    ps: draft
+- id: factor-theorem
+  en: factor theorem
+  fa-IR: قضیهٔ عامل
+  fa-AF: قضیهٔ فکتور
+  ps: فکټور قضیه
+  src:
+    fa-IR: concepts/alg.yaml (alg.remainder-factor)
+    fa-AF: AF_G10_riazi line 8
+    ps: AF_G10_riazi_ps line 8
+  status:
+    fa-AF: draft
+    ps: draft
+- id: partial-fractions
+  en: partial fractions
+  fa-IR: کسرهای جزئی
+  fa-AF: کسور قسمی
+  ps: قسمي کسرونه
+  src:
+    fa-IR: concepts/alg.yaml (alg.partial-fractions)
+    fa-AF: AF_G12_riazi line 57
+    ps: AF_G12_riazi_ps line 57
+  status:
+    fa-AF: draft
+    ps: draft
+- id: binomial-expansion
+  en: binomial expansion
+  fa-IR: بسط دوجمله‌ای
+  fa-AF: قضیهٔ بینوم
+  ps: د بېنوم قضیه
+  src:
+    fa-IR: concepts/alg.yaml (alg.binomial-expansion)
+    fa-AF: AF_G11_riazi line 112
+    ps: AF_G11_riazi_ps line 112
+  note: Afghan books name the theorem (binomial theorem), not the expansion.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: relation
+  en: relation
+  fa-IR: رابطه
+  fa-AF: رابطه
+  ps: رابطه
+  src:
+    fa-IR: concepts/func.yaml (func.relation)
+    fa-AF: AF_G10_riazi line 14
+    ps: AF_G10_riazi_ps line 14
+  status:
+    fa-AF: draft
+    ps: draft
+- id: function
+  en: function
+  fa-IR: تابع
+  fa-AF: تابع
+  ps: تابع
+  src:
+    fa-IR: G10_riazi1_math_science line 26
+    fa-AF: AF_G10_riazi line 18
+    ps: AF_G10_riazi_ps line 18
+  note: 'Pashto plural: تابع ګانې.'
+  status:
+    fa-AF: draft
+    ps: draft
+- id: domain
+  en: domain
+  fa-IR: دامنه
+  fa-AF: ناحیهٔ تعریف
+  ps: د تعریف ناحیه
+  src:
+    fa-IR: G10_riazi1_math_science line 27
+    fa-AF: AF_G10_riazi line 19; pdf p.77
+    ps: AF_G10_riazi_ps pdf p.77
+  note: Both Afghan books also use ساحهٔ تعریف / د تعریف ساحه.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: range-of-function
+  en: range (of a function)
+  fa-IR: برد
+  fa-AF: ناحیهٔ قیمت‌ها
+  ps: د قیمتونو ناحیه
+  src:
+    fa-IR: G10_riazi1_math_science line 27
+    fa-AF: AF_G10_riazi pdf p.69, p.77
+    ps: AF_G10_riazi_ps pdf p.77
+  note: Pashto p.69 also has د قیمتونو ساحه.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: input
+  en: input
+  fa-IR: ورودی
+  fa-AF: مواد خام
+  ps: ورودي
+  src:
+    fa-IR: G03_riazi_sevom line 6
+    fa-AF: AF_G10_riazi pdf p.78
+    ps: AF_G10_riazi_ps pdf p.78
+  note: 'Function-machine input. Dari book: مواد خام (input); Pashto book: خام مواد يا ورودي.'
+  status:
+    fa-AF: draft
+    ps: draft
+- id: output
+  en: output
+  fa-IR: خروجی
+  fa-AF: خروجی
+  ps: خروجي
+  src:
+    fa-IR: G03_riazi_sevom line 6
+    fa-AF: AF_G10_riazi pdf p.78
+    ps: AF_G10_riazi_ps pdf p.78
+  status:
+    fa-AF: draft
+    ps: draft
+- id: graph-of-function
+  en: graph (of a function)
+  fa-IR: نمودار
+  fa-AF: گراف
+  ps: ګراف
+  src:
+    fa-IR: concepts/func.yaml (func.graph)
+    fa-AF: AF_G10_riazi line 19
+    ps: AF_G10_riazi_ps line 19
+  status:
+    fa-AF: draft
+    ps: draft
+- id: linear-function
+  en: linear function
+  fa-IR: تابع خطی
+  fa-AF: تابع خطی
+  ps: خطي تابع
+  src:
+    fa-IR: G10_riazi_amar1_humanities line 13
+    fa-AF: AF_G10_riazi pdf p.126
+    ps: AF_G10_riazi_ps pdf p.126
+  note: Afghan books also say تابع درجه یک / لومړۍ درجه تابع.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: quadratic-function
+  en: quadratic function
+  fa-IR: تابع درجهٔ دوم
+  fa-AF: تابع درجه دوم
+  ps: دویمه درجه تابع
+  src:
+    fa-IR: G10_riazi_amar1_humanities line 14
+    fa-AF: AF_G10_riazi line 25
+    ps: AF_G10_riazi_ps pdf p.128
+  status:
+    fa-AF: draft
+    ps: draft
+- id: inverse-function
+  en: inverse function
+  fa-IR: تابع وارون
+  fa-AF: تابع معکوس
+  ps: معکوسه تابع
+  src:
+    fa-IR: G12_riazi3_science line 6
+    fa-AF: AF_G10_riazi line 24
+    ps: AF_G10_riazi_ps line 24
+  status:
+    fa-AF: draft
+    ps: draft
+- id: composite-function
+  en: composite function
+  fa-IR: تابع مرکب
+  fa-AF: تابع مرکب
+  ps: مرکبه تابع
+  src:
+    fa-IR: concepts/calc.yaml (calc.derivative.chain)
+    fa-AF: AF_G12_riazi line 23
+    ps: AF_G10_riazi_ps pdf p.114 (مرکبې تابع ګانې)
+  note: ps singular formed from the attested plural مرکبې تابع ګانې. Iran also says ترکیب توابع (G12_riazi3_science line 5).
+  status:
+    fa-AF: draft
+    ps: draft
+- id: one-to-one-function
+  en: one-to-one function
+  fa-IR: تابع یک‌به‌یک
+  fa-AF: تابع یک به یک
+  ps: یو په یو تابع
+  src:
+    fa-IR: G11_riazi2_science line 15
+    fa-AF: AF_G10_riazi line 24
+    ps: AF_G10_riazi_ps line 24
+  status:
+    fa-AF: draft
+    ps: draft
+- id: increasing-function
+  en: increasing function
+  fa-IR: تابع صعودی
+  fa-AF: تابع متزاید
+  ps: متزایده تابع
+  src:
+    fa-IR: G12_riazi3_science line 4
+    fa-AF: AF_G10_riazi line 21
+    ps: AF_G10_riazi_ps pdf p.100
+  status:
+    fa-AF: draft
+    ps: draft
+- id: decreasing-function
+  en: decreasing function
+  fa-IR: تابع نزولی
+  fa-AF: تابع متناقص
+  ps: متناقصه تابع
+  src:
+    fa-IR: G12_riazi3_science line 4
+    fa-AF: AF_G10_riazi line 21
+    ps: AF_G10_riazi_ps line 21 (متناقصې تابع ګانې)
+  note: ps singular formed from the attested plural.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: even-function
+  en: even function
+  fa-IR: تابع زوج
+  fa-AF: تابع جفت
+  ps: جفته تابع
+  src:
+    fa-IR: concepts/func.yaml (func.even-odd)
+    fa-AF: AF_G10_riazi line 21
+    ps: AF_G10_riazi_ps pdf p.101
+  status:
+    fa-AF: draft
+    ps: draft
+- id: odd-function
+  en: odd function
+  fa-IR: تابع فرد
+  fa-AF: تابع تاق
+  ps: طاقه تابع
+  src:
+    fa-IR: concepts/func.yaml (func.even-odd)
+    fa-AF: AF_G10_riazi line 21
+    ps: AF_G10_riazi_ps pdf p.101
+  note: Dari spells تاق, Pashto spells طاق.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: rational-function
+  en: rational function
+  fa-IR: تابع گویا
+  fa-AF: تابع ناطق
+  ps: ناطقه تابع
+  src:
+    fa-IR: concepts/func.yaml (func.rational)
+    fa-AF: AF_G10_riazi line 26
+    ps: AF_G10_riazi_ps pdf p.136
+  note: Dari also says تابع نسبتی.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: asymptote
+  en: asymptote
+  fa-IR: مجانب
+  fa-AF: مجانب
+  ps: مجانب
+  src:
+    fa-IR: concepts/func.yaml (func.rational)
+    fa-AF: AF_G10_riazi line 26
+    ps: AF_G10_riazi_ps line 26
+  status:
+    fa-AF: draft
+    ps: draft
+- id: absolute-value
+  en: absolute value (modulus)
+  fa-IR: قدر مطلق
+  fa-AF: قیمت مطلقه
+  ps: مطلقه قیمت
+  src:
+    fa-IR: G09_riazi_nohom line 12
+    fa-AF: AF_G07_riazi line 29
+    ps: AF_G07_riazi_ps line 29
+  status:
+    fa-AF: draft
+    ps: draft
+- id: exponential-function
+  en: exponential function
+  fa-IR: تابع نمایی
+  fa-AF: تابع اکسپوننشیل
+  ps: اکسپوننشیل تابع
+  src:
+    fa-IR: G11_hesaban1_math line 17
+    fa-AF: AF_G11_riazi line 54
+    ps: AF_G11_riazi_ps line 54
+  status:
+    fa-AF: draft
+    ps: draft
+- id: logarithm
+  en: logarithm
+  fa-IR: لگاریتم
+  fa-AF: لوگاریتم
+  ps: لوګاریتم
+  src:
+    fa-IR: G11_hesaban1_math line 18
+    fa-AF: AF_G11_riazi line 55
+    ps: AF_G11_riazi_ps line 55
+  status:
+    fa-AF: draft
+    ps: draft
+- id: log-base
+  en: base (of a logarithm or power)
+  fa-IR: پایه
+  fa-AF: قاعده
+  ps: قاعده
+  src:
+    fa-IR: 'concepts/func.yaml (func.logarithm.laws: تغییر پایه)'
+    fa-AF: AF_G11_riazi line 59
+    ps: AF_G11_riazi_ps line 59
+  status:
+    fa-AF: draft
+    ps: draft
+- id: natural-logarithm
+  en: natural logarithm
+  fa-IR: لگاریتم طبیعی
+  fa-AF: لوگاریتم طبیعی
+  ps: طبیعي لوګاریتم
+  src:
+    fa-IR: concepts/func.yaml (func.exponential.e)
+    fa-AF: AF_G11_riazi line 57
+    ps: AF_G11_riazi_ps pdf p.172
+  status:
+    fa-AF: draft
+    ps: draft
+- id: antilogarithm
+  en: antilogarithm
+  fa-IR: آنتی‌لگاریتم
+  fa-AF: انتی لوگاریتم
+  ps: انتي لوګاریتم
+  src:
+    fa-IR: concepts/numm.yaml (numm.log-tables)
+    fa-AF: AF_G11_riazi line 62
+    ps: AF_G11_riazi_ps line 62
+  status:
+    fa-AF: draft
+    ps: draft
+- id: pattern
+  en: pattern
+  fa-IR: الگو
+  fa-AF: ''
+  ps: ''
+  src:
+    fa-IR: G07_riazi_haftom line 15; G10_riazi1_math_science line 6
+  note: 'fa-AF and ps not found in books: no pattern lesson in the Afghan G1–G12 outlines; Afghan books go straight to ترادف (G11).'
+  status:
+    fa-AF: draft
+    ps: draft
+- id: sequence
+  en: sequence
+  fa-IR: دنباله
+  fa-AF: ترادف
+  ps: ترادف
+  src:
+    fa-IR: G10_riazi1_math_science line 6
+    fa-AF: AF_G11_riazi line 43
+    ps: AF_G11_riazi_ps line 43
+  status:
+    fa-AF: draft
+    ps: draft
+- id: term-of-sequence
+  en: term (of a sequence)
+  fa-IR: جمله
+  fa-AF: حد
+  ps: حد
+  src:
+    fa-IR: concepts/seq.yaml (seq.concept)
+    fa-AF: AF_G11_riazi line 47
+    ps: AF_G11_riazi_ps line 47
+  status:
+    fa-AF: draft
+    ps: draft
+- id: nth-term
+  en: nth term
+  fa-IR: جملهٔ عمومی
+  fa-AF: حد n‑ام
+  ps: n‑ام حد
+  src:
+    fa-IR: concepts/seq.yaml (seq.position-to-term)
+    fa-AF: AF_G11_riazi pdf p.139
+    ps: AF_G11_riazi_ps pdf p.138
+  note: Pashto p.138 also says عمومي حد (general term).
+  status:
+    fa-AF: draft
+    ps: draft
+- id: arithmetic-sequence
+  en: arithmetic sequence
+  fa-IR: دنبالهٔ حسابی
+  fa-AF: ترادف حسابی
+  ps: حسابي ترادف
+  src:
+    fa-IR: G10_riazi1_math_science line 7
+    fa-AF: AF_G11_riazi line 44
+    ps: AF_G11_riazi_ps line 44
+  status:
+    fa-AF: draft
+    ps: draft
+- id: geometric-sequence
+  en: geometric sequence
+  fa-IR: دنبالهٔ هندسی
+  fa-AF: ترادف هندسی
+  ps: هندسي ترادف
+  src:
+    fa-IR: G10_riazi1_math_science line 7
+    fa-AF: AF_G11_riazi line 45
+    ps: AF_G11_riazi_ps line 45
+  status:
+    fa-AF: draft
+    ps: draft
+- id: common-difference
+  en: common difference
+  fa-IR: قدرنسبت
+  fa-AF: فرق مشترک
+  ps: ګډ توپیر
+  src:
+    fa-IR: concepts/seq.yaml (seq.arithmetic)
+    fa-AF: AF_G11_riazi pdf p.130
+    ps: AF_G11_riazi_ps pdf p.129
+  note: Iran uses قدرنسبت for both the common difference and the common ratio.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: common-ratio
+  en: common ratio
+  fa-IR: قدرنسبت
+  fa-AF: نسبت مشترک
+  ps: ګډ نسبت
+  src:
+    fa-IR: concepts/seq.yaml (seq.geometric)
+    fa-AF: AF_G11_riazi pdf p.138
+    ps: AF_G11_riazi_ps pdf p.138
+  note: Iran uses قدرنسبت for both the common difference and the common ratio.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: series
+  en: series
+  fa-IR: سری
+  fa-AF: سلسله
+  ps: سلسله
+  src:
+    fa-IR: concepts/seq.yaml (seq.differences)
+    fa-AF: AF_G11_riazi line 49
+    ps: AF_G11_riazi_ps line 49
+  status:
+    fa-AF: draft
+    ps: draft
+- id: infinity
+  en: infinity
+  fa-IR: بی‌نهایت
+  fa-AF: لایتناهی
+  ps: لایتناهي
+  src:
+    fa-IR: G12_riazi3_science line 12
+    fa-AF: AF_G11_riazi line 49
+    ps: AF_G11_riazi_ps line 49
+  note: Afghan source is the adjective 'infinite' (سلسله‌های هندسی لایتناهی); the noun 'infinity' is written ∞ in G12.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: limit
+  en: limit
+  fa-IR: حد
+  fa-AF: لیمت
+  ps: لېمیټ
+  src:
+    fa-IR: G11_hesaban1_math line 28
+    fa-AF: AF_G12_riazi line 6
+    ps: AF_G12_riazi_ps line 6
+  status:
+    fa-AF: draft
+    ps: draft
+- id: left-hand-limit
+  en: left-hand limit
+  fa-IR: حد چپ
+  fa-AF: لیمت طرف چپ
+  ps: د کیڼې خوا لېمیټ
+  src:
+    fa-IR: G11_hesaban1_math line 29
+    fa-AF: AF_G12_riazi line 7
+    ps: AF_G12_riazi_ps line 7
+  status:
+    fa-AF: draft
+    ps: draft
+- id: right-hand-limit
+  en: right-hand limit
+  fa-IR: حد راست
+  fa-AF: لیمت طرف راست
+  ps: د ښي خوا لېمیټ
+  src:
+    fa-IR: G11_hesaban1_math line 29
+    fa-AF: AF_G12_riazi line 7
+    ps: AF_G12_riazi_ps line 7
+  status:
+    fa-AF: draft
+    ps: draft
+- id: indeterminate-form
+  en: indeterminate form
+  fa-IR: حالت مبهم
+  fa-AF: شکل مبهم
+  ps: مبهم شکل
+  src:
+    fa-IR: concepts/calc.yaml (calc.limits.indeterminate-other)
+    fa-AF: AF_G12_riazi line 10
+    ps: AF_G12_riazi_ps line 10
+  status:
+    fa-AF: draft
+    ps: draft
+- id: continuity
+  en: continuity
+  fa-IR: پیوستگی
+  fa-AF: متمادیت
+  ps: متمادیت
+  src:
+    fa-IR: G11_hesaban1_math line 32
+    fa-AF: AF_G12_riazi line 14
+    ps: AF_G12_riazi_ps line 14
+  note: 'Adjective: fa-IR پیوسته, fa-AF متمادی, ps متمادي (AF_G12 line 15).'
+  status:
+    fa-AF: draft
+    ps: draft
+- id: rate-of-change
+  en: rate of change
+  fa-IR: آهنگ تغییر
+  fa-AF: ''
+  ps: ''
+  src:
+    fa-IR: G12_riazi3_science line 19
+  note: 'fa-AF and ps not found: no lesson title in the Afghan outlines, and the G12 Dari/Pashto PDFs have no usable text layer to search.'
+  status:
+    fa-AF: draft
+    ps: draft
+- id: derivative
+  en: derivative
+  fa-IR: مشتق
+  fa-AF: مشتق
+  ps: مشتق
+  src:
+    fa-IR: G12_riazi3_science line 17
+    fa-AF: AF_G12_riazi line 20
+    ps: AF_G12_riazi_ps line 20
+  status:
+    fa-AF: draft
+    ps: draft
+- id: critical-point
+  en: critical point
+  fa-IR: نقطهٔ بحرانی
+  fa-AF: نقطهٔ بحرانی
+  ps: بحراني ټکی
+  src:
+    fa-IR: concepts/calc.yaml (calc.app.extrema)
+    fa-AF: AF_G12_riazi line 30
+    ps: AF_G12_riazi_ps line 30
+  note: UK GCSE/A-level usually says 'stationary point'.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: maximum
+  en: maximum
+  fa-IR: ماکزیمم
+  fa-AF: اعظمی
+  ps: اعظمي
+  src:
+    fa-IR: G12_riazi3_science line 22 (اکسترمم)
+    fa-AF: AF_G12_riazi line 30
+    ps: AF_G12_riazi_ps line 30
+  status:
+    fa-AF: draft
+    ps: draft
+- id: minimum
+  en: minimum
+  fa-IR: مینیمم
+  fa-AF: اصغری
+  ps: اصغري
+  src:
+    fa-IR: G12_riazi3_science line 22 (اکسترمم)
+    fa-AF: AF_G12_riazi line 30
+    ps: AF_G12_riazi_ps line 30
+  status:
+    fa-AF: draft
+    ps: draft
+- id: point-of-inflection
+  en: point of inflection
+  fa-IR: نقطهٔ عطف
+  fa-AF: نقطهٔ انعطاف
+  ps: د انعطاف ټکی
+  src:
+    fa-IR: G12_hesaban2_math line 22
+    fa-AF: AF_G12_riazi line 31
+    ps: AF_G12_riazi_ps line 31
+  status:
+    fa-AF: draft
+    ps: draft
+- id: lhopital-rule
+  en: L'Hôpital's rule
+  fa-IR: قاعدهٔ هوپیتال
+  fa-AF: قاعدهٔ هوپیتال
+  ps: د لوپیټال قاعده
+  src:
+    fa-IR: concepts/calc.yaml (calc.app.lhopital)
+    fa-AF: AF_G12_riazi line 37
+    ps: AF_G12_riazi_ps line 37
+  status:
+    fa-AF: draft
+    ps: draft
+- id: integral
+  en: integral
+  fa-IR: انتگرال
+  fa-AF: انتیگرال
+  ps: انتیګرال
+  src:
+    fa-IR: concepts/calc.yaml (calc.integral)
+    fa-AF: AF_G12_riazi line 43
+    ps: AF_G12_riazi_ps line 43
+  status:
+    fa-AF: draft
+    ps: draft
+- id: definite-integral
+  en: definite integral
+  fa-IR: انتگرال معین
+  fa-AF: انتیگرال معین
+  ps: معین انتیګرال
+  src:
+    fa-IR: concepts/calc.yaml (calc.integral.definite)
+    fa-AF: AF_G12_riazi line 46
+    ps: AF_G12_riazi_ps line 46
+  status:
+    fa-AF: draft
+    ps: draft
+- id: indefinite-integral
+  en: indefinite integral
+  fa-IR: انتگرال نامعین
+  fa-AF: انتیگرال غیرمعین
+  ps: غیرمعین انتیګرال
+  src:
+    fa-IR: concepts/calc.yaml (calc.integral)
+    fa-AF: AF_G12_riazi line 44
+    ps: AF_G12_riazi_ps line 45; pdf p.148
+  status:
+    fa-AF: draft
+    ps: draft
+- id: antiderivative
+  en: antiderivative
+  fa-IR: تابع اولیه
+  fa-AF: تابع اولیه
+  ps: لومړنی تابع
+  src:
+    fa-IR: concepts/calc.yaml (calc.integral)
+    fa-AF: AF_G12_riazi pdf p.148
+    ps: AF_G12_riazi_ps pdf p.148
+  status:
+    fa-AF: draft
+    ps: draft
+- id: riemann-sum
+  en: Riemann sum
+  fa-IR: مجموع ریمان
+  fa-AF: مجموع ریمان
+  ps: د ریمان مجموعه
+  src:
+    fa-IR: concepts/calc.yaml (calc.integral.riemann)
+    fa-AF: AF_G12_riazi line 42
+    ps: AF_G12_riazi_ps line 42
+  status:
+    fa-AF: draft
+    ps: draft
+- id: area-under-curve
+  en: area under a curve
+  fa-IR: مساحت زیر منحنی
+  fa-AF: مساحت تحت منحنی
+  ps: د منحني لاندې مساحت
+  src:
+    fa-IR: concepts/calc.yaml (calc.app.area-under-curve)
+    fa-AF: AF_G12_riazi line 75
+    ps: AF_G12_riazi_ps line 75
+  note: Afghan source line is about the normal curve; the calculus lesson (line 64) says مساحت محصور شده توسط یک منحنی.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: integration-by-substitution
+  en: integration by substitution
+  fa-IR: انتگرال‌گیری با تغییر متغیر
+  fa-AF: انتیگرال‌گیری به طریقهٔ تعویض
+  ps: په تعویضي طریقې سره انتیګرال نیول
+  src:
+    fa-IR: concepts/calc.yaml (calc.integral.substitution)
+    fa-AF: AF_G12_riazi line 49
+    ps: AF_G12_riazi_ps line 49
+  status:
+    fa-AF: draft
+    ps: draft
+- id: integration-by-parts
+  en: integration by parts
+  fa-IR: انتگرال‌گیری جزءبه‌جزء
+  fa-AF: انتیگرال‌گیری به طریقهٔ قسمی
+  ps: په قسمي طریقې سره انتیګرال نیول
+  src:
+    fa-IR: concepts/calc.yaml (calc.integral.by-parts)
+    fa-AF: AF_G12_riazi line 50
+    ps: AF_G12_riazi_ps line 50
+  status:
+    fa-AF: draft
+    ps: draft
+- id: iteration
+  en: iteration
+  fa-IR: تکرار
+  fa-AF: ''
+  ps: ''
+  src:
+    fa-IR: concepts/numm.yaml (numm.iteration)
+  note: 'fa-AF and ps not found: the Afghan books have no iteration lesson.'
+  status:
+    fa-AF: draft
+    ps: draft
+- id: linear-interpolation
+  en: linear interpolation
+  fa-IR: درون‌یابی خطی
+  fa-AF: انترپولیشن خطی
+  ps: خطي انټرپولېشن
+  src:
+    fa-IR: concepts/numm.yaml (numm.linear-interpolation)
+    fa-AF: AF_G11_riazi line 63
+    ps: AF_G11_riazi_ps line 63
+  status:
+    fa-AF: draft
+    ps: draft
+- id: complex-number
+  en: complex number
+  fa-IR: عدد مختلط
+  fa-AF: عدد مختلط
+  ps: مختلط عدد
+  src:
+    fa-IR: concepts/cplx.yaml (cplx.arithmetic)
+    fa-AF: AF_G10_riazi line 51
+    ps: AF_G10_riazi_ps line 51
+  status:
+    fa-AF: draft
+    ps: draft
+- id: imaginary-number
+  en: imaginary number
+  fa-IR: عدد موهومی
+  fa-AF: عدد موهومی
+  ps: موهومي عدد
+  src:
+    fa-IR: concepts/cplx.yaml (cplx.imaginary)
+    fa-AF: AF_G10_riazi line 52
+    ps: AF_G10_riazi_ps line 52
+  status:
+    fa-AF: draft
+    ps: draft
+- id: imaginary-unit
+  en: imaginary unit
+  fa-IR: یکهٔ موهومی
+  fa-AF: واحد موهومی
+  ps: موهومي واحد
+  src:
+    fa-IR: 'concepts/cplx.yaml (cplx.imaginary: عدد موهومی i)'
+    fa-AF: AF_G10_riazi pdf p.285
+    ps: AF_G10_riazi_ps pdf p.285
+  status:
+    fa-AF: draft
+    ps: draft
+- id: real-part
+  en: real part
+  fa-IR: قسمت حقیقی
+  fa-AF: قسمت حقیقی
+  ps: حقیقي برخه
+  src:
+    fa-AF: AF_G10_riazi pdf p.287
+    ps: AF_G10_riazi_ps pdf p.287
+  status:
+    fa-AF: draft
+    ps: draft
+- id: imaginary-part
+  en: imaginary part
+  fa-IR: قسمت موهومی
+  fa-AF: قسمت موهومی
+  ps: موهومي برخه
+  src:
+    fa-AF: AF_G10_riazi pdf p.287
+    ps: AF_G10_riazi_ps pdf p.287
+  status:
+    fa-AF: draft
+    ps: draft
+- id: complex-conjugate
+  en: complex conjugate
+  fa-IR: مزدوج
+  fa-AF: مزدوج
+  ps: مزدوج
+  src:
+    fa-IR: concepts/cplx.yaml (cplx.conjugate-division)
+    fa-AF: AF_G10_riazi line 54
+    ps: AF_G10_riazi_ps line 54
+  status:
+    fa-AF: draft
+    ps: draft
+- id: matrix
+  en: matrix
+  fa-IR: ماتریس
+  fa-AF: متریکس
+  ps: متریکس
+  src:
+    fa-IR: G12_hendese3_math line 4
+    fa-AF: AF_G11_riazi line 70
+    ps: AF_G11_riazi_ps line 70
+  status:
+    fa-AF: draft
+    ps: draft
+- id: matrix-element
+  en: element (entry) of a matrix
+  fa-IR: درایه
+  fa-AF: عنصر
+  ps: عنصر
+  src:
+    fa-IR: concepts/mat.yaml (mat.concept)
+    fa-AF: AF_G11_riazi pdf p.215
+    ps: AF_G11_riazi_ps pdf p.215
+  status:
+    fa-AF: draft
+    ps: draft
+- id: matrix-row
+  en: row (of a matrix)
+  fa-IR: سطر
+  fa-AF: سطر
+  ps: سطر
+  src:
+    fa-AF: AF_G11_riazi pdf p.215
+    ps: AF_G11_riazi_ps pdf p.215
+  note: Pashto p.215 also labels a row vector کرښه.
+  status:
+    fa-AF: draft
+    ps: draft
+- id: matrix-column
+  en: column (of a matrix)
+  fa-IR: ستون
+  fa-AF: ستون
+  ps: ستون
+  src:
+    fa-AF: AF_G11_riazi pdf p.215
+    ps: AF_G11_riazi_ps pdf p.215
+  status:
+    fa-AF: draft
+    ps: draft
+- id: matrix-order
+  en: order (of a matrix)
+  fa-IR: مرتبه
+  fa-AF: مرتبه
+  ps: مرتبه
+  src:
+    fa-IR: concepts/mat.yaml (mat.concept)
+    fa-AF: AF_G11_riazi pdf p.215
+    ps: AF_G11_riazi_ps line 78
+  note: 'Dari p.215: مرتبه یا درجهٔ یک متریکس.'
+  status:
+    fa-AF: draft
+    ps: draft
+- id: square-matrix
+  en: square matrix
+  fa-IR: ماتریس مربعی
+  fa-AF: متریکس مربعی
+  ps: مربعي متریکس
+  src:
+    fa-IR: concepts/mat.yaml (mat.special)
+    fa-AF: AF_G11_riazi pdf p.218
+    ps: AF_G11_riazi_ps pdf p.218
+  status:
+    fa-AF: draft
+    ps: draft
+- id: identity-matrix
+  en: identity matrix
+  fa-IR: ماتریس همانی
+  fa-AF: متریکس واحد
+  ps: واحد متریکس
+  src:
+    fa-IR: concepts/mat.yaml (mat.special)
+    fa-AF: AF_G11_riazi pdf p.219
+    ps: AF_G11_riazi_ps pdf p.219
+  status:
+    fa-AF: draft
+    ps: draft
+- id: transpose
+  en: transpose
+  fa-IR: ترانهاده
+  fa-AF: ترانسپوز
+  ps: ترانسپوز
+  src:
+    fa-IR: concepts/mat.yaml (mat.transpose)
+    fa-AF: AF_G11_riazi line 75
+    ps: AF_G11_riazi_ps line 75
+  status:
+    fa-AF: draft
+    ps: draft
+- id: determinant
+  en: determinant
+  fa-IR: دترمینان
+  fa-AF: دیترمینانت
+  ps: دیترمینانت
+  src:
+    fa-IR: G12_hendese3_math line 5
+    fa-AF: AF_G11_riazi line 76
+    ps: AF_G11_riazi_ps line 76
+  status:
+    fa-AF: draft
+    ps: draft
+- id: inverse-matrix
+  en: inverse matrix
+  fa-IR: وارون ماتریس
+  fa-AF: معکوس متریکس
+  ps: معکوس متریکس
+  src:
+    fa-IR: G12_hendese3_math line 5
+    fa-AF: AF_G11_riazi line 79
+    ps: AF_G11_riazi_ps line 79
+  note: Outline line 78 also has معکوس ضربی (multiplicative inverse).
+  status:
+    fa-AF: draft
+    ps: draft
+- id: cramers-rule
+  en: Cramer's rule
+  fa-IR: روش کرامر
+  fa-AF: طریقهٔ کرامر
+  ps: د کرامر طریقه
+  src:
+    fa-IR: concepts/mat.yaml (mat.cramer)
+    fa-AF: AF_G11_riazi line 80
+    ps: AF_G11_riazi_ps line 80
+  status:
+    fa-AF: draft
+    ps: draft
+- id: gaussian-elimination
+  en: Gaussian elimination
+  fa-IR: روش حذفی گاوس
+  fa-AF: طریقهٔ حذفی
+  ps: د ګوس طریقه
+  src:
+    fa-IR: concepts/mat.yaml (mat.gaussian)
+    fa-AF: AF_G11_riazi line 81 (طریقهٔ حذفی(Gouse))
+    ps: AF_G11_riazi_ps line 81
+  note: 'Dari outline: طریقهٔ حذفی(Gouse), name in Latin script only; Pashto: د ګوس طریقه.'
+  status:
+    fa-AF: draft
+    ps: draft

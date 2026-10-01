@@ -1,0 +1,1788 @@
+- id: number
+  en: number
+  fa-IR: عدد
+  fa-AF: عدد
+  ps: عدد
+  src:
+    fa-IR: G02_riazi_dovom line 5
+    fa-AF: AF_G02_riazi line 6
+    ps: AF_G02_riazi_ps line 6
+  status:
+    fa-AF: draft
+    ps: draft
+- id: digit
+  en: digit
+  fa-IR: رقم
+  fa-AF: رقم
+  ps: رقم
+  src:
+    fa-IR: G02_riazi_dovom line 5
+    fa-AF: AF_G03_riazi line 6
+    ps: AF_G03_riazi_ps line 6
+  status:
+    fa-AF: draft
+    ps: draft
+- id: counting
+  en: counting
+  fa-IR: شمارش
+  fa-AF: شمارش
+  ps: شمېرل
+  src:
+    fa-IR: G03_riazi_sevom line 5
+    fa-AF: AF_G01_riazi line 7
+    ps: AF_G02_riazi_ps line 7
+  status:
+    fa-AF: draft
+    ps: draft
+- id: skip-counting
+  en: skip counting (counting in steps)
+  fa-IR: شمارش چندتا چندتا
+  fa-AF: شمارش متناوب
+  ps: متناوب شمېرل
+  src:
+    fa-IR: G03_riazi_sevom line 5
+    fa-AF: AF_G02_riazi line 7
+    ps: AF_G02_riazi_ps line 7
+  status:
+    fa-AF: draft
+    ps: draft
+- id: place-value
+  en: place value
+  fa-IR: ارزش مکانی
+  fa-AF: قیمت مقامی
+  ps: مقامي قیمت
+  src:
+    fa-IR: G03_riazi_sevom line 14
+    fa-AF: AF_G02_riazi line 16
+    ps: AF_G02_riazi_ps line 16
+  status:
+    fa-AF: draft
+    ps: draft
+  note: ps also مقامي ارزښت (AF_G02_riazi_ps line 42).
+- id: ones
+  en: ones
+  fa-IR: یکان
+  fa-AF: یک‌ها
+  ps: یویز
+  src:
+    fa-IR: G02_riazi_dovom p.12
+    fa-AF: AF_G02_riazi line 41; AF_G04_riazi p.8
+    ps: AF_G02_riazi_ps line 41; AF_G04_riazi_ps p.8
+  status:
+    fa-AF: draft
+    ps: draft
+- id: tens
+  en: tens
+  fa-IR: دهگان
+  fa-AF: ده‌ها
+  ps: لسیز
+  src:
+    fa-IR: G02_riazi_dovom p.12
+    fa-AF: AF_G02_riazi line 41; AF_G04_riazi p.8
+    ps: AF_G02_riazi_ps line 41; AF_G04_riazi_ps p.8
+  status:
+    fa-AF: draft
+    ps: draft
+- id: hundreds
+  en: hundreds
+  fa-IR: صدگان
+  fa-AF: صدها
+  ps: سلیز
+  src:
+    fa-IR: G02_riazi_dovom p.66
+    fa-AF: AF_G02_riazi line 41; AF_G04_riazi p.8
+    ps: AF_G02_riazi_ps line 41; AF_G04_riazi_ps p.8
+  status:
+    fa-AF: draft
+    ps: draft
+- id: thousands
+  en: thousands
+  fa-IR: هزارگان
+  fa-AF: هزارها
+  ps: زریز
+  src:
+    fa-IR: G03_riazi_sevom p.31
+    fa-AF: AF_G04_riazi p.8
+    ps: AF_G04_riazi_ps p.8
+  status:
+    fa-AF: draft
+    ps: draft
+- id: million
+  en: million
+  fa-IR: میلیون
+  fa-AF: ملیون
+  ps: میلیون
+  src:
+    fa-IR: G04_riazi_chaharom line 8
+    fa-AF: AF_G04_riazi p.35
+    ps: AF_G04_riazi_ps p.35
+  status:
+    fa-AF: draft
+    ps: draft
+- id: billion
+  en: billion
+  fa-IR: میلیارد
+  fa-AF: ملیارد
+  ps: ملیارد
+  src:
+    fa-IR: G05_riazi_panjom line 5
+    fa-AF: AF_G04_riazi line 14
+    ps: AF_G04_riazi_ps line 14
+  status:
+    fa-AF: draft
+    ps: draft
+- id: expanded-form
+  en: expanded form
+  fa-IR: نمایش گسترده
+  fa-AF: شکل توسعه‌یی
+  ps: توسعوي شکل
+  src:
+    fa-IR: concept num (نمایش گستردهٔ عددها); G03_riazi_sevom p.38 'به صورت گسترده'
+    fa-AF: AF_G04_riazi line 15
+    ps: AF_G04_riazi_ps line 15
+  status:
+    fa-AF: draft
+    ps: draft
+- id: compare
+  en: compare
+  fa-IR: مقایسه
+  fa-AF: مقایسه
+  ps: پرتله
+  src:
+    fa-IR: G02_riazi_dovom line 46
+    fa-AF: AF_G02_riazi line 44
+    ps: AF_G02_riazi_ps line 44
+  status:
+    fa-AF: draft
+    ps: draft
+- id: number-line
+  en: number line
+  fa-IR: محور اعداد
+  fa-AF: خط اعداد
+  ps: د عددونو خط
+  src:
+    fa-IR: G08_riazi_hashtom line 47; G01_riazi_aval p.114
+    fa-AF: AF_G03_riazi line 25
+    ps: AF_G03_riazi_ps line 25
+  status:
+    fa-AF: draft
+    ps: draft
+  note: From grade 7 the Afghan books also say محور اعداد / د عددونو محور (AF_G07_riazi line 28).
+- id: ordinal-number
+  en: ordinal number
+  fa-IR: عدد ترتیبی
+  fa-AF: عدد ترتیبی
+  ps: ترتیبي عدد
+  src:
+    fa-IR: G01_riazi_aval p.124
+    fa-AF: AF_G02_riazi line 13
+    ps: AF_G02_riazi_ps line 13
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Dari title is «اعداد ترتیبی یا توصیفی»; ps «توصیفې یا ترتیبي عددونه».
+- id: even-number
+  en: even number
+  fa-IR: عدد زوج
+  fa-AF: عدد جفت
+  ps: جفت عدد
+  src:
+    fa-IR: G02_riazi_dovom p.137
+    fa-AF: AF_G02_riazi line 23
+    ps: AF_G02_riazi_ps line 23
+  status:
+    fa-AF: draft
+    ps: draft
+- id: odd-number
+  en: odd number
+  fa-IR: عدد فرد
+  fa-AF: عدد تاق
+  ps: تاق عدد
+  src:
+    fa-IR: G01_riazi_aval p.128
+    fa-AF: AF_G02_riazi line 23
+    ps: AF_G02_riazi_ps line 23
+  status:
+    fa-AF: draft
+    ps: draft
+- id: roman-numerals
+  en: Roman numerals
+  fa-IR: عددنویسی رومی
+  fa-AF: ارقام رومی
+  ps: رومي رقمونه
+  src:
+    fa-IR: concept num.roman
+    fa-AF: AF_G06_riazi line 5
+    ps: AF_G06_riazi_ps line 5
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR not found in Iranian textbooks; taken from the concept title.
+- id: estimate
+  en: estimate
+  fa-IR: تخمین
+  fa-AF: تخمین
+  ps: اټکل
+  src:
+    fa-IR: G06_riazi_sheshom p.103
+    fa-AF: AF_G04_riazi line 7
+    ps: AF_G04_riazi_ps line 7
+  status:
+    fa-AF: draft
+    ps: draft
+  note: ps book writes «تخمین (اټکل کول)»; both words are used. Iranian books also say محاسبهٔ تقریبی for estimating a calculation (G04_riazi_chaharom line 23).
+- id: round
+  en: round (rounding)
+  fa-IR: گرد کردن
+  src:
+    fa-IR: G06_riazi_sheshom p.142 (also تقریب, G03_riazi_sevom line 16)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-AF not found in books; ps not found in books (Afghan books only use تقریبی 'approximately').
+- id: natural-number
+  en: natural number
+  fa-IR: عدد طبیعی
+  fa-AF: عدد طبیعی
+  ps: طبیعي عدد
+  src:
+    fa-IR: G06_riazi_sheshom p.60
+    fa-AF: AF_G07_riazi line 13
+    ps: AF_G07_riazi_ps line 13
+  status:
+    fa-AF: draft
+    ps: draft
+- id: whole-number
+  en: whole number
+  fa-IR: عدد طبیعی
+  fa-AF: عدد صحیح
+  ps: صحیح عدد
+  src:
+    fa-IR: G06_riazi_sheshom line 22 ('تقسیم عدد اعشاری بر عدد طبیعی')
+    fa-AF: AF_G05_riazi line 93
+    ps: AF_G05_riazi_ps line 87 ('چې صحیح عدد ولري')
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'FALSE FRIEND: Dari عدد صحیح = whole number (e.g. ''ضرب عدد صحیح در کسر''), but Iranian عدد صحیح = integer. Never copy Iranian عدد صحیح into fa-AF.'
+- id: integer
+  en: integer
+  fa-IR: عدد صحیح
+  fa-AF: عدد تام
+  ps: تام عدد
+  src:
+    fa-IR: G06_riazi_sheshom line 9
+    fa-AF: AF_G07_riazi line 26
+    ps: AF_G07_riazi_ps line 26
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'See whole-number: Dari عدد صحیح is NOT integer. (absolute value is in algebra.yaml as absolute_value.)'
+- id: positive-number
+  en: positive number
+  fa-IR: عدد مثبت
+  fa-AF: عدد مثبت
+  ps: مثبت عدد
+  src:
+    fa-IR: G06_riazi_sheshom p.25
+    fa-AF: AF_G07_riazi line 27
+    ps: AF_G07_riazi_ps line 27
+  status:
+    fa-AF: draft
+    ps: draft
+- id: negative-number
+  en: negative number
+  fa-IR: عدد منفی
+  fa-AF: عدد منفی
+  ps: منفي عدد
+  src:
+    fa-IR: G06_riazi_sheshom p.25
+    fa-AF: AF_G07_riazi line 27
+    ps: AF_G07_riazi_ps line 27
+  status:
+    fa-AF: draft
+    ps: draft
+- id: rational-number
+  en: rational number
+  fa-IR: عدد گویا
+  fa-AF: عدد نسبتی
+  ps: نسبتي عدد
+  src:
+    fa-IR: G08_riazi_hashtom line 5
+    fa-AF: AF_G07_riazi line 34
+    ps: AF_G07_riazi_ps line 34
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Grade 8 Afghan books also say عدد ناطق / ناطق عدد (AF_G08_riazi p.10, AF_G08_riazi_ps p.10).
+- id: irrational-number
+  en: irrational number
+  fa-IR: عدد گنگ
+  fa-AF: عدد غیر ناطق
+  ps: غیر ناطق عدد
+  src:
+    fa-IR: G09_riazi_nohom p.26
+    fa-AF: AF_G08_riazi p.11
+    ps: AF_G08_riazi_ps p.11
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Dari glosses it «غیر ناطق (گنگ)»; ps «غیر ناطق (ګونګ)».
+- id: real-number
+  en: real number
+  fa-IR: عدد حقیقی
+  fa-AF: عدد حقیقی
+  ps: حقیقي عدد
+  src:
+    fa-IR: G09_riazi_nohom line 11
+    fa-AF: AF_G08_riazi line 5
+    ps: AF_G08_riazi_ps line 5
+  status:
+    fa-AF: draft
+    ps: draft
+- id: factor
+  en: factor (divisor of a number)
+  fa-IR: شمارنده
+  fa-AF: قاسم
+  ps: قاسم
+  src:
+    fa-IR: G07_gifted_supplement line 35
+    fa-AF: AF_G05_riazi line 58
+    ps: AF_G05_riazi_ps line 58
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iranian قاسم is not used for 'factor'; Iranian books use شمارنده. Dari also says عامل (ضربی) in factorisation (AF_G06_riazi line 7).
+- id: multiple
+  en: multiple
+  fa-IR: مضرب
+  fa-AF: مضرب
+  ps: مضرب
+  src:
+    fa-IR: G06_riazi_sheshom p.13
+    fa-AF: AF_G05_riazi line 58
+    ps: AF_G05_riazi_ps line 58
+  status:
+    fa-AF: draft
+    ps: draft
+- id: divisibility
+  en: divisibility
+  fa-IR: بخش‌پذیری
+  fa-AF: قابلیت تقسیم
+  ps: د وېش قابلیت
+  src:
+    fa-IR: G06_riazi_sheshom line 8
+    fa-AF: AF_G05_riazi line 54
+    ps: AF_G05_riazi_ps line 54
+  status:
+    fa-AF: draft
+    ps: draft
+- id: prime-number
+  en: prime number
+  fa-IR: عدد اول
+  fa-AF: عدد اولیه
+  ps: اولیه عدد
+  src:
+    fa-IR: G07_riazi_haftom line 29
+    fa-AF: AF_G05_riazi line 60
+    ps: AF_G05_riazi_ps line 60
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Grade 7 Pashto book uses لومړنی عدد (AF_G07_riazi_ps p.38; TOC «لومړنیو عددونو», AF_G07_riazi_ps line 14). Reviewer: choose one.'
+- id: composite-number
+  en: composite number
+  fa-IR: عدد مرکب
+  fa-AF: عدد مرکب
+  ps: مرکب عدد
+  src:
+    fa-IR: G07_gifted_supplement p.82
+    fa-AF: AF_G05_riazi line 60; AF_G06_riazi p.32
+    ps: AF_G05_riazi_ps line 60; AF_G07_riazi_ps p.38
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Afghan books gloss it «مرکب (غیر اولیه)». Iranian 'عددهای مرکب' in G05 means compound measures (h-min), not this.
+- id: prime-factorisation
+  en: prime factorisation
+  fa-IR: تجزیه به عامل‌های اول
+  fa-AF: تجزیه به عامل‌های ضربی اولیه
+  ps: په لومړنیو ضربي عواملو باندې تجزیه
+  src:
+    fa-IR: concept num (تجزیه به عامل‌های اول); G07_riazi_haftom p.69
+    fa-AF: AF_G06_riazi line 7
+    ps: AF_G06_riazi_ps line 7
+  status:
+    fa-AF: draft
+    ps: draft
+- id: hcf
+  en: highest common factor (HCF)
+  fa-IR: بزرگ‌ترین شمارندهٔ مشترک (ب.م.م)
+  fa-AF: بزرگ‌ترین قاسم مشترک
+  ps: تر ټولو لوی مشترک قاسم
+  src:
+    fa-IR: G07_riazi_haftom line 31; G07_gifted_supplement line 41
+    fa-AF: AF_G05_riazi line 53
+    ps: AF_G05_riazi_ps line 53
+  status:
+    fa-AF: draft
+    ps: draft
+- id: lcm
+  en: lowest common multiple (LCM)
+  fa-IR: کوچک‌ترین مضرب مشترک (ک.م.م)
+  fa-AF: کوچک‌ترین مضرب مشترک
+  ps: تر ټولو کوچنی مشترک مضرب
+  src:
+    fa-IR: G07_riazi_haftom line 32; G07_gifted_supplement line 41
+    fa-AF: AF_G05_riazi line 53
+    ps: AF_G05_riazi_ps line 53
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Grade 5 Pashto also uses the Arabic term ذواضعاف اقل (AF_G05_riazi_ps line 66).
+- id: power
+  en: power
+  fa-IR: توان
+  fa-AF: طاقت
+  ps: طاقت
+  src:
+    fa-IR: G07_riazi_haftom line 42
+    fa-AF: AF_G06_riazi line 13; AF_G07_riazi p.42
+    ps: AF_G06_riazi_ps line 13; AF_G07_riazi_ps p.42
+  status:
+    fa-AF: draft
+    ps: draft
+  note: In Iran توان is both the power and the exponent; in Afghanistan طاقت = power, توان‌نما = exponent.
+- id: base
+  en: base (of a power)
+  fa-IR: پایه
+  fa-AF: قاعده
+  ps: قاعده
+  src:
+    fa-IR: G07_riazi_haftom p.94
+    fa-AF: AF_G07_riazi p.42
+    ps: AF_G07_riazi_ps p.42
+  status:
+    fa-AF: draft
+    ps: draft
+- id: exponent
+  en: index (exponent)
+  fa-IR: توان
+  fa-AF: توان‌نما
+  ps: توان ښودونکی
+  src:
+    fa-IR: G07_riazi_haftom p.94 ('۲ را پایه و ۵ را توان می‌نامیم')
+    fa-AF: AF_G06_riazi line 13; AF_G07_riazi p.42
+    ps: AF_G07_riazi_ps p.42
+  status:
+    fa-AF: draft
+    ps: draft
+- id: square-number
+  en: square number
+  fa-IR: عدد مربع
+  fa-AF: مربع تام
+  ps: پوره مربع
+  src:
+    fa-IR: G07_gifted_supplement p.95
+    fa-AF: AF_G07_riazi line 22
+    ps: AF_G07_riazi_ps line 22 ('د عدد پوره مربع جذر')
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Dari/ps use مربع alone for 'the square of a number' (AF_G07_riazi p.64).
+- id: square-root
+  en: square root
+  fa-IR: جذر
+  fa-AF: جذر مربع
+  ps: دویم جذر
+  src:
+    fa-IR: G07_riazi_haftom line 46
+    fa-AF: AF_G07_riazi line 22
+    ps: AF_G08_riazi_ps line 7
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iran also ریشهٔ دوم (G07_riazi_haftom p.105). Dari G08 also جذر دوم; ps G07 also «د مربع جذر».
+- id: cube-root
+  en: cube root
+  fa-IR: ریشهٔ سوم
+  fa-AF: جذر مکعب
+  ps: دریم جذر
+  src:
+    fa-IR: G09_riazi_nohom p.77
+    fa-AF: AF_G07_riazi line 23
+    ps: AF_G07_riazi_ps line 23 ('مکعب (دریم) جذر')
+  status:
+    fa-AF: draft
+    ps: draft
+- id: surd
+  en: surd
+  fa-IR: عدد رادیکالی
+  fa-AF: عدد جذردار
+  ps: جذري عدد
+  src:
+    fa-IR: G08_riazi_hashtom line 47
+    fa-AF: AF_G08_riazi line 8
+    ps: AF_G08_riazi_ps line 8
+  status:
+    fa-AF: draft
+    ps: draft
+- id: standard-form
+  en: standard form (scientific notation)
+  fa-IR: نماد علمی
+  fa-AF: روش علمی عددنویسی
+  ps: د عدد د لیکلو علمي طریقه
+  src:
+    fa-IR: G09_riazi_nohom line 23
+    fa-AF: AF_G07_riazi line 16
+    ps: AF_G07_riazi_ps line 16
+  status:
+    fa-AF: draft
+    ps: draft
+- id: recurring-decimal
+  en: recurring decimal
+  fa-IR: عدد اعشاری متناوب
+  fa-AF: کسر اعشاری متوالی
+  ps: متوالي اعشاري کسر
+  src:
+    fa-IR: concept num.recurring-decimals; G09_riazi_nohom p.29 'به‌طور متناوب تکرار'
+    fa-AF: AF_G06_riazi line 40
+    ps: AF_G06_riazi_ps line 41
+  status:
+    fa-AF: draft
+    ps: draft
+- id: addition
+  en: addition
+  fa-IR: جمع
+  fa-AF: جمع
+  ps: جمع
+  src:
+    fa-IR: G02_riazi_dovom line 9
+    fa-AF: AF_G02_riazi line 17
+    ps: AF_G05_riazi_ps line 6
+  status:
+    fa-AF: draft
+    ps: draft
+- id: sum
+  en: sum (total)
+  fa-IR: حاصل جمع
+  fa-AF: حاصل جمع
+  ps: د جمعې حاصل
+  src:
+    fa-IR: G01_riazi_aval p.92
+    fa-AF: AF_G03_riazi line 15; AF_G04_riazi p.18
+    ps: AF_G03_riazi_ps line 15; AF_G04_riazi_ps p.18
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Dari «جمع ... که حاصل داشته باشد» (AF_G02_riazi line 26) means addition WITH CARRYING, not 'having a sum'.
+- id: subtraction
+  en: subtraction
+  fa-IR: تفریق
+  fa-AF: تفریق
+  ps: تفریق
+  src:
+    fa-IR: G02_riazi_dovom line 9
+    fa-AF: AF_G02_riazi line 20
+    ps: AF_G02_riazi_ps line 20
+  status:
+    fa-AF: draft
+    ps: draft
+- id: difference
+  en: difference
+  fa-IR: حاصل تفریق
+  fa-AF: حاصل تفریق
+  ps: د تفریق حاصل
+  src:
+    fa-IR: G02_riazi_dovom p.16
+    fa-AF: AF_G04_riazi p.22
+    ps: AF_G04_riazi_ps p.22
+  status:
+    fa-AF: draft
+    ps: draft
+- id: borrowing
+  en: exchanging (borrowing) in subtraction
+  fa-IR: قرض گرفتن
+  fa-AF: قرض گرفتن
+  ps: پور اخیستل
+  src:
+    fa-IR: concept ops.add-sub.regroup
+    fa-AF: AF_G02_riazi line 31
+    ps: AF_G02_riazi_ps line 31
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR not found in Iranian textbook text; taken from the concept title.
+- id: column-method
+  en: column method (vertical layout)
+  fa-IR: ستونی
+  fa-AF: عمودی
+  ps: عمودي
+  src:
+    fa-IR: G02_riazi_dovom p.35 ('به صورت ستونی')
+    fa-AF: AF_G04_riazi line 8 ('به صورت عمودی')
+    ps: AF_G04_riazi_ps line 8 ('په عمودي ډول')
+  status:
+    fa-AF: draft
+    ps: draft
+- id: multiplication
+  en: multiplication
+  fa-IR: ضرب
+  fa-AF: ضرب
+  ps: ضرب
+  src:
+    fa-IR: G03_riazi_sevom line 27
+    fa-AF: AF_G02_riazi line 57
+    ps: AF_G02_riazi_ps line 57
+  status:
+    fa-AF: draft
+    ps: draft
+- id: product
+  en: product
+  fa-IR: حاصل ضرب
+  fa-AF: حاصل ضرب
+  ps: د ضرب حاصل
+  src:
+    fa-IR: G03_riazi_sevom p.65
+    fa-AF: AF_G04_riazi p.26
+    ps: AF_G04_riazi_ps p.26
+  status:
+    fa-AF: draft
+    ps: draft
+- id: multiplication-factor
+  en: factor (in a multiplication)
+  fa-IR: عامل ضرب
+  fa-AF: جزء ضرب
+  ps: د ضرب جزء
+  src:
+    fa-IR: G05_riazi_panjom p.148
+    fa-AF: AF_G04_riazi p.26
+    ps: AF_G04_riazi_ps p.26
+  status:
+    fa-AF: draft
+    ps: draft
+  note: The numbers being multiplied (3 and 4 in 3×4). Dari plural اجزای ضربی (AF_G05_riazi p.41).
+- id: repeated-addition
+  en: repeated addition
+  fa-IR: جمع تکراری
+  fa-AF: جمع اعداد تکراری
+  ps: تکراري جمع
+  src:
+    fa-IR: 'concept ops (مفهوم ضرب: جمع تکراری)'
+    fa-AF: AF_G02_riazi line 58
+    ps: AF_G02_riazi_ps line 58
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR not found in Iranian textbook text; taken from the concept title.
+- id: multiplication-table
+  en: multiplication table
+  fa-IR: جدول ضرب
+  fa-AF: جدول ضرب
+  ps: د ضرب جدول
+  src:
+    fa-IR: G03_riazi_sevom p.69
+    fa-AF: AF_G03_riazi line 32
+    ps: AF_G03_riazi_ps line 32
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Afghan books say جدول ضرب زبانی (oral/times-table drill).
+- id: division
+  en: division
+  fa-IR: تقسیم
+  fa-AF: تقسیم
+  ps: وېش
+  src:
+    fa-IR: G03_riazi_sevom line 32
+    fa-AF: AF_G02_riazi line 70
+    ps: AF_G02_riazi_ps line 70
+  status:
+    fa-AF: draft
+    ps: draft
+  note: ps books use both تقسیم and وېش («تقسیم (وېش)», AF_G05_riazi_ps line 21).
+- id: dividend
+  en: dividend
+  fa-IR: مقسوم
+  fa-AF: مقسوم
+  ps: مقسوم
+  src:
+    fa-IR: G04_riazi_chaharom p.66
+    fa-AF: AF_G04_riazi p.30
+    ps: AF_G04_riazi_ps p.30
+  status:
+    fa-AF: draft
+    ps: draft
+- id: divisor
+  en: divisor
+  fa-IR: مقسوم‌علیه
+  fa-AF: مقسوم علیه
+  ps: مقسوم علیه
+  src:
+    fa-IR: G04_riazi_chaharom p.66
+    fa-AF: AF_G04_riazi p.30
+    ps: AF_G04_riazi_ps p.30
+  status:
+    fa-AF: draft
+    ps: draft
+- id: quotient
+  en: quotient
+  fa-IR: خارج قسمت
+  fa-AF: خارج قسمت
+  ps: د وېش حاصل
+  src:
+    fa-IR: G03_riazi_sevom p.145
+    fa-AF: AF_G04_riazi p.30
+    ps: AF_G04_riazi_ps p.30
+  status:
+    fa-AF: draft
+    ps: draft
+- id: remainder
+  en: remainder
+  fa-IR: باقی‌مانده
+  fa-AF: باقیمانده
+  ps: پاتې
+  src:
+    fa-IR: G03_riazi_sevom line 64
+    fa-AF: AF_G04_riazi line 31
+    ps: AF_G04_riazi_ps line 31; AF_G04_riazi_ps p.30
+  status:
+    fa-AF: draft
+    ps: draft
+- id: commutative-property
+  en: commutative property
+  fa-IR: خاصیت جابه‌جایی
+  fa-AF: خاصیت تبدیلی
+  ps: د بدلون خاصیت
+  src:
+    fa-IR: G07_riazi_haftom p.42
+    fa-AF: AF_G02_riazi line 18
+    ps: AF_G02_riazi_ps line 61
+  status:
+    fa-AF: draft
+    ps: draft
+- id: associative-property
+  en: associative property
+  fa-IR: خاصیت شرکت‌پذیری
+  fa-AF: خاصیت اتحادی
+  ps: اتحادي خاصیت
+  src:
+    fa-IR: G07_riazi_haftom p.42
+    fa-AF: AF_G05_riazi line 15
+    ps: AF_G05_riazi_ps line 27
+  status:
+    fa-AF: draft
+    ps: draft
+- id: distributive-property
+  en: distributive property
+  fa-IR: خاصیت توزیع‌پذیری
+  fa-AF: خاصیت توزیعی
+  ps: توزیعي خاصیت
+  src:
+    fa-IR: G08_riazi_hashtom p.68
+    fa-AF: AF_G05_riazi line 27
+    ps: AF_G05_riazi_ps p.44
+  status:
+    fa-AF: draft
+    ps: draft
+- id: reciprocal
+  en: reciprocal
+  fa-IR: معکوس
+  fa-AF: معکوس
+  ps: معکوس
+  src:
+    fa-IR: G06_riazi_sheshom p.37
+    fa-AF: AF_G05_riazi p.182
+    ps: AF_G05_riazi_ps p.182
+  status:
+    fa-AF: draft
+    ps: draft
+- id: order-of-operations
+  en: order of operations
+  fa-IR: ترتیب انجام عملیات
+  fa-AF: ترتیب عملیات
+  ps: د عملیو د سرته رسولو ترتیب
+  src:
+    fa-IR: G06_riazi_sheshom p.149
+    fa-AF: AF_G09_riazi line 41
+    ps: AF_G09_riazi_ps line 41
+  status:
+    fa-AF: draft
+    ps: draft
+- id: brackets
+  en: brackets
+  fa-IR: پرانتز
+  fa-AF: قوس
+  ps: قوس
+  src:
+    fa-IR: G03_riazi_sevom p.72
+    fa-AF: AF_G07_riazi p.96
+    ps: AF_G07_riazi_ps p.96
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Afghan books: ( ) قوس کوچک / کوچنی قوس, { } قوس متوسط / منځنی قوس, [ ] قوس کلان / لوی قوس.'
+- id: abacus
+  en: abacus
+  fa-IR: چرتکه
+  fa-AF: چوت
+  ps: چوت
+  src:
+    fa-IR: G02_riazi_dovom p.65
+    fa-AF: AF_G02_riazi line 35
+    ps: AF_G02_riazi_ps line 35
+  status:
+    fa-AF: draft
+    ps: draft
+- id: calculator
+  en: calculator
+  fa-IR: ماشین‌حساب
+  src:
+    fa-IR: G03_riazi_sevom p.11
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-AF not found in books; ps not found in books.
+- id: word-problem
+  en: word problem
+  fa-IR: مسئلهٔ کلامی
+  fa-AF: سؤال عبارتی
+  ps: عبارتي پوښتنه
+  src:
+    fa-IR: concept ops.word-problems.add-sub
+    fa-AF: AF_G02_riazi line 21
+    ps: AF_G02_riazi_ps line 21
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR not found in Iranian textbook text; Iranian books just say مسئله.
+- id: problem-solving
+  en: problem solving
+  fa-IR: حل مسئله
+  fa-AF: حل مسائل
+  ps: د مسایلو حل
+  src:
+    fa-IR: G02_riazi_dovom line 8
+    fa-AF: AF_G07_riazi line 19
+    ps: AF_G07_riazi_ps line 19
+  status:
+    fa-AF: draft
+    ps: draft
+- id: problem-solving-strategy
+  en: problem-solving strategy
+  fa-IR: راهبرد حل مسئله
+  src:
+    fa-IR: G07_riazi_haftom line 5
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-AF not found in books; ps not found in books (Afghan books have no strategy lessons).
+- id: draw-a-diagram
+  en: draw a diagram
+  fa-IR: رسم شکل
+  src:
+    fa-IR: G02_riazi_dovom line 8
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iranian strategy name; fa-AF not found in books; ps not found in books.
+- id: make-a-model
+  en: make a model (act it out)
+  fa-IR: الگوسازی
+  src:
+    fa-IR: G02_riazi_dovom line 16
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iranian strategy name; fa-AF not found in books; ps not found in books.
+- id: look-for-a-pattern
+  en: look for a pattern
+  fa-IR: الگویابی
+  src:
+    fa-IR: G02_riazi_dovom line 24
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iranian strategy name; fa-AF not found in books; ps not found in books. (The noun 'pattern' is in algebra.yaml.)
+- id: eliminate-cases
+  en: eliminate impossible cases
+  fa-IR: حذف حالت‌های نامطلوب
+  src:
+    fa-IR: G02_riazi_dovom line 32
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iranian strategy name; fa-AF not found in books; ps not found in books.
+- id: guess-and-check
+  en: trial and improvement (guess and check)
+  fa-IR: حدس و آزمایش
+  src:
+    fa-IR: G02_riazi_dovom line 40
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iranian strategy name; fa-AF not found in books; ps not found in books.
+- id: sub-problem
+  en: break into smaller steps (sub-problems)
+  fa-IR: زیرمسئله
+  src:
+    fa-IR: G02_riazi_dovom line 48
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iranian strategy name (book spells «زیر مسئله»); fa-AF not found in books; ps not found in books.
+- id: simpler-problem
+  en: solve a simpler problem
+  fa-IR: حل مسئلهٔ ساده‌تر
+  src:
+    fa-IR: G02_riazi_dovom line 56
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iranian strategy name; fa-AF not found in books; ps not found in books.
+- id: use-symbols
+  en: use symbols (write a number sentence)
+  fa-IR: روش نمادین
+  src:
+    fa-IR: G02_riazi_dovom line 64
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iranian strategy name; fa-AF not found in books; ps not found in books.
+- id: systematic-listing
+  en: systematic listing
+  fa-IR: بررسی حالت‌های ممکن
+  src:
+    fa-IR: G08_gifted_supplement line 54
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Concept title says «فهرست‌کردن منظم حالت‌ها»; book heading used. fa-AF not found in books; ps not found in books.
+- id: fraction
+  en: fraction
+  fa-IR: کسر
+  fa-AF: کسر
+  ps: کسر
+  src:
+    fa-IR: G03_riazi_sevom line 21
+    fa-AF: AF_G03_riazi line 70
+    ps: AF_G03_riazi_ps line 70
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Afghan books call an ordinary fraction کسر عام / عام کسر (AF_G04_riazi line 44), in contrast to کسر اعشاری.
+- id: numerator
+  en: numerator
+  fa-IR: صورت
+  fa-AF: صورت
+  ps: صورت
+  src:
+    fa-IR: G03_riazi_sevom p.46
+    fa-AF: AF_G04_riazi line 45
+    ps: AF_G04_riazi_ps line 45
+  status:
+    fa-AF: draft
+    ps: draft
+- id: denominator
+  en: denominator
+  fa-IR: مخرج
+  fa-AF: مخرج
+  ps: مخرج
+  src:
+    fa-IR: G03_riazi_sevom p.46
+    fa-AF: AF_G04_riazi line 45
+    ps: AF_G04_riazi_ps line 45
+  status:
+    fa-AF: draft
+    ps: draft
+- id: fraction-bar
+  en: fraction bar
+  fa-IR: خط کسری
+  fa-AF: خط کسری
+  ps: کسري خط
+  src:
+    fa-IR: G03_riazi_sevom p.46
+    fa-AF: AF_G04_riazi line 45
+    ps: AF_G04_riazi_ps line 45
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Afghan books add «(خط بر)».
+- id: half
+  en: half
+  fa-IR: نصف
+  fa-AF: نصف
+  ps: نیمه
+  src:
+    fa-IR: G03_riazi_sevom p.44
+    fa-AF: AF_G04_riazi p.125
+    ps: AF_G04_riazi_ps p.125
+  status:
+    fa-AF: draft
+    ps: draft
+- id: quarter
+  en: quarter
+  fa-IR: ربع
+  src:
+    fa-IR: G04_riazi_chaharom p.46
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-AF not found in books; ps not found in books.
+- id: equivalent-fractions
+  en: equivalent fractions
+  fa-IR: کسرهای مساوی
+  fa-AF: کسرهای معادل
+  ps: معادل کسرونه
+  src:
+    fa-IR: G03_riazi_sevom line 23 (تساوی کسرها); concept frac
+    fa-AF: AF_G05_riazi line 75
+    ps: AF_G05_riazi_ps line 75
+  status:
+    fa-AF: draft
+    ps: draft
+- id: simplify-fraction
+  en: simplify (a fraction)
+  fa-IR: ساده کردن
+  fa-AF: اختصار
+  ps: اختصار
+  src:
+    fa-IR: G09_riazi_nohom p.129; concept frac (ساده کردن کسر)
+    fa-AF: AF_G05_riazi line 77
+    ps: AF_G05_riazi_ps line 77
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Dari «اختصار (ساده ساختن)»; ps «اختصار (ساده کول)».
+- id: common-denominator
+  en: common denominator
+  fa-IR: مخرج مشترک
+  fa-AF: مخرج مشترک
+  src:
+    fa-IR: G06_riazi_sheshom p.34
+    fa-AF: AF_G07_riazi p.56
+  status:
+    fa-AF: draft
+    ps: draft
+  note: ps not found in books.
+- id: same-denominator-conversion
+  en: writing fractions with a common denominator
+  fa-IR: هم‌مخرج کردن
+  fa-AF: تجنیس
+  ps: هم مخرج کول
+  src:
+    fa-IR: G09_riazi_nohom p.29
+    fa-AF: AF_G06_riazi line 18
+    ps: AF_G06_riazi_ps line 18
+  status:
+    fa-AF: draft
+    ps: draft
+- id: improper-fraction
+  en: improper fraction
+  fa-IR: کسر بزرگ‌تر از واحد
+  fa-AF: کسر غیر واقعی
+  ps: غیر واقعي کسر
+  src:
+    fa-IR: G05_riazi_panjom line 11
+    fa-AF: AF_G05_riazi line 73
+    ps: AF_G05_riazi_ps line 73
+  status:
+    fa-AF: draft
+    ps: draft
+- id: mixed-number
+  en: mixed number
+  fa-IR: عدد مخلوط
+  fa-AF: عدد مخلوط
+  ps: مخلوط عدد
+  src:
+    fa-IR: G04_riazi_chaharom line 39
+    fa-AF: AF_G06_riazi p.42
+    ps: AF_G06_riazi_ps p.42
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Grade 5 Dari says کسر مخلوط (AF_G05_riazi line 87); grade 5 Pashto «صحیح عدد لرونکی کسر» (AF_G05_riazi_ps line 96).
+- id: complex-fraction
+  en: complex fraction (fraction of fractions)
+  fa-IR: کسر مرکب
+  fa-AF: کسرالکسر
+  ps: کسرالکسر
+  src:
+    fa-IR: G09_riazi_nohom p.129
+    fa-AF: AF_G05_riazi line 101
+    ps: AF_G05_riazi_ps line 101
+  status:
+    fa-AF: draft
+    ps: draft
+- id: decimal
+  en: decimal (decimal number)
+  fa-IR: عدد اعشاری
+  fa-AF: کسر اعشاری
+  ps: اعشاري کسر
+  src:
+    fa-IR: G04_riazi_chaharom line 40
+    fa-AF: AF_G06_riazi line 29
+    ps: AF_G06_riazi_ps line 29
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Afghan books also say عدد اعشاری / اعشاري عدد (AF_G06_riazi line 34).
+- id: decimal-point
+  en: decimal point
+  fa-IR: ممیز
+  fa-AF: علامت اعشاری
+  ps: اعشاري نښه
+  src:
+    fa-IR: G04_riazi_chaharom p.110
+    fa-AF: AF_G06_riazi p.75
+    ps: AF_G06_riazi_ps p.75
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Dari/ps also say ممیزه (AF_G06_riazi p.75: «علامت اعشاری یا ممیزه»); it is read اعشاریه («صفر صحیح اعشاریه سه»). Afghan books print the point as a comma (0,3).'
+- id: tenth
+  en: tenth
+  fa-IR: دهم
+  fa-AF: دهم
+  ps: لسم
+  src:
+    fa-IR: concept frac.tenths-hundredths
+    fa-AF: AF_G06_riazi p.75
+    ps: AF_G06_riazi_ps p.75
+  status:
+    fa-AF: draft
+    ps: draft
+- id: hundredth
+  en: hundredth
+  fa-IR: صدم
+  fa-AF: صدم
+  ps: سلم
+  src:
+    fa-IR: G05_riazi_panjom p.132
+    fa-AF: AF_G06_riazi p.75
+    ps: AF_G06_riazi_ps p.75
+  status:
+    fa-AF: draft
+    ps: draft
+- id: percent
+  en: per cent
+  fa-IR: درصد
+  fa-AF: فیصد
+  ps: فیصد
+  src:
+    fa-IR: G05_riazi_panjom line 22
+    fa-AF: AF_G06_riazi line 48
+    ps: AF_G06_riazi_ps line 48
+  status:
+    fa-AF: draft
+    ps: draft
+  note: ps body also uses سلنه (AF_G06_riazi_ps p.142 «سلنه یا فیصدي»).
+- id: ratio
+  en: ratio
+  fa-IR: نسبت
+  fa-AF: نسبت
+  ps: نسبت
+  src:
+    fa-IR: G05_riazi_panjom line 19
+    fa-AF: AF_G06_riazi line 44
+    ps: AF_G06_riazi_ps line 44
+  status:
+    fa-AF: draft
+    ps: draft
+- id: proportion
+  en: proportion
+  fa-IR: تناسب
+  fa-AF: تناسب
+  ps: تناسب
+  src:
+    fa-IR: G05_riazi_panjom line 18
+    fa-AF: AF_G06_riazi line 46
+    ps: AF_G06_riazi_ps line 43
+  status:
+    fa-AF: draft
+    ps: draft
+- id: direct-proportion
+  en: direct proportion
+  fa-IR: تناسب مستقیم
+  fa-AF: تناسب مستقیم
+  ps: مستقیم تناسب
+  src:
+    fa-IR: concept ratio.proportion.direct
+    fa-AF: AF_G06_riazi line 47
+    ps: AF_G06_riazi_ps line 47
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR taken from the concept title (Iranian G6 body says «متناسب», G06_riazi_sheshom p.13).
+- id: inverse-proportion
+  en: inverse proportion
+  fa-IR: تناسب معکوس
+  fa-AF: تناسب معکوس
+  ps: معکوس تناسب
+  src:
+    fa-IR: concept ratio.proportion.inverse
+    fa-AF: AF_G06_riazi line 47
+    ps: AF_G06_riazi_ps line 47
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR taken from the concept title; not found in Iranian textbook text.
+- id: compound-proportion
+  en: compound proportion
+  fa-IR: تناسب مرکب
+  fa-AF: تناسب مرکب
+  ps: مرکب تناسب
+  src:
+    fa-IR: concept ratio.proportion.compound
+    fa-AF: AF_G08_riazi line 15
+    ps: AF_G08_riazi_ps line 15
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR taken from the concept title.
+- id: share-in-ratio
+  en: divide in a given ratio
+  fa-IR: تقسیم به نسبت داده‌شده
+  fa-AF: تقسیم به اجزای متناسبه
+  ps: په متناسبو اجزاوو باندې ویشل
+  src:
+    fa-IR: concept ratio.share
+    fa-AF: AF_G08_riazi line 14
+    ps: AF_G08_riazi_ps line 14
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR taken from the concept title.
+- id: unitary-method
+  en: unitary method
+  fa-IR: روش واحد
+  fa-AF: احدیت
+  ps: احدیت
+  src:
+    fa-IR: concept ratio.unitary
+    fa-AF: AF_G08_riazi line 16; AF_G08_riazi p.64
+    ps: AF_G08_riazi_ps line 16; AF_G08_riazi_ps p.64
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'fa-IR taken from the concept title «روش واحد (یکه‌سازی)». ps book: «احدیت یا واحد».'
+- id: money
+  en: money
+  fa-IR: پول
+  fa-AF: پول
+  ps: پیسې
+  src:
+    fa-IR: G02_riazi_dovom line 30
+    fa-AF: AF_G04_riazi p.25
+    ps: AF_G08_riazi_ps p.66
+  status:
+    fa-AF: draft
+    ps: draft
+- id: coin
+  en: coin
+  fa-IR: سکه
+  fa-AF: سکه
+  ps: سکه
+  src:
+    fa-IR: G02_riazi_dovom p.63
+    fa-AF: AF_G04_riazi p.116
+    ps: AF_G04_riazi_ps p.116
+  status:
+    fa-AF: draft
+    ps: draft
+- id: banknote
+  en: note (banknote)
+  fa-IR: اسکناس
+  src:
+    fa-IR: G02_riazi_dovom p.61
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-AF not found in books; ps not found in books.
+- id: price
+  en: price
+  fa-IR: قیمت
+  fa-AF: قیمت
+  ps: بیه
+  src:
+    fa-IR: G02_riazi_dovom p.140
+    fa-AF: AF_G08_riazi p.66
+    ps: AF_G08_riazi_ps p.66 ('اصلي بیې')
+  status:
+    fa-AF: draft
+    ps: draft
+- id: profit
+  en: profit
+  fa-IR: سود
+  fa-AF: مفاد
+  ps: گټه
+  src:
+    fa-IR: G03_riazi_sevom p.9; G06_riazi_sheshom p.133
+    fa-AF: AF_G06_riazi p.142
+    ps: AF_G06_riazi_ps p.142
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iranian سود means both profit and interest; Afghan books separate مفاد (profit) and ربح (interest).
+- id: loss
+  en: loss
+  fa-IR: زیان
+  src:
+    fa-IR: G06_riazi_sheshom p.133
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-AF not found in books; ps not found in books.
+- id: discount
+  en: discount
+  fa-IR: تخفیف
+  fa-AF: تخفیف
+  ps: تخفیف
+  src:
+    fa-IR: G06_riazi_sheshom p.132
+    fa-AF: AF_G08_riazi line 16; AF_G08_riazi p.66
+    ps: AF_G08_riazi_ps line 16; AF_G08_riazi_ps p.66
+  status:
+    fa-AF: draft
+    ps: draft
+- id: interest
+  en: interest
+  fa-IR: سود
+  fa-AF: ربح
+  ps: ربح
+  src:
+    fa-IR: G06_riazi_sheshom p.129
+    fa-AF: AF_G08_riazi p.68
+    ps: AF_G08_riazi_ps p.68
+  status:
+    fa-AF: draft
+    ps: draft
+- id: simple-interest
+  en: simple interest
+  fa-IR: سود ساده
+  fa-AF: ربح ساده
+  ps: ساده ربح
+  src:
+    fa-IR: concept fin.interest.simple
+    fa-AF: AF_G08_riazi line 17
+    ps: AF_G08_riazi_ps line 17
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR taken from the concept title.
+- id: compound-interest
+  en: compound interest
+  fa-IR: سود مرکب
+  fa-AF: ربح مرکب
+  ps: مرکبه ربح
+  src:
+    fa-IR: concept fin.interest.compound
+    fa-AF: AF_G08_riazi line 17
+    ps: AF_G08_riazi_ps line 17
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR taken from the concept title.
+- id: measurement
+  en: measurement
+  fa-IR: اندازه‌گیری
+  fa-AF: اندازه‌گیری
+  ps: اندازه کول
+  src:
+    fa-IR: G02_riazi_dovom line 37
+    fa-AF: AF_G02_riazi line 75
+    ps: AF_G02_riazi_ps line 75
+  status:
+    fa-AF: draft
+    ps: draft
+- id: unit
+  en: unit (of measure)
+  fa-IR: واحد
+  fa-AF: واحد
+  ps: واحد
+  src:
+    fa-IR: G02_riazi_dovom p.91
+    fa-AF: AF_G02_riazi line 75
+    ps: AF_G02_riazi_ps line 75
+  status:
+    fa-AF: draft
+    ps: draft
+- id: standard-unit
+  en: standard unit
+  fa-IR: واحد استاندارد
+  fa-AF: واحد معیاری
+  ps: معیاري واحد
+  src:
+    fa-IR: concept meas.length
+    fa-AF: AF_G02_riazi line 77
+    ps: AF_G02_riazi_ps line 77
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR taken from the concept title.
+- id: non-standard-unit
+  en: non-standard unit
+  fa-IR: واحد غیراستاندارد
+  fa-AF: واحد غیر معیاری
+  ps: غیر معیاري واحد
+  src:
+    fa-IR: concept meas.units.nonstandard
+    fa-AF: AF_G02_riazi line 76
+    ps: AF_G02_riazi_ps line 76
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR taken from the concept title.
+- id: length
+  en: length
+  fa-IR: طول
+  fa-AF: طول
+  ps: اوږدوالی
+  src:
+    fa-IR: G02_riazi_dovom line 38
+    fa-AF: AF_G04_riazi line 51
+    ps: AF_G04_riazi_ps line 51; AF_G04_riazi_ps p.118
+  status:
+    fa-AF: draft
+    ps: draft
+- id: metre
+  en: metre
+  fa-IR: متر
+  fa-AF: متر
+  ps: متر
+  src:
+    fa-IR: G03_riazi_sevom p.40
+    fa-AF: AF_G02_riazi line 77
+    ps: AF_G03_riazi_ps line 39
+  status:
+    fa-AF: draft
+    ps: draft
+- id: centimetre
+  en: centimetre
+  fa-IR: سانتی‌متر
+  fa-AF: سانتی متر
+  ps: سانتي متر
+  src:
+    fa-IR: G02_riazi_dovom p.88
+    fa-AF: AF_G03_riazi line 40
+    ps: AF_G03_riazi_ps line 40
+  status:
+    fa-AF: draft
+    ps: draft
+- id: millimetre
+  en: millimetre
+  fa-IR: میلی‌متر
+  fa-AF: ملی متر
+  ps: ملي متر
+  src:
+    fa-IR: G02_riazi_dovom p.91
+    fa-AF: AF_G03_riazi line 42
+    ps: AF_G03_riazi_ps line 42
+  status:
+    fa-AF: draft
+    ps: draft
+- id: decimetre
+  en: decimetre
+  fa-IR: دسی‌متر
+  fa-AF: دیسی متر
+  ps: دیسي متر
+  src:
+    fa-IR: G06_riazi_sheshom p.97
+    fa-AF: AF_G03_riazi line 41
+    ps: AF_G03_riazi_ps line 41
+  status:
+    fa-AF: draft
+    ps: draft
+- id: kilometre
+  en: kilometre
+  fa-IR: کیلومتر
+  fa-AF: کیلو متر
+  ps: کیلو متر
+  src:
+    fa-IR: G03_riazi_sevom p.40
+    fa-AF: AF_G03_riazi line 43
+    ps: AF_G03_riazi_ps line 43
+  status:
+    fa-AF: draft
+    ps: draft
+- id: kilogram
+  en: kilogram
+  fa-IR: کیلوگرم
+  fa-AF: کیلو گرام
+  ps: کیلو گرام
+  src:
+    fa-IR: G03_riazi_sevom p.38
+    fa-AF: AF_G03_riazi line 54
+    ps: AF_G03_riazi_ps line 54
+  status:
+    fa-AF: draft
+    ps: draft
+- id: gram
+  en: gram
+  fa-IR: گرم
+  fa-AF: گرام
+  ps: گرام
+  src:
+    fa-IR: G03_riazi_sevom p.38
+    fa-AF: AF_G04_riazi p.138
+    ps: AF_G04_riazi_ps p.138
+  status:
+    fa-AF: draft
+    ps: draft
+- id: capacity
+  en: capacity
+  fa-IR: گنجایش
+  fa-AF: ظرفیت
+  ps: ظرفیت
+  src:
+    fa-IR: G04_riazi_chaharom p.47
+    fa-AF: AF_G04_riazi line 53
+    ps: AF_G04_riazi_ps line 53
+  status:
+    fa-AF: draft
+    ps: draft
+- id: litre
+  en: litre
+  fa-IR: لیتر
+  fa-AF: لیتر
+  ps: لیتر
+  src:
+    fa-IR: G04_riazi_chaharom p.110
+    fa-AF: AF_G03_riazi line 58
+    ps: AF_G03_riazi_ps line 58
+  status:
+    fa-AF: draft
+    ps: draft
+- id: millilitre
+  en: millilitre
+  fa-IR: میلی‌لیتر
+  fa-AF: ملی لیتر
+  ps: ملي لیتر
+  src:
+    fa-IR: G05_riazi_panjom p.179
+    fa-AF: AF_G04_riazi p.140
+    ps: AF_G04_riazi_ps p.140
+  status:
+    fa-AF: draft
+    ps: draft
+- id: time
+  en: time
+  fa-IR: زمان
+  fa-AF: وقت
+  ps: وخت
+  src:
+    fa-IR: G04_riazi_chaharom line 33
+    fa-AF: AF_G03_riazi line 55
+    ps: AF_G03_riazi_ps line 55
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Afghan books also use زمان (Dari «واحد زمان», AF_G06_riazi line 53; ps «د وخت (زمان)», AF_G04_riazi_ps line 54).
+- id: hour
+  en: hour
+  fa-IR: ساعت
+  fa-AF: ساعت
+  ps: ساعت
+  src:
+    fa-IR: G04_riazi_chaharom p.95
+    fa-AF: AF_G03_riazi line 55
+    ps: AF_G03_riazi_ps line 55
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Also the word for 'clock' in all three.
+- id: minute
+  en: minute
+  fa-IR: دقیقه
+  fa-AF: دقیقه
+  ps: دقیقه
+  src:
+    fa-IR: G04_riazi_chaharom p.95
+    fa-AF: AF_G04_riazi p.142
+    ps: AF_G04_riazi_ps p.142
+  status:
+    fa-AF: draft
+    ps: draft
+- id: second
+  en: second (time)
+  fa-IR: ثانیه
+  fa-AF: ثانیه
+  ps: ثانیه
+  src:
+    fa-IR: G04_riazi_chaharom p.95
+    fa-AF: AF_G04_riazi p.142
+    ps: AF_G04_riazi_ps p.142
+  status:
+    fa-AF: draft
+    ps: draft
+- id: day
+  en: day
+  fa-IR: روز
+  fa-AF: روز
+  ps: ورځ
+  src:
+    fa-IR: concept meas (روز، هفته، ماه، سال و تقویم)
+    fa-AF: AF_G04_riazi p.142
+    ps: AF_G03_riazi_ps line 56; AF_G04_riazi_ps p.142
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Dari 24-hour day = شبانه‌روز; ps «شپه او ورځ» (AF_G04_riazi p.142).
+- id: week
+  en: week
+  fa-IR: هفته
+  fa-AF: هفته
+  ps: اونۍ
+  src:
+    fa-IR: concept meas (روز، هفته، ماه، سال و تقویم)
+    fa-AF: AF_G03_riazi line 56
+    ps: AF_G03_riazi_ps line 56
+  status:
+    fa-AF: draft
+    ps: draft
+- id: month
+  en: month
+  fa-IR: ماه
+  fa-AF: ماه
+  ps: میاشت
+  src:
+    fa-IR: concept meas (روز، هفته، ماه، سال و تقویم)
+    fa-AF: AF_G03_riazi line 56
+    ps: AF_G03_riazi_ps line 56
+  status:
+    fa-AF: draft
+    ps: draft
+- id: year
+  en: year
+  fa-IR: سال
+  fa-AF: سال
+  ps: کال
+  src:
+    fa-IR: concept meas (روز، هفته، ماه، سال و تقویم)
+    fa-AF: AF_G03_riazi line 56
+    ps: AF_G03_riazi_ps line 56
+  status:
+    fa-AF: draft
+    ps: draft
+- id: calendar
+  en: calendar
+  fa-IR: تقویم
+  fa-AF: جنتری
+  ps: جنتري
+  src:
+    fa-IR: G04_riazi_chaharom p.83
+    fa-AF: AF_G03_riazi line 57
+    ps: AF_G03_riazi_ps line 57
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'ps title is «د کلیزی یا جنتري پیژندنه»: کلیزه is the native Pashto word, جنتري the loan.'
+- id: temperature
+  en: temperature
+  fa-IR: دما
+  fa-AF: درجهٔ حرارت
+  ps: د تودوخې درجه
+  src:
+    fa-IR: G06_riazi_sheshom p.25
+    fa-AF: AF_G07_riazi p.78
+    ps: AF_G07_riazi_ps p.78
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'ps glosses تودوخه with (حرارت) (AF_G07_riazi_ps p.79). Unit: Dari «درجهٔ سانتی‌گرید».'
+- id: perimeter
+  en: perimeter
+  fa-IR: محیط
+  fa-AF: محیط
+  ps: محیط
+  src:
+    fa-IR: G03_riazi_sevom line 38
+    fa-AF: AF_G02_riazi line 82
+    ps: AF_G02_riazi_ps line 82
+  status:
+    fa-AF: draft
+    ps: draft
+- id: area
+  en: area
+  fa-IR: مساحت
+  fa-AF: مساحت
+  ps: مساحت
+  src:
+    fa-IR: G03_riazi_sevom p.89
+    fa-AF: AF_G04_riazi line 41
+    ps: AF_G04_riazi_ps line 41
+  status:
+    fa-AF: draft
+    ps: draft
+- id: unit-of-area
+  en: unit of area
+  fa-IR: واحد سطح
+  fa-AF: واحد سطح
+  ps: د سطحې واحد
+  src:
+    fa-IR: G03_riazi_sevom p.89
+    fa-AF: AF_G06_riazi line 54
+    ps: AF_G06_riazi_ps line 54
+  status:
+    fa-AF: draft
+    ps: draft
+- id: square-centimetre
+  en: square centimetre
+  fa-IR: سانتی‌متر مربع
+  fa-AF: سانتی متر مربع
+  ps: سانتي متر مربع
+  src:
+    fa-IR: G03_riazi_sevom p.92
+    fa-AF: AF_G04_riazi p.118
+    ps: AF_G04_riazi_ps p.118
+  status:
+    fa-AF: draft
+    ps: draft
+- id: square-metre
+  en: square metre
+  fa-IR: متر مربع
+  fa-AF: متر مربع
+  ps: متر مربع
+  src:
+    fa-IR: G07_riazi_haftom p.20
+    fa-AF: AF_G04_riazi p.118
+    ps: AF_G04_riazi_ps p.118
+  status:
+    fa-AF: draft
+    ps: draft
+- id: volume
+  en: volume
+  fa-IR: حجم
+  fa-AF: حجم
+  ps: حجم
+  src:
+    fa-IR: G05_riazi_panjom line 41
+    fa-AF: AF_G06_riazi line 55
+    ps: AF_G06_riazi_ps line 55
+  status:
+    fa-AF: draft
+    ps: draft
+- id: cubic-centimetre
+  en: cubic centimetre
+  fa-IR: سانتی‌متر مکعب
+  fa-AF: سانتی متر مکعب
+  ps: سانتي متر مکعب
+  src:
+    fa-IR: G05_riazi_panjom p.180
+    fa-AF: AF_G06_riazi p.159
+    ps: AF_G06_riazi_ps p.159
+  status:
+    fa-AF: draft
+    ps: draft
+- id: cubic-metre
+  en: cubic metre
+  fa-IR: متر مکعب
+  fa-AF: متر مکعب
+  ps: متر مکعب
+  src:
+    fa-IR: G07_riazi_haftom p.83
+    fa-AF: AF_G06_riazi p.159
+    ps: AF_G06_riazi_ps p.159
+  status:
+    fa-AF: draft
+    ps: draft

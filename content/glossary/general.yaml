@@ -1,21 +1,343 @@
-# Interface and general terms (not tied to one strand).
 - id: mathematics
   en: mathematics
   fa-IR: ریاضی
   fa-AF: ریاضی
   ps: ریاضي
-  status: { fa-AF: draft, ps: draft }
+  status:
+    fa-AF: draft
+    ps: draft
 - id: grade
   en: grade
   fa-IR: پایه
   fa-AF: صنف
   ps: ټولګی
-  src: { fa-AF: "AF_G05_riazi title page", ps: "AF_G05_riazi_ps title page (docs/NOTATION.md)" }
-  status: { fa-AF: draft, ps: draft }
-# TEMP: moves to frac.yaml when the fractions glossary is written.
-- id: fraction
-  en: fraction
-  fa-IR: کسر
-  fa-AF: کسر
-  ps: کسر
-  status: { fa-AF: draft, ps: draft }
+  src:
+    fa-AF: AF_G05_riazi title page
+    ps: AF_G05_riazi_ps title page (docs/NOTATION.md)
+  status:
+    fa-AF: draft
+    ps: draft
+- id: chapter
+  en: chapter
+  fa-IR: فصل
+  fa-AF: فصل
+  ps: څپرکی
+  src:
+    fa-IR: G03_riazi_sevom pdf p.115
+    fa-AF: AF_G07_riazi line 5
+    ps: AF_G07_riazi_ps line 5
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Pashto G01-G03 and G08 print فصل (AF_G08_riazi_ps line 61); G04-G07 and G09-G12 print څپرکی.
+- id: lesson
+  en: lesson
+  fa-IR: درس
+  fa-AF: درس
+  ps: لوست
+  src:
+    fa-IR: G04_riazi_chaharom pdf p.6
+    fa-AF: AF_G02_riazi line 6
+    ps: AF_G07_riazi_ps pdf p.138 («ددې لوست د پیل په فعالیت کې»)
+  status:
+    fa-AF: draft
+    ps: draft
+- id: exercise
+  en: exercise
+  fa-IR: تمرین
+  fa-AF: تمرین
+  ps: تمرین
+  src:
+    fa-IR: G03_riazi_sevom pdf p.5
+    fa-AF: AF_G07_riazi line 11
+    ps: AF_G02_riazi_ps line 8
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'The Pashto books head the exercise section «پوښتنې» where Dari has «تمرین» (AF_G07_riazi_ps line 11; AF_G04_riazi_ps pdf p.12). Reviewer: choose تمرین or پوښتنې for the exercise heading.'
+- id: review
+  en: review
+  fa-IR: مرور
+  fa-AF: تکرار
+  ps: تکرار
+  src:
+    fa-IR: G05_riazi_panjom pdf p.6 (مرور فصل)
+    fa-AF: AF_G04_riazi line 5 (تکرار مختصر صنف سوم)
+    ps: AF_G04_riazi_ps line 5 (د دریم ټولګي تکرار په لنډ ډول)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iranian end-of-chapter section is «مرور فصل».
+- id: summary
+  en: summary
+  fa-IR: خلاصه
+  fa-AF: خلاصه
+  ps: لنډیز
+  src:
+    fa-IR: G07_riazi_haftom pdf p.8 («مسئله را خلاصه کنید»)
+    fa-AF: AF_G07_riazi line 11
+    ps: AF_G07_riazi_ps line 11
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Afghan books end each chapter with a summary section; Iranian books have no such section.
+- id: example
+  en: example
+  fa-IR: مثال
+  fa-AF: مثال
+  ps: مثال
+  src:
+    fa-IR: G05_riazi_panjom pdf p.28
+    fa-AF: AF_G07_riazi pdf p.203
+    ps: AF_G07_riazi_ps pdf p.10
+  status:
+    fa-AF: draft
+    ps: draft
+- id: activity
+  en: activity
+  fa-IR: فعالیت
+  fa-AF: فعالیت
+  ps: فعالیت
+  src:
+    fa-IR: G03_riazi_sevom pdf p.5
+    fa-AF: AF_G07_riazi pdf p.202
+    ps: AF_G07_riazi_ps pdf p.12
+  status:
+    fa-AF: draft
+    ps: draft
+- id: class-work
+  en: classwork
+  fa-IR: کار در کلاس
+  src:
+    fa-IR: G03_riazi_sevom pdf p.5
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iranian textbook section name. fa-AF and ps not found in books (Afghan lessons go فعالیت → مثال → تمرین).
+- id: problem
+  en: problem
+  fa-IR: مسئله
+  fa-AF: مسأله
+  ps: مسئله
+  src:
+    fa-IR: G07_riazi_haftom pdf p.8
+    fa-AF: AF_G10_riazi pdf p.410
+    ps: AF_G10_riazi_ps pdf p.410 (د مسئلې)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: A maths problem to solve. Afghan Dari spells مسأله; Iranian مسئله.
+- id: question
+  en: question
+  fa-IR: سؤال
+  fa-AF: سؤال
+  ps: پوښتنه
+  src:
+    fa-IR: G03_riazi_sevom pdf p.9
+    fa-AF: AF_G02_riazi line 21
+    ps: AF_G02_riazi_ps line 21
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iranian books also say پرسش.
+- id: answer
+  en: answer
+  fa-IR: پاسخ
+  fa-AF: جواب
+  ps: ځواب
+  src:
+    fa-IR: G03_riazi_sevom pdf p.9
+    fa-AF: AF_G05_riazi pdf p.17
+    ps: AF_G08_riazi_ps pdf p.25
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iranian books use both پاسخ and جواب (G07_riazi_haftom pdf p.7).
+- id: worked-solution
+  en: worked solution
+  fa-IR: راه‌حل
+  fa-AF: حل
+  ps: حل
+  src:
+    fa-IR: G03_riazi_sevom pdf p.24
+    fa-AF: AF_G07_riazi pdf p.19 («حل:»)
+    ps: AF_G07_riazi_ps pdf p.13 («حل:»)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: The worked solution (how it was solved). Afghan books label worked solutions «حل:».
+- id: check
+  en: check
+  fa-IR: بررسی
+  fa-AF: امتحان
+  ps: آزموینه
+  src:
+    fa-IR: G04_riazi_chaharom pdf p.15 («راه حل های آنها را بررسی کنید»)
+    fa-AF: AF_G02_riazi line 34 (امتحان عملیهٔ تفریق)
+    ps: AF_G02_riazi_ps line 34
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Checking an answer. Afghan امتحان / آزموینه also mean 'exam'; G04 Pashto prints امتحان (AF_G04_riazi_ps pdf p.6).
+- id: hint
+  en: hint
+  fa-IR: راهنمایی
+  fa-AF: رهنمایی
+  ps: لارښوونه
+  src:
+    fa-IR: G05_riazi_panjom pdf p.45 («راهنمایی:»)
+    fa-AF: AF_G06_riazi pdf p.160
+    ps: AF_G10_riazi_ps pdf p.419
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Unsure: Afghan books have no hint label. Dari رهنمایی appears only as ''the teacher should guide''; Pashto لارښوونه appears only as ''guidance''. Reviewer: confirm these work as a hint label.'
+- id: correct
+  en: correct
+  fa-IR: درست
+  fa-AF: درست
+  ps: سم
+  src:
+    fa-IR: G04_riazi_chaharom pdf p.35 («کدام جمله درست و کدام نادرست است»)
+    fa-AF: AF_G07_riazi pdf p.37 (جواب‌های درست)
+    ps: AF_G08_riazi_ps pdf p.25 (سم ځواب)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Dari also uses صحیح (AF_G05_riazi pdf p.17).
+- id: incorrect
+  en: incorrect
+  fa-IR: نادرست
+  fa-AF: نادرست
+  ps: ناسم
+  src:
+    fa-IR: G04_riazi_chaharom pdf p.35
+    fa-AF: AF_G10_riazi pdf p.414
+    ps: AF_G10_riazi_ps pdf p.414
+  status:
+    fa-AF: draft
+    ps: draft
+- id: try-again
+  en: try again
+  fa-IR: دوباره تلاش کن
+  fa-AF: دوباره کوشش کن
+  ps: بیا هڅه وکړه
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Interface phrase, not in any of the books: fa-IR, fa-AF and ps all from general usage, not from books.'
+- id: explain-why
+  en: explain why
+  fa-IR: دلیل بیاورید
+  fa-AF: توضیح دهید
+  ps: وښیاست چې ولې
+  src:
+    fa-IR: G03_riazi_sevom pdf p.30 («برای پاسخ خود دلیل بیاورید»)
+    fa-AF: AF_G07_riazi pdf p.18
+    ps: AF_G08_riazi_ps pdf p.25 («وښیاست چې ولې د 11 ځواب سم نه دى»)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iranian books also say «توضیح دهید» and «چرا؟». Dari توضیح دهید = 'explain'; the books add «چرا؟» (why?, AF_G05_riazi pdf p.13). Pashto also «توضیح کړئ» (AF_G08_riazi_ps pdf p.255).
+- id: step
+  en: step
+  fa-IR: مرحله
+  fa-AF: قدم
+  ps: پړاو
+  src:
+    fa-IR: G07_riazi_haftom pdf p.8
+    fa-AF: AF_G07_riazi pdf p.68; AF_G10_riazi pdf p.413
+    ps: AF_G10_riazi_ps pdf p.413; AF_G07_riazi_ps pdf p.42
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Dari also uses مرحله (AF_G04_riazi pdf p.74).
+- id: textbook
+  en: textbook
+  fa-IR: کتاب درسی
+  fa-AF: کتاب درسی
+  ps: درسي کتاب
+  src:
+    fa-IR: G07_riazi_haftom pdf p.6
+    fa-AF: AF_G04_riazi pdf p.5
+    ps: AF_G01_riazi_ps pdf p.5 (درسي کتابونو)
+  status:
+    fa-AF: draft
+    ps: draft
+- id: teacher
+  en: teacher
+  fa-IR: معلم
+  fa-AF: معلم
+  ps: ښوونکی
+  src:
+    fa-IR: G05_riazi_panjom pdf p.8
+    fa-AF: AF_G04_riazi pdf p.5
+    ps: AF_G04_riazi_ps pdf p.5
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iranian primary books also say آموزگار (G03_riazi_sevom pdf p.5).
+- id: student
+  en: student
+  fa-IR: دانش‌آموز
+  fa-AF: شاگرد
+  ps: زده کوونکی
+  src:
+    fa-IR: G07_riazi_haftom pdf p.4
+    fa-AF: AF_G04_riazi pdf p.5
+    ps: AF_G04_riazi_ps pdf p.5
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Learner/pupil. Dari also متعلم (formal, same page).
+- id: curriculum
+  en: curriculum
+  fa-IR: برنامهٔ درسی
+  fa-AF: نصاب تعلیمی
+  ps: ښوونیز نصاب
+  src:
+    fa-IR: G04_riazi_chaharom pdf p.4
+    fa-AF: AF_G04_riazi pdf p.4
+    ps: AF_G03_riazi_ps pdf p.5
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Pashto imprint pages also say «تعلیمي نصاب» (AF_G03_riazi_ps pdf p.4).
+- id: mission
+  en: mission
+  fa-IR: تکلیف
+  fa-AF: وظیفه
+  ps: دنده
+  src:
+    fa-IR: general usage
+    ps: AF_G04_riazi_ps pdf p.12 (کورنۍ دنده = homework)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Product term: the app''s ''mission'' (a set of tasks to finish), rendered with a plain school word for ''task/assignment'' rather than مأموریت. fa-IR تکلیف and fa-AF وظیفه are from general usage,
+    not from books (the Dari books say «کار خانه‌گی» for homework). Reviewer: choose the final word.'
+- id: studio
+  en: studio
+  fa-IR: کارگاه
+  fa-AF: کارگاه
+  ps: کارځای
+  src:
+    fa-IR: general usage
+    fa-AF: general usage
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Product term: the app''s ''studio'' (a workspace for making and exploring), rendered as ''workshop'' rather than استودیو. Not a school-book word in any language; ps from general usage, not from
+    books (ورکشاپ is also common).'
+- id: guide
+  en: guide
+  fa-IR: راهنما
+  fa-AF: رهنما
+  ps: لارښود
+  src:
+    fa-IR: 'general usage (راهنمایی: G05_riazi_panjom pdf p.45)'
+    fa-AF: 'general usage (رهنمایی: AF_G06_riazi pdf p.160)'
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Product term: the app''s ''guide'' (helper character or teacher''s notes). ps from general usage, not from books (the book has لارښوونه ''guidance'', AF_G10_riazi_ps pdf p.419).'
