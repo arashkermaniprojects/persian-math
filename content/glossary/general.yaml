@@ -1,0 +1,21 @@
+# Interface and general terms (not tied to one strand).
+- id: mathematics
+  en: mathematics
+  fa-IR: ریاضی
+  fa-AF: ریاضی
+  ps: ریاضي
+  status: { fa-AF: draft, ps: draft }
+- id: grade
+  en: grade
+  fa-IR: پایه
+  fa-AF: صنف
+  ps: ټولګی
+  src: { fa-AF: "AF_G05_riazi title page", ps: "AF_G05_riazi_ps title page (docs/NOTATION.md)" }
+  status: { fa-AF: draft, ps: draft }
+# TEMP: moves to frac.yaml when the fractions glossary is written.
+- id: fraction
+  en: fraction
+  fa-IR: کسر
+  fa-AF: کسر
+  ps: کسر
+  status: { fa-AF: draft, ps: draft }

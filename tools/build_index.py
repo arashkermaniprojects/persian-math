@@ -28,7 +28,8 @@ def parse(path):
     return book
 
 src, out = sys.argv[1], sys.argv[2]
-books = [parse(p) for p in sorted(glob.glob(os.path.join(ROOT, src, "*.md"))) if not p.endswith("README.md")]
+# *_ps.md are Pashto translations of the Dari outlines (terminology source), not separate curricula.
+books = [parse(p) for p in sorted(glob.glob(os.path.join(ROOT, src, "*.md"))) if not p.endswith(("README.md", "_ps.md"))]
 json.dump(books, open(os.path.join(ROOT, out), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 for b in books:
     print(f'{b["id"]:34} units={len(b["units"]):3} lessons={sum(len(u["lessons"]) for u in b["units"]):3}')
