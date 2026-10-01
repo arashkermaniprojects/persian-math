@@ -51,7 +51,7 @@ for (const s of [...studios].sort((a, b) => (a.grade ?? 99) - (b.grade ?? 99) ||
       <ul class="cards">
         {list.map((s) => (
           <li>
-            <a class="card" href={`${base}${locale}/studio/${s.def.id}/`} data-studio={s.def.id} data-total={s.def.missions.length}>
+            <a class="card" href={`${base}${locale}/studio/${s.def.id}/`} data-studio={s.def.id} data-total={s.def.missions.filter((m) => !m.locales || m.locales.includes(locale)).length}>
               {cur && <span class="strand">{t(`home.strand.${s.def.strand}`, locale)}</span>}
               <strong set:html={rich(s.text.title, locale)} />
               <span class="muted" set:html={rich(s.text.summary, locale)} />

@@ -38,7 +38,7 @@ const data = {
   studioId: studio.id,
   fmt,
   ui,
-  missions: studio.missions.map((m) => {
+  missions: studio.missions.filter((m) => !m.locales || m.locales.includes(locale)).map((m) => {
     const mt = text.missions[m.id];
     if (!mt) throw new Error(`Studio ${studio.id} (${locale}): no text for mission ${m.id}`);
     return {

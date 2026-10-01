@@ -10,6 +10,8 @@ const CONTENT = resolve(process.cwd(), '../content') + '/';
 
 export interface MissionDef {
   id: string;
+  /** Only include this mission in these locales (e.g. a UK-only pounds-and-pence mission: [en]). Default: all. */
+  locales?: string[];
   setup?: Record<string, unknown>;
   answer?: 'fraction' | 'integer' | 'decimal' | 'choice';
   check: Check;

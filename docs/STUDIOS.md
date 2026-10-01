@@ -27,6 +27,8 @@ missions:
     setup: { bars: [{ parts: 5, shaded: 2, interactive: none }] }
     answer: fraction                              # fraction | integer | decimal | choice: input shown under the engine
     check: { type: answer-equals, value: [2, 5] }
+  - id: pounds-and-pence
+    locales: [en]                                 # optional: only these locales get this mission
 ```
 
 ## Check types (`site/src/lib/checks.ts`)
