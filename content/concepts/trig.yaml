@@ -1,0 +1,558 @@
+- id: trig.right-triangle
+  title:
+    fa-IR: نسبت‌های مثلثاتی در مثلث قائم‌الزاویه
+    en: Trigonometric ratios in a right triangle
+  age:
+  - 11
+  - 16
+  requires:
+  - geo.similarity
+  - geo.pythagoras
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:2:e65adb
+    af:
+    - af:AF_G09_riazi:4:6f829a
+    - af:AF_G09_riazi:4:f82080
+    uk:
+    - uk:UK_GCSE:3:46f548
+    - uk:UK_GCSE:4:7bc7f4
+    - uk:UK_KS3:4:36ffe6
+    - uk:UK_KS4:3:4a9aff
+    - uk:UK_KS4:4:36091f
+- id: trig.solve-right-triangle
+  title:
+    fa-IR: حل مثلث قائم‌الزاویه (یافتن ضلع‌ها و زاویه‌ها)
+    en: Solving right triangles for sides and angles
+  age:
+  - 11
+  - 16
+  requires:
+  - trig.right-triangle
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:2:e65adb
+    af:
+    - af:AF_G09_riazi:4:42640d
+    uk:
+    - uk:UK_GCSE:4:7bc7f4
+    - uk:UK_KS3:4:36ffe6
+    - uk:UK_KS4:4:36091f
+- id: trig.special-angles
+  title:
+    fa-IR: نسبت‌های مثلثاتی زاویه‌های خاص (۳۰، ۴۵ و ۶۰ درجه)
+    en: Exact trig values of 30°, 45° and 60°
+  age:
+  - 14
+  - 18
+  requires:
+  - trig.right-triangle
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:2:e65adb
+    af:
+    - af:AF_G09_riazi:4:fd4889
+    - af:AF_G10_riazi:4:aa472e
+    uk:
+    - uk:UK_ALEVEL:5:3b5ac9
+    - uk:UK_GCSE:4:984f60
+    - uk:UK_KS4:4:55ec34
+- id: trig.3d-problems
+  title:
+    fa-IR: کاربرد نسبت‌های مثلثاتی در شکل‌های سه‌بعدی
+    en: Right-triangle trigonometry in 3D figures
+  age:
+  - 14
+  - 16
+  requires:
+  - trig.solve-right-triangle
+  level: extension
+  align:
+    uk:
+    - uk:UK_GCSE:4:7bc7f4
+    - uk:UK_KS4:4:36091f
+- id: trig.general-angle
+  title:
+    fa-IR: زاویه در حالت استاندارد و زاویه‌های هم‌انتها
+    en: Angles in standard position and coterminal angles
+  age:
+  - 16
+  - 16
+  requires:
+  - geo.angles.basic
+  - pos.coordinates
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:2:bd05a8
+    af:
+    - af:AF_G10_riazi:4:3af38f
+    - af:AF_G10_riazi:4:f4c1be
+- id: trig.unit-circle
+  title:
+    fa-IR: دایرهٔ مثلثاتی و نسبت‌های مثلثاتی هر زاویه
+    en: The unit circle and trig ratios of any angle
+  age:
+  - 16
+  - 18
+  requires:
+  - trig.right-triangle
+  - trig.general-angle
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:2:bd05a8
+    af:
+    - af:AF_G10_riazi:4:5b006f
+    - af:AF_G10_riazi:4:aa472e
+    uk:
+    - uk:UK_ALEVEL:5:2fe772
+- id: trig.identities
+  title:
+    fa-IR: اتحادهای مثلثاتی پایه (sin²+cos²=1 و tan=sin/cos)
+    en: Basic trig identities (sin²+cos²=1, tan=sin/cos)
+  age:
+  - 16
+  - 18
+  requires:
+  - trig.unit-circle
+  - geo.pythagoras
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:2:68a7dc
+    - iran:G11_riazi2_science:4:5e5aa1
+    af:
+    - af:AF_G11_riazi:2:b2adf8
+    uk:
+    - uk:UK_ALEVEL:5:2a5396
+- id: trig.related-angles
+  title:
+    fa-IR: نسبت‌های مثلثاتی زاویه‌های قرینه، مکمل و متمم
+    en: Trig ratios of related angles (−θ, 90°±θ, 180°±θ)
+  age:
+  - 16
+  - 18
+  requires:
+  - trig.unit-circle
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:4:16a554
+    - iran:G11_riazi2_science:4:5e5aa1
+    af:
+    - af:AF_G10_riazi:4:8b20c8
+    - af:AF_G10_riazi:4:da7146
+    uk:
+    - uk:UK_ALEVEL:5:3b5ac9
+- id: trig.radians
+  title:
+    fa-IR: رادیان و تبدیل درجه به رادیان
+    en: Radian measure and converting degrees to radians
+  age:
+  - 16
+  - 18
+  requires:
+  - geo.circle.parts
+  - trig.general-angle
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:4:12ef54
+    - iran:G11_riazi2_science:4:645809
+    af:
+    - af:AF_G10_riazi:4:3af38f
+    uk:
+    - uk:UK_ALEVEL:5:2fe772
+- id: trig.exact-values-radians
+  title:
+    fa-IR: مقدار دقیق نسبت‌های مثلثاتی مضرب‌های π/6 و π/4
+    en: Exact trig values at multiples of π/6 and π/4
+  age:
+  - 16
+  - 18
+  requires:
+  - trig.special-angles
+  - trig.radians
+  - trig.related-angles
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:4:16a554
+    af:
+    - af:AF_G10_riazi:4:5b006f
+    uk:
+    - uk:UK_ALEVEL:5:3b5ac9
+- id: trig.arc-sector
+  title:
+    fa-IR: طول کمان و مساحت قطاع با رادیان
+    en: Arc length and sector area in radians
+  age:
+  - 16
+  - 18
+  requires:
+  - trig.radians
+  - meas.area.circle
+  level: extension
+  align:
+    af:
+    - af:AF_G10_riazi:5:ccda5a
+    uk:
+    - uk:UK_ALEVEL:5:2fe772
+- id: trig.graphs
+  title:
+    fa-IR: نمودار توابع سینوس، کسینوس و تانژانت
+    en: Graphs of sine, cosine and tangent
+  age:
+  - 14
+  - 18
+  requires:
+  - trig.unit-circle
+  - func.concept
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:4:7dadf3
+    - iran:G11_riazi2_science:4:7dadf3
+    - iran:G12_hesaban2_math:2:20b225
+    - iran:G12_riazi3_science:2:20b225
+    af:
+    - af:AF_G10_riazi:4:b8ba5d
+    uk:
+    - uk:UK_ALEVEL:5:3b5ac9
+    - uk:UK_GCSE:2:41f74d
+    - uk:UK_KS4:2:134d39
+- id: trig.period-amplitude
+  title:
+    fa-IR: دوره تناوب، دامنه و تبدیل نمودارهای مثلثاتی
+    en: Period, amplitude and transformed trig graphs
+  age:
+  - 16
+  - 18
+  requires:
+  - trig.graphs
+  - trig.radians
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:4:7dadf3
+    - iran:G11_riazi2_science:4:7dadf3
+    - iran:G12_hesaban2_math:2:20b225
+    - iran:G12_riazi3_science:2:20b225
+    uk:
+    - uk:UK_ALEVEL:5:3b5ac9
+- id: trig.reciprocal-functions
+  title:
+    fa-IR: توابع سکانت، کسکانت و کتانژانت
+    en: Secant, cosecant and cotangent
+  age:
+  - 16
+  - 18
+  requires:
+  - trig.graphs
+  - trig.identities
+  level: extension
+  align:
+    af:
+    - af:AF_G10_riazi:4:aa472e
+    uk:
+    - uk:UK_ALEVEL:5:2a5396
+    - uk:UK_ALEVEL:5:9a9fa7
+- id: trig.inverse-functions
+  title:
+    fa-IR: توابع وارون مثلثاتی (arcsin، arccos و arctan)
+    en: Inverse trig functions (arcsin, arccos, arctan)
+  age:
+  - 16
+  - 18
+  requires:
+  - trig.graphs
+  - func.inverse-composite
+  level: extension
+  align:
+    uk:
+    - uk:UK_ALEVEL:5:9a9fa7
+- id: trig.compound-angle
+  title:
+    fa-IR: نسبت‌های مثلثاتی مجموع و تفاضل دو زاویه
+    en: Compound angle formulae sin(A±B), cos(A±B), tan(A±B)
+  age:
+  - 16
+  - 18
+  requires:
+  - trig.identities
+  - trig.related-angles
+  level: extension
+  align:
+    iran:
+    - iran:G11_hesaban1_math:4:63cf2a
+    af:
+    - af:AF_G10_riazi:5:1bd7cc
+    - af:AF_G10_riazi:5:653504
+    uk:
+    - uk:UK_ALEVEL:5:d17741
+- id: trig.double-angle
+  title:
+    fa-IR: نسبت‌های مثلثاتی دو برابر زاویه
+    en: Double angle formulae
+  age:
+  - 16
+  - 18
+  requires:
+  - trig.compound-angle
+  level: extension
+  align:
+    iran:
+    - iran:G11_hesaban1_math:4:63cf2a
+    af:
+    - af:AF_G10_riazi:5:6a2d59
+    uk:
+    - uk:UK_ALEVEL:5:d17741
+- id: trig.triple-angle
+  title:
+    fa-IR: نسبت‌های مثلثاتی سه برابر زاویه
+    en: Triple angle formulae
+  age:
+  - 16
+  - 16
+  requires:
+  - trig.double-angle
+  level: specialist
+  align:
+    af:
+    - af:AF_G10_riazi:5:6a2d59
+- id: trig.sum-product
+  title:
+    fa-IR: تبدیل مجموع به حاصل‌ضرب و حاصل‌ضرب به مجموع
+    en: Sum-to-product and product-to-sum formulae
+  age:
+  - 16
+  - 16
+  requires:
+  - trig.compound-angle
+  level: specialist
+  align:
+    af:
+    - af:AF_G10_riazi:5:07737a
+    - af:AF_G10_riazi:5:dca5f5
+- id: trig.harmonic-form
+  title:
+    fa-IR: نوشتن a cos θ + b sin θ به صورت R cos(θ ± α)
+    en: Writing a cos θ + b sin θ as R cos(θ ± α)
+  age:
+  - 16
+  - 18
+  requires:
+  - trig.compound-angle
+  level: extension
+  align:
+    uk:
+    - uk:UK_ALEVEL:5:d17741
+- id: trig.small-angle
+  title:
+    fa-IR: تقریب زاویه‌های کوچک (sin θ ≈ θ)
+    en: Small angle approximations
+  age:
+  - 16
+  - 18
+  requires:
+  - trig.radians
+  - trig.graphs
+  level: extension
+  align:
+    uk:
+    - uk:UK_ALEVEL:5:992816
+- id: trig.proof
+  title:
+    fa-IR: اثبات اتحادهای مثلثاتی
+    en: Proving trigonometric identities
+  age:
+  - 16
+  - 18
+  requires:
+  - trig.identities
+  - trig.compound-angle
+  level: extension
+  align:
+    af:
+    - af:AF_G11_riazi:2:b2adf8
+    uk:
+    - uk:UK_ALEVEL:5:361cbb
+    - uk:UK_ALEVEL:5:d17741
+- id: trig.equations
+  title:
+    fa-IR: معادلات مثلثاتی ساده و جواب کلی
+    en: Solving basic trigonometric equations
+  age:
+  - 15
+  - 18
+  requires:
+  - trig.unit-circle
+  - trig.graphs
+  - alg.linear-equations
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:2:104b78
+    - iran:G12_riazi3_science:2:104b78
+    af:
+    - af:AF_G09_riazi:4:104b78
+    - af:AF_G11_riazi:2:104b78
+    uk:
+    - uk:UK_ALEVEL:5:c64714
+- id: trig.equations.quadratic
+  title:
+    fa-IR: معادلات مثلثاتی درجهٔ دوم و معادلات با کمک اتحادها
+    en: Quadratic trig equations and equations using identities
+  age:
+  - 16
+  - 18
+  requires:
+  - trig.equations
+  - trig.identities
+  - alg.quadratic-equations
+  level: extension
+  align:
+    iran:
+    - iran:G12_hesaban2_math:2:104b78
+    af:
+    - af:AF_G11_riazi:2:fd72cb
+    uk:
+    - uk:UK_ALEVEL:5:c64714
+- id: trig.equations.systems
+  title:
+    fa-IR: دستگاه معادلات مثلثاتی دو مجهولی
+    en: Systems of two trigonometric equations
+  age:
+  - 17
+  - 17
+  requires:
+  - trig.equations
+  - alg.simultaneous.linear
+  level: specialist
+  align:
+    af:
+    - af:AF_G11_riazi:2:dd5a6e
+- id: trig.sine-rule
+  title:
+    fa-IR: قضیهٔ سینوس‌ها
+    en: The sine rule
+  age:
+  - 14
+  - 18
+  requires:
+  - trig.related-angles
+  - geo.triangles
+  level: extension
+  align:
+    iran:
+    - iran:G11_hendese2_math:3:e22f71
+    af:
+    - af:AF_G11_riazi:2:99e2b9
+    uk:
+    - uk:UK_ALEVEL:5:2fe772
+    - uk:UK_GCSE:4:935dc6
+    - uk:UK_KS4:4:f119a3
+- id: trig.cosine-rule
+  title:
+    fa-IR: قضیهٔ کسینوس‌ها
+    en: The cosine rule
+  age:
+  - 14
+  - 18
+  requires:
+  - trig.related-angles
+  - geo.pythagoras
+  level: extension
+  align:
+    iran:
+    - iran:G11_hendese2_math:3:52732e
+    af:
+    - af:AF_G11_riazi:2:ddd5cc
+    uk:
+    - uk:UK_ALEVEL:5:2fe772
+    - uk:UK_GCSE:4:935dc6
+    - uk:UK_KS4:4:f119a3
+- id: trig.tangent-rule
+  title:
+    fa-IR: قضیهٔ تانژانت‌ها در مثلث
+    en: The tangent rule
+  age:
+  - 17
+  - 17
+  requires:
+  - trig.sine-rule
+  - trig.sum-product
+  level: specialist
+  align:
+    af:
+    - af:AF_G11_riazi:2:d27bb9
+- id: trig.area-sine
+  title:
+    fa-IR: مساحت مثلث با دو ضلع و زاویهٔ بین (½ab sin C)
+    en: Triangle area ½ab sin C
+  age:
+  - 14
+  - 18
+  requires:
+  - trig.right-triangle
+  - trig.related-angles
+  - meas.area.rectilinear
+  level: extension
+  align:
+    af:
+    - af:AF_G10_riazi:5:92821a
+    uk:
+    - uk:UK_ALEVEL:5:2fe772
+    - uk:UK_GCSE:4:163e70
+    - uk:UK_KS4:4:d4c296
+- id: trig.heron
+  title:
+    fa-IR: دستور هرون برای مساحت مثلث
+    en: Heron's formula for triangle area
+  age:
+  - 16
+  - 17
+  requires:
+  - trig.cosine-rule
+  - trig.area-sine
+  level: extension
+  align:
+    iran:
+    - iran:G11_hendese2_math:3:9c9b77
+    af:
+    - af:AF_G10_riazi:5:eeca1d
+- id: trig.circumradius-inradius
+  title:
+    fa-IR: شعاع دایرهٔ محیطی و محاطی مثلث
+    en: Circumradius and inradius of a triangle
+  age:
+  - 16
+  - 17
+  requires:
+  - trig.sine-rule
+  - trig.area-sine
+  level: specialist
+  align:
+    iran:
+    - iran:G11_hendese2_math:3:e22f71
+    af:
+    - af:AF_G10_riazi:5:917bc9
+- id: trig.modelling
+  title:
+    fa-IR: حل مسئله‌های کاربردی با مثلثات
+    en: Solving problems in context with trigonometry
+  age:
+  - 16
+  - 18
+  requires:
+  - trig.equations
+  - trig.sine-rule
+  - trig.cosine-rule
+  level: extension
+  align:
+    uk:
+    - uk:UK_ALEVEL:5:762d3b

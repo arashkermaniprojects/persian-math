@@ -1,0 +1,431 @@
+- id: coord.distance
+  title:
+    fa-IR: فاصلهٔ دو نقطه در صفحهٔ مختصات
+    en: Distance between two points
+  age:
+  - 15
+  - 17
+  requires:
+  - pos.coordinates
+  - geo.pythagoras
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:1:9d041a
+    - iran:G11_riazi2_science:1:d9845f
+    af:
+    - af:AF_G09_riazi:3:36dd31
+    - af:AF_G10_riazi:7:a5bd29
+- id: coord.midpoint
+  title:
+    fa-IR: مختصات وسط پاره‌خط
+    en: Midpoint of a line segment
+  age:
+  - 15
+  - 17
+  requires:
+  - pos.coordinates
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:1:9d041a
+    - iran:G11_riazi2_science:1:d9845f
+    af:
+    - af:AF_G09_riazi:3:4bde00
+- id: coord.section
+  title:
+    fa-IR: نقطه‌ای که پاره‌خط را به نسبت معلوم تقسیم می‌کند
+    en: Point dividing a segment in a given ratio
+  age:
+  - 16
+  - 16
+  requires:
+  - coord.midpoint
+  - ratio.ratio
+  level: specialist
+  align:
+    af:
+    - af:AF_G10_riazi:7:3b03e3
+- id: coord.gradient
+  title:
+    fa-IR: شیب خط
+    en: Gradient of a line
+  age:
+  - 11
+  - 16
+  requires:
+  - pos.coordinates
+  - ratio.ratio
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:6:1bcfdb
+    - iran:G09_riazi_nohom:6:2940ad
+    af:
+    - af:AF_G09_riazi:3:2c7f73
+    - af:AF_G09_riazi:4:fd4889
+    - af:AF_G10_riazi:7:59ce99
+    uk:
+    - uk:UK_GCSE:2:58b121
+    - uk:UK_KS3:2:2920cb
+- id: coord.line-equation
+  title:
+    fa-IR: معادلهٔ خط (y = mx + c، خط گذرنده از یک یا دو نقطه)
+    en: Equation of a straight line
+  age:
+  - 11
+  - 18
+  requires:
+  - coord.gradient
+  - alg.linear-equations
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:6:1bcfdb
+    - iran:G09_riazi_nohom:6:2940ad
+    - iran:G09_riazi_nohom:6:5e27d6
+    - iran:G11_hesaban1_math:1:9d041a
+    - iran:G11_riazi2_science:1:d9845f
+    af:
+    - af:AF_G09_riazi:3:7be391
+    - af:AF_G10_riazi:7:fca0ab
+    uk:
+    - uk:UK_ALEVEL:3:a02ea8
+    - uk:UK_GCSE:2:9d2f31
+    - uk:UK_KS3:2:2920cb
+    - uk:UK_KS4:2:99adb1
+- id: coord.line-general-form
+  title:
+    fa-IR: شکل کلی معادلهٔ خط (ax + by + c = 0) و تبدیل شکل‌ها
+    en: General form ax + by + c = 0 and converting line forms
+  age:
+  - 15
+  - 18
+  requires:
+  - coord.line-equation
+  level: core
+  align:
+    af:
+    - af:AF_G09_riazi:3:e9202f
+    - af:AF_G10_riazi:7:b8e78c
+    - af:AF_G10_riazi:7:fca0ab
+    uk:
+    - uk:UK_ALEVEL:3:a02ea8
+- id: coord.parallel-perpendicular
+  title:
+    fa-IR: خط‌های موازی و عمود بر هم
+    en: Parallel and perpendicular lines
+  age:
+  - 14
+  - 18
+  requires:
+  - coord.line-equation
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:1:9d041a
+    - iran:G11_riazi2_science:1:d9845f
+    af:
+    - af:AF_G09_riazi:3:2c7f73
+    uk:
+    - uk:UK_ALEVEL:3:a02ea8
+    - uk:UK_GCSE:2:9d2f31
+    - uk:UK_KS4:2:99adb1
+- id: coord.point-line-distance
+  title:
+    fa-IR: فاصلهٔ نقطه از خط
+    en: Distance from a point to a line
+  age:
+  - 16
+  - 17
+  requires:
+  - coord.line-general-form
+  - coord.distance
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:1:9d041a
+    - iran:G11_riazi2_science:1:d9845f
+    af:
+    - af:AF_G10_riazi:7:ad0029
+- id: coord.triangle-area
+  title:
+    fa-IR: مساحت مثلث از روی مختصات رأس‌ها
+    en: Area of a triangle from vertex coordinates
+  age:
+  - 16
+  - 16
+  requires:
+  - coord.point-line-distance
+  level: specialist
+  align:
+    af:
+    - af:AF_G10_riazi:7:95e2ac
+- id: coord.geometric-problems
+  title:
+    fa-IR: حل مسئله‌های هندسی در صفحهٔ مختصات
+    en: Solving geometric problems on coordinate axes
+  age:
+  - 14
+  - 17
+  requires:
+  - coord.distance
+  - coord.midpoint
+  - coord.parallel-perpendicular
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:1:9d041a
+    - iran:G11_riazi2_science:1:d9845f
+    uk:
+    - uk:UK_GCSE:4:d1bb3e
+- id: coord.circle-equation
+  title:
+    fa-IR: معادلهٔ دایره
+    en: Equation of a circle
+  age:
+  - 14
+  - 18
+  requires:
+  - coord.distance
+  - alg.quadratic-equations
+  level: core
+  align:
+    iran:
+    - iran:G12_hendese3_math:2:07c8f7
+    - iran:G12_riazi3_science:6:07c8f7
+    af:
+    - af:AF_G10_riazi:7:39fdf7
+    uk:
+    - uk:UK_ALEVEL:3:ac81d2
+    - uk:UK_GCSE:2:21bdea
+    - uk:UK_KS4:2:5ab519
+- id: coord.circle-line
+  title:
+    fa-IR: وضعیت خط و دایره نسبت به هم
+    en: Intersection of a line and a circle
+  age:
+  - 16
+  - 18
+  requires:
+  - coord.circle-equation
+  - coord.point-line-distance
+  level: extension
+  align:
+    iran:
+    - iran:G12_hendese3_math:2:07c8f7
+    - iran:G12_riazi3_science:6:07c8f7
+    af:
+    - af:AF_G10_riazi:7:39fdf7
+    uk:
+    - uk:UK_ALEVEL:3:ac81d2
+- id: coord.circle-tangent
+  title:
+    fa-IR: معادلهٔ مماس بر دایره و طول مماس
+    en: 'Tangent to a circle: equation and length'
+  age:
+  - 14
+  - 18
+  requires:
+  - coord.circle-equation
+  - coord.parallel-perpendicular
+  level: extension
+  align:
+    af:
+    - af:AF_G10_riazi:7:12d9c0
+    uk:
+    - uk:UK_ALEVEL:3:ac81d2
+    - uk:UK_GCSE:2:21bdea
+    - uk:UK_KS4:2:5ab519
+- id: coord.conics-intro
+  title:
+    fa-IR: مقاطع مخروطی و مکان هندسی
+    en: Conic sections and loci
+  age:
+  - 17
+  - 18
+  requires:
+  - coord.distance
+  - geo.circle.parts
+  level: extension
+  align:
+    iran:
+    - iran:G12_hendese3_math:2:31f899
+    - iran:G12_riazi3_science:6:6c17d6
+    af:
+    - af:AF_G11_riazi:1:c17b0e
+- id: coord.parabola
+  title:
+    fa-IR: 'سهمی: کانون، خط هادی و معادله'
+    en: 'The parabola: focus, directrix and equation'
+  age:
+  - 17
+  - 18
+  requires:
+  - coord.conics-intro
+  - coord.point-line-distance
+  level: extension
+  align:
+    iran:
+    - iran:G12_hendese3_math:2:822cec
+    af:
+    - af:AF_G11_riazi:1:2989b3
+    - af:AF_G11_riazi:1:deecfb
+- id: coord.parabola.shifted
+  title:
+    fa-IR: معادلهٔ سهمی با رأس دلخواه
+    en: Parabola with vertex at any point
+  age:
+  - 17
+  - 18
+  requires:
+  - coord.parabola
+  level: specialist
+  align:
+    iran:
+    - iran:G12_hendese3_math:2:822cec
+    af:
+    - af:AF_G11_riazi:1:4418e2
+- id: coord.ellipse
+  title:
+    fa-IR: 'بیضی: کانون‌ها و معادله'
+    en: 'The ellipse: foci and equation'
+  age:
+  - 17
+  - 18
+  requires:
+  - coord.conics-intro
+  level: extension
+  align:
+    iran:
+    - iran:G12_hendese3_math:2:822cec
+    af:
+    - af:AF_G11_riazi:1:06fb54
+    - af:AF_G11_riazi:1:da6ca9
+- id: coord.ellipse.shifted
+  title:
+    fa-IR: معادلهٔ بیضی با مرکز دلخواه
+    en: Ellipse with centre at any point
+  age:
+  - 17
+  - 17
+  requires:
+  - coord.ellipse
+  level: specialist
+  align:
+    af:
+    - af:AF_G11_riazi:1:95b1ea
+- id: coord.hyperbola
+  title:
+    fa-IR: 'هذلولی: کانون‌ها و معادله'
+    en: 'The hyperbola: foci and equation'
+  age:
+  - 17
+  - 17
+  requires:
+  - coord.conics-intro
+  level: specialist
+  align:
+    af:
+    - af:AF_G11_riazi:1:121739
+    - af:AF_G11_riazi:1:3719a3
+- id: coord.hyperbola.shifted
+  title:
+    fa-IR: معادلهٔ هذلولی با مرکز دلخواه
+    en: Hyperbola with centre at any point
+  age:
+  - 17
+  - 17
+  requires:
+  - coord.hyperbola
+  level: specialist
+  align:
+    af:
+    - af:AF_G11_riazi:1:e0c01e
+- id: coord.line-conic
+  title:
+    fa-IR: وضعیت خط نسبت به مقاطع مخروطی
+    en: Intersection of a line with a conic
+  age:
+  - 17
+  - 17
+  requires:
+  - coord.parabola
+  - coord.ellipse
+  - coord.hyperbola
+  - alg.quadratic-equations
+  level: specialist
+  align:
+    af:
+    - af:AF_G11_riazi:1:a8a716
+- id: coord.parametric
+  title:
+    fa-IR: معادلات پارامتری منحنی‌ها و تبدیل به معادلهٔ دکارتی
+    en: Parametric equations and converting to Cartesian form
+  age:
+  - 16
+  - 18
+  requires:
+  - func.concept
+  - coord.circle-equation
+  - trig.identities
+  level: extension
+  align:
+    uk:
+    - uk:UK_ALEVEL:3:880b95
+- id: coord.parametric-modelling
+  title:
+    fa-IR: مدل‌سازی با معادلات پارامتری
+    en: Modelling with parametric equations
+  age:
+  - 16
+  - 18
+  requires:
+  - coord.parametric
+  level: extension
+  align:
+    uk:
+    - uk:UK_ALEVEL:3:7a0452
+- id: coord.polar
+  title:
+    fa-IR: مختصات قطبی و تبدیل به مختصات دکارتی
+    en: Polar coordinates and converting to Cartesian
+  age:
+  - 16
+  - 18
+  requires:
+  - pos.coordinates
+  - trig.unit-circle
+  - trig.radians
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:7:54c18d
+- id: coord.polar-curves
+  title:
+    fa-IR: رسم منحنی‌های قطبی
+    en: Sketching polar curves
+  age:
+  - 16
+  - 18
+  requires:
+  - coord.polar
+  - trig.graphs
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:7:d0751d
+- id: coord.polar-area
+  title:
+    fa-IR: مساحت ناحیهٔ محصور به منحنی قطبی
+    en: Area enclosed by a polar curve
+  age:
+  - 16
+  - 18
+  requires:
+  - coord.polar-curves
+  - calc.integral
+  level: extension
+  align:
+    uk:
+    - uk:UK_FURTHER:7:b6765f

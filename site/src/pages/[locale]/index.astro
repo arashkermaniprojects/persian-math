@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import { LOCALES, visibleLocales, type LocaleCode } from '../../i18n/locales';
+import { t } from '../../lib/i18n';
+import { renderMath } from '../../lib/math';
+import { formatNumber } from '../../lib/numerals';
+
+export function getStaticPaths() {
+  return visibleLocales().map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as LocaleCode;
+const paths = ['iran', 'afghanistan', 'explorer'] as const;
+const suggested = LOCALES[locale].defaultPath;
+---
+<Base locale={locale}>
+  <h1>{t('site.name', locale)}</h1>
+  <p class="tagline">{t('site.tagline', locale)}</p>
+
+  <h2>{t('home.choosePath', locale)}</h2>
+  <ul class="paths">
+    {paths.map((p) => (
+      <li class:list={['path', { suggested: p === suggested }]}>{t(`path.${p}`, locale)}</li>
+    ))}
+  </ul>
+
+  <p>{t('home.demo', locale)} <Fragment set:html={renderMath('\\frac{3}{4} + \\frac{1}{8} = \\frac{7}{8}', locale)} /></p>
+  <p>{formatNumber(2.5, locale)} · {formatNumber(-12, locale)}</p>
+  <p class="muted">{t('home.offline', locale)}</p>
+</Base>
+
+<style>
+  .tagline, .muted { color: var(--muted); }
+  .paths { list-style: none; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); }
+  .path { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; font-weight: 700; }
+  .suggested { border-color: var(--accent); }
+</style>

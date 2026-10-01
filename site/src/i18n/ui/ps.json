@@ -1,0 +1,14 @@
+{
+  "site.name": "کمانګیر",
+  "site.tagline": "د ټولو ماشومانو لپاره د ریاضي اکاډمي",
+  "nav.language": "ژبه",
+  "nav.path": "درسي نصاب",
+  "path.iran": "ایران",
+  "path.afghanistan": "افغانستان",
+  "path.uk": "بریتانیا",
+  "path.explorer": "سپړونکی",
+  "home.choosePath": "خپل درسي نصاب وټاکئ",
+  "home.offline": "کمانګیر پرته له انټرنېټه هم کار کوي.",
+  "home.demo": "بېلګه: {{term:fraction}}",
+  "draft.banner": "دا ژبه لا نه ده کتل شوې (مسوده)."
+}

@@ -1,0 +1,1584 @@
+- id: point
+  en: point
+  fa-IR: نقطه
+  fa-AF: نقطه
+  ps: نقطه
+  src:
+    fa-IR: G03_riazi_sevom; concept geo.lines.basic
+    fa-AF: AF_G03_riazi line 46
+    ps: AF_G03_riazi_ps line 46
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'ps: from G08 on the Pashto books mostly say ټکی (e.g. AF_G09_riazi_ps line 21).'
+- id: line
+  en: line
+  fa-IR: خط
+  fa-AF: خط مستقیم
+  ps: مستقیم خط
+  src:
+    fa-IR: concept geo.lines.basic
+    fa-AF: AF_G03_riazi line 46
+    ps: AF_G03_riazi_ps line 46
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Afghan books often say just خط (fa-AF/ps). From G09 the Pashto books use مستقیمه کرښه (AF_G09_riazi_ps line 22).
+- id: line-segment
+  en: line segment
+  fa-IR: پاره‌خط
+  fa-AF: قطعه خط
+  ps: قطعه خط
+  src:
+    fa-IR: G03_riazi_sevom; concept geo.lines.basic
+    fa-AF: AF_G03_riazi line 46
+    ps: AF_G03_riazi_ps line 46
+  status:
+    fa-AF: draft
+    ps: draft
+  note: ps G09 also says ټوټه کرښه (AF_G09_riazi_ps line 21).
+- id: ray
+  en: ray
+  fa-IR: نیم‌خط
+  fa-AF: نیم خط
+  ps: نیم خط
+  src:
+    fa-IR: G03_riazi_sevom; concept geo.lines.basic
+    fa-AF: AF_G03_riazi line 46
+    ps: AF_G03_riazi_ps line 46
+  status:
+    fa-AF: draft
+    ps: draft
+  note: G05 Pashto TOC glosses it as «نیم خط (شعاع)» (AF_G05_riazi_ps line 31); G05 Dari body also calls a ray شعاع (pdf p.58).
+- id: parallel
+  en: parallel
+  fa-IR: موازی
+  fa-AF: موازی
+  ps: موازي
+  src:
+    fa-IR: concept geo.lines.parallel-perpendicular
+    fa-AF: AF_G06_riazi line 61
+    ps: AF_G06_riazi_ps line 61
+  status:
+    fa-AF: draft
+    ps: draft
+- id: perpendicular
+  en: perpendicular
+  fa-IR: عمود
+  fa-AF: عمود
+  ps: عمود
+  src:
+    fa-IR: concept geo.lines.parallel-perpendicular
+    fa-AF: AF_G07_riazi line 52
+    ps: AF_G07_riazi_ps line 52
+  status:
+    fa-AF: draft
+    ps: draft
+- id: intersecting-lines
+  en: intersecting lines
+  fa-IR: خط‌های متقاطع
+  fa-AF: خطوط متقاطع
+  ps: متقاطع خطونه
+  src:
+    fa-IR: not in TOC
+    fa-AF: AF_G06_riazi line 62
+    ps: AF_G06_riazi_ps line 62
+  status:
+    fa-AF: draft
+    ps: draft
+- id: transversal
+  en: transversal
+  fa-IR: خط مورب
+  fa-AF: خط قاطع
+  ps: قاطع خط
+  src:
+    fa-IR: concept geo.angles.parallel-lines (مورب)
+    fa-AF: AF_G07_riazi line 55
+    ps: AF_G07_riazi_ps line 55
+  status:
+    fa-AF: draft
+    ps: draft
+- id: angle
+  en: angle
+  fa-IR: زاویه
+  fa-AF: زاویه
+  ps: زاویه
+  src:
+    fa-IR: concept geo.angles.basic
+    fa-AF: AF_G05_riazi line 35
+    ps: AF_G05_riazi_ps line 35
+  status:
+    fa-AF: draft
+    ps: draft
+- id: degree-angle
+  en: degree (angle)
+  fa-IR: درجه
+  fa-AF: درجه
+  ps: درجه
+  src:
+    fa-IR: concept trig.special-angles
+    fa-AF: AF_G10_riazi pdf p.157
+    ps: AF_G10_riazi_ps pdf p.157
+  status:
+    fa-AF: draft
+    ps: draft
+- id: acute-angle
+  en: acute angle
+  fa-IR: زاویهٔ تند
+  fa-AF: زاویهٔ حاده
+  ps: حاده زاویه
+  src:
+    fa-IR: concept geo.angles.basic
+    fa-AF: AF_G05_riazi pdf p.63; AF_G09_riazi line 31
+    ps: AF_G09_riazi_ps line 31; AF_G08_riazi_ps pdf p.81
+  status:
+    fa-AF: draft
+    ps: draft
+- id: right-angle
+  en: right angle
+  fa-IR: زاویهٔ قائمه
+  fa-AF: زاویهٔ قایمه
+  ps: قایمه زاویه
+  src:
+    fa-IR: concept geo.angles.basic
+    fa-AF: AF_G07_riazi pdf p.129
+    ps: AF_G09_riazi_ps pdf p.115; AF_G07_riazi_ps pdf p.128
+  status:
+    fa-AF: draft
+    ps: draft
+- id: obtuse-angle
+  en: obtuse angle
+  fa-IR: زاویهٔ باز
+  fa-AF: زاویهٔ منفرجه
+  ps: منفرجه زاویه
+  src:
+    fa-IR: concept geo.angles.basic
+    fa-AF: AF_G05_riazi pdf p.63
+    ps: AF_G09_riazi_ps pdf p.69
+  status:
+    fa-AF: draft
+    ps: draft
+- id: straight-angle
+  en: straight angle
+  fa-IR: زاویهٔ نیم‌صفحه
+  fa-AF: زاویهٔ مستقیمه
+  ps: مستقیمه زاویه
+  src:
+    fa-IR: not in TOC
+    fa-AF: AF_G05_riazi line 43
+    ps: AF_G05_riazi_ps pdf p.71 (printed p.64; lesson missing from the Pashto TOC)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR word not confirmed in curriculum/ — reviewer please check.
+- id: reflex-angle
+  en: reflex angle
+  fa-IR: زاویهٔ بزرگ‌تر از نیم‌صفحه
+  src:
+    fa-IR: not in TOC (descriptive phrase)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: No Iranian textbook term found; fa-IR is a descriptive phrase. Reflex angles are not named in the Afghan books (fa-AF not found). ps not found in books.
+- id: adjacent-angles
+  en: adjacent angles
+  fa-IR: زاویه‌های مجاور
+  fa-AF: زاویه‌های مجاوره
+  ps: مجاورې زاویې
+  src:
+    fa-IR: concept geo.angles.facts
+    fa-AF: AF_G05_riazi line 39
+    ps: AF_G05_riazi_ps line 39
+  status:
+    fa-AF: draft
+    ps: draft
+- id: complementary-angles
+  en: complementary angles
+  fa-IR: زاویه‌های متمم
+  fa-AF: زاویه‌های متممه
+  ps: متممې زاویې
+  src:
+    fa-IR: concept geo.angles.facts
+    fa-AF: AF_G05_riazi line 41
+    ps: AF_G05_riazi_ps line 41
+  status:
+    fa-AF: draft
+    ps: draft
+- id: supplementary-angles
+  en: supplementary angles
+  fa-IR: زاویه‌های مکمل
+  fa-AF: زاویه‌های مکمله
+  ps: مکملې زاویې
+  src:
+    fa-IR: concept geo.angles.facts
+    fa-AF: AF_G05_riazi line 40
+    ps: AF_G05_riazi_ps line 40
+  status:
+    fa-AF: draft
+    ps: draft
+- id: vertically-opposite-angles
+  en: vertically opposite angles
+  fa-IR: زاویه‌های متقابل به رأس
+  fa-AF: زاویه‌های متقابل به رأس
+  ps: متقابل به راس زاویې
+  src:
+    fa-IR: concept geo.angles.facts
+    fa-AF: AF_G05_riazi line 42
+    ps: AF_G05_riazi_ps line 42
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Printed «متقابل به راس» (Arabic-Persian compound kept in Pashto); AF_G05_riazi_ps.md suggests it may be a misprint for «په». Reviewer please confirm.
+- id: alternate-angles
+  en: alternate angles
+  fa-IR: زاویه‌های متبادل
+  fa-AF: زوایای متبادله
+  ps: متبادلې زاویې
+  src:
+    fa-IR: not in TOC
+    fa-AF: AF_G07_riazi line 53
+    ps: AF_G07_riazi_ps line 53
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR not confirmed in curriculum/ (concept geo.angles.parallel-lines does not name the angle pairs).
+- id: corresponding-angles
+  en: corresponding angles
+  fa-IR: زاویه‌های متناظر
+  fa-AF: زوایای متوافقه
+  ps: متوافقې زاویې
+  src:
+    fa-IR: not in TOC
+    fa-AF: AF_G07_riazi line 54; pdf p.170 (Corresponding angles)
+    ps: AF_G07_riazi_ps line 54
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR not confirmed in curriculum/.
+- id: interior-angle
+  en: interior angle
+  fa-IR: زاویهٔ داخلی
+  fa-AF: زاویهٔ داخلی
+  ps: داخلي زاویه
+  src:
+    fa-IR: concept geo.polygons.angles
+    fa-AF: AF_G07_riazi line 44
+    ps: AF_G07_riazi_ps line 44
+  status:
+    fa-AF: draft
+    ps: draft
+- id: exterior-angle
+  en: exterior angle
+  fa-IR: زاویهٔ خارجی
+  fa-AF: زاویهٔ خارجی
+  ps: خارجي زاویه
+  src:
+    fa-IR: concept geo.triangles.angle-sum
+    fa-AF: AF_G07_riazi line 44
+    ps: AF_G07_riazi_ps line 44
+  status:
+    fa-AF: draft
+    ps: draft
+- id: angle-bisector
+  en: angle bisector
+  fa-IR: نیمساز
+  fa-AF: ناصف‌الزاویه
+  ps: ناصف الزاویه
+  src:
+    fa-IR: concept geo.angles.bisector
+    fa-AF: AF_G07_riazi line 43; AF_G08_riazi line 34
+    ps: AF_G07_riazi_ps line 43
+  status:
+    fa-AF: draft
+    ps: draft
+- id: perpendicular-bisector
+  en: perpendicular bisector
+  fa-IR: عمودمنصف
+  fa-AF: ناصف عمودی
+  ps: عمودي ناصف
+  src:
+    fa-IR: concept geo.triangles.special-lines
+    fa-AF: AF_G06_riazi line 85
+    ps: AF_G06_riazi_ps line 85
+  status:
+    fa-AF: draft
+    ps: draft
+- id: protractor
+  en: protractor
+  fa-IR: نقاله
+  fa-AF: نقاله
+  ps: نقاله
+  src:
+    fa-IR: concept geo.angles.measure
+    fa-AF: AF_G06_riazi line 82
+    ps: AF_G06_riazi_ps line 82
+  status:
+    fa-AF: draft
+    ps: draft
+- id: compasses
+  en: compasses (pair of compasses)
+  fa-IR: پرگار
+  fa-AF: پرکار
+  ps: پرکار
+  src:
+    fa-IR: concept geo.construct.basic
+    fa-AF: AF_G06_riazi line 80
+    ps: AF_G06_riazi_ps line 80
+  status:
+    fa-AF: draft
+    ps: draft
+- id: ruler
+  en: ruler
+  fa-IR: خط‌کش
+  fa-AF: خط‌کش
+  ps: خط کش
+  src:
+    fa-IR: concept geo.construct.basic
+    fa-AF: AF_G02_riazi line 78
+    ps: AF_G02_riazi_ps line 78
+  status:
+    fa-AF: draft
+    ps: draft
+- id: set-square
+  en: set square
+  fa-IR: گونیا
+  fa-AF: گونیا
+  ps: گونیا
+  src:
+    fa-IR: not in TOC
+    fa-AF: AF_G06_riazi pdf p.167
+    ps: AF_G06_riazi_ps pdf p.167 (printed p.158)
+  status:
+    fa-AF: draft
+    ps: draft
+- id: construction
+  en: construction (geometric)
+  fa-IR: ترسیم
+  fa-AF: ترسیم
+  ps: ترسیم
+  src:
+    fa-IR: concept geo.construct.basic
+    fa-AF: AF_G06_riazi line 79
+    ps: AF_G06_riazi_ps line 79
+  status:
+    fa-AF: draft
+    ps: draft
+- id: locus
+  en: locus
+  fa-IR: مکان هندسی
+  fa-AF: محل هندسی
+  ps: هندسي محل
+  src:
+    fa-IR: concept geo.loci; G12_hendese3_math
+    fa-AF: AF_G11_riazi pdf p.15 (definition of ellipse)
+    ps: AF_G11_riazi_ps pdf p.15
+  status:
+    fa-AF: draft
+    ps: draft
+- id: vertex
+  en: vertex
+  fa-IR: رأس
+  fa-AF: رأس
+  ps: راس
+  src:
+    fa-IR: concept geo.shapes.2d.properties
+    fa-AF: AF_G05_riazi pdf p.58; AF_G08_riazi pdf p.144
+    ps: AF_G10_riazi_ps line 68; AF_G08_riazi_ps pdf p.144
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Used for angles, polygons and solids alike in all three languages.
+- id: side
+  en: side
+  fa-IR: ضلع
+  fa-AF: ضلع
+  ps: ضلعه
+  src:
+    fa-IR: concept geo.shapes.2d.properties
+    fa-AF: AF_G06_riazi line 88
+    ps: AF_G06_riazi_ps lines 90-91 (یوه ... ضلعه)
+  status:
+    fa-AF: draft
+    ps: draft
+- id: triangle
+  en: triangle
+  fa-IR: مثلث
+  fa-AF: مثلث
+  ps: مثلث
+  src:
+    fa-IR: concept geo.triangles
+    fa-AF: AF_G05_riazi line 44
+    ps: AF_G05_riazi_ps line 44
+  status:
+    fa-AF: draft
+    ps: draft
+- id: equilateral-triangle
+  en: equilateral triangle
+  fa-IR: مثلث متساوی‌الاضلاع
+  fa-AF: مثلث متساوی‌الاضلاع
+  ps: متساوي الاضلاع مثلث
+  src:
+    fa-IR: not in TOC
+    fa-AF: AF_G05_riazi pdf p.77
+    ps: AF_G07_riazi_ps pdf p.126
+  status:
+    fa-AF: draft
+    ps: draft
+- id: isosceles-triangle
+  en: isosceles triangle
+  fa-IR: مثلث متساوی‌الساقین
+  fa-AF: مثلث متساوی‌الساقین
+  ps: متساوي الساقین مثلث
+  src:
+    fa-IR: concept geo.triangles.isosceles
+    fa-AF: AF_G08_riazi line 31
+    ps: AF_G08_riazi_ps line 31
+  status:
+    fa-AF: draft
+    ps: draft
+- id: scalene-triangle
+  en: scalene triangle
+  fa-IR: مثلث مختلف‌الاضلاع
+  fa-AF: مثلث مختلف‌الاضلاع
+  ps: مختلف الاضلاع مثلث
+  src:
+    fa-IR: not in TOC
+    fa-AF: AF_G05_riazi pdf p.77
+    ps: AF_G08_riazi_ps pdf p.93
+  status:
+    fa-AF: draft
+    ps: draft
+- id: right-angled-triangle
+  en: right-angled triangle
+  fa-IR: مثلث قائم‌الزاویه
+  fa-AF: مثلث قایم‌الزاویه
+  ps: قایم الزاویه مثلث
+  src:
+    fa-IR: concept geo.triangles.right-special; G08_riazi_hashtom
+    fa-AF: AF_G06_riazi line 91
+    ps: AF_G06_riazi_ps line 91
+  status:
+    fa-AF: draft
+    ps: draft
+- id: acute-angled-triangle
+  en: acute-angled triangle
+  fa-IR: مثلث تندزاویه
+  fa-AF: مثلث حاده‌الزاویه
+  ps: حاده الزاویه مثلث
+  src:
+    fa-IR: not in TOC
+    fa-AF: AF_G05_riazi pdf p.74-75
+    ps: AF_G07_riazi_ps pdf p.129
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR not confirmed in curriculum/ — reviewer please check the Iranian wording.
+- id: obtuse-angled-triangle
+  en: obtuse-angled triangle
+  fa-IR: مثلث بازاویه
+  fa-AF: مثلث منفرج‌الزاویه
+  ps: منفرج الزاویه مثلث
+  src:
+    fa-IR: not in TOC
+    fa-AF: AF_G05_riazi pdf p.75
+    ps: AF_G07_riazi_ps pdf p.129
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR not confirmed in curriculum/ — reviewer please check. Afghan books write منفرج (not منفرجه) in this compound; G08 Pashto also has «منفرجه الزاویه» (pdf p.140).
+- id: hypotenuse
+  en: hypotenuse
+  fa-IR: وتر
+  fa-AF: وتر
+  ps: وتر
+  src:
+    fa-IR: concept geo.triangles.right-special (میانهٔ وتر)
+    fa-AF: AF_G06_riazi line 91
+    ps: AF_G06_riazi_ps line 91
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Same word as chord (وتر) in all three languages.
+- id: median-triangle
+  en: median (of a triangle)
+  fa-IR: میانه
+  fa-AF: میانه
+  ps: میانه
+  src:
+    fa-IR: concept geo.triangles.special-lines
+    fa-AF: AF_G07_riazi line 43; AF_G08_riazi line 35
+    ps: AF_G07_riazi_ps line 43
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Not the statistical median (that id belongs to data.yaml).
+- id: altitude
+  en: altitude (height of a triangle)
+  fa-IR: ارتفاع
+  fa-AF: ارتفاع
+  ps: ارتفاع
+  src:
+    fa-IR: concept geo.triangles.special-lines
+    fa-AF: AF_G07_riazi line 43; AF_G08_riazi line 35
+    ps: AF_G07_riazi_ps line 43
+  status:
+    fa-AF: draft
+    ps: draft
+- id: quadrilateral
+  en: quadrilateral
+  fa-IR: چهارضلعی
+  fa-AF: چهارضلعی
+  ps: څلور ضلعي
+  src:
+    fa-IR: G04_riazi_chaharom; concept geo.quadrilaterals.types
+    fa-AF: AF_G07_riazi line 56
+    ps: AF_G09_riazi_ps line 16; AF_G07_riazi_ps line 56
+  status:
+    fa-AF: draft
+    ps: draft
+- id: square-shape
+  en: square
+  fa-IR: مربع
+  fa-AF: مربع
+  ps: مربع
+  src:
+    fa-IR: concept geo.quadrilaterals.types
+    fa-AF: AF_G05_riazi line 49
+    ps: AF_G05_riazi_ps line 49
+  status:
+    fa-AF: draft
+    ps: draft
+  note: The shape. Not the square of a number.
+- id: rectangle
+  en: rectangle
+  fa-IR: مستطیل
+  fa-AF: مستطیل
+  ps: مستطیل
+  src:
+    fa-IR: concept geo.quadrilaterals.types
+    fa-AF: AF_G05_riazi line 48
+    ps: AF_G05_riazi_ps line 48
+  status:
+    fa-AF: draft
+    ps: draft
+- id: parallelogram
+  en: parallelogram
+  fa-IR: متوازی‌الاضلاع
+  fa-AF: متوازی‌الاضلاع
+  ps: متوازي الاضلاع
+  src:
+    fa-IR: G04_riazi_chaharom; concept geo.quadrilaterals.types
+    fa-AF: AF_G07_riazi line 56
+    ps: AF_G07_riazi_ps line 56
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'The Afghan G06 book calls the parallelogram شبه معین (AF_G06_riazi pdf p.186-199: area = base × height; Pashto TOC line 68 also has شبه معین). G07 onward uses متوازی‌الاضلاع.'
+- id: rhombus
+  en: rhombus
+  fa-IR: لوزی
+  fa-AF: معین
+  ps: معین
+  src:
+    fa-IR: G05_riazi_panjom; concept geo.quadrilaterals.types
+    fa-AF: AF_G07_riazi line 56; AF_G06_riazi line 67 «معین (لوزی)»
+    ps: AF_G07_riazi_ps line 56; AF_G06_riazi_ps line 67 «معین یا لوزي»
+  status:
+    fa-AF: draft
+    ps: draft
+- id: trapezium
+  en: trapezium
+  fa-IR: ذوزنقه
+  fa-AF: ذوزنقه
+  ps: ذوزنقه
+  src:
+    fa-IR: G05_riazi_panjom; concept geo.quadrilaterals.types
+    fa-AF: AF_G06_riazi line 69
+    ps: AF_G06_riazi_ps line 69
+  status:
+    fa-AF: draft
+    ps: draft
+- id: kite
+  en: kite
+  fa-IR: کایت
+  src:
+    fa-IR: not in TOC
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-IR not confirmed in curriculum/ (Iranian geometry books are believed to use کایت). The kite is not named in the Afghan books (fa-AF not found). ps not found in books.
+- id: polygon
+  en: polygon
+  fa-IR: چندضلعی
+  fa-AF: مضلع
+  ps: مضلع
+  src:
+    fa-IR: G05_riazi_panjom; concept geo.polygons
+    fa-AF: AF_G05_riazi line 47; AF_G07_riazi line 46 «چندضلعی‌ها (مضلع‌ها)»
+    ps: AF_G05_riazi_ps line 47; AF_G07_riazi_ps line 46 «مضلع گانې (څو ضلعي)»
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Afghan books also use چندضلعی (Dari) / څو ضلعي (Pashto) alongside مضلع.
+- id: regular-polygon
+  en: regular polygon
+  fa-IR: چندضلعی منتظم
+  fa-AF: مضلع منظم
+  ps: منظمه مضلع
+  src:
+    fa-IR: concept geo.polygons
+    fa-AF: AF_G09_riazi line 17
+    ps: AF_G09_riazi_ps line 17 (د منظمې مضلع)
+  status:
+    fa-AF: draft
+    ps: draft
+- id: diagonal
+  en: diagonal
+  fa-IR: قطر
+  fa-AF: قطر
+  ps: قطر
+  src:
+    fa-IR: concept geo.quadrilaterals.properties
+    fa-AF: AF_G07_riazi line 59
+    ps: AF_G07_riazi_ps line 59
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Same word as diameter (قطر) in all three languages.
+- id: circle
+  en: circle
+  fa-IR: دایره
+  fa-AF: دایره
+  ps: دایره
+  src:
+    fa-IR: concept geo.circle.parts
+    fa-AF: AF_G05_riazi line 50
+    ps: AF_G05_riazi_ps line 50
+  status:
+    fa-AF: draft
+    ps: draft
+- id: centre
+  en: centre
+  fa-IR: مرکز
+  fa-AF: مرکز
+  ps: مرکز
+  src:
+    fa-IR: concept geo.circle.parts
+    fa-AF: AF_G11_riazi line 9
+    ps: AF_G11_riazi_ps line 9
+  status:
+    fa-AF: draft
+    ps: draft
+- id: radius
+  en: radius
+  fa-IR: شعاع
+  fa-AF: شعاع
+  ps: شعاع
+  src:
+    fa-IR: concept geo.circle.parts
+    fa-AF: AF_G04_riazi line 40
+    ps: AF_G04_riazi_ps line 40
+  status:
+    fa-AF: draft
+    ps: draft
+- id: diameter
+  en: diameter
+  fa-IR: قطر
+  fa-AF: قطر
+  ps: قطر
+  src:
+    fa-IR: concept geo.circle.parts
+    fa-AF: AF_G04_riazi line 40
+    ps: AF_G04_riazi_ps line 40
+  status:
+    fa-AF: draft
+    ps: draft
+- id: chord
+  en: chord
+  fa-IR: وتر
+  fa-AF: وتر
+  ps: وتر
+  src:
+    fa-IR: concept geo.circle.parts
+    fa-AF: AF_G04_riazi line 40
+    ps: AF_G04_riazi_ps line 40
+  status:
+    fa-AF: draft
+    ps: draft
+- id: circumference
+  en: circumference
+  fa-IR: محیط دایره
+  fa-AF: محیط دایره
+  ps: د دایرې محیط
+  src:
+    fa-IR: not in TOC
+    fa-AF: AF_G06_riazi line 72
+    ps: AF_G06_riazi_ps line 72
+  status:
+    fa-AF: draft
+    ps: draft
+- id: arc
+  en: arc
+  fa-IR: کمان
+  fa-AF: قوس
+  ps: قوس
+  src:
+    fa-IR: concept trig.arc-sector
+    fa-AF: AF_G10_riazi line 45; AF_G05_riazi pdf p.88
+    ps: AF_G10_riazi_ps line 45
+  status:
+    fa-AF: draft
+    ps: draft
+- id: sector
+  en: sector
+  fa-IR: قطاع
+  fa-AF: قطاع
+  ps: قطاع
+  src:
+    fa-IR: concept trig.arc-sector
+    fa-AF: AF_G10_riazi line 45; AF_G05_riazi pdf p.89
+    ps: AF_G10_riazi_ps line 45
+  status:
+    fa-AF: draft
+    ps: draft
+- id: tangent-line
+  en: tangent (to a circle)
+  fa-IR: مماس
+  fa-AF: خط مماس
+  ps: مماس کرښه
+  src:
+    fa-IR: concept geo.circle.tangents
+    fa-AF: AF_G09_riazi line 14
+    ps: AF_G09_riazi_ps line 14
+  status:
+    fa-AF: draft
+    ps: draft
+  note: The line touching a circle. For the trigonometric ratio see tangent-ratio.
+- id: central-angle
+  en: angle at the centre
+  fa-IR: زاویهٔ مرکزی
+  fa-AF: زاویهٔ مرکزی
+  ps: مرکزي زاویه
+  src:
+    fa-IR: concept geo.circle.angles; G08_gifted_supplement
+    fa-AF: AF_G09_riazi pdf p.29
+    ps: AF_G09_riazi_ps pdf p.18
+  status:
+    fa-AF: draft
+    ps: draft
+- id: inscribed-angle
+  en: angle at the circumference (inscribed angle)
+  fa-IR: زاویهٔ محاطی
+  fa-AF: زاویهٔ محیطی
+  ps: محیطي زاویه
+  src:
+    fa-IR: concept geo.circle.angles
+    fa-AF: AF_G09_riazi line 9; pdf p.24
+    ps: AF_G09_riazi_ps line 9
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iran says محاطی, Afghanistan says محیطی for the same angle — do not 'correct'.
+- id: congruent
+  en: congruent
+  fa-IR: هم‌نهشت
+  fa-AF: انطباق‌پذیر
+  ps: انطباق منونکی
+  src:
+    fa-IR: G07_riazi_haftom; concept geo.congruence
+    fa-AF: AF_G07_riazi line 48
+    ps: AF_G07_riazi_ps line 48
+  status:
+    fa-AF: draft
+    ps: draft
+- id: similar
+  en: similar
+  fa-IR: متشابه
+  fa-AF: متشابه
+  ps: ورته
+  src:
+    fa-IR: concept geo.similarity
+    fa-AF: AF_G08_riazi line 21
+    ps: AF_G08_riazi_ps line 21 «ورته (متشابه)»
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Dari books also use مشابه; Pashto books gloss ورته with (متشابه)/(مشابه).
+- id: scale-factor
+  en: scale factor (ratio of similarity)
+  fa-IR: نسبت تشابه
+  fa-AF: نسبت تشابه
+  ps: د ورته والي نسبت
+  src:
+    fa-IR: concept geo.similarity
+    fa-AF: AF_G08_riazi pdf p.76
+    ps: AF_G08_riazi_ps pdf p.76
+  status:
+    fa-AF: draft
+    ps: draft
+  note: For an enlargement Iran uses ضریب تجانس (concept pos.enlargement); the Afghan books have no enlargement.
+- id: pythagoras-theorem
+  en: Pythagoras' theorem
+  fa-IR: رابطهٔ فیثاغورس
+  fa-AF: قضیهٔ فیثاغورث
+  ps: د فیثاغورث قضیه
+  src:
+    fa-IR: concept geo.pythagoras; G08_gifted_supplement
+    fa-AF: AF_G08_riazi line 32
+    ps: AF_G08_riazi_ps line 32
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Spelling differs: Iran فیثاغورس (with س), Afghanistan فیثاغورث (with ث).'
+- id: thales-theorem
+  en: Thales' theorem (intercept theorem)
+  fa-IR: قضیهٔ تالس
+  fa-AF: قضیهٔ تالس
+  ps: د تالس قضیه
+  src:
+    fa-IR: concept geo.thales; G10_hendese1_math
+    fa-AF: AF_G08_riazi line 22
+    ps: AF_G08_riazi_ps line 22
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'In both countries this is the parallel-lines/proportional-segments theorem (UK: intercept theorem), not the angle-in-a-semicircle theorem.'
+- id: theorem
+  en: theorem
+  fa-IR: قضیه
+  fa-AF: قضیه
+  ps: قضیه
+  src:
+    fa-IR: G10_hendese1_math
+    fa-AF: AF_G08_riazi line 30
+    ps: AF_G08_riazi_ps line 30
+  status:
+    fa-AF: draft
+    ps: draft
+- id: converse
+  en: converse
+  fa-IR: عکس
+  fa-AF: عکس
+  ps: معکوس
+  src:
+    fa-IR: concept geo.thales (عکس آن)
+    fa-AF: AF_G08_riazi line 32
+    ps: AF_G08_riazi_ps line 32 «معکوس (سرچپه)»
+  status:
+    fa-AF: draft
+    ps: draft
+- id: geometry
+  en: geometry
+  fa-IR: هندسه
+  fa-AF: هندسه
+  ps: هندسه
+  src:
+    fa-IR: G07_riazi_haftom (هندسه و استدلال)
+    fa-AF: AF_G02_riazi line 80
+    ps: AF_G02_riazi_ps line 80
+  status:
+    fa-AF: draft
+    ps: draft
+- id: symmetry
+  en: symmetry
+  fa-IR: تقارن
+  fa-AF: تناظر
+  ps: تناظر
+  src:
+    fa-IR: G03_riazi_sevom; concept geo.symmetry.line
+    fa-AF: AF_G08_riazi line 27
+    ps: AF_G08_riazi_ps line 27
+  status:
+    fa-AF: draft
+    ps: draft
+- id: line-of-symmetry
+  en: line of symmetry
+  fa-IR: خط تقارن
+  fa-AF: محور تناظر
+  ps: د تناظر محور
+  src:
+    fa-IR: concept geo.symmetry.line
+    fa-AF: AF_G08_riazi pdf p.99
+    ps: AF_G10_riazi_ps pdf p.128
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iran also says محور تقارن. ps example is the axis of symmetry of a parabola; reviewer please confirm for shapes.
+- id: line-symmetry
+  en: line symmetry (reflection symmetry)
+  fa-IR: تقارن محوری
+  fa-AF: تناظر محوری
+  ps: محوري تناظر
+  src:
+    fa-IR: concept geo.symmetry.line
+    fa-AF: AF_G08_riazi line 27
+    ps: AF_G08_riazi_ps line 27
+  status:
+    fa-AF: draft
+    ps: draft
+- id: point-symmetry
+  en: point symmetry
+  fa-IR: تقارن مرکزی
+  fa-AF: تناظر مرکزی
+  ps: مرکزي تناظر
+  src:
+    fa-IR: G05_riazi_panjom; concept geo.symmetry.rotational
+    fa-AF: AF_G08_riazi line 27
+    ps: AF_G08_riazi_ps line 27
+  status:
+    fa-AF: draft
+    ps: draft
+- id: rotational-symmetry
+  en: rotational symmetry
+  fa-IR: تقارن چرخشی
+  src:
+    fa-IR: concept geo.symmetry.rotational
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Rotational symmetry (beyond central symmetry) not found in the Afghan books. ps not found in books.
+- id: transformation
+  en: transformation
+  fa-IR: تبدیل هندسی
+  fa-AF: تغییر مکان
+  ps: د ځای بدلون
+  src:
+    fa-IR: concept pos.transformations; G07_riazi_haftom (تبدیلات هندسی)
+    fa-AF: AF_G09_riazi line 27; pdf p.90 «تغییر مکان یا تبدیل»
+    ps: AF_G09_riazi_ps line 27
+  status:
+    fa-AF: draft
+    ps: draft
+- id: reflection
+  en: reflection
+  fa-IR: بازتاب
+  fa-AF: انعکاس
+  ps: انعکاس
+  src:
+    fa-IR: concept pos.reflection
+    fa-AF: AF_G09_riazi line 27
+    ps: AF_G09_riazi_ps line 27
+  status:
+    fa-AF: draft
+    ps: draft
+  note: The Iranian G7 book calls reflection in a line تقارن (G07_riazi_haftom «تبدیلات هندسی (انتقال، تقارن، دوران)»); بازتاب is the later/concept wording.
+- id: rotation
+  en: rotation
+  fa-IR: دوران
+  fa-AF: دوران
+  ps: دوران
+  src:
+    fa-IR: G06_riazi_sheshom; concept pos.rotation
+    fa-AF: AF_G09_riazi line 27
+    ps: AF_G09_riazi_ps line 27
+  status:
+    fa-AF: draft
+    ps: draft
+- id: translation
+  en: translation
+  fa-IR: انتقال
+  fa-AF: انتقال
+  ps: انتقال
+  src:
+    fa-IR: G07_riazi_haftom; concept pos.translation
+    fa-AF: AF_G09_riazi line 27
+    ps: AF_G09_riazi_ps line 27
+  status:
+    fa-AF: draft
+    ps: draft
+- id: translation-vector
+  en: translation vector (column vector of a translation)
+  fa-IR: بردار انتقال
+  fa-AF: وکتور انتقال
+  src:
+    fa-IR: concept pos.translation.vector
+    fa-AF: AF_G09_riazi pdf p.93
+  status:
+    fa-AF: draft
+    ps: draft
+  note: ps not found in books (the Pashto G09 page shows the vectors but does not name them).
+- id: enlargement
+  en: enlargement
+  fa-IR: تجانس
+  src:
+    fa-IR: concept pos.enlargement «تجانس (بزرگ‌نمایی)»
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Enlargement is not taught in the Afghan books (fa-AF not found). ps not found in books.
+- id: bearing
+  en: bearing
+  fa-IR: زاویهٔ سمت
+  src:
+    fa-IR: concept pos.bearings
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Bearings not found in the Afghan books (fa-AF not found). ps not found in books.
+- id: coordinates
+  en: coordinates
+  fa-IR: مختصات
+  fa-AF: مختصات
+  ps: مختصات
+  src:
+    fa-IR: concept pos.coordinates
+    fa-AF: AF_G08_riazi line 57
+    ps: AF_G08_riazi_ps line 57
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Afghan G10 also says کمیات وضعیه (AF_G10_riazi line 60) / وضعیه کمیات (ps).
+- id: coordinate-system
+  en: coordinate grid (axes)
+  fa-IR: دستگاه مختصات
+  fa-AF: سیستم مختصات قایم
+  ps: د قایمو مختصاتو سیستم
+  src:
+    fa-IR: concept vec.3d
+    fa-AF: AF_G08_riazi pdf p.209
+    ps: AF_G08_riazi_ps pdf p.209
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'G10: سیستم کمیات وضعیه / د وضعیه کمیاتو سیستم (AF_G10_riazi line 60). Iran also says صفحهٔ مختصات for the plane.'
+- id: axis
+  en: axis
+  fa-IR: محور
+  fa-AF: محور
+  ps: محور
+  src:
+    fa-IR: concept pos.coordinates
+    fa-AF: AF_G10_riazi line 63; AF_G08_riazi pdf p.209
+    ps: AF_G10_riazi_ps line 63
+  status:
+    fa-AF: draft
+    ps: draft
+- id: origin
+  en: origin
+  fa-IR: مبدأ مختصات
+  fa-AF: مبدأ
+  ps: مبدا
+  src:
+    fa-IR: G09_riazi_nohom
+    fa-AF: AF_G10_riazi pdf p.159 «مبدأی کمیات وضعیه»
+    ps: AF_G08_riazi_ps pdf p.213; AF_G09_riazi_ps pdf p.65
+  status:
+    fa-AF: draft
+    ps: draft
+- id: quadrant
+  en: quadrant
+  fa-IR: ربع
+  fa-AF: ربع
+  ps: ربع
+  src:
+    fa-IR: concept pos.coordinates (چهار ربع)
+    fa-AF: AF_G10_riazi pdf p.61
+    ps: AF_G10_riazi_ps pdf p.61
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Afghan G08/G09 call it ناحیه (AF_G08_riazi pdf p.209; AF_G09_riazi_ps pdf p.100 «دویمه ناحیه»).
+- id: plane
+  en: plane
+  fa-IR: صفحه
+  fa-AF: مستوی
+  ps: مستوي
+  src:
+    fa-IR: concept vec.plane; pos.coordinates.shapes (صفحهٔ مختصات)
+    fa-AF: AF_G08_riazi line 57; AF_G11_riazi line 33
+    ps: AF_G08_riazi_ps line 57
+  status:
+    fa-AF: draft
+    ps: draft
+- id: distance
+  en: distance (between two points)
+  fa-IR: فاصله
+  fa-AF: فاصله
+  ps: واټن
+  src:
+    fa-IR: concept coord.distance
+    fa-AF: AF_G09_riazi line 20
+    ps: AF_G09_riazi_ps line 20 «واټن (فاصله)»
+  status:
+    fa-AF: draft
+    ps: draft
+  note: ps G10 TOC uses فاصله (AF_G10_riazi_ps line 60).
+- id: midpoint
+  en: midpoint
+  fa-IR: وسط پاره‌خط
+  fa-AF: نقطهٔ وسطی
+  ps: منځنی ټکی
+  src:
+    fa-IR: concept coord.midpoint
+    fa-AF: AF_G09_riazi line 21; AF_G11_riazi line 87
+    ps: AF_G11_riazi_ps line 87
+  status:
+    fa-AF: draft
+    ps: draft
+- id: gradient
+  en: gradient
+  fa-IR: شیب
+  fa-AF: میل
+  ps: میل
+  src:
+    fa-IR: concept coord.gradient; G09_riazi_nohom
+    fa-AF: AF_G09_riazi line 22
+    ps: AF_G09_riazi_ps line 22
+  status:
+    fa-AF: draft
+    ps: draft
+- id: line-equation
+  en: equation of a line
+  fa-IR: معادلهٔ خط
+  fa-AF: معادلهٔ خط مستقیم
+  ps: د مستقیمې کرښې معادله
+  src:
+    fa-IR: concept coord.line-equation; G09_riazi_nohom
+    fa-AF: AF_G09_riazi line 23
+    ps: AF_G09_riazi_ps line 23
+  status:
+    fa-AF: draft
+    ps: draft
+  note: ps G10 says د مستقیم خط معادله (AF_G10_riazi_ps line 63).
+- id: circle-equation
+  en: equation of a circle
+  fa-IR: معادلهٔ دایره
+  fa-AF: معادلهٔ دایره
+  ps: د دایرې معادله
+  src:
+    fa-IR: concept coord.circle-equation
+    fa-AF: AF_G10_riazi line 66
+    ps: AF_G10_riazi_ps line 66
+  status:
+    fa-AF: draft
+    ps: draft
+- id: conic-sections
+  en: conic sections
+  fa-IR: مقاطع مخروطی
+  fa-AF: مقاطع مخروطی
+  ps: مخروطي مقاطع
+  src:
+    fa-IR: concept coord.conics-intro; G12_hendese3_math
+    fa-AF: AF_G11_riazi line 6
+    ps: AF_G11_riazi_ps line 6
+  status:
+    fa-AF: draft
+    ps: draft
+- id: parabola
+  en: parabola
+  fa-IR: سهمی
+  fa-AF: پارابولا
+  ps: پارابولا
+  src:
+    fa-IR: concept coord.parabola; G10_riazi1_math_science
+    fa-AF: AF_G11_riazi line 10
+    ps: AF_G11_riazi_ps line 10
+  status:
+    fa-AF: draft
+    ps: draft
+- id: ellipse
+  en: ellipse
+  fa-IR: بیضی
+  fa-AF: بیضوی
+  ps: بیضوي
+  src:
+    fa-IR: concept coord.ellipse; G12_hendese3_math
+    fa-AF: AF_G11_riazi line 7
+    ps: AF_G11_riazi_ps line 7
+  status:
+    fa-AF: draft
+    ps: draft
+- id: hyperbola
+  en: hyperbola
+  fa-IR: هذلولی
+  fa-AF: هایپربولا
+  ps: هایپربولا
+  src:
+    fa-IR: concept coord.hyperbola
+    fa-AF: AF_G11_riazi line 13
+    ps: AF_G11_riazi_ps line 13
+  status:
+    fa-AF: draft
+    ps: draft
+- id: focus
+  en: focus (of a conic)
+  fa-IR: کانون
+  fa-AF: محراق
+  ps: محراق
+  src:
+    fa-IR: concept coord.parabola
+    fa-AF: AF_G11_riazi pdf p.15
+    ps: AF_G11_riazi_ps pdf p.15
+  status:
+    fa-AF: draft
+    ps: draft
+- id: solid
+  en: 3-D shape (solid)
+  fa-IR: شکل فضایی
+  fa-AF: جسم
+  ps: جسم
+  src:
+    fa-IR: concept geo.shapes.3d.recognise «شکل‌های فضایی (احجام)»
+    fa-AF: AF_G06_riazi pdf p.200 (اجسام)
+    ps: AF_G06_riazi_ps pdf p.201
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iranian primary books also say حجم / احجام for solids.
+- id: cube-solid
+  en: cube
+  fa-IR: مکعب
+  fa-AF: مکعب
+  ps: مکعب
+  src:
+    fa-IR: concept geo.pythagoras.3d
+    fa-AF: AF_G08_riazi line 39
+    ps: AF_G08_riazi_ps line 39
+  status:
+    fa-AF: draft
+    ps: draft
+  note: The solid. Not the cube of a number.
+- id: cuboid
+  en: cuboid
+  fa-IR: مکعب مستطیل
+  fa-AF: مکعب مستطیل
+  ps: مکعب مستطیل
+  src:
+    fa-IR: concept geo.pythagoras.3d
+    fa-AF: AF_G08_riazi line 39
+    ps: AF_G08_riazi_ps line 39
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Pashto body text also has مستطیلي مکعب (AF_G08_riazi_ps pdf p.144).
+- id: prism
+  en: prism
+  fa-IR: منشور
+  fa-AF: منشور
+  ps: منشور
+  src:
+    fa-IR: concept geo.solids.properties
+    fa-AF: AF_G06_riazi line 74
+    ps: AF_G06_riazi_ps line 74
+  status:
+    fa-AF: draft
+    ps: draft
+- id: pyramid
+  en: pyramid
+  fa-IR: هرم
+  fa-AF: هرم
+  ps: هرم
+  src:
+    fa-IR: concept geo.solids.properties; G09_riazi_nohom
+    fa-AF: AF_G06_riazi line 75
+    ps: AF_G06_riazi_ps line 75
+  status:
+    fa-AF: draft
+    ps: draft
+- id: cylinder
+  en: cylinder
+  fa-IR: استوانه
+  fa-AF: استوانه
+  ps: استوانه
+  src:
+    fa-IR: concept geo.solids.properties
+    fa-AF: AF_G08_riazi line 40
+    ps: AF_G08_riazi_ps line 40 (د استوانې)
+  status:
+    fa-AF: draft
+    ps: draft
+- id: cone
+  en: cone
+  fa-IR: مخروط
+  fa-AF: مخروط
+  ps: مخروط
+  src:
+    fa-IR: concept geo.solids.properties
+    fa-AF: AF_G06_riazi line 76
+    ps: AF_G06_riazi_ps line 76
+  status:
+    fa-AF: draft
+    ps: draft
+- id: sphere
+  en: sphere
+  fa-IR: کره
+  fa-AF: کره
+  ps: کره
+  src:
+    fa-IR: concept geo.solids.properties; G09_riazi_nohom
+    fa-AF: AF_G06_riazi line 77
+    ps: AF_G06_riazi_ps line 77
+  status:
+    fa-AF: draft
+    ps: draft
+- id: face-solid
+  en: face (of a solid)
+  fa-IR: وجه
+  fa-AF: وجه
+  ps: مخ
+  src:
+    fa-IR: concept geo.solids.properties
+    fa-AF: AF_G06_riazi pdf p.201 «سطوح (وجوه)»
+    ps: AF_G06_riazi_ps pdf p.201 «مخ (وجه)»
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'G08 uses سطح in both languages for a face: «چند رأس، چند ضلع و چند سطح» / «څو راسونه، څو ضلعې او څو سطحې» (AF_G08_riazi(_ps) pdf p.144).'
+- id: edge-solid
+  en: edge (of a solid)
+  fa-IR: یال
+  fa-AF: ضلع
+  ps: ضلع
+  src:
+    fa-IR: concept geo.solids.properties
+    fa-AF: AF_G08_riazi pdf p.144; AF_G06_riazi pdf p.201 (اضلاع مکعب)
+    ps: AF_G08_riazi_ps pdf p.144 (ضلعې)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iran has a special word (یال); the Afghan books use ضلع (side) for an edge.
+- id: net
+  en: net (of a solid)
+  fa-IR: گسترده
+  fa-AF: شکل باز شده
+  ps: خلاص شوی شکل
+  src:
+    fa-IR: concept geo.solids.nets
+    fa-AF: AF_G06_riazi pdf p.201-205 (مکعب/استوانه/هرم باز شده; «گسترده (باز)» p.203)
+    ps: AF_G06_riazi_ps pdf p.201 «خلاص شوی مکعب»
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'No stand-alone term in the Afghan books: they only say «X باز شده» / «خلاص شوی مکعب». fa-AF and ps are generalised from those phrases — reviewer please confirm.'
+- id: trigonometry
+  en: trigonometry
+  fa-IR: مثلثات
+  fa-AF: مثلثات
+  ps: مثلثات
+  src:
+    fa-IR: concept trig.modelling
+    fa-AF: AF_G09_riazi line 29
+    ps: AF_G09_riazi_ps line 29
+  status:
+    fa-AF: draft
+    ps: draft
+- id: trigonometric-ratio
+  en: trigonometric ratio
+  fa-IR: نسبت مثلثاتی
+  fa-AF: نسبت مثلثاتی
+  ps: مثلثاتي نسبت
+  src:
+    fa-IR: concept trig.right-triangle
+    fa-AF: AF_G09_riazi line 32
+    ps: AF_G09_riazi_ps line 32
+  status:
+    fa-AF: draft
+    ps: draft
+- id: sine
+  en: sine
+  fa-IR: سینوس
+  fa-AF: ساین
+  ps: ساین
+  src:
+    fa-IR: concept trig.graphs; G11_hendese2_math
+    fa-AF: AF_G09_riazi line 31
+    ps: AF_G09_riazi_ps line 31
+  status:
+    fa-AF: draft
+    ps: draft
+- id: cosine
+  en: cosine
+  fa-IR: کسینوس
+  fa-AF: کوساین
+  ps: کوساین
+  src:
+    fa-IR: concept trig.graphs; G11_hendese2_math
+    fa-AF: AF_G09_riazi line 31
+    ps: AF_G09_riazi_ps line 31
+  status:
+    fa-AF: draft
+    ps: draft
+- id: tangent-ratio
+  en: tangent (trigonometric ratio)
+  fa-IR: تانژانت
+  fa-AF: تانجانت
+  ps: تانجنت
+  src:
+    fa-IR: concept trig.graphs; G12_hesaban2_math
+    fa-AF: AF_G09_riazi line 31
+    ps: AF_G09_riazi_ps line 31
+  status:
+    fa-AF: draft
+    ps: draft
+  note: The ratio opposite/adjacent. For the line touching a circle see tangent-line. Pashto G11 spells it تانجنټ (AF_G11_riazi_ps line 23).
+- id: cotangent
+  en: cotangent
+  fa-IR: کتانژانت
+  fa-AF: کوتانجانت
+  ps: کوتانجنت
+  src:
+    fa-IR: concept trig.reciprocal-functions
+    fa-AF: AF_G09_riazi pdf p.111
+    ps: AF_G09_riazi_ps pdf p.111
+  status:
+    fa-AF: draft
+    ps: draft
+- id: radian
+  en: radian
+  fa-IR: رادیان
+  fa-AF: رادیان
+  ps: راډیان
+  src:
+    fa-IR: concept trig.radians; G11_hesaban1_math
+    fa-AF: AF_G10_riazi pdf p.156-157
+    ps: AF_G10_riazi_ps pdf p.157
+  status:
+    fa-AF: draft
+    ps: draft
+- id: unit-circle
+  en: unit circle
+  fa-IR: دایرهٔ مثلثاتی
+  fa-AF: دایرهٔ مثلثاتی
+  ps: مثلثاتي دایره
+  src:
+    fa-IR: concept trig.unit-circle; G10_riazi1_math_science
+    fa-AF: AF_G10_riazi pdf p.159 «دایرهٔ مثلثاتی یا دایرهٔ واحد»
+    ps: AF_G10_riazi_ps pdf p.206
+  status:
+    fa-AF: draft
+    ps: draft
+- id: trig-identity
+  en: trigonometric identity
+  fa-IR: اتحاد مثلثاتی
+  fa-AF: مطابقت مثلثاتی
+  ps: مثلثاتي مطابقت
+  src:
+    fa-IR: concept trig.identities
+    fa-AF: AF_G11_riazi line 24
+    ps: AF_G11_riazi_ps line 24
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Afghan books use مطابقت for any identity (algebraic ones too: AF_G08_riazi pdf p.7).'
+- id: trig-equation
+  en: trigonometric equation
+  fa-IR: معادلهٔ مثلثاتی
+  fa-AF: معادلهٔ مثلثاتی
+  ps: مثلثاتي معادله
+  src:
+    fa-IR: concept trig.equations
+    fa-AF: AF_G09_riazi line 34; AF_G11_riazi line 25
+    ps: AF_G09_riazi_ps line 34
+  status:
+    fa-AF: draft
+    ps: draft
+- id: sine-rule
+  en: sine rule
+  fa-IR: قضیهٔ سینوس‌ها
+  fa-AF: قانون ساین
+  ps: د ساین قانون
+  src:
+    fa-IR: concept trig.sine-rule; G11_hendese2_math
+    fa-AF: AF_G11_riazi line 21
+    ps: AF_G11_riazi_ps line 21
+  status:
+    fa-AF: draft
+    ps: draft
+- id: cosine-rule
+  en: cosine rule
+  fa-IR: قضیهٔ کسینوس‌ها
+  fa-AF: قانون کوساین
+  ps: د کوساین قانون
+  src:
+    fa-IR: concept trig.cosine-rule; G11_hendese2_math
+    fa-AF: AF_G11_riazi line 22
+    ps: AF_G11_riazi_ps line 22
+  status:
+    fa-AF: draft
+    ps: draft
+- id: coterminal-angles
+  en: coterminal angles
+  fa-IR: زاویه‌های هم‌انتها
+  fa-AF: زوایای کوترمینل
+  ps: کوټرمینل زاویې
+  src:
+    fa-IR: concept trig.general-angle
+    fa-AF: AF_G10_riazi line 31
+    ps: AF_G10_riazi_ps line 31 (کوټر مینل)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Not a UK curriculum term; kept because both curricula teach it.
+- id: vector
+  en: vector
+  fa-IR: بردار
+  fa-AF: وکتور
+  ps: وکتور
+  src:
+    fa-IR: concept vec.2d; G07_gifted_supplement
+    fa-AF: AF_G11_riazi line 85
+    ps: AF_G11_riazi_ps line 85
+  status:
+    fa-AF: draft
+    ps: draft
+- id: scalar
+  en: scalar
+  fa-IR: اسکالر
+  fa-AF: سکالر
+  ps: سکالر
+  src:
+    fa-IR: not in TOC
+    fa-AF: AF_G11_riazi line 73
+    ps: AF_G11_riazi_ps line 73
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'fa-IR not confirmed: Iranian titles say «ضرب عدد در بردار» (concept vec.scalar-multiple) and avoid the word; physics books use کمیت نرده‌ای. Reviewer please choose.'
+- id: unit-vector
+  en: unit vector
+  fa-IR: بردار واحد
+  fa-AF: وکتور واحد
+  ps: واحد وکتور
+  src:
+    fa-IR: concept vec.unit-vectors
+    fa-AF: AF_G11_riazi pdf p.263 (printed p.254)
+    ps: AF_G11_riazi_ps pdf p.263
+  status:
+    fa-AF: draft
+    ps: draft
+- id: position-vector
+  en: position vector
+  fa-IR: بردار مکان
+  fa-AF: شعاع وکتور
+  ps: شعاع وکتور
+  src:
+    fa-IR: concept vec.position
+    fa-AF: AF_G11_riazi pdf p.258 (printed p.249)
+    ps: AF_G11_riazi_ps pdf p.258
+  status:
+    fa-AF: draft
+    ps: draft
+- id: dot-product
+  en: scalar product (dot product)
+  fa-IR: ضرب داخلی
+  fa-AF: ضرب سکالری
+  ps: سکالري ضرب
+  src:
+    fa-IR: concept vec.scalar-product; G12_hendese3_math
+    fa-AF: AF_G11_riazi line 91 «حاصل ضرب سکالری دو وکتور»
+    ps: AF_G11_riazi_ps line 91
+  status:
+    fa-AF: draft
+    ps: draft
+- id: cross-product
+  en: vector product (cross product)
+  fa-IR: ضرب خارجی
+  fa-AF: ضرب وکتوری
+  ps: وکتوري ضرب
+  src:
+    fa-IR: concept vec.vector-product; G12_hendese3_math
+    fa-AF: AF_G11_riazi line 92 «حاصل ضرب وکتوری دو وکتور»
+    ps: AF_G11_riazi_ps line 92
+  status:
+    fa-AF: draft
+    ps: draft

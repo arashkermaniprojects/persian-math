@@ -1,0 +1,16 @@
+{
+  "name": "kamangir-site",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "npm run check && astro build",
+    "preview": "astro preview",
+    "check": "node scripts/check-locales.mjs"
+  },
+  "type": "module",
+  "dependencies": {
+    "astro": "^7.3.5",
+    "katex": "^0.19.0",
+    "vazirmatn": "^33.0.3"
+  },
+  "private": true
+}

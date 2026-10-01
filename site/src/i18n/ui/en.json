@@ -1,0 +1,14 @@
+{
+  "site.name": "Kamangir",
+  "site.tagline": "A math academy for every child",
+  "nav.language": "Language",
+  "nav.path": "Curriculum",
+  "path.iran": "Iran",
+  "path.afghanistan": "Afghanistan",
+  "path.uk": "UK",
+  "path.explorer": "Explorer",
+  "home.choosePath": "Choose your curriculum",
+  "home.offline": "Kamangir also works without the internet.",
+  "home.demo": "Example: {{term:fraction}}",
+  "draft.banner": "This language has not been reviewed yet (draft)."
+}

@@ -1,0 +1,14 @@
+---
+// Root: send learners to the default locale (Iranian Persian). Static redirect so it works offline and on any host.
+import { DEFAULT_LOCALE } from '../i18n/locales';
+const target = `${import.meta.env.BASE_URL}${DEFAULT_LOCALE}/`;
+---
+<!doctype html>
+<html lang="fa-IR" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <title>کمانگیر</title>
+  </head>
+  <body><a href={target}>کمانگیر</a></body>
+</html>

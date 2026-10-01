@@ -1,0 +1,327 @@
+- id: seq.patterns.shape
+  title:
+    fa-IR: الگوهای تکراری و هندسی
+    en: Repeating and shape patterns
+  age:
+  - 7
+  - 9
+  requires: []
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:3:826d29
+    - iran:G03_riazi_sevom:1:826d29
+    - iran:G03_riazi_sevom:1:f0bca5
+    af: []
+    uk:
+    - uk:UK_Y02:7:7813d7
+- id: seq.patterns.number
+  title:
+    fa-IR: الگوهای عددی
+    en: Number patterns and counting in steps
+  age:
+  - 9
+  - 12
+  requires:
+  - seq.patterns.shape
+  - ops.add-sub.mental
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:1:7b03a8
+    - iran:G04_riazi_chaharom:1:fecef1
+    - iran:G05_riazi_panjom:1:fecef1
+    - iran:G06_riazi_sheshom:1:51cf3a
+    af: []
+    uk:
+    - uk:UK_Y06:5:12983e
+- id: seq.input-output
+  title:
+    fa-IR: ماشین ورودی ـ خروجی
+    en: Input–output machines
+  age:
+  - 9
+  - 10
+  requires:
+  - ops.mul-div.facts
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:1:56c0d6
+    - iran:G04_riazi_chaharom:1:0480b7
+    af: []
+    uk: []
+- id: seq.term-to-term
+  title:
+    fa-IR: ادامهٔ الگو با قاعدهٔ جمله به جمله
+    en: Term-to-term rules
+  age:
+  - 11
+  - 16
+  requires:
+  - seq.patterns.number
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:1:fecef1
+    - iran:G06_riazi_sheshom:1:51cf3a
+    af: []
+    uk:
+    - uk:UK_GCSE:2:4d423f
+    - uk:UK_KS3:2:21b498
+    - uk:UK_Y06:5:12983e
+- id: seq.position-to-term
+  title:
+    fa-IR: جملهٔ عمومی الگو (رابطهٔ شمارهٔ شکل و جمله)
+    en: Position-to-term rules and the general term
+  age:
+  - 11
+  - 16
+  requires:
+  - seq.term-to-term
+  - seq.input-output
+  - alg.expressions
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:4:51cf3a
+    - iran:G07_riazi_haftom:3:51cf3a
+    - iran:G10_riazi1_math_science:1:20658b
+    af: []
+    uk:
+    - uk:UK_GCSE:2:4d423f
+    - uk:UK_KS3:2:21b498
+- id: seq.concept
+  title:
+    fa-IR: دنباله و نماد جملهٔ nام
+    en: Sequences and nth-term notation
+  age:
+  - 16
+  - 18
+  requires:
+  - seq.position-to-term
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:1:20658b
+    - iran:G12_riazi_amar3_humanities:2:41cecf
+    af:
+    - af:AF_G11_riazi:4:a2f846
+    uk:
+    - uk:UK_ALEVEL:4:4e67af
+- id: seq.arithmetic
+  title:
+    fa-IR: دنبالهٔ حسابی
+    en: Arithmetic (linear) sequences and the nth term
+  age:
+  - 11
+  - 18
+  requires:
+  - seq.position-to-term
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:1:c923a9
+    - iran:G12_riazi_amar3_humanities:2:41cecf
+    - iran:G12_riazi_amar3_humanities:2:ae8554
+    af:
+    - af:AF_G11_riazi:4:b561b0
+    uk:
+    - uk:UK_ALEVEL:4:1cb349
+    - uk:UK_GCSE:2:fdc83a
+    - uk:UK_GCSE:2:fc273f
+    - uk:UK_KS3:2:7a37d6
+    - uk:UK_KS4:2:1fc0b2
+    - uk:UK_KS4:2:74a795
+    - uk:UK_Y06:5:12983e
+- id: seq.special
+  title:
+    fa-IR: 'دنباله‌های خاص: اعداد مثلثی، مربعی، مکعبی و فیبوناچی'
+    en: 'Special sequences: triangular, square, cube and Fibonacci'
+  age:
+  - 14
+  - 16
+  requires:
+  - seq.term-to-term
+  - num.powers
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:1:20658b
+    af: []
+    uk:
+    - uk:UK_GCSE:2:fdc83a
+    - uk:UK_KS4:2:1fc0b2
+- id: seq.quadratic
+  title:
+    fa-IR: جملهٔ عمومی دنباله‌های درجهٔ دوم
+    en: nth term of quadratic sequences
+  age:
+  - 14
+  - 16
+  requires:
+  - seq.arithmetic
+  - seq.special
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:2:fdc83a
+    - uk:UK_GCSE:2:fc273f
+    - uk:UK_KS4:2:1fc0b2
+    - uk:UK_KS4:2:74a795
+- id: seq.geometric
+  title:
+    fa-IR: دنبالهٔ هندسی
+    en: Geometric sequences
+  age:
+  - 11
+  - 18
+  requires:
+  - seq.position-to-term
+  - num.powers
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:1:c923a9
+    - iran:G12_riazi_amar3_humanities:3:5d7520
+    af:
+    - af:AF_G11_riazi:4:f3043b
+    uk:
+    - uk:UK_ALEVEL:4:815e8d
+    - uk:UK_GCSE:2:fdc83a
+    - uk:UK_KS3:2:709d20
+    - uk:UK_KS4:2:1fc0b2
+- id: seq.recurrence
+  title:
+    fa-IR: دنباله‌های بازگشتی؛ دنبالهٔ صعودی، نزولی و متناوب
+    en: Recurrence relations; increasing, decreasing and periodic sequences
+  age:
+  - 16
+  - 18
+  requires:
+  - seq.concept
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G11_riazi:4:a2f846
+    uk:
+    - uk:UK_ALEVEL:4:4e67af
+- id: seq.sigma
+  title:
+    fa-IR: نماد سیگما (Σ)
+    en: Sigma notation
+  age:
+  - 16
+  - 18
+  requires:
+  - seq.concept
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G11_riazi:4:750f43
+    uk:
+    - uk:UK_ALEVEL:4:34f8d3
+- id: seq.arithmetic.sum
+  title:
+    fa-IR: مجموع جمله‌های دنبالهٔ حسابی
+    en: Sum of an arithmetic series
+  age:
+  - 16
+  - 18
+  requires:
+  - seq.arithmetic
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:1:a1055b
+    af:
+    - af:AF_G11_riazi:4:750f43
+    - af:AF_G11_riazi:4:512d1d
+    uk:
+    - uk:UK_ALEVEL:4:1cb349
+- id: seq.geometric.sum
+  title:
+    fa-IR: مجموع جمله‌های دنبالهٔ هندسی
+    en: Sum of a finite geometric series
+  age:
+  - 16
+  - 18
+  requires:
+  - seq.geometric
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:1:a1055b
+    af:
+    - af:AF_G11_riazi:4:0ef9d1
+    uk:
+    - uk:UK_ALEVEL:4:815e8d
+- id: seq.geometric.infinite
+  title:
+    fa-IR: مجموع جمله‌های دنبالهٔ هندسی نامتناهی
+    en: Sum to infinity of a convergent geometric series
+  age:
+  - 16
+  - 18
+  requires:
+  - seq.geometric.sum
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G11_riazi:4:14b837
+    uk:
+    - uk:UK_ALEVEL:4:815e8d
+- id: seq.modelling
+  title:
+    fa-IR: مدل‌سازی با دنباله‌ها
+    en: Modelling with sequences and series
+  age:
+  - 16
+  - 18
+  requires:
+  - seq.arithmetic
+  - seq.geometric
+  level: extension
+  align:
+    iran:
+    - iran:G12_riazi_amar3_humanities:2:41cecf
+    af: []
+    uk:
+    - uk:UK_ALEVEL:4:df7a11
+- id: seq.standard-sums
+  title:
+    fa-IR: مجموع اعداد طبیعی، مربع‌ها و مکعب‌ها
+    en: Sums of integers, squares and cubes
+  age:
+  - 16
+  - 18
+  requires:
+  - seq.sigma
+  - seq.arithmetic.sum
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_FURTHER:4:2cc78a
+- id: seq.differences
+  title:
+    fa-IR: روش تفاضل‌ها برای محاسبهٔ مجموع سری‌ها
+    en: Summing series by the method of differences
+  age:
+  - 16
+  - 18
+  requires:
+  - seq.sigma
+  - alg.partial-fractions
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_FURTHER:4:03c13f

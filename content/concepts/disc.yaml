@@ -1,0 +1,537 @@
+- id: disc.sets
+  title:
+    fa-IR: مفهوم مجموعه، عضو و نمایش مجموعه
+    en: Sets, elements and set notation
+  age:
+  - 13
+  - 15
+  requires: []
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:1:9e92b6
+    - iran:G09_gifted:1:8e3cfd
+    - iran:G09_gifted:1:3df04f
+    - iran:G09_riazi_nohom:1:8e3cfd
+    - iran:G09_riazi_nohom:1:8f2344
+    af:
+    - af:AF_G07_riazi:1:41ee41
+    uk: []
+- id: disc.sets.subset
+  title:
+    fa-IR: مجموعه‌های برابر و زیرمجموعه
+    en: Equal sets and subsets
+  age:
+  - 13
+  - 15
+  requires:
+  - disc.sets
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:1:28021b
+    - iran:G09_riazi_nohom:1:8f2344
+    af:
+    - af:AF_G07_riazi:1:455291
+    - af:AF_G07_riazi:1:e4bde7
+    uk: []
+- id: disc.sets.operations
+  title:
+    fa-IR: اجتماع، اشتراک و تفاضل مجموعه‌ها
+    en: Union, intersection and difference of sets
+  age:
+  - 11
+  - 16
+  requires:
+  - disc.sets.subset
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:1:b6f134
+    - iran:G09_riazi_nohom:1:b6f134
+    af:
+    - af:AF_G07_riazi:1:e4bde7
+    - af:AF_G07_riazi:1:c53a3e
+    uk:
+    - uk:UK_KS3:5:85ab90
+    - uk:UK_GCSE:5:805f32
+- id: disc.sets.complement
+  title:
+    fa-IR: مجموعهٔ مرجع و متمم یک مجموعه
+    en: Universal set and complement
+  age:
+  - 13
+  - 16
+  requires:
+  - disc.sets.operations
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:1:3e5410
+    af:
+    - af:AF_G07_riazi:1:c53a3e
+    - af:AF_G09_riazi:9:058c71
+    uk: []
+- id: disc.sets.venn
+  title:
+    fa-IR: نمودار ون و شمارش با مجموعه‌ها
+    en: Venn diagrams and enumerating sets
+  age:
+  - 11
+  - 16
+  requires:
+  - disc.sets.operations
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:1:849158
+    - iran:G09_riazi_nohom:1:b63c0e
+    af:
+    - af:AF_G09_riazi:9:6ec6ab
+    uk:
+    - uk:UK_KS3:5:85ab90
+    - uk:UK_GCSE:5:805f32
+- id: disc.sets.finite-infinite
+  title:
+    fa-IR: مجموعه‌های متناهی و نامتناهی
+    en: Finite and infinite sets
+  age:
+  - 11
+  - 16
+  requires:
+  - disc.sets
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:1:532c76
+    - iran:G09_gifted:1:8aeec6
+    af:
+    - af:AF_G07_riazi:1:312f9b
+    uk:
+    - uk:UK_KS3:1:c09dd4
+- id: disc.sets.algebra
+  title:
+    fa-IR: جبر مجموعه‌ها و قوانین دمورگان
+    en: Algebra of sets and De Morgan's laws
+  age:
+  - 17
+  - 17
+  requires:
+  - disc.sets.complement
+  - disc.logic
+  level: specialist
+  align:
+    iran:
+    - iran:G11_amar_ehtemal_math:1:bb124c
+    af: []
+    uk: []
+- id: disc.sets.cartesian-product
+  title:
+    fa-IR: زوج مرتب و حاصل‌ضرب دکارتی
+    en: Ordered pairs and the Cartesian product
+  age:
+  - 16
+  - 16
+  requires:
+  - disc.sets
+  - pos.coordinates
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G10_riazi:2:148cb7
+    - af:AF_G10_riazi:2:110d9e
+    uk: []
+- id: disc.relations
+  title:
+    fa-IR: رابطه و وارون یک رابطه
+    en: Relations and inverse relations
+  age:
+  - 16
+  - 16
+  requires:
+  - disc.sets.cartesian-product
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G10_riazi:2:19feda
+    uk: []
+- id: disc.relations.equivalence
+  title:
+    fa-IR: رابطهٔ هم‌ارزی
+    en: Equivalence relations
+  age:
+  - 16
+  - 16
+  requires:
+  - disc.relations
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G10_riazi:2:314bfe
+    uk: []
+- id: disc.reasoning
+  title:
+    fa-IR: استدلال استقرایی و استنتاجی
+    en: Inductive and deductive reasoning
+  age:
+  - 15
+  - 16
+  requires: []
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:3:ce8aec
+    - iran:G10_hendese1_math:1:ce8aec
+    af:
+    - af:AF_G10_riazi:9:2aa5c0
+    - af:AF_G10_riazi:9:522cb5
+    uk: []
+- id: disc.proof.counterexample
+  title:
+    fa-IR: رد کردن حکم با مثال نقض
+    en: Disproof by counterexample
+  age:
+  - 15
+  - 18
+  requires:
+  - disc.reasoning
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:3:ce8aec
+    - iran:G10_hendese1_math:1:ce8aec
+    af:
+    - af:AF_G10_riazi:9:522cb5
+    uk:
+    - uk:UK_ALEVEL:1:6f3f1c
+- id: disc.proof.direct
+  title:
+    fa-IR: اثبات مستقیم (استنتاجی) و اثبات جبری
+    en: Direct proof and algebraic argument
+  age:
+  - 14
+  - 18
+  requires:
+  - disc.reasoning
+  - alg.expressions
+  level: core
+  align:
+    iran:
+    - iran:G10_hendese1_math:1:ce8aec
+    - iran:G12_gosaste_math:1:03bbdd
+    af:
+    - af:AF_G10_riazi:9:522cb5
+    uk:
+    - uk:UK_ALEVEL:1:6f3f1c
+    - uk:UK_GCSE:2:5aac15
+    - uk:UK_KS4:2:fe10dd
+- id: disc.proof.exhaustion
+  title:
+    fa-IR: اثبات با بررسی همهٔ حالت‌ها
+    en: Proof by exhaustion (cases)
+  age:
+  - 16
+  - 18
+  requires:
+  - disc.proof.direct
+  level: extension
+  align:
+    iran:
+    - iran:G12_gosaste_math:1:03bbdd
+    af: []
+    uk:
+    - uk:UK_ALEVEL:1:6f3f1c
+- id: disc.proof.contradiction
+  title:
+    fa-IR: برهان خلف
+    en: Proof by contradiction
+  age:
+  - 16
+  - 18
+  requires:
+  - disc.proof.direct
+  - disc.logic.conditional
+  level: extension
+  align:
+    iran:
+    - iran:G10_hendese1_math:1:ce8aec
+    - iran:G12_gosaste_math:1:03bbdd
+    af:
+    - af:AF_G10_riazi:9:522cb5
+    uk:
+    - uk:UK_ALEVEL:1:6f3f1c
+- id: disc.proof.induction
+  title:
+    fa-IR: استقرای ریاضی
+    en: Proof by mathematical induction
+  age:
+  - 16
+  - 18
+  requires:
+  - disc.proof.direct
+  - seq.arithmetic
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G10_riazi:9:2aa5c0
+    uk:
+    - uk:UK_FURTHER:1:853942
+- id: disc.logic
+  title:
+    fa-IR: گزاره، ارزش گزاره و ترکیب گزاره‌ها
+    en: Statements, truth values and connectives
+  age:
+  - 16
+  - 17
+  requires: []
+  level: extension
+  align:
+    iran:
+    - iran:G11_amar_ehtemal_math:1:b18856
+    - iran:G11_riazi_amar2_humanities:1:e3465f
+    af:
+    - af:AF_G10_riazi:9:672d8a
+    uk: []
+- id: disc.logic.conditional
+  title:
+    fa-IR: گزاره‌های شرطی، دوشرطی، عکس و عکس نقیض
+    en: Conditionals, converse and contrapositive
+  age:
+  - 16
+  - 17
+  requires:
+  - disc.logic
+  level: extension
+  align:
+    iran:
+    - iran:G11_amar_ehtemal_math:1:b18856
+    - iran:G11_riazi_amar2_humanities:1:e3465f
+    af:
+    - af:AF_G10_riazi:9:672d8a
+    uk: []
+- id: disc.logic.quantifiers
+  title:
+    fa-IR: سورها و نقیض گزاره‌های سوری
+    en: Quantifiers and their negation
+  age:
+  - 17
+  - 17
+  requires:
+  - disc.logic
+  - disc.sets
+  level: specialist
+  align:
+    iran:
+    - iran:G11_amar_ehtemal_math:1:b18856
+    af: []
+    uk: []
+- id: disc.logic.argument
+  title:
+    fa-IR: استدلال ریاضی و قواعد استنتاج
+    en: Valid arguments and rules of inference
+  age:
+  - 16
+  - 17
+  requires:
+  - disc.logic.conditional
+  level: specialist
+  align:
+    iran:
+    - iran:G11_riazi_amar2_humanities:1:03bbdd
+    af:
+    - af:AF_G10_riazi:9:672d8a
+    uk: []
+- id: disc.nt.divisibility
+  title:
+    fa-IR: بخش‌پذیری در اعداد صحیح و الگوریتم تقسیم
+    en: Divisibility in the integers and the division algorithm
+  age:
+  - 18
+  - 18
+  requires:
+  - num.factors-multiples
+  - num.hcf-lcm
+  - disc.proof.direct
+  level: specialist
+  align:
+    iran:
+    - iran:G12_gosaste_math:1:fcf249
+    af: []
+    uk: []
+- id: disc.nt.congruence
+  title:
+    fa-IR: هم‌نهشتی به پیمانهٔ n و کاربردها
+    en: Congruence modulo n and its applications
+  age:
+  - 18
+  - 18
+  requires:
+  - disc.nt.divisibility
+  level: specialist
+  align:
+    iran:
+    - iran:G12_gosaste_math:1:52bb33
+    af: []
+    uk: []
+- id: disc.graph
+  title:
+    fa-IR: 'گراف: رأس، یال و درجه'
+    en: 'Graphs: vertices, edges and degree'
+  age:
+  - 13
+  - 18
+  requires: []
+  level: specialist
+  align:
+    iran:
+    - iran:G12_gosaste_math:2:7fecc0
+    - iran:G07_gifted_supplement:1:e9c34a
+    af: []
+    uk: []
+- id: disc.graph.modelling
+  title:
+    fa-IR: مدل‌سازی با گراف
+    en: Modelling with graphs
+  age:
+  - 18
+  - 18
+  requires:
+  - disc.graph
+  level: specialist
+  align:
+    iran:
+    - iran:G12_gosaste_math:2:648afb
+    af: []
+    uk: []
+- id: disc.counting.listing
+  title:
+    fa-IR: شمارش حالت‌های ممکن به‌صورت منظم
+    en: Systematic listing of possibilities
+  age:
+  - 11
+  - 16
+  requires: []
+  level: core
+  align:
+    iran:
+    - iran:G08_gifted_supplement:8:f217b2
+    - iran:G08_riazi_hashtom:8:f217b2
+    af: []
+    uk:
+    - uk:UK_Y06:5:cd0997
+    - uk:UK_GCSE:1:ecddd0
+    - uk:UK_KS4:1:baf3be
+- id: disc.counting
+  title:
+    fa-IR: اصل ضرب (اصل اساسی شمارش)
+    en: The product rule for counting
+  age:
+  - 14
+  - 18
+  requires:
+  - disc.counting.listing
+  - ops.mul-div.facts
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:6:fc8609
+    - iran:G12_riazi_amar3_humanities:1:fc8609
+    af:
+    - af:AF_G09_riazi:9:89d76e
+    - af:AF_G12_riazi:8:0a1139
+    uk:
+    - uk:UK_GCSE:1:ecddd0
+    - uk:UK_KS4:1:baf3be
+- id: disc.counting.permutations
+  title:
+    fa-IR: جایگشت و فاکتوریل
+    en: Permutations and factorial notation
+  age:
+  - 16
+  - 18
+  requires:
+  - disc.counting
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:6:7e4f98
+    - iran:G12_riazi_amar3_humanities:1:fc8609
+    af:
+    - af:AF_G11_riazi:9:1444ee
+    - af:AF_G11_riazi:9:22a6a2
+    uk:
+    - uk:UK_ALEVEL:4:de4373
+- id: disc.counting.combinations
+  title:
+    fa-IR: ترکیب (انتخاب r از n)
+    en: Combinations (nCr)
+  age:
+  - 16
+  - 18
+  requires:
+  - disc.counting.permutations
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:6:fddfff
+    - iran:G12_riazi_amar3_humanities:1:fc8609
+    af:
+    - af:AF_G11_riazi:9:f761dd
+    - af:AF_G11_riazi:9:fddfff
+    uk:
+    - uk:UK_ALEVEL:4:de4373
+- id: disc.counting.binomial-theorem
+  title:
+    fa-IR: بسط دوجمله‌ای و ضرایب آن
+    en: The binomial theorem as counting
+  age:
+  - 16
+  - 18
+  requires:
+  - disc.counting.combinations
+  - alg.expressions
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G11_riazi:9:3218f7
+    uk:
+    - uk:UK_ALEVEL:4:de4373
+- id: disc.counting.inclusion-exclusion
+  title:
+    fa-IR: اصل شمول و عدم شمول
+    en: Inclusion–exclusion principle
+  age:
+  - 17
+  - 18
+  requires:
+  - disc.sets.venn
+  - disc.counting.combinations
+  level: specialist
+  align:
+    iran:
+    - iran:G11_amar_ehtemal_math:1:bb124c
+    - iran:G12_gosaste_math:3:99ed0b
+    af: []
+    uk: []
+- id: disc.counting.pigeonhole
+  title:
+    fa-IR: اصل لانهٔ کبوتری و مباحثی در ترکیبیات
+    en: Pigeonhole principle and further combinatorics
+  age:
+  - 18
+  - 18
+  requires:
+  - disc.counting.combinations
+  - disc.proof.contradiction
+  level: specialist
+  align:
+    iran:
+    - iran:G12_gosaste_math:3:131cee
+    - iran:G12_gosaste_math:3:99ed0b
+    af: []
+    uk: []

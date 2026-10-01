@@ -1,0 +1,666 @@
+- id: func.relation
+  title:
+    fa-IR: رابطه، زوج مرتب و حاصل‌ضرب دکارتی
+    en: Relations, ordered pairs and Cartesian products
+  age:
+  - 14
+  - 16
+  requires:
+  - pos.coordinates
+  - disc.sets
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G08_riazi:9:a536ac
+    - af:AF_G08_riazi:9:8b7d37
+    - af:AF_G10_riazi:2:148cb7
+    - af:AF_G10_riazi:2:110d9e
+    - af:AF_G10_riazi:2:19feda
+    - af:AF_G10_riazi:2:314bfe
+    uk: []
+- id: func.concept
+  title:
+    fa-IR: مفهوم تابع و بازنمایی‌های آن
+    en: The function concept and its representations
+  age:
+  - 14
+  - 17
+  requires:
+  - seq.input-output
+  - pos.coordinates
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:5:06415c
+    - iran:G10_riazi_amar1_humanities:2:1f1776
+    - iran:G11_hesaban1_math:2:da35bc
+    af:
+    - af:AF_G08_riazi:9:8b7d37
+    - af:AF_G10_riazi:3:2e0836
+    uk:
+    - uk:UK_GCSE:2:a9f835
+    - uk:UK_KS4:2:14ce29
+- id: func.notation
+  title:
+    fa-IR: نماد f(x) و ضابطهٔ جبری تابع
+    en: Function notation and algebraic rules
+  age:
+  - 14
+  - 17
+  requires:
+  - func.concept
+  - alg.substitution
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi_amar1_humanities:2:e29c4b
+    - iran:G11_hesaban1_math:2:da35bc
+    af:
+    - af:AF_G10_riazi:3:2e0836
+    uk:
+    - uk:UK_GCSE:2:a9f835
+    - uk:UK_KS4:2:14ce29
+- id: func.domain-range
+  title:
+    fa-IR: دامنه و برد تابع
+    en: Domain and range
+  age:
+  - 16
+  - 17
+  requires:
+  - func.notation
+  - alg.inequalities.concept
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:5:b7dadf
+    - iran:G11_hesaban1_math:2:da35bc
+    af:
+    - af:AF_G10_riazi:3:2e0836
+    uk: []
+- id: func.graph
+  title:
+    fa-IR: نمودار تابع و تشخیص تابع از روی نمودار
+    en: Graphs of functions and the vertical-line test
+  age:
+  - 11
+  - 17
+  requires:
+  - func.concept
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:5:06415c
+    - iran:G11_hesaban1_math:2:da35bc
+    af:
+    - af:AF_G10_riazi:3:2e0836
+    uk:
+    - uk:UK_KS3:2:77018b
+    - uk:UK_KS3:2:1cf13a
+- id: func.linear-graphs
+  title:
+    fa-IR: تابع خطی و نمودار آن
+    en: Linear functions and their graphs
+  age:
+  - 11
+  - 16
+  requires:
+  - func.graph
+  - alg.linear-equations
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:6:2940ad
+    - iran:G10_riazi1_math_science:5:049f2c
+    - iran:G10_riazi_amar1_humanities:2:396491
+    af:
+    - af:AF_G08_riazi:9:8b7d37
+    - af:AF_G10_riazi:3:49b920
+    uk:
+    - uk:UK_GCSE:2:9d2f31
+    - uk:UK_GCSE:2:58b121
+    - uk:UK_KS3:2:77018b
+    - uk:UK_KS3:2:2920cb
+    - uk:UK_KS4:2:99adb1
+- id: func.piecewise
+  title:
+    fa-IR: توابع ثابت، همانی و چندضابطه‌ای
+    en: Constant, identity and piecewise functions
+  age:
+  - 11
+  - 17
+  requires:
+  - func.linear-graphs
+  - func.domain-range
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:5:049f2c
+    - iran:G11_hesaban1_math:2:ea74f8
+    - iran:G11_riazi2_science:3:7768ff
+    - iran:G11_riazi_amar2_humanities:2:f91cff
+    af:
+    - af:AF_G10_riazi:3:825878
+    uk:
+    - uk:UK_KS3:2:41bda6
+- id: func.step
+  title:
+    fa-IR: تابع پله‌ای و جزء صحیح
+    en: Step functions and the integer-part (floor) function
+  age:
+  - 16
+  - 17
+  requires:
+  - func.piecewise
+  level: extension
+  align:
+    iran:
+    - iran:G11_hesaban1_math:2:ea74f8
+    - iran:G11_riazi2_science:3:7768ff
+    - iran:G11_riazi_amar2_humanities:2:b6c7ee
+    af:
+    - af:AF_G10_riazi:3:825878
+    uk: []
+- id: func.modulus
+  title:
+    fa-IR: تابع قدر مطلق و معادله‌های قدر مطلقی
+    en: The modulus (absolute value) function and equations
+  age:
+  - 16
+  - 18
+  requires:
+  - func.piecewise
+  - num.negative
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:1:cf8148
+    - iran:G11_riazi_amar2_humanities:2:b6c7ee
+    af:
+    - af:AF_G10_riazi:3:825878
+    uk:
+    - uk:UK_ALEVEL:2:f97a35
+- id: func.quadratic-graphs
+  title:
+    fa-IR: تابع درجهٔ دوم و سهمی
+    en: Quadratic functions and parabolas
+  age:
+  - 11
+  - 18
+  requires:
+  - func.linear-graphs
+  - alg.quadratic-equations
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:4:a1dd45
+    - iran:G10_riazi_amar1_humanities:2:04c807
+    - iran:G11_riazi2_science:1:93fb38
+    af:
+    - af:AF_G09_riazi:7:d44018
+    - af:AF_G10_riazi:3:49b920
+    - af:AF_G12_riazi:3:734882
+    uk:
+    - uk:UK_ALEVEL:2:7cc3ce
+    - uk:UK_GCSE:2:e5e224
+    - uk:UK_GCSE:2:41f74d
+    - uk:UK_KS3:2:77018b
+    - uk:UK_KS4:2:79ce15
+    - uk:UK_KS4:2:134d39
+- id: func.quadratic.vertex
+  title:
+    fa-IR: رأس سهمی و محور تقارن با روش مربع کامل
+    en: Turning point and axis of symmetry by completing the square
+  age:
+  - 14
+  - 18
+  requires:
+  - func.quadratic-graphs
+  - alg.quadratic.complete-square
+  level: core
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:4:a1dd45
+    - iran:G11_riazi2_science:1:93fb38
+    af: []
+    uk:
+    - uk:UK_ALEVEL:2:7cc3ce
+    - uk:UK_GCSE:2:e5e224
+    - uk:UK_KS4:2:79ce15
+- id: func.graphical-solution
+  title:
+    fa-IR: حل معادله و دستگاه معادله با رسم نمودار
+    en: Solving equations graphically from intersections
+  age:
+  - 11
+  - 18
+  requires:
+  - func.linear-graphs
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:2:f97a35
+    - uk:UK_GCSE:2:475858
+    - uk:UK_GCSE:2:68a80e
+    - uk:UK_GCSE:2:f60c32
+    - uk:UK_KS3:2:df31ed
+    - uk:UK_KS4:2:0d2b45
+    - uk:UK_KS4:2:71f8e1
+- id: func.cubic
+  title:
+    fa-IR: تابع درجهٔ سوم و نمودار آن
+    en: Cubic functions and their graphs
+  age:
+  - 14
+  - 18
+  requires:
+  - func.quadratic-graphs
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:1:06772d
+    - iran:G12_riazi3_science:1:0b2795
+    af:
+    - af:AF_G12_riazi:3:7953bb
+    uk:
+    - uk:UK_GCSE:2:41f74d
+    - uk:UK_KS4:2:134d39
+- id: func.polynomial-sketch
+  title:
+    fa-IR: رسم نمودار چندجمله‌ای‌ها با کمک ریشه‌ها
+    en: Sketching polynomial curves from their roots
+  age:
+  - 16
+  - 18
+  requires:
+  - func.cubic
+  - alg.remainder-factor
+  level: extension
+  align:
+    iran:
+    - iran:G12_riazi3_science:1:0b2795
+    af: []
+    uk:
+    - uk:UK_ALEVEL:2:f97a35
+- id: func.reciprocal
+  title:
+    fa-IR: تابع y = k/x و نمودار آن
+    en: The reciprocal function y = k/x
+  age:
+  - 11
+  - 18
+  requires:
+  - func.graph
+  - ratio.proportion.inverse
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:2:f97a35
+    - uk:UK_GCSE:2:41f74d
+    - uk:UK_GCSE:2:22bb82
+    - uk:UK_KS3:2:41bda6
+    - uk:UK_KS4:2:134d39
+    - uk:UK_KS4:2:1f9155
+- id: func.rational
+  title:
+    fa-IR: توابع گویا و مجانب‌ها
+    en: Rational functions and asymptotes
+  age:
+  - 16
+  - 18
+  requires:
+  - func.reciprocal
+  - alg.fractions.simplify
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G10_riazi:3:84b9da
+    - af:AF_G12_riazi:3:be36ba
+    - af:AF_G12_riazi:3:54db97
+    uk:
+    - uk:UK_ALEVEL:2:f97a35
+- id: func.monotonic
+  title:
+    fa-IR: توابع صعودی و نزولی (یکنوا)
+    en: Increasing and decreasing functions
+  age:
+  - 16
+  - 18
+  requires:
+  - func.graph
+  level: extension
+  align:
+    iran:
+    - iran:G12_hesaban2_math:1:06772d
+    - iran:G12_riazi3_science:1:0b2795
+    af:
+    - af:AF_G10_riazi:3:52f3cc
+    uk: []
+- id: func.even-odd
+  title:
+    fa-IR: توابع زوج و فرد
+    en: Even and odd functions
+  age:
+  - 16
+  - 16
+  requires:
+  - func.graph
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G10_riazi:3:52f3cc
+    uk: []
+- id: func.operations
+  title:
+    fa-IR: اعمال جبری روی توابع
+    en: Sum, difference, product and quotient of functions
+  age:
+  - 16
+  - 17
+  requires:
+  - func.domain-range
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:2:6e442e
+    - iran:G11_riazi2_science:3:aa5822
+    - iran:G11_riazi_amar2_humanities:2:b593d6
+    af:
+    - af:AF_G10_riazi:3:7e8212
+    uk: []
+- id: func.inverse-composite
+  title:
+    fa-IR: ماشین‌های پشت‌سرهم و ماشین معکوس
+    en: Composite and inverse functions as function machines
+  age:
+  - 14
+  - 16
+  requires:
+  - func.notation
+  - seq.input-output
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:2:a9f835
+    - uk:UK_KS4:2:14ce29
+- id: func.composite
+  title:
+    fa-IR: ترکیب توابع
+    en: Composition of functions
+  age:
+  - 16
+  - 18
+  requires:
+  - func.inverse-composite
+  - func.domain-range
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:2:6e442e
+    - iran:G12_riazi3_science:1:19b9d9
+    af:
+    - af:AF_G10_riazi:3:23eefb
+    uk:
+    - uk:UK_ALEVEL:2:767f57
+- id: func.inverse
+  title:
+    fa-IR: تابع یک‌به‌یک و تابع وارون
+    en: One-to-one functions and inverse functions
+  age:
+  - 16
+  - 18
+  requires:
+  - func.inverse-composite
+  - func.domain-range
+  - func.relation
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:2:9429eb
+    - iran:G11_riazi2_science:3:e7e25d
+    - iran:G12_riazi3_science:1:a202d2
+    af:
+    - af:AF_G10_riazi:2:19feda
+    - af:AF_G10_riazi:3:23eefb
+    uk:
+    - uk:UK_ALEVEL:2:767f57
+- id: func.transform.translate
+  title:
+    fa-IR: انتقال نمودار توابع
+    en: 'Translating graphs: y = f(x) + a and y = f(x + a)'
+  age:
+  - 14
+  - 18
+  requires:
+  - func.notation
+  - func.quadratic-graphs
+  - pos.transformations
+  level: core
+  align:
+    iran:
+    - iran:G12_hesaban2_math:1:9111a3
+    af:
+    - af:AF_G10_riazi:3:387a5a
+    uk:
+    - uk:UK_ALEVEL:2:e1ce99
+    - uk:UK_GCSE:2:932ec5
+    - uk:UK_KS4:2:c553fa
+- id: func.transform.reflect-stretch
+  title:
+    fa-IR: قرینه و انبساط و انقباض نمودار توابع
+    en: 'Reflecting and stretching graphs: y = −f(x), af(x), f(ax)'
+  age:
+  - 14
+  - 18
+  requires:
+  - func.transform.translate
+  level: extension
+  align:
+    iran:
+    - iran:G12_hesaban2_math:1:9111a3
+    af: []
+    uk:
+    - uk:UK_ALEVEL:2:e1ce99
+    - uk:UK_GCSE:2:932ec5
+    - uk:UK_KS4:2:c553fa
+- id: func.transform.combined
+  title:
+    fa-IR: ترکیب تبدیل‌های نمودار
+    en: Combining graph transformations
+  age:
+  - 16
+  - 18
+  requires:
+  - func.transform.reflect-stretch
+  level: extension
+  align:
+    iran:
+    - iran:G12_hesaban2_math:1:9111a3
+    af:
+    - af:AF_G10_riazi:3:387a5a
+    uk:
+    - uk:UK_ALEVEL:2:e1ce99
+- id: func.exponential
+  title:
+    fa-IR: تابع نمایی و نمودار آن
+    en: Exponential functions and their graphs
+  age:
+  - 11
+  - 18
+  requires:
+  - func.graph
+  - num.powers
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:3:20129f
+    - iran:G11_riazi2_science:5:cb14f3
+    - iran:G12_riazi_amar3_humanities:3:20129f
+    af:
+    - af:AF_G11_riazi:5:b6f90f
+    uk:
+    - uk:UK_ALEVEL:6:799d3e
+    - uk:UK_GCSE:2:41f74d
+    - uk:UK_GCSE:2:22bb82
+    - uk:UK_KS3:2:41bda6
+    - uk:UK_KS4:2:134d39
+    - uk:UK_KS4:2:1f9155
+- id: func.exponential.e
+  title:
+    fa-IR: عدد e و تابع نمایی طبیعی
+    en: The number e and the function eˣ
+  age:
+  - 16
+  - 18
+  requires:
+  - func.exponential
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G11_riazi:5:e30c8b
+    uk:
+    - uk:UK_ALEVEL:6:799d3e
+    - uk:UK_ALEVEL:6:4be933
+- id: func.exponential.modelling
+  title:
+    fa-IR: رشد و زوال نمایی
+    en: Exponential growth and decay models
+  age:
+  - 14
+  - 18
+  requires:
+  - func.exponential
+  - frac.percent
+  level: core
+  align:
+    iran:
+    - iran:G11_riazi2_science:5:41b81a
+    - iran:G12_riazi_amar3_humanities:3:20129f
+    af: []
+    uk:
+    - uk:UK_ALEVEL:6:c97ffa
+    - uk:UK_GCSE:3:2df8ec
+    - uk:UK_KS4:3:87a952
+- id: func.logarithm
+  title:
+    fa-IR: لگاریتم و تابع لگاریتمی
+    en: Logarithms and the logarithmic function
+  age:
+  - 16
+  - 18
+  requires:
+  - func.exponential
+  - func.inverse
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:3:796863
+    - iran:G11_riazi2_science:5:98ede4
+    - iran:G11_riazi2_science:5:41b81a
+    af:
+    - af:AF_G11_riazi:5:cc84cb
+    - af:AF_G11_riazi:5:404e79
+    - af:AF_G11_riazi:5:e30c8b
+    uk:
+    - uk:UK_ALEVEL:6:416333
+- id: func.logarithm.laws
+  title:
+    fa-IR: ویژگی‌های لگاریتم و تغییر پایه
+    en: Laws of logarithms and change of base
+  age:
+  - 16
+  - 18
+  requires:
+  - func.logarithm
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:3:1afd10
+    af:
+    - af:AF_G11_riazi:5:ea18e3
+    - af:AF_G11_riazi:5:4e531e
+    uk:
+    - uk:UK_ALEVEL:6:c32ca2
+- id: func.logarithm.equations
+  title:
+    fa-IR: معادله‌های نمایی و لگاریتمی
+    en: Exponential and logarithmic equations
+  age:
+  - 16
+  - 18
+  requires:
+  - func.logarithm.laws
+  level: core
+  align:
+    iran:
+    - iran:G11_hesaban1_math:3:1afd10
+    af:
+    - af:AF_G11_riazi:5:abd7b5
+    uk:
+    - uk:UK_ALEVEL:6:c97d0a
+- id: func.log-linear
+  title:
+    fa-IR: خطی‌سازی با لگاریتم و برآورد پارامترها
+    en: Using logarithmic graphs to estimate parameters
+  age:
+  - 16
+  - 18
+  requires:
+  - func.logarithm.laws
+  - func.linear-graphs
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:6:4368f1
+- id: func.modelling
+  title:
+    fa-IR: نمودارهای واقعی و مدل‌سازی با توابع
+    en: Real-life graphs and modelling with functions
+  age:
+  - 11
+  - 18
+  requires:
+  - func.graph
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:2:f7825b
+    - uk:UK_GCSE:2:22bb82
+    - uk:UK_GCSE:2:431f69
+    - uk:UK_KS3:2:3040b3
+    - uk:UK_KS3:2:1cf13a
+    - uk:UK_KS3:2:41bda6
+    - uk:UK_KS4:2:1f9155
+    - uk:UK_KS4:2:785269
+- id: func.hyperbolic
+  title:
+    fa-IR: توابع هذلولوی و وارون آن‌ها
+    en: Hyperbolic functions and their inverses
+  age:
+  - 16
+  - 18
+  requires:
+  - func.exponential.e
+  - func.inverse
+  level: specialist
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_FURTHER:8:33b01a
+    - uk:UK_FURTHER:8:1fb9a0
+    - uk:UK_FURTHER:8:cd743a

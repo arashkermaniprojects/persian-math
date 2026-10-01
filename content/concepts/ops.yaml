@@ -1,0 +1,781 @@
+- id: ops.add.concept
+  title:
+    fa-IR: مفهوم جمع و علامت‌های + و =
+    en: 'Meaning of addition: combining groups, + and ='
+  age:
+  - 6
+  - 7
+  requires:
+  - num.count.to-10
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:3:3eb3f9
+    - iran:G01_riazi_aval:13:b6d508
+    af:
+    - af:AF_G01_riazi:3:a1bcf7
+    uk:
+    - uk:UK_Y01:2:08c56e
+- id: ops.sub.concept
+  title:
+    fa-IR: 'مفهوم تفریق: برداشتن و مقایسه'
+    en: 'Meaning of subtraction: take away and difference'
+  age:
+  - 6
+  - 7
+  requires:
+  - ops.add.concept
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:14:c301d1
+    af:
+    - af:AF_G01_riazi:4:b4a376
+    uk:
+    - uk:UK_Y01:2:08c56e
+- id: ops.add-sub.within-10
+  title:
+    fa-IR: جمع و تفریق تا ۱۰ (حقایق عددی)
+    en: Addition and subtraction facts within 10
+  age:
+  - 6
+  - 7
+  requires:
+  - ops.sub.concept
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:13:b6d508
+    - iran:G01_riazi_aval:14:c301d1
+    af:
+    - af:AF_G01_riazi:3:a1bcf7
+    - af:AF_G01_riazi:4:b4a376
+    uk:
+    - uk:UK_Y01:2:674c24
+- id: ops.add-sub.within-20
+  title:
+    fa-IR: جمع و تفریق تا ۲۰ و عبور از ده
+    en: Addition and subtraction within 20, bridging through 10
+  age:
+  - 6
+  - 7
+  requires:
+  - ops.add-sub.within-10
+  - num.count.to-20
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:17:12b5cb
+    - iran:G01_riazi_aval:18:83cae4
+    - iran:G01_riazi_aval:24:6410f7
+    af: []
+    uk:
+    - uk:UK_Y01:2:674c24
+    - uk:UK_Y01:2:cfbcc6
+    - uk:UK_Y02:2:455236
+- id: ops.add.three-addends
+  title:
+    fa-IR: جمع سه عدد یا بیشتر
+    en: Adding three or more numbers
+  age:
+  - 7
+  - 9
+  requires:
+  - ops.add-sub.within-10
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:14:c301d1
+    - iran:G01_riazi_aval:17:12b5cb
+    af:
+    - af:AF_G02_riazi:2:886efd
+    - af:AF_G02_riazi:3:7720e3
+    - af:AF_G03_riazi:3:ba0e23
+    uk:
+    - uk:UK_Y02:2:d7589f
+- id: ops.add-sub.number-line
+  title:
+    fa-IR: جمع و تفریق روی محور اعداد
+    en: Adding and subtracting on a number line
+  age:
+  - 7
+  - 9
+  requires:
+  - ops.add-sub.within-10
+  - num.number-line
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:17:12b5cb
+    - iran:G01_riazi_aval:19:663345
+    af:
+    - af:AF_G03_riazi:5:ec55fb
+    - af:AF_G03_riazi:5:c65175
+    uk: []
+- id: ops.add.properties
+  title:
+    fa-IR: خاصیت‌های جمع (جابه‌جایی، شرکت‌پذیری، عضو صفر)
+    en: Properties of addition (commutative, associative, zero)
+  age:
+  - 7
+  - 11
+  requires:
+  - ops.add-sub.within-10
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G02_riazi:2:e59cc1
+    - af:AF_G05_riazi:1:a4ecaa
+    - af:AF_G05_riazi:1:477631
+    uk:
+    - uk:UK_Y02:2:185314
+- id: ops.add-sub.inverse
+  title:
+    fa-IR: رابطهٔ جمع و تفریق و پیدا کردن عدد مجهول
+    en: Inverse relationship of addition and subtraction; missing numbers
+  age:
+  - 6
+  - 16
+  requires:
+  - ops.add-sub.within-20
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:1:cf1239
+    af:
+    - af:AF_G02_riazi:2:46d341
+    - af:AF_G02_riazi:4:ed8d2f
+    uk:
+    - uk:UK_GCSE:1:f9da28
+    - uk:UK_KS3:1:dbc8e4
+    - uk:UK_Y01:2:691f20
+    - uk:UK_Y02:2:dcbb06
+- id: ops.add-sub.tens
+  title:
+    fa-IR: جمع و تفریق ده‌تایی‌ها و صدتایی‌ها
+    en: Adding and subtracting multiples of 10 and 100
+  age:
+  - 7
+  - 8
+  requires:
+  - num.place-value.to-100
+  - ops.add-sub.within-10
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:19:663345
+    - iran:G01_riazi_aval:21:36991b
+    - iran:G01_riazi_aval:22:f782a5
+    - iran:G02_riazi_dovom:2:e7ed2c
+    af:
+    - af:AF_G01_riazi:8:48b66b
+    - af:AF_G02_riazi:6:f93884
+    - af:AF_G02_riazi:6:fd76ac
+    uk:
+    - uk:UK_Y02:2:d7589f
+    - uk:UK_Y03:2:c0912e
+- id: ops.add-sub.mental
+  title:
+    fa-IR: جمع و تفریق ذهنی عددهای دورقمی و سه‌رقمی
+    en: Mental addition and subtraction strategies
+  age:
+  - 7
+  - 11
+  requires:
+  - ops.add-sub.tens
+  - ops.add-sub.within-20
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:23:27d625
+    - iran:G02_riazi_dovom:1:cf1239
+    - iran:G02_riazi_dovom:2:cf1239
+    - iran:G02_riazi_dovom:4:3bd259
+    - iran:G03_riazi_sevom:6:cf1239
+    af:
+    - af:AF_G01_riazi:9:96d6b4
+    - af:AF_G01_riazi:10:1fd6a0
+    - af:AF_G02_riazi:2:94fca0
+    - af:AF_G02_riazi:2:ad056d
+    uk:
+    - uk:UK_Y02:2:455236
+    - uk:UK_Y02:2:d7589f
+    - uk:UK_Y03:2:c0912e
+    - uk:UK_Y05:2:080b2c
+    - uk:UK_Y06:2:8280e2
+- id: ops.add-sub.regroup
+  title:
+    fa-IR: جمع و تفریق دو عدد دورقمی با انتقال و قرض گرفتن
+    en: Two-digit addition and subtraction with regrouping
+  age:
+  - 8
+  - 8
+  requires:
+  - ops.add-sub.mental
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:2:e3895c
+    - iran:G02_riazi_dovom:2:70a819
+    af:
+    - af:AF_G02_riazi:3:cdc087
+    - af:AF_G02_riazi:3:96085b
+    - af:AF_G02_riazi:3:7720e3
+    - af:AF_G02_riazi:4:7f36dc
+    - af:AF_G02_riazi:4:96564b
+    uk: []
+- id: ops.add-sub.written
+  title:
+    fa-IR: جمع و تفریق ستونی در جدول ارزش مکانی
+    en: Column addition and subtraction (formal written method)
+  age:
+  - 8
+  - 16
+  requires:
+  - ops.add-sub.regroup
+  - num.place-value.to-1000
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:6:285a4a
+    - iran:G02_riazi_dovom:6:3d0697
+    - iran:G02_riazi_dovom:6:4dae7f
+    - iran:G03_riazi_sevom:6:3d0697
+    - iran:G03_riazi_sevom:6:4dae7f
+    af:
+    - af:AF_G02_riazi:6:55bcd5
+    - af:AF_G02_riazi:6:ac7107
+    - af:AF_G02_riazi:6:023a5d
+    - af:AF_G02_riazi:6:03fa8b
+    - af:AF_G02_riazi:6:06ac06
+    - af:AF_G03_riazi:3:8c4be9
+    - af:AF_G03_riazi:4:c3ca97
+    - af:AF_G03_riazi:4:8f1eb7
+    uk:
+    - uk:UK_GCSE:1:fed0ed
+    - uk:UK_KS3:1:607fa0
+    - uk:UK_Y03:2:516e24
+    - uk:UK_Y04:2:75114f
+- id: ops.add-sub.written-large
+  title:
+    fa-IR: جمع و تفریق عددهای چندرقمی بزرگ
+    en: Adding and subtracting large multi-digit numbers
+  age:
+  - 9
+  - 11
+  requires:
+  - ops.add-sub.written
+  - num.place-value.large
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G03_riazi:3:9ace21
+    - af:AF_G04_riazi:1:a2b171
+    - af:AF_G04_riazi:1:2656db
+    - af:AF_G04_riazi:3:d1b714
+    - af:AF_G04_riazi:3:3afea0
+    - af:AF_G05_riazi:1:232642
+    - af:AF_G05_riazi:1:f40e4c
+    - af:AF_G05_riazi:1:495f1b
+    - af:AF_G05_riazi:1:b58f4a
+    uk:
+    - uk:UK_Y05:2:52ab6b
+- id: ops.add-sub.abacus
+  title:
+    fa-IR: جمع و تفریق با چرتکه
+    en: Adding and subtracting with an abacus
+  age:
+  - 8
+  - 8
+  requires:
+  - num.place-value.to-100
+  - ops.add-sub.within-20
+  level: specialist
+  align:
+    iran: []
+    af:
+    - af:AF_G02_riazi:4:cf7f52
+    - af:AF_G02_riazi:4:56c13c
+    uk: []
+- id: ops.check.add-sub
+  title:
+    fa-IR: امتحان (وارسی) درستی جمع و تفریق
+    en: Checking addition and subtraction with the inverse operation
+  age:
+  - 7
+  - 11
+  requires:
+  - ops.add-sub.inverse
+  - ops.add-sub.written
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G02_riazi:4:ed8d2f
+    - af:AF_G02_riazi:4:e3ff7b
+    - af:AF_G03_riazi:3:50b2e4
+    - af:AF_G03_riazi:4:49aa8c
+    - af:AF_G04_riazi:3:5e1a77
+    - af:AF_G04_riazi:3:9ba0ab
+    - af:AF_G05_riazi:1:c9e082
+    - af:AF_G05_riazi:1:a959ec
+    uk:
+    - uk:UK_Y02:2:dcbb06
+    - uk:UK_Y03:2:40cb74
+    - uk:UK_Y04:2:7018db
+- id: ops.estimate
+  title:
+    fa-IR: تخمین حاصل و محاسبهٔ تقریبی
+    en: Estimating answers to calculations
+  age:
+  - 8
+  - 16
+  requires:
+  - num.rounding
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:3:e0c347
+    - iran:G06_riazi_sheshom:7:a304eb
+    af:
+    - af:AF_G03_riazi:1:a4b6a9
+    - af:AF_G04_riazi:1:b330b2
+    uk:
+    - uk:UK_GCSE:1:aeb68a
+    - uk:UK_KS3:1:51dc70
+    - uk:UK_Y03:2:40cb74
+    - uk:UK_Y04:2:7018db
+    - uk:UK_Y05:2:c1ad09
+    - uk:UK_Y06:2:bda9c3
+- id: ops.calculator
+  title:
+    fa-IR: استفاده از ماشین‌حساب و تفسیر نتیجه
+    en: Using a calculator and interpreting the result
+  age:
+  - 7
+  - 16
+  requires:
+  - ops.estimate
+  level: specialist
+  align:
+    iran:
+    - iran:G01_riazi_aval:23:27d625
+    af: []
+    uk:
+    - uk:UK_GCSE:1:aeb68a
+    - uk:UK_KS3:1:302c10
+- id: ops.mul.concept
+  title:
+    fa-IR: 'مفهوم ضرب: جمع تکراری، دسته‌های مساوی و آرایه'
+    en: 'Meaning of multiplication: repeated addition, equal groups and arrays'
+  age:
+  - 6
+  - 9
+  requires:
+  - num.count.skip
+  - ops.add-sub.within-20
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:4:c3af40
+    af:
+    - af:AF_G02_riazi:7:d62853
+    - af:AF_G02_riazi:7:189fe3
+    - af:AF_G02_riazi:7:c3af40
+    - af:AF_G02_riazi:7:d357c2
+    - af:AF_G02_riazi:7:4026fb
+    - af:AF_G03_riazi:6:1e3372
+    uk:
+    - uk:UK_Y01:3:bed8af
+    - uk:UK_Y02:3:a9a3cf
+    - uk:UK_Y02:3:49620c
+- id: ops.div.concept
+  title:
+    fa-IR: 'مفهوم تقسیم: تقسیم مساوی و دسته‌بندی'
+    en: 'Meaning of division: sharing and grouping'
+  age:
+  - 6
+  - 9
+  requires:
+  - ops.mul.concept
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:4:73e55d
+    af:
+    - af:AF_G02_riazi:7:f0fa07
+    - af:AF_G02_riazi:7:f5ee38
+    - af:AF_G02_riazi:7:c65d94
+    - af:AF_G03_riazi:10:d4922c
+    uk:
+    - uk:UK_Y01:3:bed8af
+    - uk:UK_Y02:3:a9a3cf
+- id: ops.mul-div.inverse
+  title:
+    fa-IR: رابطهٔ ضرب و تقسیم
+    en: Inverse relationship of multiplication and division
+  age:
+  - 8
+  - 16
+  requires:
+  - ops.div.concept
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:4:73e55d
+    af:
+    - af:AF_G02_riazi:7:43c405
+    - af:AF_G03_riazi:10:e951c0
+    uk:
+    - uk:UK_GCSE:1:f9da28
+    - uk:UK_KS3:1:dbc8e4
+- id: ops.mul-div.facts.2-5-10
+  title:
+    fa-IR: جدول ضرب ۲، ۵ و ۱۰
+    en: Multiplication and division facts for 2, 5 and 10
+  age:
+  - 7
+  - 7
+  requires:
+  - ops.mul.concept
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y02:3:158e5c
+    - uk:UK_Y02:3:a9a3cf
+- id: ops.mul-div.facts
+  title:
+    fa-IR: جدول ضرب و حقایق تقسیم
+    en: Multiplication tables and related division facts
+  age:
+  - 8
+  - 9
+  requires:
+  - ops.mul-div.facts.2-5-10
+  - ops.div.concept
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:4:29620d
+    af:
+    - af:AF_G03_riazi:6:0a7917
+    - af:AF_G03_riazi:6:e00ea2
+    - af:AF_G03_riazi:6:dd91ac
+    uk:
+    - uk:UK_Y03:3:b768d9
+    - uk:UK_Y04:3:07338e
+- id: ops.mul.properties
+  title:
+    fa-IR: خاصیت‌های ضرب (جابه‌جایی، شرکت‌پذیری، توزیع‌پذیری)
+    en: Properties of multiplication (commutative, associative, distributive)
+  age:
+  - 7
+  - 11
+  requires:
+  - ops.mul.concept
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:4:a12182
+    af:
+    - af:AF_G02_riazi:7:0824aa
+    - af:AF_G03_riazi:6:ccb8fa
+    - af:AF_G05_riazi:2:4b98a9
+    - af:AF_G05_riazi:2:a691a1
+    uk:
+    - uk:UK_Y02:3:bff5ee
+    - uk:UK_Y04:3:408bc3
+    - uk:UK_Y04:3:d97b3e
+- id: ops.mul-div.zero-one
+  title:
+    fa-IR: ضرب و تقسیم با صفر و یک
+    en: Multiplying and dividing with 0 and 1
+  age:
+  - 8
+  - 11
+  requires:
+  - ops.div.concept
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G02_riazi:7:2af2b3
+    - af:AF_G02_riazi:7:9c77a7
+    - af:AF_G02_riazi:7:7f7bf5
+    - af:AF_G02_riazi:7:c368ff
+    - af:AF_G05_riazi:2:26d7d0
+    uk:
+    - uk:UK_Y04:3:517670
+- id: ops.properties.general
+  title:
+    fa-IR: خاصیت‌های عمل‌ها در عددهای صحیح و گویا
+    en: Properties of operations across integers and rationals
+  age:
+  - 13
+  - 13
+  requires:
+  - ops.mul.properties
+  - ops.add.properties
+  - num.integers.ops
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G07_riazi:3:5d3f6c
+    - af:AF_G07_riazi:4:511e13
+    uk: []
+- id: ops.mul.by-10-100
+  title:
+    fa-IR: ضرب و تقسیم در ۱۰، ۱۰۰ و ۱۰۰۰
+    en: Multiplying and dividing by 10, 100 and 1000
+  age:
+  - 9
+  - 11
+  requires:
+  - ops.mul-div.facts
+  - num.place-value.to-1000
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:8:074d4c
+    af:
+    - af:AF_G03_riazi:6:6824af
+    - af:AF_G05_riazi:2:a9e282
+    uk:
+    - uk:UK_Y05:3:013392
+- id: ops.mul-div.mental
+  title:
+    fa-IR: ضرب و تقسیم ذهنی با کمک حقایق معلوم
+    en: Mental multiplication and division using known facts
+  age:
+  - 8
+  - 11
+  requires:
+  - ops.mul-div.facts
+  - ops.mul.properties
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y03:3:7b1bc9
+    - uk:UK_Y04:3:517670
+    - uk:UK_Y04:3:408bc3
+    - uk:UK_Y05:3:c4b2dc
+    - uk:UK_Y06:2:8280e2
+- id: ops.mul.short
+  title:
+    fa-IR: ضرب عدد یک‌رقمی در عدد چندرقمی
+    en: Multiplying a multi-digit number by a one-digit number
+  age:
+  - 8
+  - 9
+  requires:
+  - ops.mul-div.facts
+  - num.place-value.to-1000
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:8:0a278d
+    - iran:G03_riazi_sevom:8:5595c3
+    af:
+    - af:AF_G02_riazi:7:fafedf
+    - af:AF_G02_riazi:7:feec5f
+    - af:AF_G03_riazi:9:dffe7e
+    uk:
+    - uk:UK_Y03:3:7b1bc9
+    - uk:UK_Y04:3:b03f8d
+- id: ops.mul.written
+  title:
+    fa-IR: ضرب عددهای چندرقمی (ضرب در عدد دورقمی)
+    en: Long multiplication (multi-digit by two-digit)
+  age:
+  - 9
+  - 16
+  requires:
+  - ops.mul.short
+  - ops.mul.by-10-100
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:3:ffeef1
+    - iran:G04_riazi_chaharom:3:963194
+    - iran:G05_riazi_panjom:1:5c4bfb
+    af:
+    - af:AF_G03_riazi:9:52b9cd
+    - af:AF_G03_riazi:9:671ab7
+    - af:AF_G04_riazi:1:1d9648
+    - af:AF_G04_riazi:3:6b6081
+    - af:AF_G04_riazi:3:1387c8
+    - af:AF_G04_riazi:3:cbb329
+    - af:AF_G04_riazi:3:e7cefa
+    - af:AF_G05_riazi:2:f64bd3
+    - af:AF_G05_riazi:2:5ea816
+    uk:
+    - uk:UK_GCSE:1:fed0ed
+    - uk:UK_KS3:1:607fa0
+    - uk:UK_Y05:3:1ca8b3
+    - uk:UK_Y06:2:b5596b
+- id: ops.div.remainder
+  title:
+    fa-IR: تقسیم با باقی‌مانده
+    en: Division with remainders and interpreting them
+  age:
+  - 9
+  - 11
+  requires:
+  - ops.mul-div.facts
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:8:936def
+    af:
+    - af:AF_G04_riazi:3:91d6f3
+    uk:
+    - uk:UK_Y05:3:786aba
+    - uk:UK_Y06:2:39ca78
+    - uk:UK_Y06:2:e71ce4
+- id: ops.div.short
+  title:
+    fa-IR: تقسیم بر عدد یک‌رقمی
+    en: Short division by a one-digit number
+  age:
+  - 9
+  - 11
+  requires:
+  - ops.div.remainder
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:3:01ab4e
+    af:
+    - af:AF_G03_riazi:10:ac76ea
+    - af:AF_G03_riazi:10:1158b4
+    - af:AF_G04_riazi:1:80e84b
+    uk:
+    - uk:UK_Y05:3:786aba
+    - uk:UK_Y06:2:e71ce4
+- id: ops.div.written
+  title:
+    fa-IR: تقسیم بر عدد دورقمی (تقسیم طولانی)
+    en: Long division by a two-digit number
+  age:
+  - 10
+  - 16
+  requires:
+  - ops.div.short
+  - ops.mul.written
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:3:73aad7
+    af:
+    - af:AF_G04_riazi:3:1a1d06
+    - af:AF_G04_riazi:3:c8d879
+    - af:AF_G04_riazi:3:fb7c6a
+    - af:AF_G05_riazi:2:2179c3
+    - af:AF_G05_riazi:2:6889f9
+    - af:AF_G05_riazi:2:5ea816
+    uk:
+    - uk:UK_GCSE:1:fed0ed
+    - uk:UK_KS3:1:607fa0
+    - uk:UK_Y06:2:39ca78
+- id: ops.check.mul-div
+  title:
+    fa-IR: امتحان (وارسی) درستی ضرب و تقسیم
+    en: Checking multiplication and division
+  age:
+  - 9
+  - 11
+  requires:
+  - ops.mul-div.inverse
+  - ops.div.short
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G03_riazi:10:e951c0
+    - af:AF_G04_riazi:3:56ca91
+    - af:AF_G04_riazi:3:d2e9a8
+    - af:AF_G04_riazi:3:91d6f3
+    - af:AF_G05_riazi:2:4aa320
+    - af:AF_G05_riazi:2:9ddae8
+    uk: []
+- id: ops.word-problems.add-sub
+  title:
+    fa-IR: مسئله‌های کلامی جمع و تفریق
+    en: Addition and subtraction word problems
+  age:
+  - 6
+  - 11
+  requires:
+  - ops.add-sub.within-20
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:18:83cae4
+    - iran:G01_riazi_aval:19:663345
+    - iran:G01_riazi_aval:20:a86001
+    - iran:G01_riazi_aval:21:36991b
+    - iran:G01_riazi_aval:22:f782a5
+    - iran:G01_riazi_aval:23:27d625
+    - iran:G01_riazi_aval:24:6410f7
+    - iran:G01_riazi_aval:25:c3db16
+    af:
+    - af:AF_G05_riazi:1:d5da66
+    - af:AF_G05_riazi:1:a81267
+    - af:AF_G05_riazi:1:1ca7b2
+    uk:
+    - uk:UK_Y01:2:691f20
+    - uk:UK_Y02:2:b0813f
+    - uk:UK_Y03:2:aa16f0
+    - uk:UK_Y04:2:7c4de3
+    - uk:UK_Y05:2:df7090
+    - uk:UK_Y06:2:d91033
+- id: ops.word-problems.mul-div
+  title:
+    fa-IR: مسئله‌های کلامی ضرب و تقسیم و چهار عمل
+    en: Multiplication, division and mixed-operation word problems
+  age:
+  - 7
+  - 11
+  requires:
+  - ops.word-problems.add-sub
+  - ops.mul-div.facts
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:1:5c4bfb
+    af: []
+    uk:
+    - uk:UK_Y02:3:49620c
+    - uk:UK_Y03:3:7d36b4
+    - uk:UK_Y04:3:d97b3e
+    - uk:UK_Y05:3:ec9155
+    - uk:UK_Y05:3:d07b2d
+    - uk:UK_Y05:3:781278
+    - uk:UK_Y06:2:962c19
+- id: ops.order-of-operations
+  title:
+    fa-IR: ترتیب انجام عمل‌ها (اولویت عمل‌ها و پرانتز)
+    en: Order of operations (priority and brackets)
+  age:
+  - 11
+  - 16
+  requires:
+  - ops.mul-div.facts
+  - ops.add-sub.mental
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:1:0d4aad
+    af:
+    - af:AF_G07_riazi:3:62815c
+    uk:
+    - uk:UK_GCSE:1:f9da28
+    - uk:UK_KS3:1:c3e0b9
+    - uk:UK_Y06:2:3edad5

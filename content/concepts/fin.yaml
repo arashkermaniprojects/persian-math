@@ -1,0 +1,244 @@
+- id: fin.money.combine
+  title:
+    fa-IR: ساختن مبلغ با سکه‌ها و اسکناس‌ها
+    en: Making amounts of money in different ways
+  age:
+  - 7
+  - 9
+  requires:
+  - meas.money.coins
+  - ops.add-sub.mental
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:2:0c2489
+    af: []
+    uk:
+    - uk:UK_Y02:5:2f7bf8
+    - uk:UK_Y02:5:d9f636
+- id: fin.money.change
+  title:
+    fa-IR: خرید کردن و باقی‌ماندهٔ پول
+    en: Shopping problems and giving change
+  age:
+  - 7
+  - 8
+  requires:
+  - fin.money.combine
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y02:5:67eb9e
+    - uk:UK_Y03:5:ea3182
+- id: fin.money.decimal
+  title:
+    fa-IR: محاسبهٔ پول با عددهای اعشاری
+    en: Calculating with money in decimal notation
+  age:
+  - 9
+  - 16
+  requires:
+  - fin.money.change
+  - frac.decimal.add-sub
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y04:5:9d03a7
+    - uk:UK_Y04:4:25c14e
+    - uk:UK_Y05:5:271f9a
+    - uk:UK_KS3:1:092521
+    - uk:UK_GCSE:1:e0e571
+- id: fin.unit-pricing
+  title:
+    fa-IR: قیمت واحد و خرید به‌صرفه
+    en: Unit pricing and best buys
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.rate
+  - fin.money.decimal
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_KS3:3:b9823d
+    - uk:UK_GCSE:3:5a62aa
+    - uk:UK_GCSE:3:b13273
+    - uk:UK_KS4:3:40581c
+- id: fin.wages
+  title:
+    fa-IR: دستمزد ساعتی و نرخ پرداخت
+    en: Rates of pay and wages
+  age:
+  - 14
+  - 16
+  requires:
+  - ratio.rate
+  - fin.money.decimal
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:3:5a62aa
+    - uk:UK_GCSE:3:b13273
+    - uk:UK_KS4:3:40581c
+- id: fin.currency
+  title:
+    fa-IR: تبدیل واحد پول
+    en: Currency conversion
+  age:
+  - 14
+  - 16
+  requires:
+  - ratio.proportion.direct
+  - fin.money.decimal
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:3:cbdfed
+- id: fin.percent
+  title:
+    fa-IR: کاربرد درصد در محاسبات مالی
+    en: Percentages in money calculations
+  age:
+  - 12
+  - 16
+  requires:
+  - frac.percent.of-amount
+  - fin.money.decimal
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:6:af8318
+    af:
+    - af:AF_G08_riazi:2:1281df
+    uk:
+    - uk:UK_GCSE:3:831f97
+- id: fin.discount
+  title:
+    fa-IR: تخفیف و قیمت پس از تخفیف
+    en: Discounts and sale prices
+  age:
+  - 12
+  - 14
+  requires:
+  - fin.percent
+  - ratio.percent-change
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:6:af8318
+    af:
+    - af:AF_G08_riazi:2:1281df
+    uk: []
+- id: fin.profit-loss
+  title:
+    fa-IR: سود و زیان
+    en: Profit and loss
+  age:
+  - 11
+  - 14
+  requires:
+  - fin.percent
+  - ratio.percent-change.find
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:6:af8318
+    af: []
+    uk:
+    - uk:UK_KS3:3:ebdce8
+- id: fin.reverse-percent
+  title:
+    fa-IR: یافتن قیمت اولیه پیش از تخفیف یا افزایش
+    en: Finding the original price before a discount or increase
+  age:
+  - 11
+  - 16
+  requires:
+  - fin.discount
+  - ratio.percent-change.reverse
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_KS3:3:ebdce8
+    - uk:UK_GCSE:3:831f97
+- id: fin.interest.simple
+  title:
+    fa-IR: سود ساده
+    en: Simple interest
+  age:
+  - 11
+  - 16
+  requires:
+  - fin.percent
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G08_riazi:2:0a10a5
+    uk:
+    - uk:UK_KS3:3:ebdce8
+    - uk:UK_GCSE:3:831f97
+- id: fin.interest.compound
+  title:
+    fa-IR: سود مرکب
+    en: Compound interest
+  age:
+  - 14
+  - 16
+  requires:
+  - fin.interest.simple
+  - ratio.growth-decay
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G08_riazi:2:0a10a5
+    uk:
+    - uk:UK_KS4:3:87a952
+    - uk:UK_GCSE:3:2df8ec
+- id: fin.depreciation
+  title:
+    fa-IR: کاهش ارزش (استهلاک)
+    en: 'Depreciation: repeated percentage decrease of value'
+  age:
+  - 14
+  - 16
+  requires:
+  - ratio.growth-decay
+  - fin.money.decimal
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_KS4:3:87a952
+    - uk:UK_GCSE:3:2df8ec
+- id: fin.interest.continuous
+  title:
+    fa-IR: سود مرکب پیوسته و عدد e
+    en: Continuous compound interest and e
+  age:
+  - 16
+  - 18
+  requires:
+  - fin.interest.compound
+  - func.exponential
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_ALEVEL:6:c97ffa

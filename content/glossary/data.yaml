@@ -1,0 +1,1094 @@
+- id: statistics
+  en: statistics
+  fa-IR: آمار
+  fa-AF: احصائیه
+  ps: احصائیه
+  src:
+    fa-IR: 'G03_riazi_sevom pdf p.115 (فصل ۷: آمار و احتمال)'
+    fa-AF: AF_G07_riazi line 64
+    ps: AF_G07_riazi_ps line 64
+  status:
+    fa-AF: draft
+    ps: draft
+  note: AF_G11_riazi_ps line 96 prints احصایه.
+- id: data
+  en: data
+  fa-IR: داده‌ها
+  fa-AF: دیتا
+  ps: ډیټا
+  src:
+    fa-IR: G05_riazi_panjom pdf p.191
+    fa-AF: AF_G08_riazi line 62
+    ps: AF_G08_riazi_ps line 62
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Afghan books are inconsistent: Dari G07 also uses داتا / اطلاعات / معلومات (AF_G07_riazi pdf p.202-203); Pashto also uses معلومات (AF_G07_riazi_ps pdf p.203). Reviewer: choose one.'
+- id: survey
+  en: survey
+  fa-IR: نظرسنجی
+  src:
+    fa-IR: G06_riazi_sheshom pdf p.129
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-AF and ps not found in books. AF_G07_riazi pdf p.195 only describes collecting data «از طریق پرسش» (oral/written questioning; Pashto «شفاهي پوښتنې (مصاحبه)»).
+- id: table
+  en: table
+  fa-IR: جدول
+  fa-AF: جدول
+  ps: جدول
+  src:
+    fa-IR: G07_riazi_haftom pdf p.122 (جدول داده‌ها)
+    fa-AF: AF_G07_riazi line 69
+    ps: AF_G07_riazi_ps line 69
+  status:
+    fa-AF: draft
+    ps: draft
+- id: tally
+  en: tally
+  fa-IR: چوب‌خط
+  src:
+    fa-IR: G01_riazi_aval pdf p.30; G07_riazi_haftom pdf p.122
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'fa-AF and ps not found in books: the Afghan G07 frequency-table lesson (pdf p.202) counts without tally marks.'
+- id: frequency
+  en: frequency
+  fa-IR: فراوانی
+  fa-AF: کثرت
+  ps: فریکونسي
+  src:
+    fa-IR: G11_amar_ehtemal_math pdf p.89
+    fa-AF: AF_G07_riazi line 69 (جدول کثرت (فریکونسی))
+    ps: AF_G07_riazi_ps line 69; definition AF_G07_riazi_ps pdf p.202
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Dari gives فریکونسی in brackets after کثرت. The G08 Pashto book uses کثرت instead (AF_G08_riazi_ps line 62).
+- id: frequency-table
+  en: frequency table
+  fa-IR: جدول فراوانی
+  fa-AF: جدول کثرت
+  ps: د فریکونسي جدول
+  src:
+    fa-IR: G11_amar_ehtemal_math pdf p.76
+    fa-AF: AF_G07_riazi line 69; AF_G08_riazi line 62
+    ps: AF_G07_riazi_ps line 69
+  status:
+    fa-AF: draft
+    ps: draft
+- id: relative-frequency
+  en: relative frequency
+  fa-IR: فراوانی نسبی
+  fa-AF: کثرت نسبی
+  ps: نسبي کثرت
+  src:
+    fa-IR: G11_amar_ehtemal_math pdf p.77
+    fa-AF: AF_G08_riazi line 64
+    ps: AF_G08_riazi_ps line 64
+  status:
+    fa-AF: draft
+    ps: draft
+- id: cumulative-frequency
+  en: cumulative frequency
+  fa-IR: فراوانی تجمعی
+  fa-AF: کثرت تجمعی
+  ps: ډله ییز کثرت
+  src:
+    fa-IR: concept stat.cumulative-frequency
+    fa-AF: AF_G08_riazi line 63
+    ps: AF_G08_riazi_ps line 63
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Pashto line gives «ډله ییز (تجمعي) کثرت».
+- id: chart
+  en: chart
+  fa-IR: نمودار
+  fa-AF: گراف
+  ps: ګراف
+  src:
+    fa-IR: G02_riazi_dovom pdf p.137 (نمودار ستونی)
+    fa-AF: AF_G07_riazi line 70 (گراف تصویری)
+    ps: AF_G07_riazi_ps line 70
+  status:
+    fa-AF: draft
+    ps: draft
+  note: A statistical chart. Not the graph of a function and not a network graph (see network-graph). Afghan گراف also means the graph of a function.
+- id: bar-chart
+  en: bar chart
+  fa-IR: نمودار ستونی
+  fa-AF: گراف میله‌ای
+  ps: میله یي ګراف
+  src:
+    fa-IR: G02_riazi_dovom pdf p.137
+    fa-AF: AF_G08_riazi line 64
+    ps: AF_G08_riazi_ps line 64
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Later Iranian books say نمودار میله‌ای (G08_riazi_hashtom pdf p.130). Dari body adds «(گراف نواری)» (AF_G08_riazi pdf p.236).
+- id: pictogram
+  en: pictogram
+  fa-IR: نمودار تصویری
+  fa-AF: گراف تصویری
+  ps: تصویري ګراف
+  src:
+    fa-IR: G02_riazi_dovom pdf p.142
+    fa-AF: AF_G07_riazi line 70
+    ps: AF_G07_riazi_ps line 70
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Pashto line gives «تصویري (انځوریز) ګراف».
+- id: pie-chart
+  en: pie chart
+  fa-IR: نمودار دایره‌ای
+  fa-AF: گراف دایروی
+  ps: دایروي ګراف
+  src:
+    fa-IR: G03_riazi_sevom pdf p.124
+    fa-AF: AF_G09_riazi line 57
+    ps: AF_G09_riazi_ps line 57
+  status:
+    fa-AF: draft
+    ps: draft
+- id: line-graph
+  en: line graph
+  fa-IR: نمودار خط شکسته
+  fa-AF: گراف خط منکسر
+  ps: د منکسرې کرښې ګراف
+  src:
+    fa-IR: G07_riazi_haftom pdf p.125
+    fa-AF: AF_G08_riazi line 64
+    ps: AF_G08_riazi_ps line 64
+  status:
+    fa-AF: draft
+    ps: draft
+- id: histogram
+  en: histogram
+  fa-IR: هیستوگرام
+  fa-AF: گراف مستطیلی
+  ps: مستطیلي ګراف
+  src:
+    fa-IR: G10_riazi_amar1_humanities pdf p.91
+    fa-AF: AF_G09_riazi line 57
+    ps: AF_G09_riazi_ps line 57
+  status:
+    fa-AF: draft
+    ps: draft
+  note: The Iranian book writes «بافت‌نگاشت (هیستوگرام)»; the concept title has «نمودار مستطیلی (هیستوگرام)». The Afghan گراف مستطیلی is used with unequal class widths (AF_G09_riazi_ps pdf p.213), so it
+    is a histogram, not a bar chart.
+- id: frequency-polygon
+  en: frequency polygon
+  fa-IR: چندبر فراوانی
+  fa-AF: گراف چندضلعی کثرت
+  ps: د فریکونسي څو ضلعي ګراف
+  src:
+    fa-IR: concept stat.frequency-polygon
+    fa-AF: AF_G10_riazi line 72
+    ps: AF_G10_riazi_ps line 72
+  status:
+    fa-AF: draft
+    ps: draft
+- id: stem-and-leaf
+  en: stem-and-leaf diagram
+  fa-IR: نمودار ساقه و برگ
+  fa-AF: گراف ساقه و برگ
+  ps: د ساقې او پاڼې ګراف
+  src:
+    fa-IR: concept stat.stem-and-leaf
+    fa-AF: AF_G10_riazi line 72
+    ps: AF_G10_riazi_ps line 72
+  status:
+    fa-AF: draft
+    ps: draft
+- id: box-plot
+  en: box plot
+  fa-IR: نمودار جعبه‌ای
+  fa-AF: گراف صندوقچه‌یی
+  ps: صندوقچه یي ګراف
+  src:
+    fa-IR: G10_riazi_amar1_humanities pdf p.106
+    fa-AF: AF_G10_riazi line 72
+    ps: AF_G10_riazi_ps line 72
+  status:
+    fa-AF: draft
+    ps: draft
+- id: scatter-graph
+  en: scatter graph
+  fa-IR: نمودار پراکنش
+  fa-AF: گراف پراگنده‌گی
+  ps: د تیتوالي ګراف
+  src:
+    fa-IR: G11_riazi_amar2_humanities pdf p.66
+    fa-AF: AF_G11_riazi line 101
+    ps: AF_G11_riazi_ps line 101
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Pashto تیتوالی literally means 'spread/scatter'; the same word is used for spread in AF_G11_riazi_ps line 98.
+- id: mean
+  en: mean
+  fa-IR: میانگین
+  fa-AF: اوسط
+  ps: اوسط
+  src:
+    fa-IR: G05_riazi_panjom pdf p.193
+    fa-AF: AF_G07_riazi line 72
+    ps: AF_G07_riazi_ps line 72
+  status:
+    fa-AF: draft
+    ps: draft
+- id: weighted-mean
+  en: weighted mean
+  fa-IR: میانگین وزنی
+  fa-AF: اوسط وزنی
+  ps: وزني اوسط
+  src:
+    fa-IR: concept stat.mean.grouped
+    fa-AF: AF_G09_riazi line 56
+    ps: AF_G09_riazi_ps line 56; AF_G09_riazi_ps pdf p.211
+  status:
+    fa-AF: draft
+    ps: draft
+- id: median
+  en: median
+  fa-IR: میانه
+  fa-AF: میانه
+  ps: میانه
+  src:
+    fa-IR: G10_riazi_amar1_humanities pdf p.86
+    fa-AF: AF_G09_riazi line 58
+    ps: AF_G09_riazi_ps line 58
+  status:
+    fa-AF: draft
+    ps: draft
+  note: The median of a data set. In all three languages the same word is the median of a triangle (geometry).
+- id: mode
+  en: mode
+  fa-IR: مد
+  fa-AF: مد
+  ps: موډ
+  src:
+    fa-IR: G10_riazi_amar1_humanities pdf p.86; G11_amar_ehtemal_math pdf p.89
+    fa-AF: AF_G07_riazi line 71
+    ps: AF_G07_riazi_ps line 71
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'G11_amar_ehtemal_math writes «نما (مد)»: نما is the newer Iranian word. Dari body spells مُد (AF_G07_riazi pdf p.207).'
+- id: range
+  en: range
+  fa-IR: دامنهٔ تغییرات
+  fa-AF: ساحهٔ تحول
+  ps: د تحول ساحه
+  src:
+    fa-IR: G08_riazi_hashtom pdf p.129
+    fa-AF: AF_G09_riazi line 58
+    ps: AF_G09_riazi_ps line 58
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Range of a data set (largest minus smallest), not the range of a function.
+- id: quartile
+  en: quartile
+  fa-IR: چارک
+  fa-AF: چارک
+  ps: ربعي
+  src:
+    fa-IR: G10_riazi_amar1_humanities pdf p.94
+    fa-AF: AF_G10_riazi line 72
+    ps: AF_G10_riazi_ps line 72
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Pashto line gives «ربعي (څلورمې)», an adjective (''quarter''). Reviewer: check whether a noun form is preferred.'
+- id: interquartile-range
+  en: interquartile range
+  fa-IR: دامنهٔ میان‌چارکی
+  src:
+    fa-IR: concept stat.quartiles
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-AF and ps not found in books. Afghan G10 has «انحراف چارک‌ها» / «ربعي انحراف» (AF_G10_riazi line 73), which is the quartile deviation (half the IQR), not the IQR itself.
+- id: mean-deviation
+  en: mean absolute deviation
+  fa-IR: میانگین انحراف از میانگین
+  fa-AF: اوسط انحراف
+  ps: د انحراف اوسط
+  src:
+    fa-IR: concept stat.mean-deviation
+    fa-AF: AF_G09_riazi line 58
+    ps: AF_G09_riazi_ps line 58
+  status:
+    fa-AF: draft
+    ps: draft
+- id: variance
+  en: variance
+  fa-IR: واریانس
+  fa-AF: واریانس
+  ps: واریانس
+  src:
+    fa-IR: G11_amar_ehtemal_math pdf p.93
+    fa-AF: AF_G10_riazi line 74
+    ps: AF_G10_riazi_ps line 74
+  status:
+    fa-AF: draft
+    ps: draft
+- id: standard-deviation
+  en: standard deviation
+  fa-IR: انحراف معیار
+  fa-AF: انحراف معیاری
+  ps: معیاري انحراف
+  src:
+    fa-IR: G10_riazi_amar1_humanities pdf p.90
+    fa-AF: AF_G10_riazi line 74
+    ps: AF_G10_riazi_ps line 74
+  status:
+    fa-AF: draft
+    ps: draft
+- id: outlier
+  en: outlier
+  fa-IR: دادهٔ پرت
+  src:
+    fa-IR: concept stat.outliers
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-AF and ps not found in books.
+- id: correlation
+  en: correlation
+  fa-IR: همبستگی
+  fa-AF: همبسته‌گی
+  ps: پیوستون
+  src:
+    fa-IR: concept stat.correlation
+    fa-AF: AF_G11_riazi line 102
+    ps: AF_G11_riazi_ps line 102
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Dari spells همبسته‌گی (Afghan orthography); Iranian همبستگی.
+- id: correlation-coefficient
+  en: correlation coefficient
+  fa-IR: ضریب همبستگی
+  fa-AF: ضریب همبسته‌گی
+  ps: د پیوستون ضریب
+  src:
+    fa-IR: concept stat.correlation-coefficient
+    fa-AF: AF_G11_riazi line 102
+    ps: AF_G11_riazi_ps line 102
+  status:
+    fa-AF: draft
+    ps: draft
+- id: regression-line
+  en: regression line
+  fa-IR: خط رگرسیون
+  fa-AF: خط رگرسیون
+  ps: د خطي میلان معادله
+  src:
+    fa-IR: concept stat.regression
+    fa-AF: AF_G11_riazi line 103
+    ps: AF_G11_riazi_ps line 103
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Unsure: the Pashto TOC line literally says ''equation of the linear slope'', not ''regression line''. Reviewer should check the lesson body (printed p.295).'
+- id: population
+  en: population
+  fa-IR: جامعه
+  fa-AF: جامعه
+  ps: ټولنه
+  src:
+    fa-IR: G10_riazi_amar1_humanities pdf p.73 (جامعهٔ آماری)
+    fa-AF: AF_G07_riazi line 66
+    ps: AF_G07_riazi_ps line 66
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Statistical population. Pashto body glosses it «ټولنې (جامعې)» (AF_G07_riazi_ps pdf p.196).
+- id: sample
+  en: sample
+  fa-IR: نمونه
+  fa-AF: نمونه
+  ps: نمونه
+  src:
+    fa-IR: concept stat.population-sample
+    fa-AF: AF_G07_riazi line 66
+    ps: AF_G07_riazi_ps line 66
+  status:
+    fa-AF: draft
+    ps: draft
+- id: sampling
+  en: sampling
+  fa-IR: نمونه‌گیری
+  fa-AF: نمونه‌گیری
+  ps: نمونه اخېستل
+  src:
+    fa-IR: G11_amar_ehtemal_math (نمونه‌گیری); concept stat.sampling.random
+    fa-AF: AF_G12_riazi line 76
+    ps: AF_G12_riazi_ps line 76
+  status:
+    fa-AF: draft
+    ps: draft
+- id: random
+  en: random
+  fa-IR: تصادفی
+  fa-AF: تصادفی
+  ps: تصادفي
+  src:
+    fa-IR: G07_riazi_haftom pdf p.128
+    fa-AF: AF_G07_riazi line 67
+    ps: AF_G07_riazi_ps line 67
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'For random events the Afghan books use اتفاقی (Dari) and ناڅاپي (Pashto): AF_G08_riazi line 71.'
+- id: random-variable
+  en: random variable
+  fa-IR: متغیر تصادفی
+  fa-AF: متحول تصادفی
+  ps: تصادفي متحول
+  src:
+    fa-IR: G12_riazi_amar3_humanities pdf p.46
+    fa-AF: AF_G07_riazi line 68
+    ps: AF_G07_riazi_ps line 68
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Afghan books say متحول where Iran says متغیر.
+- id: discrete-data
+  en: discrete data
+  fa-IR: دادهٔ گسسته
+  fa-AF: دیتای غیر متمادی
+  ps: منفصله ډیټا
+  src:
+    fa-IR: concept stat.variable-types
+    fa-AF: AF_G08_riazi line 62
+    ps: AF_G08_riazi_ps line 62 (د منفصلې ډیټا)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: For sample spaces AF_G12 uses گسسته (Dari) and پرېکړې (Pashto), line 83.
+- id: continuous-data
+  en: continuous data
+  fa-IR: دادهٔ پیوسته
+  fa-AF: دیتای متمادی
+  ps: متصله ډیټا
+  src:
+    fa-IR: concept stat.variable-types
+    fa-AF: AF_G08_riazi line 65
+    ps: AF_G08_riazi_ps line 65 (د متصلې ډیټا)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: AF_G09_riazi line 56 says «Data پیوسته»; Pashto there «نښتې یا متصلې ډېټا».
+- id: distribution
+  en: distribution
+  fa-IR: توزیع
+  fa-AF: توزیع
+  ps: توزیع
+  src:
+    fa-IR: concept stat.distribution-shape
+    fa-AF: AF_G12_riazi line 71
+    ps: AF_G12_riazi_ps line 71
+  status:
+    fa-AF: draft
+    ps: draft
+- id: normal-distribution
+  en: normal distribution
+  fa-IR: توزیع نرمال
+  fa-AF: توزیع نورمال
+  ps: نورمال توزیع
+  src:
+    fa-IR: concept prob.normal
+    fa-AF: AF_G12_riazi line 74
+    ps: AF_G12_riazi_ps line 74
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Iran spells نرمال; Afghan G11/G12 spell نورمال, G10 spells نارمل (AF_G10_riazi line 73).
+- id: binomial-distribution
+  en: binomial distribution
+  fa-IR: توزیع دوجمله‌ای
+  fa-AF: توزیع دو جمله‌یی
+  ps: دوه جمله‌یي توزیع
+  src:
+    fa-IR: concept prob.binomial
+    fa-AF: AF_G12_riazi line 72
+    ps: AF_G12_riazi_ps line 72
+  status:
+    fa-AF: draft
+    ps: draft
+- id: probability
+  en: probability
+  fa-IR: احتمال
+  fa-AF: احتمال
+  ps: احتمال
+  src:
+    fa-IR: G02_riazi_dovom pdf p.115
+    fa-AF: AF_G07_riazi line 77
+    ps: AF_G07_riazi_ps line 77
+  status:
+    fa-AF: draft
+    ps: draft
+- id: chance
+  en: chance
+  fa-IR: شانس
+  fa-AF: چانس
+  ps: چانس
+  src:
+    fa-IR: concept prob.chance-language
+    fa-AF: AF_G07_riazi line 76
+    ps: AF_G07_riazi_ps line 76
+  status:
+    fa-AF: draft
+    ps: draft
+- id: outcome
+  en: outcome
+  fa-IR: برآمد
+  fa-AF: نتیجه
+  ps: نتیجه
+  src:
+    fa-IR: G11_amar_ehtemal_math pdf p.44
+    fa-AF: AF_G07_riazi line 80 (فضای نتیجه یا نمونه)
+    ps: AF_G07_riazi_ps line 80 (د نتیجې یا نمونې فضا)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Unsure: Afghan books have no separate outcome lesson; نتیجه comes from the name of the sample space and also means ''conclusion/result'' elsewhere. Younger Iranian books say حالت (possible case).'
+- id: event
+  en: event
+  fa-IR: پیشامد
+  fa-AF: حادثه
+  ps: پېښه
+  src:
+    fa-IR: G08_riazi_hashtom pdf p.137
+    fa-AF: AF_G08_riazi line 71 (حادثهٔ اتفاقی)
+    ps: AF_G08_riazi_ps line 71 (ناڅاپي پېښه)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Full Afghan terms: حادثهٔ اتفاقی (Dari) and ناڅاپي پېښه (Pashto). AF_G12_riazi line 84 says حوادث (plural).'
+- id: sample-space
+  en: sample space
+  fa-IR: فضای نمونه
+  fa-AF: فضای نمونه
+  ps: د نمونې فضا
+  src:
+    fa-IR: G10_riazi1_math_science pdf p.148
+    fa-AF: AF_G07_riazi line 80
+    ps: AF_G07_riazi_ps line 80
+  status:
+    fa-AF: draft
+    ps: draft
+  note: G08 Pashto also says «نمونه یي فضا» (AF_G08_riazi_ps line 70).
+- id: random-experiment
+  en: random experiment
+  fa-IR: آزمایش تصادفی
+  fa-AF: تجربهٔ تصادفی
+  ps: تصادفي تجربه
+  src:
+    fa-IR: G10_riazi1_math_science pdf p.152
+    fa-AF: AF_G07_riazi line 79
+    ps: AF_G07_riazi_ps line 79
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Afghan books say تجربه where Iran says آزمایش.
+- id: certain
+  en: certain
+  fa-IR: حتمی
+  fa-AF: حتمی
+  ps: خامخا
+  src:
+    fa-IR: G07_riazi_haftom pdf p.128
+    fa-AF: AF_G07_riazi pdf p.218
+    ps: AF_G07_riazi_ps pdf p.218
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Pashto book writes «خامخا (حتمی)»; G08 Pashto also uses حتمي / ډاډمنه پېښه (AF_G08_riazi_ps pdf p.256).
+- id: possible
+  en: possible
+  fa-IR: ممکن
+  fa-AF: ممکن
+  ps: شونی
+  src:
+    fa-IR: G07_riazi_haftom pdf p.128
+    fa-AF: AF_G07_riazi pdf p.218
+    ps: AF_G07_riazi_ps pdf p.218
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Pashto book writes «شونی (امکان لري)».
+- id: impossible
+  en: impossible
+  fa-IR: غیرممکن
+  fa-AF: ناممکن
+  ps: ناشونی
+  src:
+    fa-IR: G07_riazi_haftom pdf p.128
+    fa-AF: AF_G07_riazi pdf p.218
+    ps: AF_G07_riazi_ps pdf p.218
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Pashto book writes «ناشونی (ناممکن)».
+- id: more-likely
+  en: more likely
+  fa-IR: به احتمال بیشتر
+  fa-AF: چانس بیشتر
+  src:
+    fa-IR: G04_riazi_chaharom pdf p.149
+    fa-AF: AF_G07_riazi pdf p.230
+  status:
+    fa-AF: draft
+    ps: draft
+  note: ps not found in books. Neither country's books have a single word for 'likely'; these are the phrases they use for 'more likely'.
+- id: equally-likely
+  en: equally likely
+  fa-IR: هم‌شانس
+  fa-AF: هم‌چانس
+  ps: هم چانسه
+  src:
+    fa-IR: G07_riazi_haftom pdf p.129
+    fa-AF: AF_G12_riazi line 84
+    ps: AF_G12_riazi_ps line 84
+  status:
+    fa-AF: draft
+    ps: draft
+- id: experimental-probability
+  en: experimental probability
+  fa-IR: احتمال تجربی
+  fa-AF: احتمال تجربی
+  ps: تجربي احتمال
+  src:
+    fa-IR: concept prob.experimental
+    fa-AF: AF_G08_riazi pdf p.250
+    ps: AF_G08_riazi_ps pdf p.250
+  status:
+    fa-AF: draft
+    ps: draft
+- id: theoretical-probability
+  en: theoretical probability
+  fa-IR: احتمال نظری
+  fa-AF: احتمال نظری
+  ps: نظري احتمال
+  src:
+    fa-IR: concept prob.large-numbers
+    fa-AF: AF_G07_riazi line 81
+    ps: AF_G07_riazi_ps line 81
+  status:
+    fa-AF: draft
+    ps: draft
+- id: independent-events
+  en: independent events
+  fa-IR: پیشامدهای مستقل
+  fa-AF: حوادث مستقل
+  ps: مستقلې پېښې
+  src:
+    fa-IR: concept prob.independent
+    fa-AF: AF_G12_riazi pdf p.285 («A و B با هم مستقل اند»); AF_G12_riazi line 88
+    ps: AF_G12_riazi_ps pdf p.285 («یو له بل څخه مستقلې»)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Unsure about the phrase form: the books use the adjective مستقل with A and B; the noun phrases are built from it. Dependent = وابسته (Dari, same page) / تړلي (Pashto, same page).'
+- id: conditional-probability
+  en: conditional probability
+  fa-IR: احتمال شرطی
+  fa-AF: احتمال مشروط
+  ps: مشروط احتمال
+  src:
+    fa-IR: G11_amar_ehtemal_math pdf p.41
+    fa-AF: AF_G12_riazi line 86
+    ps: AF_G12_riazi_ps line 86
+  status:
+    fa-AF: draft
+    ps: draft
+- id: tree-diagram
+  en: tree diagram
+  fa-IR: نمودار درختی
+  fa-AF: دیاگرام درختی
+  ps: ونه ییز دیاګرام
+  src:
+    fa-IR: G07_riazi_haftom pdf p.70; concept prob.tree-diagram
+    fa-AF: AF_G08_riazi line 72
+    ps: AF_G08_riazi_ps line 72
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Pashto line gives «ونه ییز (شجریي) دیاګرام».
+- id: venn-diagram
+  en: Venn diagram
+  fa-IR: نمودار ون
+  fa-AF: دیاگرام وین
+  ps: د وین دیاګرام
+  src:
+    fa-IR: G09_riazi_nohom pdf p.15
+    fa-AF: AF_G07_riazi pdf p.11
+    ps: AF_G07_riazi_ps pdf p.11
+  status:
+    fa-AF: draft
+    ps: draft
+- id: set
+  en: set
+  fa-IR: مجموعه
+  fa-AF: ست
+  ps: سټ
+  src:
+    fa-IR: G09_riazi_nohom pdf p.9
+    fa-AF: AF_G07_riazi line 5
+    ps: AF_G07_riazi_ps line 5
+  status:
+    fa-AF: draft
+    ps: draft
+  note: G08 Pashto sometimes spells سیټ (AF_G08_riazi_ps pdf p.217).
+- id: element
+  en: element
+  fa-IR: عضو
+  fa-AF: عنصر
+  ps: عنصر
+  src:
+    fa-IR: G09_riazi_nohom pdf p.10
+    fa-AF: AF_G07_riazi line 6 (عناصر)
+    ps: AF_G07_riazi_ps pdf p.11
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Element of a set. Iran says عضو (member); Afghan books say عنصر.
+- id: subset
+  en: subset
+  fa-IR: زیرمجموعه
+  fa-AF: ست فرعی
+  ps: فرعي سټ
+  src:
+    fa-IR: G09_riazi_nohom pdf p.15
+    fa-AF: AF_G07_riazi line 8
+    ps: AF_G07_riazi_ps line 8
+  status:
+    fa-AF: draft
+    ps: draft
+- id: empty-set
+  en: empty set
+  fa-IR: مجموعهٔ تهی
+  fa-AF: ست خالی
+  ps: تش سټ
+  src:
+    fa-IR: G09_riazi_nohom pdf p.12
+    fa-AF: AF_G07_riazi pdf p.11
+    ps: AF_G07_riazi_ps pdf p.11
+  status:
+    fa-AF: draft
+    ps: draft
+- id: union
+  en: union
+  fa-IR: اجتماع
+  fa-AF: اتحاد
+  ps: اتحاد
+  src:
+    fa-IR: G09_riazi_nohom pdf p.19
+    fa-AF: AF_G07_riazi line 8
+    ps: AF_G07_riazi_ps line 8
+  status:
+    fa-AF: draft
+    ps: draft
+- id: intersection
+  en: intersection
+  fa-IR: اشتراک
+  fa-AF: تقاطع
+  ps: تقاطع
+  src:
+    fa-IR: G09_riazi_nohom pdf p.19
+    fa-AF: AF_G07_riazi line 8
+    ps: AF_G07_riazi_ps line 8
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Intersection of sets. Afghan تقاطع also means the crossing point of lines (geometry).
+- id: complement
+  en: complement
+  fa-IR: متمم
+  fa-AF: مکمله
+  ps: مکمله
+  src:
+    fa-IR: concept disc.sets.complement; G10_riazi1_math_science
+    fa-AF: AF_G07_riazi line 9 (مکملهٔ یک ست)
+    ps: AF_G07_riazi_ps line 9 (مکمله سټ)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Complement of a set or event. Careful: in Afghan geometry مکمله means SUPPLEMENTARY angles (AF_G05_riazi line 41 uses متممه for complementary angles), while Iranian متمم also names complementary
+    angles. G09 Pashto says «مکمل سټ» (AF_G09_riazi_ps line 62).'
+- id: universal-set
+  en: universal set
+  fa-IR: مجموعهٔ مرجع
+  fa-AF: ست کلی
+  ps: کلي سټ
+  src:
+    fa-IR: G10_riazi1_math_science pdf p.14
+    fa-AF: AF_G07_riazi line 9
+    ps: AF_G07_riazi_ps line 9
+  status:
+    fa-AF: draft
+    ps: draft
+  note: G07 Pashto prints «کُلي سټ»; G09 Pashto says «بشپړ سټ» (AF_G09_riazi_ps line 62).
+- id: set-difference
+  en: difference of sets
+  fa-IR: تفاضل مجموعه‌ها
+  fa-AF: تفاضل ست‌ها
+  ps: د سټونو تفاضل
+  src:
+    fa-IR: G09_riazi_nohom pdf p.21; concept disc.sets.operations
+    fa-AF: AF_G07_riazi line 9
+    ps: AF_G07_riazi_ps line 9
+  status:
+    fa-AF: draft
+    ps: draft
+- id: logic
+  en: logic
+  fa-IR: منطق
+  fa-AF: منطق
+  ps: منطق
+  src:
+    fa-IR: curriculum/G11_amar_ehtemal_math.md line 4 (آشنایی با منطق ریاضی)
+    fa-AF: AF_G10_riazi line 77
+    ps: AF_G10_riazi_ps line 77 (د ریاضي منطق)
+  status:
+    fa-AF: draft
+    ps: draft
+- id: statement
+  en: statement
+  fa-IR: گزاره
+  fa-AF: بیان
+  ps: بیان
+  src:
+    fa-IR: curriculum/G11_amar_ehtemal_math.md line 5
+    fa-AF: AF_G10_riazi pdf p.414 (definition)
+    ps: AF_G10_riazi_ps pdf p.414 (definition)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: A sentence that is either true or false. Afghan بیان also means 'expression/saying' in ordinary text.
+- id: proof
+  en: proof
+  fa-IR: اثبات
+  fa-AF: ثبوت
+  ps: ثبوت
+  src:
+    fa-IR: G09_riazi_nohom pdf p.31
+    fa-AF: AF_G10_riazi line 79
+    ps: AF_G10_riazi_ps line 79
+  status:
+    fa-AF: draft
+    ps: draft
+- id: proof-by-contradiction
+  en: proof by contradiction
+  fa-IR: برهان خلف
+  fa-AF: برهان خلف
+  ps: غیر مستقیم ثبوت
+  src:
+    fa-IR: G10_hendese1_math pdf p.24
+    fa-AF: AF_G10_riazi line 79
+    ps: AF_G10_riazi_ps line 79; body AF_G10_riazi_ps pdf p.412
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Dari also says «ثبوت غیرمستقیم». The Pashto body writes «غیر مستقیم ثبوت (برهان خلف)».
+- id: counterexample
+  en: counterexample
+  fa-IR: مثال نقض
+  fa-AF: مثال نقض
+  ps: د نفي مثال
+  src:
+    fa-IR: G10_hendese1_math pdf p.25
+    fa-AF: AF_G10_riazi line 79; AF_G10_riazi pdf p.410
+    ps: AF_G10_riazi_ps pdf p.411
+  status:
+    fa-AF: draft
+    ps: draft
+  note: The Pashto lesson title is «د مثال د نفي کولو استدلال» (AF_G10_riazi_ps line 79).
+- id: mathematical-induction
+  en: proof by induction
+  fa-IR: استقرای ریاضی
+  fa-AF: استقرای ریاضی
+  ps: د ریاضي استقرا
+  src:
+    fa-IR: concept disc.proof.induction
+    fa-AF: AF_G10_riazi line 78
+    ps: AF_G10_riazi_ps line 78
+  status:
+    fa-AF: draft
+    ps: draft
+- id: inductive-reasoning
+  en: inductive reasoning
+  fa-IR: استدلال استقرایی
+  fa-AF: استدلال استقرایی
+  ps: استقرایي استدلال
+  src:
+    fa-IR: concept disc.reasoning
+    fa-AF: AF_G10_riazi line 78
+    ps: AF_G10_riazi_ps line 78
+  status:
+    fa-AF: draft
+    ps: draft
+- id: deductive-reasoning
+  en: deductive reasoning
+  fa-IR: استدلال استنتاجی
+  fa-AF: استدلال استنتاجی
+  ps: استنتاجي استدلال
+  src:
+    fa-IR: concept disc.reasoning
+    fa-AF: AF_G10_riazi line 79
+    ps: AF_G10_riazi_ps line 79
+  status:
+    fa-AF: draft
+    ps: draft
+- id: factorial
+  en: factorial
+  fa-IR: فاکتوریل
+  fa-AF: فکتوریل
+  ps: فکتوریل
+  src:
+    fa-IR: G10_riazi1_math_science pdf p.134
+    fa-AF: AF_G11_riazi pdf p.314 (printed p.305)
+    ps: AF_G11_riazi_ps pdf p.314 (printed p.305)
+  status:
+    fa-AF: draft
+    ps: draft
+- id: permutation
+  en: permutation
+  fa-IR: جایگشت
+  fa-AF: ترتیب
+  ps: پرموټېشن
+  src:
+    fa-IR: G10_riazi1_math_science pdf p.124
+    fa-AF: AF_G11_riazi line 108
+    ps: AF_G11_riazi_ps line 108
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Pashto title is «پرموټېشن یا ترتیب». The Dari body also says پرموتیشن (AF_G11_riazi pdf p.314). Afghan ترتیب also means 'order/ordering' in general.
+- id: combination
+  en: combination
+  fa-IR: ترکیب
+  fa-AF: ترکیب
+  ps: ترکیب
+  src:
+    fa-IR: concept disc.counting.combinations
+    fa-AF: AF_G11_riazi line 110
+    ps: AF_G11_riazi_ps line 110
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Pashto line 109 gives «ترکیب یا کمبېنیشن».
+- id: counting-principle
+  en: product rule for counting
+  fa-IR: اصل ضرب
+  fa-AF: اصل شمارش
+  ps: د شمېرلو اصول
+  src:
+    fa-IR: concept disc.counting
+    fa-AF: AF_G09_riazi line 64
+    ps: AF_G09_riazi_ps line 64
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'AF_G12_riazi line 87 says «اصل حاصل ضرب» (Pashto «د حاصل ضرب اصل»), which matches the Iranian اصل ضرب more closely. Reviewer: choose one.'
+- id: network-graph
+  en: graph (network)
+  fa-IR: گراف
+  src:
+    fa-IR: 'G12_gosaste_math pdf p.5 (فصل ۲: گراف و مدل‌سازی)'
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'A network of vertices and edges. fa-AF and ps not found in books: Afghan books have no graph theory, and Afghan گراف/ګراف means a chart or the graph of a function, so do not reuse it here without
+    a reviewer''s decision.'
+- id: network-vertex
+  en: vertex (of a graph)
+  fa-IR: رأس
+  src:
+    fa-IR: G12_gosaste_math pdf p.43; concept disc.graph
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-AF and ps not found in books (no graph theory). The geometric vertex is a separate entry in the geometry glossary.
+- id: network-edge
+  en: edge (of a graph)
+  fa-IR: یال
+  src:
+    fa-IR: concept disc.graph
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-AF and ps not found in books (no graph theory). Iranian یال is also the edge of a solid.
+- id: force
+  en: force
+  fa-IR: نیرو
+  src:
+    fa-IR: concept mech.forces.newton-first
+  status:
+    fa-AF: draft
+    ps: draft
+  note: 'Mechanics is not in the Afghan or Iranian school maths books: fa-AF and ps not found.'
+- id: velocity
+  en: velocity
+  fa-IR: سرعت
+  src:
+    fa-IR: concept mech.kinematics.language
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-AF and ps not found in books. Same fa-IR word as speed in the maths books; Iranian physics books separate تندی (speed) and سرعت (velocity).
+- id: speed
+  en: speed
+  fa-IR: سرعت
+  fa-AF: سرعت
+  ps: چټکتیا
+  src:
+    fa-IR: G05_riazi_panjom pdf p.98
+    fa-AF: AF_G08_riazi pdf p.59
+    ps: AF_G08_riazi_ps pdf p.59
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Found in word problems about cars (km per hour), not in a mechanics lesson.
+- id: acceleration
+  en: acceleration
+  fa-IR: شتاب
+  src:
+    fa-IR: concept mech.kinematics.language
+  status:
+    fa-AF: draft
+    ps: draft
+  note: fa-AF and ps not found in books.
+- id: mass
+  en: mass
+  fa-IR: جرم
+  fa-AF: کتله
+  ps: کتله
+  src:
+    fa-IR: G03_riazi_sevom pdf p.37
+    fa-AF: AF_G04_riazi line 52
+    ps: AF_G04_riazi_ps line 52 (د کتلې)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: From the measurement lessons (kilogram).
+- id: weight
+  en: weight
+  fa-IR: وزن
+  fa-AF: وزن
+  src:
+    fa-IR: concept mech.forces.weight
+    fa-AF: AF_G05_riazi pdf p.185
+  status:
+    fa-AF: draft
+    ps: draft
+  note: ps not found in books. The Afghan Dari book uses وزن in the everyday sense, measured in kilograms; in mechanics weight is a force (mass × g).

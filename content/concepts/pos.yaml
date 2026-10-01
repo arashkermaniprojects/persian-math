@@ -1,0 +1,304 @@
+- id: pos.position.language
+  title:
+    fa-IR: 'مکان و جهت: بالا، پایین، چپ، راست، بین'
+    en: Describing position and direction
+  age:
+  - 6
+  - 7
+  requires: []
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:2:480edd
+    - iran:G01_riazi_aval:11:5e7a07
+    af:
+    - af:AF_G01_riazi:1:cd2dd1
+    uk:
+    - uk:UK_Y01:7:ed2aa4
+    - uk:UK_Y02:7:27746d
+    - uk:UK_Y02:7:7813d7
+- id: pos.turns
+  title:
+    fa-IR: چرخش‌های کامل، نیم، ربع و سه‌ربع؛ جهت حرکت عقربه‌های ساعت
+    en: Whole, half and quarter turns; clockwise and anticlockwise
+  age:
+  - 6
+  - 8
+  requires:
+  - pos.position.language
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y01:7:ed2aa4
+    - uk:UK_Y02:7:27746d
+    - uk:UK_Y03:6:914265
+- id: pos.coordinates.first-quadrant
+  title:
+    fa-IR: مختصات نقطه در ربع اول
+    en: Coordinates in the first quadrant
+  age:
+  - 9
+  - 12
+  requires:
+  - pos.position.language
+  - num.place-value.to-1000
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:4:20a7af
+    af: []
+    uk:
+    - uk:UK_Y04:7:a5d993
+    - uk:UK_Y04:7:e7923a
+- id: pos.coordinates
+  title:
+    fa-IR: محورهای مختصات و مختصات نقطه در چهار ربع
+    en: Coordinates in all four quadrants
+  age:
+  - 11
+  - 16
+  requires:
+  - pos.coordinates.first-quadrant
+  - num.negative
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:4:20a7af
+    - iran:G07_riazi_haftom:8:47abce
+    - iran:G07_gifted_supplement:9:3781a1
+    - iran:G07_gifted_supplement:9:7a09ea
+    af:
+    - af:AF_G08_riazi:9:a536ac
+    uk:
+    - uk:UK_Y06:8:477b30
+    - uk:UK_KS3:2:ba4d2a
+    - uk:UK_GCSE:2:981838
+- id: pos.coordinates.shapes
+  title:
+    fa-IR: رسم و بررسی شکل‌ها روی صفحهٔ مختصات
+    en: Plotting and solving problems with shapes on coordinate axes
+  age:
+  - 9
+  - 16
+  requires:
+  - pos.coordinates
+  - geo.shapes.2d.properties
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y04:7:e7923a
+    - uk:UK_GCSE:4:d1bb3e
+- id: pos.translation
+  title:
+    fa-IR: انتقال
+    en: Translation
+  age:
+  - 9
+  - 15
+  requires:
+  - pos.coordinates.first-quadrant
+  level: core
+  align:
+    iran:
+    - iran:G07_riazi_haftom:4:23b6aa
+    af:
+    - af:AF_G09_riazi:3:3dcf0d
+    uk:
+    - uk:UK_Y04:7:84b9ab
+    - uk:UK_Y05:7:d1329c
+    - uk:UK_Y06:8:bfe246
+    - uk:UK_KS3:4:a72eb7
+- id: pos.translation.vector
+  title:
+    fa-IR: بردار انتقال
+    en: Describing a translation by a vector
+  age:
+  - 13
+  - 16
+  requires:
+  - pos.translation
+  - pos.coordinates
+  - vec.2d
+  level: core
+  align:
+    iran:
+    - iran:G07_riazi_haftom:8:635d04
+    af: []
+    uk:
+    - uk:UK_GCSE:4:083e3f
+    - uk:UK_KS4:4:e6ce21
+- id: pos.reflection
+  title:
+    fa-IR: بازتاب (قرینه‌یابی نسبت به خط)
+    en: Reflection in a line
+  age:
+  - 10
+  - 15
+  requires:
+  - geo.symmetry.line
+  - pos.coordinates.first-quadrant
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:4:8c6a32
+    - iran:G07_riazi_haftom:4:23b6aa
+    af:
+    - af:AF_G09_riazi:3:3dcf0d
+    uk:
+    - uk:UK_Y05:7:d1329c
+    - uk:UK_Y06:8:bfe246
+    - uk:UK_KS3:4:a72eb7
+- id: pos.rotation
+  title:
+    fa-IR: دوران
+    en: Rotation about a point
+  age:
+  - 11
+  - 15
+  requires:
+  - pos.turns
+  - geo.angles.measure
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:4:5be595
+    - iran:G06_riazi_sheshom:4:92f070
+    - iran:G07_riazi_haftom:4:23b6aa
+    af:
+    - af:AF_G09_riazi:3:3dcf0d
+    uk:
+    - uk:UK_KS3:4:a72eb7
+- id: pos.transformations
+  title:
+    fa-IR: تبدیل‌های هندسی و ویژگی‌های آن‌ها
+    en: Geometric transformations as mappings and what they preserve
+  age:
+  - 11
+  - 17
+  requires:
+  - pos.translation
+  - pos.reflection
+  - pos.rotation
+  level: core
+  align:
+    iran:
+    - iran:G07_riazi_haftom:4:23b6aa
+    - iran:G07_gifted_supplement:5:fa6518
+    - iran:G11_hendese2_math:2:dba6ab
+    af:
+    - af:AF_G09_riazi:3:3dcf0d
+    uk:
+    - uk:UK_KS3:4:a72eb7
+    - uk:UK_GCSE:4:6c1b56
+- id: pos.coordinates.transformations
+  title:
+    fa-IR: تبدیل‌های هندسی در صفحهٔ مختصات
+    en: Transformations on the coordinate plane
+  age:
+  - 11
+  - 16
+  requires:
+  - pos.transformations
+  - pos.coordinates
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:4:8c6a32
+    - iran:G07_gifted_supplement:9:b61cb1
+    af: []
+    uk:
+    - uk:UK_Y06:8:bfe246
+    - uk:UK_GCSE:4:6c1b56
+- id: pos.enlargement
+  title:
+    fa-IR: تجانس (بزرگ‌نمایی) با مرکز و ضریب
+    en: Enlargement from a centre by a scale factor
+  age:
+  - 11
+  - 17
+  requires:
+  - pos.transformations
+  - ratio.ratio
+  level: core
+  align:
+    iran:
+    - iran:G11_hendese2_math:2:dba6ab
+    af: []
+    uk:
+    - uk:UK_KS3:4:9e3082
+    - uk:UK_GCSE:4:6c1b56
+    - uk:UK_KS4:4:8b7bcc
+- id: pos.enlargement.negative-fractional
+  title:
+    fa-IR: تجانس با ضریب کسری و منفی
+    en: Enlargement with fractional and negative scale factors
+  age:
+  - 14
+  - 17
+  requires:
+  - pos.enlargement
+  - frac.mul-div
+  - num.negative
+  level: extension
+  align:
+    iran:
+    - iran:G11_hendese2_math:2:dba6ab
+    af: []
+    uk:
+    - uk:UK_GCSE:4:6c1b56
+    - uk:UK_KS4:4:8b7bcc
+- id: pos.transformations.combined
+  title:
+    fa-IR: ترکیب تبدیل‌ها و ناورداها
+    en: Combining transformations; invariance
+  age:
+  - 14
+  - 17
+  requires:
+  - pos.coordinates.transformations
+  - pos.enlargement
+  level: extension
+  align:
+    iran:
+    - iran:G11_hendese2_math:2:dba6ab
+    af: []
+    uk:
+    - uk:UK_GCSE:4:c696b6
+    - uk:UK_KS4:4:faf252
+- id: pos.transformations.applications
+  title:
+    fa-IR: کاربرد تبدیل‌ها در حل مسائل هندسی
+    en: Using transformations to solve geometry problems
+  age:
+  - 17
+  - 17
+  requires:
+  - pos.transformations.combined
+  - geo.proof.intro
+  level: specialist
+  align:
+    iran:
+    - iran:G11_hendese2_math:2:bfcff0
+    af: []
+    uk: []
+- id: pos.bearings
+  title:
+    fa-IR: جهت‌یابی با زاویهٔ سمت (بیرینگ)
+    en: Bearings
+  age:
+  - 14
+  - 16
+  requires:
+  - geo.angles.measure
+  - meas.scale-drawings
+  level: specialist
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:4:6702c3
+    - uk:UK_KS4:4:9b405a

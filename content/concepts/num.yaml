@@ -1,0 +1,980 @@
+- id: num.count.pre-number
+  title:
+    fa-IR: 'پیش‌عدد: تناظر یک‌به‌یک، دسته‌بندی و مقایسهٔ دسته‌ها'
+    en: 'Pre-number: matching, sorting and comparing groups'
+  age:
+  - 6
+  - 7
+  requires: []
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:1:5691a2
+    - iran:G01_riazi_aval:2:480edd
+    - iran:G01_riazi_aval:3:3eb3f9
+    af:
+    - af:AF_G01_riazi:1:cd2dd1
+    uk:
+    - uk:UK_Y01:1:ade4a2
+- id: num.count.to-10
+  title:
+    fa-IR: شمارش، خواندن و نوشتن عددهای ۰ تا ۹
+    en: Counting, reading and writing numbers 0–9
+  age:
+  - 7
+  - 7
+  requires:
+  - num.count.pre-number
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:3:3eb3f9
+    - iran:G01_riazi_aval:4:d8d71e
+    - iran:G01_riazi_aval:5:be6b95
+    - iran:G01_riazi_aval:6:b96cd5
+    - iran:G01_riazi_aval:7:0a31c2
+    - iran:G01_riazi_aval:8:428943
+    - iran:G01_riazi_aval:9:bd850a
+    - iran:G01_riazi_aval:10:3c7e5e
+    - iran:G01_riazi_aval:11:5e7a07
+    - iran:G01_riazi_aval:12:ad5987
+    - iran:G01_riazi_aval:13:b6d508
+    af:
+    - af:AF_G01_riazi:2:8d7a12
+    uk: []
+- id: num.count.to-20
+  title:
+    fa-IR: 'عددهای ۱۰ تا ۲۰: یک ده و چند یکی'
+    en: 'Numbers to 20: one ten and some ones'
+  age:
+  - 6
+  - 7
+  requires:
+  - num.count.to-10
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:13:b6d508
+    - iran:G01_riazi_aval:15:c82d22
+    - iran:G01_riazi_aval:16:8580e4
+    - iran:G01_riazi_aval:18:83cae4
+    af:
+    - af:AF_G01_riazi:5:5ef0aa
+    uk:
+    - uk:UK_Y01:1:10d9b2
+- id: num.compare
+  title:
+    fa-IR: مقایسهٔ عددها و علامت‌های <، > و =
+    en: Comparing and ordering numbers with <, > and =
+  age:
+  - 6
+  - 9
+  requires:
+  - num.count.to-10
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:2:480edd
+    - iran:G01_riazi_aval:11:5e7a07
+    - iran:G01_riazi_aval:12:ad5987
+    - iran:G01_riazi_aval:17:12b5cb
+    - iran:G01_riazi_aval:19:663345
+    - iran:G01_riazi_aval:23:27d625
+    - iran:G02_riazi_dovom:6:4ee2dd
+    - iran:G03_riazi_sevom:6:6f6a03
+    af:
+    - af:AF_G02_riazi:1:40e6a5
+    - af:AF_G02_riazi:1:f17b13
+    - af:AF_G02_riazi:5:c7fc62
+    - af:AF_G02_riazi:5:fc1629
+    uk:
+    - uk:UK_Y01:1:ade4a2
+    - uk:UK_Y02:1:fd228e
+    - uk:UK_Y03:1:5ba92b
+    - uk:UK_Y04:1:93be7f
+- id: num.number-line
+  title:
+    fa-IR: محور اعداد و نمایش عددها روی آن
+    en: 'The number line: placing and estimating numbers'
+  age:
+  - 6
+  - 9
+  requires:
+  - num.count.to-20
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:16:8580e4
+    - iran:G01_riazi_aval:17:12b5cb
+    - iran:G01_riazi_aval:18:83cae4
+    - iran:G01_riazi_aval:19:663345
+    af:
+    - af:AF_G03_riazi:5:825828
+    - af:AF_G03_riazi:5:1c5d59
+    uk:
+    - uk:UK_Y01:1:ade4a2
+    - uk:UK_Y02:1:e26be0
+    - uk:UK_Y03:1:2b4555
+    - uk:UK_Y04:1:2b4555
+- id: num.more-less
+  title:
+    fa-IR: یکی بیشتر و یکی کمتر؛ عدد قبل، بعد و بین دو عدد
+    en: One, ten, hundred more or less; before, after and between
+  age:
+  - 6
+  - 9
+  requires:
+  - num.count.to-20
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G02_riazi:1:d8102f
+    - af:AF_G02_riazi:5:c9b48f
+    uk:
+    - uk:UK_Y01:1:4b4780
+    - uk:UK_Y03:1:cc49fe
+    - uk:UK_Y04:1:99b573
+- id: num.count.skip
+  title:
+    fa-IR: شمارش چندتا چندتا
+    en: Skip counting in 2s, 5s, 10s and other steps
+  age:
+  - 6
+  - 10
+  requires:
+  - num.count.to-20
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:18:83cae4
+    - iran:G01_riazi_aval:20:a86001
+    - iran:G01_riazi_aval:22:f782a5
+    - iran:G02_riazi_dovom:1:c893b4
+    - iran:G03_riazi_sevom:1:7b03a8
+    af:
+    - af:AF_G02_riazi:1:ac4d13
+    - af:AF_G02_riazi:1:bf9210
+    uk:
+    - uk:UK_Y01:1:8a50ff
+    - uk:UK_Y02:1:ef4cf9
+    - uk:UK_Y03:1:cc49fe
+    - uk:UK_Y04:1:b00da0
+    - uk:UK_Y05:1:75794f
+- id: num.place-value.to-100
+  title:
+    fa-IR: 'ارزش مکانی: دسته‌های ده‌تایی و یکی (یکان و دهگان)'
+    en: Place value in two-digit numbers (tens and ones)
+  age:
+  - 7
+  - 8
+  requires:
+  - num.count.to-20
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:15:c82d22
+    - iran:G01_riazi_aval:16:8580e4
+    - iran:G01_riazi_aval:19:663345
+    - iran:G01_riazi_aval:20:a86001
+    - iran:G01_riazi_aval:21:36991b
+    - iran:G02_riazi_dovom:1:18722e
+    af:
+    - af:AF_G01_riazi:7:4b474c
+    - af:AF_G02_riazi:2:d43636
+    uk:
+    - uk:UK_Y02:1:a61fdf
+    - uk:UK_Y02:1:e183de
+- id: num.count.to-100
+  title:
+    fa-IR: شمارش، خواندن و نوشتن عددها تا ۱۰۰
+    en: Counting, reading and writing numbers to 100
+  age:
+  - 6
+  - 8
+  requires:
+  - num.place-value.to-100
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:20:a86001
+    - iran:G01_riazi_aval:21:36991b
+    - iran:G01_riazi_aval:22:f782a5
+    - iran:G01_riazi_aval:23:27d625
+    - iran:G01_riazi_aval:25:c3db16
+    - iran:G02_riazi_dovom:1:5bbf1a
+    af:
+    - af:AF_G01_riazi:7:4b474c
+    - af:AF_G02_riazi:1:e68afa
+    - af:AF_G02_riazi:1:41fa06
+    uk:
+    - uk:UK_Y01:1:3d4887
+    - uk:UK_Y01:1:8a50ff
+    - uk:UK_Y02:1:daf570
+- id: num.ordinal
+  title:
+    fa-IR: عددهای ترتیبی (اول، دوم، سوم…)
+    en: Ordinal numbers (first, second, third…)
+  age:
+  - 8
+  - 8
+  requires:
+  - num.count.to-20
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G02_riazi:1:0ccaf8
+    uk: []
+- id: num.even-odd
+  title:
+    fa-IR: عددهای زوج و فرد
+    en: Odd and even numbers
+  age:
+  - 7
+  - 8
+  requires:
+  - num.count.skip
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G02_riazi:2:80d12e
+    uk:
+    - uk:UK_Y02:3:158e5c
+- id: num.place-value.to-1000
+  title:
+    fa-IR: عددهای سه‌رقمی و ارزش مکانی (یکان، دهگان، صدگان)
+    en: Three-digit numbers and place value (hundreds, tens, ones)
+  age:
+  - 8
+  - 8
+  requires:
+  - num.count.to-100
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:4:bfa340
+    - iran:G02_riazi_dovom:6:4ee2dd
+    af:
+    - af:AF_G02_riazi:5:6e6df2
+    - af:AF_G02_riazi:5:a10990
+    - af:AF_G02_riazi:5:a10990~2
+    - af:AF_G02_riazi:5:c7076c
+    - af:AF_G02_riazi:5:fc1629
+    uk:
+    - uk:UK_Y03:1:9549df
+    - uk:UK_Y03:1:5ba92b
+    - uk:UK_Y03:1:2b4555
+    - uk:UK_Y03:1:6f41d4
+    - uk:UK_Y03:1:fcce80
+- id: num.place-value.to-10000
+  title:
+    fa-IR: عددهای چهاررقمی و ارزش مکانی (هزارگان)
+    en: Four-digit numbers and place value (thousands)
+  age:
+  - 9
+  - 9
+  requires:
+  - num.place-value.to-1000
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:2:cad0a8
+    - iran:G03_riazi_sevom:2:1810d5
+    - iran:G03_riazi_sevom:6:6f6a03
+    af:
+    - af:AF_G03_riazi:1:05decd
+    - af:AF_G03_riazi:2:41ff96
+    uk:
+    - uk:UK_Y04:1:db743f
+    - uk:UK_Y04:1:93be7f
+    - uk:UK_Y04:1:2b4555
+    - uk:UK_Y04:1:2da453
+- id: num.place-value.expanded
+  title:
+    fa-IR: نمایش گستردهٔ عددها
+    en: Expanded form of numbers
+  age:
+  - 10
+  - 10
+  requires:
+  - num.place-value.to-1000
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:1:ce28f1
+    af:
+    - af:AF_G04_riazi:2:9ef48a
+    uk: []
+- id: num.place-value.large
+  title:
+    fa-IR: 'عددهای بزرگ: میلیون و میلیارد، خواندن و نوشتن'
+    en: 'Large numbers: millions and billions, reading and writing'
+  age:
+  - 9
+  - 16
+  requires:
+  - num.place-value.to-10000
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:1:ce28f1
+    - iran:G04_riazi_chaharom:1:fe5f53
+    - iran:G05_riazi_panjom:1:5c4bfb
+    - iran:G05_riazi_panjom:1:b8a823
+    - iran:G06_riazi_sheshom:1:054fe3
+    af:
+    - af:AF_G03_riazi:2:5e14c8
+    - af:AF_G04_riazi:1:afc82f
+    - af:AF_G04_riazi:2:9a846a
+    uk:
+    - uk:UK_GCSE:1:fed0ed
+    - uk:UK_KS3:1:e9bd68
+    - uk:UK_Y05:1:9e212b
+    - uk:UK_Y05:1:75794f
+    - uk:UK_Y05:1:c2b873
+    - uk:UK_Y06:1:93b7eb
+    - uk:UK_Y06:1:a5c1cc
+- id: num.roman
+  title:
+    fa-IR: عددنویسی رومی
+    en: Roman numerals
+  age:
+  - 8
+  - 12
+  requires:
+  - num.place-value.to-1000
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G06_riazi:1:663993
+    uk:
+    - uk:UK_Y03:5:c8ffbf
+    - uk:UK_Y04:1:3369a0
+    - uk:UK_Y05:1:ffde53
+- id: num.rounding
+  title:
+    fa-IR: تقریب عددهای طبیعی به نزدیک‌ترین ده، صد و هزار
+    en: Rounding whole numbers to the nearest 10, 100, 1000…
+  age:
+  - 8
+  - 12
+  requires:
+  - num.place-value.to-1000
+  - num.number-line
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:4:ab1e56
+    - iran:G03_riazi_sevom:2:4a3797
+    - iran:G06_riazi_sheshom:7:44363d
+    af:
+    - af:AF_G03_riazi:1:a4b6a9
+    - af:AF_G03_riazi:5:1c5d59
+    - af:AF_G04_riazi:1:b330b2
+    uk:
+    - uk:UK_Y04:1:30bf24
+    - uk:UK_Y05:1:c9792f
+    - uk:UK_Y06:1:0836e8
+- id: num.rounding.decimals-sigfig
+  title:
+    fa-IR: گرد کردن تا تعداد معینی رقم اعشار و رقم بامعنا
+    en: Rounding to decimal places and significant figures
+  age:
+  - 9
+  - 16
+  requires:
+  - num.rounding
+  - frac.decimals
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:7:44363d
+    af: []
+    uk:
+    - uk:UK_GCSE:1:9a0f3e
+    - uk:UK_KS3:1:da123c
+    - uk:UK_Y04:4:4f9f1f
+    - uk:UK_Y05:4:2ccd4c
+    - uk:UK_Y06:3:c6dae1
+- id: num.bounds
+  title:
+    fa-IR: 'خطای تقریب: کران بالا و کران پایین'
+    en: Error intervals, upper and lower bounds
+  age:
+  - 11
+  - 16
+  requires:
+  - num.rounding.decimals-sigfig
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:7:a304eb
+    - iran:G09_gifted:2:11916f
+    - iran:G09_riazi_nohom:2:85c70b
+    af: []
+    uk:
+    - uk:UK_GCSE:1:9a0f3e
+    - uk:UK_GCSE:1:1d4d33
+    - uk:UK_KS3:1:51dc70
+    - uk:UK_KS4:1:b63526
+- id: num.negative
+  title:
+    fa-IR: معرفی عددهای صحیح (عددهای علامت‌دار) روی محور اعداد
+    en: Negative numbers and integers on the number line
+  age:
+  - 9
+  - 16
+  requires:
+  - num.number-line
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:1:66ccfb
+    - iran:G07_gifted_supplement:3:4ab991
+    - iran:G07_riazi_haftom:2:4ab991
+    - iran:G08_gifted_supplement:1:55896a
+    - iran:G08_riazi_hashtom:1:55896a
+    af:
+    - af:AF_G07_riazi:3:40cdf5
+    - af:AF_G07_riazi:3:eee8f0
+    uk:
+    - uk:UK_GCSE:1:b3e14f
+    - uk:UK_KS3:1:ab747f
+    - uk:UK_Y04:1:16870b
+    - uk:UK_Y05:1:5deccb
+    - uk:UK_Y06:1:bb404f
+- id: num.integers.add-sub
+  title:
+    fa-IR: جمع و تفریق عددهای صحیح
+    en: Adding and subtracting integers
+  age:
+  - 11
+  - 16
+  requires:
+  - num.negative
+  - ops.add-sub.mental
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:3:1e1258
+    - iran:G07_gifted_supplement:3:39868a
+    - iran:G07_riazi_haftom:2:362f67
+    - iran:G07_riazi_haftom:2:6cc43c
+    - iran:G08_gifted_supplement:1:55896a
+    - iran:G08_riazi_hashtom:1:55896a
+    af:
+    - af:AF_G07_riazi:3:4718bf
+    uk:
+    - uk:UK_GCSE:1:fed0ed
+    - uk:UK_KS3:1:607fa0
+    - uk:UK_Y06:1:bb404f
+- id: num.integers.ops
+  title:
+    fa-IR: ضرب و تقسیم عددهای صحیح (چهار عمل با عددهای صحیح)
+    en: 'Integer operations: multiplying and dividing integers'
+  age:
+  - 11
+  - 16
+  requires:
+  - num.integers.add-sub
+  - ops.mul-div.facts
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:3:90af61
+    - iran:G07_riazi_haftom:2:7e3035
+    af:
+    - af:AF_G07_riazi:3:4718bf
+    uk:
+    - uk:UK_GCSE:1:fed0ed
+    - uk:UK_KS3:1:607fa0
+- id: num.absolute-value
+  title:
+    fa-IR: قدر مطلق
+    en: Absolute value
+  age:
+  - 13
+  - 17
+  requires:
+  - num.negative
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:2:11916f
+    - iran:G09_riazi_nohom:2:85c70b
+    - iran:G11_hesaban1_math:1:cf8148
+    af:
+    - af:AF_G07_riazi:3:4718bf
+    uk: []
+- id: num.factors-multiples
+  title:
+    fa-IR: شمارنده‌ها و مضرب‌ها
+    en: Factors (divisors) and multiples
+  age:
+  - 9
+  - 16
+  requires:
+  - ops.mul-div.facts
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:6:760e16
+    - iran:G07_gifted_supplement:6:d99736
+    - iran:G07_gifted_supplement:6:487c8b
+    af:
+    - af:AF_G05_riazi:4:859bec
+    - af:AF_G05_riazi:4:9b2fcc
+    - af:AF_G06_riazi:2:4ea929
+    uk:
+    - uk:UK_GCSE:1:29db9b
+    - uk:UK_KS3:1:8e2aa6
+    - uk:UK_Y04:3:408bc3
+    - uk:UK_Y05:3:6e2812
+    - uk:UK_Y05:3:ec9155
+- id: num.divisibility
+  title:
+    fa-IR: بخش‌پذیری و قاعده‌های بخش‌پذیری
+    en: Divisibility and divisibility rules
+  age:
+  - 10
+  - 13
+  requires:
+  - num.factors-multiples
+  - ops.div.short
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:3:c23cad
+    - iran:G06_riazi_sheshom:1:862d60
+    af:
+    - af:AF_G05_riazi:4:429a14
+    - af:AF_G05_riazi:4:9ee37f
+    - af:AF_G05_riazi:4:61925b
+    - af:AF_G05_riazi:4:4c1252
+    - af:AF_G06_riazi:2:ddb937
+    - af:AF_G07_riazi:2:48c5c0
+    uk: []
+- id: num.primes
+  title:
+    fa-IR: عدد اول و عدد مرکب
+    en: Prime and composite numbers
+  age:
+  - 10
+  - 16
+  requires:
+  - num.factors-multiples
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:6:256aaa
+    - iran:G07_riazi_haftom:5:256aaa
+    - iran:G08_gifted_supplement:2:5ab57e
+    - iran:G08_gifted_supplement:2:685ba8
+    - iran:G08_gifted_supplement:2:2d6a8e
+    - iran:G08_riazi_hashtom:2:5ab57e
+    - iran:G08_riazi_hashtom:2:685ba8
+    af:
+    - af:AF_G05_riazi:4:c0987a
+    - af:AF_G05_riazi:4:4a6075
+    - af:AF_G06_riazi:2:5d12b9
+    uk:
+    - uk:UK_GCSE:1:29db9b
+    - uk:UK_KS3:1:8e2aa6
+    - uk:UK_Y05:3:b8183c
+    - uk:UK_Y05:3:f500f5
+    - uk:UK_Y06:2:c00d55
+- id: num.prime-factorisation
+  title:
+    fa-IR: تجزیه به عامل‌های اول (شمارنده‌های اول)
+    en: Prime factorisation
+  age:
+  - 10
+  - 16
+  requires:
+  - num.primes
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:6:f5abc4
+    - iran:G07_riazi_haftom:5:f5abc4
+    af:
+    - af:AF_G05_riazi:4:478200
+    - af:AF_G06_riazi:2:4ea929
+    - af:AF_G06_riazi:2:87ad49
+    - af:AF_G06_riazi:2:740537
+    - af:AF_G07_riazi:2:48c5c0
+    uk:
+    - uk:UK_GCSE:1:29db9b
+    - uk:UK_KS3:1:8e2aa6
+    - uk:UK_Y05:3:b8183c
+- id: num.hcf-lcm
+  title:
+    fa-IR: بزرگ‌ترین شمارندهٔ مشترک (ب.م.م) و کوچک‌ترین مضرب مشترک (ک.م.م)
+    en: Highest common factor (HCF) and lowest common multiple (LCM)
+  age:
+  - 10
+  - 16
+  requires:
+  - num.factors-multiples
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:6:25240c
+    - iran:G07_gifted_supplement:6:b93c2d
+    - iran:G07_gifted_supplement:6:5c7096
+    - iran:G07_riazi_haftom:5:25240c
+    - iran:G07_riazi_haftom:5:b93c2d
+    af:
+    - af:AF_G05_riazi:4:adbdf7
+    - af:AF_G05_riazi:4:4fcfaf
+    - af:AF_G05_riazi:4:ea291c
+    - af:AF_G05_riazi:4:ac09e4
+    - af:AF_G05_riazi:4:478200
+    - af:AF_G05_riazi:4:b60a58
+    - af:AF_G07_riazi:2:cdee98
+    - af:AF_G07_riazi:2:31122f
+    - af:AF_G07_riazi:2:eb89e7
+    uk:
+    - uk:UK_GCSE:1:29db9b
+    - uk:UK_KS3:1:8e2aa6
+    - uk:UK_Y05:3:6e2812
+    - uk:UK_Y06:2:c00d55
+- id: num.hcf-lcm.relation
+  title:
+    fa-IR: رابطهٔ ب.م.م و ک.م.م دو عدد
+    en: Relationship between the HCF and LCM of two numbers
+  age:
+  - 13
+  - 13
+  requires:
+  - num.hcf-lcm
+  - num.prime-factorisation
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:6:8f239d
+    af:
+    - af:AF_G07_riazi:2:75146e
+    - af:AF_G07_riazi:2:d7a9f0
+    uk: []
+- id: num.squares-cubes
+  title:
+    fa-IR: عددهای مربع و مکعب
+    en: Square and cube numbers
+  age:
+  - 10
+  - 13
+  requires:
+  - ops.mul-div.facts
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G07_riazi:2:71ae46
+    uk:
+    - uk:UK_Y05:3:fa5154
+    - uk:UK_Y05:3:ec9155
+- id: num.powers
+  title:
+    fa-IR: 'توان: تعریف و محاسبهٔ عبارت‌های توان‌دار'
+    en: 'Powers (indices): meaning and evaluating'
+  age:
+  - 10
+  - 16
+  requires:
+  - num.squares-cubes
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:8:0961a8
+    - iran:G07_gifted_supplement:8:feff6d
+    - iran:G07_gifted_supplement:8:c71b5b
+    - iran:G07_riazi_haftom:7:0961a8
+    - iran:G07_riazi_haftom:7:4d324a
+    - iran:G08_gifted_supplement:7:cb6353
+    - iran:G08_riazi_hashtom:7:cb6353
+    af:
+    - af:AF_G06_riazi:2:6a35b3
+    uk:
+    - uk:UK_GCSE:1:33b33a
+    - uk:UK_KS3:1:76270f
+    - uk:UK_Y05:3:fa5154
+- id: num.powers.laws
+  title:
+    fa-IR: ساده کردن عبارت‌های توان‌دار (قانون‌های توان)
+    en: 'Laws of indices: multiplying and dividing powers'
+  age:
+  - 13
+  - 16
+  requires:
+  - num.powers
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:8:dd807e
+    - iran:G07_riazi_haftom:7:b03c9f
+    - iran:G08_gifted_supplement:7:cb6353
+    - iran:G08_riazi_hashtom:7:cb6353
+    - iran:G08_riazi_hashtom:7:f8367d
+    af:
+    - af:AF_G07_riazi:2:f3dafc
+    - af:AF_G08_riazi:1:7e7e42
+    uk:
+    - uk:UK_GCSE:1:ee59ed
+    - uk:UK_GCSE:2:f24fd4
+    - uk:UK_KS4:1:ac99a7
+    - uk:UK_KS4:2:599b64
+- id: num.powers.integer
+  title:
+    fa-IR: توان صفر و توان صحیح منفی
+    en: Zero and negative integer powers
+  age:
+  - 14
+  - 16
+  requires:
+  - num.powers.laws
+  - num.integers.ops
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:4:f8c841
+    - iran:G09_riazi_nohom:4:f8c841
+    af:
+    - af:AF_G08_riazi:1:7e7e42
+    uk:
+    - uk:UK_GCSE:1:ee59ed
+    - uk:UK_KS4:1:ac99a7
+- id: num.roots
+  title:
+    fa-IR: جذر و ریشه (ریشهٔ دوم و ریشهٔ سوم)
+    en: Square roots and cube roots
+  age:
+  - 11
+  - 16
+  requires:
+  - num.powers
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:8:62a72b
+    - iran:G07_riazi_haftom:7:62a72b
+    - iran:G09_gifted:4:1a6b46
+    - iran:G09_riazi_nohom:4:1a6b46
+    af:
+    - af:AF_G07_riazi:2:71ae46
+    - af:AF_G07_riazi:2:c6ccd6
+    uk:
+    - uk:UK_GCSE:1:33b33a
+    - uk:UK_KS3:1:76270f
+- id: num.roots.estimate
+  title:
+    fa-IR: جذر تقریبی
+    en: Estimating square roots
+  age:
+  - 11
+  - 16
+  requires:
+  - num.roots
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:7:05be18
+    af:
+    - af:AF_G08_riazi:1:40892e
+    uk:
+    - uk:UK_GCSE:1:33b33a
+    - uk:UK_KS3:1:76270f
+    - uk:UK_KS4:1:0bb3d1
+- id: num.powers.fractional
+  title:
+    fa-IR: ریشهٔ nام و توان‌های گویا
+    en: nth roots and fractional (rational) indices
+  age:
+  - 14
+  - 18
+  requires:
+  - num.powers.integer
+  - num.roots
+  level: extension
+  align:
+    iran:
+    - iran:G10_riazi1_math_science:3:354a11
+    - iran:G10_riazi1_math_science:3:387410
+    - iran:G10_riazi1_math_science:3:6c4ec0
+    - iran:G12_riazi_amar3_humanities:3:787172
+    af:
+    - af:AF_G08_riazi:1:ed34bd
+    uk:
+    - uk:UK_ALEVEL:2:0e796c
+    - uk:UK_GCSE:1:ee59ed
+    - uk:UK_KS4:1:ac99a7
+- id: num.rational
+  title:
+    fa-IR: 'عددهای گویا: معرفی، مقایسه و نمایش روی محور'
+    en: 'Rational numbers: meaning, comparing and the number line'
+  age:
+  - 11
+  - 15
+  requires:
+  - num.negative
+  - frac.equivalent
+  level: core
+  align:
+    iran:
+    - iran:G08_gifted_supplement:1:3359f2
+    - iran:G08_riazi_hashtom:1:bf8fcc
+    - iran:G09_gifted:2:3359f2
+    - iran:G09_riazi_nohom:2:3359f2
+    af:
+    - af:AF_G07_riazi:4:23c181
+    - af:AF_G07_riazi:4:152d1e
+    - af:AF_G07_riazi:4:a5d056
+    uk:
+    - uk:UK_KS3:1:ab747f
+    - uk:UK_KS3:1:c09dd4
+- id: num.rational.ops
+  title:
+    fa-IR: چهار عمل اصلی با عددهای گویا
+    en: Operations with rational numbers (signed fractions)
+  age:
+  - 11
+  - 16
+  requires:
+  - num.rational
+  - num.integers.ops
+  - frac.add-sub
+  - frac.mul-div
+  level: core
+  align:
+    iran:
+    - iran:G08_gifted_supplement:1:75c2b2
+    - iran:G08_riazi_hashtom:1:778022
+    - iran:G08_riazi_hashtom:1:ec7226
+    af:
+    - af:AF_G07_riazi:4:ba13d3
+    - af:AF_G07_riazi:4:511e13
+    uk:
+    - uk:UK_GCSE:1:fed0ed
+    - uk:UK_KS3:1:607fa0
+- id: num.recurring-decimals
+  title:
+    fa-IR: عددهای اعشاری متناوب و تبدیل آن‌ها به کسر
+    en: Recurring decimals and converting them to fractions
+  age:
+  - 12
+  - 16
+  requires:
+  - num.rational
+  - frac.decimals
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G06_riazi:3:7f1ba3
+    - af:AF_G06_riazi:3:9f1312
+    - af:AF_G07_riazi:4:a5d056
+    uk:
+    - uk:UK_GCSE:1:6ce608
+    - uk:UK_KS4:1:c27e4d
+- id: num.real
+  title:
+    fa-IR: عددهای حقیقی و عددهای گنگ
+    en: 'Real numbers: irrational numbers and the real line'
+  age:
+  - 11
+  - 15
+  requires:
+  - num.rational
+  - num.roots
+  level: core
+  align:
+    iran:
+    - iran:G08_riazi_hashtom:7:ebe3f2
+    - iran:G09_gifted:2:b5ce63
+    - iran:G09_riazi_nohom:2:2123c2
+    af:
+    - af:AF_G08_riazi:1:065c80
+    uk:
+    - uk:UK_KS3:1:ab747f
+    - uk:UK_KS3:1:c09dd4
+- id: num.surds
+  title:
+    fa-IR: 'عددهای رادیکالی: ضرب، تقسیم و ساده کردن'
+    en: 'Surds: multiplying, dividing and simplifying'
+  age:
+  - 14
+  - 18
+  requires:
+  - num.real
+  level: core
+  align:
+    iran:
+    - iran:G08_gifted_supplement:7:a5a411
+    - iran:G08_gifted_supplement:7:f7de20
+    - iran:G08_riazi_hashtom:7:d605ec
+    af:
+    - af:AF_G08_riazi:1:9579ee
+    uk:
+    - uk:UK_ALEVEL:2:82fde3
+    - uk:UK_GCSE:1:63d386
+    - uk:UK_KS4:1:01328f
+- id: num.surds.add-sub
+  title:
+    fa-IR: جمع و تفریق رادیکال‌ها
+    en: Adding and subtracting surds
+  age:
+  - 14
+  - 15
+  requires:
+  - num.surds
+  level: core
+  align:
+    iran:
+    - iran:G09_gifted:4:e4e7db
+    - iran:G09_riazi_nohom:4:e4e7db
+    af:
+    - af:AF_G08_riazi:1:9579ee
+    uk: []
+- id: num.surds.rationalise
+  title:
+    fa-IR: گویا کردن مخرج کسر
+    en: Rationalising the denominator
+  age:
+  - 14
+  - 18
+  requires:
+  - num.surds
+  level: extension
+  align:
+    iran: []
+    af:
+    - af:AF_G08_riazi:1:ed34bd
+    uk:
+    - uk:UK_ALEVEL:2:82fde3
+    - uk:UK_GCSE:1:63d386
+    - uk:UK_KS4:1:01328f
+- id: num.standard-form
+  title:
+    fa-IR: نماد علمی
+    en: Standard form (scientific notation)
+  age:
+  - 11
+  - 16
+  requires:
+  - num.powers.integer
+  - frac.decimals
+  level: core
+  align:
+    iran:
+    - iran:G07_gifted_supplement:8:c71b5b
+    - iran:G09_gifted:4:49bcb6
+    - iran:G09_riazi_nohom:4:49bcb6
+    af:
+    - af:AF_G07_riazi:2:d4a79b
+    uk:
+    - uk:UK_GCSE:1:717616
+    - uk:UK_KS3:1:8a298c
+    - uk:UK_KS4:1:d20de2

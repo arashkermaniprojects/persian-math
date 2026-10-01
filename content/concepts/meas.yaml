@@ -1,0 +1,804 @@
+- id: meas.compare.direct
+  title:
+    fa-IR: 'مقایسهٔ اندازه‌ها: بلند و کوتاه، سبک و سنگین، پر و خالی'
+    en: Comparing lengths, masses and capacities directly
+  age:
+  - 6
+  - 7
+  requires: []
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:6:b96cd5
+    - iran:G01_riazi_aval:14:c301d1
+    af:
+    - af:AF_G01_riazi:6:239dd9
+    uk:
+    - uk:UK_Y01:5:6675b8
+- id: meas.units.nonstandard
+  title:
+    fa-IR: اندازه‌گیری با واحدهای غیراستاندارد
+    en: Measuring with non-standard units
+  age:
+  - 7
+  - 8
+  requires:
+  - meas.compare.direct
+  - num.count.to-20
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:8:428943
+    - iran:G01_riazi_aval:10:3c7e5e
+    - iran:G01_riazi_aval:12:ad5987
+    - iran:G02_riazi_dovom:5:620abf
+    af:
+    - af:AF_G02_riazi:8:53eecd
+    uk: []
+- id: meas.length
+  title:
+    fa-IR: اندازه‌گیری طول با واحدهای استاندارد (متر، سانتی‌متر، میلی‌متر، کیلومتر)
+    en: Measuring length in standard units (m, cm, mm, km)
+  age:
+  - 6
+  - 10
+  requires:
+  - meas.units.nonstandard
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:17:12b5cb
+    - iran:G01_riazi_aval:21:36991b
+    - iran:G02_riazi_dovom:5:620abf
+    - iran:G02_riazi_dovom:5:951162
+    - iran:G02_riazi_dovom:5:fe765f
+    - iran:G04_riazi_chaharom:4:620abf
+    af:
+    - af:AF_G02_riazi:8:08d426
+    - af:AF_G02_riazi:8:8d3af1
+    - af:AF_G03_riazi:7:52901e
+    - af:AF_G03_riazi:7:c69d98
+    - af:AF_G03_riazi:7:45ae4b
+    - af:AF_G03_riazi:7:b67a76
+    - af:AF_G03_riazi:7:46e7ff
+    - af:AF_G04_riazi:6:9df876
+    uk:
+    - uk:UK_Y01:5:276342
+    - uk:UK_Y02:5:5dac15
+    - uk:UK_Y02:5:4b37cc
+    - uk:UK_Y03:5:d7a9a8
+- id: meas.mass
+  title:
+    fa-IR: اندازه‌گیری جرم (کیلوگرم و گرم)
+    en: Measuring mass (kg, g)
+  age:
+  - 6
+  - 12
+  requires:
+  - meas.units.nonstandard
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:5:c729a8
+    af:
+    - af:AF_G03_riazi:9:d34b40
+    - af:AF_G04_riazi:6:313645
+    uk:
+    - uk:UK_Y01:5:276342
+    - uk:UK_Y02:5:5dac15
+    - uk:UK_Y02:5:4b37cc
+    - uk:UK_Y03:5:d7a9a8
+- id: meas.capacity
+  title:
+    fa-IR: گنجایش (لیتر و میلی‌لیتر)
+    en: Measuring capacity (litres, millilitres)
+  age:
+  - 6
+  - 11
+  requires:
+  - meas.units.nonstandard
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:6:8e9a23
+    af:
+    - af:AF_G03_riazi:9:835f7d
+    - af:AF_G04_riazi:6:bd00d6
+    uk:
+    - uk:UK_Y01:5:276342
+    - uk:UK_Y02:5:5dac15
+    - uk:UK_Y02:5:4b37cc
+    - uk:UK_Y03:5:d7a9a8
+- id: meas.temperature
+  title:
+    fa-IR: خواندن دما (درجهٔ سلسیوس)
+    en: Reading temperature (°C)
+  age:
+  - 7
+  - 7
+  requires:
+  - meas.length
+  level: specialist
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y02:5:5dac15
+- id: meas.estimate
+  title:
+    fa-IR: تخمین اندازه‌ها
+    en: Estimating measurements
+  age:
+  - 7
+  - 10
+  requires:
+  - meas.length
+  - meas.mass
+  - meas.capacity
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:5:63aac5
+    af:
+    - af:AF_G03_riazi:8:d6322e
+    uk:
+    - uk:UK_Y02:5:5dac15
+    - uk:UK_Y04:5:9d03a7
+    - uk:UK_Y05:5:fb7bd2
+- id: meas.time
+  title:
+    fa-IR: خواندن ساعت
+    en: Telling the time
+  age:
+  - 6
+  - 10
+  requires:
+  - num.count.to-20
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:16:8580e4
+    - iran:G01_riazi_aval:21:36991b
+    - iran:G01_riazi_aval:22:f782a5
+    - iran:G04_riazi_chaharom:4:78879b
+    af:
+    - af:AF_G03_riazi:9:c77e53
+    uk:
+    - uk:UK_Y01:5:2deef6
+    - uk:UK_Y02:5:b012a0
+    - uk:UK_Y03:5:c8ffbf
+    - uk:UK_Y03:5:ee409c
+- id: meas.time.24h
+  title:
+    fa-IR: ساعت ۲۴ساعته و ساعت در بعدازظهر
+    en: The 24-hour clock
+  age:
+  - 8
+  - 9
+  requires:
+  - meas.time
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:1:0266e2
+    af: []
+    uk:
+    - uk:UK_Y03:5:c8ffbf
+    - uk:UK_Y04:5:7aa7df
+- id: meas.time.units
+  title:
+    fa-IR: واحدهای زمان، مدت زمان و تبدیل آن‌ها
+    en: Units of time, durations and conversions
+  age:
+  - 7
+  - 12
+  requires:
+  - meas.time
+  - ops.mul-div.facts
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:24:6410f7
+    - iran:G04_riazi_chaharom:4:78879b
+    - iran:G05_riazi_panjom:1:0d9fcf
+    af:
+    - af:AF_G04_riazi:6:9d43c2
+    - af:AF_G06_riazi:5:2c7f0f
+    uk:
+    - uk:UK_Y02:5:127364
+    - uk:UK_Y02:5:b83d41
+    - uk:UK_Y03:5:dc67e5
+    - uk:UK_Y03:5:623580
+    - uk:UK_Y03:5:ee409c
+    - uk:UK_Y04:5:9f9729
+    - uk:UK_Y05:5:4e761c
+- id: meas.time.calendar
+  title:
+    fa-IR: روز، هفته، ماه، سال و تقویم
+    en: Days, weeks, months, years and the calendar
+  age:
+  - 6
+  - 9
+  requires: []
+  level: core
+  align:
+    iran:
+    - iran:G01_riazi_aval:6:b96cd5
+    af:
+    - af:AF_G03_riazi:9:4118a8
+    - af:AF_G03_riazi:9:49a913
+    uk:
+    - uk:UK_Y01:5:29928d
+    - uk:UK_Y01:5:6767d5
+    - uk:UK_Y03:5:dc67e5
+- id: meas.money.coins
+  title:
+    fa-IR: 'شناخت پول: سکه‌ها و اسکناس‌ها'
+    en: Recognising coins and notes
+  age:
+  - 6
+  - 8
+  requires:
+  - num.count.to-20
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:4:403018
+    af: []
+    uk:
+    - uk:UK_Y01:5:923c0c
+    - uk:UK_Y02:5:2f7bf8
+    - uk:UK_Y02:5:d9f636
+- id: meas.money.calculate
+  title:
+    fa-IR: محاسبه با پول و باقی‌ماندهٔ پول
+    en: Calculating with money and giving change
+  age:
+  - 7
+  - 9
+  requires:
+  - meas.money.coins
+  - ops.add-sub.mental
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:2:0c2489
+    af: []
+    uk:
+    - uk:UK_Y02:5:67eb9e
+    - uk:UK_Y03:5:ea3182
+    - uk:UK_Y04:5:9d03a7
+- id: meas.units.convert
+  title:
+    fa-IR: تبدیل واحدهای متریک به یکدیگر
+    en: Converting between metric units
+  age:
+  - 9
+  - 16
+  requires:
+  - meas.length
+  - meas.mass
+  - meas.capacity
+  - frac.decimals
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:1:0d9fcf
+    - iran:G06_riazi_sheshom:5:dfc793
+    af:
+    - af:AF_G04_riazi:6:9df876
+    - af:AF_G04_riazi:6:313645
+    - af:AF_G04_riazi:6:bd00d6
+    - af:AF_G06_riazi:5:9cae31
+    - af:AF_G06_riazi:5:2caf49
+    - af:AF_G06_riazi:5:01a70b
+    - af:AF_G06_riazi:5:9f6d32
+    - af:AF_G06_riazi:5:368e3f
+    uk:
+    - uk:UK_Y04:5:1b7acd
+    - uk:UK_Y05:5:264093
+    - uk:UK_Y06:6:ccebfd
+    - uk:UK_Y06:6:a49eb9
+    - uk:UK_KS3:1:092521
+    - uk:UK_KS3:3:0dd2c7
+    - uk:UK_GCSE:1:e0e571
+    - uk:UK_GCSE:3:b13273
+    - uk:UK_GCSE:4:6abd57
+- id: meas.units.imperial
+  title:
+    fa-IR: واحدهای انگلیسی (اینچ، پوند، پاینت، مایل)
+    en: Imperial units and metric equivalents
+  age:
+  - 10
+  - 11
+  requires:
+  - meas.units.convert
+  level: specialist
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_Y05:5:05ca97
+    - uk:UK_Y06:6:18ba69
+- id: meas.problems
+  title:
+    fa-IR: حل مسئله با اندازه‌ها
+    en: Solving problems with measures using the four operations
+  age:
+  - 9
+  - 11
+  requires:
+  - meas.units.convert
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:3:1293c4
+    af: []
+    uk:
+    - uk:UK_Y04:4:25c14e
+    - uk:UK_Y05:5:271f9a
+    - uk:UK_Y06:6:a49eb9
+- id: meas.scale-drawings
+  title:
+    fa-IR: نقشه و رسم با مقیاس
+    en: Scale drawings and maps
+  age:
+  - 11
+  - 16
+  requires:
+  - ratio.ratio
+  - meas.length
+  - geo.angles.measure
+  level: core
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_KS3:3:a8d40c
+    - uk:UK_KS3:4:cefa19
+    - uk:UK_GCSE:3:8dc247
+    - uk:UK_GCSE:4:6702c3
+- id: meas.accuracy.precision
+  title:
+    fa-IR: دقت اندازه‌گیری و گرد کردن اندازه‌ها
+    en: Accuracy of measurement and rounding measures
+  age:
+  - 8
+  - 16
+  requires:
+  - meas.estimate
+  - num.rounding
+  level: core
+  align:
+    iran:
+    - iran:G02_riazi_dovom:5:63aac5
+    - iran:G06_riazi_sheshom:7:a304eb
+    af: []
+    uk:
+    - uk:UK_KS3:1:da123c
+    - uk:UK_KS3:1:51dc70
+    - uk:UK_GCSE:1:9a0f3e
+- id: meas.accuracy.bounds
+  title:
+    fa-IR: کران بالا و پایین و حدود دقت
+    en: 'Limits of accuracy: upper and lower bounds'
+  age:
+  - 14
+  - 16
+  requires:
+  - meas.accuracy.precision
+  level: extension
+  align:
+    iran: []
+    af: []
+    uk:
+    - uk:UK_GCSE:1:1d4d33
+    - uk:UK_KS4:1:b63526
+- id: meas.perimeter
+  title:
+    fa-IR: محیط شکل‌ها
+    en: Perimeter
+  age:
+  - 8
+  - 14
+  requires:
+  - meas.length
+  - geo.shapes.2d.properties
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:5:035010
+    - iran:G04_riazi_chaharom:6:dfd42c
+    af:
+    - af:AF_G02_riazi:9:035010
+    - af:AF_G03_riazi:8:2586e1
+    - af:AF_G04_riazi:4:7bb703
+    - af:AF_G04_riazi:4:ba6651
+    - af:AF_G04_riazi:4:795a9f
+    - af:AF_G04_riazi:4:d80324
+    - af:AF_G04_riazi:4:efe5b8
+    uk:
+    - uk:UK_Y03:5:c9455a
+    - uk:UK_Y04:5:8ca07d
+    - uk:UK_Y05:5:2d015f
+    - uk:UK_KS3:4:0911a3
+    - uk:UK_KS3:4:150c1c
+- id: meas.area.concept
+  title:
+    fa-IR: مفهوم مساحت و اندازه‌گیری سطح با واحد
+    en: 'The idea of area: covering and counting unit squares'
+  age:
+  - 9
+  - 10
+  requires:
+  - geo.shapes.2d.properties
+  - meas.compare.direct
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:5:9ac19d
+    - iran:G03_riazi_sevom:5:85b320
+    af:
+    - af:AF_G04_riazi:4:8f7e2b
+    - af:AF_G04_riazi:4:073f9d
+    uk:
+    - uk:UK_Y04:5:d1acf5
+    - uk:UK_Y05:5:190137
+- id: meas.area.rectilinear
+  title:
+    fa-IR: مساحت مستطیل و مربع
+    en: Area of rectangles, squares and rectilinear shapes
+  age:
+  - 10
+  - 12
+  requires:
+  - meas.area.concept
+  - ops.mul-div.facts
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:6:dfd42c
+    af:
+    - af:AF_G04_riazi:4:073f9d
+    - af:AF_G04_riazi:4:0a5707
+    - af:AF_G06_riazi:6:beb0e0
+    - af:AF_G06_riazi:6:9fe4f2
+    uk:
+    - uk:UK_Y05:5:190137
+    - uk:UK_Y06:6:f9cfb1
+- id: meas.area.units
+  title:
+    fa-IR: واحدهای سطح و تبدیل آن‌ها
+    en: Units of area and converting between them
+  age:
+  - 9
+  - 14
+  requires:
+  - meas.area.rectilinear
+  - meas.units.convert
+  level: core
+  align:
+    iran:
+    - iran:G03_riazi_sevom:5:85b320
+    - iran:G06_riazi_sheshom:5:dfc793
+    af:
+    - af:AF_G04_riazi:4:073f9d
+    - af:AF_G06_riazi:5:01a70b
+    uk:
+    - uk:UK_Y05:5:190137
+    - uk:UK_KS3:3:0dd2c7
+- id: meas.area-perimeter.relation
+  title:
+    fa-IR: رابطهٔ محیط و مساحت
+    en: Comparing area and perimeter
+  age:
+  - 10
+  - 11
+  requires:
+  - meas.area.rectilinear
+  - meas.perimeter
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:6:dfd42c
+    af: []
+    uk:
+    - uk:UK_Y06:6:53e1fc
+- id: meas.area.triangle-parallelogram
+  title:
+    fa-IR: مساحت متوازی‌الاضلاع و مثلث
+    en: Area of parallelograms and triangles
+  age:
+  - 10
+  - 16
+  requires:
+  - meas.area.rectilinear
+  - geo.triangles
+  level: core
+  align:
+    iran:
+    - iran:G04_riazi_chaharom:6:ad535d
+    af:
+    - af:AF_G06_riazi:6:fc391c
+    uk:
+    - uk:UK_Y06:6:5f9652
+    - uk:UK_KS3:4:150c1c
+    - uk:UK_GCSE:4:2c83bb
+- id: meas.area.rhombus-trapezium
+  title:
+    fa-IR: مساحت لوزی و ذوزنقه
+    en: Area of rhombuses and trapezia
+  age:
+  - 11
+  - 16
+  requires:
+  - meas.area.triangle-parallelogram
+  - geo.quadrilaterals.types
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:6:61c2fc
+    af:
+    - af:AF_G06_riazi:6:02f31c
+    - af:AF_G06_riazi:6:b3e10f
+    uk:
+    - uk:UK_KS3:4:150c1c
+    - uk:UK_GCSE:4:2c83bb
+- id: meas.area.composite
+  title:
+    fa-IR: مساحت شکل‌های مرکب
+    en: Area of composite shapes
+  age:
+  - 11
+  - 16
+  requires:
+  - meas.area.rhombus-trapezium
+  - meas.area.circle
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:5:dfc793
+    af: []
+    uk:
+    - uk:UK_KS3:4:0911a3
+    - uk:UK_GCSE:4:742aee
+- id: meas.area.heron
+  title:
+    fa-IR: دستور هرون برای مساحت مثلث
+    en: Heron's formula for the area of a triangle
+  age:
+  - 16
+  - 17
+  requires:
+  - meas.area.triangle-parallelogram
+  - geo.pythagoras
+  level: specialist
+  align:
+    iran:
+    - iran:G11_hendese2_math:3:9c9b77
+    af:
+    - af:AF_G10_riazi:5:eeca1d
+    uk: []
+- id: meas.circle.circumference
+  title:
+    fa-IR: محیط دایره و عدد پی
+    en: Circumference of a circle and π
+  age:
+  - 11
+  - 16
+  requires:
+  - geo.circle.parts
+  - meas.perimeter
+  - frac.decimals
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:6:34428b
+    af:
+    - af:AF_G06_riazi:6:28b1e2
+    - af:AF_G09_riazi:2:1c3059
+    uk:
+    - uk:UK_KS3:4:0911a3
+    - uk:UK_GCSE:4:742aee
+- id: meas.area.circle
+  title:
+    fa-IR: مساحت دایره
+    en: Area of a circle
+  age:
+  - 11
+  - 16
+  requires:
+  - meas.circle.circumference
+  - meas.area.triangle-parallelogram
+  level: core
+  align:
+    iran:
+    - iran:G06_riazi_sheshom:5:170804
+    af:
+    - af:AF_G09_riazi:2:1c3059
+    uk:
+    - uk:UK_KS3:4:0911a3
+    - uk:UK_GCSE:4:742aee
+- id: meas.circle.sector
+  title:
+    fa-IR: طول کمان و مساحت قطاع
+    en: Arc length and area of a sector
+  age:
+  - 14
+  - 16
+  requires:
+  - meas.area.circle
+  - ratio.proportion.direct
+  level: core
+  align:
+    iran: []
+    af:
+    - af:AF_G10_riazi:5:ccda5a
+    uk:
+    - uk:UK_GCSE:4:b3d423
+    - uk:UK_KS4:4:57f2a6
+- id: meas.volume.concept
+  title:
+    fa-IR: مفهوم حجم و واحدهای آن
+    en: The idea of volume and units of volume
+  age:
+  - 10
+  - 12
+  requires:
+  - meas.area.rectilinear
+  - geo.shapes.3d.recognise
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:6:97de0e
+    - iran:G05_riazi_panjom:6:8e9a23
+    af:
+    - af:AF_G06_riazi:5:9f6d32
+    uk:
+    - uk:UK_Y05:5:fb7bd2
+- id: meas.volume.cuboid
+  title:
+    fa-IR: حجم مکعب و مکعب مستطیل
+    en: Volume of cubes and cuboids
+  age:
+  - 11
+  - 16
+  requires:
+  - meas.volume.concept
+  level: core
+  align:
+    iran:
+    - iran:G05_riazi_panjom:6:97de0e
+    - iran:G06_riazi_sheshom:5:c729a8
+    af:
+    - af:AF_G08_riazi:6:73b079
+    uk:
+    - uk:UK_Y06:6:0e18a6
+    - uk:UK_Y06:6:f9cfb1
+    - uk:UK_KS3:4:150c1c
+    - uk:UK_GCSE:4:2c83bb
+- id: meas.volume.prisms
+  title:
+    fa-IR: حجم منشورها و استوانه
+    en: Volume of prisms and cylinders
+  age:
+  - 11
+  - 16
+  requires:
+  - meas.volume.cuboid
+  - meas.area.circle
+  - geo.solids.properties
+  level: core
+  align:
+    iran:
+    - iran:G07_riazi_haftom:6:c630ef
+    - iran:G07_gifted_supplement:7:c630ef
+    - iran:G07_riazi_haftom:6:e27fc9
+    - iran:G07_gifted_supplement:7:e27fc9
+    af:
+    - af:AF_G08_riazi:6:5e5d05
+    uk:
+    - uk:UK_KS3:4:150c1c
+    - uk:UK_GCSE:4:2c83bb
+- id: meas.surface-area.prisms
+  title:
+    fa-IR: مساحت جانبی و کل منشور و استوانه
+    en: Surface area of prisms and cylinders
+  age:
+  - 13
+  - 14
+  requires:
+  - geo.solids.nets
+  - meas.area.circle
+  level: core
+  align:
+    iran:
+    - iran:G07_riazi_haftom:6:dd0784
+    - iran:G07_gifted_supplement:7:dd0784
+    - iran:G07_riazi_haftom:6:e27fc9
+    - iran:G07_gifted_supplement:7:e27fc9
+    af:
+    - af:AF_G08_riazi:6:73b079
+    - af:AF_G08_riazi:6:5e5d05
+    uk: []
+- id: meas.volume.pyramid-cone
+  title:
+    fa-IR: حجم هرم و مخروط
+    en: Volume of pyramids and cones
+  age:
+  - 14
+  - 16
+  requires:
+  - meas.volume.prisms
+  - geo.pythagoras
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:8:9b5e0a
+    - iran:G09_gifted:8:9b5e0a
+    af:
+    - af:AF_G08_riazi:6:416dff
+    - af:AF_G08_riazi:6:b42e08
+    uk:
+    - uk:UK_GCSE:4:742aee
+    - uk:UK_KS4:4:2e38dc
+- id: meas.surface-area.pyramid-cone
+  title:
+    fa-IR: مساحت جانبی و کل هرم و مخروط
+    en: Surface area of pyramids and cones
+  age:
+  - 14
+  - 16
+  requires:
+  - meas.surface-area.prisms
+  - geo.pythagoras
+  - meas.circle.sector
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:8:396b9f
+    - iran:G09_gifted:8:396b9f
+    af:
+    - af:AF_G08_riazi:6:416dff
+    - af:AF_G08_riazi:6:b42e08
+    uk:
+    - uk:UK_GCSE:4:742aee
+    - uk:UK_KS4:4:2e38dc
+- id: meas.volume.sphere
+  title:
+    fa-IR: حجم و مساحت کره
+    en: Volume and surface area of a sphere
+  age:
+  - 14
+  - 16
+  requires:
+  - meas.volume.pyramid-cone
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:8:e37895
+    - iran:G09_gifted:8:fb518b
+    af:
+    - af:AF_G08_riazi:6:b42e08
+    uk:
+    - uk:UK_GCSE:4:742aee
+    - uk:UK_KS4:4:2e38dc
+- id: meas.volume.composite
+  title:
+    fa-IR: حجم و مساحت احجام مرکب
+    en: Volume and surface area of composite solids
+  age:
+  - 14
+  - 16
+  requires:
+  - meas.volume.sphere
+  - meas.surface-area.pyramid-cone
+  level: core
+  align:
+    iran:
+    - iran:G09_riazi_nohom:8:396b9f
+    - iran:G09_gifted:8:396b9f
+    af: []
+    uk:
+    - uk:UK_GCSE:4:742aee
+    - uk:UK_KS4:4:2e38dc
