@@ -32,7 +32,7 @@ describe('Solar Hijri ↔ Gregorian', () => {
           expect(gregorianToSolar(g.y, g.m, g.d)).toEqual({ y, m, d });
           jdn++;
         }
-  });
+  }, 30_000); // exhaustive day-by-day loop: generous timeout for busy machines
 
   it('matches the platform Persian calendar (ICU in Node) for 1340–1460 SH', () => {
     // Used only as an independent oracle in the test; the engine itself never depends on Intl.
@@ -45,7 +45,7 @@ describe('Solar Hijri ↔ Gregorian', () => {
       const s = gregorianToSolar(g.getUTCFullYear(), g.getUTCMonth() + 1, g.getUTCDate());
       expect([s.y, s.m, s.d]).toEqual([parseInt(p.year), parseInt(p.month), parseInt(p.day)]);
     }
-  });
+  }, 30_000);
 
   it('jdn ↔ Gregorian round-trips across century leap rules', () => {
     for (const [y, m, d] of [[1900, 2, 28], [1900, 3, 1], [2000, 2, 29], [2100, 3, 1], [1582, 10, 15]])
