@@ -196,3 +196,55 @@ describe('chords of a compass circle', () => {
     expect(code({ chord: { diameter: false } }, { circles: two, drawn: [seg([4, 1], top)] })).toBe('ok');
   });
 });
+
+describe('dynamic figures: dragged, invariant, watch', () => {
+  const dyn = (values: Record<string, number | null>, more: Partial<NonNullable<ShapeBoardState['dyn']>> = {}): ShapeBoardState => ({
+    dyn: { pts: {}, values, dragged: 0, chosen: null, locked: true, ...more },
+  });
+  const typed = (c: Omit<ShapeBoardCheck, 'type'>, s: ShapeBoardState, n: number | null) => {
+    const r = check(C(c), s, n);
+    return r.ok ? 'ok' : r.code;
+  };
+  it('dragged: explored enough positions first', () => {
+    expect(code({ dragged: 3 }, dyn({}, { dragged: 2 }))).toBe('not-dragged');
+    expect(code({ dragged: 3 }, dyn({}, { dragged: 3 }))).toBe('ok');
+    expect(code({ dragged: 1 }, {})).toBe('empty');
+  });
+  it('invariant: the choice, with traps', () => {
+    const c = { dragged: 2, invariant: 'equal', traps: [{ chosen: 'sum180', code: 'co-interior-equal' }] };
+    expect(code(c, dyn({}, { dragged: 0, chosen: 'equal' }))).toBe('not-dragged');
+    expect(code(c, dyn({}, { dragged: 2 }))).toBe('empty');
+    expect(code(c, dyn({}, { dragged: 2, chosen: 'sum180' }))).toBe('co-interior-equal');
+    expect(code(c, dyn({}, { dragged: 2, chosen: 'fixed' }))).toBe('wrong-invariant');
+    expect(code(c, dyn({}, { dragged: 2, chosen: 'equal' }))).toBe('ok');
+  });
+  it('watch equals: drag until a readout reaches a value', () => {
+    const c = { watch: { key: 'diff', equals: 0 } };
+    expect(code(c, dyn({ diff: 4 }))).toBe('watch-too-big');
+    expect(code(c, dyn({ diff: -3 }))).toBe('watch-too-small');
+    expect(code(c, dyn({ diff: null }))).toBe('no-reading');
+    expect(code(c, dyn({}))).toBe('no-reading');
+    expect(code(c, dyn({ diff: 0 }))).toBe('ok');
+    expect(code({ watch: { key: 'r', equals: 0.5, tolerance: 0.02 } }, dyn({ r: 0.51 }))).toBe('ok');
+  });
+  it('watch typed: the typed answer is the (possibly hidden) readout; another readout or a number is a trap', () => {
+    const c = {
+      watch: { key: 'a3', typed: true },
+      traps: [{ watch: 'a5', code: 'co-interior-equal' }, { typed: 360, code: 'full-turn' }, { watch: 'pw', code: 'part-whole' }],
+    };
+    const s = dyn({ a3: 115, a5: 65, pw: 0.4 });
+    expect(typed(c, s, null)).toBe('empty');
+    expect(typed(c, s, 65)).toBe('co-interior-equal');
+    expect(typed(c, s, 360)).toBe('full-turn');
+    expect(typed(c, s, 0.4)).toBe('part-whole');
+    expect(typed(c, s, 120)).toBe('too-big');
+    expect(typed(c, s, 100)).toBe('too-small');
+    expect(typed(c, s, 115)).toBe('ok');
+    // a trap whose readout is missing never fires
+    expect(typed({ watch: { key: 'a3', typed: true }, traps: [{ watch: 'nope', code: 'x' }] }, s, 1)).toBe('too-small');
+  });
+  it('dynamic parts come after the board parts, and missions without them are unchanged', () => {
+    expect(code({ pick: 3, dragged: 1 }, { picked: 2, dyn: { pts: {}, values: {}, dragged: 0, chosen: null, locked: true } })).toBe('too-small');
+    expect(code({ pick: 3 }, { picked: 3 })).toBe('ok');
+  });
+});

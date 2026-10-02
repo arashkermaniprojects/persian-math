@@ -1,7 +1,7 @@
 // <kg-shape-board>: a dot geoboard / square grid / coordinate grid. The learner taps points to draw polygons, paths,
 // segments, lines and rays, places points, shades cells, taps shapes to pick them, slides and turns pieces, and draws
 // circles with a compass. The 3D views (cube builder on isometric dots, solid shapes) load on demand from
-// shape-board/iso.ts. Geometry and the check: engines/lib/shape-board-*.ts. Contract: docs/STUDIOS.md.
+// shape-board/iso.ts, and dynamic geometry (drag a figure, watch live readouts) from shape-board/dynamic.ts. Geometry and the check: engines/lib/shape-board-*.ts. Contract: docs/STUDIOS.md.
 // The board is LTR in every locale (x grows to the right, y upwards, as on both countries' coordinate grids).
 import { angles, area, circleCircle, classify, clean, lineCircle, lineLine, perimeter, rotate, samePt, translate, type Circle, type P, type Seg } from './lib/shape-board-geom';
 import type { Drawn, DrawnKind, ShapeBoardState } from './lib/shape-board-check';
@@ -58,6 +58,8 @@ export interface ShapeBoardConfig {
   /** 3D views (shape-board/iso.ts). */
   cubes?: unknown;
   solids?: unknown;
+  /** Dynamic geometry: draggable points with attached constructions and live readouts (shape-board/dynamic.ts). */
+  dynamic?: unknown;
 }
 
 const NS = 'http://www.w3.org/2000/svg';
@@ -83,6 +85,7 @@ export class ShapeBoard extends HTMLElement {
   picked: number | null = null;
   private svg = document.createElementNS(NS, 'svg');
   private parts?: Parts;
+  /** An on-demand view that replaces the board (shape-board/iso.ts or shape-board/dynamic.ts). */
   private iso?: { root: HTMLElement; state(): Partial<ShapeBoardState> };
   private wired = false;
   ready: Promise<void> = Promise.resolve();
@@ -98,6 +101,11 @@ export class ShapeBoard extends HTMLElement {
     if (c.cubes || c.solids)
       this.ready = import('./shape-board/iso').then((m) => {
         this.iso = m.mountIso(this, c);
+        this.render();
+      });
+    else if (c.dynamic)
+      this.ready = import('./shape-board/dynamic').then((m) => {
+        if (this.cfg === c) this.iso = m.mountDynamic(this, c);
         this.render();
       });
     this.render();

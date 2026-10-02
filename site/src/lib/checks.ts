@@ -179,7 +179,7 @@ export function evaluate(check: Check, a: Attempt): Result {
     case 'chance':
       return checkChance(check, a.state?.chance);
     case 'shape-board':
-      return checkShapeBoard(check, a.state?.board);
+      return checkShapeBoard(check, a.state?.board, a.integer ?? (a.decimal ? a.decimal.valueOf() : null));
     case 'problem-canvas':
       return checkCanvas(check, a.state as Partial<CanvasState> | undefined, a.integer);
     case 'coord':

@@ -108,3 +108,27 @@ figure.kg-sb-solid:only-child { inline-size: 200px; block-size: 200px; }
 button.kg-sb-solid[aria-pressed='true'] { border-color: var(--fg); border-width: 4px; background: var(--hint-bg); }
 .kg-sb-edge { fill: none; stroke: var(--fg); stroke-width: 2; stroke-linejoin: round; }
 .kg-sb-edge.dash { stroke-dasharray: 5 4; stroke-width: 1.5; }
+
+/* dynamic geometry (shape-board/dynamic.ts): drag handles, angle marks, live readouts, the "what stayed the same?" choice */
+.kg-sb-dyn { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; inline-size: 100%; }
+.kg-sb-dyn > div { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; inline-size: 100%; }
+.kg-sb-dsvg { touch-action: none; }
+.kg-sb-handle { cursor: grab; outline: none; }
+.kg-sb-handle.on { cursor: grabbing; }
+.kg-sb-hh { fill: transparent; }
+.kg-sb-h { fill: var(--accent); stroke: var(--card); stroke-width: 3; }
+.kg-sb-h.ring { fill: var(--card); stroke: var(--accent); stroke-width: 5; }
+.kg-sb-handle:focus-visible .kg-sb-hh, .kg-sb-handle.on .kg-sb-hh { fill: var(--accent); fill-opacity: 0.2; stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5 4; }
+.kg-sb-arc { --c: var(--sb-t2); fill: var(--c); fill-opacity: 0.3; stroke: var(--c); stroke-width: 2; pointer-events: none; }
+.kg-sb-mk { --c: var(--sb-t2); fill: none; stroke: var(--c); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+.kg-sb-arc.t0, .kg-sb-mk.t0, .kg-sb-w.t0 { --c: var(--sb-t0); } .kg-sb-arc.t1, .kg-sb-mk.t1, .kg-sb-w.t1 { --c: var(--sb-t1); }
+.kg-sb-arc.t3, .kg-sb-mk.t3, .kg-sb-w.t3 { --c: var(--sb-t3); } .kg-sb-arc.t4, .kg-sb-mk.t4, .kg-sb-w.t4 { --c: var(--sb-t4); }
+.kg-sb-arc.t5, .kg-sb-mk.t5, .kg-sb-w.t5 { --c: var(--sb-t5); }
+.kg-sb-dsvg .kg-sb-ang { font-size: 15px; font-weight: 700; }
+.kg-sb-watch { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin: 0; font-weight: 700; }
+.kg-sb-w { --c: var(--sb-t2); border-inline-start: 6px solid var(--c); background: var(--hint-bg); border-radius: 999px; padding-inline: 0.7rem; white-space: nowrap; }
+.kg-sb-ask { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; }
+.kg-sb-ask .kg-sb-tile { font-size: 1rem; padding: 0.3rem 0.8rem; max-inline-size: 100%; }
+/* drag: a handle (a dot in a ring) */
+.kg-sb-i.i-drag::before { inset: 17px; border-radius: 50%; background: var(--accent); }
+.kg-sb-i.i-drag::after { inset: 9px; border-radius: 50%; border: 3px dashed var(--accent); }
