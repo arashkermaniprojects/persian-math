@@ -51,6 +51,11 @@ export function rich(text: string, locale: LocaleCode): string {
         const [x, y] = arg.split(',');
         return vecHTML(x, y, f, locale === 'fa-IR');
       }
+      case 'col': {
+        // a column vector (vectors studios): square brackets in fa-IR, round in en (UK), (x, y) in the Afghan books
+        const [x, y] = arg.split(',');
+        return vecHTML(x, y, f, locale === 'fa-IR' || (locale === 'en' && 'round'));
+      }
       case 'set':
         // set notation, left to right: {{set:A = [2, 4]}} → A = {۲, ۴}
         return setHTML(arg, f);

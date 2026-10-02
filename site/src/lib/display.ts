@@ -21,10 +21,10 @@ export function formatDecimal(value: number | string, f: NumberFormat): string {
  * A coordinate pair or vector. Iran's books write it as a column in square brackets, x on top (G6 «محورهای مختصات»,
  * G7 «بردار انتقال»); Afghan (G8) and UK books write (x, y). Always left to right.
  */
-export function vecHTML(x: number | string, y: number | string, f: NumberFormat, column: boolean): string {
+export function vecHTML(x: number | string, y: number | string, f: NumberFormat, column: boolean | 'round'): string {
   const [a, b] = [x, y].map((v) => formatDecimal(String(v).trim().replace(/^−/, '-'), f));
   const label = `(${String(x).trim()}, ${String(y).trim()})`;
-  if (column) return `<span class="vec" role="math" aria-label="${label}"><span>${a}</span><span>${b}</span></span>`;
+  if (column) return `<span class="vec${column === 'round' ? ' round' : ''}" role="math" aria-label="${label}"><span>${a}</span><span>${b}</span></span>`;
   return `<bdi dir="ltr" class="pair">(${a}, ${b})</bdi>`;
 }
 
