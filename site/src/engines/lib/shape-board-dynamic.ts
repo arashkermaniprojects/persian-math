@@ -32,6 +32,9 @@ export interface PointObj {
   centre?: CircleSpec;
   /** A helper point: not drawn or lettered. */
   hide?: boolean;
+  /** May vanish while dragging (e.g. the third corner when three sticks cannot close a triangle). Otherwise a move
+   *  that would leave a drawn point unbuildable, or off the board, is refused. */
+  maybe?: boolean;
   /** Offset of the letter from the point, in board units (default: away from the figure's middle). */
   off?: P;
 }
@@ -49,8 +52,8 @@ export interface WatchDef {
   tan?: string;
   /** Decimal places shown and checked (default 0 for angles, 1 for lengths, 2 for ratios, products and trig). */
   dp?: number;
-  /** false = tracked for the check but not shown (the learner predicts it). */
-  show?: boolean;
+  /** false = tracked for the check but not shown (the learner predicts it; its angle mark says ?); 'figure' = only on its angle mark. */
+  show?: boolean | 'figure';
   tone?: number;
 }
 export interface DynamicConfig {

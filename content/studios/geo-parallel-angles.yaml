@@ -1,0 +1,181 @@
+id: geo-parallel-angles
+engine: shape-board
+strand: geo
+order: 9
+concepts: [geo.angles.parallel-lines, geo.triangles.angle-sum]
+# Pilot of the shape-board `dynamic` module (shape-board/dynamic.ts). Two parallel lines AB ∥ CD and a transversal
+# through E and F that the learner slides (E) and turns (the ring handle); B turns both lines together. Live angle
+# readouts show the equal pairs stay equal and co-interior angles keep adding to 180°; then the lines are un-parallel
+# (the equalities break), made parallel again by the angles (the converse), and the triangle angle sum is shown with a
+# parallel through a vertex. Iran G7 ch.4 «روابط بین زاویه‌ها» p.45, G8 ch.3 «توازی و تعامد» p.34 (a ∥ b, d1 مورب,
+# Â1 = B̂1, «چرا Â1 و B̂2 مکمل‌اند؟»); Afghan G7 ch.6 p.157–160 (AB ∥ CD, EF قاطع, angles 1–8: «زوایای متبادلهٔ
+# داخلی», «زوایای متوافقه», «زوایای متممهٔ داخلی یک طرف خط قاطع»); UK KS3 "parallel lines and alternate and
+# corresponding angles". Both countries' books letter points with Latin capitals (A, B, …) and number the angles
+# 1–4 at E (1 top left, clockwise) and 5–8 at F, so every locale uses the same letters and numbers.
+# Misconceptions: alternate angles assumed equal when the lines are not parallel (not-parallel-assumed); co-interior
+# angles assumed equal (co-interior-equal); the angle sum of a triangle taken as 360° (full-turn).
+missions:
+  # Explore: drag and turn; which statement stays true? (corresponding ∠2 = ∠6, alternate ∠4 = ∠6, vertical ∠2 = ∠4)
+  - id: what-stays
+    setup:
+      x: [0, 8]
+      y: [0, 6]
+      grid: none
+      step: 0.5
+      instruction: drag
+      dynamic:
+        points: &lines
+          A: [0.5, 4.5]
+          B: { on: { centre: A, r: 7 }, deg: 0, range: [-10, 5] }
+          C: [0.5, 1.5]
+          D: { add: C A B }
+          E: { on: A B, clamp: segment, at: [3.5, 4.5] }
+          H: { on: { centre: E, r: 1.2 }, deg: 65, range: [40, 140], hide: true }
+          F: { meet: [E H, C D] }
+          El: { add: E B A, hide: true }
+          Er: { add: E A B, hide: true }
+          Ed: { add: E H E, hide: true }
+          Fl: { add: F D C, hide: true }
+          Fr: { add: F C D, hide: true }
+          Fu: { add: F E H, hide: true }
+        drag: [B, E, H]
+        draw:
+          - &ab { line: A B, tone: 2, arrows: 1 }
+          - &cd { line: C D, tone: 2, arrows: 1 }
+          - &ef { line: E H, tone: 0 }
+          - { angle: H E Er, tone: 1, text: '2' }
+          - { angle: Ed E El, tone: 1, text: '4' }
+          - { angle: Fu F Fr, tone: 1, text: '6' }
+        watch:
+          - { key: a2, angle: H E Er, tone: 1 }
+          - { key: a4, angle: Ed E El, tone: 1 }
+          - { key: a6, angle: Fu F Fr, tone: 1 }
+        ask: [same, sum, fixed]
+    check:
+      type: shape-board
+      dragged: 3
+      invariant: same
+      traps: [{ chosen: sum, code: sum-not-equal }, { chosen: fixed, code: size-fixed }]
+  # Predict: ∠4 is shown, ∠5 (co-interior with it) is hidden. Typing ∠4 again is the classic slip.
+  - id: co-interior
+    setup:
+      x: [0, 8]
+      y: [0, 6]
+      grid: none
+      step: 0.5
+      instruction: drag
+      dynamic:
+        points: *lines
+        drag: [B, E, H]
+        draw:
+          - *ab
+          - *cd
+          - *ef
+          - { angle: Ed E El, tone: 1, watch: a4 }
+          - { angle: Fl F Fu, tone: 3, watch: a5 }
+        watch:
+          - { key: a4, angle: Ed E El, tone: 1 }
+          - { key: a5, angle: Fl F Fu, show: false }
+    answer: integer
+    check:
+      type: shape-board
+      watch: { key: a5, typed: true }
+      traps: [{ watch: a4, code: co-interior-equal }]
+  # Not parallel: CD is tilted a little. ∠4 is shown, ∠6 is hidden: is it still equal to ∠4?
+  - id: not-parallel
+    setup:
+      x: [0, 8]
+      y: [0, 6]
+      grid: none
+      step: 0.5
+      instruction: drag
+      dynamic:
+        points: &tilted
+          A: [0.5, 4.5]
+          B: [7.5, 4.5]
+          C: [0.5, 1.5]
+          D: [7.5, 2]
+          E: { on: A B, clamp: segment, at: [3.5, 4.5] }
+          H: { on: { centre: E, r: 1.2 }, deg: 65, range: [40, 140], hide: true }
+          F: { meet: [E H, C D] }
+          El: { add: E B A, hide: true }
+          Ed: { add: E H E, hide: true }
+          Fr: { add: F C D, hide: true }
+          Fu: { add: F E H, hide: true }
+        drag: [E, H]
+        draw:
+          - *ab
+          - *cd
+          - *ef
+          - { angle: Ed E El, tone: 1, watch: a4 }
+          - { angle: Fu F Fr, tone: 3, watch: a6 }
+        watch:
+          - { key: a4, angle: Ed E El, tone: 1 }
+          - { key: a6, angle: Fu F Fr, show: false }
+        ask: [equal, differ, supp]
+    check:
+      type: shape-board
+      invariant: differ
+      traps: [{ chosen: equal, code: not-parallel-assumed }, { chosen: supp, code: co-interior-confused }]
+  # The converse: drag D until ∠4 = ∠6; the parallel arrows appear when CD really is parallel to AB.
+  - id: make-parallel
+    setup:
+      x: [0, 8]
+      y: [0, 6]
+      grid: none
+      step: 0.5
+      instruction: drag
+      dynamic:
+        points: *tilted
+        drag: [D, E, H]
+        draw:
+          - *ab
+          - *cd
+          - *ef
+          - { angle: Ed E El, tone: 1, text: '4' }
+          - { angle: Fu F Fr, tone: 3, text: '6' }
+        watch:
+          - { key: a4, angle: Ed E El, tone: 1 }
+          - { key: a6, angle: Fu F Fr, tone: 3 }
+          - { key: diff, sum: [Ed E El, -Fu F Fr], show: false }
+    check:
+      type: shape-board
+      watch: { key: diff, equals: 0 }
+  # Triangle angle sum: a parallel to BC through A; the angles at A copy ∠B and ∠C (alternate angles).
+  - id: triangle-sum
+    setup:
+      x: [0, 8]
+      y: [0, 6]
+      grid: none
+      step: 0.5
+      instruction: drag
+      dynamic:
+        points:
+          A: [3, 5]
+          B: [0.5, 0.5]
+          C: [7, 1]
+          P: { add: A C B, hide: true }
+          Q: { add: A B C, hide: true }
+        drag: [A, B, C]
+        draw:
+          - { poly: A B C, tone: 5 }
+          - { line: { through: A, parallel: B C }, tone: 0, dash: true, arrows: 1 }
+          - { seg: B C, tone: 5, arrows: 1 }
+          - { angle: A B C, tone: 1, watch: b }
+          - { angle: P A B, tone: 1, watch: pab }
+          - { angle: B A C, tone: 2, watch: a }
+          - { angle: Q A C, tone: 3, watch: qac }
+          - { angle: A C B, tone: 3, watch: c }
+        watch:
+          - { key: a, angle: B A C, show: figure }
+          - { key: b, angle: A B C, show: figure }
+          - { key: c, angle: A C B, show: figure }
+          - { key: pab, angle: P A B, show: figure }
+          - { key: qac, angle: Q A C, show: figure }
+          - { key: sum, sum: [B A C, A B C, A C B], show: false }
+    answer: integer
+    check:
+      type: shape-board
+      dragged: 2
+      watch: { key: sum, typed: true }
+      traps: [{ typed: 360, code: full-turn }, { typed: 90, code: right-angle }]

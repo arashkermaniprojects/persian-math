@@ -35,7 +35,7 @@ export function mountDynamic(host: ShapeBoard, cfg: ShapeBoardConfig) {
   const tryMove = (n: string, act: () => void) => {
     const before = f.snapshot();
     act();
-    const next = f.solve(), ok = Object.entries(next).every(([k, p]) => (p ? !shown(k) || (p[0] >= x0 - 1e-6 && p[0] <= x1 + 1e-6 && p[1] >= y0 - 1e-6 && p[1] <= y1 + 1e-6) : !draggable(k)));
+    const next = f.solve(), ok = Object.entries(next).every(([k, p]) => !shown(k) || (p ? p[0] >= x0 - 1e-6 && p[0] <= x1 + 1e-6 && p[1] >= y0 - 1e-6 && p[1] <= y1 + 1e-6 : !!f.def(k).maybe));
     if (!ok) { f.restore(before); pts = f.solve(); return false; }
     pts = next;
     return f.snapshot() !== before;
@@ -137,7 +137,7 @@ export function mountDynamic(host: ShapeBoard, cfg: ShapeBoardConfig) {
 
     // readouts, the choice and the lock
     const chip = (k: string, tone = 2) => `<span class="kg-sb-w t${tone}"><bdi dir="ltr">${host.lab(`watch-${k}`, `${k} = {v}`, { v: value(k, vals[k]) })}</bdi></span>`;
-    let html = (dc.watch ?? []).filter((w) => w.show !== false).map((w) => chip(w.key, w.tone)).join('');
+    let html = (dc.watch ?? []).filter((w) => w.show === undefined || w.show === true).map((w) => chip(w.key, w.tone)).join('');
     html = html ? `<p class="kg-sb-watch" aria-live="polite">${html}</p>` : '';
     if (dc.ask) html += `<div class="kg-sb-ask" role="radiogroup" aria-label="${host.lab('label-ask', '')}">${dc.ask.map((k) => `<button type="button" role="radio" class="kg-sb-tile" data-ask="${k}" aria-checked="${chosen === k}">${host.lab(`ask-${k}`, k)}</button>`).join('')}</div>`;
     if (dc.lock?.length) html += `<button type="button" class="secondary kg-sb-btn" data-lock aria-pressed="${f.locked}">${host.lab('label-lock', 'Lock')}</button>`;

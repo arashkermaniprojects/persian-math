@@ -1,0 +1,104 @@
+{
+  "title": "Angles with {{term:parallel}} lines",
+  "summary": "Drag and turn two parallel lines and a transversal to see which angles always stay equal, which add up to 180°, and what happens when the lines are not parallel. Then use a parallel line to show why a triangle's angles add up to 180°.",
+  "guide": [
+    "For Years 7–8 (KS3: parallel lines, alternate and corresponding angles). The coloured dots can be dragged; the hollow ring turns the transversal. The readouts under the figure show the angles live.",
+    "AB is {{term:parallel}} to CD, and the line EF crosses them: EF is a {{term:transversal}}. The four angles at E are numbered 1 to 4 and the four at F 5 to 8 (1 at the top left, then clockwise), as in the Afghan and Iranian books.",
+    "Slide AB down without turning it until it lies on CD: angle 2 lands exactly on angle 6, so they are equal ({{term:corresponding-angles}}, the F shape). Angles 4 and 6 are equal too ({{term:alternate-angles}}, the Z shape). Angles 4 and 5, both between the lines on the same side of the transversal, are co-interior (the C shape): they are not equal, they add up to 180°.",
+    "These facts are only true when the lines really are parallel. The converse is true too: if a transversal makes equal alternate (or corresponding) angles, the lines are parallel. The little arrows on the lines appear only while the lines really are parallel."
+  ],
+  "engine": {
+    "label-board": "Two lines and a transversal",
+    "label-handle": "{p}; move with the arrow keys",
+    "name-H": "Handle that turns the transversal",
+    "name-B": "Point B, turns both lines",
+    "name-E": "Point E, slides the transversal",
+    "name-D": "Point D",
+    "label-ask": "Which statement is true?",
+    "instruction-drag": "Drag the points and turn the transversal.",
+    "watch-a2": "∠2 = {v}°",
+    "watch-a4": "∠4 = {v}°",
+    "watch-a5": "∠5 = {v}°",
+    "watch-a6": "∠6 = {v}°",
+    "ask-same": "∠2, ∠4 and ∠6 are always equal.",
+    "ask-sum": "∠2 + ∠6 is always 180°.",
+    "ask-fixed": "∠2 always stays 65°.",
+    "ask-equal": "∠6 is equal to ∠4.",
+    "ask-differ": "∠6 is not equal to ∠4.",
+    "ask-supp": "∠6 + ∠4 = 180°."
+  },
+  "missions": {
+    "what-stays": {
+      "title": "What stays the same?",
+      "prompt": "AB and CD are {{term:parallel}}. Drag E along its line, turn the ring to tilt the transversal, and move B up or down a little. Try at least three different positions, then choose the statement that is always true.",
+      "hint": "Watch the readouts for ∠2, ∠4 and ∠6 under the figure. Each time you drag, which numbers change together and stay the same as each other?",
+      "success": "Well done! The angles change, but ∠2, ∠4 and ∠6 always stay equal to each other.",
+      "why": "Why are ∠2 and ∠6 always equal? What happens if you slide line AB down, without turning it, until it lies on CD?",
+      "model": "If I slide AB down without turning it, it lands exactly on CD because they are parallel, and E lands on F. The transversal is the same line, so angle 2 sits exactly on angle 6: they are equal (corresponding angles, an F shape). ∠4 is vertically opposite ∠2, so it equals ∠6 too (alternate angles, a Z shape).",
+      "feedback": {
+        "not-dragged": "First try the figure in a few different positions: drag E, turn the ring or move B.",
+        "empty": "Choose one of the statements under the figure.",
+        "sum-not-equal": "Try it: when ∠2 = 65°, what is ∠6? Do they add up to 180°? They don't add to 180°, they are equal.",
+        "size-fixed": "Turn the ring: ∠2 changes. What stays the same is not the size of one angle but how the angles compare.",
+        "wrong-invariant": "Watch the readouts again while you drag."
+      }
+    },
+    "co-interior": {
+      "title": "Co-interior angles",
+      "prompt": "Angles 4 and 5 are both between the parallel lines and both on the left of the transversal (co-interior angles, a C shape). You can see ∠4. Without measuring, how big is ∠5? Type your answer.",
+      "hint": "∠5 and ∠6 sit next to each other on line CD and make a straight line (180°). Which angle was ∠6 equal to?",
+      "success": "Well done! ∠4 + ∠5 = 180°. Co-interior angles are not equal: they are {{term:supplementary-angles}}.",
+      "why": "Why do ∠4 and ∠5 add up to 180° instead of being equal?",
+      "model": "∠5 and ∠6 lie next to each other on the straight line CD, so ∠5 + ∠6 = 180°. ∠6 = ∠4 because they are alternate angles and the lines are parallel. So ∠4 + ∠5 = ∠6 + ∠5 = 180°. They are only equal when both are 90°.",
+      "feedback": {
+        "empty": "Type the size of ∠5 in the answer box.",
+        "co-interior-equal": "They are not equal! Look: ∠4 is acute but ∠5 is obtuse. ∠5 sits next to ∠6 on a straight line.",
+        "too-big": "Too big. ∠4 and ∠5 together should make a straight line, 180°.",
+        "too-small": "Too small. ∠4 and ∠5 together should make a straight line, 180°."
+      }
+    },
+    "not-parallel": {
+      "title": "What if they are not parallel?",
+      "prompt": "This time CD is tilted a little and is not parallel to AB (no parallel arrows on the lines). You can see ∠4; ∠6 is hidden. Which statement is true?",
+      "hint": "How did we know that ∠4 and ∠6 are equal? Does that reason work here?",
+      "success": "Right! When AB and CD are not parallel, ∠6 is not equal to ∠4: here ∠6 is about 4° smaller than ∠4.",
+      "why": "Why can't we say ∠4 = ∠6 when the lines are not parallel?",
+      "model": "The reason they were equal was that AB slides onto CD without turning. When the lines are not parallel, AB does not land on CD, so angle 4 does not land on angle 6. Before using the angle facts, we have to know the lines are parallel.",
+      "feedback": {
+        "empty": "Choose one of the statements.",
+        "not-parallel-assumed": "Careful! Alternate angles are only equal when the lines are parallel. Here CD is tilted, so AB is not parallel to CD and you cannot say they are equal.",
+        "co-interior-confused": "∠4 and ∠6 are on opposite sides of the transversal, not the same side. And the lines are not parallel, so that rule does not work here either.",
+        "wrong-invariant": "Think again: are the lines parallel?"
+      }
+    },
+    "make-parallel": {
+      "title": "Make them parallel",
+      "prompt": "Drag point D until ∠4 and ∠6 are equal. When they are, look at the lines.",
+      "hint": "If ∠6 is smaller than ∠4, move D down; if it is bigger, move D up.",
+      "success": "Well done! ∠4 = ∠6, and now the parallel arrows appear on AB and CD: the lines are parallel.",
+      "why": "\"If a transversal makes equal alternate angles with two lines, the lines are parallel.\" How did you see this here?",
+      "model": "While ∠4 and ∠6 were different, CD was tilted towards AB and would meet it if we extended them. When the angles became equal, CD had the same direction as AB and would never meet it: the lines became parallel.",
+      "feedback": {
+        "watch-too-big": "Not yet: ∠4 is bigger than ∠6. Move D.",
+        "watch-too-small": "Not yet: ∠4 is smaller than ∠6. Move D.",
+        "no-reading": "Move CD so that it crosses the transversal again."
+      }
+    },
+    "triangle-sum": {
+      "title": "Angles in a triangle",
+      "prompt": "A line through A parallel to BC is drawn (dashed). Drag A, B or C to make at least two different triangles. Compare the angles of the same colour. What do the three angles of a triangle add up to?",
+      "hint": "At A, three angles sit side by side on the dashed line. The green angle at A equals ∠B and the red angle at A equals ∠C. What do three angles along a straight line add up to?",
+      "success": "Well done! ∠A + ∠B + ∠C = 180°, whatever triangle you make.",
+      "why": "Without measuring, explain why the angles of any triangle add up to 180°.",
+      "model": "The dashed line is parallel to BC and AB is a transversal, so the green angle at A equals ∠B (alternate angles). AC is a transversal too, so the red angle at A equals ∠C. The three angles at A lie along the dashed straight line, so they add up to 180°. So ∠A + ∠B + ∠C = 180°.",
+      "feedback": {
+        "not-dragged": "First drag A, B or C and try at least two different triangles.",
+        "empty": "Type the total in the answer box.",
+        "full-turn": "360° is a full turn (like the angles of a quadrilateral). The three angles of a triangle fit along one straight line.",
+        "right-angle": "90° is only a right angle. The three angles at A make a whole straight line.",
+        "too-big": "Too big. Look at the three angles along the dashed line at A: they make a straight line.",
+        "too-small": "Too small. Look at the three angles along the dashed line at A: they make a straight line."
+      }
+    }
+  }
+}
