@@ -16,6 +16,7 @@ import { checkCoord, type CoordCheck, type CoordState } from '../engines/lib/coo
 import { checkSets, type SetsCheck, type SetsState } from '../engines/lib/discrete-lab-check';
 import { checkSolid, type SolidCheck, type SolidState } from '../engines/lib/solid-viewer-check';
 import { checkAlgebra, type AlgebraCheck, type AlgebraState } from '../engines/lib/algebra-tiles-check';
+import { checkInterval, type IntervalCheck, type IntervalState } from '../engines/lib/number-line-intervals';
 
 type FracSpec = [number, number];
 
@@ -61,7 +62,9 @@ export type Check =
   /** <kg-solid-viewer>: faces picked, turned, net opened, layers filled, typed volume/area with its unit (engines/lib/solid-viewer-check.ts). */
   | SolidCheck
   /** <kg-algebra-tiles>: the mat, zero pairs, rectangle, grid, the typed answer (engines/lib/algebra-tiles-check.ts). */
-  | AlgebraCheck;
+  | AlgebraCheck
+  /** <kg-number-line> `intervals` module: the drawn set (intervals, unions), sign rows (engines/lib/number-line-intervals.ts). */
+  | IntervalCheck;
 
 export interface Attempt {
   /** Engine state (shape depends on the engine). */
@@ -79,7 +82,7 @@ export interface Attempt {
     answered?: number;
     correct?: number;
     done?: boolean;
-  } & CcmState & MeasureState & { pattern?: PatternState } & ChartState & { chance?: ChanceState } & { board?: ShapeBoardState } & { plane?: CoordState } & { sets?: SetsState } & { solid?: SolidState } & { algebra?: AlgebraState };
+  } & CcmState & MeasureState & { pattern?: PatternState } & ChartState & { chance?: ChanceState } & { board?: ShapeBoardState } & { plane?: CoordState } & { sets?: SetsState } & { solid?: SolidState } & { algebra?: AlgebraState } & IntervalState;
   fraction?: WrittenFrac | null;
   integer?: number | null;
   /** Typed decimal, already parsed exactly (null if unparseable). */
@@ -190,5 +193,7 @@ export function evaluate(check: Check, a: Attempt): Result {
       return checkSolid(check, a.state?.solid);
     case 'algebra':
       return checkAlgebra(check, a.state);
+    case 'interval':
+      return checkInterval(check, a.state);
   }
 }
