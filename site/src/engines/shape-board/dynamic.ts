@@ -16,7 +16,8 @@ export function mountDynamic(host: ShapeBoard, cfg: ShapeBoardConfig) {
   const M = cfg.axes ? 32 : 22, W = (x1 - x0) * U + 2 * M, H = (y1 - y0) * U + 2 * M;
   const sx = (x: number) => +(M + (x - x0) * U).toFixed(1), sy = (y: number) => +(M + (y1 - y) * U).toFixed(1);
   const xy = (p: P) => `${sx(p[0])},${sy(p[1])}`;
-  const name = (n: string) => host.lab(`name-${n}`, n);
+  // the letter drawn (label `letter-<n>`, default the name itself) and the spoken name of a handle (`name-<n>`, default the letter)
+  const letter = (n: string) => host.lab(`letter-${n}`, n), name = (n: string) => host.lab(`name-${n}`, letter(n));
   const drag = new Set(dc.drag ?? []);
   const root = document.createElement('div'), svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'), info = document.createElement('div');
   root.className = 'kg-sb-dyn';
@@ -26,6 +27,7 @@ export function mountDynamic(host: ShapeBoard, cfg: ShapeBoardConfig) {
   svg.setAttribute('aria-label', host.lab('label-board', 'Board'));
   svg.style.maxInlineSize = `${Math.round(W * 1.6)}px`;
   root.append(svg, info);
+  info.dir = document.documentElement.dir || 'ltr'; // the board is LTR, the readouts and choices follow the page
   let pts: Pts = f.solve(), chosen: string | null = null, grab: { n: string; moved: boolean } | null = null;
   const seen = new Set([f.snapshot()]);
   const draggable = (n: string) => drag.has(n) || !!f.free[n];
@@ -126,10 +128,10 @@ export function mountDynamic(host: ShapeBoard, cfg: ShapeBoardConfig) {
     const c: P = [ps.reduce((s, p) => s + p[0], 0) / (ps.length || 1), ps.reduce((s, p) => s + p[1], 0) / (ps.length || 1)];
     for (const n of vis) {
       const p = pts[n]!, d = f.def(n), off = d.off ?? (() => { const v = [p[0] - c[0], p[1] - c[1]], l = Math.hypot(v[0], v[1]) || 1; return [(v[0] / l) * 0.42, (v[1] / l) * 0.42] as P; })();
-      const letter = d.hide ? '' : txt([p[0] + off[0], p[1] + off[1]], 'kg-sb-lt', host.lab(`name-${n}`, n).replace(/[&<>"]/g, ''));
+      const lt = d.hide ? '' : txt([p[0] + off[0], p[1] + off[1]], 'kg-sb-lt', letter(n).replace(/[&<>"]/g, ''));
       if (draggable(n))
-        o.push(`<g class="kg-sb-handle${grab?.n === n ? ' on' : ''}" data-p="${n}" tabindex="0" role="button" aria-label="${host.lab('label-handle', '{p}', { p: name(n) })}"><circle class="kg-sb-hh" cx="${sx(p[0])}" cy="${sy(p[1])}" r="26"/><circle class="kg-sb-h${d.hide ? ' ring' : ''}" cx="${sx(p[0])}" cy="${sy(p[1])}" r="10"/></g>${letter}`);
-      else o.push(`<circle class="kg-sb-gv" cx="${sx(p[0])}" cy="${sy(p[1])}" r="5"/>${letter}`);
+        o.push(`<g class="kg-sb-handle${grab?.n === n ? ' on' : ''}" data-p="${n}" tabindex="0" role="button" aria-label="${host.lab('label-handle', '{p}', { p: name(n) })}"><circle class="kg-sb-hh" cx="${sx(p[0])}" cy="${sy(p[1])}" r="26"/><circle class="kg-sb-h${d.hide ? ' ring' : ''}" cx="${sx(p[0])}" cy="${sy(p[1])}" r="10"/></g>${lt}`);
+      else o.push(`<circle class="kg-sb-gv" cx="${sx(p[0])}" cy="${sy(p[1])}" r="5"/>${lt}`);
     }
     const focus = (document.activeElement as Element | null)?.getAttribute?.('data-p');
     svg.innerHTML = o.join('');

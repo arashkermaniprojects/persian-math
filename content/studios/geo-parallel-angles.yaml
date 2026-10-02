@@ -25,10 +25,10 @@ missions:
       instruction: drag
       dynamic:
         points: &lines
-          A: [0.5, 4.5]
-          B: { on: { centre: A, r: 7 }, deg: 0, range: [-10, 5] }
-          C: [0.5, 1.5]
-          D: { add: C A B }
+          A: { at: [0.5, 4.5], off: [0, 0.4] }
+          B: { on: { centre: A, r: 7 }, deg: 0, range: [-10, 5], off: [0, 0.45] }
+          C: { at: [0.5, 1.5], off: [0, -0.45] }
+          D: { add: C A B, off: [0, -0.45] }
           E: { on: A B, clamp: segment, at: [3.5, 4.5] }
           H: { on: { centre: E, r: 1.2 }, deg: 65, range: [40, 140], hide: true }
           F: { meet: [E H, C D] }
@@ -91,10 +91,10 @@ missions:
       instruction: drag
       dynamic:
         points: &tilted
-          A: [0.5, 4.5]
-          B: [7.5, 4.5]
-          C: [0.5, 1.5]
-          D: [7.5, 2]
+          A: { at: [0.5, 4.5], off: [0, 0.4] }
+          B: { at: [7.5, 4.5], off: [0, 0.4] }
+          C: { at: [0.5, 1.5], off: [0, -0.45] }
+          D: { at: [7.5, 2], off: [0, -0.45] }
           E: { on: A B, clamp: segment, at: [3.5, 4.5] }
           H: { on: { centre: E, r: 1.2 }, deg: 65, range: [40, 140], hide: true }
           F: { meet: [E H, C D] }
