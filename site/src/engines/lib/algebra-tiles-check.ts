@@ -2,9 +2,19 @@
 import { add, coef, equal, isCollected, keyOf, kindOrder, kindsOf, mul, parse, poly, powsOf, type Poly } from './algebra-tiles-poly';
 import { matPoly, zeroPairs, type Tile } from './algebra-tiles-mat';
 import { cellOf, gridTotal, sameSides } from './algebra-tiles-frame';
+import { aloneCode, parseScale, readAlone, sameScale, type Pan, type Rel } from './algebra-tiles-balance';
 
-/** One learner action, in order. `unlike` = a red and a white tile of different shapes put together (refused). */
-export interface Move { do: 'add' | 'remove' | 'zero' | 'unlike' | 'sort' | 'clear' | 'flip' | 'side' | 'paint'; tile?: string }
+/**
+ * One learner action, in order. `unlike` = a red and a white tile of different shapes put together (refused).
+ * balance: `add` (a tile, `tile: "-1"`), `mul`/`div` (`k`), `expand`, `undo`, `clear`, `try` (`k` = the value tried),
+ * `rel` (the relation sign turned); `pan` = which pan the move was done to (left, right, both).
+ */
+export interface Move {
+  do: 'add' | 'remove' | 'zero' | 'unlike' | 'sort' | 'clear' | 'flip' | 'side' | 'paint' | 'mul' | 'div' | 'expand' | 'undo' | 'try' | 'rel';
+  tile?: string;
+  k?: string;
+  pan?: 'left' | 'right' | 'both';
+}
 
 /** What <kg-algebra-tiles> reports, under `state.algebra`. Modules (balance, factors) add their own fields. */
 export interface AlgebraState {
@@ -26,6 +36,15 @@ export interface AlgebraState {
   cells?: (string | null)[][];
   total?: string;
   remainder?: string | null;
+  /** balance: the two pans (left first), the relation shown, and whether the scale still tells the truth (`level`:
+   * the same solutions as the first equation, with the right relation; `turned`: the same solutions, but an
+   * inequality's sign was not turned). `tried` = the value on the tiles (try mode), `steps` = the equations so far. */
+  pans?: Pan[];
+  rel?: Rel;
+  level?: boolean;
+  turned?: boolean;
+  tried?: number | null;
+  steps?: string[];
 }
 
 /**
@@ -47,8 +66,18 @@ export interface AlgebraCheck {
   rectangle?: { cells?: boolean; sides?: [string, string]; missing?: string };
   /** grid: headings (in order), every cell = its row × column, the remainder of a division. */
   grid?: { rows?: string[]; cols?: string[]; cells?: boolean; remainder?: string };
-  /** Known wrong answers with their own code: the mat (`expr`), the typed answer (`write`) or the sides (`sides`). */
-  traps?: { expr?: string; write?: string; sides?: [string, string]; code: string }[];
+  /**
+   * balance: the letter is alone on one pan with the scale level: `4` / `"x = 4"`, an inequality `"x > -2"`; with
+   * `try` in the setup, the value tried on the tiles makes the scale level and equals it.
+   */
+  solution?: number | string;
+  /** balance (formulae): this letter alone on one pan, the scale level (v = u + at → t = (v − u)/a). */
+  subject?: string;
+  /**
+   * Known wrong answers with their own code: the mat (`expr`), the typed answer (`write`), the sides (`sides`), the
+   * scale as it stands (`scale: "x/9 = 4/3"`, either way round) or the value tried (`try`).
+   */
+  traps?: { expr?: string; write?: string; sides?: [string, string]; scale?: string; try?: number; code: string }[];
 }
 
 type Result = { ok: boolean; code?: string };
@@ -152,8 +181,39 @@ const writtenPart: Part = (c, s) => {
   return null;
 };
 
-/** The parts, in order. A module (balance, factors) adds its own part here, e.g. a `solution` or `factors` check. */
-export const PARTS: Part[] = [matPart, rectPart, gridPart, writtenPart];
+/**
+ * balance (after `written`, so a typed prediction is judged first): traps on the scale or the value tried; then
+ * try mode (not-tried, too-big, too-small); then the scale must be level (one-pan, or sign-flip-missed when only an
+ * inequality's sign is wrong); then the letter alone (aloneCode), the relation and the value (wrong-solution).
+ */
+const balancePart: Part = (c, s) => {
+  if (c.solution === undefined && c.subject === undefined) return null;
+  if (!s.pans) return 'empty';
+  const want = c.solution === undefined ? null : parseScale(typeof c.solution === 'number' || !/[=<>≤≥]/.test(c.solution) ? `x = ${c.solution}` : c.solution);
+  if (s.tried !== undefined) {
+    if (s.tried === null) return 'not-tried';
+    const trap = c.traps?.find((t) => t.try === s.tried);
+    if (trap) return trap.code;
+    const v = want ? Object.values(want.pans[1].p)[0] ?? 0 : NaN;
+    return Math.abs(s.tried - v) < 1e-9 ? null : s.tried > v ? 'too-big' : 'too-small';
+  }
+  const now = { pans: s.pans as [Pan, Pan], rel: s.rel ?? '=' };
+  const trap = c.traps?.find((t) => t.scale && sameScale(now, parseScale(t.scale)));
+  if (trap) return trap.code;
+  if (!s.level) return s.turned ? 'sign-flip-missed' : 'one-pan';
+  const letter = c.subject ?? (want ? Object.keys(want.pans[0].p).find((k) => k !== '1') ?? 'x' : 'x');
+  const why = aloneCode(now, letter);
+  if (why) return why;
+  if (want) {
+    const { other, rel } = readAlone(now, letter);
+    if (rel !== want.rel) return 'sign-flip-missed';
+    if (other.n !== 1 || other.den !== '1' || !equal(other.p, want.pans[1].p)) return 'wrong-solution';
+  }
+  return null;
+};
+
+/** The parts, in order. A module adds its own part here: balance adds `solution`/`subject`; factors to come. */
+export const PARTS: Part[] = [matPart, rectPart, gridPart, writtenPart, balancePart];
 
 export function checkAlgebra(c: AlgebraCheck, state?: { algebra?: AlgebraState }): Result {
   const s = state?.algebra;
