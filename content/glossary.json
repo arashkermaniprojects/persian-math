@@ -2672,6 +2672,23 @@
    }
   },
   {
+   "id": "finite-set",
+   "fa-IR": "مجموعهٔ متناهی",
+   "fa-AF": "ست متناهی",
+   "ps": "معین سټ",
+   "en": "finite set",
+   "status": {
+    "fa-AF": "draft",
+    "ps": "draft"
+   },
+   "src": {
+    "fa-IR": "G10_riazi1_math_science «مجموعه‌های متناهی و نامتناهی» (curriculum line 4)",
+    "fa-AF": "AF_G07_riazi line 10",
+    "ps": "AF_G07_riazi_ps line 10"
+   },
+   "note": "Pashto G07 says «معین / غیر معین سټونه» where Dari says «متناهی / نامتناهی»."
+  },
+  {
    "id": "focus",
    "fa-IR": "کانون",
    "fa-AF": "محراق",
@@ -3330,6 +3347,22 @@
     "ps": "AF_G09_riazi_ps pdf p.162"
    },
    "note": "Iran: نامعادله (with an unknown); نابرابری is the inequality relation itself."
+  },
+  {
+   "id": "infinite-set",
+   "fa-IR": "مجموعهٔ نامتناهی",
+   "fa-AF": "ست نامتناهی",
+   "ps": "غیر معین سټ",
+   "en": "infinite set",
+   "status": {
+    "fa-AF": "draft",
+    "ps": "draft"
+   },
+   "src": {
+    "fa-IR": "G10_riazi1_math_science «مجموعه‌های متناهی و نامتناهی» (curriculum line 4)",
+    "fa-AF": "AF_G07_riazi line 10",
+    "ps": "AF_G07_riazi_ps line 10"
+   }
   },
   {
    "id": "infinity",

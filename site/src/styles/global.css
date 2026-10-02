@@ -90,6 +90,8 @@ button.secondary { background: transparent; color: var(--accent); }
 .frac-d { padding-inline: 0.15em; }
 .mixed { display: inline-flex; align-items: center; gap: 0.1em; }
 /* coordinates / vector as a column in square brackets, x on top (Iran G6 «محورهای مختصات», G7 «بردار انتقال») */
+/* set notation from {{set:…}}: one left-to-right piece that does not break across lines */
+bdi.set { white-space: nowrap; }
 .vec { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; line-height: 1.15; position: relative; padding: 0.1em 0.4em; margin-inline: 0.15em; font-size: 0.95em; direction: ltr; }
 .vec::before, .vec::after { content: ''; position: absolute; inset-block: 0; inline-size: 0.25em; border: 0.08em solid currentColor; }
 .vec::before { inset-inline-start: 0; border-inline-end: none; }

@@ -1,0 +1,181 @@
+{
+  "title": "Sets: elements, subsets, union, intersection and complement",
+  "summary": "Sort number cards into the ovals of a Venn diagram, write sets in braces, shade unions, intersections and differences, and count with the diagram.",
+  "guide": [
+    "This studio follows Iran's Year 9 chapter on {{term:set}}s and Afghanistan's Year 7 chapter: {{term:element}}s, the {{term:venn-diagram}}, {{term:subset}}s, {{term:union}}, {{term:intersection}}, {{term:set-difference}}, the {{term:universal-set}}, the {{term:complement}}, and finite and infinite sets. In England, KS3 asks pupils to enumerate sets and unions and intersections with Venn diagrams.",
+    "Your child moves the cards by dragging them, or by tapping a card and then its place. With a keyboard, choose a card, then a button for a part of the diagram.",
+    "Common mistakes this studio works on: thinking the order of the elements matters, treating the {{term:empty-set}} as {{set:[0]}}, mixing up {{set:∈}} and {{set:⊆}}, thinking {{set:A − B}} is the same as {{set:B − A}}, and counting the overlap twice in {{set:A ∪ B}}."
+  ],
+  "engine": {
+    "label-and": " and ",
+    "label-only": "only {s}",
+    "label-both": "{s}",
+    "label-outside": "outside the ovals",
+    "label-card": "card {c}, in {r}",
+    "label-tray": "cards",
+    "label-put": "put it in: {r}",
+    "label-regions": "parts of the diagram",
+    "label-moved": "{c} moved to: {r}",
+    "label-selected": "Card {c} chosen. Now choose its place.",
+    "label-pick-card": "Choose a card first.",
+    "label-back": "Back to the cards",
+    "label-layout": "How should the ovals be drawn?",
+    "layout-overlap": "overlapping",
+    "layout-apart": "apart",
+    "layout-inside": "{a} inside {b}",
+    "label-count": "number in {r}",
+    "label-table": "Show as a table",
+    "label-diagram": "Show the diagram",
+    "label-total": "Total",
+    "label-cell": "{r}, {c}",
+    "label-write": "set {k} in braces",
+    "label-add": "write {c}",
+    "label-unwrite": "take out {c}",
+    "sym-in": "is an element of",
+    "sym-notin": "is not an element of",
+    "sym-sub": "is a subset of",
+    "sym-eq": "equals",
+    "sym-neq": "does not equal",
+    "opt-finite": "finite",
+    "opt-infinite": "infinite",
+    "row-small": "{x ∈ N | x < 10}",
+    "row-evens": "the even numbers",
+    "row-million": "the whole numbers from 1 to 1000000",
+    "row-school": "every pupil in every school in the UK",
+    "row-fives": "the multiples of 5",
+    "instruction-drag": "Drag a card to its place, or tap the card and then its place.",
+    "instruction-pick": "Choose one answer for each row.",
+    "instruction-nest": "Sort the cards, then choose how to draw the ovals.",
+    "instruction-shade": "Tap a part of the diagram to shade it.",
+    "instruction-count": "Write the number in each part."
+  },
+  "missions": {
+    "members-braces": {
+      "title": "Elements of a set",
+      "prompt": "The universal set U is the numbers 1 to 9. Set A is \"the one-digit even numbers\". Put the card of each {{term:element}} of A inside oval A. Then write A in braces: tap the cards under the braces.",
+      "hint": "An even number can be divided by 2. Write each element only once.",
+      "success": "Well done! {{set:A = [2, 4, 6, 8]}}. Every one-digit even number is an element of A.",
+      "why": "Are {{set:[2, 4, 6, 8]}} and {{set:[8, 6, 4, 2]}} the same set? Why?",
+      "model": "Yes. A set is fixed by its elements alone. The order we write them in does not matter, and writing an element twice does not make a new set. That is why we write each element once.",
+      "feedback": {
+        "not-a-member": "An odd number has gone into A. Odd numbers can't be divided by 2, so they are not in A. Put it outside the oval.",
+        "is-a-member": "An even number is still outside. Find all the even numbers from 1 to 9.",
+        "write-empty": "The diagram is right. Now write A in braces: tap the cards under the braces.",
+        "repeat": "You wrote an element twice. In a set each element is written once: {{set:[2, 2, 4]}} is just {{set:[2, 4]}}. Tap the extra card inside the braces to take it out.",
+        "members-missing": "An element of A is missing from the braces. Look at oval A.",
+        "members-extra": "You wrote a number that is not inside oval A. Tap it to take it out."
+      }
+    },
+    "element-or-subset": {
+      "title": "Element or subset?",
+      "prompt": "{{set:A = [2, 4, 6, 8]}}. Choose the right symbol for each row. {{set:∈}} means \"is an element of\" and is used for one element on its own. {{set:⊆}} means \"is a {{term:subset}} of\" and is used for a set.",
+      "hint": "4 is a number, but {{set:[4]}} is a set with one element. {{set:∅}} is a set with no elements at all.",
+      "success": "Well done! {{set:4 ∈ A}} but {{set:[4] ⊆ A}}. The order of the elements does not matter, and the {{term:empty-set}} is not {{set:[0]}}.",
+      "why": "Why is {{set:∅}} not equal to {{set:[0]}}?",
+      "model": "{{set:∅}} has no elements, but {{set:[0]}} has one element: the number zero. Zero is a number, not \"nothing\". So {{set:∅ ≠ [0]}}.",
+      "feedback": {
+        "rows-unanswered": "A row has no answer yet.",
+        "element-vs-subset": "{{set:∈}} and {{set:⊆}} are mixed up. If the left side is a number on its own, we ask \"is it an element?\", so {{set:∈}}. If it is in braces, it is a set, and we ask \"is it a subset?\", so {{set:⊆}}.",
+        "order-matters": "The order of the elements does not matter. Both sets have exactly 2 and 4, so they are equal.",
+        "empty-vs-zero": "{{set:[0]}} is not empty: it has one element, zero. The {{term:empty-set}} has no elements.",
+        "five-odd": "5 is odd and is not in A, so {{set:5 ∉ A}}.",
+        "row-wrong": "One row is not right. Look at the elements of A again."
+      }
+    },
+    "subset-nest": {
+      "title": "A set inside another set",
+      "prompt": "B is the one-digit even numbers and C is the one-digit multiples of 4. Sort the cards into the ovals. Then look at what is left in \"only C\", and choose the right way to draw the ovals.",
+      "hint": "4 and 8 are even and multiples of 4. Is there a multiple of 4 that is not even?",
+      "success": "Well done! Every element of C is also in B, so C is a {{term:subset}} of B: {{set:C ⊆ B}}. In a {{term:venn-diagram}}, C is drawn inside B.",
+      "why": "Why did we draw oval C inside oval B?",
+      "model": "Because every multiple of 4 is even. The part \"only C\" had no elements, so all the elements of C are in B too. So {{set:C ⊆ B}}, and C is drawn inside B. It does not work the other way round: 2 is in B but not in C.",
+      "feedback": {
+        "cards-left": "Some cards are still outside the diagram. Put every card in its place.",
+        "in-both": "This number is in B and in C. Put it in the overlap.",
+        "not-a-member": "An odd number is neither even nor a multiple of 4, so it stays outside both ovals.",
+        "is-a-member": "An even number is still outside the ovals.",
+        "two-not-multiple": "2 and 6 are even, but they are not multiples of 4. They go in \"only B\".",
+        "region-wrong": "A card is in the wrong place. For each number ask: is it even? Is it a multiple of 4?",
+        "layout-wrong": "The cards are right! Now look at \"only C\": it is empty. So all of C is inside B. Choose \"C inside B\".",
+        "subset-reversed": "That's the wrong way round. B has elements that are not in C (2 and 6), so B does not fit inside C.",
+        "they-share": "B and C have elements in common (4 and 8), so they are not apart."
+      }
+    },
+    "union-intersection": {
+      "title": "Union and intersection",
+      "prompt": "U is the numbers 1 to 10. A is the factors of 6 and B is the factors of 8. First shade the {{term:intersection}} {{set:A ∩ B}}. Then write the {{term:union}} {{set:A ∪ B}} in braces.",
+      "hint": "The intersection is the elements in A and in B. The union is the elements in at least one of them; write the shared elements only once.",
+      "success": "Well done! {{set:A ∩ B = [1, 2]}} and {{set:A ∪ B = [1, 2, 3, 4, 6, 8]}}.",
+      "why": "When you write {{set:A ∪ B}}, why do you write 1 and 2 only once?",
+      "model": "1 and 2 are in A and in B, but in a union each element appears once. If we just wrote the elements of A and then the elements of B, the overlap would be counted twice. That is why {{set:A ∪ B}} has six elements, not eight.",
+      "feedback": {
+        "shade-empty": "First shade {{set:A ∩ B}}: tap the right part of the diagram.",
+        "union-intersection": "That is the union, not the intersection. {{set:A ∩ B}} is only the part where the two ovals overlap.",
+        "only-one-set": "You shaded all of A. The intersection is only the elements of A that are also in B.",
+        "shade-missing": "Not all of it is shaded. The intersection is the part where the two ovals overlap.",
+        "shade-extra": "Too much is shaded. The intersection is only the part where the two ovals overlap.",
+        "write-empty": "The shading is right. Now write {{set:A ∪ B}} in braces.",
+        "overlap-twice": "You wrote 1 and 2 twice: once for A and once for B. In a union each element appears only once.",
+        "repeat": "You wrote an element twice. Tap the extra card inside the braces to take it out.",
+        "wrote-intersection": "That is {{set:A ∩ B}}. The union has all the elements of A and all the elements of B together.",
+        "members-missing": "An element is missing. Every number inside at least one of the ovals is in the union.",
+        "members-extra": "You wrote a number that is not in either oval."
+      }
+    },
+    "difference-complement": {
+      "title": "Difference and complement",
+      "prompt": "The same A and B. First shade {{set:A − B}}: the elements of A that are not in B. Then write the {{term:complement}} of A, {{set:A′}}: the elements of the {{term:universal-set}} U that are not in A.",
+      "hint": "{{set:A − B}} starts with A and leaves out the overlap. For {{set:A′}}, don't forget the numbers outside both ovals.",
+      "success": "Well done! {{set:A − B = [3, 6]}} and {{set:A′ = [4, 5, 7, 8, 9, 10]}}.",
+      "why": "Is {{set:A − B}} the same as {{set:B − A}}? Why?",
+      "model": "No. {{set:A − B = [3, 6]}}: the elements of A that are not in B. But {{set:B − A = [4, 8]}}. With a difference the order matters, just as 5 − 3 is not the same as 3 − 5.",
+      "feedback": {
+        "shade-empty": "First shade {{set:A − B}}.",
+        "difference-reversed": "That is {{set:B − A}}. {{set:A − B}} starts with A: the elements of A that are not in B.",
+        "only-vs-all": "You shaded all of A. 1 and 2 are in B as well, so they are not in {{set:A − B}}.",
+        "difference-common": "That is the overlap, {{set:A ∩ B}}. {{set:A − B}} leaves the overlap out.",
+        "shade-missing": "Not all of it is shaded. Shade all of \"only A\".",
+        "shade-extra": "Too much is shaded. {{set:A − B}} is only the part \"only A\".",
+        "write-empty": "The shading is right. Now write {{set:A′}} in braces.",
+        "outside-missed": "4 and 8 are right, but 5, 7, 9 and 10 are not in A either. The complement is every element of U that is not in A, even those outside both ovals.",
+        "complement-not-b": "That is B. 1 and 2 are in A, so they are not in {{set:A′}}. And the numbers outside the ovals are in {{set:A′}} too.",
+        "complement-not-difference": "That is {{set:A − B}}. {{set:A′}} is the elements of U that are not in A.",
+        "repeat": "You wrote an element twice. Tap the extra card to take it out.",
+        "members-missing": "A number in U that is not in A is missing.",
+        "members-extra": "You wrote a number that is in A; the complement of A does not have it."
+      }
+    },
+    "count-overlap": {
+      "title": "Counting with a Venn diagram",
+      "prompt": "A class has 20 pupils. 12 are in the football team (F), 8 are in the volleyball team (V), and 5 are in both teams. Write the number in each part of the diagram. Then say how many pupils are in at least one team.",
+      "hint": "Start with the overlap: 5 pupils. 12 play football and 5 of them are in the overlap, so how many are in \"only F\"?",
+      "success": "Well done! {{set:n(F ∪ V) = 7 + 5 + 3 = 15}}. You can also show the table to see the row and column totals.",
+      "why": "Why is 12 + 8 = 20 not the number of pupils in a team?",
+      "model": "Because the 5 pupils in both teams are counted in the 12 and again in the 8, so twice. We take them away once: 12 + 8 − 5 = 15. The diagram shows the same: 7 + 5 + 3 = 15. The other 5 pupils are in no team.",
+      "feedback": {
+        "count-empty": "One part is still empty. Write a number in all four parts, even outside the ovals.",
+        "only-vs-all": "12 and 8 are all the members of each team, including the 5 pupils in both. Take those 5 away for \"only F\" and \"only V\".",
+        "outside-missed": "There are 20 pupils in the class. Those in no team go outside the ovals. How many are there?",
+        "count-wrong": "One of the numbers is not right. All the parts together make 20; F makes 12 altogether and V makes 8.",
+        "empty": "The diagram is right! Now type the answer: how many pupils are in at least one team?",
+        "overlap-twice": "You counted the 5 pupils in the overlap twice. Add the numbers inside the ovals, each part once.",
+        "too-big": "That's too many. Don't count the pupils who are in no team.",
+        "too-small": "That's too few. Add \"only F\", \"only V\" and the overlap together."
+      }
+    },
+    "finite-infinite": {
+      "title": "Finite or infinite?",
+      "prompt": "A set whose elements can be counted, with the counting coming to an end, is a {{term:finite-set}}. If the counting never ends, it is an {{term:infinite-set}}. Decide for each set.",
+      "hint": "Ask: does it have a last element? A very big set is still finite if the counting ends.",
+      "success": "Well done! The even numbers and the multiples of 5 never end, so they are infinite. The others are finite, however big they are.",
+      "why": "The set of every pupil in every school in the UK is very big. Why is it still finite?",
+      "model": "Because the pupils can be counted one by one and the counting does end, even if it takes a very long time. But the even numbers have no last element: after every even number there is a bigger one.",
+      "feedback": {
+        "rows-unanswered": "A set has no answer yet.",
+        "big-not-infinite": "Big is not the same as infinite. This set has a last element, so counting it ends.",
+        "no-last": "This set has no last element: however far you go, there is a bigger one. So it is infinite.",
+        "row-wrong": "One answer is not right. For each set ask: does it have a last element?"
+      }
+    }
+  }
+}

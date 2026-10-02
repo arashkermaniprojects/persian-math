@@ -13,6 +13,7 @@ import { checkShapeBoard, type ShapeBoardCheck, type ShapeBoardState } from '../
 import { checkCanvas, type CanvasCheck } from '../engines/lib/problem-canvas-check';
 import type { CanvasState } from '../engines/lib/problem-canvas-model';
 import { checkCoord, type CoordCheck, type CoordState } from '../engines/lib/coord-plane-check';
+import { checkSets, type SetsCheck, type SetsState } from '../engines/lib/discrete-lab-check';
 
 type FracSpec = [number, number];
 
@@ -52,7 +53,9 @@ export type Check =
   /** <kg-problem-canvas>: known/asked facts, strategy, each tool, then the answer (engines/lib/problem-canvas-check.ts). */
   | CanvasCheck
   /** <kg-coord-plane>: table of values, points, line (m, c, through, parallel, perpendicular), graph (engines/lib/coord-plane-check.ts). */
-  | CoordCheck;
+  | CoordCheck
+  /** <kg-discrete-lab>: cards in Venn regions, members, region counts, nested ovals, shading, sets written in braces, statement rows, two-way table (engines/lib/discrete-lab-check.ts). */
+  | SetsCheck;
 
 export interface Attempt {
   /** Engine state (shape depends on the engine). */
@@ -70,7 +73,7 @@ export interface Attempt {
     answered?: number;
     correct?: number;
     done?: boolean;
-  } & CcmState & MeasureState & { pattern?: PatternState } & ChartState & { chance?: ChanceState } & { board?: ShapeBoardState } & { plane?: CoordState };
+  } & CcmState & MeasureState & { pattern?: PatternState } & ChartState & { chance?: ChanceState } & { board?: ShapeBoardState } & { plane?: CoordState } & { sets?: SetsState };
   fraction?: WrittenFrac | null;
   integer?: number | null;
   /** Typed decimal, already parsed exactly (null if unparseable). */
@@ -175,5 +178,7 @@ export function evaluate(check: Check, a: Attempt): Result {
       return checkCanvas(check, a.state as Partial<CanvasState> | undefined, a.integer);
     case 'coord':
       return checkCoord(check, a.state);
+    case 'sets':
+      return checkSets(check, a.state?.sets, { integer: a.integer, fraction: a.fraction });
   }
 }

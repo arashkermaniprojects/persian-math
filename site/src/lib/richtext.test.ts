@@ -21,6 +21,16 @@ describe('rich', () => {
   });
 });
 
+describe('set notation', () => {
+  it('writes braces from [ ], left to right, with locale digits and separator', () => {
+    expect(rich('{{set:A = [2, 4]}} است', 'fa-IR')).toBe('<bdi dir="ltr" class="set">A = {۲, ۴}</bdi> است');
+    // "," is the decimal mark in fa-AF and ps, so elements are separated by the Arabic comma
+    expect(rich('{{set:A = [2,4]}}', 'fa-AF')).toBe('<bdi dir="ltr" class="set">A = {۲، ۴}</bdi>');
+    expect(rich('{{set:[4] ⊆ A}}', 'en')).toBe('<bdi dir="ltr" class="set">{4} ⊆ A</bdi>');
+    expect(rich('{{set:∅ ≠ [0]}}', 'ps')).toBe('<bdi dir="ltr" class="set">∅ ≠ {۰}</bdi>');
+  });
+});
+
 describe('formula direction', () => {
   it('wraps operator expressions in RTL locales in left-to-right isolates', () => {
     const out = rich('{{frac:3/4}} − {{frac:1/3}} چقدر است؟', 'fa-IR');
