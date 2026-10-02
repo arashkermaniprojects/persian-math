@@ -153,3 +153,14 @@ describe('pattern check (kg-pattern-machine)', () => {
     expect(evaluate({ type: 'pattern', expr: true }, {}).code).toBe('empty');
   });
 });
+
+describe('solid check (kg-solid-viewer)', () => {
+  it('routes to the solid-viewer check: picks, layers, then the typed value and its unit', () => {
+    const solid = { picked: [0, 2], roles: ['base', 'lateral'], bases: 2, layers: 6, full: 6, answer: { value: 36, unit: 'cm2' }, misreads: [[72, 'wrong-base']] as [number, string][] };
+    expect(evaluate({ type: 'solid', pick: 'bases' }, { state: { solid } }).code).toBe('wrong-base');
+    expect(evaluate({ type: 'solid', layers: 'full', volume: 36, unit: 'cm3' }, { state: { solid } }).code).toBe('area-for-volume');
+    expect(evaluate({ type: 'solid', volume: 36, unit: 'cm3' }, { state: { solid: { ...solid, answer: { value: 72, unit: 'cm3' } } } }).code).toBe('wrong-base');
+    expect(evaluate({ type: 'solid', volume: 36, unit: 'cm3' }, { state: { solid: { ...solid, answer: { value: 36, unit: 'cm3' } } } }).ok).toBe(true);
+    expect(evaluate({ type: 'solid', area: 94 }, {}).code).toBe('empty');
+  });
+});

@@ -12,6 +12,7 @@ import { checkChance, type ChanceCheck, type ChanceState } from '../engines/lib/
 import { checkShapeBoard, type ShapeBoardCheck, type ShapeBoardState } from '../engines/lib/shape-board-check';
 import { checkCanvas, type CanvasCheck } from '../engines/lib/problem-canvas-check';
 import type { CanvasState } from '../engines/lib/problem-canvas-model';
+import { checkSolid, type SolidCheck, type SolidState } from '../engines/lib/solid-viewer-check';
 
 type FracSpec = [number, number];
 
@@ -49,7 +50,9 @@ export type Check =
   /** <kg-shape-board>: shapes drawn, images, fold/parallel lines, angles, points, taps, cells, pieces, cubes (engines/lib/shape-board-check.ts). */
   | ShapeBoardCheck
   /** <kg-problem-canvas>: known/asked facts, strategy, each tool, then the answer (engines/lib/problem-canvas-check.ts). */
-  | CanvasCheck;
+  | CanvasCheck
+  /** <kg-solid-viewer>: faces picked, turned, net opened, layers filled, typed volume/area with its unit (engines/lib/solid-viewer-check.ts). */
+  | SolidCheck;
 
 export interface Attempt {
   /** Engine state (shape depends on the engine). */
@@ -67,7 +70,7 @@ export interface Attempt {
     answered?: number;
     correct?: number;
     done?: boolean;
-  } & CcmState & MeasureState & { pattern?: PatternState } & ChartState & { chance?: ChanceState } & { board?: ShapeBoardState };
+  } & CcmState & MeasureState & { pattern?: PatternState } & ChartState & { chance?: ChanceState } & { board?: ShapeBoardState } & { solid?: SolidState };
   fraction?: WrittenFrac | null;
   integer?: number | null;
   /** Typed decimal, already parsed exactly (null if unparseable). */
@@ -170,5 +173,7 @@ export function evaluate(check: Check, a: Attempt): Result {
       return checkShapeBoard(check, a.state?.board);
     case 'problem-canvas':
       return checkCanvas(check, a.state as Partial<CanvasState> | undefined, a.integer);
+    case 'solid':
+      return checkSolid(check, a.state?.solid);
   }
 }

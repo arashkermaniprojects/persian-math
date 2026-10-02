@@ -4,6 +4,9 @@
 //   solids  pictures of solid shapes to recognise and tap (cube, cuboid, prism, pyramid, cylinder, cone, sphere).
 import type { ShapeBoard } from '../shape-board';
 import type { ShapeBoardState } from '../lib/shape-board-check';
+import { boxOf, ISO_CX as CX, ISO_CY as CY, ISO_S as S, isoCubeFaces, isoCubes, isoXY as pt } from '../lib/iso-projection';
+
+export { boxOf };
 
 export interface CubesConfig {
   /** Plan size [columns, rows] (default 3 × 3). */
@@ -18,16 +21,6 @@ export interface CubesConfig {
 }
 export interface Solid { kind: 'cube' | 'cuboid' | 'prism' | 'pyramid' | 'cylinder' | 'cone' | 'sphere'; tone?: number; name?: string }
 
-const S = 30, CX = 0.866 * S, CY = 0.5 * S;
-
-/** Box shape [length, width, height] when the stacks make one full cuboid, else null. */
-export function boxOf(h: number[][]): [number, number, number] | null {
-  const cells = h.flatMap((row, r) => row.map((v, c) => [r, c, v])).filter((x) => x[2] > 0);
-  if (!cells.length) return null;
-  const rs = cells.map((x) => x[0]), cs = cells.map((x) => x[1]), w = Math.max(...rs) - Math.min(...rs) + 1, l = Math.max(...cs) - Math.min(...cs) + 1;
-  return cells.length === w * l && cells.every((x) => x[2] === cells[0][2]) ? [l, w, cells[0][2]] : null;
-}
-
 export function mountIso(host: ShapeBoard, cfg: { cubes?: unknown; solids?: unknown; mode?: string }) {
   const root = document.createElement('div');
   root.className = 'kg-sb-iso';
@@ -39,18 +32,11 @@ export function mountIso(host: ShapeBoard, cfg: { cubes?: unknown; solids?: unkn
   const max = c.max ?? 4;
   const draw = () => {
     const top = Math.max(max, ...h.flat()) * S;
-    const pt = (i: number, j: number, k: number) => `${((i - j) * CX).toFixed(1)},${((i + j) * CY - k * S).toFixed(1)}`;
     const o: string[] = [];
     for (let i = 0; i <= cols; i++) for (let j = 0; j <= rows; j++) o.push(`<circle class="kg-sb-dot" r="2.5" cx="${((i - j) * CX).toFixed(1)}" cy="${((i + j) * CY).toFixed(1)}"/>`);
-    const cubes: [number, number, number][] = [];
-    h.forEach((row, j) => row.forEach((v, i) => { for (let k = 0; k < v; k++) cubes.push([i, j, k]); }));
-    cubes.sort((a, b) => a[0] + a[1] - b[0] - b[1] || a[2] - b[2]);
-    for (const [i, j, k] of cubes) {
-      const f = (cls: string, q: [number, number, number][]) => o.push(`<polygon class="kg-sb-cube ${cls}" points="${q.map((x) => pt(...x)).join(' ')}"/>`);
-      f('top', [[i, j, k + 1], [i + 1, j, k + 1], [i + 1, j + 1, k + 1], [i, j + 1, k + 1]]);
-      f('right', [[i + 1, j, k], [i + 1, j + 1, k], [i + 1, j + 1, k + 1], [i + 1, j, k + 1]]);
-      f('left', [[i, j + 1, k], [i + 1, j + 1, k], [i + 1, j + 1, k + 1], [i, j + 1, k + 1]]);
-    }
+    const cubes = isoCubes(h);
+    for (const cube of cubes)
+      for (const [cls, q] of Object.entries(isoCubeFaces(cube))) o.push(`<polygon class="kg-sb-cube ${cls}" points="${q.map((x) => pt(...x)).join(' ')}"/>`);
     const x0 = -rows * CX - 6, w = (cols + rows) * CX + 12, y0 = -top - 6, hh = (cols + rows) * CY + top + 12;
     let html = `<svg class="kg-sb-3d" viewBox="${x0.toFixed(1)} ${y0} ${w.toFixed(1)} ${hh.toFixed(1)}" role="img" aria-label="${host.lab('label-cubes', '{n}', { n: host.d(cubes.length) })}">${o.join('')}</svg>`;
     if (c.edit) {
