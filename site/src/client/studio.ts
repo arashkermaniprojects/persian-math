@@ -1,7 +1,7 @@
 // Runs a studio's missions in the browser: Explore → Predict → Check → Justify (docs/STUDIOS.md).
 // All text arrives pre-rendered (HTML) from the server in #studio-data; nothing is fetched.
 import { evaluate, type Attempt, type Check } from '../lib/checks';
-import { asciiDigits, parseDecimal } from '../lib/fraction';
+import { parseDecimal, parseInteger } from '../lib/fraction';
 import type { FractionInput } from '../engines/fraction-input';
 import '../engines/fraction-input';
 
@@ -137,11 +137,10 @@ async function show() {
     const attempt: Attempt = {
       state: engine.state,
       fraction: fracInput?.value ?? null,
-      integer: intInput && m.answer === 'integer' ? parseInt(asciiDigits(intInput.value), 10) : null,
+      integer: intInput && m.answer === 'integer' ? parseInteger(intInput.value) : null,
       decimal: intInput && m.answer === 'decimal' ? parseDecimal(intInput.value, data.fmt.decimal) : null,
       choice,
     };
-    if (attempt.integer !== null && Number.isNaN(attempt.integer)) attempt.integer = null;
     const r = evaluate(m.check, attempt);
     if (r.ok) {
       feedback.className = 'feedback ok';

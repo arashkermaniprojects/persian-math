@@ -64,9 +64,12 @@ export function asciiDigits(s: string): string {
     .replace(/[٠-٩]/g, (c) => String(c.charCodeAt(0) - 0x0660));
 }
 
-/** Parse a learner's typed integer in any digit script; null if it isn't one. */
+/**
+ * Parse a learner's typed integer in any digit script; null if it isn't one.
+ * Thousands separators are ignored (٬ Persian, , and ' Latin, thin/narrow spaces), so ۲٬۳۰۰٬۰۰۰ reads as 2300000.
+ */
 export function parseInteger(s: string): number | null {
-  const t = asciiDigits(s.trim()).replace(/[−–]/g, '-');
+  const t = asciiDigits(s.trim()).replace(/[−–]/g, '-').replace(/(?<=\d)[٬,'\u2009\u202f ](?=\d{3}(?!\d))/g, '');
   return /^-?\d+$/.test(t) ? Number(t) : null;
 }
 
