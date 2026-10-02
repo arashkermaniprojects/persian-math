@@ -1,0 +1,21 @@
+name: Dari / Pashto review · بازبینی دری / پشتو
+description: Send reviewed glossary terms or studio texts (attach the file from the reviewer page).
+labels: [review]
+body:
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language · زبان / ژبه
+      options: [Dari · دری, Pashto · پښتو]
+    validations: { required: true }
+  - type: textarea
+    id: file
+    attributes:
+      label: Corrections · اصلاحات
+      description: Attach the JSON file from the reviewer page (drag it here), or list corrections as "term → correct word".
+    validations: { required: true }
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes · یادداشت
+      description: Optional. Which textbooks or grades you based your choices on. You don't need to give your real name.

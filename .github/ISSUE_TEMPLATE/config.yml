@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Questions and ideas · پرسش‌ها و ایده‌ها
+    url: https://github.com/arashkermaniprojects/persian-math/discussions
+    about: Ask a question or discuss an idea before opening an issue.
