@@ -1363,6 +1363,43 @@
     fa-AF: draft
     ps: draft
   note: 'No stand-alone term in the Afghan books: they only say «X باز شده» / «خلاص شوی مکعب». fa-AF and ps are generalised from those phrases — reviewer please confirm.'
+- id: base-solid
+  en: base (of a prism, cylinder, pyramid or cone)
+  fa-IR: قاعده
+  fa-AF: قاعده
+  ps: قاعده
+  src:
+    fa-IR: G07_riazi_haftom pdf p.83 [۷۳] «محاسبهٔ حجم‌های منشوری» (قاعدهٔ منشور، قاعدهٔ استوانه)
+    fa-AF: AF_G08_riazi pdf p.148 [۱۴۱] «مساحت و حجم منشور» (دو قاعدهٔ مثلثی)
+    ps: AF_G08_riazi_ps pdf p.148 [۱۴۱] «د منشور مساحت او حجم» (قاعدې)
+  status:
+    fa-AF: draft
+    ps: draft
+  note: Not the base of a power (id base), which Iran calls پایه.
+- id: lateral-area
+  en: lateral surface area
+  fa-IR: مساحت جانبی
+  fa-AF: مساحت سطح جانبی
+  ps: د جانبي سطحې مساحت
+  src:
+    fa-IR: G07_riazi_haftom pdf p.86 [۷۶] «مساحت جانبی و کل»
+    fa-AF: AF_G08_riazi pdf p.150 [۱۴۳] «مساحت و حجم استوانه» (مساحت سطح جانبی = 2πr × h)
+    ps: AF_G08_riazi_ps pdf p.150 [۱۴۳] «د استوانې مساحت او حجم» (د جانبي سطحې مساحت)
+  status:
+    fa-AF: draft
+    ps: draft
+- id: total-surface-area
+  en: total surface area
+  fa-IR: مساحت کل
+  fa-AF: مساحت کلی
+  ps: کلي مساحت
+  src:
+    fa-IR: G07_riazi_haftom pdf p.86 [۷۶] «مساحت جانبی و کل»; p.87 [۷۷] «مساحت کل استوانه»
+    fa-AF: AF_G08_riazi pdf p.150 [۱۴۳] «مساحت کلی استوانه»
+    ps: AF_G08_riazi_ps pdf p.150 [۱۴۳] «د استوانې کلي مساحت»
+  status:
+    fa-AF: draft
+    ps: draft
 - id: trigonometry
   en: trigonometry
   fa-IR: مثلثات

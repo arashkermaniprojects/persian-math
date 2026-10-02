@@ -1,0 +1,78 @@
+id: meas-prisms-volume-surface
+engine: solid-viewer
+strand: meas
+order: 9
+concepts: [meas.volume.prisms, meas.surface-area.prisms, geo.solids.nets]
+# Pilot of solid-viewer. Iran G7 ch.6 «حجم‌های هندسی» p.70, «محاسبهٔ حجم‌های منشوری» p.73 (volume = base area ×
+# height, layer by layer), «مساحت جانبی و کل» p.76–77 (the cylinder's side opens into a rectangle; nets of prisms),
+# «حجم و سطح» p.79; Afghan G8 ch.6 «مساحت و حجم منشور» p.141, «مساحت و حجم استوانه» p.143 (π = 3.14; lateral area
+# 2πr × h, total 2πr(r + h)); UK KS3 volume of cuboids and other prisms, including cylinders.
+# Every length is in cm. π is 3.14 in every locale (the Afghan book's value; Iran G7 also uses ۳/۱۴), so the
+# cylinder answers are whole numbers; a tolerance of 0.5 also accepts answers worked with π = 3.1416.
+# The engine reports the classic slips for the quantity asked (engines/lib/solid-viewer-check.ts misreadsFor):
+# one-layer, no-half/wrong-base, surface-for-volume, edges-sum, visible-only, lateral-only, one-base,
+# volume-for-area, total-for-lateral, half-around, diameter-for-radius, pi-value; units squared vs cubed are
+# area-for-volume / volume-for-area / length-unit.
+missions:
+  # A ramp (right-triangle prism: legs 3 and 4, slope 5, length 6) lying on a rectangle. Its bases are the two
+  # triangles at the ends; one is hidden at the start, so the learner turns it (or uses the face list).
+  # Traps: a rectangle (the one it lies on) → wrong-base; one triangle only → one-base.
+  - id: find-bases
+    setup:
+      instruction: pick
+      solid: { kind: prism, base: [[0, 0], [4, 0], [4, 3]], h: 6, lie: true }
+      view: [-30, 20]
+      pick: true
+    check: { type: solid, pick: bases }
+  # The same ramp, filled with triangle layers 1 cm thick: one layer is the base, 6 cm², and 6 layers fill it.
+  # V = 6 × 6 = 36 cm³. Slips: 6 (one layer), 72 (3 × 4 × 6: the rectangle it lies on taken as the base, i.e. the
+  # ½ forgotten), 84 (surface area), 42 (edges added), 60 (3 × 4 × 5: the triangle's sides multiplied), cm².
+  - id: fill-wedge
+    setup:
+      instruction: fill
+      solid: { kind: prism, base: [[0, 0], [4, 0], [4, 3]], h: 6, lie: true }
+      view: [-30, 20]
+      mode: fill
+      layers: 1
+      show: [dims, base]
+      ask: { q: volume, units: [cm, cm2, cm3] }
+    check: { type: solid, layers: full, volume: 36, unit: cm3, traps: [{ value: 60, code: three-sides }] }
+  # A 5 × 3 × 4 box: 6 faces in 3 pairs, 2 × (15 + 12 + 20) = 94 cm². Slips: 47 (the 3 faces seen), 64 (sides
+  # only), 79 (one base forgotten), 60 (volume), 48 (edges), cm³. The open net shows each face's area.
+  - id: box-net
+    setup:
+      instruction: unfold
+      solid: { kind: cuboid, size: [5, 3, 4] }
+      view: [-35, 25]
+      mode: unfold
+      anchor: 0
+      show: [dims, areas]
+      pi: 3.14
+      ask: { q: area, units: [cm, cm2, cm3] }
+    check: { type: solid, area: 94, unit: cm2 }
+  # A can, r = 5, h = 10: its label opens into a rectangle 2πr = 31.4 long and 10 high, 314 cm².
+  # Slips: 785 (πr²h, the volume), 471 (the total, with the lids), 157 (πrh: half way round), 628 (the diameter used
+  # as the radius), 300 (π as 3), cm³.
+  - id: can-label
+    setup:
+      instruction: unfold
+      solid: { kind: cylinder, r: 5, h: 10 }
+      view: [-20, 25]
+      mode: unfold
+      show: [dims]
+      pi: 3.14
+      ask: { q: lateral, units: [cm, cm2, cm3] }
+    check: { type: solid, lateral: 314, unit: cm2, tolerance: 0.5 }
+  # The same can filled with circular layers: base 3.14 × 5 × 5 = 78.5 cm², 10 layers, 785 cm³.
+  # Slips: 78.5 (one layer), 314 (the label again), 471 (total area), 3140 (diameter), 750 (π as 3), cm².
+  - id: can-volume
+    setup:
+      instruction: fill
+      solid: { kind: cylinder, r: 5, h: 10 }
+      view: [-20, 25]
+      mode: fill
+      layers: 1
+      show: [dims, base]
+      pi: 3.14
+      ask: { q: volume, units: [cm, cm2, cm3] }
+    check: { type: solid, layers: full, volume: 785, unit: cm3, tolerance: 0.5, traps: [{ value: 314, code: label-for-volume }] }

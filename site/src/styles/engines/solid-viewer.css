@@ -1,0 +1,57 @@
+/* Styles for <kg-solid-viewer>. Loaded on every page via the glob in layouts/Base.astro. Logical properties only. */
+kg-solid-viewer {
+  --sv-side: #3b6fb6; --sv-base: #e0893f; --sv-pick: #2f7d4f; --sv-fill: #2a9d9a; --sv-top: #7fd1cc;
+  display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+}
+@media (prefers-color-scheme: dark) {
+  kg-solid-viewer { --sv-side: #7fa8e8; --sv-base: #e59a55; --sv-pick: #7fd3a0; --sv-fill: #3fb8b4; --sv-top: #8fe3dd; }
+}
+kg-solid-viewer [hidden] { display: none !important; }
+
+/* instruction hint: an icon, then a very short label */
+.kg-sv-hint { display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin: 0; font-weight: 700; align-self: stretch; }
+.kg-sv-i { inline-size: 44px; block-size: 44px; flex: none; position: relative; border-radius: 50%; background: var(--hint-bg); }
+.kg-sv-i::before, .kg-sv-i::after { content: ''; position: absolute; }
+/* turn: a ring with a gap (a turning arrow) */
+.kg-sv-i.i-turn::before, .kg-sv-i.i-pick::before { inset: 10px; border-radius: 50%; border: 4px solid var(--accent); border-inline-end-color: transparent; }
+.kg-sv-i.i-pick::after { inset: 18px; border-radius: 50%; background: var(--accent); }
+/* unfold: a cross-shaped net */
+.kg-sv-i.i-unfold::before { inset: 9px; background: var(--accent); clip-path: polygon(33% 0, 66% 0, 66% 33%, 100% 33%, 100% 66%, 66% 66%, 66% 100%, 33% 100%, 33% 66%, 0 66%, 0 33%, 33% 33%); }
+/* fill: stacked layers */
+.kg-sv-i.i-fill::before { inset-inline: 10px; inset-block: 12px; background: repeating-linear-gradient(var(--accent) 0 5px, transparent 5px 8px); }
+
+/* the picture: LTR, square, turned by dragging */
+.kg-sv-stage { inline-size: 100%; display: flex; justify-content: center; }
+.kg-sv-svg { display: block; inline-size: min(100%, 340px); block-size: auto; aspect-ratio: 1; direction: ltr; border-radius: var(--radius); background: var(--cell); user-select: none; -webkit-user-select: none; touch-action: manipulation; }
+.kg-sv-svg.turnable { touch-action: none; cursor: grab; }
+.kg-sv-svg:focus { outline: none; }
+.kg-sv-svg:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.kg-sv-f { fill: var(--sv-side); stroke: none; }
+.kg-sv-f.r-base.base, .kg-sv-f.r-base.base.back { fill: var(--sv-base); }
+.kg-sv-f.back { fill-opacity: 0.25 !important; }
+.kg-sv-f[data-f] { cursor: pointer; }
+.kg-sv-f.sel { fill: var(--sv-pick); fill-opacity: 0.9 !important; stroke: var(--fg); stroke-width: 4; stroke-linejoin: round; }
+.kg-sv-f.glass { fill: var(--sv-side); fill-opacity: 0.08 !important; }
+.kg-sv-f.glass.back { fill-opacity: 0.04 !important; }
+.kg-sv-l { fill: var(--sv-fill); }
+.kg-sv-l.top { fill: var(--sv-top); stroke: var(--fg); stroke-width: 1; stroke-linejoin: round; }
+.kg-sv-e { stroke: var(--fg); stroke-width: 2.5; stroke-linecap: round; pointer-events: none; }
+.kg-sv-e.dash { stroke-dasharray: 6 5; stroke-width: 1.5; stroke-opacity: 0.8; }
+.kg-sv-e.r { stroke: var(--accent); stroke-width: 3; }
+.kg-sv-dim, .kg-sv-area { fill: var(--fg); font-size: 17px; font-weight: 700; text-anchor: middle; paint-order: stroke; stroke: var(--cell); stroke-width: 4px; stroke-linejoin: round; pointer-events: none; direction: ltr; unicode-bidi: isolate; }
+.kg-sv-area { font-size: 15px; }
+.kg-sv-desc { margin: 0; color: var(--muted); font-size: 0.95rem; text-align: center; }
+
+/* turn buttons, face list, layers, unfold, answer */
+.kg-sv-tools, .kg-sv-faces, .kg-sv-ctl, .kg-sv-units { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; align-items: center; }
+.kg-sv-btn { min-inline-size: 44px; padding-inline: 0.8rem; }
+.kg-sv-btn[aria-pressed='true'] { background: var(--accent); color: var(--bg); }
+.kg-sv-faces .kg-sv-btn[aria-pressed='true'] { background: var(--sv-pick); border-color: var(--sv-pick); color: var(--bg); }
+.kg-sv-count { min-inline-size: 6rem; text-align: center; font-weight: 700; }
+.kg-sv-range { inline-size: min(60vw, 220px); block-size: 44px; accent-color: var(--accent); }
+.kg-sv-ans { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.kg-sv-q { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; justify-content: center; font-weight: 700; }
+.kg-sv-num { font: inherit; inline-size: 7rem; min-block-size: 44px; text-align: center; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--fg); }
+.kg-sv-unit { min-block-size: 44px; min-inline-size: 44px; padding-inline: 0.8rem; border-radius: 999px; border: 2px solid var(--border); background: var(--bg); color: var(--fg); }
+.kg-sv-unit[aria-checked='true'] { border-color: var(--accent); background: var(--accent); color: var(--bg); font-weight: 700; }
+.kg-sv-btn:focus-visible, .kg-sv-unit:focus-visible, .kg-sv-num:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }

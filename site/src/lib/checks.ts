@@ -14,6 +14,7 @@ import { checkCanvas, type CanvasCheck } from '../engines/lib/problem-canvas-che
 import type { CanvasState } from '../engines/lib/problem-canvas-model';
 import { checkCoord, type CoordCheck, type CoordState } from '../engines/lib/coord-plane-check';
 import { checkSets, type SetsCheck, type SetsState } from '../engines/lib/discrete-lab-check';
+import { checkSolid, type SolidCheck, type SolidState } from '../engines/lib/solid-viewer-check';
 
 type FracSpec = [number, number];
 
@@ -55,7 +56,9 @@ export type Check =
   /** <kg-coord-plane>: table of values, points, line (m, c, through, parallel, perpendicular), graph (engines/lib/coord-plane-check.ts). */
   | CoordCheck
   /** <kg-discrete-lab>: cards in Venn regions, members, region counts, nested ovals, shading, sets written in braces, statement rows, two-way table (engines/lib/discrete-lab-check.ts). */
-  | SetsCheck;
+  | SetsCheck
+  /** <kg-solid-viewer>: faces picked, turned, net opened, layers filled, typed volume/area with its unit (engines/lib/solid-viewer-check.ts). */
+  | SolidCheck;
 
 export interface Attempt {
   /** Engine state (shape depends on the engine). */
@@ -73,7 +76,7 @@ export interface Attempt {
     answered?: number;
     correct?: number;
     done?: boolean;
-  } & CcmState & MeasureState & { pattern?: PatternState } & ChartState & { chance?: ChanceState } & { board?: ShapeBoardState } & { plane?: CoordState } & { sets?: SetsState };
+  } & CcmState & MeasureState & { pattern?: PatternState } & ChartState & { chance?: ChanceState } & { board?: ShapeBoardState } & { plane?: CoordState } & { sets?: SetsState } & { solid?: SolidState };
   fraction?: WrittenFrac | null;
   integer?: number | null;
   /** Typed decimal, already parsed exactly (null if unparseable). */
@@ -180,5 +183,7 @@ export function evaluate(check: Check, a: Attempt): Result {
       return checkCoord(check, a.state);
     case 'sets':
       return checkSets(check, a.state?.sets, { integer: a.integer, fraction: a.fraction });
+    case 'solid':
+      return checkSolid(check, a.state?.solid);
   }
 }
