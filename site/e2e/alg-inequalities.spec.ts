@@ -11,7 +11,7 @@ async function open(page: Page, loc: Loc, i: number) {
   await expect(page.locator('kg-number-line .kg-nl-svg')).toBeVisible();
 }
 async function tapTick(page: Page, i: number) {
-  await page.locator('kg-number-line svg').scrollIntoViewIfNeeded();
+  await page.locator('kg-number-line .kg-nl-svg').scrollIntoViewIfNeeded();
   const b = (await page.locator(`kg-number-line [data-tick="${i}"]`).boundingBox())!;
   await page.mouse.click(b.x + b.width / 2, b.y + b.height / 2);
 }
@@ -200,7 +200,7 @@ test('no horizontal scroll at phone width, on every mission', async ({ page }) =
     await page.goto(`/${loc}/studio/${ID}/`);
     for (let m = 0; m < 5; m++) {
       await page.locator('.mission-tab').nth(m).click();
-      await expect(page.locator('kg-number-line svg')).toBeVisible();
+      await expect(page.locator('kg-number-line .kg-nl-svg')).toBeVisible();
       if (m !== 1) await tapTick(page, 0);
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
       expect(overflow, `${loc} mission ${m + 1}`).toBeLessThanOrEqual(0);

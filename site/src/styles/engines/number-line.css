@@ -71,6 +71,7 @@ kg-number-line { display: flex; flex-direction: column; align-items: flex-start;
 .kg-nl-row { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
 .kg-nl-b { min-block-size: 44px; min-inline-size: 44px; padding-inline: 0.7rem; border-radius: var(--radius); border: 2px solid var(--border);
   background: var(--card); color: var(--fg); display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.95rem; }
+.kg-nl-b[hidden], .kg-nl-iv [hidden] { display: none; }
 .kg-nl-b[aria-pressed='true'] { border-color: var(--accent); background: var(--hint-bg); font-weight: 700; }
 .kg-nl-b:disabled { opacity: 0.45; }
 .kg-nl-b svg { inline-size: 40px; block-size: 24px; fill: var(--accent); stroke: var(--accent); stroke-width: 3; }
