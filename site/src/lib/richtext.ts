@@ -1,6 +1,6 @@
 // Server-side rendering of authored text: escapes HTML and expands placeholders (docs/STUDIOS.md).
 import { LOCALES, type LocaleCode } from '../i18n/locales';
-import { fracHTML, formatDecimal, setHTML, vecHTML, type NumberFormat } from './display';
+import { algHTML, fracHTML, formatDecimal, setHTML, vecHTML, type NumberFormat } from './display';
 import { term } from './i18n';
 
 export function numberFormat(locale: LocaleCode): NumberFormat {
@@ -43,6 +43,9 @@ export function rich(text: string, locale: LocaleCode): string {
       }
       case 'num':
         return formatDecimal(arg.trim(), f);
+      case 'alg':
+        // an algebra expression, left to right with locale digits: {{alg:3x^2 - 2x + 1}} (isolates added above are dropped)
+        return algHTML(arg.replace(/[⁦-⁩]/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim(), f.digits);
       case 'vec': {
         // a coordinate pair / vector: a column in fa-IR (as in Iran's books), (x, y) elsewhere
         const [x, y] = arg.split(',');

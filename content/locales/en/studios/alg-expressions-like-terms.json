@@ -1,0 +1,135 @@
+{
+  "title": "Expressions, like terms and substitution",
+  "summary": "Build expressions with algebra tiles, collect like terms, cancel zero pairs, then substitute a value for x.",
+  "guide": [
+    "This studio follows KS3 algebra: writing and simplifying expressions by collecting like terms, and substituting numbers into expressions.",
+    "The tiles: a big square is {{alg:x^2}}, a long strip is {{alg:x}}, and a small square is {{alg:1}}. A red tile is the negative of the same tile: a red strip is {{alg:-x}}.",
+    "An {{term:algebraic-expression}} such as {{alg:2x + 3}} has two {{term:term}}s. In {{alg:2x}}, 2 is the {{term:coefficient}} and x is the {{term:variable}}; 3 is the {{term:constant}}.",
+    "{{term:like-terms}} have the same letters with the same powers, so they are the same shape of tile: {{alg:3x}} and {{alg:-x}} are like terms, but {{alg:x}} and {{alg:x^2}} are not.",
+    "A white tile and a red tile of the same shape make 0: a zero pair. Tap one, then the other, to take them off. Tiles of different shapes never cancel.",
+    "To substitute, flip the tiles: each strip shows the value of x. A red tile means take that amount away. Type your answers on the keypad under the tiles."
+  ],
+  "engine": {
+    "label-tray": "Tiles",
+    "label-mat": "Mat",
+    "label-empty": "Tap a tile above to put it here.",
+    "label-add": "Add {t}",
+    "label-tile": "tile {t}",
+    "label-zero": "{t} and {u} make 0: a zero pair.",
+    "label-unlike": "{t} and {u} are different shapes, so they are not a zero pair.",
+    "label-sort": "Like terms together",
+    "label-remove": "Remove tile",
+    "label-clear": "Start again",
+    "label-flip": "Flip: {v}",
+    "label-unflip": "Show the letters",
+    "label-write": "Answer:",
+    "label-answer": "your answer",
+    "label-keypad": "keypad",
+    "label-key-square": "squared",
+    "label-key-cube": "cubed",
+    "label-key-plus": "plus",
+    "label-key-minus": "minus",
+    "label-key-delete": "delete",
+    "instruction-build": "Tap tiles to build the expression.",
+    "instruction-read": "Tap a white and a red tile of the same shape.",
+    "instruction-collect": "Put like terms together.",
+    "instruction-flip": "Flip the tiles, then add them up."
+  },
+  "missions": {
+    "build-expression": {
+      "title": "Build 2x + 3",
+      "prompt": "Build {{alg:2x + 3}} on the mat. Which tile is x, and which is 1? Predict how many of each you need, then tap them in the tray.",
+      "hint": "2x means two x strips. The 3 is three small squares.",
+      "success": "Well done! Two x strips and three small squares: {{alg:2x + 3}}.",
+      "why": "Why can't you write {{alg:2x + 3}} as {{alg:5x}}? Which number is the coefficient and which is the constant?",
+      "model": "Because a strip and a small square are different shapes: x is not 1, so 2 strips and 3 squares cannot be counted as 5 strips. The coefficient 2 tells you how many x strips; the constant 3 is the number on its own, three small squares.",
+      "feedback": {
+        "empty": "The mat is empty. Tap tiles in the tray to put them on the mat.",
+        "unlike-added": "You made {{alg:5x}}: five strips. But the 3 in {{alg:2x + 3}} is not x: it is three small squares.",
+        "x-plus-x-is-x2": "The big square is {{alg:x^2}}, which is x × x. But 2x is x + x: two strips side by side.",
+        "swapped": "That is {{alg:3x + 2}}: three strips and two small squares. Look again: the 2 belongs to x.",
+        "no-x": "You used only small squares, so this is just 5. Where are the x strips?",
+        "sign": "Some of your tiles are red. Red tiles are negative; {{alg:2x + 3}} has no minus signs.",
+        "wrong-x": "Count your x strips: {{alg:2x}} needs exactly two.",
+        "wrong-1": "Count your small squares: the constant is 3.",
+        "wrong-x2": "{{alg:2x + 3}} has no {{alg:x^2}}, so there is no big square."
+      }
+    },
+    "read-the-tiles": {
+      "title": "Red tiles and zero pairs",
+      "prompt": "What expression do these tiles show? Red tiles are negative. First take off the zero pairs: tap a white tile and a red tile of the same shape. Then type the expression.",
+      "hint": "A white 1 and a red 1 make 0. After taking off the zero pair, count the red small squares that are left.",
+      "success": "Right! {{alg:x^2 + x - 2}}: one big square, one strip and two red small squares.",
+      "why": "Name the terms of {{alg:x^2 + x - 2}}. What is the coefficient of x, and what is the constant?",
+      "model": "The terms are {{alg:x^2}}, {{alg:x}} and {{alg:-2}}. The coefficient of x is 1 (we write x, not 1x), and the constant is −2: the minus sign belongs to the term. A white and a red small square made a zero pair, because 1 + (−1) = 0.",
+      "feedback": {
+        "empty": "Type the expression with the keypad.",
+        "syntax": "That expression is not finished. Check the last sign.",
+        "not-simplified": "Right value, but you can make it simpler: take off the zero pair and add up the numbers.",
+        "white-missed": "You forgot the white small square. It cancels one red square: three red and one white leave two red.",
+        "white-as-red": "The white small square is +1, not −1. Three red and one white leave two red: −2.",
+        "red-as-white": "Red tiles are negative. Three red squares are −3, not +3.",
+        "powers-added": "{{alg:x^2}} and {{alg:x}} are different shapes: they are not like terms, so they stay apart. You can't make {{alg:x^3}} from them.",
+        "unlike-added": "Only like terms can be put together. {{alg:x^2}}, {{alg:x}} and the numbers are three different kinds.",
+        "sign": "Check the signs: which tiles are red?",
+        "wrong-x2": "How many big squares are there?",
+        "wrong-x": "How many x strips are there?",
+        "wrong-1": "Count the small squares again: red ones are negative, and a white and a red make 0."
+      }
+    },
+    "collect-like-terms": {
+      "title": "Collect like terms",
+      "prompt": "Simplify {{alg:2x^2 + 3x + 1 - x + x^2 - 4}}. Press \"Like terms together\" to sort the tiles, take off the zero pairs, then type the simplified expression.",
+      "hint": "Big squares go with big squares, strips with strips, small squares with small squares. A red strip cancels one white strip.",
+      "success": "Excellent! {{alg:3x^2 + 2x - 3}}: three big squares, two strips and three red small squares.",
+      "why": "Why can't you add {{alg:3x^2}} and {{alg:2x}} together?",
+      "model": "Because they are not like terms: {{alg:x^2}} and {{alg:x}} are different shapes. You can only count tiles of the same shape. 3 big squares and 2 strips stay as {{alg:3x^2 + 2x}}; writing {{alg:5x^3}} would mix up the shapes and change the value.",
+      "feedback": {
+        "empty": "Type the simplified expression with the keypad.",
+        "syntax": "That expression is not finished. Check the last sign.",
+        "not-simplified": "The value is right, but there are still like terms to put together. Each kind of tile should appear once.",
+        "minus-ignored": "The strip in {{alg:-x}} is red: it takes one x away. {{alg:3x - x}} is {{alg:2x}}.",
+        "different-shapes": "A red strip and a white square are different shapes: they are not a zero pair. Only the same shape cancels.",
+        "powers-added": "{{alg:3x^2}} and {{alg:2x}} are not like terms, so they cannot be added into one term.",
+        "unlike-added": "You put together terms that are not alike. Big squares, strips and small squares must stay apart.",
+        "x-plus-x-is-x2": "{{alg:x + x}} is {{alg:2x}} (two strips), not {{alg:x^2}} (a big square).",
+        "sign": "The sizes are right but a sign is wrong. Which tiles are red?",
+        "wrong-x2": "Count the big squares: {{alg:2x^2}} and {{alg:x^2}}.",
+        "wrong-x": "Count the strips: three white and one red.",
+        "wrong-1": "Count the small squares: one white and four red."
+      }
+    },
+    "substitute": {
+      "title": "Substitute x = 3",
+      "prompt": "What is the value of {{alg:2x + 5}} when {{alg:x = 3}}? Predict first, then flip the tiles and add up what they show.",
+      "hint": "Each strip shows 3. There are two strips and five small squares.",
+      "success": "That's it! {{alg:3 + 3 + 5 = 11}}, so {{alg:2x + 5 = 11}} when {{alg:x = 3}}.",
+      "why": "Why is {{alg:2x}} equal to 6, and not 23, when {{alg:x = 3}}?",
+      "model": "Because 2x means 2 × x, two strips of x. With x = 3 that is 2 × 3 = 6. Writing 23 puts the digits next to each other, which would mean twenty-three, not two threes.",
+      "feedback": {
+        "empty": "Type the value with the keypad.",
+        "joined-digits": "You wrote 2 next to 3, making 23. But 2x means 2 × x: two strips, each worth 3.",
+        "coefficient-added": "You added the 2 instead of multiplying: 2x means 2 × x, not 2 + x.",
+        "too-big": "Too big. Flip the tiles and add up exactly what they show.",
+        "too-small": "Too small. Flip the tiles and add up exactly what they show."
+      }
+    },
+    "substitute-negative": {
+      "title": "Substitute a negative number",
+      "prompt": "What is the value of {{alg:4 - x^2}} when {{alg:x = -3}}? Predict first, then flip the tiles. The big square is red.",
+      "hint": "First square: {{alg:(-3)^2 = 9}}. The big square is red, so take the 9 away from 4.",
+      "success": "Well done! {{alg:(-3)^2 = 9}}, so {{alg:4 - 9 = -5}}.",
+      "why": "Why is {{alg:-x^2}} equal to −9, not 9, when {{alg:x = -3}}?",
+      "model": "Because the power comes before the minus: −x² means −(x²). First square: (−3)² = 9. Then the minus takes it away, giving −9. Only (−x)², with brackets, would be +9.",
+      "feedback": {
+        "empty": "Type the value with the keypad.",
+        "minus-square": "You added 9. But the big square is red: −x² means take x² away. First square, then subtract: 4 − 9.",
+        "square-as-double": "x² means x × x, not 2 × x. (−3)² = (−3) × (−3) = 9.",
+        "power-ignored": "Don't forget the square: the big square is x², not x. (−3)² = 9.",
+        "sign": "Nearly: 4 − 9 is below zero. Which way do you go from 4?",
+        "too-big": "Too big. (−3)² is 9, and the big square is red: take 9 away from 4.",
+        "too-small": "Too small. (−3)² is 9, and the big square is red: take 9 away from 4."
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+/* Styles for <kg-algebra-tiles>. Loaded on every page via the glob in layouts/Base.astro. Logical properties only. */
+kg-algebra-tiles {
+  --at-x2: #3f74c9; --at-x: #2f8a47; --at-1: #f2c232; --at-y: #7d49b8; --at-xy: #22867a; --at-sym: #d87a1e;
+  --at-neg: #cf3b30; --at-edge: rgba(0, 0, 0, 0.45);
+  display: block;
+  container-type: inline-size;
+}
+@media (prefers-color-scheme: dark) {
+  kg-algebra-tiles { --at-edge: rgba(0, 0, 0, 0.7); }
+}
+.kg-at { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
+.kg-at button { font: inherit; color: inherit; cursor: pointer; }
+.kg-at button:disabled { cursor: default; opacity: 0.45; }
+.kg-at :is(button, [tabindex]):focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.kg-at sup { font-size: 0.7em; line-height: 0; }
+
+/* instruction hint: a picture of the action, with a very short label */
+.kg-at-hint { display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin: 0; font-weight: 700; align-self: stretch; }
+.kg-at-i { inline-size: 44px; block-size: 44px; flex: none; position: relative; border-radius: 50%; background: var(--hint-bg); }
+.kg-at-i::before, .kg-at-i::after { content: ''; position: absolute; }
+/* build: a strip and a square going onto the mat */
+.kg-at-i.i-build::before { inset: 10px 20px 26px 8px; background: var(--at-x); border-radius: 2px; }
+.kg-at-i.i-build::after { inset: 24px 9px 9px 24px; background: var(--at-1); border-radius: 2px; }
+/* collect: two strips side by side, then a bracket under them */
+.kg-at-i.i-collect::before { inset: 11px 8px 23px; background: linear-gradient(to right, var(--at-x) 0 45%, transparent 45% 55%, var(--at-x) 55%); }
+.kg-at-i.i-collect::after { inset: 25px 8px 11px; border: 3px solid var(--accent); border-block-start: 0; }
+/* read: a red and a white tile: a zero pair */
+.kg-at-i.i-read::before { inset: 14px 23px 14px 8px; background: var(--at-1); border-radius: 2px; }
+.kg-at-i.i-read::after { inset: 14px 8px 14px 23px; background: var(--at-neg); border-radius: 2px; }
+/* flip: a tile turning over */
+.kg-at-i.i-flip::before { inset: 12px 10px; background: linear-gradient(135deg, var(--at-x) 50%, var(--at-1) 50%); border-radius: 3px; }
+/* write: a box to write in */
+.kg-at-i.i-write::before { inset: 13px 8px; border: 2px solid var(--fg); border-radius: 4px; }
+.kg-at-i.i-write::after { inset: 17px 26px 17px 14px; background: var(--accent); }
+
+/* tiles: shape = kind, colour = sign; the letters are always written on them too */
+.kg-at-t {
+  display: grid; place-items: center; box-sizing: border-box; flex: none; overflow: hidden;
+  border: 1.5px solid var(--at-edge); border-radius: 3px; color: #fff; font-size: 0.78rem; font-weight: 700; line-height: 1;
+}
+.kg-at-t.d0 { background: var(--at-1); color: #2b2b2b; font-size: 0.7rem; }
+.kg-at-t.d1 { background: var(--at-x); }
+.kg-at-t.d2 { background: var(--at-x2); }
+.kg-at-t.d1.y { background: var(--at-y); }
+.kg-at-t.d2.y { background: var(--at-xy); }
+.kg-at-t.sym { background: var(--at-sym); }
+.kg-at-t.neg { background: var(--at-neg); color: #fff; }
+
+/* the tray: one white and one red tile of each kind */
+.kg-at-tray { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; padding: 0.5rem; border-radius: var(--radius); background: var(--hint-bg); max-inline-size: 100%; box-sizing: border-box; }
+.kg-at-tray .kg-at-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; flex-basis: 100%; }
+.kg-at-slot {
+  min-inline-size: 48px; min-block-size: 48px; display: grid; place-items: center; padding: 4px;
+  border: 2px solid var(--border); border-radius: 10px; background: var(--cell);
+}
+.kg-at-slot:hover:not(:disabled), .kg-at-slot[aria-checked='true'] { border-color: var(--accent); }
+.kg-at-slot[aria-checked='true'] { box-shadow: 0 0 0 3px var(--hint-bg), 0 0 0 5px var(--accent); }
+
+/* the mat: tiles in a row, left to right like the expression they make */
+.kg-at-mat {
+  box-sizing: border-box; inline-size: 100%; min-block-size: 112px; padding: 0.5rem;
+  display: flex; flex-wrap: wrap; align-items: center; align-content: center; gap: 4px;
+  border: 2px dashed var(--border); border-radius: var(--radius); background: var(--cell);
+}
+.kg-at-cell {
+  min-inline-size: 44px; min-block-size: 44px; display: grid; place-items: center; padding: 2px; box-sizing: border-box;
+  border: 2px solid transparent; border-radius: 8px; background: transparent;
+}
+button.kg-at-cell:hover { border-color: var(--border); }
+.kg-at-cell.sel { border-color: var(--accent); background: var(--hint-bg); }
+.kg-at-cell.gap { margin-inline-start: 10px; }
+.kg-at-none { color: var(--muted); margin: auto; text-align: center; }
+
+.kg-at-tools { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+.kg-at-btn {
+  min-block-size: 44px; min-inline-size: 44px; padding: 0.3rem 0.8rem;
+  border: 2px solid var(--border); border-radius: 10px; background: var(--card);
+}
+.kg-at-btn:hover:not(:disabled) { border-color: var(--accent); }
+.kg-at-btn.flip[aria-pressed='true'] { border-color: var(--accent); background: var(--hint-bg); }
+.kg-at-msg { margin: 0; min-block-size: 1.4em; text-align: center; font-weight: 600; }
+.kg-at-read { margin: 0; text-align: center; }
+
+/* the written answer and its keypad (digits and letters run left to right in every locale) */
+.kg-at-write { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.5rem; }
+.kg-at-field {
+  box-sizing: border-box; min-inline-size: 11rem; max-inline-size: 100%; min-block-size: 48px; padding: 0 0.6rem;
+  display: inline-flex; align-items: center; justify-content: center; direction: ltr; cursor: text; font-size: 1.3rem;
+  border: 2px solid var(--border); border-radius: 10px; background: var(--card); color: var(--fg); overflow-wrap: anywhere;
+}
+.kg-at-field.on { border-color: var(--accent); }
+.kg-at-field.on::after { content: ''; inline-size: 2px; block-size: 1.2em; margin-inline-start: 2px; background: var(--accent); animation: kg-at-caret 1s steps(1) infinite; }
+@keyframes kg-at-caret { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .kg-at-field.on::after { animation: none; } }
+.kg-at-keys { display: grid; grid-template-columns: repeat(6, 48px); gap: 6px; justify-content: center; }
+.kg-at-key { min-block-size: 48px; padding: 0; border: 2px solid var(--border); border-radius: 10px; background: var(--card); font-size: 1.2rem; }
+.kg-at-key.dig { background: var(--cell); }
+.kg-at-key:hover { border-color: var(--accent); }
+.kg-at-key:active { background: var(--hint-bg); }
+@container (max-width: 19rem) { .kg-at-keys { grid-template-columns: repeat(5, 48px); } }
+
+/* rectangle (area model): the sides along the top and the left, a block of tiles for each pair */
+.kg-at-scroll { max-inline-size: 100%; overflow-x: auto; direction: ltr; }
+.kg-at-rect { display: grid; gap: 2px; padding: 2px; }
+.kg-at-edge {
+  display: grid; place-items: center; box-sizing: border-box; font-size: 0.8rem; font-weight: 700; color: #2b2b2b;
+  background: var(--at-1) repeating-linear-gradient(to bottom, transparent 0 calc(var(--step) - 1px), var(--at-edge) calc(var(--step) - 1px) var(--step));
+  border: 1px solid var(--at-edge);
+}
+.kg-at-edge.d1 { background-color: var(--at-x); color: #fff; }
+.kg-at-edge.top { background-image: repeating-linear-gradient(to right, transparent 0 calc(var(--step) - 1px), var(--at-edge) calc(var(--step) - 1px) var(--step)); }
+.kg-at-edge.neg { background-color: var(--at-neg); color: #fff; }
+.kg-at-block {
+  display: grid; place-items: center; box-sizing: border-box; padding: 0; border: 1px solid var(--at-edge); color: #fff; font-weight: 700;
+  background-image:
+    repeating-linear-gradient(to right, transparent 0 calc(var(--w) - 1px), var(--at-edge) calc(var(--w) - 1px) var(--w)),
+    repeating-linear-gradient(to bottom, transparent 0 calc(var(--h) - 1px), var(--at-edge) calc(var(--h) - 1px) var(--h));
+}
+.kg-at-block.d0 { background-color: var(--at-1); color: #2b2b2b; }
+.kg-at-block.d1 { background-color: var(--at-x); }
+.kg-at-block.d2 { background-color: var(--at-x2); }
+.kg-at-block.neg { background-color: var(--at-neg); color: #fff; }
+.kg-at-block.blank { background: transparent; border: 2px dashed var(--accent); }
+.kg-at-bt { padding: 0.1rem 0.3rem; border-radius: 4px; background: rgba(0, 0, 0, 0.25); color: #fff; }
+.kg-at-side { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.4rem; }
+.kg-at-step { display: inline-flex; align-items: center; gap: 0.25rem; direction: ltr; }
+.kg-at-step output { min-inline-size: 2.4rem; text-align: center; font-size: 1.15rem; }
+
+/* grid (box method) */
+.kg-at-grid { border-collapse: collapse; }
+.kg-at-grid :is(th, td) { border: 2px solid var(--border); padding: 3px; text-align: center; min-inline-size: 3.6rem; }
+.kg-at-grid th { background: var(--hint-bg); }
+.kg-at-grid .kg-at-field { min-inline-size: 3.6rem; font-size: 1.05rem; }
+.kg-at-gc.fixed { display: inline-block; padding: 0.4rem; }

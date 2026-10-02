@@ -15,6 +15,7 @@ import type { CanvasState } from '../engines/lib/problem-canvas-model';
 import { checkCoord, type CoordCheck, type CoordState } from '../engines/lib/coord-plane-check';
 import { checkSets, type SetsCheck, type SetsState } from '../engines/lib/discrete-lab-check';
 import { checkSolid, type SolidCheck, type SolidState } from '../engines/lib/solid-viewer-check';
+import { checkAlgebra, type AlgebraCheck, type AlgebraState } from '../engines/lib/algebra-tiles-check';
 
 type FracSpec = [number, number];
 
@@ -58,7 +59,9 @@ export type Check =
   /** <kg-discrete-lab>: cards in Venn regions, members, region counts, nested ovals, shading, sets written in braces, statement rows, two-way table (engines/lib/discrete-lab-check.ts). */
   | SetsCheck
   /** <kg-solid-viewer>: faces picked, turned, net opened, layers filled, typed volume/area with its unit (engines/lib/solid-viewer-check.ts). */
-  | SolidCheck;
+  | SolidCheck
+  /** <kg-algebra-tiles>: the mat, zero pairs, rectangle, grid, the typed answer (engines/lib/algebra-tiles-check.ts). */
+  | AlgebraCheck;
 
 export interface Attempt {
   /** Engine state (shape depends on the engine). */
@@ -76,7 +79,7 @@ export interface Attempt {
     answered?: number;
     correct?: number;
     done?: boolean;
-  } & CcmState & MeasureState & { pattern?: PatternState } & ChartState & { chance?: ChanceState } & { board?: ShapeBoardState } & { plane?: CoordState } & { sets?: SetsState } & { solid?: SolidState };
+  } & CcmState & MeasureState & { pattern?: PatternState } & ChartState & { chance?: ChanceState } & { board?: ShapeBoardState } & { plane?: CoordState } & { sets?: SetsState } & { solid?: SolidState } & { algebra?: AlgebraState };
   fraction?: WrittenFrac | null;
   integer?: number | null;
   /** Typed decimal, already parsed exactly (null if unparseable). */
@@ -185,5 +188,7 @@ export function evaluate(check: Check, a: Attempt): Result {
       return checkSets(check, a.state?.sets, { integer: a.integer, fraction: a.fraction });
     case 'solid':
       return checkSolid(check, a.state?.solid);
+    case 'algebra':
+      return checkAlgebra(check, a.state);
   }
 }
