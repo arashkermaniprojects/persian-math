@@ -173,3 +173,26 @@ describe('sides implied by the class asked for', () => {
     expect(code({ shape: 'isosceles' }, { drawn: [poly([[0, 0], [2, 0], [2, 2], [0, 2]])] })).toBe('too-many-sides');
   });
 });
+
+describe('chords of a compass circle', () => {
+  const seg = (a: P, b: P): Drawn => ({ kind: 'segment', pts: [a, b] });
+  const circles: [number, number, number][] = [[3, 3, Math.sqrt(5)]];
+  it('needs a circle, then a segment with both ends on it', () => {
+    expect(code({ chord: true }, { drawn: [seg([4, 5], [5, 4])] })).toBe('no-circle');
+    expect(code({ chord: true }, { circles })).toBe('empty');
+    expect(code({ chord: true }, { circles, drawn: [seg([4, 5], [5, 5])] })).toBe('not-chord');
+    expect(code({ chord: true }, { circles, drawn: [seg([4, 5], [5, 4])] })).toBe('ok');
+  });
+  it('a diameter is a chord through the centre', () => {
+    const d = { circles, drawn: [seg([4, 5], [2, 1])] };
+    expect(code({ chord: true }, d)).toBe('ok');
+    expect(code({ chord: { diameter: false } }, d)).toBe('is-diameter');
+    expect(code({ chord: { diameter: true } }, d)).toBe('ok');
+    expect(code({ chord: { diameter: true } }, { circles, drawn: [seg([4, 5], [5, 4])] })).toBe('not-diameter');
+  });
+  it('ends at a crossing of two circles count (floating point)', () => {
+    const two: [number, number, number][] = [[1, 1, 3], [4, 1, 3]];
+    const top: P = [2.5, 1 + (3 * Math.sqrt(3)) / 2];
+    expect(code({ chord: { diameter: false } }, { circles: two, drawn: [seg([4, 1], top)] })).toBe('ok');
+  });
+});

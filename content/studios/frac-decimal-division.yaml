@@ -1,0 +1,42 @@
+id: frac-decimal-division
+engine: long-division
+strand: frac
+order: 12
+concepts: [frac.decimal.div, frac.decimal.recurring, num.recurring-decimals, frac.decimal.recurring-to-fraction]
+# Layout (gallows for fa-IR/fa-AF/ps, bus stop for en) comes from the locale file's engine.layout (docs/NOTATION.md §3).
+# The engine divides whole numbers, so decimal divisions are first made whole, as the books do:
+#   - number ÷ decimal: multiply both numbers by 10 or 100 and the quotient stays the same
+#     (Iran G6 p.56–57 «تقسیم یک عدد بر عدد اعشاری»; Afghan G6 p.87 «تقسیم کسر اعشاری»);
+#   - decimal ÷ whole: count in tenths, 9.6 = 96 tenths (Iran G6 p.52–54 «تقسیم عدد اعشاری بر عدد طبیعی»).
+# Recurring decimals: Afghan G6 p.104–105 «کسرهای اعشاری متوالی» (the remainder repeats, so the digits do);
+# back to a fraction: Afghan G6 p.107 (the repeating digit over 9), shown here with the ×10 reason.
+missions:
+  # 7.5 ÷ 0.25: ×100 both → 750 ÷ 25 = 30.
+  - id: make-it-whole
+    setup: { dividend: 750, divisor: 25 }
+    check: { type: steps-correct }
+  # 9.6 ÷ 4: 96 tenths ÷ 4 = 24 tenths = 2.4.
+  - id: tenths
+    setup: { dividend: 96, divisor: 4 }
+    answer: decimal
+    check: { type: answer-decimal, value: "2.4" }
+  # 1 ÷ 3 = 0.333…: the remainder 1 comes back every time. The first step (0 and the mark) is given.
+  - id: one-third
+    setup: { dividend: 1, divisor: 3, decimals: 4, given: 1 }
+    check: { type: steps-correct }
+  # 2 ÷ 11 = 0.1818…: two digits repeat because two remainders (2 and 9) take turns.
+  - id: two-elevenths
+    setup: { dividend: 2, divisor: 11, decimals: 4, given: 1 }
+    answer: choice
+    check: { type: choice, options: ["{{num:8}}", "{{num:18}}", "{{num:181}}"], correct: 1 }
+  # 4 ÷ 9 = 0.444… is shown worked; then 0.777… as a fraction: 10x − x = 7, so x = 7/9.
+  - id: back-to-fraction
+    setup: { dividend: 4, divisor: 9, decimals: 3, given: 4 }
+    answer: fraction
+    check:
+      type: answer-equals
+      value: [7, 9]
+      traps:
+        - { value: [7, 10], code: only-tenths }
+        - { value: [777, 1000], code: cut-off }
+        - { value: [77, 100], code: cut-off }

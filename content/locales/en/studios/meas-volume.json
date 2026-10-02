@@ -1,0 +1,78 @@
+{
+  "title": "{{term:volume}} of cuboids",
+  "summary": "Build boxes from unit cubes, count cubes layer by layer, and see why the volume of a cuboid is length × width × height.",
+  "guide": [
+    "This studio matches volume in Year 5 and Year 6 (Iran grade 5, Afghanistan grade 6): volume is the number of unit cubes that fill a solid. If each cube has sides of 1 cm, its volume is 1 {{term:cubic-centimetre}}.",
+    "In the building missions, tap the plan underneath: each tap puts one more cube on that square. The number on a square is how many cubes stand on it. After the most it can hold, it goes back to 0.",
+    "Common mistakes: counting only the cubes you can see (missing those behind and underneath), or counting the square faces. Show counting layer by layer: one layer = length × width, and volume = one layer × number of layers."
+  ],
+  "engine": {
+    "label-cubes": "A box of small cubes",
+    "label-plan": "Plan of the floor of the box",
+    "label-stack": "{n} cubes on this square",
+    "instruction-build": "Tap the squares of the plan to add cubes."
+  },
+  "missions": {
+    "build-box": {
+      "title": "Build a box",
+      "prompt": "Use unit cubes to build a {{term:cuboid}} 3 cubes long, 2 cubes wide and 2 cubes high. How many cubes did you need?",
+      "hint": "Build the bottom layer first: 3 squares in 2 rows. Then tap the same squares again to build the second layer.",
+      "success": "Well done! One layer is 3 × 2 = 6 cubes and two layers make 12. The volume of the box is 12 unit cubes.",
+      "why": "How can you tell how many cubes the box has without counting them one by one?",
+      "model": "The bottom layer is 3 × 2 = 6 cubes. The box has 2 layers, so 6 × 2 = 12 cubes. That is volume = length × width × height.",
+      "feedback": {
+        "empty": "Tap the squares of the plan to add cubes.",
+        "too-few": "You need more cubes. The box should have 2 layers, each 3 by 2.",
+        "too-many": "Too many cubes. Look again at 3 long, 2 wide and 2 high.",
+        "not-box": "This is not a complete box yet: all the stacks must be the same height with no gaps.",
+        "wrong-box": "The number of cubes is right but the sizes are not. The box should be 2 cubes high, not 1."
+      }
+    },
+    "count-box": {
+      "title": "Count the hidden cubes too",
+      "prompt": "This box is full of unit cubes. It is 4 long, 3 wide and 2 high. What is its {{term:volume}} in unit cubes?",
+      "hint": "Some cubes are hidden behind or under the others. Count the top layer, then see how many layers there are.",
+      "success": "Well done! Each layer has 4 × 3 = 12 cubes and there are 2 layers: 12 × 2 = 24",
+      "why": "Why can't we just count the cubes we can see in the picture?",
+      "model": "The box is full, but we only see three of its faces. The cubes in the middle and at the back are hidden, but they are there. So we count layer by layer: the top layer has 12 and the layer underneath has 12 too.",
+      "feedback": {
+        "empty": "Type the volume.",
+        "faces": "You counted the square faces (12 + 8 + 6). Volume is the number of cubes, not the number of squares you can see.",
+        "seen-only": "You counted only the cubes you can see. Under the top layer there is a whole layer of 12 more.",
+        "too-big": "That is more than the volume. Count one layer and multiply by the number of layers.",
+        "too-small": "That is less than the volume. Don't forget the hidden cubes."
+      }
+    },
+    "layers": {
+      "title": "Layer by layer",
+      "prompt": "Reza has covered the floor of a box with one layer of cubes and built a tower in the corner to show how high the box is. If we fill the whole box up to the top of the tower, how many cubes will it hold?",
+      "hint": "How many cubes are in one layer (length × width)? The tower shows how many layers the box has.",
+      "success": "Well done! One layer is 5 × 3 = 15 cubes, and 4 layers: 15 × 4 = 60 cubes.",
+      "why": "Find a general rule: how do we work out the volume of any cuboid?",
+      "model": "Each layer has length × width cubes and there are as many layers as the height. So volume of a cuboid = length × width × height; here 5 × 3 × 4 = 60.",
+      "feedback": {
+        "empty": "Type the number.",
+        "shown": "18 is the number of cubes in the picture now. We want to know how many the box holds when it is full.",
+        "added": "You added the length, width and height. Multiply one layer (5 × 3) by the number of layers instead.",
+        "one-layer": "That is just one layer. The tower shows the box has 4 layers.",
+        "too-big": "That is too many. Count one layer and multiply by 4.",
+        "too-small": "That is too few. Count one layer and multiply by 4."
+      }
+    },
+    "same-volume": {
+      "title": "Same volume, different shape",
+      "prompt": "Sara used 12 cubes to build a 3 by 2 by 2 box. Use the same 12 cubes to build a different complete box, one with a different shape from Sara's.",
+      "hint": "Which numbers multiply to make 12? For example 4 × 3 × 1. The plan is 4 squares long and 3 squares wide.",
+      "success": "Well done! Your box has 12 cubes too. The two boxes have the same volume even though their shapes are different.",
+      "why": "Your box and Sara's box are different shapes. Are their volumes different? Why?",
+      "model": "No. Volume is the number of cubes, and both boxes have 12. 3 × 2 × 2 = 12 and 4 × 3 × 1 = 12. The shape changed but the amount of space inside is the same.",
+      "feedback": {
+        "empty": "Tap the squares of the plan to add cubes.",
+        "too-few": "That is fewer than 12 cubes. Your box must have 12 cubes too.",
+        "too-many": "That is more than 12 cubes. Your box must have 12 cubes too.",
+        "not-box": "You have 12 cubes, but it is not a complete box yet: all the stacks must be the same height with no gaps.",
+        "wrong-box": "That is Sara's 3 by 2 by 2 box (maybe turned round). Build a different shape, for example with just one layer."
+      }
+    }
+  }
+}

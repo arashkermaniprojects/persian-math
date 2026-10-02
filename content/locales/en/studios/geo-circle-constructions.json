@@ -35,14 +35,14 @@
     },
     "tape-around": {
       "title": "A tape round a tin",
-      "prompt": "Maryam wrapped a tape once round a tin and unrolled it. The tin is 5 cm across. How long is the tape, the tin's circumference? Give one decimal place.",
+      "prompt": "Maryam wrapped a tape once round a tin and unrolled it. The tin is 3 cm across. How long is the tape, the tin's circumference? Give one decimal place.",
       "hint": "The tape starts at 0. See which number the end is just past, then count the small marks. Each small mark is 0.1 cm (1 mm).",
-      "success": "Well done! The tape is about 15.7 cm. The circumference is about 3 times the diameter.",
+      "success": "Well done! The tape is about 9.4 cm. The circumference is about 3 times the diameter.",
       "why": "The circumference is longer than the diameter. About how many times longer?",
-      "model": "The diameter is 5 cm and the circumference is about 15.7 cm. Three diameters make 15 cm, so the circumference is a little more than 3 diameters.",
+      "model": "The diameter is 3 cm and the circumference is about 9.4 cm. Three diameters make 9 cm, so the circumference is a little more than 3 diameters.",
       "feedback": {
-        "diameter": "5 cm is the tin's diameter. Read the length of the tape on the ruler.",
-        "doubled": "10 cm is two diameters. The tape is much longer. Look at its end on the ruler.",
+        "diameter": "3 cm is the tin's diameter. Read the length of the tape on the ruler.",
+        "doubled": "6 cm is two diameters. The tape is much longer. Look at its end on the ruler.",
         "too-big": "Your number is too big. Look at the end of the tape again.",
         "too-small": "Your number is too small. Look at the end of the tape again.",
         "empty": "Write the length of the tape."
@@ -50,16 +50,16 @@
     },
     "how-many-diameters": {
       "title": "How many diameters round?",
-      "prompt": "At the top is the tape (the tin's circumference, 15.7 cm); below it is the diameter (5 cm). Work out circumference ÷ diameter, to two decimal places.",
-      "hint": "Work out 15.7 ÷ 5. 5 × 3 = 15, and 0.7 is left over.",
-      "success": "Well done! 15.7 ÷ 5 = 3.14. That is the number pi (π).",
+      "prompt": "At the top is the tape (the tin's circumference, 9.42 cm); below it is the diameter (3 cm). Work out circumference ÷ diameter, to two decimal places.",
+      "hint": "Work out 9.42 ÷ 3. 3 × 3 = 9, and 0.42 is left over.",
+      "success": "Well done! 9.42 ÷ 3 = 3.14. That is the number pi (π).",
       "why": "If you measured a bigger circle, what would circumference ÷ diameter be?",
       "model": "About 3.14 again. In every circle, big or small, the circumference is about 3.14 times the diameter. So we write: circumference = π × diameter.",
       "feedback": {
         "whole-only": "3 is close, but the circumference is a bit more than 3 diameters. Divide the remainder too.",
-        "upside-down": "You divided the diameter by the circumference. Divide the circumference by the diameter: 15.7 ÷ 5.",
-        "too-big": "Your number is too big. Work out 15.7 ÷ 5 again.",
-        "too-small": "Your number is too small. Work out 15.7 ÷ 5 again.",
+        "upside-down": "You divided the diameter by the circumference. Divide the circumference by the diameter: 9.42 ÷ 3.",
+        "too-big": "Your number is too big. Work out 9.42 ÷ 3 again.",
+        "too-small": "Your number is too small. Work out 9.42 ÷ 3 again.",
         "empty": "Write your answer."
       }
     },

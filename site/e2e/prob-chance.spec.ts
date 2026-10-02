@@ -19,7 +19,7 @@ test('fa-IR what can come out: tap the colours in the bag', async ({ page }) => 
   await expect(sim(page).locator('.kg-ps-hint')).toContainText('یک مهره بردار');
 
   // drawing a counter shows it beside the bag and counts the trial
-  await sim(page).getByRole('button', { name: 'یک مهره بردار' }).click();
+  await sim(page).getByRole('button', { name: 'یک مهره بردار', exact: true }).click();
   await expect(sim(page).locator('.kg-ps-drawn')).toHaveCount(1);
   await expect(sim(page).locator('.kg-ps-tally caption')).toHaveText('آزمایش: ۱ بار');
 
@@ -87,7 +87,8 @@ test('fa-IR make it certain: empty bag, other colours left, then only red', asyn
   await expect(page.locator('.feedback.no')).toContainText('کیسه خالی است');
 
   await more('قرمز').click();
-  await expect(less('قرمز')).toBeFocused();
+  // the redraw keeps focus on the button just pressed
+  await expect(more('قرمز')).toBeFocused();
   await sim(page).getByRole('button', { name: /۱۰ بار/ }).click();
   expect(await engineState(page)).toMatchObject({ trials: 10, tally: { red: 10 }, bag: { red: 1, blue: 0, green: 0 } });
   await check(page, 'fa-IR');

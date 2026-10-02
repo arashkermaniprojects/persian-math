@@ -1,0 +1,44 @@
+id: fin-percent-money
+engine: fraction-bars
+strand: fin
+order: 3
+concepts: [fin.percent, fin.discount, fin.profit-loss, ratio.percent-change]
+# A 100% bar for money: discount, sale price, profit and loss as a percent of the cost. Iran G6 «کاربرد درصد در
+# محاسبات مالی» (p.121, «سود … اصل پول»), Afghan G8 «فیصد، احدیت، تخفیف» (نفع / ضرر), UK enrichment (KS3).
+# Currency per locale lives in the text only: fa-IR counts in thousand toman («۲۴۰ هزار تومان», as people say it and
+# so no thousands separators appear in formulas), fa-AF/ps in afghani, en in pounds. The numbers that are checked are
+# the same in every locale; the percent answers do not depend on the currency.
+missions:
+  # 20% off: shade what you pay on a bar of tenths (8/10). Classic: shading the discount (2/10).
+  - id: pay-after-discount
+    setup: { bars: [{ parts: 10, interactive: shade }], label: true }
+    check: { type: shaded-equals, value: [8, 10] }
+  # 25% off 240: the bar in quarters; one quarter (60) is taken off → 180.
+  - id: sale-price
+    setup: { bars: [{ parts: 4, interactive: shade }], label: true }
+    answer: integer
+    check:
+      type: answer-integer
+      value: 180
+      traps: [{ value: 60, code: gave-discount }, { value: 215, code: minus-25 }, { value: 300, code: added }, { value: 180000, code: full-toman }]
+  # Bought for 500, sold for 600: the cost bar is 100% in fifths (20% each); the profit is one more fifth → 20%.
+  - id: profit-percent
+    setup:
+      bars:
+        - { parts: 5, shaded: 5, interactive: none }
+        - { parts: 5, interactive: shade }
+      label: true
+    answer: integer
+    check:
+      type: answer-integer
+      value: 20
+      traps: [{ value: 120, code: sale-percent }, { value: 100, code: wrote-money }]
+  # Bought for 500, sold for 400: unshade the loss on the cost bar; the loss is 1 of 5 fifths of the COST → 20%.
+  # Classic: dividing by the selling price (100 of 400 = 25%).
+  - id: loss-percent
+    setup: { bars: [{ parts: 5, shaded: 5, interactive: shade }], label: true }
+    answer: integer
+    check:
+      type: answer-integer
+      value: 20
+      traps: [{ value: 25, code: of-sale-price }, { value: 80, code: sale-percent }, { value: 100, code: wrote-money }]

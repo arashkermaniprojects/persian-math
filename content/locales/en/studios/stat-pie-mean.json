@@ -1,0 +1,125 @@
+{
+  "title": "Pie charts and the mean",
+  "summary": "Colour and read pie charts, level bars to find the mean, and tell numerical data from data in words.",
+  "guide": [
+    "This studio follows Year 6 pie charts and the mean, with kinds of data from Years 5–6.",
+    "A pie chart shows one whole split into parts. The parts start at the top (12 o'clock) and go clockwise. To colour, choose a colour from the list under the circle, then tap the parts.",
+    "The {{term:mean}} is what each one would get if everything were shared out equally. You can lower the tall bars and give what you take to the short ones until all are level. The other way: add everything up and divide by how many there are.",
+    "Some questions have numbers as answers (like height): numerical data. Others have words (like favourite colour): categorical data. Only numerical data has a mean.",
+    "Ask your child: \"If everyone had the same, how much would each have?\""
+  ],
+  "engine": {
+    "cat-rest": "eating and rest",
+    "cat-travel": "travel",
+    "cat-school": "school",
+    "cat-homework": "homework",
+    "cat-walk": "walk",
+    "cat-bus": "bus",
+    "cat-car": "car",
+    "cat-bike": "bike",
+    "cat-ali": "Ali",
+    "cat-sara": "Sara",
+    "cat-maryam": "Maryam",
+    "cat-reza": "Reza",
+    "cat-g1": "1st",
+    "cat-g2": "2nd",
+    "cat-g3": "3rd",
+    "cat-g4": "4th",
+    "cat-g5": "5th",
+    "cat-g6": "6th",
+    "cat-colour": "Favourite colour",
+    "cat-height": "Height (cm)",
+    "cat-transport": "How you get to school",
+    "cat-fruit": "Favourite fruit",
+    "head-activity": "Activity",
+    "head-child": "Name",
+    "head-glass": "Apple",
+    "head-question": "Question",
+    "col-count": "Number",
+    "axis-walnuts": "walnuts",
+    "axis-ml": "ml",
+    "label-chart": "Chart",
+    "label-total": "Total",
+    "label-brush": "Colours",
+    "label-empty": "not coloured",
+    "label-pool": "In your hand: {n} walnuts",
+    "instruction-paint": "Choose a colour, then tap the parts.",
+    "instruction-read": "Read the chart.",
+    "instruction-level": "Make the bars level.",
+    "instruction-pick": "Tap the answer."
+  },
+  "missions": {
+    "paint-day": {
+      "title": "My day in a circle",
+      "prompt": "From 6 am to 6 pm is 12 hours. This circle has 12 equal parts, one for each hour. Colour as many parts as each activity takes hours.",
+      "hint": "School is 5 hours: choose \"school\" under the circle and tap 5 parts. Then the next activity.",
+      "success": "Well done! School is 5 of the 12 parts, a bit less than half the day. Homework is 3 parts, which is {{frac:3/12}} or {{frac:1/4}} of the day.",
+      "why": "Looking at the pie chart, how can you tell which activity takes the most time?",
+      "model": "I look for the biggest slice. All the parts are the same size and each is one hour, so the colour with the most parts takes the most time: school, with 5 parts.",
+      "feedback": {
+        "empty": "Choose a colour first, then tap parts of the circle.",
+        "too-high": "One activity has too many parts. Check against the table; tap a part again to clear it.",
+        "too-low": "One activity still needs more parts. Check against the table."
+      }
+    },
+    "read-pie": {
+      "title": "Read a pie chart",
+      "prompt": "We asked 40 pupils how they come to school. The pie chart shows their answers. How many come by bus?",
+      "hint": "What fraction of the circle is the bus slice? A half? A quarter? Then find that fraction of 40.",
+      "success": "Right! The bus slice is {{frac:1/4}} of the circle, and {{frac:1/4}} of 40 is 40 ÷ 4 = 10.",
+      "why": "How did you know the bus slice is a quarter of the circle?",
+      "model": "At the centre the bus slice has a right angle, like the corner of a page. Four of those corners make a full turn, so the slice is {{frac:1/4}} of the circle. The walkers are half the circle: 20 pupils.",
+      "feedback": {
+        "empty": "Type your answer.",
+        "denominator": "4 is the denominator, not the number of pupils. What is {{frac:1/4}} of 40 pupils?",
+        "percent": "25 is the percentage, not the number of pupils. Find a quarter of 40.",
+        "half": "That is the walkers' slice, which is half the circle. The bus slice is smaller.",
+        "too-big": "Too big. The bus slice is less than half the circle.",
+        "too-small": "Too small. Look at the bus slice again."
+      }
+    },
+    "level-mean": {
+      "title": "Level them out",
+      "prompt": "Ali, Sara, Maryam and Reza have some walnuts. They want to move walnuts so that everyone has the same. Predict how many each will get. Then drag a tall bar down (the walnuts go into your hand) and a short bar up.",
+      "hint": "Sara has 7 and Ali has 3. What happens if Sara gives 2 to Ali?",
+      "success": "Well done! Everyone has 5 walnuts. 5 is the {{term:mean}} of 3, 7, 4 and 6.",
+      "why": "Why does levelling the bars give the mean?",
+      "model": "Because no walnuts are added or lost; they only move. There are 3 + 7 + 4 + 6 = 20 walnuts, now shared equally between 4 children: 20 ÷ 4 = 5. The mean is that equal share.",
+      "feedback": {
+        "empty": "Drag a tall bar down with your finger.",
+        "pool-left": "You still have walnuts in your hand. Give them to the short bars.",
+        "not-level": "The bars are not level yet. Take from a tall bar and give to a short one."
+      }
+    },
+    "mean-of-data": {
+      "title": "The mean apple juice",
+      "prompt": "In a factory they measured the juice from 6 apples (in ml). What is the mean amount of juice?",
+      "hint": "First add them all up (the table shows the total). Then divide by the number of apples.",
+      "success": "Right! 420 ÷ 6 = 70. If all the juice were shared out equally, each glass would get 70 ml.",
+      "why": "Why did you divide the total by 6?",
+      "model": "Because there are 6 apples. The total is all the juice together. Poured equally into 6 glasses, each gets 420 ÷ 6 = 70 ml. That is the mean; some apples give more than 70 and some less.",
+      "feedback": {
+        "empty": "Type your answer.",
+        "total-only": "That is the total of all the juice. Now share it equally between the 6 apples.",
+        "largest": "That is the largest amount, not the mean. The mean is between the smallest and the largest.",
+        "range": "That is the difference between the largest and smallest. The mean is the equal share: total ÷ how many.",
+        "count": "6 is the number of apples. Divide the total juice by 6.",
+        "too-big": "Too big. Divide the total by 6.",
+        "too-small": "Too small. Divide the total by 6."
+      }
+    },
+    "data-types": {
+      "title": "Numbers or words?",
+      "prompt": "A class wants to ask these questions. Which question has answers that are <b>numbers</b>? Tap it.",
+      "hint": "Say an example answer for each question: \"blue\", \"132\", \"walk\", \"apple\". Which is a number?",
+      "success": "Right! Height is given as a number: that is numerical {{term:data}}. Colour, transport and fruit are answered in words: categorical data.",
+      "why": "You can work out the mean height of the class. Can you work out the mean favourite colour? Why?",
+      "model": "No. For a mean you add the answers and divide, but \"blue + red\" means nothing. With data in words we can only count which answer is most common (the mode).",
+      "feedback": {
+        "empty": "Tap one of the questions.",
+        "words": "That question is answered with a word, not a number. Say an example answer.",
+        "wrong-pick": "The answer to that question is not a number. Look again."
+      }
+    }
+  }
+}

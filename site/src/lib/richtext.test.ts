@@ -13,6 +13,12 @@ describe('rich', () => {
     expect(rich('{{num:2.5}}', 'fa-AF')).toBe('۲,۵');
     expect(rich('{{num:2.5}}', 'en')).toBe('2.5');
   });
+
+  it('writes coordinate pairs as a column in fa-IR and as (x, y) elsewhere', () => {
+    expect(rich('{{vec:4,2}}', 'fa-IR')).toBe('<span class="vec" role="math" aria-label="(4, 2)"><span>۴</span><span>۲</span></span>');
+    expect(rich('{{vec:-3, 1}}', 'fa-AF')).toBe('<bdi dir="ltr" class="pair">(<bdi dir="ltr">-۳</bdi>, ۱)</bdi>');
+    expect(rich('{{vec:4,2}}', 'en')).toBe('<bdi dir="ltr" class="pair">(4, 2)</bdi>');
+  });
 });
 
 describe('formula direction', () => {
@@ -22,6 +28,8 @@ describe('formula direction', () => {
     expect(out).toContain('</span></span>⁩ چقدر');
     expect(rich('۳ × {{frac:2/5}} یعنی', 'fa-IR')).toMatch(/^⁦۳ × <span/);
     expect(rich('۸۴ ÷ ۴ = ۲۱', 'fa-IR')).toBe('⁦۸۴ ÷ ۴ = ۲۱⁩');
+    expect(rich('یعنی ۲۵٪ = ۰/۲۵ است', 'fa-IR')).toBe('یعنی ⁦۲۵٪ = ۰/۲۵⁩ است');
+    expect(rich('{{num:0.6}} = ۶۰٪', 'fa-AF')).toBe('⁦۰,۶ = ۶۰٪⁩');
   });
 
   it('leaves plain numbers, single fractions and English alone', () => {

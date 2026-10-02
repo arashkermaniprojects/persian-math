@@ -1,0 +1,42 @@
+id: frac-fdp-percent
+engine: fraction-bars
+strand: frac
+order: 10
+concepts: [frac.decimal.to-fraction, frac.percent, frac.fdp, frac.percent.of-amount, frac.percent.one-of-another]
+# Percent = hundredths. Iran G5 «درصد» (p.93: «۱۶ درصد را به صورت ۱۶٪ می‌نویسیم»), Afghan G6 «فیصد» (p.129–138, a
+# 100-square), UK Y5. Fraction ↔ decimal ↔ percent on a 10 × 10 area model and on a 100% bar split into tenths.
+# Percent signs are written ۲۵٪ (digits, then ٪), inside formulas isolated LTR (docs/NOTATION.md §7b).
+missions:
+  # 0.3 on the hundred square: 3 tenths = 30 hundredths = 30%. Classic: 0.3 read as 3 hundredths (3 squares).
+  - id: hundred-square
+    setup: { bars: [{ parts: 10, rows: 10, minRows: 10, maxRows: 10, interactive: shade }] }
+    check: { type: shaded-equals, value: [3, 10] }
+  # 3/5 as a percent: the 100% bar re-split from fifths into tenths (each tenth = 10%) shows 6/10 = 60%.
+  # Classic: 3/5 → 35% (the digits joined).
+  - id: fifths-to-percent
+    setup:
+      bars: [{ parts: 5, shaded: 3, interactive: parts, keepAmount: true, partsStep: 5, minParts: 5, maxParts: 20 }]
+      label: true
+    answer: integer
+    check:
+      type: answer-integer
+      value: 60
+      traps: [{ value: 35, code: digits-joined }, { value: 6, code: tenths }, { value: 3, code: numerator }, { value: 40, code: other-part }]
+  # 30% of 50 apples: the 100% bar in tenths, each tenth = 10% = 5 apples; 3 tenths = 15.
+  - id: percent-of-amount
+    setup: { bars: [{ parts: 10, interactive: shade }], label: true }
+    answer: integer
+    check:
+      type: answer-integer
+      value: 15
+      traps: [{ value: 30, code: wrote-percent }, { value: 35, code: other-part }, { value: 5, code: one-part }, { value: 20, code: subtracted }]
+  # 18 out of 20 as a percent: re-split the 20-part bar into tenths, 9/10 = 90%.
+  - id: what-percent
+    setup:
+      bars: [{ parts: 20, shaded: 18, interactive: parts, keepAmount: true, partsStep: 5, minParts: 5, maxParts: 20 }]
+      label: true
+    answer: integer
+    check:
+      type: answer-integer
+      value: 90
+      traps: [{ value: 18, code: wrote-score }, { value: 10, code: wrong-part }, { value: 2, code: wrote-missed }]

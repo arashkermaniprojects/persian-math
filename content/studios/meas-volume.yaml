@@ -1,0 +1,41 @@
+id: meas-volume
+engine: shape-board
+strand: meas
+order: 7
+# geo.solids.nets is left to geo-solids (its cube-net mission): the engine checks cube nets only, not cuboid nets.
+concepts: [meas.volume.concept, meas.volume.cuboid]
+# Iran G5 «حجم» (p.170–172: volume as the number of unit cubes; Mahdi counts one layer, 3 × 5 = 15, then 4 layers
+# = 60; volume = length × width × height); Afghan G6 «واحد حجم» (p.150) and «مکعب مستطیل» (p.193: طول × عرض ×
+# ارتفاع); UK Y5–6. Unit cubes on isometric dots; in the build missions the learner taps the plan to stack cubes.
+missions:
+  # Build 3 long, 2 wide, 2 high = 12 cubes. One layer of 12 (4 × 3 × 1) is caught as wrong-box; an uneven
+  # stack as not-box.
+  - id: build-box
+    setup:
+      instruction: build
+      cubes: { size: [4, 3], edit: true, max: 3 }
+    check: { type: shape-board, cubes: 12, box: [3, 2, 2] }
+  # A 4 × 3 × 2 box: 24 cubes. Traps: 26 (counted the square faces you can see: 12 + 8 + 6),
+  # 18 (counted only the cubes you can see).
+  - id: count-box
+    setup:
+      cubes: { box: [4, 3, 2], max: 2 }
+    answer: integer
+    check: { type: answer-integer, value: 24, traps: [{ value: 26, code: faces }, { value: 18, code: seen-only }] }
+  # One full layer of 5 × 3 = 15 and a corner tower 4 high: the full box holds 15 × 4 = 60.
+  # Traps: 18 (counted the cubes shown), 12 (added 5 + 3 + 4), 15 (one layer only), 19 (layer + tower).
+  - id: layers
+    setup:
+      cubes: { heights: [[4, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]], max: 4 }
+    answer: integer
+    check:
+      type: answer-integer
+      value: 60
+      traps: [{ value: 18, code: shown }, { value: 12, code: added }, { value: 15, code: one-layer }, { value: 19, code: one-layer }]
+  # Same volume, different box: Sara's 3 × 2 × 2 box has 12 cubes; the only other box of 12 that fits the plan
+  # is 4 × 3 × 1 (or 3 × 1 × 4 standing up: the same box turned). Building 3 × 2 × 2 again gives wrong-box.
+  - id: same-volume
+    setup:
+      instruction: build
+      cubes: { size: [4, 3], edit: true, max: 4 }
+    check: { type: shape-board, cubes: 12, box: [4, 3, 1] }

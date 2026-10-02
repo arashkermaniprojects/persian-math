@@ -224,3 +224,4 @@ Checked on rendered pages of G02_riazi_dovom.pdf ch. 8 (PDF page = printed + 6),
   - Only the frequency table and the legend follow the page direction.
   - This matches the books. The idea that categories run right to left in RTL locales was not seen in any Iranian book checked.
   - Afghan and UK chart pages were not checked (*unverified*). UK practice is the same left-to-right layout.
+- **Long multiplication** (checked against the books, 2026-10-02): Iran G4 (pdf p.56–57), Afghan G4 (pdf p.58) and the UK all write the **placeholder 0** in the second partial product. Only Afghan G3 (pdf p.114) shifts the row left without a zero. The column-arithmetic engine therefore defaults to the zero everywhere; the shifted row is an explicit per-mission option.

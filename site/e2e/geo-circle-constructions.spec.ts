@@ -42,12 +42,12 @@ test('fa-IR radius: giving the diameter is caught; slide the ruler to 0 and halv
   await ok(page);
 });
 
-test('en tape: the diameter is not the circumference; 15.7 cm is right', async ({ page }) => {
+test('en tape: the diameter is not the circumference; 9.4 cm is right', async ({ page }) => {
   await open(page, 'en', 1);
-  await answer(page).fill('5');
+  await answer(page).fill('3');
   await check(page, 'en');
   await no(page, "the tin's diameter");
-  await answer(page).fill('15.7');
+  await answer(page).fill('9.4');
   await check(page, 'en');
   await ok(page);
 });

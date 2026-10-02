@@ -1,0 +1,78 @@
+{
+  "title": "Coins and notes",
+  "summary": "Get to know coins and notes, make an amount of money in different ways, and see that more coins is not always more money.",
+  "guide": [
+    "In the UK we use pounds (£) and pence (p). 100p make £1. Every {{term:coin}} and {{term:banknote}} shows how much it is worth.",
+    "Ten 1p coins are worth the same as one 10p coin. Ten 10p coins are worth the same as £1. Just like ones, tens and hundreds!",
+    "The number of coins doesn't matter. What they are worth matters. One coin can be worth more than lots of coins.",
+    "To make an amount, start with the biggest coin that fits, then see how much is left.",
+    "Tap the coins at the bottom to put them in the purse. Tap a coin in the purse to take it out."
+  ],
+  "engine": {
+    "label-purse": "purse",
+    "label-paid": "paid",
+    "label-add": "add {v}",
+    "label-remove": "take out {v}",
+    "label-total": "total: {v}",
+    "label-group": "group {n}",
+    "label-same": "Both the same",
+    "item-pencil": "pencil",
+    "instruction-tap": "Tap the money"
+  },
+  "missions": {
+    "same-money": {
+      "title": "Which is more?",
+      "prompt": "Ali has ten 1p coins. Sara has one 10p coin. Who has more money?",
+      "hint": "Count Ali's 1p coins: 1, 2, 3 … 10. How many pence is that?",
+      "success": "Well done! They both have 10p.",
+      "why": "Ali has 10 coins and Sara has 1. Why do they have the same money?",
+      "model": "Ten 1p coins make 10p altogether. Sara's coin is 10p too. The number of coins doesn't matter; what they are worth does.",
+      "feedback": {
+        "counted-pieces": "Ali has more coins. But does he have more money? Count his coins.",
+        "wrong": "Sara's coin is 10p. Count Ali's coins.",
+        "empty": "Choose one."
+      }
+    },
+    "make-amount": {
+      "title": "Make 35p",
+      "prompt": "Put 35p in the purse.",
+      "hint": "Try a 20p, then a 10p. How much more do you need?",
+      "success": "Well done! That makes 35p.",
+      "why": "Could you make 35p with different coins? Tell one more way.",
+      "model": "Yes. For example 20p + 10p + 5p, or seven 5p coins, or 10p + 10p + 10p + 5p. The same amount can be made in lots of ways.",
+      "feedback": {
+        "too-big": "Too much. Take a coin out and count again.",
+        "too-small": "Not enough. Add more coins.",
+        "empty": "Tap the coins at the bottom to put them in the purse."
+      }
+    },
+    "fewest": {
+      "title": "As few coins as possible",
+      "prompt": "Put 70p in the purse. Use as few coins as you can!",
+      "hint": "Start with the biggest coin that is not more than 70p. Then see how much is left.",
+      "success": "Excellent! 50p + 20p = 70p. Just 2 coins!",
+      "why": "How did you know the fewest coins you could use?",
+      "model": "I started with the biggest coin that fits: 50p. That left 20p, and there is a 20p coin. Bigger coins mean fewer coins.",
+      "feedback": {
+        "not-fewest": "That is 70p, well done! But you can make it with fewer coins. Try bigger coins.",
+        "too-big": "Too much. Take a coin out.",
+        "too-small": "Not enough. Add more coins.",
+        "empty": "Tap the coins at the bottom to put them in the purse."
+      }
+    },
+    "more-money": {
+      "title": "More coins, more money?",
+      "prompt": "Reza has 5 coins. Zahra has 2 coins. Who has more money?",
+      "hint": "Count Reza's coins in tens: 10, 20, 30 … Then add up Zahra's coins.",
+      "success": "Right! Zahra has 70p and Reza has only 50p.",
+      "why": "Reza has more coins. So why does Zahra have more money?",
+      "model": "Five 10p coins make 50p. Zahra's 50p and 20p make 70p, which is more. To compare money, count what the coins are worth, not how many there are.",
+      "feedback": {
+        "counted-pieces": "Reza has more coins. But count them: how much money is it?",
+        "not-equal": "They are not the same. Compare 50p with 50p + 20p.",
+        "wrong": "Count how much each group is worth, then compare.",
+        "empty": "Choose one."
+      }
+    }
+  }
+}

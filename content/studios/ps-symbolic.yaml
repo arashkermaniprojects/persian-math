@@ -1,0 +1,78 @@
+id: ps-symbolic
+engine: problem-canvas
+strand: ps
+order: 2
+concepts: [ps.symbolic, alg.missing-number, ops.word-problems.mul-div]
+# Iran's «حل مسئله: روش نمادین» (G2 p.134 [PDF 140]: «عددی را پیدا کنید که اگر با ۲۷ جمع کنیم، جواب ۵۳ می‌شود …
+# به جای آن عدد یک مربع درنظر بگیریم»; G3 p.62 «روش‌های نمادین»: write the problem as an equality with □ for the
+# question). The learner turns the story into a number sentence with a box for the unknown, then answers. The box
+# can be anywhere: a missing addend, a missing number of groups, an unknown total that was shared, and a
+# two-operation story (G2 p.134 no. 2: two notebooks and an eraser).
+missions:
+  # G2 p.134 no. 1 as a story: 27 + □ = 53. The classic mistake is to add the two numbers (80).
+  - id: missing-addend
+    setup:
+      instruction: symbolic
+      understand:
+        known: [{ id: has-27, n: 27 }, { id: wants-53, n: 53 }]
+        asked: [more, all]
+      tools:
+        - { kind: sentence, form: '_ o _ = _', ops: ['+', '-'] }
+      answer: { key: more }
+    check:
+      type: problem-canvas
+      known: [has-27, wants-53]
+      asked: more
+      sentence: { box: 26, uses: [27, 53] }
+      answer: 26
+      traps: [{ value: 80, code: added }]
+  # Equal groups with the number of groups unknown: □ × 6 = 24 (or 24 ÷ 6 = □).
+  - id: how-many-plates
+    setup:
+      understand:
+        known: [{ id: cakes-24, n: 24 }, { id: each-6, n: 6 }]
+        asked: [plates, per-plate]
+      tools:
+        - { kind: sentence, form: '_ o _ = _' }
+      answer: { key: plates }
+    check:
+      type: problem-canvas
+      known: [cakes-24, each-6]
+      asked: plates
+      sentence: { box: 4, uses: [24, 6] }
+      answer: 4
+      traps: [{ value: 18, code: subtracted }, { value: 30, code: added }, { value: 144, code: multiplied }]
+  # Shared, but the total is the unknown: □ ÷ 4 = 7. "Shared" tempts 7 ÷ 4 or 7 − 4; the sentence shows the box is
+  # the start. A distractor (2 bags) is left out.
+  - id: shared-total
+    setup:
+      understand:
+        known: [{ id: children-4, n: 4 }, { id: bags-2, n: 2 }, { id: each-7, n: 7 }]
+        asked: [walnuts, each]
+      tools:
+        - { kind: sentence, form: '_ o _ = _' }
+      answer: { key: walnuts }
+    check:
+      type: problem-canvas
+      known: [children-4, each-7]
+      asked: walnuts
+      sentence: { box: 28, uses: [4, 7] }
+      answer: 28
+      traps: [{ value: 3, code: subtracted }, { value: 11, code: added }]
+  # G2 p.134 no. 2 (two notebooks and an eraser): 2 × 40 + □ = 95, in thousand toman / afghani / pence.
+  # Classic mistakes: one notebook only (95 − 40 = 55), or adding everything.
+  - id: two-operations
+    setup:
+      understand:
+        known: [{ id: notebooks-2, n: 2 }, { id: paid-95, n: 95 }, { id: price-40, n: 40 }]
+        asked: [eraser, notebooks]
+      tools:
+        - { kind: sentence, form: '_ o _ o _ = _' }
+      answer: { key: eraser }
+    check:
+      type: problem-canvas
+      known: [notebooks-2, paid-95, price-40]
+      asked: eraser
+      sentence: { box: 15, uses: [2, 40, 95] }
+      answer: 15
+      traps: [{ value: 55, code: one-notebook }, { value: 135, code: added }, { value: 137, code: added }]

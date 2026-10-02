@@ -1,0 +1,33 @@
+id: num-rounding-decimals
+engine: number-line
+strand: num
+order: 8
+concepts: [frac.decimal.round, num.rounding.decimals-sigfig, num.bounds]
+# Zoom in between the two neighbours and see which one is nearer (Iran G6 ch.7 «تقریب»: «گرد کردن» vs
+# «قطع کردن», «با تقریب کمتر از ۰/۱»; UK Y4–6 rounding, KS3 significant figures and error intervals).
+# Halfway rounds up. Decimal mark per locale: ۲/۵ fa-IR, ۲,۵ fa-AF/ps, 2.5 en.
+missions:
+  # 3.7 to the nearest whole number. Cutting off the decimal (3) is the trap.
+  - id: nearest-whole
+    setup: { min: 0, max: 10, denominator: 10, decimal: true, labels: whole, zoom: { from: [3, 1], to: [4, 1] }, fixedPoints: [[37, 10]] }
+    answer: integer
+    check: { type: answer-integer, value: 4, traps: [{ value: 3, code: cut-off }, { value: 37, code: no-mark }] }
+  # 2.46 to one decimal place: put a point on the nearer tenth (2.4 or 2.5).
+  - id: nearest-tenth
+    setup: { min: 0, max: 10, denominator: 100, decimal: true, labels: whole, zoom: { from: [24, 10], to: [25, 10] }, fixedPoints: [[246, 100]], addPoints: 1 }
+    check: { type: point-equals, values: [[25, 10]] }
+  # Which numbers round to 3.5? Mark the two ends: 3.45 (rounds up to 3.5) and 3.55 (the first to round to 3.6).
+  - id: bounds
+    setup: { min: 0, max: 10, denominator: 100, decimal: true, labels: whole, zoom: { from: [34, 10], to: [36, 10] }, fixedPoints: [[35, 10]], addPoints: 2 }
+    check: { type: point-equals, values: [[345, 100], [355, 100]] }
+  # 0.367 to two decimal places (to the nearest hundredth).
+  - id: nearest-hundredth
+    setup: { min: 0, max: 1, denominator: 1000, decimal: true, labels: whole, zoom: { from: [36, 100], to: [37, 100] }, fixedPoints: [[367, 1000]] }
+    answer: decimal
+    check: { type: answer-decimal, value: "0.37" }
+  # UK KS3: 0.04682 to 2 significant figures. Iran and Afghanistan don't teach significant figures at this age.
+  - id: sig-figs
+    locales: [en]
+    setup: { min: 0, max: 1, denominator: 10000, decimal: true, labels: whole, zoom: { from: [46, 1000], to: [47, 1000] }, fixedPoints: [[468, 10000]] }
+    answer: decimal
+    check: { type: answer-decimal, value: "0.047" }

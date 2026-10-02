@@ -1,0 +1,78 @@
+id: ratio-scale-similar
+engine: shape-board
+strand: ratio
+order: 3
+concepts: [ratio.scale-factor, geo.similarity]
+# Enlarge a grid shape by a scale factor, decide which shapes are similar, read a scale factor, and draw a similar
+# shape from one side (UK Y6; Iran G9 «شکل‌های متشابه», Afghan G8 «اشکال متشابه»). The classic mistake at this age is
+# additive thinking: adding the same amount to every side instead of multiplying.
+missions:
+  # Enlarge the 3 × 1 rectangle by scale factor 2 (→ 6 × 2). Adding 2 to each side (5 × 3) is not similar.
+  - id: enlarge
+    setup:
+      x: [0, 8]
+      y: [0, 6]
+      grid: lines
+      mode: polygon
+      instruction: draw
+      show: [lengths]
+      shapes:
+        - { pts: [[0, 5], [3, 5], [3, 6], [0, 6]], tone: 0 }
+    check:
+      type: shape-board
+      sides: 4
+      count: 1
+      similar: { of: 0, factor: 2 }
+  # Which rectangles are similar to the orange 2 × 1 one? Green 4 × 2 and purple 2 × 4 (turned) are; blue 3 × 2
+  # (1 added to each side) and red 4 × 1 (only one side doubled) are not.
+  - id: which-similar
+    setup:
+      x: [0, 11]
+      y: [0, 8]
+      grid: lines
+      mode: select
+      instruction: tap
+      show: [lengths]
+      shapes:
+        - { pts: [[0, 6], [2, 6], [2, 7], [0, 7]], tone: 0, name: orange, select: false }
+        - { pts: [[4, 5], [8, 5], [8, 7], [4, 7]], tone: 1, name: green }
+        - { pts: [[0, 1], [3, 1], [3, 3], [0, 3]], tone: 2, name: blue }
+        - { pts: [[4, 1], [8, 1], [8, 2], [4, 2]], tone: 3, name: red }
+        - { pts: [[9, 1], [11, 1], [11, 5], [9, 5]], tone: 4, name: purple }
+    check:
+      type: shape-board
+      selected: [1, 4]
+      traps: [{ select: 2, code: added }, { select: 3, code: one-way }]
+  # Two similar right-angled triangles, legs 2 and 1, then 6 and 3. Scale factor 3.
+  # Traps: 4 (6 − 2, a difference), 2 (3 − 1), 6 (a side length, not a factor).
+  - id: scale-factor
+    setup:
+      x: [0, 10]
+      y: [0, 6]
+      grid: lines
+      show: [lengths]
+      pick: [1, 6]
+      shapes:
+        - { pts: [[0, 4], [2, 4], [0, 5]], tone: 0 }
+        - { pts: [[3, 0], [9, 0], [3, 3]], tone: 1 }
+    check:
+      type: shape-board
+      pick: 3
+      traps: [{ pick: 4, code: difference }, { pick: 2, code: difference }, { pick: 6, code: side }]
+  # Draw a rectangle similar to the 2 × 4 one whose short side is 3 (→ 3 × 6, scale factor 1.5).
+  # 3 × 5 (adding 1 to each side) is the classic slip (not-similar).
+  - id: draw-similar
+    setup:
+      x: [0, 9]
+      y: [0, 7]
+      grid: lines
+      mode: polygon
+      instruction: draw
+      show: [lengths]
+      shapes:
+        - { pts: [[0, 3], [2, 3], [2, 7], [0, 7]], tone: 0 }
+    check:
+      type: shape-board
+      sides: 4
+      count: 1
+      similar: { of: 0, factor: 1.5 }

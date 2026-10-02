@@ -1,0 +1,102 @@
+{
+  "title": "Shopping and change",
+  "summary": "Add up the {{term:price}}s in a basket, pay, and work out the change by counting up.",
+  "guide": [
+    "When you buy more than one thing, add the {{term:price}}s first to find how much to pay altogether.",
+    "If you pay with more money than the {{term:price}}, the shopkeeper gives you change. To find it, count up from the {{term:price}} to the money you paid. From 35p to 40p is 5p, and from 40p to 50p is 10p, so the change is 15p.",
+    "100p make £1. In £3.45 the 3 is pounds and the 45 is pence: £3.45 is 345p.",
+    "Tap the money at the bottom to put it in the purse. Tap money in the purse to take it out."
+  ],
+  "engine": {
+    "label-purse": "purse",
+    "label-paid": "paid",
+    "label-add": "add {v}",
+    "label-remove": "take out {v}",
+    "label-total": "total: {v}",
+    "item-notebook": "notebook",
+    "item-pen": "pen",
+    "item-juice": "juice",
+    "item-bread": "bread",
+    "item-book": "book",
+    "item-pencil": "pencil",
+    "instruction-tap": "Tap the money"
+  },
+  "missions": {
+    "pay-the-total": {
+      "title": "A notebook and a pen",
+      "prompt": "Maryam buys a notebook and a pen. Put the money for both in the purse.",
+      "hint": "Work out 35p + 20p.",
+      "success": "Well done! 35p + 20p = 55p.",
+      "why": "How did you decide which coins to put in?",
+      "model": "First I added the {{term:price}}s: 35p + 20p = 55p. Then I made 55p, for example 50p + 5p.",
+      "feedback": {
+        "one-item": "That pays for just one of them. Maryam is buying two things: add both {{term:price}}s.",
+        "too-big": "Too much. Count the coins again.",
+        "too-small": "Not enough. Add both {{term:price}}s and count again.",
+        "empty": "Tap the coins at the bottom to put them in the purse."
+      }
+    },
+    "change": {
+      "title": "Change",
+      "prompt": "Ali buys a juice for 35p and pays with a 50p coin. How much change does he get? Put it in the purse.",
+      "hint": "Count up from 35p: to 40p is how much? From 40p to 50p is how much?",
+      "success": "Well done! 35p + 15p = 50p. The change is 15p.",
+      "why": "How can you check your answer?",
+      "model": "Add the {{term:price}} and the change. If you get back to the money Ali paid, it is right: 35p + 15p = 50p.",
+      "feedback": {
+        "gave-price": "That is the {{term:price}} of the juice. We want the money Ali gets back.",
+        "gave-paid": "That is all the money Ali paid. He spent 35p of it; how much does he get back?",
+        "too-big": "Too much. Add 35p to the money in the purse: it comes to more than 50p.",
+        "too-small": "Not enough. Add 35p to the money in the purse: it doesn't reach 50p.",
+        "empty": "Tap the coins at the bottom to put them in the purse."
+      }
+    },
+    "count-up": {
+      "title": "Count up",
+      "prompt": "Zahra buys bread for 65p and pays with £1. Put her change in the purse, using as few coins as you can.",
+      "hint": "Count up from 65p: 70p, then 80p, 90p, £1.",
+      "success": "Excellent! 65p + 5p = 70p and 70p + 30p = £1. The change is 35p: 20p + 10p + 5p.",
+      "why": "Why does counting up from 65p to £1 give the same answer as 100 − 65?",
+      "model": "Taking away finds the gap between two numbers. Counting up from 65 until I reach 100 finds that same gap: 5 and 30, which is 35. Shopkeepers often work out change like this.",
+      "feedback": {
+        "gave-price": "That is the {{term:price}} of the bread. We want the money Zahra gets back.",
+        "forgot-borrow": "Close, but 10p too much. Count up from 65p: to 70p, then to £1.",
+        "not-fewest": "35p is right! Now make it with fewer coins.",
+        "too-big": "Too much. Add 65p to the money in the purse: it comes to more than £1.",
+        "too-small": "Not enough. Add 65p to the money in the purse: it doesn't reach £1.",
+        "empty": "Tap the coins at the bottom to put them in the purse."
+      }
+    },
+    "money-left": {
+      "title": "How much is left?",
+      "prompt": "Hassan pays with £1 for a book and a pencil. How much money does he have left? Put it in the purse.",
+      "hint": "First add the {{term:price}}s: 45p + 15p. Then count up to £1.",
+      "success": "Well done! Hassan spent 60p and has 40p left.",
+      "why": "How many steps did this problem have? Say each one.",
+      "model": "Two steps. First I added the {{term:price}}s: 45p + 15p = 60p. Then I took that from £1: 100 − 60 = 40, so 40p is left.",
+      "feedback": {
+        "gave-spent": "60p is the money Hassan spent. How much of his £1 is left?",
+        "one-item": "Hassan bought two things. Add both {{term:price}}s first.",
+        "too-big": "Too much. £1 is 100p, and 60p of it was spent.",
+        "too-small": "Not enough. Add what he spent and the money in the purse: it should make £1.",
+        "empty": "Tap the coins at the bottom to put them in the purse."
+      }
+    },
+    "pounds-and-pence": {
+      "title": "Pounds and pence",
+      "prompt": "Sara buys a book for £3.45 and pays with a £5 note. Put her change in the purse, using as few coins as you can.",
+      "hint": "Count up from £3.45: 5p takes you to £3.50, 50p to £4, and £1 to £5.",
+      "success": "Excellent! £3.45 + £1.55 = £5. The change is £1.55: £1 + 50p + 5p.",
+      "why": "Why is it easier to count up to £5 than to work out £5.00 − £3.45 in your head?",
+      "model": "Counting up goes to easy numbers first: £3.45 → £3.50 is 5p, £3.50 → £4 is 50p, £4 → £5 is £1. Adding 5p + 50p + £1 = £1.55 needs no exchanging, but £5.00 − £3.45 means exchanging a pound for 100p.",
+      "feedback": {
+        "gave-price": "That is the {{term:price}} of the book. We want the money Sara gets back.",
+        "forgot-borrow": "Close, but 10p too much. Count up: £3.45 → £3.50 → £4 → £5.",
+        "not-fewest": "£1.55 is right! Now make it with fewer coins.",
+        "too-big": "Too much. Add £3.45 to the money in the purse: it comes to more than £5.",
+        "too-small": "Not enough. Add £3.45 to the money in the purse: it doesn't reach £5.",
+        "empty": "Tap the coins at the bottom to put them in the purse."
+      }
+    }
+  }
+}

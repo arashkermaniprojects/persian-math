@@ -1,0 +1,60 @@
+id: frac-mixed-mul-div
+engine: fraction-bars
+strand: frac
+order: 11
+concepts: [frac.mul.mixed, frac.mul-div, frac.mixed-operations]
+# Iran G5 «ضرب عددهای مخلوط» (p.66: an area model of 2½ × 3¼ next to the improper-fraction method), Afghan G5
+# «ضرب کسرهای مخلوط», UK Y6. Each bar is one whole; several bars of the same size add up (shaded-equals).
+# Negative fractions (Afghan G7) are left out: fraction bars cannot show them (see the number-line studios).
+missions:
+  # ½ × 2⅔ on three area-model bars: striped columns show 2⅔ (thirds); each bar is split into 2 rows, so half of
+  # the stripes is one cell per striped column: 8 sixths = 1⅓.
+  - id: half-of-mixed
+    setup:
+      bars:
+        - { parts: 3, rows: 2, tint: 3, interactive: shade }
+        - { parts: 3, rows: 2, tint: 3, interactive: shade }
+        - { parts: 3, rows: 2, tint: 2, interactive: shade }
+      label: true
+    check: { type: shaded-equals, value: [4, 3] }
+  # 1⅓ × 2½ = 2½ once and ⅓ of 2½ more. 2½ is given in sixths (blue); the learner adds ⅓ of it (5 sixths):
+  # 20 sixths = 3⅓. Classic: 1 × 2 and ⅓ × ½ only → 2⅙.
+  - id: mixed-times-mixed
+    setup:
+      bars:
+        - { parts: 6, given: 6, interactive: shade }
+        - { parts: 6, given: 6, interactive: shade }
+        - { parts: 6, given: 3, interactive: shade }
+        - { parts: 6, interactive: shade }
+      label: true
+    check: { type: shaded-equals, value: [10, 3] }
+  # 2½ ÷ 1¼: how many 1¼ (5 quarters) fit in 2½ (10 quarters)? 2. Classic: whole ÷ whole and part ÷ part, 2 + 2 = 4.
+  - id: divide-mixed
+    setup:
+      bars:
+        - { parts: 4, shaded: 4, interactive: shade }
+        - { parts: 4, shaded: 4, interactive: shade }
+        - { parts: 4, shaded: 2, interactive: shade }
+      label: true
+    answer: integer
+    check:
+      type: answer-integer
+      value: 2
+      traps: [{ value: 4, code: parts-separately }, { value: 10, code: counted-quarters }, { value: 5, code: one-group }]
+  # 1½ + ½ × 2⅔: multiplication first (½ × 2⅔ = 1⅓ from mission 1), then 1½ + 1⅓ = 2⅚.
+  # Classic: left to right, (1½ + ½) × 2⅔ = 5⅓.
+  - id: order-of-operations
+    setup:
+      bars:
+        - { parts: 6, interactive: shade }
+        - { parts: 6, interactive: shade }
+        - { parts: 6, interactive: shade }
+      label: true
+      whole: true
+    answer: fraction
+    check:
+      type: answer-equals
+      value: [17, 6]
+      mixed: true
+      simplest: true
+      traps: [{ value: [16, 3], code: left-to-right }, { value: [4, 3], code: product-only }, { value: [19, 6], code: half-of-whole-only }]

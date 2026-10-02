@@ -1,0 +1,106 @@
+{
+  "title": "Polygons and angle sums",
+  "summary": "Find the regular polygons, discover the angle sum of a triangle, and split polygons into triangles to find their angle sums.",
+  "guide": [
+    "This studio is for Years 5 and 6.",
+    "A {{term:regular-polygon}} has all its sides equal and all its angles equal. A rhombus has only equal sides and a rectangle only equal angles, so neither is regular. A square is regular.",
+    "The angles of every triangle add up to 180°. A classic demonstration: tear the corners off a paper triangle and put them side by side; they make a straight line. On the board, children draw several triangles and read their angles.",
+    "For a polygon, draw all the {{term:diagonal}}s from one vertex. A quadrilateral splits into 2 triangles, a pentagon into 3 and a hexagon into 4, so the angle sums are 2 × 180, 3 × 180 and 4 × 180. A common slip is to split from a point in the middle, which also counts the full turn round that point."
+  ],
+  "engine": {
+    "letters": "A B C D E F G H I J",
+    "label-board": "Dotty board",
+    "label-undo": "Undo",
+    "label-clear": "Clear",
+    "label-shape": "Shape",
+    "label-corners": "{n} dots",
+    "label-shape-a": "Orange shape",
+    "label-shape-b": "Green shape",
+    "label-shape-c": "Blue shape",
+    "label-shape-d": "Red shape",
+    "label-shape-e": "Purple shape",
+    "label-shape-f": "Yellow shape",
+    "instruction-tap": "Tap the shapes.",
+    "instruction-draw": "Tap the dots. Then tap the first dot.",
+    "instruction-line": "Tap two vertices to draw a diagonal."
+  },
+  "missions": {
+    "find-regular": {
+      "title": "Regular polygons",
+      "prompt": "Tap every {{term:regular-polygon}}: shapes whose sides are all equal and whose angles are all equal too.",
+      "hint": "Ask two questions about each shape: are all the sides the same length? Are all the corners the same? If both answers are yes, it is regular.",
+      "success": "Well done! The square, the red hexagon and the purple triangle are regular: equal sides and equal angles.",
+      "why": "All the sides of the blue rhombus are equal. Why is it not regular?",
+      "model": "Because its angles are not equal: two corners are sharp and two are wide. Being regular needs both: equal sides and equal angles.",
+      "feedback": {
+        "empty": "Tap the regular polygons.",
+        "angles-only": "The green shape is a rectangle: all its angles are right angles, but two sides are longer. So it is not regular.",
+        "sides-only": "The blue shape is a rhombus: its sides are equal, but its angles are not. So it is not regular.",
+        "extra": "The yellow shape has unequal sides and unequal angles. Tap it again to take it back.",
+        "missed": "There is another regular polygon. A square and an equilateral triangle are regular too."
+      }
+    },
+    "triangle-sum": {
+      "title": "The angles of a triangle",
+      "prompt": "Draw a triangle. The board shows its three angles. Add them up. Draw some more triangles: big, small, long and thin. What is the total, in degrees?",
+      "hint": "For example, if the angles are 90, 45 and 45, add them. Then draw another triangle and add again.",
+      "success": "Well done! The angles of every triangle add up to 180°, whatever its shape.",
+      "why": "If you make one angle of a triangle bigger, what happens to the other two? Why?",
+      "model": "They get smaller, because the total always stays 180°. If you put the corners of a paper triangle side by side, they always make a straight line, and a straight line is 180°.",
+      "feedback": {
+        "empty": "Type the total in the box.",
+        "full-turn": "360 is a full turn: that is the angle sum of a {{term:quadrilateral}}. Add the three angles of the triangle again.",
+        "one-right": "90 is just one right angle. Add all three angles.",
+        "too-big": "Too big. Add the three numbers at the corners again.",
+        "too-small": "Too small. Did you add all three angles?"
+      }
+    },
+    "missing-angle": {
+      "title": "Missing angles",
+      "prompt": "In this triangle, angle A is a right angle and the two sides next to it are both 4. So angles B and C are equal. How many degrees is each?",
+      "hint": "All the angles together make 180°. How big is the right angle? How much is left for the other two? Share it between the two equal angles.",
+      "success": "Well done! 180 − 90 = 90 is left for two angles, and 90 ÷ 2 = 45. Angles B and C are 45° each.",
+      "why": "How did you know each angle is 45° without a protractor?",
+      "model": "The three angles add up to 180°. The right angle is 90°, so 90° is left for the other two. The sides next to the right angle are equal, so those two angles are equal too: half of 90, which is 45.",
+      "feedback": {
+        "empty": "Type the size of one of the two angles.",
+        "not-halved": "90° is left for both angles together. Now share it between the two equal angles.",
+        "thirds": "60 is what you get when all three angles are equal. Here one angle is a right angle.",
+        "too-big": "Too big. First take the 90° right angle away from 180.",
+        "too-small": "Too small. Work out 180 − 90, then halve it."
+      }
+    },
+    "pentagon-sum": {
+      "title": "Angles of a pentagon",
+      "prompt": "Draw all the {{term:diagonal}}s from vertex A to split the pentagon into triangles. What do the interior angles of the pentagon add up to, in degrees?",
+      "hint": "Draw diagonals from A to C and from A to D. How many triangles are there? Each has 180°. Remember: a quadrilateral splits into 2 triangles, 2 × 180 = 360.",
+      "success": "Well done! The pentagon splits into 3 triangles: 3 × 180 = 540°.",
+      "why": "Why do the angles of these 3 triangles make exactly the angles of the pentagon?",
+      "model": "All the triangles' corners sit at the pentagon's vertices, and together they fill the pentagon's angles exactly, with nothing missing and nothing extra. So the sum is 3 × 180 = 540.",
+      "feedback": {
+        "empty": "Type the total in the box.",
+        "centre-split": "It looks as if you made 5 triangles from a point in the middle. The angles round that point make a full turn, 360°, and they are not angles of the pentagon: 900 − 360 = 540. Draw the diagonals from one vertex.",
+        "like-quad": "360 is the angle sum of a quadrilateral. A pentagon has one more corner. Draw the diagonals from A and count the triangles.",
+        "four-triangles": "From one vertex, a pentagon splits into 3 triangles, not 4. Count the diagonals from A again.",
+        "too-big": "Too big. Count the triangles and take 180 for each.",
+        "too-small": "Too small. Each triangle has 180°. How many triangles do you have?"
+      }
+    },
+    "hexagon-angle": {
+      "title": "Angle of a regular hexagon",
+      "prompt": "This is a regular hexagon: six equal sides and six equal angles. How many degrees is each angle?",
+      "hint": "From one vertex, a hexagon splits into 4 triangles. What is the angle sum? Then share it between the 6 equal angles.",
+      "success": "Well done! 4 × 180 = 720 and 720 ÷ 6 = 120. Each angle is 120°.",
+      "why": "Why do regular hexagon tiles fit together with no gaps?",
+      "model": "Each angle is 120°. Three tiles round a point make 3 × 120 = 360°, a full turn. So there is no gap.",
+      "feedback": {
+        "empty": "Type the size of one angle.",
+        "gave-total": "720 is the sum of all the angles. Here we want one angle: share 720 between 6 angles.",
+        "centre-angle": "60 is the angle at the centre (360 ÷ 6), not the angle at a corner of the hexagon. The corners are wider.",
+        "straight": "180 is a straight line. The corners of the hexagon are a bit less open.",
+        "too-big": "Too big. Share the total of 720 between 6 angles.",
+        "too-small": "Too small. The hexagon's angles are wider than a right angle."
+      }
+    }
+  }
+}

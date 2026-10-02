@@ -1,0 +1,101 @@
+{
+  "title": "3-D shapes",
+  "summary": "Recognise the {{term:cube-solid}}, {{term:cuboid}}, {{term:cylinder}}, {{term:cone}}, {{term:sphere}} and {{term:pyramid}}, count faces and edges, and make a net of a cube.",
+  "guide": [
+    "3-D shapes (like a box, a ball or a tin) take up space, unlike flat shapes. Children in England name them from Year 1 and count faces, edges and vertices in Year 2; Iran teaches them in grade 7 and Afghanistan in grade 6.",
+    "The first missions suit younger children too: they only tap the pictures. Read the sentences aloud if your child is not reading yet, and put real things next to the screen: a tin, a ball, a shoebox, a party hat.",
+    "A face is a flat surface of a solid, an edge is where two faces meet, and a {{term:vertex}} is a corner. In the pictures, edges at the back are drawn dashed. A common mistake is to count only the faces or edges you can see in the picture.",
+    "A net of a cube is six joined squares that fold up into a cube. Not every six squares make a net: six in a row, or two rows of three, do not fold into a cube."
+  ],
+  "engine": {
+    "label-board": "Squared grid",
+    "label-undo": "Undo",
+    "label-clear": "Clear",
+    "label-answer": "Answer",
+    "label-count": "{n} squares",
+    "label-solid-a": "Orange shape",
+    "label-solid-b": "Green shape",
+    "label-solid-c": "Blue shape",
+    "label-solid-d": "Red shape",
+    "label-solid-e": "Purple shape",
+    "label-solid-f": "Yellow shape",
+    "instruction-tap": "Tap the right shapes.",
+    "instruction-points": "Count. Then tap a number.",
+    "instruction-cells": "Tap six squares."
+  },
+  "missions": {
+    "find-cube": {
+      "title": "Find the cube",
+      "prompt": "Tap the {{term:cube-solid}}. A cube is like a dice: all its faces are the same size squares.",
+      "hint": "Look at the faces. Which shape looks the same from every side?",
+      "success": "Well done! That is a cube. It has 6 square faces, like a dice.",
+      "why": "What is the difference between a cube and a {{term:cuboid}}?",
+      "model": "Both have 6 faces and square corners. But all the faces of a cube are squares of the same size. A cuboid is longer, and some of its faces are rectangles, like a shoebox.",
+      "feedback": {
+        "empty": "Tap the cube.",
+        "cuboid": "The orange shape is long, like a shoebox. It is a {{term:cuboid}}. A cube's faces are all squares.",
+        "pyramid": "The purple shape comes to a point. It is a {{term:pyramid}}.",
+        "extra": "One of the shapes you tapped is not a cube. Tap it again to take it away.",
+        "missed": "You have not tapped the cube yet."
+      }
+    },
+    "can-roll": {
+      "title": "Which ones roll?",
+      "prompt": "Tap every shape that can roll.",
+      "hint": "A shape can roll if it has a curved surface. Three shapes do.",
+      "success": "Well done! The {{term:sphere}}, {{term:cylinder}} and {{term:cone}} have curved surfaces, so they roll.",
+      "why": "Why does a cylinder roll but a cube does not?",
+      "model": "A cube has only flat faces and sharp edges, so it stands on one face. A cylinder has a curved surface and rolls on it. If we stand it on one of its round flat faces, it stays still.",
+      "feedback": {
+        "empty": "Tap the shapes that roll.",
+        "flat": "That shape has only flat faces. It slides on a flat face but it does not roll. Tap it again to take it away.",
+        "extra": "One of the shapes you tapped does not roll. Tap it again to take it away.",
+        "missed": "There is one more shape that rolls. A cone rolls round in a circle."
+      }
+    },
+    "cube-faces": {
+      "title": "How many faces?",
+      "prompt": "A face is a flat surface of a solid. How many faces does a cube have? Tap the number.",
+      "hint": "Turn a dice or a box in your hand. Count the top, bottom, front, back, left and right.",
+      "success": "Well done! A cube has 6 faces, like a dice with 6 numbers.",
+      "why": "Only 3 faces show in the picture. How do you know there are 6?",
+      "model": "Each face we can see has an opposite face at the back: top and bottom, front and back, left and right. 3 faces show and 3 are hidden, so 3 + 3 = 6",
+      "feedback": {
+        "empty": "Tap a number.",
+        "seen-only": "3 faces show in the picture, but there are faces at the back too. Think of a dice.",
+        "sides-only": "There are 4 faces round the sides. Count the top and the bottom too.",
+        "too-big": "Too many. Picture a dice: top, bottom, front, back, left and right.",
+        "too-small": "Too few. Count the faces at the back and underneath too."
+      }
+    },
+    "pyramid-edges": {
+      "title": "Edges of a pyramid",
+      "prompt": "An edge is where two faces meet. This {{term:pyramid}} has a square base. How many edges does it have? The dashed lines are edges at the back.",
+      "hint": "Count the edges round the base first, then the edges that go up to the top.",
+      "success": "Well done! 4 edges round the base and 4 up to the top: 4 + 4 = 8",
+      "why": "How many edges does a pyramid with a triangle for its base have? How do you know?",
+      "model": "The triangle base has 3 edges, and one edge goes up from each corner of the base to the top: 3 more. So 3 + 3 = 6 edges. Every pyramid has twice as many edges as its base has sides.",
+      "feedback": {
+        "empty": "Tap a number.",
+        "solid-lines": "You counted only the solid lines. The dashed lines are edges at the back, and they count too.",
+        "base-only": "The base has 4 edges. Count the edges that go up from the base to the top too.",
+        "too-big": "Too many. Check you counted each edge only once.",
+        "too-small": "Too few. Count the dashed edges at the back and the edges up to the top."
+      }
+    },
+    "cube-net": {
+      "title": "A net of a cube",
+      "prompt": "Shade six squares that would fold up into a closed {{term:cube-solid}} if you cut them out and folded along the lines.",
+      "hint": "One way: four squares in a row (round the sides of the cube) and one above and one below that row (the top and the bottom).",
+      "success": "Well done! That is a net of a cube: when it is folded, each square becomes one face.",
+      "why": "Why don't six squares in a row make a cube?",
+      "model": "If we fold six squares in a row, four of them wrap round the sides and the fifth and sixth land on faces that are already covered. Then the top and bottom are left open. In a net, each square must cover a different face.",
+      "feedback": {
+        "empty": "Tap the squares to shade them.",
+        "too-few": "A cube has 6 faces, so you need 6 squares.",
+        "too-many": "A cube has only 6 faces. Take a square away.",
+        "not-net": "If you fold this, two squares land on the same face and one face is left open. Move the squares; try a cross shape."
+      }
+    }
+  }
+}

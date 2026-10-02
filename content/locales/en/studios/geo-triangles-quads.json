@@ -1,0 +1,103 @@
+{
+  "title": "Triangles and quadrilaterals",
+  "summary": "Sort triangles by their sides and angles, meet the quadrilateral family, and draw the diagonals of a rhombus.",
+  "guide": [
+    "This studio is for Years 4 and 5. Like many textbooks, it works on dotty paper.",
+    "Triangles have two kinds of name. By sides: {{term:equilateral-triangle}} (three equal sides), {{term:isosceles-triangle}} (at least two equal sides) and {{term:scalene-triangle}}. By angles: {{term:acute-angled-triangle}}, {{term:right-angled-triangle}} and {{term:obtuse-angled-triangle}}. A triangle can be right-angled and isosceles at the same time.",
+    "On dotty paper, a slanted side that goes \"2 across, 1 up\" is the same length as one that goes \"1 across, 2 up\". That helps to spot equal sides on tilted triangles.",
+    "Quadrilaterals form a family: a {{term:square-shape}} is a {{term:rectangle}} (four right angles) and also a {{term:rhombus}} (four equal sides). Rectangles and rhombuses are both {{term:parallelogram}}s. In this studio a {{term:trapezium}} has exactly one pair of parallel sides, as in Iran's books. The {{term:diagonal}}s of a rhombus cross at right angles and cut each other in half."
+  ],
+  "engine": {
+    "letters": "A B C D E F G H I J",
+    "label-board": "Dotty board",
+    "label-undo": "Undo",
+    "label-clear": "Clear",
+    "label-shape": "Shape",
+    "label-corners": "{n} dots",
+    "label-shape-a": "Orange shape",
+    "label-shape-b": "Green shape",
+    "label-shape-c": "Blue shape",
+    "label-shape-d": "Red shape",
+    "label-shape-e": "Purple shape",
+    "instruction-tap": "Tap the shapes.",
+    "instruction-draw": "Tap the dots. Then tap the first dot.",
+    "instruction-line": "Tap two dots to draw a segment."
+  },
+  "missions": {
+    "find-isosceles": {
+      "title": "Isosceles triangles",
+      "prompt": "Tap every {{term:isosceles-triangle}}: the triangles with at least two equal sides.",
+      "hint": "For slanted sides, count: how many across and how many up? \"2 and 1\" is the same length as \"1 and 2\". An isosceles triangle can be tilted or right-angled.",
+      "success": "Well done! The orange, green and purple triangles each have two equal sides. The green one is tilted and the purple one has a right angle, but both are isosceles.",
+      "why": "How do you know two sides of the green triangle are equal? They are slanted!",
+      "model": "One side goes 2 across and 1 up, the other goes 1 across and 2 up. It is the same step turned round, so the two sides are the same length.",
+      "feedback": {
+        "empty": "Tap the isosceles triangles.",
+        "not-equal-sides": "One triangle you tapped has three different side lengths: it is a {{term:scalene-triangle}}. Count its sides. Tap it again to take it back.",
+        "extra": "One triangle you tapped does not have two equal sides. Tap it again to take it back.",
+        "missed": "There is another isosceles triangle. Look at the tilted one and the one with a right angle too."
+      }
+    },
+    "right-isosceles": {
+      "title": "Right-angled and isosceles",
+      "prompt": "Draw a triangle that is both a {{term:right-angled-triangle}} and an {{term:isosceles-triangle}}.",
+      "hint": "First make a right angle: one side across and one side straight up. Then make the two sides next to the right angle the same length.",
+      "success": "Well done! It has a right angle and the two sides next to it are equal, so it has both names.",
+      "why": "Can a triangle be right-angled and equilateral? Why?",
+      "model": "No. In an equilateral triangle all the angles are equal, and none of them is a right angle. But right-angled and isosceles can go together, like this one.",
+      "feedback": {
+        "empty": "Tap the dots to draw a triangle.",
+        "open": "Your shape is still open. Tap the first dot to close it.",
+        "crossed": "The sides cross over each other. Draw it again.",
+        "too-many-sides": "A triangle has only three sides. Press Clear and try again.",
+        "too-few-sides": "You need three dots that are not in a straight line.",
+        "not-right-angled": "Your triangle has no right angle: there is no little square mark. Draw one side across and one side straight up.",
+        "not-isosceles": "You have a right angle, well done! But the two sides next to it are not the same length. Look at the numbers by the sides."
+      }
+    },
+    "find-rectangles": {
+      "title": "The rectangle family",
+      "prompt": "Tap every {{term:rectangle}}: the quadrilaterals with four right angles.",
+      "hint": "Count the right-angle marks. A shape with four right angles is a rectangle, even if its sides are equal or it is tilted.",
+      "success": "Well done! All three are rectangles. A {{term:square-shape}} is a rectangle too: a rectangle with equal sides.",
+      "why": "Your friend says, \"A square is not a rectangle, because its sides are equal.\" What would you say?",
+      "model": "A rectangle is a quadrilateral with four right angles. A square has four right angles, so it is a rectangle. It just has one more property: its sides are equal too.",
+      "feedback": {
+        "empty": "Tap the rectangles.",
+        "no-right-angles": "The blue shape is a {{term:parallelogram}}: its opposite sides are parallel, but its corners are not right angles. So it is not a rectangle.",
+        "extra": "One shape you tapped does not have four right angles. Tap it again to take it back.",
+        "missed": "There is another rectangle. A square is a rectangle too, even when it is tilted. Count its corners."
+      }
+    },
+    "draw-trapezium": {
+      "title": "Draw a trapezium",
+      "prompt": "Draw a {{term:trapezium}}: a quadrilateral with exactly one pair of parallel sides.",
+      "hint": "Draw two sides across of different lengths, one at the top and one at the bottom. Then join their ends.",
+      "success": "Well done! Two opposite sides are parallel and the other two are not. That is a trapezium.",
+      "why": "How is your shape different from a {{term:parallelogram}}?",
+      "model": "A parallelogram has both pairs of opposite sides parallel. My trapezium has only one parallel pair, because the top and bottom are different lengths.",
+      "feedback": {
+        "empty": "Tap the dots to draw a quadrilateral.",
+        "open": "Your shape is still open. Tap the first dot to close it.",
+        "crossed": "The sides cross over each other. Tap the dots in order round the shape.",
+        "too-many-sides": "A trapezium has four sides. Press Clear and try again.",
+        "too-few-sides": "A trapezium has four sides. You need one more dot.",
+        "not-trapezium": "None of your sides are parallel. Draw a top side and a bottom side that both go straight across.",
+        "is-parallelogram": "Both pairs of opposite sides are parallel: that is a {{term:parallelogram}}. Make the top side shorter or longer than the bottom."
+      }
+    },
+    "rhombus-diagonals": {
+      "title": "Diagonals of a rhombus",
+      "prompt": "This shape is a {{term:rhombus}}. {{term:diagonal}} AC is drawn. Draw the other diagonal, BD.",
+      "hint": "A diagonal goes from one corner to the opposite corner. Tap B, then D.",
+      "success": "Well done! The two diagonals meet in the middle of the rhombus and make four right angles.",
+      "why": "Where and how do the two diagonals cross?",
+      "model": "They meet halfway along both, so they cut each other in half. They cross at right angles: AC goes 1 across for 1 up, and BD goes 1 across for 1 down. In every rhombus the diagonals are perpendicular.",
+      "feedback": {
+        "empty": "Tap two corners to draw a diagonal.",
+        "not-through": "The diagonal must go from corner B to the opposite corner, D. Press Clear and try again.",
+        "not-perpendicular": "Your segment is not perpendicular to AC. Go from B to D."
+      }
+    }
+  }
+}

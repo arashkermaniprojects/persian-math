@@ -1,0 +1,29 @@
+id: ops-number-line-jumps
+engine: number-line
+strand: ops
+order: 3
+concepts: [ops.add-sub.number-line, ops.add-sub.mental]
+# A calculation drawn as hops on the line (Iran G1 p.119: 3 + 5 = 8 as two arcs from 0), then two-digit
+# numbers as "tens, then ones" and "to the next ten", then three-digit numbers. The learner places the
+# landing point of each hop; the arcs and their sizes are drawn for them. The line runs left → right everywhere.
+missions:
+  # Iran G1: first hop 3 from 0, then 5 more.
+  - id: three-and-five
+    setup: { min: 0, max: 10, labels: all, addPoints: 2, jumps: { from: [0, 1], labels: true }, instruction: hop }
+    check: { type: point-equals, values: [[3, 1], [8, 1]] }
+  # 8 + 5: hop to the next ten first (8 → 10), then the rest (10 → 13).
+  - id: next-ten
+    setup: { min: 0, max: 20, major: 10, labels: all, addPoints: 2, showValues: true, jumps: { from: [8, 1], labels: true } }
+    check: { type: point-equals, values: [[10, 1], [13, 1]] }
+  # 37 + 25: tens first (37 → 57), then ones (57 → 62).
+  - id: tens-then-ones
+    setup: { min: 30, max: 70, major: 10, labels: whole, addPoints: 2, showValues: true, jumps: { from: [37, 1], labels: true } }
+    check: { type: point-equals, values: [[57, 1], [62, 1]] }
+  # 62 − 27: back 20 (62 → 42), then back 7 (42 → 35).
+  - id: back-tens-then-ones
+    setup: { min: 30, max: 70, major: 10, labels: whole, addPoints: 2, showValues: true, jumps: { from: [62, 1], labels: true } }
+    check: { type: point-equals, values: [[42, 1], [35, 1]] }
+  # 530 − 280 with three-digit numbers: the line moves in tens; back 200 (→ 330), then back 80 (→ 250).
+  - id: three-digit
+    setup: { min: 200, max: 600, step: 10, major: 100, labels: whole, addPoints: 2, showValues: true, jumps: { from: [530, 1], labels: true } }
+    check: { type: point-equals, values: [[330, 1], [250, 1]] }

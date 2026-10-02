@@ -1,0 +1,76 @@
+{
+  "title": "Multiplying and dividing mixed numbers",
+  "summary": "Use bars to see how multiplying and dividing {{term:mixed-number}}s works, and which operation comes first in a calculation.",
+  "guide": [
+    "Each bar is one whole. {{mixed:2 2/3}} is 2 whole bars and {{frac:2/3}} of another.",
+    "To multiply or divide mixed numbers, you can turn each one into an {{term:improper-fraction}}: {{mixed:2 1/2}} = {{frac:5/2}}.",
+    "Careful: you can't just multiply the wholes together and the fractions together. All of the first number has to be multiplied by all of the second.",
+    "In a calculation with both addition and multiplication, multiply and divide first, then add and subtract."
+  ],
+  "engine": {
+    "label-cell": "cell",
+    "label-bar": "bar"
+  },
+  "missions": {
+    "half-of-mixed": {
+      "title": "Half of {{mixed:2 2/3}}",
+      "prompt": "The striped columns in these three bars show {{mixed:2 2/3}}. Each bar has 2 rows. First predict: is {{frac:1/2}} × {{mixed:2 2/3}} more or less than 1? Then shade half of the striped part.",
+      "hint": "In each striped column, shade just one of its two cells.",
+      "success": "Well done! 8 sixths are shaded: {{frac:1/2}} × {{mixed:2 2/3}} = {{frac:8/6}} = {{mixed:1 1/3}}",
+      "why": "Work it out with fractions too: {{frac:1/2}} × {{frac:8/3}}. Why do you get the same answer as the bars?",
+      "model": "{{mixed:2 2/3}} is 8 thirds, {{frac:8/3}}. Half of 8 thirds is 4 thirds: {{frac:1/2}} × {{frac:8/3}} = {{frac:8/6}} = {{frac:4/3}} = {{mixed:1 1/3}}. On the bars, each third became 2 cells and we took one from each, which makes 8 sixths.",
+      "feedback": {
+        "too-big": "Too many. Only half of each striped column: one cell out of two.",
+        "too-small": "Not enough. In all three bars, shade one cell in every striped column.",
+        "empty": "Nothing is shaded yet. Shade one cell in each striped column."
+      }
+    },
+    "mixed-times-mixed": {
+      "title": "{{mixed:1 1/3}} lots of {{mixed:2 1/2}}",
+      "prompt": "{{mixed:1 1/3}} × {{mixed:2 1/2}} means {{mixed:2 1/2}} once, and {{frac:1/3}} of {{mixed:2 1/2}} more. The blue cells show {{mixed:2 1/2}}. First estimate the answer. Then add {{frac:1/3}} of {{mixed:2 1/2}} by shading empty cells.",
+      "hint": "{{frac:1/3}} of a whole bar is 2 cells. {{frac:1/3}} of a half bar is 1 cell. So how many cells is {{frac:1/3}} of {{mixed:2 1/2}}?",
+      "success": "Correct! 20 sixths: {{mixed:1 1/3}} × {{mixed:2 1/2}} = {{frac:20/6}} = {{mixed:3 1/3}}",
+      "why": "Ahmad worked out 1 × 2 = 2 and {{frac:1/3}} × {{frac:1/2}} = {{frac:1/6}}, so he got {{mixed:2 1/6}}. What did he leave out?",
+      "model": "Ahmad only multiplied whole by whole and fraction by fraction. But the 1 also has to multiply the {{frac:1/2}}, and the {{frac:1/3}} also has to multiply the 2; he left out those two pieces. A safe method is to use improper fractions: {{frac:4/3}} × {{frac:5/2}} = {{frac:20/6}} = {{mixed:3 1/3}}. The bars show it too: 15 blue cells and 5 new ones.",
+      "feedback": {
+        "too-small": "Not enough. {{frac:1/3}} of each whole bar is 2 cells, and {{frac:1/3}} of the half bar is 1 cell. How many altogether?",
+        "too-big": "Too many. Only add {{frac:1/3}} of {{mixed:2 1/2}}: 2 + 2 + 1 cells.",
+        "empty": "The blue cells are already there. Add {{frac:1/3}} of them by shading empty cells."
+      }
+    },
+    "divide-mixed": {
+      "title": "{{mixed:2 1/2}} ÷ {{mixed:1 1/4}}",
+      "prompt": "Fatemeh has {{mixed:2 1/2}} cups of milk. Each bottle holds {{mixed:1 1/4}} cups. How many bottles can she fill? The bars show {{mixed:2 1/2}} in quarters. Predict first, then find groups of {{mixed:1 1/4}} on the bars and type the answer.",
+      "hint": "{{mixed:1 1/4}} is 5 quarters. How many shaded quarters are there?",
+      "success": "Well done! {{mixed:2 1/2}} is 10 quarters and each bottle takes 5: {{mixed:2 1/2}} ÷ {{mixed:1 1/4}} = {{frac:10/4}} ÷ {{frac:5/4}} = 2",
+      "why": "Hassan got 4: \"2 ÷ 1 = 2 and {{frac:1/2}} ÷ {{frac:1/4}} = 2, so 2 + 2 = 4\". Why can't you divide in pieces like that?",
+      "model": "Division asks \"how many whole {{mixed:1 1/4}}s fit into {{mixed:2 1/2}}?\". You can't divide the wholes and the fractions separately, because every bottle needs both its 1 cup and its {{frac:1/4}} cup. In quarters: there are 10 quarters and each bottle takes 5, so 2 bottles. That's why we turn mixed numbers into fractions first: {{frac:5/2}} × {{frac:4/5}} = 2.",
+      "feedback": {
+        "parts-separately": "You divided the wholes and the fractions separately. Each bottle takes a whole {{mixed:1 1/4}} cups, which is 5 quarters. How many bottles do 10 quarters fill?",
+        "counted-quarters": "10 is the number of quarters. Each bottle takes 5 quarters.",
+        "one-group": "5 quarters is just one bottle. How many bottles do 10 quarters fill?",
+        "too-big": "Too many. Each bottle takes {{mixed:1 1/4}} cups and there are only {{mixed:2 1/2}} cups.",
+        "too-small": "Too few. Count the shaded quarters and group them in fives.",
+        "empty": "Type a number: how many bottles?"
+      }
+    },
+    "order-of-operations": {
+      "title": "Multiply first, then add",
+      "prompt": "Work out {{mixed:1 1/2}} + {{frac:1/2}} × {{mixed:2 2/3}} and write the answer as a mixed number in its simplest form. First think about which operation comes first. (You found half of {{mixed:2 2/3}} in mission 1.) You can use the bars of sixths if you like.",
+      "hint": "Multiply first: {{frac:1/2}} × {{mixed:2 2/3}} = {{mixed:1 1/3}}. Now add {{mixed:1 1/2}} and {{mixed:1 1/3}}. Change both to sixths.",
+      "success": "Correct! Multiply first, then add: {{mixed:1 1/2}} + {{mixed:1 1/3}} = {{frac:9/6}} + {{frac:8/6}} = {{frac:17/6}} = {{mixed:2 5/6}}",
+      "why": "Working from left to right gives {{mixed:5 1/3}}. Why do we agree to multiply before adding?",
+      "model": "{{frac:1/2}} × {{mixed:2 2/3}} means \"half of {{mixed:2 2/3}}\". It is one amount that gets added to {{mixed:1 1/2}}. If we add first, we halve the {{mixed:1 1/2}} as well, but only the {{mixed:2 2/3}} should be halved. The rule \"multiply and divide before adding and subtracting\" means everyone gets the same answer from the same calculation. If we want to add first, we use brackets.",
+      "feedback": {
+        "left-to-right": "You worked from left to right: adding first, then multiplying. But multiplication comes first.",
+        "product-only": "{{mixed:1 1/3}} is just the product. Now add {{mixed:1 1/2}} to it.",
+        "half-of-whole-only": "When multiplying you only halved the 2. The {{frac:2/3}} has to be halved too: half of {{mixed:2 2/3}} is {{mixed:1 1/3}}.",
+        "not-mixed": "The value is right! Now write it as a mixed number: a whole number and a fraction less than 1.",
+        "not-simplest": "The value is right, but simplify the fraction.",
+        "too-big": "Too big. Do the multiplication first, then the addition.",
+        "too-small": "Too small. Did you remember to add the {{mixed:1 1/2}}?",
+        "empty": "Type the answer: the whole number, the numerator and the denominator."
+      }
+    }
+  }
+}

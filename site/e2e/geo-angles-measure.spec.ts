@@ -52,6 +52,7 @@ test('en draw 130°: a 50° arm (other scale) is caught, then 130°', async ({ p
   await expect(arm).toHaveAttribute('aria-valuenow', '50');
   await check(page, 'en');
   await no(page, 'you used the other scale');
+  await arm.focus(); // Check took the focus
   for (let i = 0; i < 8; i++) await page.keyboard.press('PageUp');
   await expect(arm).toHaveAttribute('aria-valuenow', '130');
   await check(page, 'en');
@@ -77,6 +78,7 @@ test('fa-IR bisector: a right angle is not the middle, 50 is', async ({ page }) 
   await expect(arm).toHaveAttribute('aria-valuetext', '۹۰°');
   await check(page, 'fa-IR');
   await no(page, 'این زاویهٔ قائمه است');
+  await arm.focus(); // Check took the focus
   for (let i = 0; i < 8; i++) await page.keyboard.press('ArrowDown');
   await check(page, 'fa-IR');
   await ok(page);

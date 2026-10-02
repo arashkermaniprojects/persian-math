@@ -1,0 +1,94 @@
+{
+  "title": "Division with remainders and long division",
+  "summary": "Write a division digit by digit, see what a {{term:remainder}} is and what to do with it in a problem, and check a division by multiplying.",
+  "guide": [
+    "Sometimes things share out equally with nothing left over. Sometimes a few are left over: that is the {{term:remainder}}. Put 17 flowers equally into 4 vases and each vase gets 4 flowers, with 1 flower left over.",
+    "In the written method (the bus stop), the {{term:divisor}} sits outside the bracket on the left and the {{term:dividend}} goes inside. You write the {{term:quotient}} on top, above the digits, and the subtractions underneath.",
+    "Each step has three jobs: find how many times the {{term:divisor}} goes into the number and write that digit on top; multiply that digit by the {{term:divisor}} and write the answer underneath; then subtract. If there is another digit, bring it down and do the same again.",
+    "The {{term:remainder}} is always smaller than the {{term:divisor}}. If it is bigger or the same, the {{term:divisor}} still goes in at least once more.",
+    "To {{term:check}} a division, multiply the {{term:quotient}} by the {{term:divisor}} and add the {{term:remainder}}. You should get the {{term:dividend}} back.",
+    "Every right digit turns green. If you get stuck, press “Show me this step”."
+  ],
+  "engine": {
+    "layout": "busstop",
+    "label-sheet": "{a} divided by {b}",
+    "label-quotient": "quotient",
+    "label-product": "product",
+    "label-remainder": "remainder",
+    "label-step": "step",
+    "label-digit": "digit",
+    "label-reveal": "Show me this step",
+    "label-wrong": "Not yet! Work this digit out again.",
+    "label-done": "Finished! Every step is right.",
+    "label-ask-q": "How many {b}s go into {a}?",
+    "label-ask-p": "{q} × {b} = ?",
+    "label-ask-r": "{a} − {p} = ?"
+  },
+  "missions": {
+    "flowers": {
+      "title": "17 flowers in 4 vases",
+      "prompt": "Sara has 17 flowers to put equally into 4 vases. Divide 17 by 4 and fill in the boxes.",
+      "hint": "How many 4s go into 17? 4 × 4 = 16 and 5 × 4 = 20. 20 is more than 17, so it is 4.",
+      "success": "Well done! Each vase gets 4 flowers and 1 flower is left over.",
+      "why": "Why isn't the {{term:quotient}} 5? Could the {{term:remainder}} be 4 or more?",
+      "model": "For 5 flowers in every vase you would need 5 × 4 = 20 flowers, but Sara only has 17. The {{term:remainder}} can't be 4 or more either: if 4 flowers were left, each vase could get one more. So the {{term:remainder}} is always smaller than the {{term:divisor}}.",
+      "feedback": {
+        "wrong": "Some boxes are still empty. Fill them in one by one; the question under the division helps you."
+      }
+    },
+    "cars": {
+      "title": "How many cars?",
+      "prompt": "30 children are going on a trip. Each car takes 4 children. First divide 30 by 4. Then type the smallest number of cars that can take everyone.",
+      "hint": "30 ÷ 4 is 7 remainder 2. Those 2 children need to come on the trip too!",
+      "success": "Right! 7 cars are full and 2 children are left, so they need one more car: 8 cars.",
+      "why": "The {{term:quotient}} is 7. So why is the answer 8 cars?",
+      "model": "7 cars only take 7 × 4 = 28 children, so 2 children would be left behind. They need another car, even though it won't be full. That makes 7 + 1 = 8 cars. In a problem you have to think about what the {{term:remainder}} means.",
+      "feedback": {
+        "dropped-remainder": "7 cars take 7 × 4 = 28 children. What about the other 2?",
+        "gave-remainder": "2 is the {{term:remainder}}: the children left without a seat. We want the number of cars.",
+        "wrote-both": "You wrote 7 and 2 next to each other: 7 full cars and 2 children left. Now type just how many cars you need.",
+        "too-big": "Too many: with that many cars, some would be empty.",
+        "too-small": "Too few: with that many cars, some children would be left behind.",
+        "empty": "Type the number of cars in the box."
+      }
+    },
+    "three-digits": {
+      "title": "745 ÷ 3",
+      "prompt": "745 books are packed equally into 3 boxes. Divide 745 by 3.",
+      "hint": "First share out just the 7 hundreds between 3. Then read the remainder together with the 4: 14 tens.",
+      "success": "Well done! Each box gets 248 books, with 1 book left over.",
+      "why": "In the second step, why did we divide 14 and not 4?",
+      "model": "In the first step 6 hundreds were shared out and 1 hundred was left. 1 hundred is 10 tens. Together with the 4 tens we already had, that makes 14 tens. That is why the 4 was brought down next to the 1.",
+      "feedback": {
+        "wrong": "Some boxes are still empty. Remember to bring down the next digit after each subtraction."
+      }
+    },
+    "two-digit-divisor": {
+      "title": "Dividing by a 2-digit number",
+      "prompt": "Reza puts 296 pencils into packs of 12. Divide 296 by 12.",
+      "hint": "12 doesn't go into 2, so look at 29. 2 × 12 = 24 and 3 × 12 = 36. Which one is not more than 29?",
+      "success": "Excellent! That makes 24 packs, with 8 pencils left over.",
+      "why": "When you got to 56, how did you know the next digit of the {{term:quotient}} was 4?",
+      "model": "I tried multiples of 12: 4 × 12 = 48 is not more than 56, but 5 × 12 = 60 is too much. So it is 4. The {{term:remainder}} is 56 − 48 = 8, which is smaller than 12.",
+      "feedback": {
+        "wrong": "Some boxes are still empty. If you get stuck, list the multiples of 12: 12, 24, 36, 48, 60."
+      }
+    },
+    "check-it": {
+      "title": "Check the answer",
+      "prompt": "Maryam divided 95 by 4. Her working is above: {{term:quotient}} 23, {{term:remainder}} 3. To {{term:check}} it, work out 23 × 4 + 3.",
+      "hint": "First work out 23 × 4. Then add the {{term:remainder}}.",
+      "success": "Well done! 23 × 4 + 3 = 95. You got back to the {{term:dividend}}, so Maryam's division is right.",
+      "why": "Why does {{term:quotient}} × {{term:divisor}} + {{term:remainder}} give back the {{term:dividend}} when the division is right?",
+      "model": "95 nuts were shared between 4 people: each got 23 and 3 were left. Putting them all back together gives 4 lots of 23 (23 × 4 = 92) plus the 3 left over: 92 + 3 = 95. Multiplying undoes dividing.",
+      "feedback": {
+        "forgot-remainder": "23 × 4 = 92 is right, but don't forget the {{term:remainder}}: add the 3.",
+        "took-remainder": "You took the {{term:remainder}} away. Those 3 were part of the 95 too: add them.",
+        "added-divisor": "Here you need to multiply 23 by 4, not add 4.",
+        "too-big": "Too big. Work out 23 × 4 again first.",
+        "too-small": "Too small. Work out 23 × 4 again, then add the 3.",
+        "empty": "Type your answer in the box."
+      }
+    }
+  }
+}

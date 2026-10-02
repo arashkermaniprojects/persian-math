@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { clamp, decimalString, labelStep, snap, tickKind, tickX, toTick, windowOf } from './number-line-math';
+import { clamp, decimalString, hopText, labelStep, snap, tickKind, tickX, toTick, windowOf } from './number-line-math';
 
 describe('toTick', () => {
   it('places fractions on the tick grid', () => {
@@ -43,6 +43,13 @@ describe('snap', () => {
     // 1.20..1.30 in hundredths from 0 to 100px: 10px per tick.
     expect(snap(52, 120, 130, 0, 100)).toBe(125);
   });
+  it('snaps to multiples of step', () => {
+    // 0..100 from 0 to 1000px: 10px per tick, step 5.
+    expect(snap(440, 0, 100, 0, 1000, 5)).toBe(45);
+    expect(snap(470, 0, 100, 0, 1000, 5)).toBe(45);
+    expect(snap(480, 0, 100, 0, 1000, 5)).toBe(50);
+    expect(snap(-30, -100, 100, 0, 1000, 10)).toBe(-100);
+  });
   it('is the inverse of tickX', () => {
     for (let i = 0; i <= 8; i++) expect(snap(tickX(i, 0, 8, 24, 300), 0, 8, 24, 300)).toBe(i);
   });
@@ -77,6 +84,18 @@ describe('tickKind and labelStep', () => {
     expect(tickKind(125, 100)).toBe('minor');
     expect(tickKind(123, 100)).toBe('minor');
   });
+  it('uses major groups when given', () => {
+    expect(tickKind(40, 1, 10)).toBe('whole');
+    expect(tickKind(45, 1, 10)).toBe('mid');
+    expect(tickKind(-5, 1, 10)).toBe('mid');
+    expect(tickKind(47, 1, 10)).toBe('minor');
+    expect(tickKind(3, 1, 5)).toBe('minor');
+  });
+  it('steps whole-number lines in 1, 2, 5, 10', () => {
+    expect(labelStep(3.4, 36, 1)).toBe(20);
+    expect(labelStep(17, 28, 1)).toBe(2);
+    expect(labelStep(8.5, 36, 1)).toBe(5);
+  });
   it('labels every tick when there is room, fewer when crowded', () => {
     expect(labelStep(40, 30, 4)).toBe(1);
     expect(labelStep(20, 30, 4)).toBe(2);
@@ -89,5 +108,15 @@ describe('tickKind and labelStep', () => {
   it('clamps', () => {
     expect(clamp(5, 0, 4)).toBe(4);
     expect(clamp(-1, 0, 4)).toBe(0);
+  });
+});
+
+describe('hopText', () => {
+  it('writes the signed size of a hop', () => {
+    expect(hopText(37, 57, 1)).toBe('+20');
+    expect(hopText(62, 55, 1)).toBe('\u22127');
+    expect(hopText(-3, 2, 1)).toBe('+5');
+    expect(hopText(24, 21, 10, true)).toBe('\u22120.3');
+    expect(hopText(1, 2, 4)).toBeNull();
   });
 });

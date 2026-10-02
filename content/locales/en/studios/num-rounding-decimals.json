@@ -1,0 +1,85 @@
+{
+  "title": "Rounding decimals",
+  "summary": "Zoom in between a number's two neighbours and see which is nearer: to the nearest whole number, to 1 and 2 decimal places, and to significant figures. Then find every number that rounds to the same value.",
+  "guide": [
+    "To round a number, find its two neighbours and see which one it is nearer to. For example, 3.7 is between 3 and 4 and is nearer 4, so 3.7 rounds to 4 (to the nearest whole number).",
+    "If a number is exactly halfway, like 3.5, we round up.",
+    "Rounding is not the same as cutting off (truncating). Cutting off just drops the digits: 3.7 becomes 3. Rounding picks the nearest: 3.7 becomes 4.",
+    "\"To 1 decimal place\" (1 d.p.) means to the nearest tenth; \"to 2 decimal places\" means to the nearest hundredth.",
+    "The small line at the top shows the whole number line; the coloured piece is the part shown magnified underneath."
+  ],
+  "engine": {
+    "label-line": "Number line: tap to place a point",
+    "label-point": "Point",
+    "label-given": "The number to round",
+    "label-clear": "Clear points"
+  },
+  "missions": {
+    "nearest-whole": {
+      "title": "To the nearest whole number",
+      "prompt": "The point on the line is 3.7. Round it to the nearest whole number. Predict first: is it nearer 3 or 4?",
+      "hint": "The taller mark in the middle is 3.5. 3.7 is past it.",
+      "success": "Well done! 3.7 is nearer 4, so it rounds to 4.",
+      "why": "Cutting off 3.7 gives 3; rounding gives 4. Which is closer to the real value, and why?",
+      "model": "4. From 3.7 to 4 is only 0.3, but from 3.7 to 3 is 0.7. Rounding always gives the nearest number.",
+      "feedback": {
+        "empty": "Type a whole number.",
+        "cut-off": "That's cutting off the decimal, not rounding. Is 3.7 nearer 3 or 4?",
+        "no-mark": "You've lost the decimal point. 3.7 is between 3 and 4, not 37.",
+        "too-big": "The answer should be one of the two neighbours: 3 or 4.",
+        "too-small": "The answer should be one of the two neighbours: 3 or 4."
+      }
+    },
+    "nearest-tenth": {
+      "title": "To 1 decimal place",
+      "prompt": "Here the part from 2.4 to 2.5 is magnified. Round 2.46 to 1 decimal place: put a point on the tenth it is nearer to.",
+      "hint": "Halfway between 2.4 and 2.5 is 2.45. 2.46 is past halfway.",
+      "success": "Great! 2.46 is nearer 2.5.",
+      "why": "To round to 1 decimal place, why do you only need to look at the hundredths digit (6)?",
+      "model": "The hundredths digit tells you whether the number has passed halfway between the two tenths (2.45). If it is 5 or more, the number is nearer the next tenth up.",
+      "feedback": {
+        "count": "Put one point on the nearer tenth.",
+        "too-small": "Put the point on one of the two tenths, 2.4 or 2.5. 2.4 is what you get by cutting off, but 2.46 is past halfway (2.45).",
+        "too-big": "Put the point on one of the two tenths, 2.4 or 2.5."
+      }
+    },
+    "bounds": {
+      "title": "What rounds to 3.5?",
+      "prompt": "Lots of numbers round to 3.5 (to 1 d.p.). Mark the smallest of them with a point. Put the second point on the first number that no longer rounds to 3.5, but to 3.6.",
+      "hint": "A number exactly halfway between two tenths rounds up. Where is halfway between 3.4 and 3.5? And between 3.5 and 3.6?",
+      "success": "Well done! Every number from 3.45 up to (but not including) 3.55 rounds to 3.5. 3.45 is the lower bound and 3.55 the upper bound: 3.45 ≤ x < 3.55",
+      "why": "Why doesn't 3.55 itself round to 3.5?",
+      "model": "3.55 is exactly halfway between 3.5 and 3.6, and halfway rounds up, so 3.55 rounds to 3.6. But anything just below it, like 3.549, still rounds to 3.5.",
+      "feedback": {
+        "count": "Put two points: one on the smallest number, one on the first number that rounds to 3.6.",
+        "wrong": "Both points should be exactly halfway between two tenths: one between 3.4 and 3.5, one between 3.5 and 3.6."
+      }
+    },
+    "nearest-hundredth": {
+      "title": "To 2 decimal places",
+      "prompt": "Round 0.367 to 2 decimal places and type the answer. The line magnifies the part from 0.36 to 0.37.",
+      "hint": "The thousandths digit is 7, which is 5 or more, so the number has passed halfway between the two hundredths.",
+      "success": "Correct! 0.367 rounds to 0.37.",
+      "why": "0.37 has fewer digits than 0.367. So why is it bigger?",
+      "model": "0.37 is the same as 0.370, and 370 thousandths is more than 367 thousandths. The number of digits doesn't tell you the size of a decimal.",
+      "feedback": {
+        "empty": "Type a decimal, such as 0.5.",
+        "too-small": "0.36 is what you get by cutting off. Is 0.367 nearer 0.36 or 0.37?",
+        "too-big": "Round to 2 decimal places: two digits after the point. 0.4 is rounded to 1 decimal place."
+      }
+    },
+    "sig-figs": {
+      "title": "To 2 significant figures",
+      "prompt": "Round 0.0468 to 2 significant figures. The line magnifies the part from 0.046 to 0.047.",
+      "hint": "The first significant figure is the first digit that isn't zero: the 4. The second is the 6. Look at the next digit, 8.",
+      "success": "Well done! 0.0468 rounds to 0.047 (2 s.f.).",
+      "why": "Why aren't the zeros at the start of 0.0468 significant figures?",
+      "model": "They only show where the decimal point is (the place value), not how precise the number is. 0.0468 is 468 ten-thousandths: the significant figures start at the 4.",
+      "feedback": {
+        "empty": "Type a decimal, such as 0.05.",
+        "too-small": "0.046 is cutting off. The next digit is 8 (5 or more), so round up.",
+        "too-big": "The zeros at the front don't count. Keep two figures starting from the 4: 0.04… then round. 0.05 has only 1 significant figure."
+      }
+    }
+  }
+}

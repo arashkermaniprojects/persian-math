@@ -1,0 +1,69 @@
+id: pos-coordinates-translation
+engine: shape-board
+strand: pos
+order: 2
+concepts: [pos.coordinates.first-quadrant, pos.coordinates.shapes, pos.translation]
+# First-quadrant coordinates (x first), completing a shape from its vertices, and translation (Iran G6 «محورهای مختصات»
+# and «تقارن و مختصات», G7 «بردار انتقال»; UK Y4–5). Coordinates are written with {{vec:x,y}}: a column in fa-IR, as
+# Iran's books do, (x, y) in the other locales; the board's live readout uses the same form (engine label-coords).
+missions:
+  # Plot one point. Swapping x and y is the classic slip (code swapped, automatic).
+  - id: plot-point
+    setup:
+      x: [0, 6]
+      y: [0, 6]
+      grid: lines
+      axes: true
+      mode: points
+      labels: true
+      instruction: points
+    check:
+      type: shape-board
+      points: [[4, 2]]
+  # Three vertices of a parallelogram are given (A(1,1), B(4,1), C(5,3)); place D at (2,3).
+  # Putting D at (1,3) makes a right-angled corner (a trapezium, not a parallelogram).
+  - id: fourth-vertex
+    setup:
+      x: [0, 6]
+      y: [0, 5]
+      grid: lines
+      axes: true
+      mode: points
+      labels: true
+      instruction: points
+      shapes:
+        - { pts: [[1, 1], [4, 1], [5, 3]], open: true, labels: true, tone: 2 }
+    check:
+      type: shape-board
+      points: [[2, 3]]
+      traps: [{ point: [1, 3], code: right-corner }, { point: [4, 3], code: one-side }]
+  # Translate the triangle 4 right and 2 up; the live readout shows the coordinates of the last corner tapped.
+  # Moving 2 right and 4 up is caught as swapped (automatic).
+  - id: translate-triangle
+    setup:
+      x: [0, 8]
+      y: [0, 7]
+      grid: lines
+      axes: true
+      mode: polygon
+      instruction: draw
+      show: [coords]
+      shapes:
+        - { pts: [[1, 1], [3, 1], [1, 3]], labels: true, tone: 0 }
+    check:
+      type: shape-board
+      image: { translate: [4, 2] }
+  # Slide the L onto the dashed outline: 4 left and 3 up. Then describe the move (as a vector in the model answer).
+  - id: describe-translation
+    setup:
+      x: [0, 8]
+      y: [0, 6]
+      grid: lines
+      mode: move
+      instruction: move
+      shapes:
+        - { pts: [[1, 4], [3, 4], [3, 5], [2, 5], [2, 6], [1, 6]], tone: 1, dash: true }
+        - { pts: [[5, 1], [7, 1], [7, 2], [6, 2], [6, 3], [5, 3]], tone: 1, name: shape-l, move: true }
+    check:
+      type: shape-board
+      piece: { at: [-4, 3] }

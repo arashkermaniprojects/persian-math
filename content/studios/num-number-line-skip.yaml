@@ -1,0 +1,28 @@
+id: num-number-line-skip
+engine: number-line
+strand: num
+order: 3
+concepts: [num.number-line, num.count.skip, num.even-odd]
+# Grade 1–2 (Iran G1 sections 17–19, Afghan G2, UK Y1): picture first, one tap per number.
+# The hop arcs (jumps) draw each jump of 2, 5 or 10 as in Iran G1 p.122, with its size (+۲) on top.
+missions:
+  # Place a number on a 0–20 line labelled only at 0, 10 and 20 (the tall tick halfway is 5, 15).
+  - id: find-15
+    setup: { min: 0, max: 20, major: 10, labels: whole, addPoints: 1, instruction: tap }
+    check: { type: point-equals, values: [[15, 1]] }
+  # Hop in 2s from 0 to 10: the landings are the even numbers.
+  - id: hop-2s
+    setup: { min: 0, max: 10, labels: all, addPoints: 5, jumps: { from: [0, 1], labels: true }, instruction: hop }
+    check: { type: point-equals, values: [[2, 1], [4, 1], [6, 1], [8, 1], [10, 1]] }
+  # Hop in 2s from 1: the landings are the odd numbers, never on a 2-hop landing from 0.
+  - id: odd-hops
+    setup: { min: 0, max: 10, labels: all, addPoints: 4, jumps: { from: [1, 1], labels: true }, instruction: hop }
+    check: { type: point-equals, values: [[3, 1], [5, 1], [7, 1], [9, 1]] }
+  # Hop in 5s on 0–20: count five small steps for every hop.
+  - id: hop-5s
+    setup: { min: 0, max: 20, major: 10, labels: whole, addPoints: 4, jumps: { from: [0, 1], labels: true }, instruction: hop }
+    check: { type: point-equals, values: [[5, 1], [10, 1], [15, 1], [20, 1]] }
+  # Hop in 10s on 0–100 (ticks every 10, only 0 and 100 labelled): 5 hops land on the middle, 50.
+  - id: hop-10s
+    setup: { min: 0, max: 100, step: 10, major: 100, labels: whole, addPoints: 5, showValues: true, jumps: { from: [0, 1], labels: true }, instruction: hop }
+    check: { type: point-equals, values: [[10, 1], [20, 1], [30, 1], [40, 1], [50, 1]] }

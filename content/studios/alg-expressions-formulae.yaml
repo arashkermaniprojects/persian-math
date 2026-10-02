@@ -1,0 +1,80 @@
+id: alg-expressions-formulae
+engine: pattern-machine
+strand: alg
+order: 1
+concepts: [ops.order-of-operations, alg.notation, alg.formulae, alg.equation.two-unknowns]
+# Iran G7 «عبارت‌های جبری» and «مقدار عددی یک عبارت جبری» (G07_riazi_haftom.pdf p.44 [۳۴]: «عبارت ۲n−۷ …»,
+# «P = ۴a», and «در انجام عملیات … ترتیب انجام عملیات را … رعایت کنید»); Afghan G7 «قیمت افاده‌های حسابی» and
+# G8 «افاده‌های الجبری»; UK Y6 BIDMAS, formulae and a + b = 10. Every expression and machine runs left to right
+# in every locale (docs/NOTATION.md). Letters are Latin in all locales.
+missions:
+  # Brackets first, then ×, then +: 3 + 4 × (6 − 2) = 3 + 16 = 19. Doing 3 + 4 first (28) is the classic slip;
+  # any operator may be tapped, and a wrong order is recorded.
+  - id: brackets-first
+    setup:
+      mode: expr
+      expr: "3 + 4 × (6 − 2)"
+      instruction: order
+    check: { type: pattern, expr: true }
+  # Powers, then ×, then − and + from left to right: 20 − 2 × 3^2 + 4 = 20 − 18 + 4 = 6 (not 20 − 22).
+  - id: powers-and-left-to-right
+    setup:
+      mode: expr
+      expr: "20 − 2 × 3^2 + 4"
+      instruction: order
+    check: { type: pattern, expr: true }
+  # A letter for the input: the machine 2n − 7 (G7 p.34). Reading 2n with n = 5 as 25 gives 18; doing
+  # 2 × (n − 7) gives the bracket trap.
+  - id: letter-machine
+    setup:
+      mode: machine
+      rule: "2n - 7"
+      rows: [{ ex: 4 }, 5, 8, 10]
+      instruction: machine
+    check:
+      type: pattern
+      answers: true
+      traps:
+        - { key: r2, value: 18, code: joined-digits }
+        - { key: r3, value: 21, code: joined-digits }
+        - { key: r4, value: 203, code: joined-digits }
+        - { key: r3, value: 2, code: bracket }
+        - { key: r4, value: 6, code: bracket }
+  # A formula: the perimeter of a square P = 4a (G7 p.34). Adding 4 instead of multiplying is the trap.
+  # The free row lets the learner try any side.
+  - id: square-formula
+    setup:
+      mode: machine
+      rule: "4a"
+      letter: a
+      outLetter: P
+      rows: [3, 7, 15]
+      try: true
+      instruction: machine
+    check:
+      type: pattern
+      answers: true
+      traps:
+        - { key: r1, value: 7, code: added }
+        - { key: r2, value: 11, code: added }
+        - { key: r3, value: 19, code: added }
+        - { key: r3, value: 45, code: times-three }
+  # UK Y6: pairs of whole numbers with a + b = 10, as a machine b = 10 − a. Adding (a + 10) is the trap.
+  - id: make-ten-pairs
+    locales: [en]
+    setup:
+      mode: machine
+      rule: "10 - a"
+      letter: a
+      outLetter: b
+      rows: [{ ex: 3 }, 1, 4, 6, 10]
+      instruction: machine
+    check:
+      type: pattern
+      answers: true
+      traps:
+        - { key: r2, value: 11, code: added }
+        - { key: r3, value: 14, code: added }
+        - { key: r4, value: 16, code: added }
+        - { key: r5, value: 20, code: added }
+        - { key: r5, value: 10, code: same }

@@ -1,0 +1,103 @@
+{
+  "title": "Lines, rays, segments and angles",
+  "summary": "Find the rays, draw parallel and perpendicular lines on dotty paper, and compare angles with a right-angle corner.",
+  "guide": [
+    "This studio is for Years 3 and 4. Children tap dots to draw lines; Undo takes back the last step.",
+    "A {{term:line-segment}} has two ends, so it can be measured. A {{term:ray}} starts at a point and goes on for ever in one direction. A {{term:line}} goes on for ever both ways. Books show \"goes on\" with an arrowhead, and so does the board wherever a line or ray runs off the edge.",
+    "On dotty paper a {{term:parallel}} line has the same slope: if the segment goes 3 across and 1 up, so must the parallel line. A {{term:perpendicular}} line makes a right angle with the segment; it is not always \"standing up\".",
+    "An {{term:angle}} is an amount of turn, not a length. Fold a sheet of paper twice to make a right-angle checker and compare angles with it: smaller is an {{term:acute-angle}}, the same is a {{term:right-angle}}, bigger is an {{term:obtuse-angle}}."
+  ],
+  "engine": {
+    "letters": "A B C D E F G H I J",
+    "label-board": "Dotty board",
+    "label-undo": "Undo",
+    "label-clear": "Clear",
+    "label-shape": "Shape",
+    "label-corners": "{n} dots",
+    "label-fig-a": "Orange figure",
+    "label-fig-b": "Green figure",
+    "label-fig-c": "Blue figure",
+    "label-fig-d": "Red figure",
+    "label-fig-e": "Purple figure",
+    "label-angle-a": "Orange angle",
+    "label-angle-b": "Green angle",
+    "label-angle-c": "Blue angle",
+    "label-angle-d": "Purple angle",
+    "instruction-tap": "Tap the figures.",
+    "instruction-line": "Tap two dots to draw a line.",
+    "instruction-draw": "Tap three dots: end of an arm, corner, end of the other arm."
+  },
+  "missions": {
+    "find-rays": {
+      "title": "Find the rays",
+      "prompt": "Tap every {{term:ray}}. A ray has one end and goes on for ever the other way.",
+      "hint": "Look at both ends of each figure. A black dot means it stops there. An arrowhead means it goes on.",
+      "success": "Well done! The green and the red figures are rays: each has a starting point and goes on in one direction.",
+      "why": "Which of these figures could you measure with a ruler? Why not the others?",
+      "model": "Only the segments, because they have two ends. A ray never ends on one side and a line never ends on either side, so they have no length.",
+      "feedback": {
+        "empty": "Tap the rays.",
+        "is-line": "The blue figure has arrowheads at both ends, so it goes on both ways. That is a {{term:line}}, not a ray.",
+        "is-segment": "One figure you tapped has two ends and stops at both. That is a {{term:line-segment}}. Tap it again to take it back.",
+        "missed": "There is another ray. A ray can point left or right.",
+        "extra": "One figure you tapped is not a ray. Tap it again to take it back."
+      }
+    },
+    "parallel-line": {
+      "title": "A parallel line",
+      "prompt": "Draw a line through the red dot that is {{term:parallel}} to segment AB.",
+      "hint": "Count from A to B: how many across, how many up? Do the same from the red dot.",
+      "success": "Well done! Your line is parallel to AB. However far you extend them, they never meet.",
+      "why": "How can you be sure the two lines will never meet?",
+      "model": "They have the same slope: 3 across and 1 up. The gap between them is the same everywhere, so they never meet.",
+      "feedback": {
+        "empty": "Tap the red dot first, then another dot.",
+        "not-parallel": "Your line is a little steeper or flatter than AB, so if it went on it would cross it. AB goes 3 across and 1 up.",
+        "not-through": "Your line is parallel, but it does not go through the red dot. Start it at the red dot."
+      }
+    },
+    "perpendicular-line": {
+      "title": "A perpendicular line",
+      "prompt": "Draw a line through the red dot that is {{term:perpendicular}} to segment AB.",
+      "hint": "A perpendicular line makes a right angle with AB. AB goes 2 across and 1 up. Imagine turning that a quarter turn.",
+      "success": "Well done! Your line is perpendicular to AB. Together they make four right angles.",
+      "why": "Your perpendicular line is not standing straight up. So why is it perpendicular?",
+      "model": "Perpendicular means it makes a right angle, not that it is upright. AB goes 2 across and 1 up; my line goes 1 back and 2 up. That is the same step turned through a quarter turn.",
+      "feedback": {
+        "empty": "Tap the red dot first, then another dot.",
+        "not-perpendicular": "Your line does not make a right angle with AB. An upright line is not always perpendicular, because AB is slanted. Check with the corner of a book.",
+        "not-through": "Your line does not go through the red dot. Start it at the red dot."
+      }
+    },
+    "draw-obtuse": {
+      "title": "Draw an obtuse angle",
+      "prompt": "Draw an {{term:obtuse-angle}}: tap the end of one arm, then the corner, then the end of the other arm. The pale square corner is there to compare.",
+      "hint": "An obtuse angle is bigger than a right angle: one arm sticks out past the paper corner. But it is smaller than a straight line.",
+      "success": "Well done! Your angle is bigger than a right angle. It is obtuse.",
+      "why": "How do you know your angle is obtuse?",
+      "model": "I put the right-angle corner on the vertex. One arm lay along its edge and the other arm was outside the corner. So the angle is bigger than a right angle but smaller than a straight line.",
+      "feedback": {
+        "empty": "Tap three dots: end of an arm, corner, end of the other arm.",
+        "is-acute": "This angle is smaller than the right angle: it is an {{term:acute-angle}}. Open the second arm wider.",
+        "is-right": "This is exactly a right angle. Open it a little more.",
+        "is-straight": "The two arms make one straight line. An obtuse angle is a little less open than that."
+      }
+    },
+    "biggest-angle": {
+      "title": "The biggest angle",
+      "prompt": "Tap the biggest {{term:angle}}.",
+      "hint": "Do not look at the arms; look at how wide the angle opens. Which one has turned the most?",
+      "success": "Well done! The green angle has short arms, but it is the most open.",
+      "why": "If we made the arms of the green angle twice as long, would the angle get bigger?",
+      "model": "No. An angle is how much it has turned and opened. Longer arms do not change how wide it opens.",
+      "feedback": {
+        "empty": "Tap one of the angles.",
+        "long-arms": "The orange angle has long arms, but it opens only a little. The size of an angle does not depend on the length of its arms.",
+        "right-angle": "The blue angle is a {{term:right-angle}}. One of the angles is even more open than a right angle.",
+        "small-angle": "The purple angle is smaller than a right angle: it is an {{term:acute-angle}}. Look for the one that opens widest.",
+        "extra": "Tap only one angle: the biggest. Tap again to take one back.",
+        "missed": "Tap the biggest angle."
+      }
+    }
+  }
+}

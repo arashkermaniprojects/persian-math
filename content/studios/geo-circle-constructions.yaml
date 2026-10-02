@@ -13,13 +13,13 @@ missions:
     answer: integer
     check: { type: measure, value: 2, aligned: true, traps: [{ value: 4, code: diameter }, { value: 8, code: doubled }] }
   - id: tape-around
-    # A tape wrapped once round a tin 5 cm across, unrolled on the ruler: 15.7 cm (accept 15.4–16).
-    setup: { tool: ruler, object: ribbon, length: 15.7, max: 17, minor: 10, offset: 0, unit: cm }
+    # A tape wrapped once round a tin 3 cm across, unrolled on the ruler: 9.42 cm (accept 9.2–9.6).
+    setup: { tool: ruler, object: ribbon, length: 9.42, max: 10, minor: 10, offset: 0, unit: cm }
     answer: decimal
-    check: { type: measure, value: 15.7, tolerance: 0.3, traps: [{ value: 5, code: diameter }, { value: 10, code: doubled }] }
+    check: { type: measure, value: 9.42, tolerance: 0.2, traps: [{ value: 3, code: diameter }, { value: 6, code: doubled }] }
   - id: how-many-diameters
-    # The tape (15.7) above the diameter (5) on one ruler: the circumference is about 3.14 diameters (accept 3.1–3.2).
-    setup: { tool: ruler, objects: [{ object: ribbon, length: 15.7 }, { object: line, length: 5 }], max: 17, minor: 10, drag: false, unit: cm }
+    # The tape (9.42) above the diameter (3) on one ruler: the circumference is about 3.14 diameters (accept 3.08–3.2).
+    setup: { tool: ruler, objects: [{ object: ribbon, length: 9.42 }, { object: line, length: 3 }], max: 10, minor: 10, drag: false, unit: cm, instruction: none }
     answer: decimal
     check: { type: measure, value: 3.14, tolerance: 0.06, traps: [{ value: 3, code: whole-only }, { value: 0.32, code: upside-down }, { value: 0.3, code: upside-down }] }
   - id: pool

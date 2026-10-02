@@ -32,7 +32,7 @@ type LineRef = number | Seg;
 /**
  * Every field is optional; the check passes when all the given ones hold. Tested in this order (the first failure
  * gives the code): drawing (open/crossed, `sides`, `shape`/`not`, `area`, `perimeter`, `lengths`) → `count` → `image`
- * → `similar` → `line` → `angle` → `points` → `selected` → `cells`/`within`/`net` → `fits` → `piece` → `cubes`/`box` → `pick`.
+ * → `similar` → `line` → `chord` → `angle` → `points` → `selected` → `cells`/`within`/`net` → `fits` → `piece` → `cubes`/`box` → `pick`.
  */
 export interface ShapeBoardCheck {
   type: 'shape-board';
@@ -53,6 +53,11 @@ export interface ShapeBoardCheck {
   similar?: { of?: number; factor?: number };
   /** The last line/segment/ray drawn: a fold line of a given shape, parallel/perpendicular to a given segment (index) or [[x,y],[x,y]], through points. */
   line?: { symmetryOf?: number; parallel?: LineRef; perpendicular?: LineRef; through?: P[] };
+  /**
+   * The last segment drawn is a chord of a compass circle (both ends on it). `diameter: true` = it must go through
+   * the centre, `false` = it must not.
+   */
+  chord?: true | { diameter?: boolean };
   /** The angle drawn as a path arm–corner–arm: a kind (acute, right, obtuse, straight) or degrees (± 0.5). */
   angle?: string | number;
   /** Exactly these points placed (any order). */
@@ -157,6 +162,18 @@ export function checkShapeBoard(c: ShapeBoardCheck, s: ShapeBoardState | undefin
     if (par !== undefined && !parallel(seg, lineOf(par, given))) return fail('not-parallel');
     if (per !== undefined && !perpendicular(seg, lineOf(per, given))) return fail('not-perpendicular');
     if (through && !through.every((p) => onLine(p, seg))) return fail('not-through');
+  }
+  if (c.chord) {
+    const circles = s?.circles ?? [];
+    if (!circles.length) return fail('no-circle');
+    const l = [...drawn].reverse().find((d) => d.kind === 'segment' && d.pts.length === 2);
+    if (!l) return fail('empty');
+    const on = (p: P, [x, y, r]: [number, number, number]) => near(Math.hypot(p[0] - x, p[1] - y), r, 1e-6 * Math.max(1, r));
+    const circle = circles.find((k) => l.pts.every((p) => on(p, k)));
+    if (!circle) return fail('not-chord');
+    const want = c.chord === true ? undefined : c.chord.diameter, centre = onLine([circle[0], circle[1]], l.pts as Seg);
+    if (want === false && centre) return fail('is-diameter');
+    if (want === true && !centre) return fail('not-diameter');
   }
   if (c.angle !== undefined) {
     const a = [...drawn].reverse().find((d) => d.kind === 'path' && d.pts.length === 3);

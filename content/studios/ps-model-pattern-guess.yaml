@@ -1,0 +1,91 @@
+id: ps-model-pattern-guess
+engine: problem-canvas
+strand: ps
+order: 3
+concepts: [ps.act-out-model, ps.find-pattern, ps.eliminate, ps.guess-check]
+# One mission per Iran G2 «حل مسئله» strategy, each from its lesson:
+# - الگوسازی (G2 p.26 [PDF 32] no. 2–3): sums that make 6, written "with a definite order" in a table.
+# - الگویابی (G2 p.44 [PDF 50] no. 1 and p.62 «الگویابی کن»): dots in triangles 1, 3, 6, … with hops +2 +3 +4.
+# - حذف حالت‌های نامطلوب (G2 p.62 [PDF 68] no. 2): three-digit numbers from the cards ۷ ۰ ۹; a number cannot start with 0.
+# - حدس و آزمایش (G2 p.80 [PDF 86]): guess, check, then guess bigger or smaller; here the classic heads-and-legs problem.
+# The strategy is given in each mission (icon hint); choosing one yourself is in ps-multistep-listing.
+missions:
+  # Make a model: 6 marbles in two pockets, every way, in order (left pocket 0, 1, 2 …). 7 ways; the usual slip is to
+  # forget 0 + 6 and 6 + 0.
+  - id: model-pockets
+    setup:
+      instruction: model
+      understand:
+        known: [{ id: marbles-6, n: 6 }, { id: pockets-2, n: 2 }, { id: red-3, n: 3 }]
+        asked: [ways, each-pocket]
+      tools:
+        - kind: table
+          cols: [{ key: left, given: [0, 1] }, { key: right }, { key: total, expr: left + right }]
+          rows: 3
+          extend: true
+          maxRows: 8
+      answer: { key: ways }
+    check:
+      type: problem-canvas
+      known: [marbles-6, pockets-2]
+      asked: ways
+      table: { list: [[0, 6], [1, 5], [2, 4], [3, 3], [4, 2], [5, 1], [6, 0]], cols: [0, 1] }
+      answer: 7
+      traps: [{ value: 5, code: no-empty }, { value: 6, code: one-empty }]
+  # Look for a pattern: 1, 3, 6, 10 dots; the hops grow by one. Figure 6 has 21. Classic slip: keep adding the
+  # same hop (10 + 4 + 4 = 18).
+  - id: pattern-triangles
+    setup:
+      instruction: pattern
+      understand:
+        known: [first-four, keep-going, red]
+        asked: [dots-6, figures]
+      tools:
+        - kind: table
+          cols: [{ key: figure, given: [1, 2, 3, 4, 5, 6] }, { key: dots, given: [1, 3, 6, 10, null, null] }]
+          hops: [1]
+      answer: { key: dots }
+    check:
+      type: problem-canvas
+      known: [first-four, keep-going]
+      asked: dots-6
+      table: { follow: 1, given: 4 }
+      answer: 21
+      traps: [{ value: 18, code: same-hop }, { value: 15, code: figure-5 }]
+  # Eliminate: every arrangement of the cards 7, 0, 9, then cross out those that are not three-digit numbers.
+  - id: eliminate-cards
+    setup:
+      instruction: eliminate
+      understand:
+        known: [cards, use-all, colours]
+        asked: [how-many, digits]
+      tools:
+        - { kind: list, items: [c709, c790, c079, c097, c907, c970] }
+      answer: { key: how-many }
+    check:
+      type: problem-canvas
+      known: [cards, use-all]
+      asked: how-many
+      list: { keep: [c709, c790, c907, c970] }
+      answer: 4
+      traps: [{ value: 6, code: zero-first }]
+  # Guess and check: sheep and hens, 10 heads and 28 legs. Each guess is worked out in the log, and the learner
+  # improves it (more or fewer sheep). 4 sheep; answering 6 (the hens) is the usual slip.
+  - id: guess-legs
+    setup:
+      instruction: guess
+      understand:
+        known: [{ id: heads-10, n: 10 }, { id: legs-28, n: 28 }, { id: km-5, n: 5 }]
+        asked: [sheep, animals]
+      tools:
+        - kind: guess
+          cols: [{ key: hens, expr: 10 - x }, { key: legs, expr: 4*x + 2*hens }]
+          target: 28
+      answer: { key: sheep }
+    check:
+      type: problem-canvas
+      known: [heads-10, legs-28]
+      asked: sheep
+      guess: { found: true }
+      answer: 4
+      traps: [{ value: 6, code: hens }, { value: 7, code: half-legs }]

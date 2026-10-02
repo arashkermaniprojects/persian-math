@@ -1,0 +1,80 @@
+{
+  "title": "Mental adding and subtracting with jumps",
+  "summary": "Show each addition and subtraction as jumps on a number line: tens then ones, or to the next ten first.",
+  "guide": [
+    "On a {{term:number-line}}, {{term:addition}} is a jump to the right and {{term:subtraction}} is a jump to the left.",
+    "The arcs show the jumps. You tap where each jump lands; the number on the arc says how far you jumped, and the number under the point says where you landed.",
+    "For two-digit numbers, split the second number: for 37 + 25, jump 20 (to 57) and then 5 (to 62). Sometimes it's easier to jump to the next ten first: for 8 + 5, jump 2 to 10, then 3 more.",
+    "In class you may draw an empty number line with just the numbers you need. This one has marks so you can check each jump.",
+    "You can drag a point, or tap it and move it with the arrow keys. \"Clear points\" starts again."
+  ],
+  "engine": {
+    "label-line": "Number line: tap to place a point",
+    "label-point": "Point",
+    "label-given": "Start",
+    "label-clear": "Clear points",
+    "instruction-hop": "Tap where each jump lands."
+  },
+  "missions": {
+    "three-and-five": {
+      "title": "3 + 5 on the line",
+      "prompt": "First jump 3 from 0, then 5 more. Tap where each jump lands. What is 3 + 5?",
+      "hint": "The first jump lands on 3. From 3, count on 5 more: 4, 5, 6, 7, 8.",
+      "success": "Well done! 3 + 5 = 8",
+      "why": "If you jump 5 first and then 3, where do you land? Why?",
+      "model": "On 8 again. Both ways you go 8 along altogether; only the order of the jumps has changed. 5 + 3 = 8",
+      "feedback": {
+        "count": "Make two jumps: one for 3 and one for 5 more.",
+        "wrong": "Look at the numbers on the arcs: one should be +3 and the other +5. Start counting from the next mark, not the one you're on."
+      }
+    },
+    "next-ten": {
+      "title": "Jump to 10 first",
+      "prompt": "What is 8 + 5? Start at 8. Jump to 10 first, then the rest.",
+      "hint": "From 8 to 10 is 2. That leaves 3 of the 5.",
+      "success": "Great! 8 + 2 = 10 and 10 + 3 = 13. So 8 + 5 = 13",
+      "why": "Why does jumping to 10 first make it easier?",
+      "model": "Adding to 10 is easy: 10 + 3 = 13. You only need to know what makes 8 up to 10 (2) and what is left of the 5 (3).",
+      "feedback": {
+        "count": "Make two jumps: one to 10 and one for the rest.",
+        "wrong": "The first jump should land on 10. The arcs, +2 and +3, should add up to 5."
+      }
+    },
+    "tens-then-ones": {
+      "title": "37 + 25: tens first",
+      "prompt": "Start at 37. Jump 20 first, then 5. Predict first: is the answer more or less than 60?",
+      "hint": "37 + 20: only the tens digit changes. Then jump 5 more.",
+      "success": "Well done! 37 + 20 = 57 and 57 + 5 = 62",
+      "why": "Why is 37 + 20 easy to work out?",
+      "model": "20 is two tens. Each jump of 10 adds one to the tens digit: 47, 57. The ones digit, 7, doesn't change.",
+      "feedback": {
+        "count": "Make two jumps: +20 first, then +5.",
+        "wrong": "Look at the arcs: the first should say +20 and the second +5. Read the number under each point too."
+      }
+    },
+    "back-tens-then-ones": {
+      "title": "62 − 27: jumping back",
+      "prompt": "Now subtract: start at 62. Jump 20 to the left first, then 7.",
+      "hint": "62 − 20 = 42. From 42, jump back 7: you'll go past 40.",
+      "success": "Great! 62 − 20 = 42 and 42 − 7 = 35. So 62 − 27 = 35",
+      "why": "Maryam said 62 − 27 = 45, because 7 − 2 = 5. What went wrong?",
+      "model": "She took 2 away from 7, but it should be 7 taken away from 2 (from 42). On the line, from 42 we jump back 7: 2 to get to 40, then 5 more to 35.",
+      "feedback": {
+        "count": "Make two jumps back: −20 first, then −7.",
+        "wrong": "Subtracting means jumping left. The arcs should say −20 and −7. It isn't 45: jump back 7 from 42."
+      }
+    },
+    "three-digit": {
+      "title": "530 − 280",
+      "prompt": "This line goes up in tens. Start at 530: jump back 200 first, then 80.",
+      "hint": "530 − 200 = 330. From 330, jump back 80: 30 to get to 300, then 50 more.",
+      "success": "Well done! 530 − 280 = 250",
+      "why": "Reza did it like this: 530 − 300 = 230, then forward 20. Why forward 20?",
+      "model": "300 is 20 more than 280. Jumping back 300 goes 20 too far, so we jump forward 20: 230 + 20 = 250",
+      "feedback": {
+        "count": "Make two jumps back: −200 first, then −80.",
+        "wrong": "The arcs should say −200 and −80. Each small mark is 10; read the number under the point."
+      }
+    }
+  }
+}

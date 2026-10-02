@@ -1,0 +1,73 @@
+id: geo-constructions
+engine: shape-board
+strand: geo
+order: 8
+concepts: [geo.construct.basic, geo.construct.triangles, geo.circle.parts]
+# Ruler and compass (Afghan G6 «ترسیمات هندسی» p.201–214, Iran G10 هندسه ۱ «ترسیم‌های هندسی», UK KS3).
+# The compass: tap the centre, then a point the circle goes through. Where circles and lines cross becomes a point
+# the pencil can snap to, so each target below is off the grid dots and can only be reached by constructing it.
+# Not built: copying an angle (the check measures the angle drawn, and grid slopes can get within 0.5° without a compass).
+missions:
+  # Circle parts: a compass circle and a chord that is not a diameter; the chord cuts the circle into two arcs.
+  - id: chord-arc
+    setup:
+      mode: segment
+      compass: true
+      labels: true
+      instruction: compass
+    check:
+      type: shape-board
+      chord: { diameter: false }
+  # Perpendicular bisector of آب: two equal circles from آ and ب; the line through their crossings. The midpoint
+  # (3, 2.5) is not a dot, so a line along the dots cannot pass.
+  - id: perpendicular-bisector
+    setup:
+      mode: line
+      compass: true
+      instruction: compass
+      shapes:
+        - { pts: [[2, 2], [4, 3]], line: segment, tone: 2, labels: true }
+    check:
+      type: shape-board
+      line: { perpendicular: 0, through: [[3, 2.5]] }
+  # Angle bisector of a 45° angle (vertex ب): its bisector at 22.5° passes through no other dot.
+  - id: angle-bisector
+    setup:
+      y: [0, 5]
+      mode: ray
+      compass: true
+      instruction: compass
+      shapes:
+        - { pts: [[5, 1], [1, 1], [4, 4]], open: true, tone: 2, labels: true }
+    check:
+      type: shape-board
+      line: { through: [[1, 1], [2.8477590650225735, 1.7653668647301797]] }
+  # Equilateral triangle on آب (length 3): circles of radius آب from both ends meet at the third corner (2.5, 3.598).
+  # No dot is the same distance from آ and ب (x = 2.5), so a corner chosen by eye is never equilateral.
+  - id: equilateral
+    setup:
+      y: [0, 5]
+      mode: polygon
+      compass: true
+      instruction: compass
+      show: [lengths]
+      shapes:
+        - { pts: [[1, 1], [4, 1]], line: segment, tone: 2, labels: true }
+    check:
+      type: shape-board
+      shape: equilateral
+      lengths: [3, 3, 3]
+  # Triangle from three sides 4, 3, 2 on base آب: compass 3 from آ and 2 from ب (or the other way round).
+  - id: three-sides
+    setup:
+      y: [0, 5]
+      mode: polygon
+      compass: true
+      instruction: compass
+      show: [lengths]
+      shapes:
+        - { pts: [[1, 1], [5, 1]], line: segment, tone: 2, labels: true }
+    check:
+      type: shape-board
+      shape: triangle
+      lengths: [4, 3, 2]

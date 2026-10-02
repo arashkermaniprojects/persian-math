@@ -1,0 +1,77 @@
+{
+  "title": "Percentages and fraction–decimal–percent conversion",
+  "summary": "Per cent means \"out of a hundred\". Use a hundred square and a 100% bar to see that a fraction, a decimal and a percentage are three names for one amount.",
+  "guide": [
+    "{{term:percent}} means \"out of 100\". 16% is 16 out of 100: {{frac:16/100}}, or {{num:0.16}}.",
+    "A hundred square has 100 small squares. Each one is {{frac:1/100}}, or 1%. Each column of 10 is {{frac:1/10}}, or 10%.",
+    "A whole bar is 100% of something. Split it into 10 parts and each part is 10%. To turn a fraction into a percentage, make an equivalent fraction with a denominator of 10 or 100."
+  ],
+  "engine": {
+    "label-cell": "square"
+  },
+  "missions": {
+    "hundred-square": {
+      "title": "{{num:0.3}} on a hundred square",
+      "prompt": "This square has 100 small squares. First predict: how many small squares is {{num:0.3}}? Then shade {{num:0.3}} of the square.",
+      "hint": "{{num:0.3}} is 3 {{term:tenth}}s. Each column of 10 small squares is one tenth.",
+      "success": "Well done! 30 out of 100 squares are shaded: {{num:0.3}} = {{frac:3/10}} = {{frac:30/100}} = 30%",
+      "why": "Sara says \"{{num:0.3}} is 3%\". Why is she wrong? Use the square to explain.",
+      "model": "{{num:0.3}} is 3 tenths, not 3 hundredths. Each tenth of the square is 10 small squares, so 3 tenths is 30 out of 100. Per cent means \"out of 100\", so {{num:0.3}} is 30%. 3% would be only 3 small squares, which is {{num:0.03}}.",
+      "feedback": {
+        "too-small": "Not enough. {{num:0.3}} is 3 tenths, not 3 hundredths. Each tenth is a whole column of 10 squares.",
+        "too-big": "Too many. {{num:0.3}} is only 3 tenths: 3 columns out of 10.",
+        "empty": "Nothing is shaded yet. Tap a small square to shade it."
+      }
+    },
+    "fifths-to-percent": {
+      "title": "What percentage is {{frac:3/5}}?",
+      "prompt": "The bar is the whole thing: 100%. {{frac:3/5}} of it is shaded. First predict what percentage {{frac:3/5}} is. Then use + to split the bar into 10 parts. What percentage is each tenth?",
+      "hint": "With 10 parts, each part is 10%. How many parts are shaded?",
+      "success": "Correct! {{frac:3/5}} = {{frac:6/10}} = {{frac:60/100}} = 60%, and as a decimal {{num:0.6}}.",
+      "why": "Reza wrote {{frac:3/5}} = 35%. Why is that not right?",
+      "model": "Per cent means \"out of 100\", so we need a denominator of 100, not the two digits written side by side. Multiply the numerator and the denominator by 20: {{frac:3/5}} = {{frac:60/100}}. The bar shows it too: 3 parts out of 5 is more than half the bar, but 35% is less than half (50%).",
+      "feedback": {
+        "digits-joined": "You put 3 and 5 side by side. But {{frac:3/5}} is more than half, and 35% is less than half. Split the bar into 10 parts.",
+        "tenths": "{{frac:3/5}} is 6 tenths, that's right! Now give it as a percentage. Each tenth is 10%.",
+        "numerator": "3 is the number of fifths. What percentage is each fifth? Split the bar into 10 parts.",
+        "other-part": "That's the percentage that is not shaded. Give the shaded percentage.",
+        "too-big": "Too big. {{frac:3/5}} is less than the whole bar (100%).",
+        "too-small": "Too small. Split the bar into 10 parts. Each part is 10%.",
+        "empty": "Type a number: what percentage?"
+      }
+    },
+    "percent-of-amount": {
+      "title": "30% of 50 apples",
+      "prompt": "A basket holds 50 apples and 30% of them are red. The bar is all 50 apples, in 10 parts. First predict how many apples are red. Then shade 30% of the bar and type the answer.",
+      "hint": "Each part is 10%. Share 50 apples between 10 parts: how many apples in each part?",
+      "success": "Well done! Each part is 50 ÷ 10 = 5 apples, and 3 parts are 15 apples: 30% of 50 is 15.",
+      "why": "Maryam says \"30% of 50 is 20, because 50 − 30 = 20\". What has she misunderstood?",
+      "model": "30% means 30 in every 100, or {{frac:3/10}} of the whole. So we split 50 into 10 equal parts and take 3 of them: 3 × 5 = 15. Taking 30 away from 50 makes no sense, because 30% is a share, not 30 apples.",
+      "feedback": {
+        "wrote-percent": "30 is the percentage, not the number of apples. How many apples are in each part of the bar?",
+        "subtracted": "You took 30 away from 50. But 30% means 3 parts out of 10. How many apples are in each part?",
+        "one-part": "5 apples is just one part, which is 10%. How many parts is 30%?",
+        "other-part": "Those are the apples that are not red (70%). Count 3 parts.",
+        "too-big": "Too many. 30% is even less than half (50%).",
+        "too-small": "Too few. Work out 3 parts of the bar.",
+        "empty": "Type a number: how many apples are red?"
+      }
+    },
+    "what-percent": {
+      "title": "18 out of 20 as a percentage",
+      "prompt": "Ali got 18 out of 20 questions right in a test. The bar has 20 parts and 18 are shaded. First predict Ali's score as a percentage. Then use − to make the parts bigger until the bar has 10 parts.",
+      "hint": "With 10 parts, how many are shaded? Each part is 10%.",
+      "success": "Excellent! {{frac:18/20}} = {{frac:9/10}} = {{frac:90/100}}, so Ali got 90% of the questions right.",
+      "why": "Zahra got 9 out of 10 right. Who did better, Zahra or Ali? Why do percentages help us compare?",
+      "model": "Zahra also got {{frac:9/10}}, which is 90%, so they did equally well, even though 18 is more than 9. The tests had different numbers of questions. A percentage turns both scores into \"out of 100\", so we can compare them fairly.",
+      "feedback": {
+        "wrote-score": "18 is the number of right answers. The question is: 18 out of 20 is how many out of 100?",
+        "wrong-part": "That's the percentage of wrong answers (2 out of 20). Give the percentage of right answers.",
+        "wrote-missed": "2 is the number of wrong answers. Find the percentage of right answers.",
+        "too-big": "Too big. Ali didn't get every question right, so it is less than 100%.",
+        "too-small": "Too small. Make the bar 10 parts and count the shaded parts. Each part is 10%.",
+        "empty": "Type a number: what percentage?"
+      }
+    }
+  }
+}

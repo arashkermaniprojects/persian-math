@@ -25,9 +25,9 @@ export function tickX(i: number, lo: number, hi: number, x0: number, x1: number)
   return x0 + ((i - lo) / (hi - lo)) * (x1 - x0);
 }
 
-/** Snap a pointer x to the nearest tick inside the window. */
-export function snap(x: number, lo: number, hi: number, x0: number, x1: number): number {
-  return clamp(Math.round(lo + ((x - x0) / (x1 - x0)) * (hi - lo)), lo, hi);
+/** Snap a pointer x to the nearest tick inside the window; with `step`, to the nearest multiple of step ticks. */
+export function snap(x: number, lo: number, hi: number, x0: number, x1: number, step = 1): number {
+  return clamp(Math.round((lo + ((x - x0) / (x1 - x0)) * (hi - lo)) / step) * step, lo, hi);
 }
 
 /**
@@ -49,8 +49,12 @@ export function decimalString(n: number, d: number): string | null {
   return (neg ? '-' : '') + int + (places ? '.' + frac : '');
 }
 
-/** Tick height class: whole numbers are tallest, halves and tenths (of hundredths) medium, the rest short. */
-export function tickKind(i: number, den: number): 'whole' | 'mid' | 'minor' {
+/**
+ * Tick height class: whole numbers are tallest, halves and tenths (of hundredths) medium, the rest short.
+ * With `major` (ticks per labelled group, e.g. 10 on a 0–100 line), multiples of major are tallest and halves of it medium.
+ */
+export function tickKind(i: number, den: number, major?: number): 'whole' | 'mid' | 'minor' {
+  if (major) return i % major === 0 ? 'whole' : major % 2 === 0 && i % (major / 2) === 0 ? 'mid' : 'minor';
   if (i % den === 0) return 'whole';
   if ((den % 2 === 0 && i % (den / 2) === 0) || (den % 10 === 0 && den > 10 && i % (den / 10) === 0)) return 'mid';
   return 'minor';
@@ -62,7 +66,15 @@ export function tickKind(i: number, den: number): 'whole' | 'mid' | 'minor' {
  */
 export function labelStep(spacing: number, minGap: number, den: number): number {
   // Decimal lines step in 1, 2, 5, 10… so labels land on round decimals (0.40, 0.45, 0.50).
-  const nice = den % 10 === 0 ? [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000] : [1, 2, 3, 4, 6, 12, 24, 5, 10, 20, 50, 100];
+  // Whole-number lines (den 1) step in 1, 2, 5, 10… too (0, 10, 20 … on a 0–100 line).
+  const nice = den % 10 === 0 || den === 1 ? [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000] : [1, 2, 3, 4, 6, 12, 24, 5, 10, 20, 50, 100];
   const fits = (k: number) => k * spacing >= minGap;
   return nice.find((k) => den % k === 0 && fits(k)) ?? nice.find(fits) ?? den;
+}
+
+/** Signed size of a hop from tick a to tick b, e.g. "+20", "−5" (U+2212), "+0.3" in decimal mode; null if not a whole number or decimal. */
+export function hopText(a: number, b: number, den: number, decimal = false): string | null {
+  const d = b - a;
+  const mag = d % den === 0 ? String(Math.abs(d) / den) : decimal ? decimalString(Math.abs(d), den) : null;
+  return mag && (d < 0 ? '\u2212' : '+') + mag;
 }

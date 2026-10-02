@@ -74,6 +74,8 @@ polyline.kg-sb-g, line.kg-sb-g { fill: none; }
 .kg-sb-lt { fill: var(--fg); font-size: 18px; font-weight: 700; text-anchor: middle; }
 .kg-sb-len, .kg-sb-ang { fill: var(--fg); font-size: 14px; text-anchor: middle; direction: ltr; unicode-bidi: isolate; }
 .kg-sb-right { fill: none; stroke: var(--fg); stroke-width: 2; }
+/* arrowheads where a line or ray leaves the board */
+.kg-sb-arrow { fill: var(--c, var(--sb-line)); fill-opacity: 1; stroke-width: 2; }
 .kg-sb-card { fill: var(--hint-bg); fill-opacity: 0.6; stroke: var(--muted); stroke-width: 2; stroke-dasharray: 4 3; }
 .kg-sb-g, .kg-sb-d, .kg-sb-v, .kg-sb-lt, .kg-sb-len, .kg-sb-ang, .kg-sb-right, .kg-sb-card, .kg-sb-mirror, .kg-sb-circle { pointer-events: none; }
 [data-g] .kg-sb-g, [data-k] .kg-sb-g, .kg-sb-hit { pointer-events: all; }
@@ -101,6 +103,8 @@ polyline.kg-sb-g, line.kg-sb-g { fill: none; }
 .kg-sb-solids { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
 .kg-sb-solid { inline-size: 96px; block-size: 96px; margin: 0; padding: 4px; border: 2px solid var(--border); border-radius: var(--radius); background: var(--cell); }
 .kg-sb-solid svg { inline-size: 100%; block-size: 100%; }
+/* a single solid to count faces/edges on: draw it big enough to see the dashed hidden edges */
+figure.kg-sb-solid:only-child { inline-size: 200px; block-size: 200px; }
 button.kg-sb-solid[aria-pressed='true'] { border-color: var(--fg); border-width: 4px; background: var(--hint-bg); }
 .kg-sb-edge { fill: none; stroke: var(--fg); stroke-width: 2; stroke-linejoin: round; }
 .kg-sb-edge.dash { stroke-dasharray: 5 4; stroke-width: 1.5; }

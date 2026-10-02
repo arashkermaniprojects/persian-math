@@ -6,7 +6,7 @@ kg-number-line { display: flex; flex-direction: column; align-items: flex-start;
 .kg-nl-svg.interactive { touch-action: pan-y; cursor: pointer; }
 .kg-nl-track { fill: transparent; }
 /* only the track and the points take taps; everything drawn on top lets them through */
-.kg-nl-axis, .kg-nl-tick, .kg-nl-frac, .kg-nl-fixed, .kg-nl-win, .kg-nl-funnel { pointer-events: none; }
+.kg-nl-axis, .kg-nl-tick, .kg-nl-frac, .kg-nl-fixed, .kg-nl-win, .kg-nl-funnel, .kg-nl-jump, .kg-nl-head { pointer-events: none; }
 .kg-nl-track:focus-visible { outline: none; stroke: var(--accent); stroke-width: 3; stroke-dasharray: 6 4; }
 .kg-nl-axis { stroke: var(--fg); stroke-width: 3; stroke-linecap: round; }
 .kg-nl-axis.kg-nl-over { stroke: var(--muted); stroke-width: 2; }
@@ -24,3 +24,16 @@ kg-number-line { display: flex; flex-direction: column; align-items: flex-start;
 .kg-nl-pt.active .kg-nl-dot { stroke: var(--fg); stroke-width: 2; }
 .kg-nl-pt:focus-visible .kg-nl-hit { stroke: var(--accent); stroke-width: 3; }
 .kg-nl-reset { font-size: 0.95rem; }
+/* hops: arcs over the line with the signed size of each hop */
+.kg-nl-jump { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; }
+.kg-nl-head { fill: var(--accent); }
+.kg-nl-hop { fill: var(--accent); font-weight: 700; font-size: 14px; }
+.kg-nl-start { fill: var(--muted); }
+.kg-nl-val { fill: var(--accent); font-weight: 700; }
+/* instruction hint: a picture of the action, with a very short label */
+.kg-nl-hint { display: flex; align-items: center; gap: 0.6rem; margin: 0; font-weight: 700; align-self: stretch; justify-content: center; }
+.kg-nl-i { inline-size: 44px; block-size: 44px; flex: none; position: relative; border-radius: 50%; background: var(--hint-bg); }
+.kg-nl-i::before, .kg-nl-i::after { content: ''; position: absolute; }
+.kg-nl-i::before { inset-inline: 8px; inset-block-start: 30px; block-size: 3px; background: var(--fg); }
+.kg-nl-i.i-tap::after { inset-inline-start: 15px; inset-block-start: 24px; inline-size: 14px; block-size: 14px; border-radius: 50%; background: var(--accent); }
+.kg-nl-i.i-hop::after { inset-inline: 10px; inset-block: 10px 16px; border: 3px solid var(--accent); border-block-end: 0; border-radius: 50% 50% 0 0 / 100% 100% 0 0; }

@@ -392,12 +392,22 @@ export class ShapeBoard extends HTMLElement {
   private line(a: P, b: P, cls: string) {
     return `<line class="${cls}" x1="${this.sx(a[0])}" y1="${this.sy(a[1])}" x2="${this.sx(b[0])}" y2="${this.sy(b[1])}"/>`;
   }
+  /** An arrowhead at `tip`, pointing away from `from`. */
+  private arrow(from: P, tip: P, cls: string) {
+    const tx = this.sx(tip[0]), ty = this.sy(tip[1]), dx = tx - this.sx(from[0]), dy = ty - this.sy(from[1]), l = Math.hypot(dx, dy) || 1;
+    const u = [dx / l, dy / l], at = (b: number, s: number) => `${(tx - u[0] * b - u[1] * s).toFixed(1)},${(ty - u[1] * b + u[0] * s).toFixed(1)}`;
+    return `<polygon class="${cls} kg-sb-arrow" points="${tx},${ty} ${at(14, 7)} ${at(14, -7)}"/>`;
+  }
   private dot(p: P, cls: string, r: number) {
     return `<circle class="${cls}" cx="${this.sx(p[0])}" cy="${this.sy(p[1])}" r="${r}"/>`;
   }
 
   private shapeSvg(pts: P[], kind: string, closed: boolean, cls: string) {
-    if ((kind === 'line' || kind === 'ray') && pts.length > 1) return this.line(...this.extend(pts[0], pts[1], kind === 'ray'), cls);
+    if ((kind === 'line' || kind === 'ray') && pts.length > 1) {
+      // lines go on for ever both ways, rays one way: arrowheads at the board edge, as in the books
+      const [a, b] = this.extend(pts[0], pts[1], kind === 'ray');
+      return this.line(a, b, cls) + (kind === 'line' ? this.arrow(b, a, cls) : '') + this.arrow(a, b, cls);
+    }
     const tag = closed ? 'polygon' : 'polyline';
     return `<${tag} class="${cls}${closed ? ' closed' : ''}" points="${pts.map(this.xy).join(' ')}"/>`;
   }
@@ -466,7 +476,7 @@ export class ShapeBoard extends HTMLElement {
         ? `<circle class="${cls} closed" cx="${this.sx(g.circle[0])}" cy="${this.sy(g.circle[1])}" r="${g.circle[2] * U}"/>`
         : this.shapeSvg(pts, g.line ?? '', !g.open && !g.line, cls);
       // thin shapes get a wide invisible outline to tap
-      const hit = g.open || g.line ? body.replace(/class="[^"]*"/, 'class="kg-sb-hit"') : '';
+      const hit = g.open || g.line ? body.replace(/class="[^"]*"/g, 'class="kg-sb-hit"') : ''; // arrowheads too
       if (m === 'select' && g.select !== false)
         o.push(`<g data-g="${i}" tabindex="0" role="checkbox" aria-checked="${s.selected.includes(i)}" aria-label="${name}">${body}${hit}</g>`);
       else if (m === 'move' && g.move)
@@ -537,7 +547,12 @@ export class ShapeBoard extends HTMLElement {
     if (show.includes('area') && (poly || m === 'cells')) fact('label-area', 'Area: {n}', poly ? area(poly.pts) : s.cells.length);
     if (show.includes('perimeter') && poly) fact('label-perimeter', 'Perimeter: {n}', perimeter(poly.pts));
     if (show.includes('count')) fact('label-count', '{n}', m === 'cells' ? s.cells.length : m === 'points' ? s.points.length : s.selected.length);
-    if (show.includes('coords') && this.last) facts.push(`<bdi dir="ltr">${esc(this.lab('label-coords', '({x}, {y})', { x: this.d(this.last[0]), y: this.d(this.last[1]) }))}</bdi>`);
+    if (show.includes('coords') && this.last) {
+      const xy = { x: this.d(this.last[0]), y: this.d(this.last[1]) }, f = this.lab('label-coords', '({x}, {y})', xy);
+      // a format with a line break is written as a column in brackets, x on top (Iran's books; class .vec in global.css)
+      const col = f.split('\n'), aria = esc(`${xy.x}, ${xy.y}`);
+      facts.push(col.length > 1 ? `<span class="vec kg-sb-coords" role="math" aria-label="${aria}">${col.map((l) => `<span>${esc(l)}</span>`).join('')}</span>` : `<bdi dir="ltr" class="kg-sb-coords">${esc(f)}</bdi>`);
+    }
     set(p.facts, facts.map((f) => `<span>${f}</span>`).join(''));
     let tiles = '';
     if (c.pick) for (let n = c.pick[0]; n <= c.pick[1]; n++) tiles += `<button type="button" role="radio" class="kg-sb-tile" data-act="pick" data-n="${n}" aria-checked="${this.picked === n}">${this.d(n)}</button>`;
