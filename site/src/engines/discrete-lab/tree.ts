@@ -87,7 +87,7 @@ export function mount(host: Host, cfg: TreeViewConfig): View {
           html += c.pick
             ? `<button type="button" class="kg-dl-tn leaf pick" data-a="pick" data-p="${esc(p)}" data-k="k${esc(p)}" aria-pressed="${picked.has(p)}" aria-label="${name(p)}" style="${at(x + 12, y)}">${host.item(k)}</button>`
             : `<span class="kg-dl-tn leaf" style="${at(x + 12, y)}">${host.item(k)}</span>`;
-        } else if (p) html += `<span class="kg-dl-tn in" style="${at(x - 16, y - 16)}">${host.item(k)}</span>`;
+        } else if (p) html += `<span class="kg-dl-tn in" style="${at(x, y - (c.grow ? 24 : 11))}">${host.item(k)}</span>`;
       }
       if (c.grow && d < D && (c.grow === 'choose' || !kids(p).length)) {
         html += `<button type="button" class="kg-dl-grow${kids(p).length ? ' done' : ''}${sel?.k === 'g' && sel.path === p ? ' on' : ''}" data-a="g" data-p="${esc(p)}" data-k="g${esc(p)}" style="${at(x, y)}" aria-label="${what('g', p)}">${kids(p).length ? '' : '+'}</button>`;

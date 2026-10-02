@@ -115,7 +115,7 @@ kg-discrete-lab > * + * { margin-block-start: 0.9rem; }
 .kg-dl-td { fill: var(--fg); stroke: var(--card); stroke-width: 2; }
 .kg-dl-tbox > span, .kg-dl-tbox > button { position: absolute; transform: translate(-50%, -50%); margin: 0; }
 .kg-dl-tn { font-weight: 700; white-space: nowrap; line-height: 1.2; }
-.kg-dl-tbox > .kg-dl-tn.in { transform: translate(-100%, -100%); }
+.kg-dl-tbox > .kg-dl-tn.in { transform: translate(-50%, -100%); }
 .kg-dl-tbox > .kg-dl-tn.leaf { transform: translate(0, -50%); }
 .kg-dl-tn.mid { background: var(--card); padding-inline: 0.2rem; font-size: 0.9rem; }
 .kg-dl-tn.pick { min-block-size: 44px; min-inline-size: 44px; padding-inline: 0.5rem; border-radius: 10px; border: 2px solid var(--border);
