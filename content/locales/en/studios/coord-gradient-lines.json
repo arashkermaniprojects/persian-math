@@ -1,0 +1,109 @@
+{
+  "title": "Gradient, intercept and y = mx + c",
+  "summary": "Measure how steep a line is with a step triangle, set m and c on sliders, plot a line from a table of values and find the equation of a line through two points.",
+  "guide": [
+    "The {{term:gradient}} of a line says how steep it is: how far it goes up for every 1 across. Draw a step triangle under the line: across first (the run), then up or down (the rise). Gradient = rise ÷ run. A line that goes down from left to right has a negative gradient, because its rise is negative.",
+    "Every straight line (except a vertical one) has an equation y = mx + c. m is the gradient. c is the {{term:y-intercept}}: where the line crosses the y-axis, at the point (0, c). Careful: the y-intercept is on the y-axis, the up-and-down one, not where the line crosses the x-axis.",
+    "Before you read a gradient off a grid, look at the numbers on the axes. If one square on the y-axis is 2 units, counting squares gives the wrong rise. Count units, not squares."
+  ],
+  "engine": {
+    "letters": "A B C D E F G H",
+    "label-plane": "Coordinate grid",
+    "label-point": "Point",
+    "label-handle": "Point on the line",
+    "label-clear": "Clear points",
+    "label-coords": "({x}, {y})",
+    "label-m": "gradient m",
+    "label-c": "intercept c",
+    "label-less": "Decrease {p}",
+    "label-more": "Increase {p}",
+    "label-equation": "Equation:",
+    "label-step": "run {run}, rise {rise}",
+    "label-cell": "y when x = {x}",
+    "instruction-drag": "Drag the points on the line.",
+    "instruction-slide": "Move the sliders.",
+    "instruction-points": "Fill in the table, then tap to plot."
+  },
+  "missions": {
+    "rise-over-run": {
+      "title": "Rise over run",
+      "prompt": "Drag A and B to make a line with gradient {{frac:2/3}}. The step triangle shows the run (green, across) and the rise (red, up). First predict: for a gradient of {{frac:2/3}}, how far up does the line go for every 3 across?",
+      "hint": "Gradient = rise ÷ run. For {{frac:2/3}}, go 3 across and 2 up. Put A on a grid point, then B 3 squares to the right and 2 squares up.",
+      "success": "Well done! The rise ÷ the run is {{frac:2/3}}: the line goes up 2 for every 3 across.",
+      "why": "Why is the gradient rise ÷ run and not run ÷ rise? What would a gradient of {{frac:3/2}} look like?",
+      "model": "The gradient tells you how much y changes for each 1 that x goes across, so the change in y (the rise) goes on top. With rise 2 and run 3 the line climbs {{frac:2/3}} of a unit for each step across: a gentle slope. Run ÷ rise gives {{frac:3/2}}, a steeper line that goes up 3 for every 2 across.",
+      "feedback": {
+        "run-over-rise": "Your line goes up 3 for every 2 across: that is a gradient of {{frac:3/2}}, run ÷ rise turned over. Gradient = rise ÷ run, so go 3 across and only 2 up.",
+        "sign": "Your line goes down from left to right, so its gradient is negative (−{{frac:2/3}}). Make it go up from left to right: 3 across, 2 up.",
+        "wrong-gradient": "Not yet. Read the step triangle: the green number is the run, the red number is the rise. You need rise ÷ run = {{frac:2/3}}, for example run 3 and rise 2, or run 6 and rise 4.",
+        "vertical": "A vertical line has no run, so it has no gradient at all. Move B to the side."
+      }
+    },
+    "falling-line": {
+      "title": "A falling line",
+      "prompt": "Look at the dashed line. Predict: is its gradient positive or negative? Where does it cross the y-axis? Then use the sliders to lay your blue line exactly on top of it.",
+      "hint": "Start where the dashed line crosses the y-axis: that gives c. Then from there go 1 across to the right: how many squares does the line go down?",
+      "success": "Well done! y = −2x + 4. The line goes down 2 for every 1 across, so m = −2, and it crosses the y-axis at (0, 4), so c = 4.",
+      "why": "How can you tell from the picture alone that m is negative? And why is c = 4 and not 2?",
+      "model": "Reading from left to right, the line goes downhill, so the rise is negative and m is negative: −2, because it goes down 2 for every 1 across. c is where the line meets the y-axis (the vertical axis), at (0, 4). The line meets the x-axis at (2, 0), but that is the x-intercept, not c.",
+      "feedback": {
+        "sign": "Your line goes uphill, but the dashed one goes downhill from left to right. A falling line has a negative gradient: try m = −2.",
+        "run-over-rise": "Your line is too gentle: m = −{{frac:1/2}} goes down 1 for every 2 across. The dashed line goes down 2 for every 1 across.",
+        "intercept-x": "c = 2 is where the dashed line crosses the x-axis. c is where it crosses the y-axis, the vertical one. Follow the dashed line to the y-axis and read the number there.",
+        "wrong-gradient": "The steepness is not right yet. From the y-axis, go 1 square right: the dashed line goes down 2 squares. So m = −2.",
+        "wrong-intercept": "The gradient is right, but your line is higher or lower than the dashed one. Change c until it crosses the y-axis at the same place."
+      }
+    },
+    "table-plot": {
+      "title": "Plot from a table",
+      "prompt": "Fill in the table for y = 2x + 2. Then plot the four points. Careful: one square on the y-axis is 2 units.",
+      "hint": "Put each x into the rule: for x = −1, y = 2 × (−1) + 2 = 0. Then for each point go across to x and up to y, reading the numbers on the y-axis, not counting squares.",
+      "success": "Well done! The points (−1, 0), (0, 2), (1, 4) and (2, 6) lie on a straight line. Each step of 1 across goes up 2.",
+      "why": "How can you see the gradient 2 in your table? And why does the scale of the y-axis matter?",
+      "model": "In the table, every time x goes up by 1, y goes up by 2: that is the gradient. On this grid one square up is 2 units, so going up 2 is only one square. If you counted squares as units, the line would look twice as steep as it really is.",
+      "feedback": {
+        "sign-slip": "Check x = −1: 2 × (−1) = −2, and −2 + 2 = 0, not −4. Adding 2 moves up from −2.",
+        "forgot-c": "For x = 0 you wrote 0, but the rule adds 2: 2 × 0 + 2 = 2. Don't forget the + 2 in each column.",
+        "table-empty": "First fill in the y row of the table: put each x into y = 2x + 2.",
+        "table-missing": "Fill in every y in the table before you check.",
+        "table-wrong": "One of the y values is not right. Work out 2 × x, then add 2, for each column.",
+        "empty": "Now tap the grid to plot the points from your table.",
+        "scale": "You counted squares as units. One square on the y-axis is 2, so y = 4 is only 2 squares up. Read the numbers on the axis.",
+        "swapped": "You swapped x and y for one point. Go across to x first, then up to y.",
+        "too-few": "Plot all four points from the table.",
+        "too-many": "Only the four points from the table. Tap a point again to remove it.",
+        "one-coordinate": "One point is right across but wrong up (or the other way). Check it against the table.",
+        "wrong-point": "One of the points is not in the table. Check each one: across to x, up to y."
+      }
+    },
+    "two-points": {
+      "title": "The line through two points",
+      "prompt": "Find the equation of the line through A(1, −2) and B(4, 4). First work out the gradient from A to B: run, rise, rise ÷ run. Then set m and c so your line goes through both points.",
+      "hint": "From A to B: x goes from 1 to 4, so the run is 3; y goes from −2 to 4, so the rise is 6. Gradient = 6 ÷ 3. Then slide c until the line goes through A and B.",
+      "success": "Well done! y = 2x − 4. The gradient is 6 ÷ 3 = 2, and the line crosses the y-axis at (0, −4).",
+      "why": "How could you find c without the sliders, using the gradient and the point A?",
+      "model": "m = rise ÷ run = (4 − (−2)) ÷ (4 − 1) = 6 ÷ 3 = 2. Then A(1, −2) is on the line, so −2 = 2 × 1 + c, which gives c = −4. You can check with B: 2 × 4 − 4 = 4. So the equation is y = 2x − 4.",
+      "feedback": {
+        "run-over-rise": "m = {{frac:1/2}} is run ÷ rise. The rise (6) goes on top: 6 ÷ 3 = 2.",
+        "sign": "From A to B the line goes up (from −2 to 4), so the gradient is positive: 2, not −2.",
+        "intercept-x": "c = 2 is where the line through A and B crosses the x-axis. c is where it crosses the y-axis. Look at the ring on the y-axis.",
+        "wrong-gradient": "Your line is not as steep as AB. Work out the rise (4 − (−2)) and the run (4 − 1), then divide.",
+        "wrong-intercept": "The gradient is right. Now move c until the line goes through A and B."
+      }
+    },
+    "horizontal-vertical": {
+      "title": "y = 3 or x = 3?",
+      "prompt": "Drag A and B to draw the line y = 3. Predict first: does it go across or up and down? What is its gradient?",
+      "hint": "On the line y = 3, every point has y-coordinate 3: (−2, 3), (0, 3), (4, 3)… Put both points 3 units up.",
+      "success": "Well done! y = 3 is a horizontal line: every point on it has y = 3. Its rise is 0, so its gradient is 0.",
+      "why": "Why is the line y = 3 horizontal, even though x = 3 is a vertical line?",
+      "model": "y = 3 says the y-coordinate is always 3 and x can be anything, so the points (−2, 3), (0, 3), (4, 3) make a line across, 3 up. Its rise is 0, so m = 0 and the equation is y = 0x + 3. x = 3 says x is always 3 and y can be anything: that is a vertical line, 3 to the right.",
+      "feedback": {
+        "swapped": "You drew x = 3, the vertical line where every point has x = 3. For y = 3, every point has y = 3: a line across, 3 units up.",
+        "not-horizontal": "Your line slopes. On y = 3 every point is at the same height, so A and B must both be 3 units up.",
+        "vertical": "This is a vertical line. y = 3 goes across the grid.",
+        "wrong-intercept": "Your line is across, but at the wrong height. It must cross the y-axis at 3."
+      }
+    }
+  }
+}

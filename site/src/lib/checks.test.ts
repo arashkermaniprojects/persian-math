@@ -153,3 +153,12 @@ describe('pattern check (kg-pattern-machine)', () => {
     expect(evaluate({ type: 'pattern', expr: true }, {}).code).toBe('empty');
   });
 });
+
+describe('coord check (kg-coord-plane)', () => {
+  it('routes to the coord-plane check and its reason codes', () => {
+    const state = { plane: { lines: [{ m: 2, c: 4 }], scale: [1, 1] as [number, number] } };
+    expect(evaluate({ type: 'coord', line: { m: -2, c: 4 } }, { state }).code).toBe('sign');
+    expect(evaluate({ type: 'coord', line: { m: 2, c: 4 } }, { state }).ok).toBe(true);
+    expect(evaluate({ type: 'coord', points: [[1, 1]] }, {}).code).toBe('empty');
+  });
+});

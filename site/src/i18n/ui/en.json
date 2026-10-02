@@ -62,5 +62,6 @@
   "home.strand.prob": "Probability",
   "home.strand.alg": "Algebra",
   "home.strand.seq": "Patterns and sequences",
-  "home.strand.disc": "Sets and logic"
+  "home.strand.disc": "Sets and logic",
+  "home.strand.coord": "Coordinate geometry"
 }

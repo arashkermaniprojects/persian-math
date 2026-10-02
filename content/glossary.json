@@ -8165,6 +8165,23 @@
    "note": "The worked solution (how it was solved). Afghan books label worked solutions «حل:»."
   },
   {
+   "id": "y-intercept",
+   "fa-IR": "عرض از مبدأ",
+   "fa-AF": "نقطهٔ تقاطع با محور y",
+   "ps": "د y محور سره د تقاطع ټکی",
+   "en": "y-intercept",
+   "status": {
+    "fa-AF": "draft",
+    "ps": "draft"
+   },
+   "src": {
+    "fa-IR": "G09_riazi_nohom p.102 «شیب خط و عرض از مبدأ»",
+    "fa-AF": "AF_G09_riazi ch.3 «y = mx + h … h ترتیب نقطهٔ تقاطع با محور y»",
+    "ps": "AF_G09_riazi_ps ch.3 «h د y محور سره د تقاطع ټکي يا ترتيب دى»"
+   },
+   "note": "Iran writes y = ax + b (a شیب, b عرض از مبدأ); Afghanistan y = mx + h; the UK y = mx + c."
+  },
+  {
    "id": "year",
    "fa-IR": "سال",
    "fa-AF": "سال",

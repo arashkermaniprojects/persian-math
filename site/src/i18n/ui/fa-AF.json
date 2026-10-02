@@ -62,5 +62,6 @@
   "home.strand.prob": "احتمال",
   "home.strand.alg": "الجبر",
   "home.strand.seq": "الگوها و ترادف‌ها",
-  "home.strand.disc": "ست و منطق"
+  "home.strand.disc": "ست و منطق",
+  "home.strand.coord": "مختصات و معادلهٔ خط مستقیم"
 }

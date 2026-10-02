@@ -1,0 +1,86 @@
+id: coord-gradient-lines
+engine: coord-plane
+strand: coord
+order: 1
+concepts: [coord.gradient, coord.line-equation, func.linear-graphs]
+# Pilot of coord-plane. Gradient as rise ÷ run on a step triangle, m and c on sliders, plotting from a table of values on
+# an axis that counts in twos, the equation through two points, and y = 3 vs x = 3 (Iran G9 ch.6 «معادلهٔ خط» p.96 and
+# «شیب خط و عرض از مبدأ» p.102–104, with y = ax + b and the right-angled step triangle; Afghan G9 ch.3 «میل مستقیم»,
+# «معادلهٔ خط مستقیم» with y = mx + h, and G8 ch.9 «رابطهٔ خطی»; UK KS3 y = mx + c). The plane, the equations and the
+# sliders run left to right in every locale; the slider names carry each country's letters (a/b, m/h, m/c).
+# Trap codes that come from the coord check itself: run-over-rise, sign, intercept-x, scale, swapped, one-coordinate.
+missions:
+  # Make a line with gradient 2/3 by dragging A and B; the step triangle shows the run and the rise.
+  # 3/2 (run over rise) and −2/3 (a falling line) are caught automatically.
+  - id: rise-over-run
+    setup:
+      mode: line
+      x: [-5, 5]
+      y: [-5, 5]
+      line: { handles: [[-3, -2], [1, -1]] }
+      labels: true
+      show: [gradient]
+      instruction: drag
+    check:
+      type: coord
+      line: { m: [2, 3] }
+  # Lay the learner's line on the dashed falling line y = −2x + 4 with the m and c sliders.
+  # m = 2 (sign), m = −1/2 (run over rise) and c = 2 (read where it crosses the x-axis) are caught automatically.
+  - id: falling-line
+    setup:
+      mode: line
+      x: [-5, 5]
+      y: [-6, 6]
+      line: { m: 1, c: 0, sliders: { m: [-4, 4, 0.5], c: [-6, 6, 1] } }
+      lines: [{ m: -2, c: 4, dash: true, tone: 0 }]
+      show: [equation]
+      instruction: slide
+    check:
+      type: coord
+      line: { m: -2, c: 4 }
+  # Fill the table for y = 2x + 2, then plot it on a y-axis that counts in twos (one square = 2).
+  # Counting squares as units (scale) and (y, x) for (x, y) (swapped) are caught automatically.
+  - id: table-plot
+    setup:
+      mode: points
+      x: [-3, 3]
+      y: [-2, 10]
+      scale: [1, 2]
+      table: { x: [-1, 0, 1, 2] }
+      max: 6
+      instruction: points
+    check:
+      type: coord
+      table: 2x + 2
+      points: [[-1, 0], [0, 2], [1, 4], [2, 6]]
+      traps:
+        - { cell: [-1, -4], code: sign-slip }
+        - { cell: [0, 0], code: forgot-c }
+  # The line through A(1, −2) and B(4, 4): set m and c so it passes through both. y = 2x − 4.
+  # m = 1/2 (run over rise), m = −2 (sign) and c = 2 (the x-intercept) are caught automatically.
+  - id: two-points
+    setup:
+      mode: line
+      x: [-5, 5]
+      y: [-6, 6]
+      given: [[1, -2], [4, 4]]
+      labels: true
+      line: { m: 1, c: 0, sliders: { m: [-4, 4, 0.5], c: [-6, 6, 1] } }
+      show: [equation, intercept]
+      instruction: slide
+    check:
+      type: coord
+      line: { m: 2, c: -4, through: [[1, -2], [4, 4]] }
+  # Draw y = 3. The vertical line x = 3 is caught as swapped; the step triangle shows a rise of 0.
+  - id: horizontal-vertical
+    setup:
+      mode: line
+      x: [-5, 5]
+      y: [-5, 5]
+      line: { handles: [[-3, -2], [2, 1]] }
+      labels: true
+      show: [gradient]
+      instruction: drag
+    check:
+      type: coord
+      line: { m: 0, c: 3 }
