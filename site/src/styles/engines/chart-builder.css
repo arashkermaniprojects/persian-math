@@ -123,7 +123,7 @@ kg-chart-builder .mini .pb { fill: var(--cell); stroke: var(--fg); stroke-width:
 .kg-cbs-tools, .kg-cbs-best { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
 .kg-cbs-best > p { inline-size: 100%; font-weight: 700; }
 .kg-cbs-tools .kg-cb-kind, .kg-cbs-best .kg-cb-kind { flex-direction: row; min-inline-size: 88px; justify-content: center; }
-.kg-cbs-line { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.kg-cbs-line { display: flex; flex-wrap: wrap; gap: 2px; }
 .kg-cbs-card {
   min-inline-size: 44px; block-size: 52px; padding: 0 0.3rem; font: inherit; font-weight: 700; font-size: 1.15rem;
   border: 2px solid var(--border); border-radius: 10px; background: var(--cell); color: var(--fg); transition: transform 0.12s;
