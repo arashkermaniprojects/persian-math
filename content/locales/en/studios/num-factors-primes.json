@@ -1,0 +1,88 @@
+{
+  "title": "Factors, multiples and primes",
+  "summary": "Arrange counters into rectangles to find a number's factors. See why some numbers make only one rectangle.",
+  "guide": [
+    "This studio covers Year 4–6 work on factors, multiples and primes. The number of counters stays the same and only the row length changes. If the row length is not a {{term:factor}} of the number, the last row is short.",
+    "Each rectangle is a factor pair: 12 = 3 × 4 means 3 and 4 are factors of 12, and 12 is a {{term:multiple}} of 3 and of 4. A number with exactly two factors (1 and itself) is a {{term:prime-number}}; the others are composite. 1 is neither prime nor composite.",
+    "In the last mission a factor tree breaks a number down until every branch ends in a prime ({{term:prime-factorisation}}). Common slips: forgetting 1 and the number itself, counting pairs instead of factors, and thinking every odd number (like 9) is prime."
+  ],
+  "engine": {
+    "label-counter": "counter",
+    "label-red": "red",
+    "label-yellow": "yellow",
+    "label-answer": "answer",
+    "label-cols-fewer": "one fewer in each row",
+    "label-cols-more": "one more in each row",
+    "instruction-tap": "Use − and + to change the row length.",
+    "instruction-tree": "Tap a number to split it into two factors."
+  },
+  "missions": {
+    "rectangles-of-twelve": {
+      "title": "Rectangles of 12",
+      "prompt": "You have 12 counters. Arrange them in 3 equal rows. How many counters are in each row?",
+      "hint": "Use + to make the rows longer until there are just 3 full rows and no short row.",
+      "success": "Well done! 12 = 3 × 4. So 3 and 4 are factors of 12, and 12 is a multiple of 3 and of 4.",
+      "why": "Make the rows 5 long. Why is 5 not a factor of 12?",
+      "model": "Rows of 5 give two full rows (10 counters) and a short row of 2. 12 can't be split into equal rows of 5; 12 ÷ 5 leaves a remainder of 2. So 5 is not a factor of 12.",
+      "feedback": {
+        "not-rect": "The last row is short. Change the row length so every row is full.",
+        "wrong-array": "You need exactly 3 full rows. Count the rows.",
+        "subtracted": "You worked out 12 − 3. We arranged 12 in 3 equal rows; count one row.",
+        "rows": "3 is the number of rows. Count the counters in <b>one</b> row.",
+        "too-big": "Count the counters in one row again.",
+        "too-small": "Count the counters in one row again.",
+        "empty": "Now tap the number for your answer."
+      }
+    },
+    "factors-of-eighteen": {
+      "title": "All the factors of 18",
+      "prompt": "You have 18 counters. Try every row length from 1 to 18. Each length that makes a full rectangle is a factor of 18. How many factors does 18 have?",
+      "hint": "Try the lengths in order: 1, 2, 3, … and note each one that leaves no short row. Don't forget 1 and 18.",
+      "success": "Well done! The factors of 18 are 1, 2, 3, 6, 9 and 18: six factors in three pairs, 1 × 18, 2 × 9 and 3 × 6.",
+      "why": "Once you reach 3 × 6, why don't you need to try the longer rows?",
+      "model": "Factors come in pairs. After 3 × 6 the pairs repeat the other way round: 6 × 3, 9 × 2, 18 × 1. Each bigger factor was already found with its smaller partner.",
+      "feedback": {
+        "not-rect": "The last row is short. Make a full rectangle.",
+        "pairs": "3 is the number of pairs (1 × 18, 2 × 9, 3 × 6). Each pair has <b>two</b> factors.",
+        "forgot-ends": "Don't forget 1 and 18 itself. 18 counters in 1 row is a rectangle too.",
+        "the-number": "18 is the number itself. Count its factors.",
+        "missed-one": "You missed one. Try the lengths 1 to 9 again.",
+        "too-big": "Some lengths leave a short row; those are not factors.",
+        "too-small": "There are more factors. Count 1 and 18 as well.",
+        "empty": "Now tap the number for your answer."
+      }
+    },
+    "prime-thirteen": {
+      "title": "A number with one rectangle",
+      "prompt": "You have 13 counters. Try every row length. How many factors does 13 have?",
+      "hint": "Try 2, 3, 4, 5 and 6. Does any of them make a full rectangle?",
+      "success": "Well done! 13 has only two factors: 1 and 13. So 13 is a prime number.",
+      "why": "Is 1 a prime number? Why?",
+      "model": "No. A prime has exactly two different factors: 1 and itself. 1 has only one factor (itself), so it is not prime, and it is not composite either.",
+      "feedback": {
+        "not-rect": "The last row is short. Make a full rectangle (even a single row of 13).",
+        "only-one": "1 is a factor of 13. But 13 is also a factor of itself.",
+        "the-number": "13 is the number itself. Count its factors.",
+        "not-a-factor": "Did you find a length that leaves no short row? Try again: none from 2 to 12 works.",
+        "too-big": "Only lengths that make a full rectangle are factors.",
+        "too-small": "Count 13 itself as well.",
+        "empty": "Now tap the number for your answer."
+      }
+    },
+    "tree-of-sixty": {
+      "title": "A factor tree for 60",
+      "prompt": "Tap 60 and split it into two factors. Keep splitting every number that isn't prime until every branch ends in a prime. Then find the missing number.",
+      "hint": "Primes turn green and can't be split. If a number is still a button, it isn't prime.",
+      "success": "Well done! 60 = 2 × 2 × 3 × 5. This is the {{term:prime-factorisation}} of 60.",
+      "why": "Ali starts with 60 = 6 × 10 and Sara with 60 = 4 × 15. Do they end with the same primes? Why?",
+      "model": "Yes. Ali: 6 = 2 × 3 and 10 = 2 × 5. Sara: 4 = 2 × 2 and 15 = 3 × 5. Both reach 2, 2, 3, 5. Every composite number is a product of primes in only one way; the order of splitting doesn't matter.",
+      "feedback": {
+        "tree-unfinished": "There's still a branch that isn't prime. Tap it and split it.",
+        "not-prime": "That number isn't prime; it can still be split. We want primes only.",
+        "too-big": "Look at the ends of the branches.",
+        "too-small": "Look at the ends of the branches.",
+        "empty": "Now tap the number for your answer."
+      }
+    }
+  }
+}

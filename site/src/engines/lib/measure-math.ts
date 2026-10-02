@@ -129,6 +129,16 @@ export function snapRotation(rot: number, arms: number[], magnet = 4): number {
   return norm(Math.round(rot));
 }
 
+/** The furthest end of objects laid along a length tool, each starting at `at` (default 0). */
+export function furthestEnd(objs: { length: number; at?: number }[]): number {
+  return Math.max(...objs.map((o) => (o.at ?? 0) + o.length));
+}
+
+/** Height in px of one object's row on a length tool: 36, or a circle's diameter plus a margin. */
+export function objectRow(kind: string | undefined, lengthPx: number): number {
+  return kind === 'circle' ? Math.max(36, Math.ceil(lengthPx) + 12) : 36;
+}
+
 /** Balance beam tilt in degrees: positive when the right pan is heavier (goes down). Any difference shows. */
 export function tilt(left: number, right: number, maxDeg = 14): number {
   const d = right - left;

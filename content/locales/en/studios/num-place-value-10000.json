@@ -1,0 +1,104 @@
+{
+  "title": "Hundreds and thousands: place value and expanded form",
+  "summary": "Build, read and write numbers to 10 000 with base-ten blocks, write them in expanded form, compare them from the highest place, and meet Roman numerals.",
+  "guide": [
+    "This studio is for Years 3 and 4. It follows on from \"Tens and ones\": now there are four columns, {{term:ones}}, tens, {{term:hundreds}} and thousands.",
+    "A small cube is 1, a rod is 10, a flat is 100 and a big cube is 1000. Ten flats stacked up make one big thousand cube.",
+    "The <b>← 10</b> button exchanges ten of one place for one of the place on its left, and <b>1 →</b> does the opposite. The number stays the same; only the way it is made changes.",
+    "{{term:expanded-form}} writes a number as the sum of its digits' values: 4705 = 4000 + 700 + 5. If a place is empty, the number shows a 0 there to hold the other digits in place.",
+    "To {{term:compare}} two 4-digit numbers, start at the highest place, the thousands. The first place where the digits differ decides which is bigger.",
+    "The last mission shows {{term:roman-numerals}}: counters marked I, X and C stand for ones, tens and hundreds."
+  ],
+  "engine": {
+    "place-0": "ones",
+    "place-1": "tens",
+    "place-2": "hundreds",
+    "place-3": "thousands",
+    "label-add": "Add one to the {p}",
+    "label-remove": "Take one from the {p}",
+    "label-bundle": "Exchange 10 {p} for 1 of the {q}",
+    "label-break": "Exchange 1 of the {p} for 10 {q}",
+    "label-views": "View",
+    "label-blocks": "Base-ten blocks",
+    "label-abacus": "Abacus",
+    "label-counters": "Counters",
+    "instruction-bundle": "Ten hundreds? Make a thousand!",
+    "instruction-read": "Count and write the number.",
+    "instruction-add": "Build the number."
+  },
+  "missions": {
+    "ten-hundreds": {
+      "title": "Ten hundreds make a thousand",
+      "prompt": "Here are 13 hundreds and 4 ones. Predict first: what number is this? Then exchange ten hundreds for a thousand.",
+      "hint": "Ten flats have a dotted ring. Press ← 10 under the hundreds.",
+      "success": "Well done! 1 thousand, 3 hundreds, 0 tens and 4 ones: 1304.",
+      "why": "You had 13 hundreds. Now you have 1 thousand and 3 hundreds. Did the number get bigger, or stay the same? Why?",
+      "model": "It stayed the same. Ten hundreds are 1000; we only put them together. 13 hundreds and 4 ones is 1304 too. Only one digit fits in each place, so we write 13 hundreds as 1 thousand and 3 hundreds.",
+      "feedback": {
+        "needs-exchange": "There are still 13 flats in the hundreds. Only one digit fits in each place. Press ← 10.",
+        "too-big": "You added something. The number should stay the same: just exchange ten flats.",
+        "too-small": "You took something away. The number should stay the same: just exchange ten flats.",
+        "empty": "You took everything away! Start again."
+      }
+    },
+    "read-with-zero": {
+      "title": "Read and write the number",
+      "prompt": "How many thousands, hundreds, tens and ones can you see? Write the number.",
+      "hint": "Start with the biggest: thousands, then hundreds, then tens, then ones. If a place is empty, write 0 there.",
+      "success": "That's right! 3 thousands, 0 hundreds, 6 tens and 2 ones: 3062, three thousand and sixty-two.",
+      "why": "Why do we write the 0 in 3062, when we don't say \"zero\" when we read it?",
+      "model": "The 0 shows that the hundreds place is empty, and it keeps every other digit in its place. Without it we'd write 362: the 3 would slide from the thousands to the hundreds and the number would be much smaller.",
+      "feedback": {
+        "dropped-zero": "You wrote 362: that's 3 hundreds. But these are 3 big <b>thousand</b> cubes. The hundreds are empty: write a 0 there.",
+        "zero-moved": "Your 0 is in the wrong place. Read the places in order: thousands, hundreds, tens, ones. Which one is empty?",
+        "as-heard": "You wrote it the way we say it: 3000 and 62 side by side. Each place holds just one digit: 3 thousands, 0 hundreds, 6 tens, 2 ones.",
+        "added-digits": "You added the digits. Each block has its own value: a big cube is 1000, a rod is 10.",
+        "too-big": "Too big. Count the blocks again.",
+        "too-small": "Too small. Remember a big cube is 1000.",
+        "empty": "Write the number in the box."
+      }
+    },
+    "expanded-form": {
+      "title": "From expanded form to a number",
+      "prompt": "Build this number with blocks: in {{term:expanded-form}} it is 4000 + 700 + 5. Think first: which place stays empty?",
+      "hint": "4000 is 4 thousand cubes. 700 is 7 hundred flats. 5 is 5 ones. There are no tens.",
+      "success": "Well done! 4000 + 700 + 5 = 4705.",
+      "why": "Sara wrote 4000 + 700 + 5 = 475. What went wrong?",
+      "model": "475 means 4 hundreds, 7 tens and 5 ones: 400 + 70 + 5. Sara missed out the empty tens place. She needs a 0 there to hold the place: 4705.",
+      "feedback": {
+        "no-zero": "This is 475: 4 hundreds. But 4000 means 4 <b>thousands</b>. Put each digit in its own place.",
+        "zero-moved": "700 means 7 hundreds, not 7 tens. Put the flats in the hundreds.",
+        "too-big": "Too big. Look at each part again.",
+        "too-small": "Not enough yet. You need 4 thousands, 7 hundreds and 5 ones.",
+        "empty": "Use the + buttons to build the number."
+      }
+    },
+    "compare-highest": {
+      "title": "Which is bigger?",
+      "prompt": "Maryam says 3980 is bigger than 4012, because 9 and 8 are big digits. What do you think? Which number is bigger?",
+      "hint": "Start with the highest place. Compare the thousands in the two numbers. The outlined column is the first place where they differ.",
+      "success": "That's right! 4012 > 3980, because 4 thousands are more than 3 thousands.",
+      "why": "Why don't the big digits 9 and 8 in 3980 help it win?",
+      "model": "3980 is 3 thousand and a bit; it hasn't reached 4000 yet. 4012 is more than 4000. The thousands are worth more than all the other places, so we compare them first. Only if they're equal do we move on to the hundreds.",
+      "feedback": {
+        "wrong": "Did you think like Maryam? Look at the thousands: 3 thousands or 4 thousands? The thousands matter most.",
+        "empty": "Choose one of the two numbers."
+      }
+    },
+    "roman-columns": {
+      "title": "Roman numerals: C, X and I",
+      "prompt": "The Romans wrote 246 as CCXLVI. The counters here are C (100), X (10) and I (1). Build CCXLVI with them. Careful with XL!",
+      "hint": "CC is 2 hundreds. XL is 10 before 50, so 40: 4 tens. VI is 5 and 1, so 6: 6 ones.",
+      "success": "Well done! CCXLVI = 200 + 40 + 6 = 246.",
+      "why": "Why does XL mean 40 and not 60?",
+      "model": "When a smaller numeral comes before a bigger one, we take it away: XL is 50 − 10 = 40. When it comes after, we add: LX is 50 + 10 = 60. Our digits don't work like this: the place of a digit tells its value, so we only need ten digits and a 0.",
+      "feedback": {
+        "xl-added": "That's 266: you read XL as 50 + 10. X comes <b>before</b> L, so take it away: 50 − 10 = 40.",
+        "vi-swapped": "That's 244: VI and IV are different. In VI the I comes after the V, so add: 5 + 1 = 6.",
+        "too-big": "Too big. Count the hundreds, tens and ones again.",
+        "too-small": "Not enough yet. CC is two hundreds, XL is four tens, VI is six ones.",
+        "empty": "Use the + buttons to put counters in each column."
+      }
+    }
+  }
+}

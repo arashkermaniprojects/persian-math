@@ -102,3 +102,54 @@ describe('measure (<kg-measure>)', () => {
     expect(evaluate({ type: 'measure', value: 600 }, { state: { tool: 'balance', measured: 500 }, integer: null }).code).toBe('too-small');
   });
 });
+
+describe('chart (<kg-chart-builder>)', () => {
+  it('checks tallies, typed counts and chart values from the engine state', () => {
+    const c = { type: 'chart' as const, tally: [6, 3], values: [6, 3] };
+    expect(evaluate(c, { state: { tally: [6, 3], values: [6, 3], unit: 2 } }).ok).toBe(true);
+    expect(evaluate(c, { state: { tally: [6, 3], values: [12, 6], unit: 2 } }).code).toBe('key-ignored');
+    expect(evaluate({ type: 'chart', typed: [7] }, { state: { typed: [6] } }).code).toBe('gate-as-four');
+    expect(evaluate({ type: 'chart', pick: 'apple' }, { state: { cat: 'apple' } }).ok).toBe(true);
+  });
+});
+
+describe('chance (probability-sim)', () => {
+  it('reads the nested engine state', () => {
+    const chance = { probs: { red: [1, 1] as [number, number] }, chosen: 'red', trials: 10 };
+    expect(evaluate({ type: 'chance', prob: { outcomes: ['red'], level: 'certain' }, chosen: 'red', trials: 10 }, { state: { chance } })).toEqual({ ok: true });
+    expect(evaluate({ type: 'chance', chosen: 'blue' }, { state: { chance } }).code).toBe('choose-wrong');
+    expect(evaluate({ type: 'chance', space: true }, {}).code).toBe('space-empty');
+  });
+});
+
+describe('shape-board (<kg-shape-board>)', () => {
+  it('reads the nested board state', () => {
+    const board = { drawn: [{ kind: 'polygon' as const, pts: [[0, 0], [3, 0], [3, 2], [0, 2]] as [number, number][], closed: true }] };
+    expect(evaluate({ type: 'shape-board', shape: 'rectangle', area: 6 }, { state: { board } }).ok).toBe(true);
+    expect(evaluate({ type: 'shape-board', shape: 'square', traps: [{ shape: 'rectangle', code: 'not-equal' }] }, { state: { board } }).code).toBe('not-equal');
+    expect(evaluate({ type: 'shape-board', shape: 'triangle' }, {}).code).toBe('empty');
+  });
+});
+
+describe('problem-canvas (<kg-problem-canvas>)', () => {
+  it('reads the engine state, falling back to the studio answer box', () => {
+    const tools = [{ kind: 'bar' as const, model: 'part-whole' as const, whole: 23, parts: [12, '?' as const] }];
+    const state = { known: ['books', 'story'], asked: 'science', strategy: null, tools, answer: 11 };
+    const check = { type: 'problem-canvas', known: ['books', 'story'], bar: { whole: 23, parts: [12, '?'] }, answer: 11 } as const;
+    expect(evaluate(check, { state })).toEqual({ ok: true });
+    expect(evaluate({ ...check, answer: 12 }, { state }).code).toBe('too-small');
+    expect(evaluate({ type: 'problem-canvas', answer: 11, traps: [{ value: 35, code: 'added' }] }, { integer: 35 }).code).toBe('added');
+    expect(evaluate({ type: 'problem-canvas', known: ['a'] }, {}).code).toBe('known-missing');
+  });
+});
+
+describe('pattern check (kg-pattern-machine)', () => {
+  it('routes to the pattern-machine check and its reason codes', () => {
+    const state = { pattern: { mode: 'grow', answers: { t4: 13, t10: 40 }, expect: { t4: 13, t10: 31 } } };
+    expect(evaluate({ type: 'pattern', answers: true }, { state }).code).toBe('too-big');
+    expect(evaluate({ type: 'pattern', answers: true, traps: [{ key: 't10', value: 40, code: 'four-each' }] }, { state }).code).toBe('four-each');
+    const seq = { pattern: { mode: 'repeat', seq: ['a', 'b'], target: ['a', 'b'] } };
+    expect(evaluate({ type: 'pattern', complete: true }, { state: seq }).ok).toBe(true);
+    expect(evaluate({ type: 'pattern', expr: true }, {}).code).toBe('empty');
+  });
+});

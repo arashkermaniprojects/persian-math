@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   angleReading, between, clamp, convert, dialAngle, dialValue, norm, numText, pointerAngle, protractorReading,
-  rulerReading, snapRotation, snapTo, stripFactors, ticks, tidy, tilt, UNITS,
+  rulerReading, snapRotation, furthestEnd, objectRow, snapTo, stripFactors, ticks, tidy, tilt, UNITS,
 } from './measure-math';
 
 describe('units and conversion', () => {
@@ -151,5 +151,17 @@ describe('balance and dial', () => {
     expect(dialValue(0, 1000)).toBe(500);
     expect(dialValue(-150, 1000)).toBe(0);
     expect(dialValue(170, 1000)).toBe(1000);
+  });
+});
+
+describe('length-tool layout', () => {
+  it('finds the furthest end of objects that start at different places', () => {
+    expect(furthestEnd([{ length: 5 }, { length: 4, at: 2 }])).toBe(6);
+    expect(furthestEnd([{ length: 7 }])).toBe(7);
+  });
+  it('gives a circle a row as tall as its diameter', () => {
+    expect(objectRow('pencil', 200)).toBe(36);
+    expect(objectRow('circle', 150)).toBe(162);
+    expect(objectRow('circle', 10)).toBe(36);
   });
 });

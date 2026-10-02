@@ -1,0 +1,77 @@
+id: seq-patterns
+engine: pattern-machine
+strand: seq
+order: 1
+concepts: [seq.patterns.shape, seq.patterns.number]
+# Iran G2–3 «الگو» (G03_riazi_sevom.pdf p.7–12: repeating patterns, growing stairs, «عددها ۷ تا ۷ تا اضافه می‌شوند»),
+# UK Y2. Sequences, figures and hops run left to right, as in the books' hop diagrams (G03 p.8, p.12).
+missions:
+  # Continue a repeating pattern: the unit is circle, triangle, triangle. The palette also holds a red triangle
+  # and a blue circle, so a colour-only or shape-only mistake gets its own feedback.
+  - id: continue-pattern
+    setup:
+      mode: repeat
+      task: continue
+      unit: [red-circle, blue-triangle, blue-triangle]
+      length: 9
+      blank: 3
+      palette: [red-circle, blue-triangle, red-triangle, blue-circle]
+      instruction: continue
+    check: { type: pattern, complete: true }
+  # Find the unit: star star square square. Tapping the second star (unit 1) or the third item (unit 2) is too
+  # short; tapping where the second full unit ends (unit 8) is two units.
+  - id: find-the-unit
+    setup:
+      mode: repeat
+      task: unit
+      unit: [yellow-star, yellow-star, green-square, green-square]
+      length: 10
+      instruction: unit
+    check: { type: pattern, unit: true }
+  # Fix the mistake: heart, circle, square repeating; position 5 is a blue circle instead of a yellow circle.
+  - id: fix-the-mistake
+    setup:
+      mode: repeat
+      task: fix
+      unit: [red-heart, yellow-circle, blue-square]
+      length: 9
+      wrong: { 5: blue-circle }
+      palette: [red-heart, yellow-circle, blue-square, blue-circle]
+      instruction: fix
+    check: { type: pattern, complete: true }
+  # Growing pattern: squares in a row from matchsticks, 4, 7, 10, … (3n + 1). Figure 4 = 13 can be found by
+  # adding 3; figure 10 = 31 is the prediction. Traps: 4 sticks per square, forgetting the first stick, doubling.
+  - id: matchsticks
+    setup:
+      mode: grow
+      figure: sticks
+      show: 3
+      ask: [4, 10]
+      instruction: count
+    check:
+      type: pattern
+      answers: true
+      traps:
+        - { key: t4, value: 16, code: four-each }
+        - { key: t10, value: 40, code: four-each }
+        - { key: t4, value: 12, code: forgot-first }
+        - { key: t10, value: 30, code: forgot-first }
+        - { key: t10, value: 32, code: doubled }
+        - { key: t10, value: 26, code: doubled }
+  # Number pattern: 3, 7, 11, … jumps of 4. The learner writes the jump and the missing terms.
+  # 14 for term 4 comes from counting the 11 itself as the first of the four steps.
+  - id: number-jumps
+    setup:
+      mode: numbers
+      start: 3
+      step: 4
+      show: 6
+      ask: [4, 5, 6]
+      askStep: true
+      instruction: jump
+    check:
+      type: pattern
+      answers: true
+      traps:
+        - { key: t4, value: 14, code: counted-start }
+        - { key: t4, value: 12, code: added-one }

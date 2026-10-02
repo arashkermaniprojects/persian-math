@@ -1,0 +1,120 @@
+/* Styles for <kg-chart-builder>. Loaded on every page via the glob in layouts/Base.astro. */
+/* ---------- engine: chart builder ---------- */
+kg-chart-builder {
+  display: flex; flex-direction: column; gap: 0.75rem; min-inline-size: 0;
+  --cb-blue: #2f6fb5; --cb-orange: #d9772b; --cb-green: #3f8f4a; --cb-purple: #7b52ab;
+  --cb-red: #c2413a; --cb-yellow: #d6a51c; --cb-pink: #c95a93; --cb-brown: #8a5a36;
+}
+@media (prefers-color-scheme: dark) {
+  kg-chart-builder {
+    --cb-blue: #6ea6e6; --cb-orange: #f0a060; --cb-green: #75c27f; --cb-purple: #b08ae0;
+    --cb-red: #ee7b72; --cb-yellow: #f0cc5a; --cb-pink: #ec8fbf; --cb-brown: #c49470;
+  }
+}
+kg-chart-builder .c-blue { color: var(--cb-blue); } kg-chart-builder .c-orange { color: var(--cb-orange); }
+kg-chart-builder .c-green { color: var(--cb-green); } kg-chart-builder .c-purple { color: var(--cb-purple); }
+kg-chart-builder .c-red { color: var(--cb-red); } kg-chart-builder .c-yellow { color: var(--cb-yellow); }
+kg-chart-builder .c-pink { color: var(--cb-pink); } kg-chart-builder .c-brown { color: var(--cb-brown); }
+kg-chart-builder p { margin: 0; }
+kg-chart-builder .vh { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+kg-chart-builder svg { display: block; overflow: visible; }
+
+/* pictures: filled in their colour; details cut out in the card colour */
+kg-chart-builder .ico { fill: currentColor; overflow: hidden; }
+kg-chart-builder .ico .d { fill: none; stroke: var(--card); stroke-width: 2; stroke-linecap: round; }
+kg-chart-builder .ico .s { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; }
+kg-chart-builder .ico .o { fill: var(--cb-yellow); }
+
+/* icon hint */
+.kg-cb-hint { display: flex; align-items: center; gap: 0.6rem; font-weight: 700; }
+.kg-cb-i { inline-size: 48px; block-size: 48px; flex: none; border-radius: 50%; background: var(--hint-bg); display: grid; place-items: center; color: var(--fg); }
+.kg-cb-i svg { max-inline-size: 34px; max-block-size: 30px; }
+
+/* survey cards */
+.kg-cb-cards { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.kg-cb-card {
+  inline-size: 48px; block-size: 48px; display: grid; place-items: center; padding: 0;
+  border: 2px solid var(--border); border-radius: 10px; background: var(--cell); position: relative;
+}
+.kg-cb-card[aria-pressed='true'] { border-color: var(--accent); border-width: 3px; transform: translateY(-3px); box-shadow: 0 3px 0 var(--accent); }
+.kg-cb-card.used { opacity: 0.35; }
+.kg-cb-card.used::after { content: ''; position: absolute; inset: 22px 4px; border-block-start: 3px solid var(--fg); transform: rotate(-35deg); }
+
+/* frequency table: follows the page direction, like the books' tables */
+.kg-cb-table { border-collapse: collapse; inline-size: 100%; background: var(--cell); }
+.kg-cb-table th, .kg-cb-table td { border: 1px solid var(--border); padding: 0.2rem 0.35rem; text-align: start; vertical-align: middle; }
+.kg-cb-table thead th { background: var(--hint-bg); font-size: 0.95rem; }
+.kg-cb-table tbody th { font-weight: 400; white-space: nowrap; }
+.kg-cb-table tbody th > svg, .kg-cb-pick > svg { display: inline-block; vertical-align: middle; margin-inline-end: 0.3rem; }
+.kg-cb-total th, .kg-cb-total td { font-weight: 700; }
+.kg-cb-tc { inline-size: 100%; }
+.kg-cb-tc { white-space: nowrap; }
+.kg-cb-tally { stroke: var(--fg); stroke-width: 2.5; stroke-linecap: round; display: inline-block; vertical-align: middle; }
+.kg-cb-add {
+  min-block-size: 44px; min-inline-size: 72px; inline-size: calc(100% - 52px); padding: 0.2rem 0.4rem; direction: ltr;
+  display: inline-flex; align-items: center; justify-content: flex-start; vertical-align: middle;
+  border: 2px dashed var(--border); border-radius: 8px; background: var(--card); color: var(--fg);
+}
+.kg-cb-add:hover { border-color: var(--accent); }
+button.kg-cb-del { min-inline-size: 44px; padding-inline: 0; margin-inline-start: 4px; vertical-align: middle; }
+.kg-cb-del:disabled { opacity: 0.35; cursor: default; }
+.kg-cb-n { text-align: center !important; font-weight: 700; font-size: 1.1rem; }
+.kg-cb-num { font: inherit; font-weight: 700; inline-size: 3.2rem; min-block-size: 44px; text-align: center; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--fg); }
+
+/* pictogram rows: pictures left → right, buttons wrap under them on narrow screens */
+.kg-cb-pc { inline-size: 100%; }
+.kg-cb-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem; }
+.kg-cb-row [data-s] { touch-action: none; cursor: pointer; border-radius: 6px; max-inline-size: 100%; overflow: hidden; }
+.kg-cb-strip { max-inline-size: 100%; }
+.kg-cb-pm { display: inline-flex; gap: 0.3rem; }
+.kg-cb-pm button { min-inline-size: 44px; padding-inline: 0; font-weight: 700; }
+kg-chart-builder .hit { fill: transparent; }
+kg-chart-builder [data-s]:focus-visible, kg-chart-builder .col:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.kg-cb-key { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+.kg-cb-key bdi { display: inline-flex; align-items: center; gap: 0.3rem; font-weight: 700; padding: 0.1rem 0.5rem; border: 2px solid var(--border); border-radius: 8px; }
+
+/* chart: always left → right */
+.kg-cb-chart { inline-size: 100%; }
+.kg-cb-svg { inline-size: 100%; block-size: auto; max-inline-size: 100%; font-family: inherit; }
+.kg-cb-svg .axis { stroke: var(--fg); stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.kg-cb-svg .grid { stroke: var(--border); stroke-width: 1; }
+.kg-cb-svg .brk { stroke: var(--fg); stroke-width: 2; fill: none; }
+.kg-cb-svg .lab { fill: var(--fg); font-size: 13px; }
+.kg-cb-svg .lab.sm { font-size: 11.5px; }
+.kg-cb-svg .ttl { font-weight: 700; }
+.kg-cb-svg .axis, .kg-cb-svg .grid, .kg-cb-svg .lab, .kg-cb-svg .ln, .kg-cb-svg .mean { pointer-events: none; }
+.kg-cb-svg .bar { fill: currentColor; stroke: var(--fg); stroke-width: 1; }
+.kg-cb-svg .ln { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linejoin: round; }
+.kg-cb-svg .pt { fill: var(--accent); stroke: var(--card); stroke-width: 3; }
+.kg-cb-svg .mean { stroke: var(--fg); stroke-width: 2; stroke-dasharray: 7 5; }
+.kg-cb-svg .col { outline: none; }
+.kg-cb-svg .col[data-s] { cursor: ns-resize; touch-action: none; }
+.kg-cb-svg .col[data-a] { cursor: pointer; }
+.kg-cb-svg .col.picked .hit { fill: var(--hint-bg); stroke: var(--accent); stroke-width: 3; }
+
+/* pie */
+.kg-cb-pie { display: flex; justify-content: center; }
+.kg-cb-pie .kg-cb-svg { inline-size: auto; }
+kg-chart-builder .sec { fill: var(--cell); stroke: var(--muted); stroke-width: 1.5; }
+kg-chart-builder .sec[class*='c-'] { fill: currentColor; stroke: var(--card); }
+kg-chart-builder .sec[data-a] { cursor: pointer; outline: none; }
+kg-chart-builder .sec[data-a]:focus-visible, kg-chart-builder .sec.picked { stroke: var(--fg); stroke-width: 4; }
+.kg-cb-legend { display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem; justify-content: center; }
+.kg-cb-legend > * { display: inline-flex; align-items: center; gap: 0.35rem; }
+kg-chart-builder .sw { inline-size: 18px; block-size: 18px; border-radius: 4px; background: currentColor; flex: none; }
+
+/* pick / brush / chart-type buttons */
+.kg-cb-pick, .kg-cb-brush, .kg-cb-kind {
+  min-block-size: 44px; border: 2px solid var(--border); border-radius: 10px; background: var(--card); color: var(--fg);
+  padding: 0.15rem 0.5rem; display: inline-flex; align-items: center; gap: 0.3rem;
+}
+.kg-cb-pick { inline-size: 100%; }
+.kg-cb-pick[aria-pressed='true'], .kg-cb-brush[aria-checked='true'], .kg-cb-kind[aria-checked='true'] { border-color: var(--accent); border-width: 3px; background: var(--hint-bg); }
+.kg-cb-kinds { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.kg-cb-kind { flex-direction: column; min-inline-size: 72px; padding-block: 0.4rem; }
+kg-chart-builder .mini { fill: var(--accent); }
+kg-chart-builder .mini .ax, kg-chart-builder .mini .ln { fill: none; stroke: var(--fg); stroke-width: 2; }
+kg-chart-builder .mini .pb { fill: var(--cell); stroke: var(--fg); stroke-width: 2; }
+.kg-cb-pool { font-weight: 700; }
+.kg-cb-say:empty { display: none; }
+.kg-cb-say { color: var(--no); font-weight: 700; }

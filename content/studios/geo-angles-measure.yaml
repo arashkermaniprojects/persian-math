@@ -1,0 +1,31 @@
+id: geo-angles-measure
+engine: measure
+strand: geo
+order: 6
+concepts: [geo.angles.measure, geo.angles.facts, geo.angles.bisector]
+missions:
+  - id: read-angle
+    # Arms at 20° and 85°: a 65° angle. Turn the protractor until its baseline lies on an arm (it snaps on), then read.
+    # The engine reports the other scale (115) and readings with the protractor not lined up (20, 85, 160) as misreads.
+    setup: { tool: protractor, rays: [20, 85], rotate: true, at: 0, arcs: [[20, 85]] }
+    answer: integer
+    check: { type: measure, value: 65, aligned: true }
+  - id: draw-angle
+    # Turn the arm to make 130°. Drawing 50° means reading the inner scale.
+    setup: { tool: protractor, rays: [0], ray: 0, step: 5 }
+    check: { type: measure, value: 130, traps: [{ value: 50, code: other-scale }] }
+  - id: angle-on-line
+    # A straight line with an arm at 70°: the angles on the line add to 180°, so the other one is 110°. No protractor.
+    setup: { tool: protractor, rays: [0, 180, 70], arcs: [[70, 180]], noProtractor: true }
+    answer: integer
+    check: { type: measure, value: 110, traps: [{ value: 70, code: same }, { value: 20, code: used-90 }, { value: 290, code: used-360 }] }
+  - id: vertically-opposite
+    # Two crossing lines (20°/200° and 145°/325°). The top angle is 125°; the bottom (vertically opposite) one is also 125°.
+    # Predict, then check by turning the protractor onto an arm of the bottom angle. 55 is the angle next to it.
+    setup: { tool: protractor, rays: [200, 325, 20, 145], arcs: [[20, 145], [200, 325]], rotate: true, at: 0 }
+    answer: integer
+    check: { type: measure, value: 125, traps: [{ value: 55, code: adjacent }] }
+  - id: bisect
+    # The angle is 100°; the bisector is at 50°. Traps: 100 (the whole angle), 90 (a right angle "looks like" the middle).
+    setup: { tool: protractor, rays: [0, 100], ray: 0, step: 5, arcs: [[0, 100]] }
+    check: { type: measure, value: 50, traps: [{ value: 100, code: whole }, { value: 90, code: right-angle }] }

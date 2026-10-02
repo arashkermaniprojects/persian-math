@@ -1,0 +1,88 @@
+id: ops-mul-div-groups
+engine: counters
+strand: ops
+order: 4
+concepts: [ops.mul.concept, ops.div.concept, ops.mul-div.inverse, ops.mul.properties]
+# Equal groups first (Iran G3 «۳ دستهٔ ۴تایی»), then arrays (Afghan G2 «ساختن قطارها»: rows across × rows down),
+# split an array for the distributive law (Iran G3 «خاصیت‌های ضرب»), then division both ways: sharing (Afghan G2
+# «مفهوم تقسیم»: ۸ apples on 2 plates) and grouping (Iran G3: ۲۴ notebooks in packs of ۳), tied to × as one fact family.
+# a × b always means a groups (rows) of b, as in the fact-fluency engine. Answers are tapped on number tiles.
+missions:
+  # 3 plates of 4: deal apples from the basket (more than needed), then tap the total. 3 + 4 = 7 is the classic slip.
+  - id: equal-groups
+    setup:
+      look: apple
+      instruction: tap
+      zones:
+        - { kind: group, fill: 15, name: basket }
+        - { kind: group, from: 0, to: 0, name: plate-1 }
+        - { kind: group, from: 0, to: 0, name: plate-2 }
+        - { kind: group, from: 0, to: 0, name: plate-3 }
+      sentence: "3 × 4 = ?"
+      pick: [0, 20]
+    check:
+      type: counters
+      in: [1, 2, 3]
+      each: 4
+      pick: 12
+      traps: [{ pick: 7, code: added }, { pick: 4, code: one-group }, { pick: 3, code: counted-groups }, { pick: 15, code: basket }]
+  # Build 4 rows of 5 with the −/+ buttons. Either way round passes (the turn button shows why); then the total.
+  - id: build-array
+    setup:
+      instruction: tap
+      zones:
+        - { kind: array, rows: 1, cols: 1, maxRows: 8, maxCols: 8, turn: true }
+      sentence: "4 × 5 = ?"
+      pick: [0, 30]
+    check:
+      type: counters
+      array: [4, 5]
+      anyOrder: true
+      pick: 20
+      traps: [{ pick: 9, code: added }, { pick: 5, code: one-row }, { pick: 4, code: one-row }]
+  # Split 4 × 7 into 4 × 5 and 4 × 2 (tap after the fifth column; after the second also passes), then 4 × 7.
+  - id: split-array
+    setup:
+      instruction: split
+      zones:
+        - { kind: array, rows: 4, cols: 7, resize: false, act: split }
+      sentence: "4 × 7 = ?"
+      pick: [20, 35]
+    check:
+      type: counters
+      colors: [20, 8]
+      anyOrder: true
+      pick: 28
+      traps: [{ pick: 22, code: split-added }]
+  # Sharing: 12 apples dealt one at a time onto 3 plates until the basket is empty; how many on each plate?
+  - id: share
+    setup:
+      look: apple
+      instruction: tap
+      zones:
+        - { kind: group, fill: 12, name: basket }
+        - { kind: group, from: 0, to: 0, name: plate-1 }
+        - { kind: group, from: 0, to: 0, name: plate-2 }
+        - { kind: group, from: 0, to: 0, name: plate-3 }
+      sentence: "12 ÷ 3 = ?"
+      pick: [0, 12]
+    check:
+      type: counters
+      count: [0]
+      in: [1, 2, 3]
+      equal: true
+      pick: 4
+      traps: [{ pick: 3, code: plates }, { pick: 12, code: total }, { pick: 9, code: subtracted }]
+  # Grouping: 15 counters in rows of 5 (only the row length changes); how many rows? The fact family 3 × 5 = 15.
+  - id: groups-of-five
+    setup:
+      instruction: tap
+      zones:
+        - { kind: array, cols: 1, keep: 15, maxCols: 8 }
+      sentence: "15 ÷ 5 = ?"
+      pick: [0, 15]
+    check:
+      type: counters
+      array: [3, 5]
+      pick: 3
+      traps: [{ pick: 5, code: group-size }, { pick: 10, code: subtracted }, { pick: 15, code: total }]

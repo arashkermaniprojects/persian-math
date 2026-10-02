@@ -1,0 +1,44 @@
+id: ops-times-10-100
+engine: place-value
+strand: ops
+order: 6
+concepts: [ops.mul.by-10-100, frac.decimal.mul-div-10]
+# ×10 and ÷10 move every digit one place on the chart («the digits slide», never "add a zero"): Iran
+# G03_riazi_sevom.pdf p.136 «ضرب در عدد ۱۰», Afghan AF_G03_riazi.pdf p.65 [۵۸] «ضرب یک عدد به ۱، ۱۰ و ۱۰۰», UK Y4–5.
+# Whole numbers first, then decimals past the decimal mark (minPlace −1/−2; the mark is the locale's: / ، , or .).
+missions:
+  # 34 × 10: one press of ×10; both digits move one place left and the ones become 0.
+  - id: times-ten
+    setup: { value: 34, maxPlace: 3, shift: true, exchange: false, instruction: shift }
+    check:
+      type: place-value
+      value: 340
+      traps: [{ value: 3400, code: twice }, { value: 3040, code: one-digit }, { value: 44, code: added-ten }]
+  # 207 × 100: two slides; the 0 inside 207 moves too.
+  - id: times-hundred
+    setup: { value: 207, maxPlace: 4, shift: true, exchange: false, instruction: shift }
+    check:
+      type: place-value
+      value: 20700
+      traps: [{ value: 2070, code: once }, { value: 2700, code: lost-zero }, { value: 307, code: added-hundred }]
+  # 3600 ÷ 100: two slides right.
+  - id: divide-hundred
+    setup: { value: 3600, shift: true, exchange: false, instruction: shift }
+    check:
+      type: place-value
+      value: 36
+      traps: [{ value: 360, code: once }, { value: 3500, code: took-hundred }]
+  # 3.45 × 10 = 34.5: the digits slide past the decimal mark; "add a zero" (3.450) would not change the number.
+  - id: decimal-times-ten
+    setup: { value: "3.45", minPlace: -2, maxPlace: 1, shift: true, exchange: false, instruction: shift }
+    check:
+      type: place-value
+      value: "34.5"
+      traps: [{ value: "345", code: twice }]
+  # 4.7 ÷ 10 = 0.47.
+  - id: decimal-divide-ten
+    setup: { value: "4.7", minPlace: -2, maxPlace: 1, shift: true, exchange: false, instruction: shift }
+    check:
+      type: place-value
+      value: "0.47"
+      traps: [{ value: "47", code: wrong-way }]

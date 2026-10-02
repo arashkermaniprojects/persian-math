@@ -1,0 +1,74 @@
+id: stat-tally-pictogram
+engine: chart-builder
+strand: stat
+order: 1
+concepts: [stat.data-collection, stat.tally-tables, stat.pictogram]
+# Iran G2 ch. 8 («سرشماری», «نمودار تصویری»): ask the class, record with tally marks «چوب‌خط» in groups of five,
+# count them into a table, then draw and read a pictogram where one picture stands for 2.
+# Charts run left → right in every locale; the table follows the page direction (docs/NOTATION.md "Charts").
+missions:
+  # Sort 15 answers of a class survey into a tally table: tap a card, then the row it belongs in.
+  - id: tally-survey
+    setup:
+      instruction: sort
+      categories:
+        - { key: apple, icon: apple, color: red }
+        - { key: banana, icon: banana, color: yellow }
+        - { key: orange, icon: orange, color: orange }
+        - { key: grapes, icon: grapes, color: purple }
+      data: [apple, banana, orange, apple, grapes, orange, apple, banana, apple, orange, apple, grapes, banana, orange, apple]
+      table: { head: fruit, tally: edit, count: hide }
+    check: { type: chart, tally: [6, 3, 4, 2] }
+  # Read tally marks (Iran G2 p.128: birth seasons) and write the number for each row.
+  - id: count-tallies
+    setup:
+      instruction: count
+      categories:
+        - { key: spring, icon: flower, color: pink }
+        - { key: summer, icon: sun, color: yellow }
+        - { key: autumn, icon: leaf, color: orange }
+        - { key: winter, icon: snow, color: blue }
+      tally: [7, 5, 9, 4]
+      table: { head: season, tally: show, count: edit }
+    check: { type: chart, typed: [7, 5, 9, 4] }
+  # Build the pictogram of the fruit survey: one face = 2 children, half a face = 1 child.
+  - id: build-pictogram
+    setup:
+      instruction: build
+      icon: face
+      categories:
+        - { key: apple, icon: apple, color: red }
+        - { key: banana, icon: banana, color: yellow }
+        - { key: orange, icon: orange, color: orange }
+        - { key: grapes, icon: grapes, color: purple }
+      values: [6, 3, 4, 2]
+      table: { head: fruit, tally: hide, count: show }
+      chart: pictogram
+      edit: true
+      key: 2
+      max: 12
+      unit: children
+    check: { type: chart, values: [6, 3, 4, 2] }
+  # Read a pictogram (one apple = 2 apples) and answer "how many more?".
+  - id: read-pictogram
+    setup:
+      icon: apple
+      categories:
+        - { key: ali, color: red }
+        - { key: sara, color: red }
+        - { key: maryam, color: red }
+        - { key: reza, color: red }
+      values: [8, 5, 10, 6]
+      table: { head: child, tally: hide }
+      chart: pictogram
+      key: 2
+      unit: apples
+    answer: integer
+    check:
+      type: answer-integer
+      value: 5
+      traps:
+        - { value: 2, code: counted-pictures }
+        - { value: 3, code: counted-pictures }
+        - { value: 10, code: not-difference }
+        - { value: 15, code: added }

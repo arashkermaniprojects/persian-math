@@ -1,0 +1,28 @@
+id: meas-convert
+engine: measure
+strand: meas
+order: 5
+concepts: [meas.units.convert, meas.area.units, meas.problems]
+# The convert strip shows the ×10/×100/×1000 between neighbouring units (the from/to units and the steps between them
+# are highlighted); every answer is typed.
+missions:
+  - id: metres-to-cm
+    # 3 m 45 cm = 300 + 45 = 345 cm. Traps: 3045 (wrote 3 m as 3000), 3450 (an extra zero), 48 (added 3 + 45).
+    setup: { tool: convert, units: [km, m, cm, mm], from: m, to: cm }
+    answer: integer
+    check: { type: measure, value: 345, traps: [{ value: 3045, code: thousand }, { value: 3450, code: extra-zero }, { value: 48, code: added }] }
+  - id: grams-to-kg
+    # Small to big unit: divide. 2500 g = 2.5 kg. Traps: multiplied (2500000), divided by 100 or 10.
+    setup: { tool: convert, units: [kg, g], from: g, to: kg }
+    answer: decimal
+    check: { type: measure, value: 2.5, traps: [{ value: 2500000, code: wrong-way }, { value: 25, code: factor }, { value: 250, code: factor }] }
+  - id: juice-glasses
+    # Two steps: 1.5 l = 1500 ml, then 1500 ÷ 250 = 6 glasses. Stopping at 1500 ml has its own feedback.
+    setup: { tool: convert, units: [l, ml], from: l, to: ml }
+    answer: integer
+    check: { type: measure, value: 6, traps: [{ value: 1500, code: stopped }, { value: 60, code: factor }] }
+  - id: square-metre
+    # The strip shows only 1 m = 100 cm. A square metre is 100 cm by 100 cm = 10000 cm²; 100 is the classic mistake.
+    setup: { tool: convert, units: [m, cm], from: m, to: cm }
+    answer: integer
+    check: { type: measure, value: 10000, traps: [{ value: 100, code: length-factor }, { value: 1000, code: factor }, { value: 400, code: perimeter }, { value: 10, code: separator }] }

@@ -1,0 +1,30 @@
+id: meas-compare-units
+engine: measure
+strand: meas
+order: 1
+concepts: [meas.compare.direct, meas.units.nonstandard]
+# Grade 1: picture-first. Compare by eye and on a balance, then measure with paper clips, hand spans and cups.
+missions:
+  - id: which-longer
+    # The ribbon starts 2 cm further along, so its end sticks out past the pencil's, but the pencil is longer (5 > 4).
+    # Choosing the ribbon is the classic "whichever sticks out is longer" mistake.
+    setup: { tool: ruler, noRuler: true, objects: [{ object: pencil, length: 5 }, { object: ribbon, length: 4, at: 2 }], instruction: look }
+    answer: choice
+    check: { type: choice, options: ["✏️", "🎀"], correct: 0 }
+  - id: which-heavier
+    # The melon's pan is down. Picking the apples is the "the pan that is up is heavier" mistake.
+    setup: { tool: balance, left: [{ item: melon, mass: 1500 }], right: [{ item: apple, count: 3, mass: 600 }], instruction: look }
+    answer: choice
+    check: { type: choice, options: ["🍉", "🍎🍎🍎"], correct: 0 }
+  - id: clips-pencil
+    # Paper clips laid end to end from the pencil's tip: 6 clips reach its end.
+    setup: { tool: units, unit: clip, object: pencil, length: 6, max: 9, instruction: clips }
+    check: { type: measure, value: 6 }
+  - id: spans-book
+    # Hand spans: the book is 3 of Ali's spans. Sara's hand is bigger, so she would need fewer.
+    setup: { tool: units, unit: span, object: bar, length: 3, max: 5, instruction: spans }
+    check: { type: measure, value: 3 }
+  - id: cups-jug
+    # Capacity with a non-standard unit: pour 4 cups into the jug (marks every cup, numbered).
+    setup: { tool: jug, min: 0, max: 8, major: 1, value: 0, set: true, step: 1, unit: cup }
+    check: { type: measure, value: 4 }

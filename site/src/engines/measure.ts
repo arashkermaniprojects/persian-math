@@ -1,5 +1,6 @@
 // <kg-measure>: measuring tools. One engine, one `tool` per mission:
-//   ruler       an object (or several) above a ruler the learner slides into place (cm/mm, or inches)
+//   ruler       an object (or several) above a ruler the learner slides into place (cm/mm, or inches); with
+//               `noRuler` just the objects, to compare by eye (`at` shifts an object's start)
 //   units       non-standard units (paper clips, hand spans, cubes) laid end to end along an object
 //   balance     a pan balance: items on the left pan, weights the learner puts on the right pan
 //   scale       a dial scale (g/kg): read the needle, or turn it to a value
@@ -10,13 +11,17 @@
 // Contract: docs/STUDIOS.md ("Engine contract", "Engine options"). Drawings are LTR in every locale (scales grow
 // left → right and bottom → top, as in both countries' books); only the text around them follows the page.
 import {
-  angleReading, between, clamp, dialAngle, dialValue, norm, numText, pointerAngle, rulerReading, snapRotation,
-  snapTo, stripFactors, ticks, tidy, tilt,
+  angleReading, between, clamp, dialAngle, dialValue, furthestEnd, norm, numText, objectRow, pointerAngle, rulerReading,
+  snapRotation, snapTo, stripFactors, ticks, tidy, tilt,
 } from './lib/measure-math';
 
 export type Tool = 'ruler' | 'units' | 'balance' | 'scale' | 'jug' | 'thermometer' | 'protractor' | 'convert';
-/** A thing to measure along: pencil | leaf | bar | line | ribbon, `length` in ruler units (or in units for `units`). */
-export interface Obj { object?: string; length: number }
+/**
+ * A thing to measure along: pencil | leaf | bar | line | ribbon | circle (`length` = its diameter, drawn across it),
+ * `length` in ruler units (or in units for `units`). `at`: where it starts, in units from the others' start (for
+ * comparing by eye with `noRuler`; the ruler reading always measures the first object from its own start).
+ */
+export interface Obj { object?: string; length: number; at?: number }
 /** Something on a balance pan: apple | melon | bag | cube | box | book, `mass` is the total for `count` of them. */
 export interface Item { item: string; mass: number; count?: number }
 
@@ -34,6 +39,8 @@ export interface MeasureConfig {
   offset?: number;
   /** false: the ruler cannot be moved. */
   drag?: boolean;
+  /** Ruler tool without the ruler: only the objects, to compare lengths by eye. */
+  noRuler?: boolean;
   /** Unit: cm, mm, in (ruler); clip, span, cube (units); g, kg, lb (balance, scale); ml, l, pint (jug); C. */
   unit?: string;
   // balance
@@ -324,6 +331,11 @@ export class Measure extends HTMLElement {
     if (kind === 'leaf')
       return `<path class="kg-ms-leaf" d="M${x} ${m}Q${x + L * 0.45} ${m - 22} ${x + L} ${m}Q${x + L * 0.45} ${m + 22} ${x} ${m}Z"/>` +
         `<path class="kg-ms-rib" d="M${x} ${m}H${x + L * 0.9}"/>`;
+    if (kind === 'circle') {
+      const c = y + 4 + L / 2;
+      return `<circle class="kg-ms-obj" cx="${x + L / 2}" cy="${c}" r="${L / 2}"/>` + this.shape('line', x, c - 14, L) +
+        `<circle class="kg-ms-dot" cx="${x + L / 2}" cy="${c}" r="2.5"/>`;
+    }
     if (kind === 'line') return `<path class="kg-ms-seg" d="M${x} ${m}H${x + L}"/><circle class="kg-ms-dot" cx="${x}" cy="${m}" r="3.5"/><circle class="kg-ms-dot" cx="${x + L}" cy="${m}" r="3.5"/>`;
     return `<rect class="kg-ms-obj ${kind ?? ''}" x="${x}" y="${m - 9}" width="${L}" height="18" rx="3"/>`;
   }
@@ -341,16 +353,20 @@ export class Measure extends HTMLElement {
 
   private drawLength(out: string[]) {
     const c = this.c, objs = this.objs, ruler = c.tool === 'ruler';
-    const max = ruler ? c.max ?? Math.ceil(Math.max(...objs.map((o) => o.length))) + 1 : this.unitsMax;
+    const max = ruler ? c.max ?? Math.ceil(furthestEnd(objs)) + 1 : this.unitsMax;
     const slack = ruler ? Math.max(0, -(c.offset ?? 0)) : 0;
     const ppu = (this.ppu = (this.W - 2 * PAD) / (max + 0.8 + slack));
     const X0 = PAD + 0.4 * ppu;
     let y = 6;
     for (const o of objs) {
-      out.push(this.shape(o.object, X0, y, o.length * ppu));
-      y += 36;
+      out.push(this.shape(o.object, X0 + (o.at ?? 0) * ppu, y, o.length * ppu));
+      y += objectRow(o.object, o.length * ppu);
     }
     const L0 = objs[0].length * ppu;
+    if (ruler && c.noRuler) {
+      this.H = y + 4;
+      return;
+    }
     if (!ruler) {
       for (let i = 0; i < this.v; i++) out.push(this.unitShape(c.unit ?? 'clip', X0 + i * ppu, y, ppu, i));
       out.push(`<text class="kg-ms-count" x="${X0}" y="${y + 52}" text-anchor="start">${this.n(this.v)}</text>`);

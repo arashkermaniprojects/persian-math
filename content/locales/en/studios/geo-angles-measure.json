@@ -1,0 +1,96 @@
+{
+  "title": "Measuring {{term:angle}}s with a {{term:protractor}}",
+  "summary": "Read and draw angles with a protractor. Find angles on a straight line, vertically opposite angles and angle bisectors.",
+  "guide": [
+    "A {{term:protractor}} is a half circle split into 180 equal parts. Each part is one {{term:degree-angle}} (1°).",
+    "To read an angle: put the centre of the protractor on the vertex and its zero line along one arm. Then read the number where the other arm crosses.",
+    "A protractor has two scales. Read the scale that starts at 0 on your first arm. An acute angle is less than 90°; an obtuse angle is more than 90°.",
+    "Angles on a straight line add up to 180°. Two angles that add up to 180° are {{term:supplementary-angles}}.",
+    "When two lines cross, {{term:vertically-opposite-angles}} are equal.",
+    "An {{term:angle-bisector}} cuts an angle into two equal angles.",
+    "Turn the protractor with your finger, or tap it and use the arrow keys. Near an arm it snaps into place."
+  ],
+  "engine": {
+    "label-protractor": "Protractor; drag to turn it",
+    "label-arm": "Arm of the angle; drag to turn it",
+    "instruction-protractor": "Turn the protractor."
+  },
+  "missions": {
+    "read-angle": {
+      "title": "How big is this angle?",
+      "prompt": "First estimate: is this angle acute or obtuse? Now turn the protractor until its zero line lies along one arm. How many degrees is the angle?",
+      "hint": "Turn the protractor until its straight edge sits on the lower arm. Count from the 0 on that arm and see which number the other arm reaches.",
+      "success": "Well done! The angle is 65°. It is acute, so it had to be less than 90°.",
+      "why": "The protractor has two scales. How did you know which one to read?",
+      "model": "I read the scale that is 0 on the first arm. The angle is acute, so the answer is less than 90°: 65°, not 115°. 65 + 115 = 180.",
+      "feedback": {
+        "other-scale": "You read the other scale. The angle is acute, so it must be less than 90°.",
+        "not-from-zero": "The protractor's zero line is not on an arm of the angle. Turn the protractor until it sits on one arm first.",
+        "not-aligned": "Your number is right, but measure it with the protractor: turn it until its zero line lies on an arm.",
+        "too-big": "Your number is too big. Count again from 0.",
+        "too-small": "Your number is too small. Count again from 0.",
+        "empty": "Write the angle in degrees."
+      }
+    },
+    "draw-angle": {
+      "title": "Draw a 130° angle",
+      "prompt": "Turn the coloured arm until it makes an angle of 130° with the lower arm. First think: is 130° acute or obtuse?",
+      "hint": "130 is more than 90, so the angle is obtuse. Count from the 0 on the right: 90, 100, 110, 120, 130.",
+      "success": "Well done! A 130° angle is obtuse.",
+      "why": "How did you make sure you used the right scale?",
+      "model": "The lower arm points right, and the outer scale is 0 on the right, so I counted on the outer scale. 130 is more than 90, so the angle must be obtuse, and it is.",
+      "feedback": {
+        "other-scale": "That is a 50° angle: you used the other scale. A 130° angle must be obtuse.",
+        "too-big": "The angle is too big. Turn the arm back a little.",
+        "too-small": "The angle is too small. Turn the arm further.",
+        "empty": "Turn the coloured arm."
+      }
+    },
+    "angle-on-line": {
+      "title": "Angles on a straight line",
+      "prompt": "On a straight line, the small angle is 70°. How big is the marked angle? No protractor this time. Reason it out!",
+      "hint": "A straight line makes a straight angle: 180°. The two angles on the line add up to 180°.",
+      "success": "Well done! 180 − 70 = 110°. 70° and 110° are supplementary.",
+      "why": "Why do two angles next to each other on a straight line add up to 180°?",
+      "model": "A straight line covers a whole half turn, like the straight edge of a protractor from 0 to 180. Together the two angles fill that half turn, so 70 + 110 = 180.",
+      "feedback": {
+        "same": "The marked angle is obtuse, so it is not 70°. The two angles add up to 180°.",
+        "used-90": "90° is a right angle. On a straight line the angles add up to 180°.",
+        "used-360": "360° is a full turn round a point. On a straight line the angles add up to 180°.",
+        "too-big": "Your number is too big. The two angles must add up to 180°.",
+        "too-small": "Your number is too small. The two angles must add up to 180°.",
+        "empty": "Write the angle in degrees."
+      }
+    },
+    "vertically-opposite": {
+      "title": "Vertically opposite angles",
+      "prompt": "Two lines cross. The top angle is 125°. How big is the bottom angle? Predict first, then check with the protractor.",
+      "hint": "The angle at the side is on a straight line with the 125°, so it is 55°. The bottom angle is on a straight line with that same 55°.",
+      "success": "Well done! The bottom angle is 125° too. Vertically opposite angles are equal.",
+      "why": "Why are vertically opposite angles equal?",
+      "model": "The side angle is on a straight line with both of them. So 125 + 55 = 180, and bottom + 55 = 180. Both make 180 with the same 55°, so they are equal: 125°.",
+      "feedback": {
+        "adjacent": "55° is the angle at the side. Find the opposite one, at the bottom.",
+        "other-scale": "You read the other scale. The bottom angle is obtuse, so it is more than 90°.",
+        "too-big": "Your number is too big. Compare the bottom angle with the top one.",
+        "too-small": "Your number is too small. Compare the bottom angle with the top one.",
+        "empty": "Write the angle in degrees."
+      }
+    },
+    "bisect": {
+      "title": "Bisect the angle",
+      "prompt": "This angle is 100°. Turn the coloured arm until it cuts the angle into two equal halves.",
+      "hint": "What is half of 100? Put the arm on that number.",
+      "success": "Well done! The coloured arm is at 50°. 50 + 50 = 100. It is the angle bisector.",
+      "why": "How do you know the coloured arm cuts the angle in half?",
+      "model": "The angle between the lower arm and the coloured arm is 50°. The angle between the coloured arm and the other arm is 100 − 50 = 50°. The two angles are equal, so the coloured arm is the bisector.",
+      "feedback": {
+        "whole": "The coloured arm is on top of the other arm. The bisector must be in the middle of the angle.",
+        "right-angle": "That is a right angle. The middle of 100° is not 90°. Work out half of 100.",
+        "too-big": "The arm has gone past the middle. Turn it back a little.",
+        "too-small": "The arm has not reached the middle yet. Turn it further.",
+        "empty": "Turn the coloured arm."
+      }
+    }
+  }
+}

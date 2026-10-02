@@ -1,0 +1,86 @@
+id: prob-chance
+engine: probability-sim
+strand: prob
+order: 1
+concepts: [prob.chance-language, prob.basic]
+# Iran G2 «مفهوم احتمال» (G02_riazi_dovom pdf p.124–126) and G3 «احتمال» (G03_riazi_sevom pdf p.121–123):
+# a bag of red and white counters drawn without looking, a spinner, a die; «ممکن است چه رنگی باشد؟»,
+# «کدام رنگ شانس بیشتری دارد؟», sentences sorted as certain / possible / impossible, and «چه کسری از آزمایش‌ها».
+# Very concrete: every mission starts with the thing itself, and trials are there to test a guess.
+missions:
+  # The book's bag: 5 red, 1 white. Tap every colour that can come out (blue and green are not in the bag).
+  - id: what-can-come-out
+    setup:
+      kind: bag
+      bag: { red: 5, white: 1 }
+      run: [1, 10]
+      seed: 7
+      instruction: draw
+      space: { options: [red, blue, white, green] }
+    check:
+      type: chance
+      space: true
+      traps: [{ listed: blue, code: not-in-bag }, { listed: green, code: not-in-bag }]
+  # Same bag on a three-level line: red is possible (not certain), white is possible (only one, but there),
+  # blue is impossible, "red or white" is certain.
+  - id: certain-possible-impossible
+    setup:
+      kind: bag
+      bag: { red: 5, white: 1 }
+      run: [1, 10]
+      seed: 11
+      instruction: place
+      tally: false
+      scale:
+        levels: 3
+        events:
+          - { key: red, outcomes: [red] }
+          - { key: white, outcomes: [white] }
+          - { key: blue, outcomes: [blue] }
+          - { key: red-or-white, outcomes: [red, white] }
+    check:
+      type: chance
+      scale: true
+      traps:
+        - { event: red, level: certain, code: most-not-all }
+        - { event: white, level: impossible, code: one-is-enough }
+        - { event: blue, code: no-blue }
+        - { event: red-or-white, code: only-these }
+  # Make drawing red certain: take the other colours out (and keep at least one red).
+  - id: make-it-certain
+    setup:
+      kind: bag
+      bag: { red: 2, blue: 2, green: 1 }
+      edit: [red, blue, green]
+      max: 8
+      run: [1, 10]
+      seed: 5
+      instruction: edit
+    check:
+      type: chance
+      prob: { outcomes: [red], level: certain }
+  # Book spinner: 4 blue, 3 green, 1 red of 8 equal parts. Guess the most likely colour, then spin 10 times.
+  - id: which-colour
+    setup:
+      kind: spinner
+      sectors: [blue, green, blue, red, green, blue, green, blue]
+      seed: 3
+      instruction: spin
+      choose: true
+    check:
+      type: chance
+      chosen: blue
+      trials: 10
+      traps: [{ chosen: red, code: smallest }, { chosen: green, code: close }]
+  # A fraction from 0 to 1: one face of six equally likely faces. Roll 100 times to see the count settle near it.
+  - id: roll-a-six
+    setup:
+      kind: dice
+      seed: 2
+      instruction: roll
+      tally: { fractions: true }
+    answer: fraction
+    check:
+      type: answer-equals
+      value: [1, 6]
+      traps: [{ value: [6, 1], code: upside-down }, { value: [1, 5], code: five-others }, { value: [5, 6], code: not-six }]

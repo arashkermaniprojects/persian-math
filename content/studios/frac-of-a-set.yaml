@@ -1,0 +1,74 @@
+id: frac-of-a-set
+engine: counters
+strand: frac
+order: 9
+concepts: [frac.of-amount, ratio.scaling]
+# A fraction of an amount = share into equal groups (the denominator), then take some groups (the numerator).
+# Iran G3 «کسر» chapter / UK Y2–Y3; not in the Afghan primary books (fa-AF/ps get the same missions as drafts).
+# Scaling (UK Y3 recipes): ×3 by building equal rows, then ⅓ by crossing out two of three equal rows.
+# Fractions are never written inside the engine sentence (the "/" would read as a decimal mark in fa-IR), so the
+# sentence shows the division that finds one part.
+missions:
+  # ⅓ of 12: deal 12 apples onto 3 plates until the basket is empty; one plate is a third.
+  - id: third-of-twelve
+    setup:
+      look: apple
+      instruction: tap
+      zones:
+        - { kind: group, fill: 12, name: basket }
+        - { kind: group, from: 0, to: 0, name: plate-1 }
+        - { kind: group, from: 0, to: 0, name: plate-2 }
+        - { kind: group, from: 0, to: 0, name: plate-3 }
+      sentence: "12 ÷ 3 = ?"
+      pick: [0, 12]
+    check:
+      type: counters
+      count: [0]
+      in: [1, 2, 3]
+      equal: true
+      pick: 4
+      traps: [{ pick: 3, code: denominator }, { pick: 9, code: subtracted }, { pick: 8, code: two-parts }]
+  # ¾ of 20: 20 counters in 4 equal columns (each column is a quarter). Split after the 3rd column: red = ¾.
+  - id: three-quarters
+    setup:
+      instruction: split
+      zones:
+        - { kind: array, rows: 5, cols: 4, resize: false, act: split }
+      sentence: "20 ÷ 4 = 5"
+      pick: [0, 20]
+    check:
+      type: counters
+      colors: [15, 5]
+      pick: 15
+      traps: [{ pick: 5, code: one-part }, { pick: 3, code: numerator }, { pick: 4, code: denominator }]
+  # Scale up: one cake needs 4 eggs (given row); fill two more rows for 3 cakes, then the total.
+  - id: three-cakes
+    setup:
+      instruction: tap
+      zones:
+        - { kind: row, slots: 4, fill: 4, lock: 4, name: cake-1 }
+        - { kind: row, slots: 4, act: fill, name: cake-2 }
+        - { kind: row, slots: 4, act: fill, name: cake-3 }
+      sentence: "3 × 4 = ?"
+      pick: [0, 20]
+    check:
+      type: counters
+      count: [4, 4, 4]
+      pick: 12
+      traps: [{ pick: 7, code: added }, { pick: 8, code: two-cakes }]
+  # Scale down: soup for 6 people uses 12 potatoes, in 3 rows of 4 (one row per 2 people). Cross out the rest to
+  # keep enough for 2 people (⅓), then the number left.
+  - id: soup-for-two
+    setup:
+      instruction: cross
+      zones:
+        - { kind: row, slots: 4, fill: 4, act: cross, name: two-people }
+        - { kind: row, slots: 4, fill: 4, act: cross, name: two-people }
+        - { kind: row, slots: 4, fill: 4, act: cross, name: two-people }
+      sentence: "12 ÷ 3 = ?"
+      pick: [0, 12]
+    check:
+      type: counters
+      left: 4
+      pick: 4
+      traps: [{ pick: 8, code: counted-crossed }, { pick: 3, code: denominator }, { pick: 6, code: halved }, { pick: 2, code: people }]

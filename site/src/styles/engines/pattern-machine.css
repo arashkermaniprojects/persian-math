@@ -1,0 +1,130 @@
+/* Styles for <kg-pattern-machine>. Loaded on every page via the glob in layouts/Base.astro. Logical properties only. */
+kg-pattern-machine {
+  container-type: inline-size;
+  --pm-red: #d9473b; --pm-blue: #2f6fd0; --pm-yellow: #f2c232; --pm-green: #3a9a4f; --pm-purple: #8a4fc4; --pm-orange: #ee8a2a;
+  --pm-edge: #2b2b2b; --pm-l0: #f3b1a9; --pm-l1: #a9c6f3;
+  display: block;
+}
+@media (prefers-color-scheme: dark) {
+  kg-pattern-machine { --pm-edge: #0d0f12; --pm-l0: #8c3a30; --pm-l1: #2f5590; }
+}
+.kg-pm { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
+.kg-pm button { font: inherit; color: inherit; cursor: pointer; }
+.kg-pm button:disabled { cursor: default; opacity: 0.45; }
+.kg-pm :is(button, input):focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* instruction hint: a picture of the action, with a very short label */
+.kg-pm-hint { display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin: 0; font-weight: 700; align-self: stretch; }
+.kg-pm-i { inline-size: 44px; block-size: 44px; flex: none; position: relative; border-radius: 50%; background: var(--hint-bg); }
+.kg-pm-i::before, .kg-pm-i::after { content: ''; position: absolute; }
+/* continue: a filled shape then an empty dashed place */
+.kg-pm-i.i-continue::before { inset: 15px 24px 15px 6px; border-radius: 50%; background: var(--pm-red); }
+.kg-pm-i.i-continue::after { inset: 14px 6px 14px 24px; border: 2px dashed var(--accent); border-radius: 4px; }
+/* unit: a bracket under two shapes */
+.kg-pm-i.i-unit::before { inset: 10px 8px 20px; background: radial-gradient(circle at 25% 50%, var(--pm-red) 5px, transparent 6px), radial-gradient(circle at 75% 50%, var(--pm-blue) 5px, transparent 6px); }
+.kg-pm-i.i-unit::after { inset: 26px 8px 10px; border: 3px solid var(--accent); border-block-start: 0; }
+/* fix: a crossed-out shape */
+.kg-pm-i.i-fix::before { inset: 12px; border-radius: 50%; background: var(--pm-blue); }
+.kg-pm-i.i-fix::after { inset: 20px 6px; background: var(--fg); transform: rotate(45deg); }
+/* count / type: a stack of dots, a box to write in */
+.kg-pm-i.i-count::before { inset: 8px 14px; background: radial-gradient(circle, var(--pm-orange) 4px, transparent 5px) 0 0 / 8px 8px; }
+.kg-pm-i.i-type::before { inset: 13px 8px; border: 2px solid var(--fg); border-radius: 4px; }
+.kg-pm-i.i-type::after { inset: 17px 26px 17px 14px; background: var(--accent); }
+.kg-pm-i.i-jump::before { inset: 12px 6px 18px; border: 3px solid var(--accent); border-block-end: 0; border-radius: 20px 20px 0 0; }
+.kg-pm-i.i-machine::before { inset: 12px 10px; border-radius: 6px; background: var(--pm-blue); }
+.kg-pm-i.i-shade::before { inset: 10px; background: conic-gradient(var(--pm-l0) 25%, transparent 0 50%, var(--pm-l0) 0 75%, transparent 0) 0 0 / 12px 12px; border: 2px solid var(--border); }
+.kg-pm-i.i-order::before { inset: 14px 8px; border-inline: 3px solid var(--accent); border-radius: 10px; }
+
+/* repeat: the row of items and the palette */
+.kg-pm-row, .kg-pm-pal { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; max-inline-size: 100%; }
+.kg-pm-row .br { display: none; flex-basis: 100%; block-size: 0.4rem; }
+@container (max-width: 30rem) { .kg-pm-row .br { display: block; } }
+.kg-pm-slot {
+  inline-size: 46px; block-size: 46px; display: grid; place-items: center; padding: 3px; flex: none;
+  border: 2px solid var(--border); border-radius: 10px; background: var(--cell);
+}
+.kg-pm-slot svg { inline-size: 100%; block-size: 100%; stroke: var(--pm-edge); stroke-width: 2; }
+.kg-pm-slot.empty { border-style: dashed; border-color: var(--accent); background: transparent; }
+.kg-pm-slot.sel { border: 3px solid var(--accent); box-shadow: 0 0 0 3px var(--hint-bg); }
+button.kg-pm-slot:hover:not(:disabled) { border-color: var(--accent); }
+.kg-pm-slot.unit { background: var(--hint-bg); border-color: var(--accent); }
+.kg-pm-slot.cut { margin-inline-start: 10px; position: relative; }
+.kg-pm-slot.cut::before { content: ''; position: absolute; inset-block: -4px; inset-inline-start: -9px; border-inline-start: 3px solid var(--accent); }
+.kg-pm-pal { padding: 0.5rem; border-radius: var(--radius); background: var(--hint-bg); }
+.kg-pm-pal .kg-pm-slot { inline-size: 52px; block-size: 52px; }
+.kg-pm-tx { font-size: 1.4rem; font-weight: 700; }
+.f-red { fill: var(--pm-red); } .f-blue { fill: var(--pm-blue); } .f-yellow { fill: var(--pm-yellow); }
+.f-green { fill: var(--pm-green); } .f-purple { fill: var(--pm-purple); } .f-orange { fill: var(--pm-orange); }
+
+/* grow: figures in a row, then a table of counts */
+.kg-pm-figs { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; gap: 1rem 1.4rem; max-inline-size: 100%; }
+.kg-pm-fig { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 0.3rem; max-inline-size: 100%; }
+.kg-pm-fig svg { max-inline-size: 100%; block-size: auto; overflow: visible; }
+.kg-pm-fig figcaption { font-size: 0.85rem; color: var(--muted); }
+.kg-pm-fig svg.sticks { stroke: var(--pm-orange); stroke-width: 4; stroke-linecap: round; }
+.kg-pm-fig svg.dots { fill: var(--pm-blue); }
+.kg-pm-fig svg.squares { fill: var(--shade); stroke: var(--pm-edge); stroke-width: 1; }
+.kg-pm-scroll { max-inline-size: 100%; overflow-x: auto; }
+.kg-pm-tab { border-collapse: collapse; }
+.kg-pm-tab :is(th, td) { border: 1px solid var(--border); padding: 0.25rem 0.4rem; text-align: center; min-inline-size: 2.2rem; }
+.kg-pm-tab th { background: var(--hint-bg); font-size: 0.85rem; }
+
+/* typed numbers */
+.kg-pm-in {
+  inline-size: 3.6em; min-block-size: 44px; padding: 0.2rem; text-align: center; font: inherit; font-size: 1.15rem;
+  border: 2px solid var(--accent); border-radius: 8px; background: var(--card); color: var(--fg);
+}
+.kg-pm-tab .kg-pm-in { inline-size: 3em; }
+.kg-pm-q { margin: 0; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+
+/* numbers: terms with hops between them */
+.kg-pm-seq { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; row-gap: 0.6rem; max-inline-size: 100%; }
+.kg-pm-t { display: inline-flex; align-items: flex-end; font-size: 1.25rem; font-weight: 700; }
+.kg-pm-t > span:first-child { min-inline-size: 2.6rem; min-block-size: 44px; display: grid; place-items: center; padding-inline: 0.2rem; border-radius: 8px; background: var(--cell); border: 1px solid var(--border); }
+.kg-pm-hop { display: flex; flex-direction: column; align-items: center; inline-size: 2.6rem; margin-block-end: 1.6rem; font-size: 0.8rem; color: var(--accent); }
+.kg-pm-hop svg { inline-size: 100%; fill: none; stroke: var(--accent); stroke-width: 2; }
+.kg-pm-hop b { order: -1; white-space: nowrap; }
+
+/* machine: inputs on the left, the machine, outputs on the right (as in the Iranian G3–4 books) */
+.kg-pm-mach { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); grid-template-rows: auto repeat(var(--rows), auto); gap: 0.4rem 0.6rem; align-items: center; justify-items: center; inline-size: 100%; max-inline-size: 26rem; }
+.kg-pm-h { font-size: 0.95rem; }
+.kg-pm-box {
+  grid-column: 2; grid-row: 2 / span var(--rows); align-self: stretch; display: flex; flex-direction: column; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.4rem;
+  min-inline-size: 6.5rem; max-inline-size: 11rem; padding: 0.6rem; border-radius: 22px; border: 3px solid var(--pm-blue);
+  background: repeating-linear-gradient(45deg, transparent 0 10px, rgb(47 111 208 / 0.08) 10px 20px), var(--card);
+}
+.kg-pm-box > span[role='radiogroup'] { display: grid; grid-template-columns: repeat(2, 44px); gap: 4px; }
+.kg-pm-box > i { font-style: normal; color: var(--muted); }
+.kg-pm-stage { font-size: 1.3rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px; background: var(--hint-bg); white-space: nowrap; }
+.kg-pm-cellin, .kg-pm-cellout { grid-column: 1; display: flex; align-items: center; gap: 0.3rem; font-size: 1.2rem; font-weight: 700; min-block-size: 44px; }
+.kg-pm-cellout { grid-column: 3; }
+.kg-pm-cellin::after, .kg-pm-cellout::before { content: '→'; color: var(--accent); font-weight: 400; }
+.kg-pm-try { padding-block-start: 0.4rem; border-block-start: 2px dotted var(--border); }
+.kg-pm-try output { min-inline-size: 2.6rem; min-block-size: 40px; display: grid; place-items: center; border-radius: 8px; background: var(--hint-bg); }
+.kg-pm-op { inline-size: 44px; block-size: 44px; border-radius: 10px; border: 2px solid var(--border); background: var(--card); font-size: 1.3rem; font-weight: 700; }
+.kg-pm-op[aria-checked='true'] { border-color: var(--accent); background: var(--accent); color: var(--card); }
+
+/* hundred square */
+.kg-pm-sq { display: grid; grid-template-columns: repeat(var(--c), minmax(0, 1fr)); gap: 2px; inline-size: 100%; max-inline-size: 30rem; }
+.kg-pm-cell { aspect-ratio: 1; min-inline-size: 0; padding: 0; display: grid; place-items: center; font-size: clamp(0.7rem, 3.4cqi, 1rem); border: 1px solid var(--border); border-radius: 4px; background: var(--cell); }
+.kg-pm-cell.l0 { background: var(--pm-l0); border-color: var(--pm-red); }
+.kg-pm-cell.l1 { background: var(--pm-l1); border-color: var(--pm-blue); }
+/* in both: half and half, with a thicker edge, so it does not rely on colour alone */
+.kg-pm-cell.l0.l1 { background: linear-gradient(135deg, var(--pm-l0) 50%, var(--pm-l1) 50%); border: 2px solid var(--fg); font-weight: 700; }
+.kg-pm-lay { min-block-size: 44px; padding-inline: 0.8rem; border-radius: 999px; border: 2px solid var(--border); background: var(--card); }
+.kg-pm-lay::before { content: ''; display: inline-block; inline-size: 0.9em; block-size: 0.9em; margin-inline-end: 0.4em; border-radius: 3px; vertical-align: -0.1em; background: var(--pm-l0); }
+.kg-pm-lay.l1::before { background: var(--pm-l1); }
+.kg-pm-lay[aria-checked='true'] { border-color: var(--accent); box-shadow: inset 0 0 0 2px var(--accent); }
+
+/* buttons under the engine */
+.kg-pm-ctl { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+.kg-pm-btn { min-inline-size: 44px; min-block-size: 44px; padding-inline: 0.9rem; border-radius: 999px; border: 2px solid var(--border); background: var(--card); font-size: 1.05rem; }
+
+/* expr: one line per step, as written in the book */
+.kg-pm-ex { display: flex; flex-direction: column; gap: 0.3rem; align-items: flex-start; font-size: 1.3rem; max-inline-size: 100%; }
+.kg-pm-ex p { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem; color: var(--muted); }
+.kg-pm-ex p.cur { color: var(--fg); font-weight: 700; }
+.kg-pm-ex p.end > span:last-child { padding: 0.1rem 0.6rem; border-radius: 8px; background: var(--ok-bg); color: var(--ok); }
+.kg-pm-ex .kg-pm-op { inline-size: auto; min-inline-size: 44px; }
+.kg-pm-ex .kg-pm-op.pow { min-inline-size: 36px; block-size: 44px; align-self: flex-start; }
+.kg-pm-q bdi { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 1.25rem; font-weight: 700; }

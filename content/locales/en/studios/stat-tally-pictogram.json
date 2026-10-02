@@ -1,0 +1,111 @@
+{
+  "title": "Collecting {{term:data}}, tallies and pictograms",
+  "summary": "Ask the class, count with tally marks and draw a pictogram.",
+  "guide": [
+    "This studio follows Year 2 statistics: tally charts, simple tables and pictograms. Read the sentences aloud if your child is still learning to read.",
+    "{{term:tally}} marks: one line for each answer. The fifth line goes across the other four, so the marks come in groups of five. Groups of five are quicker to count: 5, 10, then the rest.",
+    "In a {{term:pictogram}} one picture can stand for more than one thing. The key under the chart says how many. If one picture stands for 2, half a picture stands for 1.",
+    "Charts always run from left to right."
+  ],
+  "engine": {
+    "cat-apple": "apple",
+    "cat-banana": "banana",
+    "cat-orange": "orange",
+    "cat-grapes": "grapes",
+    "cat-spring": "spring",
+    "cat-summer": "summer",
+    "cat-autumn": "autumn",
+    "cat-winter": "winter",
+    "cat-ali": "Ali",
+    "cat-sara": "Sara",
+    "cat-maryam": "Maryam",
+    "cat-reza": "Reza",
+    "head-fruit": "Fruit",
+    "head-season": "Season",
+    "head-child": "Name",
+    "col-tally": "Tally",
+    "col-count": "Total",
+    "col-picture": "Pictogram",
+    "label-cards": "The children's answers",
+    "label-card": "Card {n}: {c}",
+    "label-used": "Card {n}: {c}, counted",
+    "label-pick-card": "Tap a card first.",
+    "label-add": "Add a tally mark for {c}",
+    "label-remove": "Rub out a tally mark for {c}",
+    "label-marks": "{c}: {n} tally marks",
+    "label-count": "Total for {c}",
+    "label-less": "Half a picture less for {c}",
+    "label-more": "Half a picture more for {c}",
+    "label-symbols": "{c}: {n} pictures",
+    "label-key": "Key:",
+    "label-chart": "Chart",
+    "label-total": "Total",
+    "unit-children": "children",
+    "unit-apples": "apples",
+    "instruction-sort": "Tap a card, then its row.",
+    "instruction-count": "Count the tally marks.",
+    "instruction-build": "Use + and − to add pictures."
+  },
+  "missions": {
+    "tally-survey": {
+      "title": "Make a tally",
+      "prompt": "We asked 15 children: \"Which fruit do you like best?\" Guess which fruit will win. Now tap each card, then tap the row for that fruit to add a tally mark.",
+      "hint": "Go through the cards in order. One card, one tally mark. Counted cards are crossed out.",
+      "success": "Well done! Apple 6, banana 3, orange 4 and grapes 2. Apple wins.",
+      "why": "Why does the fifth tally mark go across the other four?",
+      "model": "So the marks come in groups of five. Then I don't have to count them one by one: one group is 5, and 5 and 1 more is 6.",
+      "feedback": {
+        "empty": "Tap a card, then the row for that fruit.",
+        "cards-left": "Some cards are not counted yet. Count every card that is not crossed out.",
+        "tally-few": "You missed a card. Look again.",
+        "tally-many": "You counted a card twice. Use the − button to rub out a mark.",
+        "tally-wrong": "A card is in the wrong row. Rub it out with − and put it in the right row."
+      }
+    },
+    "count-tallies": {
+      "title": "Count the tallies",
+      "prompt": "We asked a class which season they were born in. Count the tally marks and write the total for each row.",
+      "hint": "Each crossed group is 5. Count the groups first: 5, 10, … then add the single marks.",
+      "success": "That's right! Spring 7, summer 5, autumn 9 and winter 4.",
+      "why": "In which season were most children born? How do you know?",
+      "model": "Autumn, with 9 children. 9 is more than 7, 5 and 4. The autumn tally is also the longest.",
+      "feedback": {
+        "empty": "Write the total for each row.",
+        "count-empty": "One row has no total yet.",
+        "gate-as-four": "Count the line across too. Each group has 4 lines standing up and 1 across: that's 5.",
+        "count-wrong": "One total is not right. Count the groups in fives, then the single marks."
+      }
+    },
+    "build-pictogram": {
+      "title": "Build a pictogram",
+      "prompt": "Draw a pictogram of the fruit survey. Each ☺ stands for 2 children. Use the + and − buttons; each tap adds or takes away half a picture.",
+      "hint": "Apple is 6: 2 and 2 and 2, so 3 pictures. Banana is 3: one whole picture (2) and half a picture (1).",
+      "success": "Well done! With the key \"one picture = 2 children\" the pictogram is shorter and still right.",
+      "why": "Why did you draw half a picture for banana?",
+      "model": "Each picture stands for 2 children and 3 children like banana. 2 children make one whole picture and 1 is left over; 1 is half of 2, so it is half a picture.",
+      "feedback": {
+        "empty": "Tap + to add a picture.",
+        "key-ignored": "You drew one picture for each child. But each picture stands for 2 children! So you need half as many pictures.",
+        "half-needed": "That number is odd. One child is half a picture. Don't forget the half picture.",
+        "too-high": "One row has too many pictures. Each picture is 2 children: count in twos.",
+        "too-low": "One row has too few pictures. Each picture is 2 children: count in twos."
+      }
+    },
+    "read-pictogram": {
+      "title": "Read a pictogram",
+      "prompt": "Ali, Sara, Maryam and Reza picked apples. Each picture stands for 2 apples. How many more apples did Maryam pick than Sara?",
+      "hint": "First count each child's apples: each picture is 2 and half a picture is 1. Then take the smaller number from the bigger one.",
+      "success": "That's right! Maryam picked 10 apples and Sara picked 5. 10 − 5 = 5",
+      "why": "Why is the answer 5 and not the number of extra pictures?",
+      "model": "Maryam has 5 pictures and Sara has 2 and a half. The difference is 2 and a half pictures. Each picture is 2 apples, so 2 pictures are 4 apples and half a picture is 1 apple: 5 apples altogether.",
+      "feedback": {
+        "empty": "Write your answer.",
+        "counted-pictures": "You counted the pictures. But each picture stands for 2 apples! Count the apples first.",
+        "not-difference": "That is all of Maryam's apples. We want to know how many <b>more</b> she picked than Sara.",
+        "added": "You added the apples together. \"How many more\" means take away: Maryam's apples minus Sara's apples.",
+        "too-big": "Too many. Count each child's apples again: each picture is 2, half a picture is 1.",
+        "too-small": "Too few. Count each child's apples again: each picture is 2, half a picture is 1."
+      }
+    }
+  }
+}

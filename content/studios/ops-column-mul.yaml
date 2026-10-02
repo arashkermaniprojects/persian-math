@@ -1,0 +1,36 @@
+id: ops-column-mul
+engine: column-arithmetic
+strand: ops
+order: 8
+concepts: [ops.mul.short, ops.mul.written, frac.decimal.mul]
+# Short multiplication in the place-value table with the carry above the next column (Iran G04_riazi_chaharom.pdf
+# p.54 [۴۸]; Afghan carries above too), then long multiplication. What the books write for the tens row:
+#  - Iran G04 p.56–57 [۵۰–۵۱]: the full partial product WITH its 0 (16 × 12: ۳۲ then ۱۶۰; 27 × 39: ۲۴۳ + ۸۱۰).
+#  - Afghan G03 p.114 [۱۰۷]: 23 × 16 → ۱۳۸ and «+۲۳» shifted one column, no 0 («ضرب اعداد دو رقمی به دو رقمی»).
+#  - Afghan G04 p.58 [۵۱]: 67 × 32 → ۱۳۴ and ۲۰۱۰, with the 0 («۳۰ × ۶۷»).
+#  - UK: the placeholder 0.
+# So engine.placeholder is "zero" in every locale file here (fa-IR, fa-AF, ps included), and the Afghan G3 shifted row
+# gets its own mission for fa-AF/ps with placeholder: shift. Decimals: multiply as whole numbers, then count places.
+missions:
+  # 47 × 6 in the place-value table: carry 4 above the tens; 4 × 6 + 4 = 28.
+  - id: short-mul
+    setup: { op: mul, terms: [47, 6], header: true }
+    check: { type: steps-correct }
+  # 238 × 4: two carries in a row; "add the carry after multiplying" (carry-first catches 3 + 3 = 6 × 4).
+  - id: three-by-one
+    setup: { op: mul, terms: [238, 4] }
+    check: { type: steps-correct }
+  # 67 × 32 (Afghan G4 example): 67 × 2 = 134, 67 × 30 = 2010, sum 2144.
+  - id: long-mul
+    setup: { op: mul, terms: [67, 32] }
+    check: { type: steps-correct }
+  # Afghan G3: 23 × 16 with the second row shifted one column instead of a 0: 138 + 230 → 368.
+  - id: shifted-row
+    locales: [fa-AF, ps]
+    setup: { op: mul, terms: [23, 16], placeholder: shift }
+    check: { type: steps-correct }
+  # 2.45 × 3: multiply 245 × 3 = 735 on the sheet, then place the mark by counting: 2 decimal places → 7.35.
+  - id: decimal-mul
+    setup: { op: mul, terms: ["2.45", 3] }
+    answer: decimal
+    check: { type: answer-decimal, value: "7.35" }

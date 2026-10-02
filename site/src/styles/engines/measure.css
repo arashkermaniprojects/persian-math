@@ -100,3 +100,4 @@ rect.kg-ms-unit:not(.kg-ms-clip) { fill: color-mix(in srgb, var(--accent) 20%, t
 .kg-ms-u.to { border-color: var(--accent); border-style: dashed; }
 .kg-ms-f { font-size: 0.85rem; color: var(--muted); unicode-bidi: isolate; direction: ltr; }
 .kg-ms-f.on { color: var(--accent); font-weight: 700; }
+.kg-ms-obj.ribbon { fill: #e98ea0; }

@@ -209,3 +209,18 @@ This guide sets the math notation for each of Kamangir's four locales. Every cla
 
 ## Decisions
 - **Digits (owner decision, 2026-10-02):** fa-IR, fa-AF and ps always use Persian digits ۰۱۲۳۴۵۶۷۸۹, at every grade, with no Latin-digit setting. This holds even though Afghan books switch to Latin digits from grade 7.
+
+## Charts
+Checked on rendered pages of G02_riazi_dovom.pdf ch. 8 (PDF page = printed + 6), G03_riazi_sevom.pdf ch. 7 (PDF page = printed page) and G04_riazi_chaharom.pdf ch. 7.
+- **Charts run left to right in every locale, and the value axis is on the left and goes up.** This holds for both the axes and the order of the categories.
+  - Bar charts: the axis arrows point up and to the right, and the categories go from left to right in the order of the table, e.g. شنبه … جمعه (G02_riazi_dovom.pdf p.137 [۱۳۱], p.145 [۱۳۹]; G03_riazi_sevom.pdf p.127; G04_riazi_chaharom.pdf p.150 [۱۴۴]).
+  - Pictograms in columns go left to right (G02 p.142 [۱۳۶], p.144 [۱۳۸]). In pictograms drawn as table rows, the pictures start at the left and the part picture is at the right end (G02 p.143 [۱۳۷]). Each one has a key: «هر ■ یعنی ۱۰ کتاب» (G03 p.127).
+  - Line graphs: time runs left to right, and the value axis may start above 0, with a note that the values start at ۱۰۰ (G04 p.151 [۱۴۵]).
+- **Only tables follow the page direction.** Frequency tables and tally tables put their first column on the right (G02 p.134–135 [۱۲۸–۱۲۹]). Inside a cell, tally marks still run left to right in groups of five, with the fifth stroke drawn across the other four (G02 p.135 [۱۲۹]; G03 p.128).
+- **Pie charts** start at 12 o'clock and go clockwise. In G3 the learner colours equal sectors: 12 for the hours of a day, 10 for 10 spins, 8 for 80 books (G03 p.124–127). The legend is a list of «نام: رنگ» entries.
+- **Our rule (`chart-builder`).**
+  - Every chart is drawn inside an LTR box in every locale, as on the number line.
+  - Labels use the locale's digits and words.
+  - Only the frequency table and the legend follow the page direction.
+  - This matches the books. The idea that categories run right to left in RTL locales was not seen in any Iranian book checked.
+  - Afghan and UK chart pages were not checked (*unverified*). UK practice is the same left-to-right layout.

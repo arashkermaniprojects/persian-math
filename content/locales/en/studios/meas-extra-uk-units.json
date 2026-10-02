@@ -1,0 +1,121 @@
+{
+  "title": "Extra: thermometers and imperial units",
+  "summary": "Read a thermometer in °C, then meet inches, feet, pounds and pints and their metric equivalents.",
+  "guide": [
+    "We measure {{term:temperature}} with a thermometer, in degrees Celsius (°C). Water freezes at 0 °C.",
+    "Not every mark on a thermometer has a number. First work out what each small mark is worth, then count on.",
+    "Temperatures below zero are negative: −6 °C means 6 degrees below zero. The lower it is, the colder it is.",
+    "Imperial units are older units still used in the UK. 1 foot = 12 inches, 1 yard = 3 feet, 1 mile = 1760 yards.",
+    "Rough metric equivalents: 1 inch ≈ 2.5 cm, 1 kg ≈ 2.2 pounds (lb), 1 pint ≈ 570 ml, 5 miles ≈ 8 km."
+  ],
+  "engine": {
+    "label-thermometer": "Thermometer",
+    "label-up": "Warmer / more",
+    "label-down": "Colder / less",
+    "label-ruler": "Ruler; drag to move it",
+    "label-reading": "start at {s}, end at {e}",
+    "label-scale": "Kitchen scale",
+    "label-jug": "Measuring jug",
+    "unit-C": "°C",
+    "unit-in": "in",
+    "unit-kg": "kg",
+    "unit-ml": "ml",
+    "unit-mile": "miles",
+    "unit-yd": "yards",
+    "unit-ft": "feet",
+    "instruction-thermometer": "Read the thermometer."
+  },
+  "missions": {
+    "read-thermometer": {
+      "title": "How warm is it today?",
+      "prompt": "Fatima looks at the thermometer in the yard. First: what is each small mark worth? Now write the temperature.",
+      "hint": "Between 20 and 30 there are 4 small marks and 5 spaces. 10 ÷ 5 = 2, so each mark is 2 °C. Count on in twos from 20.",
+      "success": "Well done! It is 26 °C.",
+      "why": "How did you know each small mark is 2 degrees, not 1?",
+      "model": "From 20 to 30 is 10 degrees, split into 5 spaces. 10 ÷ 5 = 2, so each space is 2 degrees. Three marks above 20 is 20 + 6 = 26.",
+      "feedback": {
+        "mark-size": "You counted each small mark as 1 degree. Count the spaces between 20 and 30: each mark is 2 degrees.",
+        "rounded": "The level is not exactly on a number. Count the small marks too.",
+        "too-big": "Your number is too big. Count the marks from 20 again.",
+        "too-small": "Your number is too small. Count the marks from 20 again.",
+        "empty": "Write the temperature as a number."
+      }
+    },
+    "below-zero": {
+      "title": "Below zero",
+      "prompt": "On a winter night it is −6 °C. Set the thermometer to −6 °C.",
+      "hint": "First go down to 0. Then go 6 degrees further down. Each mark is 2 degrees, so that is 3 marks.",
+      "success": "Well done! The thermometer shows −6 °C.",
+      "why": "Which is warmer, −6 °C or −2 °C? Why?",
+      "model": "−2 °C is warmer. On the thermometer −2 is higher than −6, and higher is warmer. −6 °C is 6 degrees colder than freezing.",
+      "feedback": {
+        "above-zero": "That is 6 °C, above zero. −6 °C is below zero.",
+        "counted-up": "That is −4 °C. Go 3 marks down from 0.",
+        "too-big": "That is still warmer than −6 °C. Go down further.",
+        "too-small": "You went too far down. Go up a little.",
+        "empty": "Set the thermometer."
+      }
+    },
+    "inches-to-cm": {
+      "title": "A pencil in inches",
+      "prompt": "This ruler is in inches. First read the pencil's length in inches. Then, using 1 inch ≈ 2.5 cm, about how many centimetres is it?",
+      "hint": "The pencil reaches the 6. Each inch is about 2.5 cm, so work out 6 × 2.5.",
+      "success": "Well done! 6 inches ≈ 6 × 2.5 = 15 cm (exactly 15.24 cm).",
+      "why": "Why is the number of centimetres bigger than the number of inches?",
+      "model": "A centimetre is smaller than an inch: about 2.5 cm fit into 1 inch. A smaller unit fits more times into the same pencil, so the number is bigger.",
+      "feedback": {
+        "inches": "6 is the length in inches. Now change it to centimetres: each inch is about 2.5 cm.",
+        "added": "You added 2.5. Each inch is 2.5 cm, so multiply: 6 × 2.5.",
+        "divided": "You divided. Centimetres are smaller, so there are more of them: multiply.",
+        "too-big": "Your number is too big. Work out 6 × 2.5.",
+        "too-small": "Your number is too small. Work out 6 × 2.5.",
+        "empty": "Write the length in centimetres."
+      }
+    },
+    "feet-and-inches": {
+      "title": "Feet and inches",
+      "prompt": "Hassan is 4 feet 6 inches tall. How many inches is that altogether? The strip shows the imperial units for length.",
+      "hint": "Look at the strip: 1 foot = 12 inches. So 4 feet = 4 × 12 inches. Then add the 6.",
+      "success": "Well done! 4 × 12 = 48, and 48 + 6 = 54 inches.",
+      "why": "Why is 4 feet 6 inches not 46 inches?",
+      "model": "Feet and inches are not tens and ones. A foot is 12 inches, not 10. So 4 feet is 48 inches, and 48 + 6 = 54.",
+      "feedback": {
+        "base-ten": "Feet and inches do not work like tens and ones: 1 foot is 12 inches. Work out 4 × 12 first.",
+        "wrong-factor": "Check the strip: 1 foot is 12 inches, and there are 4 feet. Then add the 6 inches.",
+        "too-big": "Your number is too big. 4 × 12 + 6.",
+        "too-small": "Your number is too small. 4 × 12 + 6.",
+        "empty": "Write the height in inches."
+      }
+    },
+    "kg-to-pounds": {
+      "title": "Kilograms and pounds",
+      "prompt": "Read the scale in kilograms. Then, using 1 kg ≈ 2.2 pounds, about how many pounds (lb) does the bag weigh?",
+      "hint": "The needle is on 2 kg. Each kilogram is about 2.2 lb, so work out 2 × 2.2.",
+      "success": "Well done! 2 kg ≈ 2 × 2.2 = 4.4 lb.",
+      "why": "Is a pound heavier or lighter than a kilogram? How do you know?",
+      "model": "Lighter. More than 2 pounds make one kilogram, so one pound must be less than half a kilogram.",
+      "feedback": {
+        "wrote-kg": "2 is the mass in kilograms. Now change it to pounds: each kilogram is about 2.2 lb.",
+        "divided": "You divided. A pound is lighter than a kilogram, so there are more pounds: multiply.",
+        "too-big": "Your number is too big. Work out 2 × 2.2.",
+        "too-small": "Your number is too small. Work out 2 × 2.2.",
+        "empty": "Write the mass in pounds."
+      }
+    },
+    "pint-of-milk": {
+      "title": "A pint of milk",
+      "prompt": "A pint is about 570 ml. Pour one pint of milk into the jug, as close as the marks allow.",
+      "hint": "There is a mark every 50 ml. 570 is between 550 and 600. Which mark is closer?",
+      "success": "Well done! 550 ml is the closest mark to one pint (568 ml).",
+      "why": "Is a pint more or less than half a litre? How do you know?",
+      "model": "More. Half a litre is 500 ml and a pint is about 570 ml. So a pint is a bit more than half a litre.",
+      "feedback": {
+        "half-litre": "That is half a litre, 500 ml. A pint is a bit more.",
+        "litre": "That is a whole litre. A pint is only a bit more than half a litre.",
+        "too-big": "That is too much milk. Pour some out.",
+        "too-small": "Not enough milk yet. Pour in more.",
+        "empty": "Pour some milk."
+      }
+    }
+  }
+}

@@ -7,6 +7,11 @@ import { checkFacts, type FactsCheck } from '../engines/lib/fact-fluency-check';
 import { checkCcm, type CcmCheck, type CcmState } from '../engines/lib/clock-calendar-money-check';
 import { checkMeasure, type MeasureCheck, type MeasureState } from '../engines/lib/measure-check';
 import { checkPattern, type PatternCheck, type PatternState } from '../engines/lib/pattern-machine-check';
+import { checkChart, type ChartCheck, type ChartState } from '../engines/lib/chart-builder-check';
+import { checkChance, type ChanceCheck, type ChanceState } from '../engines/lib/probability-sim-check';
+import { checkShapeBoard, type ShapeBoardCheck, type ShapeBoardState } from '../engines/lib/shape-board-check';
+import { checkCanvas, type CanvasCheck } from '../engines/lib/problem-canvas-check';
+import type { CanvasState } from '../engines/lib/problem-canvas-model';
 
 type FracSpec = [number, number];
 
@@ -36,7 +41,15 @@ export type Check =
   /** <kg-measure>: the typed or measured value equals `value` (± tolerance), optionally lined up from zero (engines/lib/measure-check.ts). */
   | MeasureCheck
   /** <kg-pattern-machine>: repeating patterns, typed terms, machine rules, hundred-square shading, order of operations (engines/lib/pattern-machine-check.ts). */
-  | PatternCheck;
+  | PatternCheck
+  /** <kg-chart-builder>: tally marks, typed counts, chart values, levelling, tapped category, chosen chart type (engines/lib/chart-builder-check.ts). */
+  | ChartCheck
+  /** <kg-probability-sim>: bag/spinner edited to a probability, sample space, likelihood line, chosen outcome, trials run (engines/lib/probability-sim-check.ts). */
+  | ChanceCheck
+  /** <kg-shape-board>: shapes drawn, images, fold/parallel lines, angles, points, taps, cells, pieces, cubes (engines/lib/shape-board-check.ts). */
+  | ShapeBoardCheck
+  /** <kg-problem-canvas>: known/asked facts, strategy, each tool, then the answer (engines/lib/problem-canvas-check.ts). */
+  | CanvasCheck;
 
 export interface Attempt {
   /** Engine state (shape depends on the engine). */
@@ -54,7 +67,7 @@ export interface Attempt {
     answered?: number;
     correct?: number;
     done?: boolean;
-  } & CcmState & MeasureState & { pattern?: PatternState };
+  } & CcmState & MeasureState & { pattern?: PatternState } & ChartState & { chance?: ChanceState } & { board?: ShapeBoardState };
   fraction?: WrittenFrac | null;
   integer?: number | null;
   /** Typed decimal, already parsed exactly (null if unparseable). */
@@ -149,5 +162,13 @@ export function evaluate(check: Check, a: Attempt): Result {
       return checkMeasure(check, a.state, a.integer ?? (a.decimal ? a.decimal.valueOf() : null));
     case 'pattern':
       return checkPattern(check, a.state);
+    case 'chart':
+      return checkChart(check, a.state);
+    case 'chance':
+      return checkChance(check, a.state?.chance);
+    case 'shape-board':
+      return checkShapeBoard(check, a.state?.board);
+    case 'problem-canvas':
+      return checkCanvas(check, a.state as Partial<CanvasState> | undefined, a.integer);
   }
 }

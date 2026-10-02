@@ -1,0 +1,104 @@
+{
+  "title": "Multiplying and dividing by 10, 100 and 1000",
+  "summary": "When you multiply by 10, every digit moves one place to the left; when you divide by 10, one place to the right. See it on the place-value chart, first with whole numbers, then with decimals.",
+  "guide": [
+    "On the {{term:place-value}} chart, each place is worth 10 times the place on its right. So when we multiply by 10, every digit moves one place to the left and becomes worth 10 times as much. The empty ones place gets a 0 to hold it.",
+    "The <b>×10</b> button slides all the digits one place left together, and <b>÷10</b> slides them one place right. Multiplying by 100 is multiplying by 10 twice; by 1000, three times.",
+    "\"Just add a zero\" is a shortcut that only works for whole numbers, and only because the digits have moved. It goes wrong with a {{term:decimal}}: 3.45 and 3.450 are the same number! With decimals, the digits move across the {{term:decimal-point}}.",
+    "The decimal point stays where it is, between the ones and the tenths. It's the digits that move."
+  ],
+  "engine": {
+    "place-0": "ones",
+    "place-1": "tens",
+    "place-2": "hundreds",
+    "place-3": "thousands",
+    "place-4": "ten thousands",
+    "place-m1": "tenths",
+    "place-m2": "hundredths",
+    "label-add": "Add one to the {p}",
+    "label-remove": "Take one from the {p}",
+    "label-times10": "Multiply by 10: every digit one place left",
+    "label-divide10": "Divide by 10: every digit one place right",
+    "label-views": "View",
+    "label-blocks": "Base-ten blocks",
+    "label-abacus": "Abacus",
+    "instruction-shift": "Slide the digits with ×10 and ÷10."
+  },
+  "missions": {
+    "times-ten": {
+      "title": "34 × 10",
+      "prompt": "Each box holds 34 pencils. How many pencils are in 10 boxes? Predict first, then press ×10 and watch where the digits go.",
+      "hint": "Press ×10 once. 3 tens become 3 hundreds and 4 ones become 4 tens.",
+      "success": "Well done! 34 × 10 = 340. Every digit moved one place left and the ones became 0.",
+      "why": "Why is the 4 in 340 not worth 4 any more, but 40?",
+      "model": "Because it moved from the ones place to the tens place. Each place is worth 10 times the one on its right, so 4 ones became 4 tens, which is 40. The 0 in the ones place just shows that the ones are empty.",
+      "feedback": {
+        "twice": "You pressed ×10 twice: that's × 100. Press ÷10 once.",
+        "one-digit": "Only one digit moved. When we multiply by 10, <b>all</b> the digits move one place left together. Use the ×10 button.",
+        "added-ten": "You added 10: that's 34 + 10. We want 10 lots of 34.",
+        "too-big": "Too big.",
+        "too-small": "Not enough yet. Press ×10.",
+        "empty": "You cleared the number. Start again from 34."
+      }
+    },
+    "times-hundred": {
+      "title": "207 × 100",
+      "prompt": "A pack of paper has 207 sheets. How many sheets are in 100 packs? Predict: what happens to the 0 in the middle of 207?",
+      "hint": "Multiplying by 100 is multiplying by 10 twice. Press ×10 twice.",
+      "success": "That's right! 207 × 100 = 20,700. Every digit, even the 0 in the middle, moved two places left.",
+      "why": "Ali said, \"207 × 100 is 2700.\" What went wrong?",
+      "model": "Ali lost the 0 in the middle. 207 is 2 hundreds, 0 tens and 7 ones. Multiplying by 100 moves every digit two places left: the 2 to the ten thousands, the 0 to the thousands and the 7 to the hundreds. So the answer is 20,700.",
+      "feedback": {
+        "once": "That's 207 × 10. Multiplying by 100 is ×10 twice.",
+        "lost-zero": "The 0 in the middle of 207 got lost! The 0 moves just like the other digits.",
+        "added-hundred": "You added 100: that's 207 + 100. We want 100 lots of 207.",
+        "too-big": "Too big. Did you press ×10 three times?",
+        "too-small": "Not enough yet.",
+        "empty": "You cleared the number. Start again from 207."
+      }
+    },
+    "divide-hundred": {
+      "title": "3600 ÷ 100",
+      "prompt": "£3600 is shared equally between 100 people. How much does each person get? Which way will the digits move this time?",
+      "hint": "Dividing by 100 is dividing by 10 twice. Press ÷10 twice.",
+      "success": "Well done! 3600 ÷ 100 = 36. Every digit moved two places right.",
+      "why": "Why does dividing by 100 move the digits to the right?",
+      "model": "Dividing undoes multiplying. Multiplying by 100 moves the digits two places left, so dividing by 100 moves them two places back to the right. 36 × 100 = 3600, so 3600 ÷ 100 = 36.",
+      "feedback": {
+        "once": "That's 3600 ÷ 10. Press ÷10 once more.",
+        "took-hundred": "You took away 100: that's subtracting. Slide the digits with ÷10.",
+        "too-big": "Still too big. Press ÷10.",
+        "too-small": "Too small. Did you press ÷10 three times?",
+        "empty": "You cleared the number. Start again."
+      }
+    },
+    "decimal-times-ten": {
+      "title": "A decimal × 10",
+      "prompt": "A bottle holds 3.45 litres of water. How much do 10 bottles hold? Sara says, \"Just add a zero: 3.450.\" Try it and see!",
+      "hint": "Press ×10 once. 3 ones become 3 tens, 4 tenths become 4 ones and 5 hundredths become 5 tenths.",
+      "success": "That's right! 3.45 × 10 = 34.5 litres.",
+      "why": "Why doesn't Sara's \"add a zero\" rule work here?",
+      "model": "3.450 is the same as 3.45: 0 hundredths add nothing, so the number hasn't got 10 times bigger. When we multiply by 10, every digit moves one place left, right across the decimal point: 34.5. \"Adding a zero\" is only what this movement looks like for whole numbers.",
+      "feedback": {
+        "twice": "You pressed ×10 twice: that's × 100.",
+        "too-big": "Too big. Just ×10 once.",
+        "too-small": "Not enough yet. Press ×10.",
+        "empty": "You cleared the number. Start again."
+      }
+    },
+    "decimal-divide-ten": {
+      "title": "A decimal ÷ 10",
+      "prompt": "4.7 kg of rice is shared equally into 10 bags. How much rice is in each bag? Predict first: more or less than 1 kg?",
+      "hint": "Press ÷10. 4 ones become 4 tenths and 7 tenths become 7 hundredths.",
+      "success": "Well done! 4.7 ÷ 10 = 0.47 kg, less than 1 kg.",
+      "why": "Why do we write a 0 before the decimal point in 0.47?",
+      "model": "Because after dividing there is nothing left in the ones place. The 0 shows the ones are empty and makes the decimal point easy to see. The 4 isn't 4 ones any more; it's 4 tenths.",
+      "feedback": {
+        "wrong-way": "The digits moved left: that's multiplying by 10. When we divide, the digits move right.",
+        "too-big": "Still too big. Press ÷10.",
+        "too-small": "Too small.",
+        "empty": "You cleared the number. Start again."
+      }
+    }
+  }
+}

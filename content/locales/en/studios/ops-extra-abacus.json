@@ -1,0 +1,89 @@
+{
+  "title": "Extra: adding and subtracting on the abacus",
+  "summary": "Add and subtract 2-digit numbers by moving beads on an {{term:abacus}}. Exchange ten ones beads for one tens bead, and back.",
+  "guide": [
+    "This is an extra studio. In Afghanistan, children in grade 2 add and subtract on the \"chot\", a simple {{term:abacus}}.",
+    "The right rod is the ones, the left rod is the tens. Each bead on the tens rod is worth 10.",
+    "If the ones rod has 10 beads or more, press <b>← 10</b>: ten beads come off and one bead goes on the tens rod.",
+    "If there aren't enough ones beads, press <b>1 →</b>: one tens bead comes off and ten beads go on the ones rod."
+  ],
+  "engine": {
+    "place-0": "ones",
+    "place-1": "tens",
+    "label-add": "Put a bead on the {p}",
+    "label-remove": "Take a bead off the {p}",
+    "label-bundle": "Exchange 10 {p} beads for 1 ten",
+    "label-break": "Exchange 1 ten bead for 10 {q}",
+    "instruction-add": "Put beads on.",
+    "instruction-sub": "Take beads off.",
+    "instruction-break": "Break a ten."
+  },
+  "missions": {
+    "add-exchange": {
+      "title": "15 + 8",
+      "prompt": "The abacus shows 15. Add 8. Guess: what will it be?",
+      "hint": "Put 8 beads on the ones. That makes 13 ones. Then press ← 10.",
+      "success": "Well done! 15 + 8 = 23. Ten ones became one ten.",
+      "why": "Why can't the 13 beads stay on the ones rod?",
+      "model": "Only one digit fits in each place. Ten ones beads are the same as one tens bead. So 13 ones are 1 ten and 3 ones.",
+      "feedback": {
+        "needs-exchange": "There are 10 or more beads on the ones. Press ← 10.",
+        "on-tens": "You put the beads on the tens: that's 80! We want 8 ones.",
+        "lost-one": "One bead is missing. Count again.",
+        "too-big": "Too many. Just 8.",
+        "too-small": "Not enough yet. Put 8 beads on the ones.",
+        "empty": "You took them all off. Make 15 again."
+      }
+    },
+    "add-two-digit": {
+      "title": "28 + 13",
+      "prompt": "The abacus shows 28. Add 13.",
+      "hint": "13 is 1 ten and 3 ones. Put 1 bead on the tens and 3 on the ones. Then exchange ten ones.",
+      "success": "That's right! 28 + 13 = 41.",
+      "why": "The ones were 8 and 3. Why is the answer 41 and not 31?",
+      "model": "8 + 3 = 11 ones. Ten of them became one ten, and 1 one is left. 2 tens, 1 ten and that new ten make 4 tens. So 41.",
+      "feedback": {
+        "forgot-tens": "You put on the ones, but forgot the 1 ten in 13.",
+        "forgot-ones": "You put on the ten. Now put on the 3 ones too.",
+        "lost-one": "One bead is missing.",
+        "needs-exchange": "There are 10 or more beads on the ones. Press ← 10.",
+        "too-big": "Too many.",
+        "too-small": "Not enough yet.",
+        "empty": "Make 28 again."
+      }
+    },
+    "sub-beads": {
+      "title": "25 − 12",
+      "prompt": "The abacus shows 25. Take away 12.",
+      "hint": "12 is 1 ten and 2 ones. Take 2 beads off the ones and 1 bead off the tens.",
+      "success": "Well done! 25 − 12 = 13.",
+      "why": "Why did you take only 1 bead off the tens, not 10?",
+      "model": "Each tens bead is worth 10 on its own. 1 tens bead is 10.",
+      "feedback": {
+        "added": "You put beads on. This time take them off.",
+        "forgot-ones": "You took the ten. Now take 2 ones too.",
+        "forgot-tens": "You took the ones. Take 1 bead off the tens too.",
+        "too-big": "Still too many.",
+        "too-small": "You took too many.",
+        "empty": "You took them all off! Make 25 again."
+      }
+    },
+    "sub-exchange": {
+      "title": "42 − 17",
+      "prompt": "The abacus shows 42. Take away 17. There are only 2 beads on the ones! What can you do?",
+      "hint": "Press 1 →. One tens bead becomes ten ones beads. Now you have 12 ones. Take 7. Then take 1 bead off the tens.",
+      "success": "Well done! 42 − 17 = 25.",
+      "why": "Reza said, \"7 − 2 = 5, so the answer is 35.\" What went wrong?",
+      "model": "We need to take 7 ones <b>from</b> 2 ones, not the other way round. 2 ones aren't enough, so we break a ten: 12 − 7 = 5 ones. 3 tens are left, and we take 1 ten: 2 tens. The answer is 25.",
+      "feedback": {
+        "smaller-from-larger": "Did you take 2 from 7, like Reza? You must take 7 ones from the ones. First break a ten with 1 →.",
+        "only-tens": "You took 1 ten. Take 7 ones too.",
+        "only-two": "You took 2 ones. Where are the other 5? Break a ten.",
+        "needs-exchange": "There are 10 or more beads on the ones. Press ← 10.",
+        "too-big": "Still too many.",
+        "too-small": "You took too many.",
+        "empty": "You took them all off! Make 42 again."
+      }
+    }
+  }
+}

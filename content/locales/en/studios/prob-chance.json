@@ -1,0 +1,125 @@
+{
+  "title": "Chance: {{term:certain}}, possible, {{term:impossible}}",
+  "summary": "Pick counters from a bag, spin a spinner and roll a dice. Say whether each event is certain, possible or impossible.",
+  "guide": [
+    "This studio follows Iran's Year 2–3 lessons on chance: a bag of counters, a spinner and a dice. Your child guesses first, then tests the guess and looks at the results table. In England this is enrichment: probability is not in the KS2 curriculum.",
+    "The three key words: <b>certain</b> means it happens every time. <b>Possible</b> means it might happen or might not. <b>Impossible</b> means it never happens. A common mistake is to think that \"most of them\" means \"certain\". Missions 2 and 3 work on this.",
+    "The last mission writes a {{term:probability}} as a fraction: 1 way out of 6 {{term:equally-likely}} ways is {{frac:1/6}}. Results change a little each time, and that is normal. With more rolls, the results get closer to {{frac:1/6}}."
+  ],
+  "engine": {
+    "label-red": "red",
+    "label-white": "white",
+    "label-blue": "blue",
+    "label-green": "green",
+    "label-bag": "bag",
+    "label-spinner": "spinner",
+    "label-dice": "dice",
+    "label-run-bag": "Pick a counter",
+    "label-run-spinner": "Spin",
+    "label-run-dice": "Roll",
+    "label-times": "{n} times",
+    "label-reset": "Start again",
+    "label-result": "Result",
+    "label-trials": "Trials: {n}",
+    "label-outcome": "Result",
+    "label-tally": "Tally",
+    "label-count": "Count",
+    "label-experiment": "Fraction of trials",
+    "label-theory": "Probability",
+    "label-add": "one more {c}",
+    "label-remove": "one fewer {c}",
+    "label-space": "Which colours could come out?",
+    "label-choose": "Which colour?",
+    "label-scale": "likelihood line",
+    "level-impossible": "impossible",
+    "level-possible": "possible",
+    "level-certain": "certain",
+    "level-unlikely": "unlikely",
+    "level-even": "even chance",
+    "level-likely": "likely",
+    "event-red": "A red counter comes out.",
+    "event-white": "A white counter comes out.",
+    "event-blue": "A blue counter comes out.",
+    "event-red-or-white": "A red or a white counter comes out.",
+    "instruction-draw": "Pick a counter without looking.",
+    "instruction-place": "Put each sentence on the line.",
+    "instruction-edit": "Add or take away counters.",
+    "instruction-spin": "Guess first, then spin.",
+    "instruction-roll": "Roll and count."
+  },
+  "missions": {
+    "what-can-come-out": {
+      "title": "Which colours could come out?",
+      "prompt": "This bag has 5 red counters and 1 white counter. Without looking, we take one counter out. Which colours could it be? Tap all of them.",
+      "hint": "Look in the bag. Which colours are in it? You can also pick a few counters and see.",
+      "success": "Well done! The counter is either red or white. There are no other colours in the bag.",
+      "why": "Before you take a counter out, can you say exactly which colour it will be? Why?",
+      "model": "No. There are more red counters, so red has a better {{term:chance}}. But the white counter is in the bag too, and it might come out. We only know it will be red or white.",
+      "feedback": {
+        "not-in-bag": "There are no blue or green counters in the bag. Something that isn't in the bag can't come out.",
+        "space-missing": "You missed a colour. There is only one white counter, but it could come out too.",
+        "space-empty": "Tap the colours that could come out."
+      }
+    },
+    "certain-possible-impossible": {
+      "title": "Certain, possible or impossible?",
+      "prompt": "Same bag: 5 red counters and 1 white counter. We take one counter out. Put each sentence on the line: impossible, possible or certain?",
+      "hint": "<b>Certain</b> means it happens every time. <b>Impossible</b> means never. <b>Possible</b> means sometimes yes, sometimes no. Pick 10 counters and see.",
+      "success": "Well done! Blue is impossible. Red is possible. White is possible too. \"Red or white\" is certain.",
+      "why": "Sara says: \"Getting red is certain, because most of the counters are red.\" Is she right? Why?",
+      "model": "No. Red is more likely, but it isn't certain, because the white counter could come out. Certain means every single time.",
+      "feedback": {
+        "most-not-all": "Most of the counters are red, but not all of them. The white one could come out. So red is not certain. It is possible.",
+        "one-is-enough": "There is only one white counter, but that one could still come out. So it is not impossible.",
+        "no-blue": "There are no blue counters in the bag. So getting blue is impossible.",
+        "only-these": "The bag holds only red and white counters. Whatever comes out is red or white. So this is certain.",
+        "scale-unplaced": "Put every sentence on the line. One is still left.",
+        "scale-high": "One sentence is in the wrong place. Look in the bag again.",
+        "scale-low": "One sentence is in the wrong place. Look in the bag again."
+      }
+    },
+    "make-it-certain": {
+      "title": "Make it certain!",
+      "prompt": "This bag has red, blue and green counters. Add or take away counters so that getting a red counter is <b>certain</b>.",
+      "hint": "Certain means red comes out every time. Which counters could come out instead of red?",
+      "success": "Well done! Now there are only red counters in the bag, so red comes out every time. Pick 10 and see.",
+      "why": "Ali says: \"If we put in 8 red counters and 1 blue counter, red is certain.\" Is he right? Why?",
+      "model": "No. With 8 red counters red is very likely, but the 1 blue counter could still come out. For red to be certain, no other colour can be in the bag.",
+      "feedback": {
+        "too-unlikely": "There is still a counter that isn't red in the bag. It could come out.",
+        "empty-bag": "The bag is empty! Nothing can come out of an empty bag. Put in at least one red counter."
+      }
+    },
+    "which-colour": {
+      "title": "Which colour is most likely?",
+      "prompt": "We spin the spinner until the arrow stops on a colour. Guess first: which colour is the arrow most likely to stop on? Tap it. Then spin 10 times.",
+      "hint": "Count the parts. How many parts are blue? How many are green? How many are red?",
+      "success": "Well done! 4 of the 8 parts are blue. Blue covers the most space, so the arrow stops on blue most often.",
+      "why": "If you spin 10 more times, will your table be exactly the same as before? Why?",
+      "model": "No, we can't know. Any colour could come up on each spin. But blue usually comes up most, because it covers more of the spinner.",
+      "feedback": {
+        "smallest": "Red is only 1 part out of 8. Red has the smallest chance!",
+        "close": "Green has 3 parts. Is there a colour with more parts? Count them.",
+        "choose-wrong": "Count the parts of each colour.",
+        "choose-empty": "First tap the colour you guess.",
+        "few-trials": "Test your guess: spin at least 10 times."
+      }
+    },
+    "roll-a-six": {
+      "title": "The chance of rolling a 6",
+      "prompt": "A dice has 6 faces: 1, 2, 3, 4, 5 and 6. Every face is {{term:equally-likely}}. What fraction of all the ways is rolling a 6? Write the fraction. Then roll 100 times and see.",
+      "hint": "How many ways can the dice land? How many of them are a 6? 1 way out of 6.",
+      "success": "Well done! 1 way out of 6: the probability of rolling a 6 is {{frac:1/6}}.",
+      "why": "Sara rolled the dice 6 times and never got a 6. Does that mean rolling a 6 is impossible? Why?",
+      "model": "No. 6 is one of the faces, so it is possible. In a few rolls it might not come up. But if we roll many times, about 1 roll in every 6 is a 6.",
+      "feedback": {
+        "upside-down": "Your fraction is upside down. Top: how many ways give a 6? Bottom: how many ways are there in all?",
+        "five-others": "A dice has 6 faces, not 5. The 6 itself is one of the ways.",
+        "not-six": "That is the fraction of ways that <b>don't</b> give a 6. We want rolling a 6.",
+        "too-big": "Too big. Only 1 face shows a 6.",
+        "too-small": "Too small. 1 way out of how many? Count all the faces.",
+        "empty": "Write the fraction: top and bottom."
+      }
+    }
+  }
+}

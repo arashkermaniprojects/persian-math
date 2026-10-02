@@ -1,0 +1,83 @@
+{
+  "title": "{{term:circle}}s: radius, diameter and π",
+  "summary": "Measure the diameter and radius of a circle. Wrap a tape round a circle and find how many diameters make the circumference.",
+  "guide": [
+    "A {{term:diameter}} is a straight line through the {{term:centre}} of a circle, from one side to the other.",
+    "A {{term:radius}} goes from the centre to the circle. A diameter is two radii: diameter = 2 × radius.",
+    "The {{term:circumference}} is the distance all the way round a circle. Wrap a string or tape round it, unroll it and measure it with a ruler.",
+    "The circumference of every circle is about 3.14 times its diameter. This number is called pi, written π.",
+    "circumference = π × diameter ≈ 3.14 × diameter",
+    "Drag the ruler so its 0 is at the start of what you measure."
+  ],
+  "engine": {
+    "label-ruler": "Ruler; drag to move it",
+    "label-reading": "start at {s}, end at {e}",
+    "unit-cm": "cm",
+    "instruction-ruler": "Drag the ruler."
+  },
+  "missions": {
+    "radius": {
+      "title": "The radius",
+      "prompt": "Drag the ruler and measure the diameter of this circle. Now: what is the radius in centimetres?",
+      "hint": "Put the 0 of the ruler under one end of the diameter. Read the diameter. The radius is half of it.",
+      "success": "Well done! The diameter is 4 cm and the radius is half of it: 2 cm.",
+      "why": "Why is the radius half the diameter?",
+      "model": "The diameter goes through the centre. From one end to the centre is a radius, and from the centre to the other end is another radius. So diameter = 2 × radius, and radius = 4 ÷ 2 = 2.",
+      "feedback": {
+        "diameter": "4 cm is the diameter. The radius goes from the centre to the circle: half the diameter.",
+        "doubled": "You doubled the diameter. The radius is smaller than the diameter: half of it.",
+        "not-from-zero": "The circle does not start at the 0 of the ruler. Drag the ruler first.",
+        "not-aligned": "The 0 of the ruler is not under the end of the diameter. Drag the ruler and measure again.",
+        "too-big": "Your number is too big. The radius is half the diameter.",
+        "too-small": "Your number is too small. Read the diameter carefully first.",
+        "empty": "Write the radius in centimetres."
+      }
+    },
+    "tape-around": {
+      "title": "A tape round a tin",
+      "prompt": "Maryam wrapped a tape once round a tin and unrolled it. The tin is 5 cm across. How long is the tape, the tin's circumference? Give one decimal place.",
+      "hint": "The tape starts at 0. See which number the end is just past, then count the small marks. Each small mark is 0.1 cm (1 mm).",
+      "success": "Well done! The tape is about 15.7 cm. The circumference is about 3 times the diameter.",
+      "why": "The circumference is longer than the diameter. About how many times longer?",
+      "model": "The diameter is 5 cm and the circumference is about 15.7 cm. Three diameters make 15 cm, so the circumference is a little more than 3 diameters.",
+      "feedback": {
+        "diameter": "5 cm is the tin's diameter. Read the length of the tape on the ruler.",
+        "doubled": "10 cm is two diameters. The tape is much longer. Look at its end on the ruler.",
+        "too-big": "Your number is too big. Look at the end of the tape again.",
+        "too-small": "Your number is too small. Look at the end of the tape again.",
+        "empty": "Write the length of the tape."
+      }
+    },
+    "how-many-diameters": {
+      "title": "How many diameters round?",
+      "prompt": "At the top is the tape (the tin's circumference, 15.7 cm); below it is the diameter (5 cm). Work out circumference ÷ diameter, to two decimal places.",
+      "hint": "Work out 15.7 ÷ 5. 5 × 3 = 15, and 0.7 is left over.",
+      "success": "Well done! 15.7 ÷ 5 = 3.14. That is the number pi (π).",
+      "why": "If you measured a bigger circle, what would circumference ÷ diameter be?",
+      "model": "About 3.14 again. In every circle, big or small, the circumference is about 3.14 times the diameter. So we write: circumference = π × diameter.",
+      "feedback": {
+        "whole-only": "3 is close, but the circumference is a bit more than 3 diameters. Divide the remainder too.",
+        "upside-down": "You divided the diameter by the circumference. Divide the circumference by the diameter: 15.7 ÷ 5.",
+        "too-big": "Your number is too big. Work out 15.7 ÷ 5 again.",
+        "too-small": "Your number is too small. Work out 15.7 ÷ 5 again.",
+        "empty": "Write your answer."
+      }
+    },
+    "pool": {
+      "title": "Round the circle",
+      "prompt": "The radius of this circle is 3 cm. Use π to work out its circumference: circumference = 3.14 × diameter.",
+      "hint": "First find the diameter: diameter = 2 × radius. Then multiply it by 3.14.",
+      "success": "Well done! The diameter is 6 cm, and 6 × 3.14 = 18.84 cm.",
+      "why": "Why must you find the diameter first?",
+      "model": "π tells us how many times the diameter fits round the circle, not the radius. So first I double the radius: 2 × 3 = 6. Then 6 × 3.14 = 18.84.",
+      "feedback": {
+        "used-radius": "You multiplied the radius by 3.14. The circumference is 3.14 times the diameter. Find the diameter first.",
+        "area": "That is the area of the circle, not its circumference. Circumference = 3.14 × diameter.",
+        "whole-pi": "π is not 3. Multiply by 3.14.",
+        "too-big": "Your number is too big. The diameter is 2 × 3.",
+        "too-small": "Your number is too small. The diameter is 2 × 3.",
+        "empty": "Write the circumference in centimetres."
+      }
+    }
+  }
+}

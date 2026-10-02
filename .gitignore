@@ -19,3 +19,4 @@ bundles/
 test-results/
 playwright-report/
 dist-*/
+.wip-drafts/

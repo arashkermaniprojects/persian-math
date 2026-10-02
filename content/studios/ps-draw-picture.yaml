@@ -1,0 +1,76 @@
+id: ps-draw-picture
+engine: problem-canvas
+strand: ps
+order: 1
+concepts: [ps.understand-problem, ps.draw-diagram, ops.word-problems.add-sub]
+# Iran's «حل مسئله: رسم شکل» (G2 p.8–9, G7 «راهبرد رسم شکل»): read the story, say what is known and what is asked
+# (step 1, «فهمیدن مسئله»), draw it with simple shapes (a bar model), then answer. The studio's "why" is step 4,
+# «بازگشت به عقب». One-step add/subtract stories: join, part unknown, compare, start unknown.
+missions:
+  # Grade 1: two groups put together. Unit squares in the bar; the answer is a number tile, no typing.
+  - id: join
+    setup:
+      instruction: draw
+      understand:
+        known: [{ id: sara-5, n: 5 }, { id: ali-3, n: 3 }]
+        asked: [sara-now, ali-gave]
+      tools:
+        - { kind: bar, model: part-whole, parts: 2, units: true }
+      answer: { key: sara, pick: [0, 10] }
+    check:
+      type: problem-canvas
+      known: [sara-5, ali-3]
+      asked: sara-now
+      bar: { whole: '?', parts: [5, 3] }
+      answer: 8
+      traps: [{ value: 2, code: took-away }, { value: 5, code: start }]
+  # Iran G2 p.8 no. 1: 23 books, 12 are stories, the rest science. A distractor fact (2 shelves) to leave out.
+  - id: part-unknown
+    setup:
+      instruction: draw
+      understand:
+        known: [{ id: books-23, n: 23 }, { id: shelves-2, n: 2 }, { id: story-12, n: 12 }]
+        asked: [science, all-books]
+      tools:
+        - { kind: bar, model: part-whole, parts: 2 }
+      answer: { key: science }
+    check:
+      type: problem-canvas
+      known: [books-23, story-12]
+      asked: science
+      bar: { whole: 23, parts: [12, '?'] }
+      answer: 11
+      traps: [{ value: 35, code: added }, { value: 21, code: shelves }]
+  # Compare: "6 fewer than" — the classic trap is to add because of the number words. Who has more is part of the drawing.
+  - id: compare
+    setup:
+      instruction: draw
+      understand:
+        known: [{ id: maryam-14, n: 14 }, { id: fewer-6, n: 6 }]
+        asked: [hasan, difference]
+      tools:
+        - { kind: bar, model: compare, names: [maryam, hasan] }
+      answer: { key: hasan }
+    check:
+      type: problem-canvas
+      known: [maryam-14, fewer-6]
+      asked: hasan
+      bar: { parts: [14, '?'], d: 6, more: 0 }
+      answer: 8
+      traps: [{ value: 20, code: added }]
+  # Start unknown: she gave 5 away and has 9 left. "Gave" tempts a subtraction; the drawing shows the start is the whole.
+  - id: start-unknown
+    setup:
+      understand:
+        known: [{ id: gave-5, n: 5 }, { id: left-9, n: 9 }]
+        asked: [start, gave]
+      tools:
+        - { kind: bar, model: part-whole, parts: 2 }
+      answer: { key: start }
+    check:
+      type: problem-canvas
+      known: [gave-5, left-9]
+      asked: start
+      bar: { whole: '?', parts: [9, 5] }
+      answer: 14
+      traps: [{ value: 4, code: took-away }]
