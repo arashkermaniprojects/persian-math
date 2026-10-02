@@ -51,7 +51,7 @@ export function mount(plane: CoordPlane, cfg: CoordPlaneConfig): PlaneModule {
   const mine = () => items.filter((a) => a.kind !== 'fixed');
   const edits = () => items.filter((a) => a.kind === 'edit');
   const nameOf = (a: Item) => a.name ?? (a.kind === 'edit' ? c.names?.[edits().indexOf(a)] : undefined);
-  const { d, lab } = { d: (n: number) => plane.d(n), lab: plane.lab.bind(plane) };
+  const d = (n: number) => plane.d(n), lab = plane.lab.bind(plane);
   const sx = (p: P) => plane.sx(p[0]), sy = (p: P) => plane.sy(p[1]);
   const step = () => plane.st;
   const letters = () => lab('letters', 'A B C D E F G H').split(/[\s,،]+/);
@@ -265,7 +265,8 @@ export function mount(plane: CoordPlane, cfg: CoordPlaneConfig): PlaneModule {
       ...(choices.length ? { choices: choices.map((a) => ({ from: cp(a.from), to: cp(a.to) })), picked: [...picked].sort((x, y) => x - y) } : {}),
       ...(c.move ? { shift: moved ? cp(shift) : null } : {}),
     }),
-    facts: () => {
+    // a readout row only when one is asked for
+    facts: show.includes('readout') || show.includes('shift') ? () => {
       const f: string[] = [], a = items[active] ?? mine().at(-1);
       if (show.includes('readout') && a && a.kind !== 'fixed') {
         const n = nameOf(a);
@@ -274,7 +275,7 @@ export function mount(plane: CoordPlane, cfg: CoordPlaneConfig): PlaneModule {
       }
       if (show.includes('shift') && c.move) f.push(`${esc(lab('label-shift', ''))} ${colHTML(shift)}`);
       return f;
-    },
+    } : undefined,
     live: (cur: P) => {
       const a = items[active];
       if (plane.querySelector('svg')?.matches(':focus')) return `${pending ? `${lab('label-from', 'From')} ${d(pending[0])}, ${d(pending[1])}; ` : ''}${d(cur[0])}, ${d(cur[1])}`;
