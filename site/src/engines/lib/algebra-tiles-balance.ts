@@ -168,10 +168,11 @@ export function termText(k: string, c: number): string {
   return d === 1 ? top : `${top}/${d}`;
 }
 
-/** A polynomial with fractions written as a/b (algHTML stacks them): "x/3 + 1". */
+/** A polynomial with fractions written as a/b (algHTML stacks them): "x/3 + 1"; a plus term first ("v - u"). */
 export function polyText(p: Poly): string {
-  const ks = kindsOf(p);
+  const ks = kindsOf(p), plus = ks.findIndex((k) => p[k] > 0);
   if (!ks.length) return '0';
+  if (plus > 0) ks.unshift(...ks.splice(plus, 1)); // start with a plus term: v − u, 12 − 3x
   return ks.map((k, i) => {
     const t = termText(k, p[k]);
     return i === 0 ? t : t.startsWith('-') ? `- ${t.slice(1)}` : `+ ${t}`;

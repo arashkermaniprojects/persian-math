@@ -132,3 +132,51 @@ button.kg-at-cell:hover { border-color: var(--border); }
 .kg-at-grid th { background: var(--hint-bg); }
 .kg-at-grid .kg-at-field { min-inline-size: 3.6rem; font-size: 1.05rem; }
 .kg-at-gc.fixed { display: inline-block; padding: 0.4rem; }
+
+/* balance (module, algebra-tiles/balance.ts): the steps so far, a beam on a post, two pans of tiles, the moves */
+.kg-at-steps { list-style: none; margin: 0; padding: 0.3rem 0.6rem; display: flex; flex-direction: column; align-items: center; gap: 0.15rem; font-size: 1.1rem; }
+.kg-at-steps li { display: flex; align-items: center; gap: 0.5rem; }
+.kg-at-steps li.bad { color: var(--no); }
+.kg-at-op { font-size: 0.85rem; padding: 0 0.4rem; border-radius: 999px; background: var(--hint-bg); color: var(--accent); white-space: nowrap; }
+.kg-at-op::before { content: '↓ '; }
+.kg-at-bal { --t: 0; position: relative; inline-size: 100%; padding-block: 16px 34px; box-sizing: border-box; }
+.kg-at-beam {
+  position: absolute; inset-inline: 22% 22%; inset-block-start: 6px; block-size: 6px; border-radius: 3px; background: var(--muted);
+  transform: rotate(calc(var(--t) * -7deg)); transition: transform 0.4s ease;
+}
+.kg-at-pans { display: flex; align-items: flex-start; gap: 4px; }
+.kg-at-side-l, .kg-at-side-r { flex: 1 1 0; min-inline-size: 0; display: flex; flex-direction: column; align-items: stretch; gap: 2px; transition: transform 0.4s ease; }
+.kg-at-side-l { transform: translateY(calc(var(--t) * 12px)); }
+.kg-at-side-r { transform: translateY(calc(var(--t) * -12px)); }
+.kg-at-pan {
+  box-sizing: border-box; min-block-size: 96px; inline-size: 100%; padding: 6px 4px;
+  display: flex; flex-wrap: wrap; align-items: center; align-content: flex-end; justify-content: center; gap: 3px;
+  border: 2px solid var(--border); border-block-end: 6px solid var(--muted); border-radius: 6px 6px 22px 22px; background: var(--cell);
+}
+button.kg-at-pan:hover { border-color: var(--accent); border-block-end-color: var(--accent); }
+.kg-at-total { text-align: center; font-weight: 700; font-size: 1.1rem; }
+.kg-at-mid { flex: none; inline-size: 44px; align-self: stretch; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.kg-at-rel { display: grid; place-items: center; min-inline-size: 44px; min-block-size: 44px; font-size: 1.6rem; font-weight: 700; }
+.kg-at-rel.bad { color: var(--no); }
+button.kg-at-rel { border: 2px solid var(--accent); border-radius: 50%; background: var(--card); padding: 0; }
+.kg-at-post { position: absolute; inset-block-end: 0; inset-inline-start: calc(50% - 16px); inline-size: 0; block-size: 0; border-inline: 16px solid transparent; border-block-end: 28px solid var(--muted); }
+.kg-at-grp { display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2px; padding: 2px; border: 2px dashed var(--accent); border-radius: 6px; max-inline-size: 100%; box-sizing: border-box; }
+.kg-at-over { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; }
+.kg-at-top { display: flex; flex-wrap: wrap; justify-content: center; gap: 3px; padding-block-end: 3px; border-block-end: 3px solid var(--fg); }
+.kg-at-den { font-weight: 700; font-size: 1.1rem; }
+.kg-at-t.kg-at-lump { inline-size: auto; min-inline-size: 26px; min-block-size: 22px; padding: 2px 5px; font-size: 0.85rem; }
+.kg-at-zero { color: var(--muted); font-size: 1.2rem; }
+.kg-at-ops { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.kg-at-ops .kg-at-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.4rem; }
+.kg-at-ops .kg-at-btn, .kg-at-try .kg-at-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.25rem; padding-inline: 0.5rem; font-size: 1.1rem; }
+.kg-at-ops .kg-at-btn[aria-pressed='true'] { border-color: var(--accent); background: var(--hint-bg); box-shadow: 0 0 0 2px var(--accent); }
+.kg-at-btn.both { font-weight: 700; border-color: var(--accent); }
+.kg-at-num, .kg-at-try { display: inline-flex; align-items: center; gap: 0.3rem; }
+.kg-at-num output, .kg-at-try output { min-inline-size: 2.4rem; text-align: center; font-size: 1.2rem; font-weight: 700; }
+.kg-at-try { font-size: 1.2rem; }
+@media (prefers-reduced-motion: reduce) { .kg-at-beam, .kg-at-side-l, .kg-at-side-r { transition: none; } }
+/* balance hint icons: a beam on a post; a strip with a question mark */
+.kg-at-i.i-balance::before { inset: 12px 8px 28px; background: var(--fg); border-radius: 2px; }
+.kg-at-i.i-balance::after { inset-block-start: 18px; inset-inline-start: 14px; border-inline: 8px solid transparent; border-block-end: 16px solid var(--accent); }
+.kg-at-i.i-try::before { inset: 12px 10px; background: var(--at-x); border-radius: 3px; }
+.kg-at-i.i-try::after { content: '?'; inset: 12px 10px; display: grid; place-items: center; color: #fff; font-weight: 700; }

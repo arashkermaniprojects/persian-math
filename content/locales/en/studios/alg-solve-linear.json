@@ -1,0 +1,159 @@
+{
+  "title": "Solving linear equations on the balance",
+  "summary": "An equation is a balance. Try values, then solve equations with x on one or both sides, fractions and brackets by doing the same to both pans, and change the subject of a formula.",
+  "guide": [
+    "This studio follows KS3 algebra: solving linear equations in one variable, including all forms that need rearrangement, and changing the subject of a formula.",
+    "An {{term:equation}} such as {{alg:3x + 2 = 14}} is like a balance: the two sides weigh the same. x is the {{term:unknown}}; the {{term:solution}} is the number that makes both sides equal.",
+    "The tiles: a green strip is {{alg:x}}, a yellow square is {{alg:1}}, and a red tile is negative. A white and a red tile of the same shape cancel each other (a zero pair).",
+    "The golden rule: whatever you do to one pan, do to the other. A move on one pan only tips the scale.",
+    "Choose a move below the scale (add or take away a tile, × or ÷ by a number), then tap a pan, or Both pans. Each level equation is written above the scale, one step under another."
+  ],
+  "engine": {
+    "label-left": "left pan: {e}",
+    "label-right": "right pan: {e}",
+    "label-steps": "steps",
+    "label-moves": "moves",
+    "label-put": "add {t}",
+    "label-take": "take away {t}",
+    "label-smaller": "smaller number",
+    "label-bigger": "bigger number",
+    "label-times": "multiply by {n}",
+    "label-divide": "divide by {n}",
+    "label-both": "Both pans",
+    "label-open": "Open the brackets",
+    "label-undo": "Undo",
+    "label-clear": "Start again",
+    "label-pick": "Now tap a pan, or Both pans.",
+    "label-pick-pan": "Now tap a pan, then the other pan.",
+    "label-pick-move": "First choose a move below the scale.",
+    "label-tipped": "The scale tipped! Do the same to the other pan.",
+    "label-turn": "Turn the sign round: tap it.",
+    "label-turned": "× or ÷ by a negative number turned the sign round.",
+    "label-level": "Level again: the same move on both pans.",
+    "label-rel": "turn the sign round",
+    "label-try": "value of {v}",
+    "label-write": "x =",
+    "label-answer": "your answer",
+    "label-keypad": "keypad",
+    "label-key-minus": "minus",
+    "label-key-delete": "delete",
+    "instruction-try": "Change x until the scale is level.",
+    "instruction-balance": "Choose a move, then tap the pans."
+  },
+  "missions": {
+    "try-a-value": {
+      "title": "Is x = 4 a solution?",
+      "prompt": "Here is {{alg:2x + 5 = 13}}. Is {{alg:x = 4}} a solution? Predict yes or no. Then use − and + to put a value on every x strip and watch the scale. Find the value that makes it level.",
+      "hint": "With x = 4, the left pan holds 4 + 4 + 5. Is that 13?",
+      "success": "Yes! With {{alg:x = 4}}, {{alg:4 + 4 + 5 = 13}}, so the scale is level: 4 is the solution.",
+      "why": "Why does the solution make the scale level, while any other number tips it?",
+      "model": "The pans weigh the same only when 2x + 5 really is 13. With x = 4 the left pan is 4 + 4 + 5 = 13, the same as the right pan. With x = 5 it is 15, too heavy; with x = 3 it is 11, too light. Only one number balances the scale, and that number is the solution of the equation.",
+      "feedback": {
+        "not-tried": "Use + to put a value on the x strips.",
+        "too-big": "The left pan is too heavy: try a smaller value.",
+        "too-small": "The left pan is too light: try a bigger value.",
+        "coefficient-added": "With x = 6, 2x is 6 + 6 = 12, not 2 + 6. The left pan weighs 17: too heavy."
+      }
+    },
+    "pan-by-pan": {
+      "title": "Solve 3x + 2 = 14, pan by pan",
+      "prompt": "Predict x and type it. Then solve {{alg:3x + 2 = 14}} on the scale: choose a move, tap the left pan, then the right pan. What happens to the scale after your first tap?",
+      "hint": "Choose −1 and take a small square from each pan, twice. Then ÷3 splits each pan into 3 equal groups.",
+      "success": "Well done! {{alg:3x + 2 = 14}} → {{alg:3x = 12}} → {{alg:x = 4}}. Every move was done to both pans, so the scale ended level.",
+      "why": "Why did the scale tip when you changed only one pan?",
+      "model": "Because the two pans were equal, and changing only one made it heavier or lighter than the other. Taking 2 away from both sides keeps them equal: 3x = 12. Dividing both sides by 3 keeps them equal too: x = 4. The same move on both sides keeps an equation true.",
+      "feedback": {
+        "empty": "Type your prediction for x on the keypad.",
+        "syntax": "That number is not finished.",
+        "one-pan": "The scale is tipped: one pan has had a move that the other has not. Do the same to the other pan, or Undo.",
+        "constant-left": "x is not alone yet: there are small squares with the strips. Take them away from both pans.",
+        "coefficient-left": "Three strips are 3x. Split both pans into 3 equal groups: ÷3.",
+        "subtract-coefficient": "3x means 3 × x. Taking 3 away from 12 gives 9, but 12 has to be shared between 3 strips: 12 ÷ 3.",
+        "coefficient-kept": "12 is what 3x weighs, not x. Three strips weigh 12, so how much does one strip weigh?",
+        "multiplied": "3x = 12 means three x's make 12. Multiplying makes it bigger: divide instead.",
+        "wrong-sign-across": "Taking 2 from the left pan means taking 2 from the right pan too: 14 − 2, not 14 + 2.",
+        "too-big": "Too big. Put your number on the strips in your head: does 3x + 2 make 14?",
+        "too-small": "Too small. Put your number on the strips in your head: does 3x + 2 make 14?"
+      }
+    },
+    "unknown-both-sides": {
+      "title": "x on both pans",
+      "prompt": "Solve {{alg:5x - 3 = 2x + 12}}. There are strips on both pans. Predict x and type it, then solve it on the scale. Which strips will you take away?",
+      "hint": "Add 3 white squares to both pans: they cancel the 3 red ones on the left. Then take 2 strips from both pans.",
+      "success": "Excellent! {{alg:5x - 3 = 2x + 12}} → {{alg:5x = 2x + 15}} → {{alg:3x = 15}} → {{alg:x = 5}}.",
+      "why": "Why is it easier to take 2 strips from both pans, rather than 5?",
+      "model": "Taking away the smaller number of strips, 2x, leaves 3x on the left: a positive number of x's. Taking away 5x also works, but it leaves −3x on the right, and at the end you must divide by a negative number. Both ways give x = 5, as long as you do the same to both pans.",
+      "feedback": {
+        "empty": "Type your prediction for x on the keypad.",
+        "syntax": "That number is not finished.",
+        "one-pan": "The scale is tipped: one pan has had a move that the other has not. Do the same to the other pan, or Undo.",
+        "unknown-both-sides": "There are still strips on both pans. Take away the same number of strips from each pan.",
+        "constant-left": "x is not alone yet: there are small squares with the strips. Remove them from both pans.",
+        "coefficient-left": "Split both pans into equal groups, one for each strip.",
+        "negative-unknown": "You have −x: a red strip. Choose −1 and multiply both pans by it to turn the strip white.",
+        "negative-forgotten": "The −3 is three red squares on the left. To cancel them, add 3 to both pans: 12 + 3 = 15, not 12 − 3.",
+        "wrong-side-sign": "Check the signs: 5x − 2x = 3x and 12 + 3 = 15, so 3x = 15.",
+        "coefficient-kept": "15 is what 3x weighs. Divide both pans by 3.",
+        "too-big": "Too big. Try your number in both sides: are they equal?",
+        "too-small": "Too small. Try your number in both sides: are they equal?"
+      }
+    },
+    "undo-a-division": {
+      "title": "Undo a division",
+      "prompt": "The short strip is {{alg:x/3}}, a third of x. Solve {{alg:x/3 + 1 = 5}}: predict x, then use the scale. Which move undoes \"divide by 3\"?",
+      "hint": "First take 1 away from both pans. Then multiply both pans by 3: three thirds of x make one x.",
+      "success": "Right! {{alg:x/3 + 1 = 5}} → {{alg:x/3 = 4}} → {{alg:x = 12}}. Check: 12 ÷ 3 + 1 = 5.",
+      "why": "Why do you multiply by 3, and not divide, to find x from {{alg:x/3 = 4}}?",
+      "model": "{{alg:x/3}} is x divided by 3. Multiplying by 3 undoes dividing by 3: {{alg:x/3 × 3 = x}}. The other pan must be multiplied too: 4 × 3 = 12. Dividing again would give {{alg:x/9}}, a ninth of x, even further from x.",
+      "feedback": {
+        "empty": "Type your prediction for x on the keypad.",
+        "syntax": "That number is not finished.",
+        "one-pan": "The scale is tipped: one pan has had a move that the other has not. Do the same to the other pan, or Undo.",
+        "divided-not-multiplied": "Dividing again made an even smaller piece of x ({{alg:x/9}}). Undo, then multiply both pans by 3.",
+        "fraction-left": "The strip is still only part of x. Multiply both pans by the number under x.",
+        "constant-left": "There is still a small square next to the strip. Take it away from both pans.",
+        "fraction-kept": "4 is what {{alg:x/3}} weighs: a third of x. The whole of x is 3 times as much.",
+        "wrong-sign-across": "Take 1 away from both sides: 5 − 1 = 4, not 5 + 1.",
+        "one-term-multiplied": "Multiplying a pan by 3 multiplies everything on it: {{alg:3(x/3 + 1) = x + 3}}, not {{alg:x + 1}}.",
+        "too-big": "Too big. Check: your number ÷ 3, plus 1, should make 5.",
+        "too-small": "Too small. Check: your number ÷ 3, plus 1, should make 5."
+      }
+    },
+    "brackets": {
+      "title": "An equation with brackets",
+      "prompt": "In {{alg:2(x + 3) = 16}} the left pan holds 2 equal groups of {{alg:x + 3}}. Predict x, then solve it. Will you split both pans into 2 groups, or open the brackets first?",
+      "hint": "Divide both pans by 2: one group, {{alg:x + 3}}, weighs 8.",
+      "success": "Well done! {{alg:2(x + 3) = 16}} → {{alg:x + 3 = 8}} → {{alg:x = 5}}. Opening the brackets works too: {{alg:2x + 6 = 16}}.",
+      "why": "If you split the left pan into 2 groups, why must you divide 16 by 2 as well?",
+      "model": "Two equal groups of x + 3 weigh 16, so one group weighs 16 ÷ 2 = 8: the same move on both pans. Then x + 3 = 8, so x = 5. If you open the brackets instead, the 2 multiplies both terms: 2x + 6 = 16, then 2x = 10 and x = 5.",
+      "feedback": {
+        "empty": "Type your prediction for x on the keypad.",
+        "syntax": "That number is not finished.",
+        "one-pan": "The scale is tipped: one pan has had a move that the other has not. Do the same to the other pan, or Undo.",
+        "bracket-left": "x is still inside the 2 groups. Divide both pans by 2, or open the brackets.",
+        "constant-left": "x is not alone yet. Take the small squares away from both pans.",
+        "coefficient-left": "Split both pans into equal groups, one for each strip.",
+        "factor-ignored": "There are 2 groups of x + 3, so 2(x + 3) = 16, not x + 3 = 16. Divide the 16 by 2 too.",
+        "stopped-early": "8 is what x + 3 weighs. Take 3 away from both pans.",
+        "wrong-sign-across": "x + 3 = 8: take 3 away from both pans, 8 − 3.",
+        "too-big": "Too big. Check: (your number + 3) × 2 should make 16.",
+        "too-small": "Too small. Check: (your number + 3) × 2 should make 16."
+      }
+    },
+    "change-the-subject": {
+      "title": "Change the subject of v = u + at",
+      "prompt": "The formula {{alg:v = u + at}} gives a speed. Make t the subject: get t on its own on one pan, with the same moves as for equations. The letter tiles stand for numbers.",
+      "hint": "Take u away from both pans. Then divide both pans by a.",
+      "success": "Well done! {{alg:v = u + at}} → {{alg:v - u = at}} → {{alg:(v - u)/a = t}}, so {{alg:t = (v - u)/a}}.",
+      "why": "Why is it {{alg:t = (v - u)/a}} and not {{alg:t = v - u/a}}?",
+      "model": "Dividing a pan by a divides everything on it, so the whole of v − u goes over a. Writing {{alg:v - u/a}} would divide only the u: a different formula, and the scale would tip. The order of moves is the same as for 2x + 1 = 7: first take away, then divide.",
+      "feedback": {
+        "one-pan": "The scale is tipped: one pan has had a move that the other has not. Do the same to the other pan, or Undo.",
+        "constant-left": "There is still a u with the at tile. Take u away from both pans.",
+        "coefficient-left": "at means a × t. Divide both pans by a to leave t on its own.",
+        "unknown-both-sides": "t is on both pans. Undo and start with the u.",
+        "fraction-left": "t is under a bar. Multiply both pans by a."
+      }
+    }
+  }
+}

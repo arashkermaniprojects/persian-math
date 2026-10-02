@@ -26,8 +26,8 @@ export interface BalanceConfig extends AlgebraConfig {
   /** Biggest number to × or ÷ by (default 12); `negative: false` = positive numbers only. */
   max?: number;
   negative?: boolean;
-  /** Try mode: every letter tile shows this value, changed with −/+ within `range` (default [−10, 20]). */
-  try?: number;
+  /** Try mode: every letter tile shows this value (`true` = none yet), changed with −/+ within `range` (default [−10, 20]). */
+  try?: number | boolean;
   range?: [number, number];
   /** A solution of the first equation, so a tipped beam leans the right way (default: solved, if linear). */
   weights?: Record<string, number>;
@@ -43,17 +43,19 @@ export function mount(host: AlgebraHost, cfg: AlgebraConfig): AlgebraPart {
   const first = parseScale(c.equation ?? 'x = 0');
   const letters = lettersOf(first);
   const weights = c.weights ?? weightsOf(first);
-  const ops = c.ops ?? (c.try !== undefined ? [] : ['tiles', 'times', 'divide']);
+  const trying = c.try !== undefined && c.try !== false;
+  const ops = c.ops ?? (trying ? [] : ['tiles', 'times', 'divide']);
   const tray = c.tray ?? [...new Set(first.pans.flatMap((p) => kindsOf(p.p)).filter((k) => degreeOf(k) === 1 && !k.includes('*')).concat('1'))].sort(kindOrder);
   const max = Number(c.max ?? 12);
   const ks = [...(c.negative === false ? [] : Array.from({ length: max }, (_, i) => i - max)), ...Array.from({ length: max - 1 }, (_, i) => i + 2)];
-  const trying = c.try !== undefined;
   const [lo, hi] = (c.range ?? [-10, 20]).map(Number);
   const digits = host.lab('digits') || '0123456789';
   const plain = (s: string) => s.replace(/\*/g, '×').replace(/-/g, '−').replace(/\^2/g, '²').replace(/\d/g, (d) => digits[+d]);
 
   let cur: Scale, steps: Step[], undo: { cur: Scale; steps: Step[]; ok: boolean }[], ok: boolean, turned: boolean;
-  let pending: string[] = [], armed: Op | null = null, k = 2, g = Number(c.try ?? 0), msg = '';
+  let pending: string[] = [], armed: Op | null = null, k = 2, msg = '';
+  let g: number | null = trying && c.try !== true ? Number(c.try) : null;
+  const shows = () => trying && g !== null; // the letter tiles show the value tried
   const reset = () => {
     cur = { pans: [...first.pans], rel: first.rel };
     steps = [{ eq: scaleText(first) }];
@@ -97,7 +99,7 @@ export function mount(host: AlgebraHost, cfg: AlgebraConfig): AlgebraPart {
     const syms = Object.keys(powsOf(kind));
     let t = termText(kind, cf);
     if (flip && kind !== '1') {
-      const d = denOf(cf), n = Math.round(cf * d), v = tileValueText(kind, { [letters[0]]: g });
+      const d = denOf(cf), n = Math.round(cf * d), v = tileValueText(kind, { [letters[0]]: g ?? 0 });
       t = `${n === 1 ? '' : n === -1 ? '-' : `${n}*`}${n !== 1 && v.startsWith('-') ? `(${v})` : v}${d > 1 ? `/${d}` : ''}`;
     }
     const cls = `kg-at-t kg-at-lump d${Math.min(2, degreeOf(kind))}${cf < 0 ? ' neg' : ''}${syms.includes('y') ? ' y' : ''}${syms.some((s) => s !== 'x' && s !== 'y') ? ' sym' : ''}`;
@@ -105,7 +107,7 @@ export function mount(host: AlgebraHost, cfg: AlgebraConfig): AlgebraPart {
   };
   const tilesOf = (p: Poly) => kindsOf(p).map((kind) => {
     const cf = p[kind];
-    return Number.isInteger(cf) && Math.abs(cf) <= 20 && degreeOf(kind) <= 2 ? host.tile(kind, Math.sign(cf), trying).repeat(Math.abs(cf)) : lump(kind, cf, trying);
+    return Number.isInteger(cf) && Math.abs(cf) <= 20 && degreeOf(kind) <= 2 ? host.tile(kind, Math.sign(cf), shows()).repeat(Math.abs(cf)) : lump(kind, cf, shows());
   }).join('');
   const count = (p: Poly) => Object.values(p).reduce((a, v) => a + (Number.isInteger(v) ? Math.abs(v) : 1), 0);
 
@@ -120,7 +122,7 @@ export function mount(host: AlgebraHost, cfg: AlgebraConfig): AlgebraPart {
   const panHTML = (i: 0 | 1) => {
     const pan = cur.pans[i];
     const name = host.fill(i ? 'label-right' : 'label-left', { e: plain(panText(pan)) }, i ? 'right pan: {e}' : 'left pan: {e}');
-    const total = trying ? `<span class="kg-at-total">${host.alg(polyText({ '1': valueOf(pan, { [letters[0]]: g }) }))}</span>` : '';
+    const total = trying ? `<span class="kg-at-total">${g === null ? '?' : host.alg(polyText({ '1': valueOf(pan, { [letters[0]]: g }) }))}</span>` : '';
     const cls = `kg-at-pan${i ? ' r' : ''}`;
     return ops.length || c.by?.length
       ? `<button type="button" class="${cls}" data-a="b-pan" data-i="${i}" data-k="pan${i}" aria-label="${name}">${panInner(pan)}</button>${total}`
@@ -129,11 +131,12 @@ export function mount(host: AlgebraHost, cfg: AlgebraConfig): AlgebraPart {
 
   const tilt = () => {
     if (!trying) return tiltOf(cur, ok, weights);
+    if (g === null) return 0;
     const d = valueOf(cur.pans[0], { [letters[0]]: g }) - valueOf(cur.pans[1], { [letters[0]]: g });
     return Math.abs(d) < 1e-9 ? 0 : d > 0 ? 1 : -1;
   };
   const shown = (): string => {
-    if (trying) return tilt() ? '≠' : '=';
+    if (trying) return g === null ? '?' : tilt() ? '≠' : '=';
     return cur.rel === '=' && !ok ? '≠' : relText(cur.rel);
   };
 
@@ -194,15 +197,15 @@ export function mount(host: AlgebraHost, cfg: AlgebraConfig): AlgebraPart {
   const tryHTML = () => {
     const name = host.fill('label-try', { v: letters[0] }, '{v} =');
     return `<div class="kg-at-try" dir="ltr" role="group" aria-label="${name}"><span>${host.alg(`${letters[0]} =`)}</span>` +
-      btn('b-try', 'try-', '−', host.lab('label-smaller', 'smaller number'), g <= lo ? ' disabled' : ' data-d="-1"') +
-      `<output>${host.alg(String(g))}</output>` +
-      btn('b-try', 'try+', '+', host.lab('label-bigger', 'bigger number'), g >= hi ? ' disabled' : ' data-d="1"') + '</div>';
+      btn('b-try', 'try-', '−', host.lab('label-smaller', 'smaller number'), g !== null && g <= lo ? ' disabled' : ' data-d="-1"') +
+      `<output>${g === null ? '?' : host.alg(String(g))}</output>` +
+      btn('b-try', 'try+', '+', host.lab('label-bigger', 'bigger number'), g !== null && g >= hi ? ' disabled' : ' data-d="1"') + '</div>';
   };
 
   return {
     keypad: false,
     html() {
-      if (trying) c.value = { [letters[0]]: g }; // the tiles show the value tried (the engine's flip picture)
+      if (g !== null) c.value = { [letters[0]]: g }; // the tiles show the value tried (the engine's flip picture)
       return (trying ? '' : stepsHTML()) + scaleHTML() + (trying ? tryHTML() : opsHTML()) + `<p class="kg-at-msg" role="status">${msg}</p>`;
     },
     act(d) {
@@ -258,7 +261,7 @@ export function mount(host: AlgebraHost, cfg: AlgebraConfig): AlgebraPart {
           break;
         }
         case 'b-try':
-          g = Math.max(lo, Math.min(hi, g + Number(d.d)));
+          g = Math.max(lo, Math.min(hi, (g ?? 0) + Number(d.d)));
           host.log({ do: 'try', k: String(g) });
           break;
         default:
