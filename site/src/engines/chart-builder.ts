@@ -73,7 +73,8 @@ export interface ChartHost extends HTMLElement {
   changed(render?: boolean): void;
 }
 /** What an on-demand module (chart-builder/<name>.ts) plugs into the engine. Elements it draws carry `data-k` (a
- *  stable key, so focus survives a redraw); `data-a` clicks the engine does not know go to `act`. */
+ *  stable key, so focus survives a redraw); `data-a` clicks the engine does not know go to `act` (prefix a module's
+ *  actions, e.g. `s-card`, so they never meet the engine's own: card, add, del, less, more, brush, sector, pick, kind). */
 export interface ChartModule {
   /** HTML drawn after the engine's own table and chart. */
   html(): string;

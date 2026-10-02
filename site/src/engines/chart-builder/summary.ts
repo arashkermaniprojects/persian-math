@@ -107,7 +107,7 @@ export function mount(host: ChartHost, cfg: ChartBuilderConfig): ChartModule {
       const on = ids.every((id) => s.marked.has(id));
       if (c.mark) {
         const said = fill(L('label-stack', '{v}: {n}'), { v: host.num(v), n: host.num(ids.length) });
-        g += `<rect class="hit stk${on ? ' on' : ''}" x="${x(v) - Math.max(colW, 22) / 2}" y="${T}" width="${Math.max(colW, 22)}" height="${y0 - T + 4}" data-a="stack" data-set="${si}" data-v="${v}" data-k="stack-${si}-${v}" tabindex="0" role="button" aria-pressed="${on}" aria-label="${esc(said)}"/>`;
+        g += `<rect class="hit stk${on ? ' on' : ''}" x="${x(v) - Math.max(colW, 22) / 2}" y="${T}" width="${Math.max(colW, 22)}" height="${y0 - T + 4}" data-a="s-stack" data-set="${si}" data-v="${v}" data-k="stack-${si}-${v}" tabindex="0" role="button" aria-pressed="${on}" aria-label="${esc(said)}"/>`;
       }
       ids.forEach((id, j) => {
         const cy = y0 - r - 2 - j * gap;
@@ -128,13 +128,13 @@ export function mount(host: ChartHost, cfg: ChartBuilderConfig): ChartModule {
     const s = sets[0];
     const tools = c.order && c.mark
       ? `<div class="kg-cbs-tools" role="radiogroup" aria-label="${esc(L('label-tools'))}">` +
-        (['move', 'mark'] as const).map((t) => `<button type="button" role="radio" class="kg-cb-kind" data-a="tool" data-t="${t}" data-k="tool-${t}" aria-checked="${tool === t}">${esc(L(`label-tool-${t}`, t))}</button>`).join('') + '</div>'
+        (['move', 'mark'] as const).map((t) => `<button type="button" role="radio" class="kg-cb-kind" data-a="s-tool" data-t="${t}" data-k="tool-${t}" aria-checked="${tool === t}">${esc(L(`label-tool-${t}`, t))}</button>`).join('') + '</div>'
       : '';
     const b = line!.map((id, pos) => {
       const on = s.marked.has(id), up = picked === id;
       const press = tool === 'move' ? up : on;
       const said = `${host.num(s.data[id])}${on ? ' — ' + L('label-marked') : ''}`;
-      return `<button type="button" class="kg-cbs-card${on ? ' on' : ''}${up ? ' up' : ''}" data-a="card" data-p="${pos}" data-k="card-${id}" aria-pressed="${press}" aria-label="${esc(said)}">${host.num(s.data[id])}</button>`;
+      return `<button type="button" class="kg-cbs-card${on ? ' on' : ''}${up ? ' up' : ''}" data-a="s-card" data-p="${pos}" data-k="card-${id}" aria-pressed="${press}" aria-label="${esc(said)}">${host.num(s.data[id])}</button>`;
     });
     return tools + `<div class="kg-cbs-line" dir="ltr" role="group" aria-label="${esc(L('label-cards'))}">${b.join('')}</div>`;
   }
@@ -164,7 +164,7 @@ export function mount(host: ChartHost, cfg: ChartBuilderConfig): ChartModule {
 
   function bestOf() {
     if (!c.best) return '';
-    const b = c.best.map((k) => `<button type="button" role="radio" class="kg-cb-kind" data-a="best" data-b="${k}" data-k="best-${k}" aria-checked="${best === k}">${esc(L(`stat-${k}`, k))}</button>`);
+    const b = c.best.map((k) => `<button type="button" role="radio" class="kg-cb-kind" data-a="s-best" data-b="${k}" data-k="best-${k}" aria-checked="${best === k}">${esc(L(`stat-${k}`, k))}</button>`);
     return `<div class="kg-cbs-best" role="radiogroup" aria-label="${esc(L('label-best'))}"><p>${esc(L('label-best'))}</p>${b.join('')}</div>`;
   }
 
@@ -213,12 +213,12 @@ export function mount(host: ChartHost, cfg: ChartBuilderConfig): ChartModule {
     act(t) {
       say = '';
       const a = t.dataset.a;
-      if (a === 'tool') {
+      if (a === 's-tool') {
         tool = t.dataset.t as 'move' | 'mark';
         picked = -1;
         return true;
       }
-      if (a === 'card') {
+      if (a === 's-card') {
         const id = line![+t.dataset.p!];
         const s = sets[0];
         if (tool === 'mark') s.marked.has(id) ? s.marked.delete(id) : s.marked.add(id);
@@ -229,14 +229,14 @@ export function mount(host: ChartHost, cfg: ChartBuilderConfig): ChartModule {
         }
         return true;
       }
-      if (a === 'stack') {
+      if (a === 's-stack') {
         const s = sets[+t.dataset.set!], v = +t.dataset.v!;
         const ids = s.data.flatMap((w, id) => (w === v ? [id] : []));
         const on = ids.every((id) => s.marked.has(id));
         ids.forEach((id) => (on ? s.marked.delete(id) : s.marked.add(id)));
         return true;
       }
-      if (a === 'best') {
+      if (a === 's-best') {
         best = t.dataset.b!;
         return true;
       }
@@ -255,7 +255,7 @@ export function mount(host: ChartHost, cfg: ChartBuilderConfig): ChartModule {
         return true;
       }
       // a picked-up card moves along the row with the arrow keys (the row runs left to right in every locale)
-      if (t.dataset?.a === 'card' && tool === 'move' && picked >= 0 && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+      if (t.dataset?.a === 's-card' && tool === 'move' && picked >= 0 && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
         if (moveCard(picked, line!.indexOf(picked) + (e.key === 'ArrowRight' ? 1 : -1))) host.changed(true);
         return true;
       }
