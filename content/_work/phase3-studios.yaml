@@ -1,0 +1,1563 @@
+# Phase 3 (lower secondary, ages 12–14) studio plan. Same format as phase2-studios.yaml, plus:
+#   module: a lazily loaded part of an engine that Phase 3 adds (e.g. shape-board `dynamic`); each new module,
+#           like each new engine, has a pilot studio in waves.pilot.
+# Targets: content/_work/phase3-concepts.json (python3 content/_work/phase3_targets.py).
+# Check: python3 content/_work/check_phase3.py
+# Grades: iran = پایه, af = صنف, uk = Year (KS3 = Years 7–9; 10 = GCSE/KS4 only; 12 = A-level only; null = not taught).
+# Ages follow the grades: Iran/Afghan grade g = age g+5 to g+6, UK Year y = age y+4 to y+5 (PLAN.md §2).
+# Page numbers are the book's printed pages from the curriculum/ and curriculum_af/ outlines (Afghan outlines often give
+# only the chapter's first page).
+studios:
+# ---------------------------------------------------------------- number
+- id: num-integer-operations
+  strand: num
+  engine: number-line
+  order: 11
+  concepts:
+  - num.integers.ops
+  - num.absolute-value
+  - ops.properties.general
+  - num.integers.add-sub
+  title_fa: ضرب و تقسیم عددهای صحیح و قدر مطلق
+  title_en: Multiplying and dividing integers; absolute value
+  ages: [11, 13]
+  grades:
+    iran: 7
+    af: 7
+    uk: 7
+  notes: >-
+    Repeated hops on the line: 3 × (−2) is three hops of −2, then the sign pattern 3 × 2, 3 × 1, 3 × 0, 3 × (−1)
+    … continued down to (−3) × (−2) (Iran G7 ch.2 «ضرب و تقسیم عددهای صحیح» p.23–25; Afghan G7 ch.3 «اعداد تام»
+    p.71 «قیمت مطلقهٔ یک عدد تام … ضرب و تقسیم» and «خواص عملیه‌ها»; UK KS3 Number "four operations … both positive
+    and negative"). Division as the inverse of multiplication; |x| as distance from zero (Iran G9 ch.2 p.28, Afghan
+    G7). Bridge mission revisits add/sub from num-negative. Misconceptions: "two minuses make a plus" applied to
+    −3 + (−4) = 7; −(−5) read as −5; |−7| = −7; (−12) ÷ 3 = 4; commutativity assumed for subtraction and division
+    (Afghan «خواص عملیه‌ها»). Contexts: temperature, lift floors, bank in/out — no debt framing for children.
+- id: num-rational-numbers
+  strand: num
+  engine: number-line
+  order: 12
+  concepts:
+  - num.rational
+  - frac.order-mixed-forms
+  - num.rational.ops
+  title_fa: 'عددهای گویا: مقایسه و چهار عمل'
+  title_en: 'Rational numbers: ordering and the four operations'
+  ages: [11, 14]
+  grades:
+    iran: 8
+    af: 7
+    uk: 7
+  notes: >-
+    Place −3/4, −0.6, 2/3 and −1 on one line (zoom between −1 and 0), then add and multiply signed fractions as
+    moves and as scalings (Iran G8 ch.1 «معرفی عددهای گویا» p.6, «جمع و تفریق عددهای گویا» p.10, «ضرب و تقسیم
+    عددهای گویا» p.14; Afghan G7 ch.4 «اعداد نسبتی» p.97–118 incl. «مقایسهٔ اعداد نسبتی» and «تبدیل … به اعداد
+    اعشاری»; UK KS3 Number "order positive and negative integers, decimals and fractions … symbols ≤, ≥").
+    Misconceptions: −1/3 < −1/2 because 3 > 2 is mirrored wrongly (or −1/2 > −1/3); the minus sign attached to the
+    denominator only; −3/4 placed at the mirror of 4/3; adding numerators and denominators. Iran writes the
+    decimal mark «/», Afghanistan «,» (docs/NOTATION.md); fractions only via {{frac:a/b}}.
+- id: num-prime-factor-roots
+  strand: num
+  engine: counters
+  order: 13
+  concepts:
+  - num.hcf-lcm.relation
+  - num.roots
+  - num.prime-factorisation
+  title_fa: تجزیه به عامل‌های اول، ب.م.م و ک.م.م و جذر
+  title_en: Prime factors, HCF × LCM, and exact roots
+  ages: [12, 13]
+  grades:
+    iran: 7
+    af: 7
+    uk: 8
+  notes: >-
+    Counters' factor-tree zone: split 72 and 120 into primes, ring the shared primes for the HCF, take all of them
+    for the LCM, and see HCF × LCM = a × b (Iran G7 gifted ch.5 «ارتباط ب.م.م و ک.م.م» p.81; Afghan G7 ch.2
+    «رابطه بین کوچک‌ترین مضرب مشترک و بزرگ‌ترین قاسم مشترک دو عدد» p.27). Then exact square and cube roots by
+    pairing or tripling prime factors (Afghan G7 ch.2 «مربع و جذر مربع تام اعداد طبیعی توسط تجزیه», «جذر مکعب تام»;
+    Iran G7 ch.7 «جذر و ریشه» p.93; UK KS3 "integer powers and associated real roots"). Misconceptions: LCM = a × b
+    always; HCF × LCM = a × b assumed for three numbers; √ of a sum split; 2 treated as "not prime because even";
+    "9 has two square roots, 3 and −3" (Iran G7 teaches both) confused with √9, which is 3 only.
+- id: num-index-laws
+  strand: num
+  engine: algebra-tiles
+  module: factors
+  order: 14
+  concepts:
+  - num.powers.laws
+  - num.powers.integer
+  - num.powers.fractional
+  title_fa: قانون‌های توان، توان صفر و توان منفی
+  title_en: Laws of indices, zero and negative powers
+  ages: [12, 14]
+  grades:
+    iran: 7
+    af: 7
+    uk: 9
+  notes: >-
+    Pilot of the algebra-tiles `factors` module. Write 2³ × 2⁴ as a strip of factors, count them; divide by
+    cancelling factor tiles above and below a fraction bar; a³ ÷ a³ leaves 1, so a⁰ = 1; more factors below than
+    above gives a⁻ⁿ (Iran G7 ch.7 «ساده‌کردن عبارت‌های توان‌دار» p.90, G8 ch.7 «توان» p.102 and «تقسیم اعداد
+    توان‌دار» p.106, G9 ch.4 «توان صحیح» p.60; Afghan G7 ch.2 «طاقت و قوانین طاقت», G8 ch.1 «قوانین اعداد توان‌دار
+    (… توان صفر و منفی)» p.23 and «توان‌های کسری» p.29; UK GCSE N7). Last mission (extension, Afghan G8 / UK GCSE):
+    which power of 9 times itself gives 9? → 9^½. Misconceptions: 2³ × 2⁴ = 4⁷ or 2¹²; a³ · a² = a⁶; 5⁰ = 0;
+    2⁻¹ = −2; (a²)³ = a⁵; 3 × 2⁴ = 6⁴. Iran uses «پایه» and «نما».
+- id: num-standard-form
+  strand: num
+  engine: place-value
+  order: 15
+  concepts:
+  - num.standard-form
+  - num.powers.integer
+  - num.place-value.large
+  title_fa: نماد علمی
+  title_en: Standard form (scientific notation)
+  ages: [12, 15]
+  grades:
+    iran: 9
+    af: 7
+    uk: 9
+  notes: >-
+    The place-value `shift` (×10 / ÷10) slides the digits until one non-zero digit is left of the mark and counts
+    the shifts as the power: 3 400 000 = 3.4 × 10⁶, 0.00052 = 5.2 × 10⁻⁴ (Iran G9 ch.4 «نماد علمی» p.65, G7 gifted
+    «کاربردهایی از توان» p.110; Afghan G7 ch.2 «روش علمی عددنویسی» p.27; UK KS3 "interpret and compare numbers in
+    standard form A × 10ⁿ"). Contexts: distances in space, cell sizes, populations. Misconceptions: 34 × 10⁵ left
+    as final form; negative power read as a negative number; comparing by the front number only (9 × 10³ vs
+    2 × 10⁴); counting zeros instead of places. Needs `minPlace` down to −6 and a `readout: standard` option (small,
+    additive change to place-value).
+- id: num-roots-real-line
+  strand: num
+  engine: number-line
+  order: 16
+  concepts:
+  - num.roots.estimate
+  - num.real
+  title_fa: جذر تقریبی و عددهای حقیقی روی محور
+  title_en: Estimating square roots; irrational numbers on the line
+  ages: [12, 14]
+  grades:
+    iran: 8
+    af: 8
+    uk: 8
+  notes: >-
+    Trap √20 between 4 and 5 (16 < 20 < 25), zoom to tenths (4.4² = 19.36, 4.5² = 20.25), then place √2, π, 1/3 and
+    0.1010010001… on the real line and sort rational from irrational (Iran G8 ch.7 «جذر تقریبی» p.110 and «نمایش
+    اعداد رادیکالی روی محور اعداد» p.114, G9 ch.2 «عددهای حقیقی» p.23; Afghan G8 ch.1 «مفهوم اعداد حقیقی» p.3 and
+    «طریقهٔ عمومی استخراج جذر مربع تقریبی» p.11; UK KS3 "distinguish between exact representations of roots and
+    their decimal approximations"). The compass construction of √2 is a mission in geo-pythagoras. Misconceptions:
+    √20 ≈ 10; 1.41 = √2 exactly; every decimal that "goes on" is irrational (0.333… is 1/3); √2 has no place on
+    the line. The Afghan long-hand root algorithm stays out (no engine for it); estimate by squaring instead.
+- id: num-surds
+  strand: num
+  engine: algebra-tiles
+  module: factors
+  order: 17
+  concepts:
+  - num.surds
+  - num.surds.add-sub
+  - num.surds.rationalise
+  title_fa: عددهای رادیکالی و ساده کردن آن‌ها
+  title_en: Surds and simplifying them
+  ages: [13, 15]
+  grades:
+    iran: 8
+    af: 8
+    uk: 10
+  notes: >-
+    Factors module with √ factor tiles: √12 = √(2 × 2 × 3), a pair under the root comes out as one 2 → 2√3; then
+    √3 is a like-term tile, so 2√3 + 5√3 = 7√3 but √2 + √3 stays; finally multiply top and bottom by √a to clear a
+    root from the denominator (Iran G8 ch.7 «خواص ضرب و تقسیم رادیکال‌ها» p.115, G8 gifted «اعداد رادیکالی» p.112,
+    G9 ch.4 «جمع و تفریق رادیکال‌ها» p.73; Afghan G8 ch.1 «عملیات بالای اعداد جذر دار» p.19 and «ناطق کردن کسرها»
+    p.29; UK GCSE N8, Higher). Misconceptions: √(a + b) = √a + √b; √2 + √3 = √5; 2√3 = √6; rationalising by
+    multiplying the denominator only. Rationalising is extension in Iran (not in G8–9 books) — fa-IR shows it as
+    the last, optional mission.
+# ---------------------------------------------------------------- algebra
+- id: alg-expressions-like-terms
+  strand: alg
+  engine: algebra-tiles
+  order: 2
+  concepts:
+  - alg.expressions
+  - alg.simplify
+  - alg.substitution
+  title_fa: عبارت‌های جبری، جمله‌های متشابه و مقدار عددی
+  title_en: Expressions, like terms and substitution
+  ages: [11, 14]
+  grades:
+    iran: 7
+    af: 8
+    uk: 7
+  notes: >-
+    Pilot of algebra-tiles (tiles mode). Build 2x + 3 and x² + x − 2 with x², x and 1 tiles (red = negative), name
+    terms, coefficients and constants; collect like terms and cancel zero pairs; then substitute by flipping every
+    x tile to show its value (Iran G7 ch.3 «عبارت‌های جبری» p.31 and «مقدار عددی یک عبارت جبری» p.34, G8 ch.4
+    «ساده‌کردن عبارت‌های جبری» p.52 and «پیدا کردن مقدار یک عبارت جبری» p.56; Afghan G8 ch.7 «مفهوم متحول،
+    افاده‌های الجبری، ساده کردن افاده‌های الجبری» p.159; UK KS3 Algebra). Misconceptions: 3x + 2 = 5x; x + x = x²;
+    2x² + 3x = 5x³; 2x with x = 3 read as 23; −x² with x = −3 gives 9; a red tile and a white tile of different
+    shapes cancelled. Letters are Latin in every locale; Afghan terms «متحول», «افاده», «حد».
+- id: alg-solve-linear
+  strand: alg
+  engine: algebra-tiles
+  module: balance
+  order: 3
+  concepts:
+  - alg.equation.concept
+  - alg.linear-equations
+  - alg.formulae.rearrange
+  title_fa: معادله و حل معادلهٔ درجهٔ اول با ترازو
+  title_en: Solving linear equations on the balance
+  ages: [12, 14]
+  grades:
+    iran: 7
+    af: 8
+    uk: 8
+  notes: >-
+    Pilot of the `balance` module. Tiles on two pans; every move must be done to both pans or the beam tips: is
+    x = 4 a solution (try it), then 3x + 2 = 14, 5x − 3 = 2x + 9, x/3 + 1 = 5 and 2(x + 3) = 16 (Iran G7 ch.3
+    «معادله» p.37–38, which adds and multiplies the same number on both sides of a true equality with arrow
+    diagrams, the balance's rule; G8 ch.4 «معادله» p.64; Afghan G8 ch.8 «مفهوم معادله، عملیه‌های جمع و
+    تفریق در مساوات، … ضرب و تقسیم» p.183; UK KS3 "linear equations in one variable (including all forms that require
+    rearrangement)"). Last mission: change the subject of v = u + at with the same moves (UK KS3 only; hidden in
+    fa-IR/fa-AF/ps by default). Misconceptions: operating on one side only; 3x = 12 → x = 9; x/3 = 4 → x = 4/3;
+    "move it across and change the sign" applied to a coefficient; unknown on both sides collected onto the wrong
+    side; negative tiles on the right pan forgotten.
+- id: alg-forming-equations
+  strand: alg
+  engine: problem-canvas
+  order: 4
+  concepts:
+  - alg.modelling
+  - alg.linear-equations
+  title_fa: نوشتن معادله برای مسئله‌های توصیفی
+  title_en: Forming and solving equations from word problems
+  ages: [12, 14]
+  grades:
+    iran: 7
+    af: 8
+    uk: 8
+  notes: >-
+    The problem-canvas steps (understand → strategy "use symbols" → sentence → solve) with a letter for the unknown:
+    ages of siblings, a rectangle's perimeter, consecutive numbers, sharing money (Iran G7 ch.3 «معادله» p.37–39
+    word problems; Afghan G8 ch.8 «معادلهٔ عمومی درجه یک یک مجهوله، معادلات معادل و تشکیل معادلات» p.189; UK KS3
+    "model situations … by translating them into algebraic expressions"). Bar model first, then the equation, so the
+    link to the Phase 2 ps-symbolic studio is visible. Misconceptions: "5 more than x" written 5x; "Ali has 3 times
+    as many as Sara" reversed (3a = s); the answer not checked in the story; the unknown not defined. Needs the
+    sentence tool to accept a letter token (small, additive problem-canvas change).
+- id: alg-expand-factorise
+  strand: alg
+  engine: algebra-tiles
+  order: 5
+  concepts:
+  - alg.expand.single
+  - alg.factorise
+  - alg.monomials
+  title_fa: ضرب در پرانتز و فاکتورگیری
+  title_en: Expanding a bracket and factorising
+  ages: [12, 14]
+  grades:
+    iran: 8
+    af: 8
+    uk: 8
+  notes: >-
+    Area model: 3(x + 4) is a rectangle 3 by (x + 4); read the area as 3x + 12. Backwards: arrange 6x + 9 tiles into
+    a rectangle to find the common factor 3(2x + 3). Monomials as rectangles of letters: 2a × 3a = 6a² (Iran G8 ch.4
+    «ساده‌کردن عبارت‌های جبری» p.52 and «تجزیهٔ عبارت‌های جبری» p.60; Afghan G8 ch.7 «ضرب افاده‌های یک حده، تقسیم
+    افاده‌های یک حده» p.165 and «تجزیهٔ افاده‌های الجبری» p.171; UK KS3 "multiplying a single term over a bracket;
+    taking out common factors"). Misconceptions: 3(x + 4) = 3x + 4; −2(x − 5) = −2x − 10; 6x + 9 = 3(2x + 9);
+    4x + 4 = 4x (the 1 lost); 2a × 3a = 6a or 5a²; partial factorising 12x + 8 = 2(6x + 4) accepted as final.
+- id: alg-binomial-identities
+  strand: alg
+  engine: algebra-tiles
+  order: 6
+  concepts:
+  - alg.expand.binomials
+  - alg.identities.square
+  - alg.identity
+  title_fa: ضرب دوجمله‌ای‌ها و اتحادها
+  title_en: Multiplying binomials and identities
+  ages: [13, 15]
+  grades:
+    iran: 9
+    af: 8
+    uk: 9
+  notes: >-
+    (x + 3)(x + 2) as a rectangle of tiles, then the grid (box) method; (a + b)² as the big square with two ab
+    strips; a² − b² by cutting and moving a strip. Equation vs identity: test both sides with several x values in
+    a table (Iran G9 ch.5 «عبارت‌های جبری و مفهوم اتحاد» p.79; Afghan G8 ch.7 «مطابقت‌ها، مربع مجموع و تفاضل
+    افاده‌های دو حده» p.171; UK KS3 "expanding products of two or more binomials", GCSE A6 "equation and identity").
+    Misconceptions: (a + b)² = a² + b² (the 2ab strips missing from the picture); (x + 3)(x + 2) = x² + 6;
+    (x − 3)² = x² − 9; one value that works taken as proof of an identity. Iran's names «اتحاد مربع دوجمله‌ای»,
+    «اتحاد مزدوج».
+- id: alg-inequalities
+  strand: alg
+  engine: number-line
+  module: intervals
+  order: 7
+  concepts:
+  - alg.inequalities.concept
+  - alg.inequalities.linear
+  title_fa: نابرابری‌ها، بازه‌ها و حل نامعادله
+  title_en: Inequalities, intervals and solving them
+  ages: [13, 15]
+  grades:
+    iran: 9
+    af: 9
+    uk: 9
+  notes: >-
+    Pilot of the number-line `intervals` module: show x > 3, −2 ≤ x < 4 and x ≤ 1 with open/filled dots and a
+    shaded ray; then solve 2x − 1 < 7 and −3x ≥ 6, watching the solution ray flip when both sides are multiplied by
+    a negative (Iran G9 ch.5 «نابرابری‌ها و نامعادله‌ها» p.90; Afghan G9 ch.6 «فاصله یا انتروال‌ها» and «حل
+    نامساوات‌های خطی» p.151; UK KS3 "vocabulary of … inequalities", GCSE A22). Interval notation [a, b) is Afghan
+    and Iranian G10; UK uses inequalities only, so it is per-locale. Misconceptions: open vs filled dot; ray drawn
+    the wrong way for 3 < x; sign not flipped for ×(−1); "x > 3" taken to include 3; listing only whole numbers.
+    Line increases left → right in RTL locales too.
+- id: alg-simultaneous
+  strand: alg
+  engine: coord-plane
+  order: 8
+  concepts:
+  - alg.simultaneous.linear
+  - func.graphical-solution
+  title_fa: دستگاه دو معادلهٔ خطی دومجهولی
+  title_en: Simultaneous linear equations
+  ages: [13, 15]
+  grades:
+    iran: 9
+    af: 9
+    uk: 9
+  notes: >-
+    Draw both lines, drag the cursor to their crossing and read (x, y); check it in both equations; then
+    eliminate (add or subtract the equations, shown as stacked rows) and substitute; parallel lines → no solution
+    (Iran G9 ch.6 «دستگاه معادله‌های خطی» p.108; Afghan G9 ch.3 «سیستم معادلات خطی» and «حل … به روش تعویضی و افناً»
+    p.55; UK KS3 "approximate solutions of simultaneous linear equations" from graphs, GCSE A19 algebraically).
+    Misconceptions: only x reported; the point checked in one equation only; subtracting equations with sign
+    errors; parallel lines "meet off the screen"; a graphical estimate taken as exact.
+- id: alg-factorise-quadratics
+  strand: alg
+  engine: algebra-tiles
+  order: 9
+  concepts:
+  - alg.factorise.quadratic
+  - alg.identities.further
+  title_fa: تجزیهٔ عبارت‌های درجهٔ دوم و اتحادهای دیگر
+  title_en: Factorising quadratics and further identities
+  ages: [14, 15]
+  grades:
+    iran: 9
+    af: 9
+    uk: 10
+  notes: >-
+    Arrange x² + 5x + 6 tiles into a rectangle (sides x + 2, x + 3); with negatives use zero pairs; x² − 9 as a
+    difference of squares. Further identities (Iran's «اتحاد جملهٔ مشترک», «چاق و لاغر», cube of a binomial) on the
+    grid method, with the 3D picture of (a + b)³ as a still image (Iran G9 ch.5 «چند اتحاد دیگر، تجزیه و کاربردها»
+    p.86, G9 gifted «اتحاد و تجزیه» p.88; Afghan G9 ch.5 «تجزیه به فکتور», «مجموع و تفاضل مکعبات» p.127; UK GCSE A4).
+    Misconceptions: x² − 5x + 6 = (x − 2)(x + 3); x² − 9 = (x − 3)²; x² + 9 = (x + 3)(x − 3); a³ + b³ = (a + b)³;
+    common factor not taken out first. Cube identities are Iran/Afghan only; en marks them extension.
+- id: alg-algebraic-fractions
+  strand: alg
+  engine: algebra-tiles
+  module: factors
+  order: 10
+  concepts:
+  - alg.fractions.simplify
+  - alg.fractions.operations
+  title_fa: عبارت‌های گویا
+  title_en: Algebraic fractions
+  ages: [14, 15]
+  grades:
+    iran: 9
+    af: 9
+    uk: 10
+  notes: >-
+    Factors module with bracket factors: (x² − 9)/(x + 3) → factor tiles (x − 3)(x + 3) over (x + 3), cancel the
+    whole factor; add with a common denominator (LCM of the factors), multiply and divide by cancelling (Iran G9 ch.7
+    «معرفی و ساده کردن عبارت‌های گویا» p.114 and «محاسبات عبارت‌های گویا» p.119; Afghan G9 ch.5 «کوچک‌ترین مضرب
+    مشترک» and «ترتیب عملیات در افاده‌های الجبری» p.127; UK GCSE/KS4 Higher). Iran asks where the expression is
+    undefined first — a "which x are not allowed?" step. Misconceptions: cancelling terms ((x + 3)/3 = x);
+    adding tops and bottoms; forgetting the excluded value; a minus in front of a fraction applied to one term.
+- id: alg-completing-square
+  strand: alg
+  engine: algebra-tiles
+  order: 11
+  concepts:
+  - alg.quadratic-equations
+  - alg.quadratic.complete-square
+  - alg.quadratic.formula
+  - alg.quadratic.discriminant
+  title_fa: 'معادلهٔ درجهٔ دوم: تجزیه، مربع کامل و فرمول کلی'
+  title_en: 'Quadratic equations: factorising, completing the square, the formula'
+  ages: [14, 16]
+  grades:
+    iran: 10
+    af: 9
+    uk: 10
+  notes: >-
+    Solve by factorising (product = 0), then complete the square geometrically as al-Khwarizmi did — x² + 6x = 16:
+    split the 6x into four strips round the square, add the missing corners (Afghan G9 ch.7 «حل معادلات درجه دوم به
+    روش هندسی، تجزیه، طریقهٔ تکمیل مربع، فورمول محمد بن موسی» p.175; Iran G10 ریاضی ۱ ch.4 «معادلهٔ درجه دوم و
+    روش‌های مختلف حل آن» p.70; UK GCSE A18, Higher). The formula follows from the same picture; the discriminant
+    says how many roots (Afghan G9, Iran G10). Mainly the Afghan G9 path; Iran/UK reach it at ages 15–16, so it is
+    reused in Phase 4. Misconceptions: x² = 9 → x = 3 only; (x − 2)(x − 3) = 0 → x = −2, −3; dividing by x loses
+    x = 0; b not halved; Δ < 0 read as "x = 0".
+- id: alg-polynomial-division
+  strand: alg
+  engine: algebra-tiles
+  order: 12
+  concepts:
+  - alg.polynomials
+  - alg.polynomial.division
+  title_fa: چندجمله‌ای‌ها و تقسیم آن‌ها
+  title_en: Polynomials and polynomial division
+  ages: [14, 17]
+  grades:
+    iran: 9
+    af: 9
+    uk: 12
+  notes: >-
+    Degree, coefficients and standard order; then divide with the grid filled backwards (x² + 5x + 6 ÷ (x + 2)),
+    and the Iranian/Afghan long-division layout for cubic ÷ linear with a remainder (Iran G9 ch.7 «تقسیم
+    چندجمله‌ای‌ها» p.126, G9 gifted ch.5 «چندجمله‌ای‌ها» p.81; Afghan G9 ch.5 «تقسیم افاده‌های الجبری» p.127, G10
+    ch.1 «پولینوم»; UK A-level B6 only). The grid mode needs a `divide` option. Misconceptions: degree = number of
+    terms; missing powers not written as 0x² (x³ − 1 ÷ (x − 1)); subtracting a negative row; remainder of higher
+    degree than the divisor. UK has this only at A-level → en marks it extension.
+- id: alg-sign-tables
+  strand: alg
+  engine: number-line
+  module: intervals
+  order: 13
+  concepts:
+  - alg.sign-analysis
+  - alg.inequalities.rational
+  title_fa: تعیین علامت و نامعادله‌های کسری
+  title_en: Sign tables and fractional inequalities
+  ages: [14, 16]
+  grades:
+    iran: 10
+    af: 9
+    uk: null
+  notes: >-
+    Afghan-led studio. A sign row under the line for ax + b, then for (x − 1)(x + 2) and (x − 1)/(x + 2): zeros as
+    filled dots, a pole as a hollow dot, + / − in each interval, then read the solution set of ≥ 0 (Afghan G9 ch.6
+    «تعیین اشارهٔ بینوم، تعیین اشارهٔ افادهٔ کسری» and «نامساوات‌های کسری» p.151; Iran G10 ریاضی ۱ ch.4 «تعیین
+    علامت» p.83; UK A-level B5 only). Misconceptions: the pole included in the solution; multiplying both sides by
+    the denominator without knowing its sign; signs assumed to alternate past a repeated factor. Default path:
+    fa-AF/ps; fa-IR as preview of grade 10; en extension.
+- id: alg-inequality-regions
+  strand: alg
+  engine: coord-plane
+  order: 14
+  concepts:
+  - alg.inequalities.two-variable
+  - func.linear-graphs
+  title_fa: نامعادلهٔ دومتغیره و ناحیهٔ جواب
+  title_en: Inequalities in two variables and regions
+  ages: [14, 15]
+  grades:
+    iran: null
+    af: 9
+    uk: 10
+  notes: >-
+    Draw the boundary y = 2x − 1 (dashed for <, solid for ≤), test a point such as (0, 0), shade the region; then
+    a system of two or three inequalities and its common region (Afghan G9 ch.6 «نامساوات‌های خطی با دو متحول» and
+    «سیستم نامساوات‌ها» p.151; UK GCSE A22 Higher). Misconceptions: shading the side that "looks bigger"; solid vs
+    dashed boundary; the test point put into the wrong inequality; the intersection region confused with the
+    union. Which side gets shaded (wanted or unwanted region) differs between books: check the Afghan G9 pages and
+    make it a per-locale `shade` option.
+# ---------------------------------------------------------------- sequences
+- id: seq-general-term
+  strand: seq
+  engine: pattern-machine
+  order: 3
+  concepts:
+  - seq.position-to-term
+  - seq.geometric
+  - seq.arithmetic
+  title_fa: 'جملهٔ عمومی الگو و دنبالهٔ هندسی'
+  title_en: 'The nth term, and geometric sequences'
+  ages: [12, 13]
+  grades:
+    iran: 7
+    af: null
+    uk: 8
+  notes: >-
+    Grow mode with matchstick squares (3n + 1) and dot rectangles: tabulate figure number → count, find the
+    general term, test it on figure 20, and ask "is 100 in the pattern?" (Iran G7 ch.3 «الگوهای عددی» p.28, with
+    «جملهٔ عمومی»; UK KS3 "generate terms … from a term-to-term or a position-to-term rule"). Then a ×2 and a ×½
+    numbers sequence for "recognise geometric sequences" (UK KS3; Iran G10 ریاضی ۱ p.21). Builds on the
+    position-to-term mission of seq-machines-rules. Misconceptions: 5, 8, 11, … → n + 3 (the step ignored); the
+    term-to-term rule given as the general term; geometric sequences continued by adding the ratio; 2ⁿ vs 2n.
+# ---------------------------------------------------------------- coordinate geometry
+- id: coord-gradient-lines
+  strand: coord
+  engine: coord-plane
+  order: 1
+  concepts:
+  - coord.gradient
+  - coord.line-equation
+  - func.linear-graphs
+  title_fa: شیب خط، عرض از مبدأ و معادلهٔ خط
+  title_en: 'Gradient, intercept and y = mx + c'
+  ages: [13, 15]
+  grades:
+    iran: 9
+    af: 8
+    uk: 9
+  notes: >-
+    Pilot of coord-plane. Drag two points on a line and read rise/run as a step triangle; sliders for m and c in
+    y = mx + c; plot a line from a table of values; find the equation through two points (Iran G9 ch.6 «معادلهٔ
+    خط» p.96 and «شیب خط و عرض از مبدأ» p.102; Afghan G9 ch.3 «میل مستقیم» and «معادلهٔ خط مستقیم … میل و یک نقطهٔ
+    آن معلوم باشد» p.55, G8 ch.9 «رابطهٔ خطی» p.209; UK KS3 "standard form y = mx + c; gradients and intercepts
+    numerically, graphically and algebraically"). Misconceptions: gradient = run/rise; a falling line given a
+    positive gradient; c read as the x-intercept; counting grid squares when the axes have different scales;
+    y = 3 and x = 3 swapped. Axes run left → right, y up, in every locale; equations are LTR.
+- id: coord-line-forms
+  strand: coord
+  engine: coord-plane
+  order: 2
+  concepts:
+  - coord.line-general-form
+  - coord.parallel-perpendicular
+  - coord.distance
+  - coord.midpoint
+  title_fa: 'معادلهٔ کلی خط، خط‌های موازی و عمود، فاصله و وسط'
+  title_en: 'Line forms, parallel and perpendicular lines, distance and midpoint'
+  ages: [14, 17]
+  grades:
+    iran: 11
+    af: 9
+    uk: 10
+  notes: >-
+    Rearrange 2x + 3y − 6 = 0 to y = mx + c and check by plotting; rotate a line by 90° and compare m₁ × m₂ = −1;
+    distance as Pythagoras on the step triangle; midpoint as the average of the ends (Afghan G9 ch.3 «شکل عمومی
+    معادلهٔ خط مستقیم», «میل مستقیم‌های موازی، میل مستقیم‌های عمود به هم», «فاصله بین دو نقطه», «مختصات نقطهٔ وسطی»
+    p.55; Iran G11 حسابان ۱ / ریاضی ۲ «هندسه تحلیلی»; UK GCSE A9). Mainly the Afghan G9 path; reused in Phase 4 for
+    Iran. Misconceptions: perpendicular gradient −m instead of −1/m; midpoint = half the difference; distance as
+    Δx + Δy; gradient of ax + by + c = 0 taken as a/b.
+# ---------------------------------------------------------------- functions
+- id: func-relations-functions
+  strand: func
+  engine: coord-plane
+  order: 1
+  concepts:
+  - func.relation
+  - func.concept
+  - func.graph
+  - seq.input-output
+  title_fa: رابطه، زوج مرتب و تابع
+  title_en: Relations, ordered pairs and functions
+  ages: [13, 16]
+  grades:
+    iran: 10
+    af: 8
+    uk: 9
+  notes: >-
+    Arrow diagrams between two sets become ordered pairs and then points; decide which relations are functions
+    (each input one output), then the vertical-line test on graphs (Afghan G8 ch.9 «رابطه و تابع» p.199–218, incl.
+    «نقطه در مستوی» and «رابطه، رابطهٔ خطی، تشکیل رابطه‌های خطی و تابع»; Iran G10 ریاضی ۱ ch.5 «مفهوم تابع و
+    بازنمایی‌های آن» p.95; UK KS3 "interpret mathematical relationships both algebraically and graphically", GCSE
+    A7). Links back to the input–output machine of Phase 2. Misconceptions: (2, 3) = (3, 2); two inputs with the same
+    output thought not a function; the vertical-line test done horizontally; a circle taken as a function graph.
+    Needs a `mapping` view (two set ovals with arrows) in coord-plane.
+- id: func-real-life-graphs
+  strand: func
+  engine: coord-plane
+  order: 2
+  concepts:
+  - func.modelling
+  - func.piecewise
+  - ratio.speed
+  - func.exponential
+  title_fa: نمودارهای واقعی، سرعت و رشد
+  title_en: Real-life graphs, speed and growth
+  ages: [12, 16]
+  grades:
+    iran: 10
+    af: null
+    uk: 8
+  notes: >-
+    UK-led (KS3 Algebra "find approximate solutions to contextual problems from given graphs … piece-wise linear,
+    exponential and reciprocal" and Ratio "compound units such as speed"). Read a distance–time journey (walk, stop,
+    bus), compute speed = distance ÷ time on each piece; sketch a filling-bottle graph; read an exponential growth
+    graph (doubling cells) against a linear one. Iran meets constant/piecewise functions and exponentials only in
+    G10–11, so fa-IR shows this as enrichment. Misconceptions: the graph read as a picture of the road (a hill);
+    flat = moving; steeper = slower; speed from total distance ÷ the last segment's time; exponential treated as
+    "adding the same each step".
+- id: func-quadratic-graphs
+  strand: func
+  engine: coord-plane
+  order: 3
+  concepts:
+  - func.quadratic-graphs
+  - alg.quadratic-equations
+  title_fa: نمودار تابع درجهٔ دوم (سهمی)
+  title_en: Graphs of quadratic functions
+  ages: [13, 16]
+  grades:
+    iran: 10
+    af: 9
+    uk: 9
+  notes: >-
+    Fill a table for y = x² − 2x − 3 (with negative x), plot and join smoothly, read roots, y-intercept and turning
+    point; a slider for a in y = ax² shows width and direction (UK KS3 "recognise, sketch and produce graphs of …
+    quadratic functions", "use … quadratic graphs to estimate values"; Afghan G9 ch.7 «روابط غیر خطی» p.175; Iran
+    G10 ریاضی ۱ ch.4 «سهمی» p.78). Roots on the graph = solutions of the equation (link to alg-completing-square).
+    Misconceptions: (−3)² = −9 in the table; dots joined with straight segments; a pointed vertex; the roots
+    confused with the y-intercept.
+# ---------------------------------------------------------------- ratio, proportion and finance
+- id: ratio-percent-change
+  strand: ratio
+  engine: fraction-bars
+  order: 4
+  concepts:
+  - ratio.percent-change.multiplier
+  - ratio.percent-change.find
+  - ratio.percent-change.reverse
+  - fin.reverse-percent
+  - frac.one-of-another
+  title_fa: درصد تغییر، ضریب تغییر و قیمت اولیه
+  title_en: Percentage change, multipliers and reverse percentages
+  ages: [12, 14]
+  grades:
+    iran: null
+    af: 8
+    uk: 8
+  notes: >-
+    Percent bar model: a 100% bar grows to 120% (× 1.2) or shrinks to 85% (× 0.85); find the change as a fraction
+    of the original; reverse — the sale price is the 80% bar, so 1% is price ÷ 80 (UK KS3 Number "percentage changes
+    as a fraction or a decimal … interpret these multiplicatively … greater than 100%" and Ratio "original value
+    problems"; "express one quantity as a fraction of another"; Afghan G8 ch.2 «محاسبات مالی» p.37). Builds on
+    fin-percent-money (Iran G6). Misconceptions: reverse percentage by adding 20% of the sale price; percentage
+    change divided by the new value; +10% then −10% returns to the start; multiplier 0.2 for a 20% rise; a fraction
+    "of another" written upside down. Money per locale (تومان، افغانی، £).
+- id: ratio-rates-compound-units
+  strand: ratio
+  engine: problem-canvas
+  order: 5
+  concepts:
+  - ratio.density
+  - fin.unit-pricing
+  - ratio.rate
+  title_fa: آهنگ، قیمت واحد و چگالی
+  title_en: Rates, unit pricing and density
+  ages: [12, 13]
+  grades:
+    iran: null
+    af: null
+    uk: 8
+  notes: >-
+    Table tool as a ratio table: which bag of rice is the better buy (price per kg and kg per toman), mass of a
+    block from its density, density of two stones (UK KS3 "use compound units such as speed, unit pricing and
+    density"). Speed is in func-real-life-graphs. Iranian/Afghan books meet density in science, not maths, so this
+    is the UK path and Explorer enrichment. Misconceptions: the cheapest pack taken as the best buy; density =
+    volume ÷ mass; units dropped (g/cm³ vs kg/m³); the rate inverted halfway.
+- id: ratio-scale-maps
+  strand: ratio
+  engine: measure
+  order: 6
+  concepts:
+  - ratio.scale-drawings
+  - meas.scale-drawings
+  title_fa: نقشه و رسم با مقیاس
+  title_en: Scale drawings and maps
+  ages: [11, 12]
+  grades:
+    iran: null
+    af: null
+    uk: 7
+  notes: >-
+    Ruler on a neutral town map with a 1 : 50 000 scale: measure, convert cm → km, then draw a room plan at 1 : 50
+    (UK KS3 Ratio "scale factors, scale diagrams and maps" and Geometry "interpreting scale drawings"). Iran meets map
+    scale in G6 science/geography and ratio-scale-similar; this is the UK path. Misconceptions: 1 cm = 50 000 km;
+    cm → km conversion done with ×1000; the scale applied to areas; a scale written the wrong way round (50 000 : 1).
+    The measure ruler needs a `scale` label (small additive option). No real place names or borders on maps.
+- id: ratio-proportion-graphs
+  strand: ratio
+  engine: coord-plane
+  order: 7
+  concepts:
+  - ratio.proportion.graphs
+  - ratio.proportion.equations
+  - func.reciprocal
+  title_fa: نمودار تناسب مستقیم و معکوس
+  title_en: Graphs of direct and inverse proportion
+  ages: [13, 14]
+  grades:
+    iran: null
+    af: null
+    uk: 9
+  notes: >-
+    Plot price vs kg (y = kx, through the origin) and workers vs days (y = k/x), find k from one point, decide from
+    a table or graph which kind of proportion it is (UK KS3 "direct and inverse proportion, including graphical and
+    algebraic representations" and "graphs … reciprocal"). Iran/Afghan teach proportion numerically (Phase 2
+    ratio-proportion); the graphs are UK. Misconceptions: any straight line = direct proportion (even with c ≠ 0);
+    inverse proportion drawn as a straight falling line; y = k/x crossing the axes; k found by subtraction.
+- id: ratio-extra-compound-proportion
+  strand: ratio
+  engine: problem-canvas
+  order: 8
+  concepts:
+  - ratio.proportion.compound
+  - ratio.proportion.inverse
+  title_fa: 'تکمیلی: تناسب مرکب'
+  title_en: 'Extra: compound proportion'
+  ages: [13, 14]
+  grades:
+    iran: null
+    af: 8
+    uk: null
+  notes: >-
+    Extra studio for the specialist concept (Afghan G8 ch.2 «تناسب، خواص تناسب، انواع تناسب، تناسب مرکب» p.43):
+    workers × days × output in a three-column table; change one quantity at a time, deciding direct or inverse each
+    time. Misconceptions: all three treated as direct; both changes applied at once. Featured for fa-AF/ps.
+  extra: true
+- id: fin-interest-growth
+  strand: fin
+  engine: pattern-machine
+  order: 4
+  concepts:
+  - fin.interest.simple
+  - fin.interest.compound
+  - ratio.growth-decay
+  title_fa: سود ساده و سود مرکب
+  title_en: Simple and compound interest
+  ages: [12, 14]
+  grades:
+    iran: null
+    af: 8
+    uk: 8
+  notes: >-
+    Numbers mode: simple interest adds the same amount every year (term-to-term + step), compound multiplies by
+    1.05 (× step); compare the two sequences over 10 years, then depreciation × 0.9 (Afghan G8 ch.2 «ربح ساده و
+    مرکب» p.61; UK KS3 "simple interest in financial mathematics", GCSE R16 growth and decay). Keep contexts to
+    savings, prices and population — no loans to children. The Iranian G7–9 books have no interest topic, so fa-IR shows it
+    as optional enrichment (growth of savings and prices); whether fa-IR should show it at all is for the owner. Misconceptions: compound interest computed as simple; 5% compound for 2 years = 10%; the multiplier
+    0.05; depreciation by subtracting a fixed amount. Needs the `op: ×` step to accept decimals (check
+    pattern-machine-seq).
+# ---------------------------------------------------------------- geometry (shape-board, incl. the #9 "geometry board" modules)
+- id: geo-parallel-angles
+  strand: geo
+  engine: shape-board
+  module: dynamic
+  order: 9
+  concepts:
+  - geo.angles.parallel-lines
+  - geo.triangles.angle-sum
+  title_fa: زاویه‌های دو خط موازی و یک خط مورب
+  title_en: Angles with parallel lines
+  ages: [12, 13]
+  grades:
+    iran: 7
+    af: 7
+    uk: 8
+  notes: >-
+    Pilot of the shape-board `dynamic` module (engine #9). Two parallel lines and a transversal you can drag and
+    turn: the live angle readouts show corresponding and alternate angles stay equal and co-interior angles keep
+    summing to 180°; un-parallel the lines and the equalities break. Then prove the triangle angle sum with a
+    parallel through a vertex (Iran G7 ch.4 «روابط بین زاویه‌ها» p.45, G8 ch.3 «توازی و تعامد» p.34; Afghan G7 ch.6
+    «زوایای متبادلهٔ داخلی و خارجی», «زوایای متوافقه», «زوایای متممهٔ داخلی یک طرف خط قاطع» p.157; UK KS3 "parallel
+    lines and alternate and corresponding angles"). Misconceptions: alternate angles assumed equal when the lines are
+    not parallel; co-interior angles assumed equal; Z/F shapes misread; vertically opposite confused with adjacent.
+- id: geo-triangle-inequality-lines
+  strand: geo
+  engine: shape-board
+  module: dynamic
+  order: 10
+  concepts:
+  - geo.triangles.inequality
+  - geo.triangles.special-lines
+  title_fa: نابرابری مثلث، میانه، ارتفاع، نیمساز و عمودمنصف
+  title_en: Triangle inequality; medians, altitudes and bisectors
+  ages: [12, 13]
+  grades:
+    iran: 7
+    af: 7
+    uk: null
+  notes: >-
+    Try to close a triangle from three given sticks (3, 4, 8 will not; 3, 4, 7 lies flat); then construct a median,
+    an altitude (also outside an obtuse triangle), an angle bisector and a perpendicular bisector with the compass,
+    and drag a vertex to see the three medians always meet (Iran G7 ch.4 «روابط بین پاره‌خط‌ها» p.42; Afghan G7 ch.5
+    «رابطهٔ بین اضلاع یک مثلث» and «میانه، ارتفاع و ناصف‌الزاویه در مثلث» p.119, G8 ch.5 «ناصف الزاویه … ناصف
+    عمودی» p.119 and «ارتفاع‌های مثلث، میانه‌های مثلث» p.127; Iran G10 هندسه ۱ p.10). Misconceptions: any three
+    lengths make a triangle; the equality case counted as a triangle; the altitude always inside; median and angle
+    bisector confused; the perpendicular bisector drawn through a vertex.
+- id: geo-congruence
+  strand: geo
+  engine: shape-board
+  module: proof
+  order: 11
+  concepts:
+  - geo.congruence
+  - geo.congruence.triangles
+  title_fa: شکل‌های هم‌نهشت و حالت‌های هم‌نهشتی مثلث‌ها
+  title_en: Congruent shapes and congruent triangles
+  ages: [12, 14]
+  grades:
+    iran: 7
+    af: 7
+    uk: 9
+  notes: >-
+    Pilot of the shape-board `proof` module. Move/turn/flip a copy onto a shape to show congruence (Iran G7 ch.4
+    «شکل‌های مساوی (هم‌نهشت)» p.51); then two triangles with marked equal sides and angles: name the correspondence
+    (آب‌پ ≅ …), pick the criterion (ض‌ض‌ض، ض‌ز‌ض، ز‌ض‌ز، و‌ض) and justify each pair (Iran G8 ch.6 «مثلث‌های
+    هم‌نهشت» p.92 and «هم‌نهشتی مثلث‌های قائم‌الزاویه» p.96, G9 ch.3 «هم‌نهشتی مثلث‌ها» p.44; Afghan G7 ch.5 «اشکال
+    انطباق‌پذیر» and «حالات انطباق‌پذیری مثلث‌ها» p.119; UK KS3 "criteria for congruence of triangles": SSS, SAS,
+    ASA, RHS). Criterion names are per-locale labels. Misconceptions: AAA as a congruence test; SSA accepted;
+    vertices matched in the wrong order; a mirror image "not congruent"; the included angle not between the sides.
+- id: geo-pythagoras
+  strand: geo
+  engine: shape-board
+  order: 12
+  concepts:
+  - geo.pythagoras
+  - num.roots
+  title_fa: رابطهٔ فیثاغورس و عکس آن
+  title_en: "Pythagoras' theorem and its converse"
+  ages: [13, 14]
+  grades:
+    iran: 8
+    af: 8
+    uk: 9
+  notes: >-
+    Squares on the sides of a right triangle on the dot grid (`show: area`): count and compare; rearrange four
+    copies to see a² + b² = c²; find a missing side; test whether 5, 12, 13 is right-angled (converse); construct √2
+    on the number line with the compass from a unit square's diagonal (Iran G8 ch.6 «رابطهٔ فیثاغورس» p.84, G8 ch.7
+    «نمایش اعداد رادیکالی روی محور» p.114; Afghan G8 ch.5 «قضیهٔ فیثاغورث، عکس قضیهٔ فیثاغورث» p.105; UK KS3
+    Geometry). Misconceptions: c = a + b; the hypotenuse not the longest side (squaring the wrong pair);
+    subtracting when the hypotenuse is wanted; using the theorem on a non-right triangle; 3² + 4² = 7².
+- id: geo-proof-isosceles
+  strand: geo
+  engine: shape-board
+  module: proof
+  order: 13
+  concepts:
+  - geo.proof.intro
+  - geo.triangles.isosceles
+  - disc.reasoning
+  - disc.proof.counterexample
+  title_fa: استدلال و اثبات در هندسه
+  title_en: Reasoning and proof in geometry
+  ages: [13, 15]
+  grades:
+    iran: 9
+    af: 8
+    uk: 9
+  notes: >-
+    Measure many cases (inductive) vs a chain of reasons (deductive): drag a triangle and see the base angles of an
+    isosceles triangle stay equal, then prove it by congruence with the proof panel (given → reason → conclusion,
+    reasons chosen from a bank); find a counterexample to "every quadrilateral with equal diagonals is a rectangle"
+    (Iran G9 ch.3 «استدلال» p.33, «آشنایی با اثبات در هندسه» p.37, «حل مسئله در هندسه» p.49; Afghan G8 ch.5 «قضایای
+    مثلث متساوی الساقین» p.101; UK KS3 "use known results to obtain simple proofs"). Misconceptions: checking a few
+    examples = proof; the conclusion used as a reason (circular); one counterexample thought not enough; "looks
+    equal in the picture" as a reason.
+- id: geo-thales-similarity
+  strand: geo
+  engine: shape-board
+  module: dynamic
+  order: 14
+  concepts:
+  - geo.thales
+  - geo.similarity.triangles
+  - geo.similarity
+  title_fa: قضیهٔ تالس و تشابه مثلث‌ها
+  title_en: "Thales' theorem and similar triangles"
+  ages: [13, 15]
+  grades:
+    iran: 9
+    af: 8
+    uk: 9
+  notes: >-
+    Slide a line parallel to one side of a triangle: the live ratios AD/DB and AE/EC stay equal (Thales), and the
+    converse; then decide which triangle pairs are similar (AA, SAS, SSS) and use the scale factor (Afghan G8 ch.3
+    «قضیهٔ خطوط موازی با فاصله‌های مساوی، قضیهٔ تالس و عکس آن» p.73 and «قضیهٔ تالس درمثلث، حالت‌های تشابه
+    مثلث‌ها» p.77; Iran G9 ch.3 «شکل‌های متشابه» p.53, G10 هندسه ۱ ch.2 «قضیهٔ تالس» p.34; UK KS3 similarity). The
+    shadow-height problem attributed to Thales is a neutral context. Misconceptions: part : whole compared with
+    part : part; additive scaling (each side + 3); corresponding sides mismatched; equal angles not enough
+    ("need all three sides").
+- id: geo-loci
+  strand: geo
+  engine: shape-board
+  order: 15
+  concepts:
+  - geo.loci
+  - geo.construct.basic
+  title_fa: مکان هندسی
+  title_en: Loci
+  ages: [13, 16]
+  grades:
+    iran: 10
+    af: null
+    uk: 9
+  notes: >-
+    Place points that are 2 cm from a point, then from a segment (a stadium shape), then equally far from two points
+    (the perpendicular bisector) and from two lines (the angle bisector), and shade a region such as "nearer A than B
+    and within 3 of C" with the compass (UK KS3 "derive and use the standard ruler and compass constructions …
+    perpendicular distance … shortest distance"; Iran G10 هندسه ۱ ch.1 «ترسیم‌های هندسی» p.10). Reuses the Phase 2
+    compass. Misconceptions: the locus round a segment drawn as a rectangle with square ends; "equidistant from A and
+    B" = only the midpoint; the shortest distance measured on a slant. Needs a `region` check (shaded cells inside a
+    locus).
+- id: geo-circle-lines-angles
+  strand: geo
+  engine: shape-board
+  module: dynamic
+  order: 16
+  concepts:
+  - geo.circle.lines
+  - geo.circle.angles
+  - geo.circle.tangents
+  title_fa: خط و دایره، زاویه‌های مرکزی و محاطی و مماس
+  title_en: Lines and circles, central and inscribed angles, tangents
+  ages: [13, 15]
+  grades:
+    iran: 8
+    af: 9
+    uk: 10
+  notes: >-
+    Slide a line across a circle (outside, tangent, secant), two circles apart/touching/crossing; drag a point round
+    the arc and watch the inscribed angle stay half the central angle, and the angle in a semicircle stay 90°; a
+    tangent stays perpendicular to the radius (Iran G8 ch.9 «خط و دایره» p.138, «زاویه‌های مرکزی» p.142,
+    «زاویه‌های محاطی» p.146; Afghan G9 ch.1 «حالات یک مستقیم با دایره، موقعیت دو دایره» and «زوایای مربوط به دایره»
+    p.1, ch.2 «خط مماس به دایره» p.27; UK GCSE G9–G10, Higher). Misconceptions: inscribed = central; a tangent
+    meeting the circle twice; the tangent not at 90° to the radius; an angle "in the semicircle" with its vertex at
+    the centre.
+- id: geo-circle-polygons-lengths
+  strand: geo
+  engine: shape-board
+  module: dynamic
+  order: 17
+  concepts:
+  - geo.circle.cyclic-polygons
+  - geo.circle.lengths
+  title_fa: چندضلعی‌های محاطی و محیطی و روابط طولی در دایره
+  title_en: Cyclic polygons, incircles and lengths in a circle
+  ages: [14, 17]
+  grades:
+    iran: 11
+    af: 9
+    uk: 10
+  notes: >-
+    Afghan-led. Construct a triangle's circumcircle (perpendicular bisectors) and incircle (angle bisectors); drag a
+    cyclic quadrilateral's vertices: opposite angles keep summing to 180°; two crossing chords keep AP × PB = CP × PD
+    (Afghan G9 ch.2 «دایرهٔ محیطی، دایرهٔ محاطی», «خصوصیات چهار ضلعی مرسوم به دایره», «روابط طولی در دایره», «طاقت یک
+    نقطه نظر به یک دایره» p.27; Iran G11 هندسه ۲ ch.1 p.18–24; UK GCSE G10). Misconceptions: opposite angles of a
+    cyclic quadrilateral equal; chord lengths added instead of multiplied; the circumcentre always inside the
+    triangle; incircle and circumcircle swapped.
+- id: geo-spatial-views
+  strand: geo
+  engine: solid-viewer
+  order: 18
+  concepts:
+  - geo.spatial.views
+  - geo.pythagoras.3d
+  title_fa: نماهای جسم و فیثاغورس در فضا
+  title_en: Plans, elevations and Pythagoras in 3D
+  ages: [13, 16]
+  grades:
+    iran: 10
+    af: 8
+    uk: 10
+  notes: >-
+    Turn a solid made of cubes and match its front, side and top views; draw a view on the grid; then the space
+    diagonal of a cuboid in two Pythagoras steps, with the hidden right triangle highlighted (Iran G7 gifted ch.6
+    «شهود فضایی» p.94, G10 هندسه ۱ ch.4 «تفکر تجسمی» p.87; Afghan G8 ch.6 «دریافت قطر مکعب مستطیل و مکعب» p.137;
+    UK GCSE G13, G20). Misconceptions: hidden cubes forgotten in a view; left and right side views swapped; the space
+    diagonal taken as the face diagonal; adding the three edges.
+- id: geo-extra-right-triangle
+  strand: geo
+  engine: shape-board
+  module: proof
+  order: 19
+  concepts:
+  - geo.triangles.right-special
+  - geo.triangles.isosceles
+  title_fa: 'تکمیلی: قضیه‌های مثلث قائم‌الزاویه'
+  title_en: 'Extra: right-triangle theorems'
+  ages: [13, 14]
+  grades:
+    iran: null
+    af: 8
+    uk: null
+  notes: >-
+    Extra studio for the specialist concept (Afghan G8 ch.5 «قضایای مثلث قایم الزاویه، قضایا در مثلث قایم الزاویه
+    برای زوایای °۳۰ و °۶۰» p.111): the side opposite 30° is half the hypotenuse (half an equilateral triangle) and the
+    median to the hypotenuse is half of it (the circumcircle). Misconception: the half-hypotenuse rule used for any
+    angle. Featured for fa-AF/ps.
+  extra: true
+- id: geo-extra-tessellation
+  strand: geo
+  engine: shape-board
+  order: 20
+  concepts:
+  - geo.tessellation
+  - geo.polygons.angles
+  title_fa: 'تکمیلی: کاشی‌کاری با چندضلعی‌ها'
+  title_en: 'Extra: tessellations'
+  ages: [13, 14]
+  grades:
+    iran: 8
+    af: null
+    uk: null
+  notes: >-
+    Extra (Iran G8 gifted ch.3 «کاشی‌کاری» p.47): fit copies of a regular polygon round a point with the move/turn
+    pieces; only angles that divide 360° tile (triangles, squares, hexagons; pentagons leave a gap); then a
+    two-polygon tiling. Geometric tile patterns are a shared heritage; keep them abstract (no religious buildings).
+    Misconception: every regular polygon tiles.
+  extra: true
+- id: geo-extra-solids
+  strand: geo
+  engine: solid-viewer
+  order: 21
+  concepts:
+  - geo.solids.polyhedra
+  - geo.spatial.sections
+  title_fa: 'تکمیلی: چندوجهی‌های منتظم و سطح مقطع'
+  title_en: 'Extra: regular polyhedra and cross-sections'
+  ages: [12, 13]
+  grades:
+    iran: 7
+    af: null
+    uk: null
+  notes: >-
+    Extra (Iran G7 gifted ch.6 «ریاضیات سیب‌زمینی!» p.88, «چهار وجهی منتظم» p.93, «کارگاه ساخت حجم ـ دوازده وجهی
+    منتظم» p.104; G9 gifted ch.8 «چندوجهی» p.132): count V, E, F on the five regular solids and find V − E + F = 2;
+    slice a cube with a plane and predict the section (triangle, square, rectangle, hexagon). Misconception: a cube
+    can only be cut into squares. Specialist sections only here.
+  extra: true
+# ---------------------------------------------------------------- position and transformations
+- id: pos-transformations-enlargement
+  strand: pos
+  engine: shape-board
+  order: 4
+  concepts:
+  - pos.transformations
+  - pos.enlargement
+  title_fa: تبدیل‌های هندسی و تجانس
+  title_en: Transformations and enlargement
+  ages: [12, 15]
+  grades:
+    iran: 7
+    af: 9
+    uk: 8
+  notes: >-
+    Which transformations keep lengths, angles and orientation (translation, reflection, rotation) and which keep only
+    angles (enlargement); enlarge from a centre by 2 and by ½ with rays from the centre; find the centre and factor of
+    a given enlargement (Iran G7 ch.4 «تبدیلات هندسی (انتقال، تقارن، دوران)» p.48; Afghan G9 ch.3 «تغییر مکان، انتقال،
+    انعکاس، دوران» p.55; UK KS3 "properties of … translations, rotations and reflections", "similar shapes by
+    enlargement, with and without coordinate grids"; Iran G11 هندسه ۲ for تجانس). Uses `image: { scale }`.
+    Misconceptions: reflection keeps orientation; enlargement measured from the shape, not the centre; factor ½ makes
+    it bigger; area scales by the same factor as length.
+# ---------------------------------------------------------------- trigonometry
+- id: trig-ratios
+  strand: trig
+  engine: shape-board
+  module: dynamic
+  order: 1
+  concepts:
+  - trig.right-triangle
+  - trig.solve-right-triangle
+  title_fa: نسبت‌های مثلثاتی در مثلث قائم‌الزاویه
+  title_en: Trigonometric ratios in right triangles
+  ages: [13, 16]
+  grades:
+    iran: 10
+    af: 9
+    uk: 9
+  notes: >-
+    Grow a right triangle with a fixed 35° angle: the sides change but opposite/hypotenuse stays the same (Thales
+    again), so it gets a name, sin; label opposite/adjacent/hypotenuse for each acute angle; then find sides and
+    angles using a printed table of values, as the Afghan book does, instead of a calculator (Afghan G9 ch.4 «قضیهٔ
+    تالس در مثلثات», «ساین، کوساین، تانجانت زاویهٔ حاده», «جدول مثلثاتی، حل مثلث‌های قایم‌الزاویه» p.95; UK KS3
+    "trigonometric ratios in similar triangles"; Iran G10 ریاضی ۱ ch.2 p.29). Misconceptions: opposite/adjacent
+    labelled from the wrong angle; sin x read as sin × x; sin⁻¹ as 1/sin; the ratio thought to depend on the triangle's
+    size.
+- id: trig-special-angles
+  strand: trig
+  engine: shape-board
+  order: 2
+  concepts:
+  - trig.special-angles
+  - trig.equations
+  title_fa: نسبت‌های مثلثاتی زاویه‌های خاص
+  title_en: 'Exact values for 30°, 45° and 60°'
+  ages: [14, 16]
+  grades:
+    iran: 10
+    af: 9
+    uk: 10
+  notes: >-
+    Halve an equilateral triangle of side 2 and a unit square to get exact sin, cos, tan of 30°, 45°, 60°; link tan
+    to the gradient of a line («رابطهٔ میل و تانجانت»); then simple equations such as sin x = ½ and tan x = 1 with
+    0° < x < 90° only (Afghan G9 ch.4 «نسبت‌های مثلثاتی زوایای خاص، رابطهٔ میل و تانجانت» and «معادلات مثلثاتی» p.95;
+    UK GCSE G21; Iran G10). General solutions need the unit circle (Phase 4); here only acute angles. Misconceptions:
+    sin 60° = 2 × sin 30°; sin 30° = 30/90; tan 45° = 45; √3/2 and ½ swapped between sin and cos.
+# ---------------------------------------------------------------- vectors (engine #14 folded into coord-plane)
+- id: vec-directed-segments
+  strand: vec
+  engine: coord-plane
+  module: vectors
+  order: 1
+  concepts:
+  - vec.2d
+  - vec.equal-opposite
+  - vec.translation
+  - pos.translation.vector
+  title_fa: پاره‌خط جهت‌دار، بردار و بردار انتقال
+  title_en: Directed segments, vectors and translation vectors
+  ages: [12, 15]
+  grades:
+    iran: 7
+    af: null
+    uk: 10
+  notes: >-
+    Pilot of the coord-plane `vectors` module. Draw arrows tail → head on the grid and read them as column vectors
+    (x on top); find equal and opposite vectors anywhere on the grid; translate a shape by a vector and describe a
+    given translation (Iran G7 ch.8 «پاره‌خط جهت‌دار» p.98, «بردارهای مساوی و قرینه» p.101, «مختصات» p.104, «بردار
+    انتقال» p.107; UK GCSE G24). Iran writes the column vector with brackets as in docs/NOTATION.md (shape-board
+    `label-coords` "{x}\n{y}"). Misconceptions: the vector read head → tail; components swapped; equal vectors thought to
+    need the same position; the opposite vector drawn in the same direction.
+- id: vec-add-scale
+  strand: vec
+  engine: coord-plane
+  module: vectors
+  order: 2
+  concepts:
+  - vec.add-sub
+  - vec.scalar-multiple
+  - vec.unit-vectors
+  title_fa: جمع بردارها، ضرب عدد در بردار و بردارهای واحد
+  title_en: Adding vectors, scalar multiples and unit vectors
+  ages: [13, 17]
+  grades:
+    iran: 8
+    af: 11
+    uk: 10
+  notes: >-
+    Head-to-tail and parallelogram addition, a − b as a + (−b), 2a and −½a as stretched/flipped arrows, and every
+    vector as x i + y j (Iran G8 ch.5 «جمع بردارها» p.70, «ضرب عدد در بردار» p.74, «بردارهای واحد مختصات» p.78;
+    UK GCSE G25; Afghan G11). Misconceptions: adding by joining tails; a − b drawn as b − a; 2a doubling only the x
+    part; i and j swapped; the length of a + b taken as the sum of lengths.
+- id: vec-extra-applications
+  strand: vec
+  engine: coord-plane
+  module: vectors
+  order: 3
+  concepts:
+  - vec.applications-intro
+  - vec.add-sub
+  title_fa: 'تکمیلی: بردار در حرکت و جابه‌جایی'
+  title_en: 'Extra: vectors in motion'
+  ages: [12, 13]
+  grades:
+    iran: 7
+    af: null
+    uk: null
+  notes: >-
+    Extra (Iran G7/G8 gifted ch.5/8 «دریچه‌ای به روبوکاپ», «بردار، رودخانه و غواص» p.84, «کاربردهایی از بردارها»
+    p.82): a robot's moves as a sum of vectors; a swimmer crossing a river with the current. Misconception: the
+    current ignored, or added to the length only.
+  extra: true
+# ---------------------------------------------------------------- measures (3D)
+- id: meas-prisms-volume-surface
+  strand: meas
+  engine: solid-viewer
+  order: 9
+  concepts:
+  - meas.volume.prisms
+  - meas.surface-area.prisms
+  - geo.solids.nets
+  title_fa: حجم و مساحت منشور و استوانه
+  title_en: Volume and surface area of prisms and cylinders
+  ages: [12, 14]
+  grades:
+    iran: 7
+    af: 8
+    uk: 8
+  notes: >-
+    Pilot of solid-viewer. Turn a prism, pick its base (the cross-section), stack base layers to see volume = base
+    area × height; unfold the prism and the cylinder (a rectangle of width 2πr) to count lateral and total area (Iran
+    G7 ch.6 «حجم‌های هندسی» p.70, «محاسبهٔ حجم‌های منشوری» p.73, «مساحت جانبی و کل» p.76, «حجم و سطح» p.79; Afghan G8
+    ch.6 «مساحت و حجم منشور، مساحت و حجم استوانه» p.141; UK KS3 "volume of cuboids … and other prisms (including
+    cylinders)"). Misconceptions: a rectangular side face taken as the base of a triangular prism; surface area
+    from the visible faces only; cylinder lateral area = πr²h; cm² and cm³ mixed; volume as the sum of edges.
+- id: meas-pyramid-cone-sphere
+  strand: meas
+  engine: solid-viewer
+  order: 10
+  concepts:
+  - meas.volume.pyramid-cone
+  - meas.surface-area.pyramid-cone
+  - meas.volume.sphere
+  - meas.volume.composite
+  - meas.circle.sector
+  title_fa: حجم و مساحت هرم، مخروط و کره
+  title_en: Pyramids, cones, spheres and composite solids
+  ages: [13, 15]
+  grades:
+    iran: 9
+    af: 8
+    uk: 10
+  notes: >-
+    Pour a pyramid of water into its prism three times (animation) for the ⅓; unroll a cone into a sector (bridge
+    concept meas.circle.sector) for πrl; find slant height with Pythagoras; sphere = ⅔ of its cylinder
+    (Archimedes); then a tower of a cylinder and a hemisphere (Iran G9 ch.8 «حجم و مساحت کره» p.131, «حجم هرم و
+    مخروط» p.135, «سطح و حجم» p.140; Afghan G8 ch.6 «مساحت و حجم هرم» p.145, «مساحت و حجم مخروط، مساحت و حجم کره» p.149;
+    UK GCSE G17/KS4). Misconceptions: forgetting the ⅓; slant height used for volume and vertical height for lateral
+    area; 4πr² vs 4/3 πr³ swapped; the joining face of a composite solid counted in its surface area.
+# ---------------------------------------------------------------- statistics
+- id: stat-averages-range
+  strand: stat
+  engine: chart-builder
+  module: summary
+  order: 4
+  concepts:
+  - stat.mode
+  - stat.median
+  - stat.spread
+  - stat.averages
+  - stat.mean
+  title_fa: مد، میانه، میانگین و دامنهٔ تغییرات
+  title_en: Mode, median, mean and range
+  ages: [11, 16]
+  grades:
+    iran: 10
+    af: 7
+    uk: 7
+  notes: >-
+    Pilot of the chart-builder `summary` module. Line up data cards in order on a dot plot, tap the middle (or the two
+    middles) for the median, the tallest stack for the mode, the ends for the range; compare with the levelled mean
+    from Phase 2; then choose the best average for shoe sizes, wages with one large value, and favourite colours
+    (Afghan G7 ch.7 «مد (Mode)» p.187, G9 ch.8 «میانه، ساحهٔ تحول» p.195; UK KS3 Statistics "measures of central
+    tendency (mean, mode, median) and spread (range …)"; Iran G8 ch.8 «میانگین داده‌ها» p.124 and G10 آمار for
+    median/mode). Misconceptions: median without ordering; the median of an even count taken as one card; the mode
+    given as its frequency; range = the largest value; the mean of categorical data.
+- id: stat-compare-outliers
+  strand: stat
+  engine: chart-builder
+  module: summary
+  order: 5
+  concepts:
+  - stat.outliers
+  - stat.compare-distributions
+  title_fa: دادهٔ پرت و مقایسهٔ دو مجموعه داده
+  title_en: Outliers and comparing two data sets
+  ages: [12, 17]
+  grades:
+    iran: 11
+    af: 10
+    uk: 8
+  notes: >-
+    UK-led (KS3 "compare observed distributions … central tendency … and spread (range, consideration of outliers)").
+    Two dot plots (two classes' jump distances): compare with one average and the range, in a sentence; drag one value
+    far out and watch mean/median/range react; decide whether a value is a mistake or real. Misconceptions: comparing
+    averages only; "more spread is better"; an outlier deleted without a reason; the mean thought robust to outliers.
+- id: stat-grouped-histogram
+  strand: stat
+  engine: chart-builder
+  module: grouped
+  order: 6
+  concepts:
+  - stat.grouped-data
+  - stat.histogram
+  - stat.frequency-polygon
+  - stat.relative-frequency
+  title_fa: دسته‌بندی داده‌ها، نمودار مستطیلی و چندبر فراوانی
+  title_en: Grouped data, histograms and frequency polygons
+  ages: [12, 14]
+  grades:
+    iran: 8
+    af: 8
+    uk: 8
+  notes: >-
+    Pilot of the chart-builder `grouped` module. Sort heights into classes 140–145, 145–150, … (which class gets
+    exactly 145?), build the table with relative frequency, draw the histogram (bars touching) and join class
+    midpoints for the frequency polygon (Iran G8 ch.8 «دسته‌بندی داده‌ها» p.120, which uses both graphs; Afghan G8
+    ch.10 «کثرت نسبی، گراف میله‌ای، گراف خط منکسر» p.227, G9 ch.8 «روش دسته‌بندی Data … پیوسته» and «گراف مستطیلی» p.195;
+    UK KS3 "grouped data … vertical line (or bar) charts for … grouped numerical data"). Equal class widths only (unequal
+    widths are GCSE Higher, Phase 4). Misconceptions: overlapping or gapped classes; a boundary value counted twice;
+    gaps between histogram bars; polygon points at class ends; relative frequencies not summing to 1.
+- id: stat-grouped-mean-cumulative
+  strand: stat
+  engine: chart-builder
+  module: grouped
+  order: 7
+  concepts:
+  - stat.mean.grouped
+  - stat.cumulative-frequency
+  title_fa: میانگین داده‌های دسته‌بندی‌شده و فراوانی تجمعی
+  title_en: Mean of grouped data and cumulative frequency
+  ages: [13, 15]
+  grades:
+    iran: 8
+    af: 8
+    uk: 10
+  notes: >-
+    Frequency × midpoint column, total ÷ total frequency; weighted mean of two classes' averages; then a running-total
+    column and its graph plotted at class ends, reading the median off it (Iran G8 ch.8 «میانگین داده‌ها» p.124;
+    Afghan G8 ch.10 «کثرت تجمعی» p.225 and «اوسط دیتای متمادی با استفاده از جدول» p.233, G9 ch.8 «اوسط وزنی»; UK GCSE
+    S3/S4). Misconceptions: grouped mean = sum of frequencies ÷ number of classes; class width used for the midpoint;
+    the plain mean of two averages; the cumulative curve plotted at midpoints.
+- id: stat-scatter
+  strand: stat
+  engine: coord-plane
+  order: 8
+  concepts:
+  - stat.scatter
+  - stat.variable-types
+  title_fa: داده‌های دومتغیره و نمودار پراکنش
+  title_en: Bivariate data and scatter graphs
+  ages: [13, 17]
+  grades:
+    iran: 10
+    af: 11
+    uk: 9
+  notes: >-
+    Plot (hours of practice, score) pairs, describe the relationship, drag a line of best fit through the middle of
+    the cloud, predict inside the range and be wary outside it (UK KS3 "describe simple mathematical relationships
+    between two variables (bivariate data) … scatter graphs"; Iran G10 آمار ۱ «نمودارهای چندمتغیره» p.110; Afghan
+    G11). Uses coord-plane points mode and a draggable line. Misconceptions: correlation means one causes the other;
+    the dots joined up; the line forced through the origin or the first and last points; extrapolating far.
+- id: stat-sampling
+  strand: stat
+  engine: probability-sim
+  order: 9
+  concepts:
+  - stat.population-sample
+  - stat.sampling.random
+  - stat.data-collection.methods
+  title_fa: جامعه و نمونه، نمونه‌گیری تصادفی و روش‌های گردآوری داده
+  title_en: Population, samples and collecting data
+  ages: [12, 16]
+  grades:
+    iran: 10
+    af: 7
+    uk: 10
+  notes: >-
+    A hidden bag is the population: draw random samples of 10 and of 50 and compare the sample proportions with the
+    (revealed) population; then choose a method (questionnaire, observation, experiment, records) and spot biased
+    sampling (asking only your friends) (Afghan G7 ch.7 «روش‌های جمع‌آوری اطلاعات», «جامعه و نمونه», «نمونهٔ تصادفی»
+    p.187; Iran G10 ریاضی ۱ ch.7 «جامعه و نمونه» p.152; UK GCSE S1). Misconceptions: a sample = the population; a
+    bigger sample is always unbiased; a convenient sample is random; every sample gives the same answer.
+- id: stat-extra-mean-deviation
+  strand: stat
+  engine: chart-builder
+  module: summary
+  order: 10
+  concepts:
+  - stat.mean-deviation
+  - stat.spread
+  title_fa: 'تکمیلی: میانگین انحراف از میانگین'
+  title_en: 'Extra: mean absolute deviation'
+  ages: [14, 15]
+  grades:
+    iran: null
+    af: 9
+    uk: null
+  notes: >-
+    Extra for the specialist concept (Afghan G9 ch.8 «میانه، ساحهٔ تحول، اوسط انحراف» p.195): distances of each dot
+    from the mean, average them; two sets with the same range but different spread. Misconception: signed deviations
+    averaged (always 0). Featured for fa-AF/ps.
+  extra: true
+# ---------------------------------------------------------------- probability
+- id: prob-experiments
+  strand: prob
+  engine: probability-sim
+  order: 2
+  concepts:
+  - prob.experimental
+  - prob.large-numbers
+  - prob.equally-likely
+  title_fa: احتمال تجربی و احتمال نظری
+  title_en: Experimental and theoretical probability
+  ages: [11, 13]
+  grades:
+    iran: 7
+    af: 7
+    uk: 7
+  notes: >-
+    Run 10, 100, 1000 trials of a drawing pin model (an unequal spinner), a fair and a biased die; watch relative
+    frequency settle near the theory line; decide fair or not (Iran G7 ch.9 «احتمال و تجربه» p.121; Afghan G7 ch.8
+    «تجربه کردن یک اتفاق» p.211, G8 ch.11 «کثرت نسبی و احتمال» p.243 and «چانس برابر و نابرابر» p.245; UK KS3
+    "randomness, fairness, equally and unequally likely outcomes"). Misconceptions: gambler's fallacy ("6 is due");
+    10 trials are enough to judge; unequal sectors treated as equally likely; relative frequency must match the
+    theory exactly. No gambling contexts.
+- id: prob-sample-space-complement
+  strand: prob
+  engine: probability-sim
+  order: 3
+  concepts:
+  - prob.sample-space
+  - prob.combined
+  - prob.complement
+  title_fa: فضای نمونه، پیشامدهای مرکب و پیشامد متمم
+  title_en: Sample spaces, combined events and complements
+  ages: [12, 14]
+  grades:
+    iran: 8
+    af: 7
+    uk: 8
+  notes: >-
+    List the sample space of a spinner and a coin, then two dice as a 6 × 6 grid (`space` tiles); count favourable
+    cells; P(not A) = 1 − P(A) (Iran G8 ch.8 «بررسی حالت‌های ممکن» p.132; Afghan G7 ch.8 «تجربهٔ تصادفی», «فضای
+    نتیجه یا نمونه» p.211, G8 ch.11 «قواعد احتمال» p.247; Iran G9 ch.1 «مجموعه‌ها و احتمال» p.15; UK KS3 "theoretical
+    sample spaces for single and combined events"; "probabilities of all possible outcomes sum to 1"). Misconceptions:
+    sums 2–12 equally likely; (H, T) and (T, H) as one outcome; P(not A) = 1 + P(A) or 1/P(A); repeated outcomes in the
+    list. Needs a two-device grid view in `space` (small additive change).
+- id: prob-venn-events
+  strand: prob
+  engine: discrete-lab
+  order: 4
+  concepts:
+  - disc.sets.venn
+  - prob.events-sets
+  - prob.venn
+  - prob.addition-rule
+  - prob.two-way-tables
+  title_fa: نمودار ون، پیشامدها و جدول دوطرفه
+  title_en: Venn diagrams, events and two-way tables
+  ages: [13, 15]
+  grades:
+    iran: 9
+    af: 9
+    uk: 9
+  notes: >-
+    Sort 30 pupils by "plays football" and "plays chess" into a Venn diagram, flip the same data into a two-way table
+    and back; events as sets: A ∪ B, A ∩ B, A′; P(A or B) = P(A) + P(B) − P(A and B), and for mutually exclusive events
+    without the overlap (Iran G9 ch.1 «مجموعه‌ها و احتمال» p.15; Afghan G9 ch.9 «اتحاد و تقاطع حوادث اتفاقی», «ست کلی
+    و مکمله», «مدل‌سازی با ست‌ها» p.221; UK KS3 "enumerate sets and unions/intersections … tables, grids and Venn
+    diagrams"). Misconceptions: n(A ∪ B) = n(A) + n(B) with an overlap; "only A" confused with "A"; P(A or B) added for
+    non-exclusive events; the outside region forgotten; table totals not matching.
+- id: prob-trees-counting
+  strand: prob
+  engine: discrete-lab
+  module: tree
+  order: 5
+  concepts:
+  - prob.tree-diagram
+  - prob.independent
+  - disc.counting
+  title_fa: نمودار درختی، اصل ضرب و پیشامدهای مستقل
+  title_en: Tree diagrams, the product rule and independent events
+  ages: [13, 16]
+  grades:
+    iran: 10
+    af: 8
+    uk: 10
+  notes: >-
+    Pilot of the discrete-lab `tree` module. Grow a tree for outfits (3 shirts × 2 trousers) and count leaves → the
+    product rule; put probabilities on branches, multiply along a path and add paths; with and without replacement
+    (Afghan G8 ch.11 «دیاگرام درختی، قاعدهٔ اول مسیر (حاصل ضرب)» p.251, G9 ch.9 «اصل شمارش» p.221; Iran G10 ریاضی ۱
+    ch.6 «شمارش» p.119; UK GCSE P8, N5). Misconceptions: adding along branches; branch probabilities not summing to 1;
+    replacement ignored; 3 shirts and 2 trousers make 5 outfits; dependence assumed for coin tosses.
+# ---------------------------------------------------------------- sets (discrete)
+- id: disc-sets-intro
+  strand: disc
+  engine: discrete-lab
+  order: 1
+  concepts:
+  - disc.sets
+  - disc.sets.subset
+  - disc.sets.operations
+  - disc.sets.complement
+  - disc.sets.finite-infinite
+  title_fa: 'مجموعه‌ها: عضو، زیرمجموعه، اجتماع، اشتراک و متمم'
+  title_en: 'Sets: elements, subsets, union, intersection and complement'
+  ages: [12, 15]
+  grades:
+    iran: 9
+    af: 7
+    uk: 8
+  notes: >-
+    Pilot of discrete-lab (Venn mode). Drag element cards into set ovals and write the set in braces (order and
+    repeats don't matter); nest one oval in another for ⊆; shade A ∪ B, A ∩ B, A − B and A′ inside a universal set;
+    decide which sets are finite ({x | x is a whole number < 10} vs the even numbers) (Iran G9 ch.1 «معرفی مجموعه» p.2,
+    «مجموعه‌های برابر و نمایش مجموعه‌ها» p.6, «اجتماع، اشتراک و تفاضل» p.11, G9 gifted «بی‌شمارش» p.19; Afghan G7 ch.1
+    «ست» p.3–26 incl. «ست کلی و مکملهٔ یک ست»; UK KS3 "enumerate sets and unions/intersections", "infinite nature of the
+    sets of integers, real and rational numbers"). Afghan word «ست», Iranian «مجموعه». Misconceptions: {1, 2} ≠
+    {2, 1}; ∅ = {0}; ∈ vs ⊆; A − B = B − A; the overlap counted twice in A ∪ B.
+deferred:
+- concept: ops.calculator
+  reason: Specialist; as in Phase 2, no calculator engine and the academy teaches mental/written methods. UK KS3
+    "use a calculator … and interpret" is the only lower-secondary source; trig uses the Afghan printed table instead.
+    Can return as a calculator-check step in estimation missions.
+- concept: disc.graph
+  reason: Specialist, Iran G7 gifted supplement only (one game page, «کارگاه بازی ـ مثلث همرنگ» p.5); graphs are taught
+    properly in Iran G12 ریاضیات گسسته ch.2. Defer to Phase 5 with the discrete-lab graph mode, so Phase 3 does not
+    build a mode for one page.
+- concept: ps.games
+  reason: Specialist, Iran G7 gifted supplement only (four «کارگاه بازی» pages). The games fit as extra missions in their
+    topic studios (integer tic-tac-toe in num-integer-operations, «شمارنده و هُپ» in num-prime-factor-roots) once
+    those exist; no studio of their own.
+waves:
+  pilot:
+  - alg-expressions-like-terms
+  - alg-solve-linear
+  - num-index-laws
+  - coord-gradient-lines
+  - vec-directed-segments
+  - meas-prisms-volume-surface
+  - disc-sets-intro
+  - prob-trees-counting
+  - geo-parallel-angles
+  - geo-congruence
+  - alg-inequalities
+  - stat-averages-range
+  - stat-grouped-histogram
+  wave1:
+  - num-integer-operations
+  - num-rational-numbers
+  - num-prime-factor-roots
+  - num-standard-form
+  - num-roots-real-line
+  - seq-general-term
+  - prob-experiments
+  - prob-sample-space-complement
+  wave2:
+  - alg-expand-factorise
+  - alg-forming-equations
+  - ratio-percent-change
+  - ratio-rates-compound-units
+  - ratio-scale-maps
+  - fin-interest-growth
+  - geo-pythagoras
+  - pos-transformations-enlargement
+  wave3:
+  - geo-triangle-inequality-lines
+  - geo-thales-similarity
+  - geo-proof-isosceles
+  - geo-loci
+  - trig-ratios
+  - trig-special-angles
+  - stat-compare-outliers
+  - stat-grouped-mean-cumulative
+  wave4:
+  - coord-line-forms
+  - func-relations-functions
+  - func-real-life-graphs
+  - func-quadratic-graphs
+  - ratio-proportion-graphs
+  - alg-simultaneous
+  - stat-scatter
+  - vec-add-scale
+  wave5:
+  - alg-binomial-identities
+  - alg-factorise-quadratics
+  - alg-completing-square
+  - alg-polynomial-division
+  - alg-algebraic-fractions
+  - num-surds
+  - alg-sign-tables
+  - alg-inequality-regions
+  wave6:
+  - meas-pyramid-cone-sphere
+  - geo-spatial-views
+  - geo-circle-lines-angles
+  - geo-circle-polygons-lengths
+  - prob-venn-events
+  - stat-sampling
+  wave7:
+  - ratio-extra-compound-proportion
+  - geo-extra-right-triangle
+  - geo-extra-tessellation
+  - geo-extra-solids
+  - vec-extra-applications
+  - stat-extra-mean-deviation

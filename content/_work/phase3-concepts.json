@@ -1,0 +1,200 @@
+{
+ "alg": [
+  "alg.expressions",
+  "alg.substitution",
+  "alg.simplify",
+  "alg.monomials",
+  "alg.expand.single",
+  "alg.expand.binomials",
+  "alg.identities.square",
+  "alg.identities.further",
+  "alg.equation.concept",
+  "alg.identity",
+  "alg.factorise",
+  "alg.factorise.quadratic",
+  "alg.formulae.rearrange",
+  "alg.modelling",
+  "alg.linear-equations",
+  "alg.simultaneous.linear",
+  "alg.quadratic-equations",
+  "alg.quadratic.complete-square",
+  "alg.quadratic.formula",
+  "alg.quadratic.discriminant",
+  "alg.polynomials",
+  "alg.polynomial.division",
+  "alg.fractions.simplify",
+  "alg.fractions.operations",
+  "alg.inequalities.concept",
+  "alg.inequalities.linear",
+  "alg.inequalities.two-variable",
+  "alg.sign-analysis",
+  "alg.inequalities.rational"
+ ],
+ "coord": [
+  "coord.distance",
+  "coord.midpoint",
+  "coord.gradient",
+  "coord.line-equation",
+  "coord.line-general-form",
+  "coord.parallel-perpendicular"
+ ],
+ "disc": [
+  "disc.sets",
+  "disc.sets.subset",
+  "disc.sets.operations",
+  "disc.sets.complement",
+  "disc.sets.venn",
+  "disc.sets.finite-infinite",
+  "disc.reasoning",
+  "disc.proof.counterexample",
+  "disc.graph",
+  "disc.counting"
+ ],
+ "fin": [
+  "fin.unit-pricing",
+  "fin.reverse-percent",
+  "fin.interest.simple",
+  "fin.interest.compound"
+ ],
+ "frac": [
+  "frac.one-of-another",
+  "frac.order-mixed-forms"
+ ],
+ "func": [
+  "func.relation",
+  "func.concept",
+  "func.graph",
+  "func.linear-graphs",
+  "func.piecewise",
+  "func.quadratic-graphs",
+  "func.graphical-solution",
+  "func.reciprocal",
+  "func.exponential",
+  "func.modelling"
+ ],
+ "geo": [
+  "geo.angles.parallel-lines",
+  "geo.triangles.inequality",
+  "geo.triangles.special-lines",
+  "geo.triangles.isosceles",
+  "geo.triangles.right-special",
+  "geo.tessellation",
+  "geo.congruence",
+  "geo.congruence.triangles",
+  "geo.proof.intro",
+  "geo.thales",
+  "geo.similarity.triangles",
+  "geo.pythagoras",
+  "geo.pythagoras.3d",
+  "geo.circle.lines",
+  "geo.circle.angles",
+  "geo.circle.tangents",
+  "geo.circle.cyclic-polygons",
+  "geo.circle.lengths",
+  "geo.loci",
+  "geo.solids.polyhedra",
+  "geo.spatial.views",
+  "geo.spatial.sections"
+ ],
+ "meas": [
+  "meas.scale-drawings",
+  "meas.volume.prisms",
+  "meas.surface-area.prisms",
+  "meas.volume.pyramid-cone",
+  "meas.surface-area.pyramid-cone",
+  "meas.volume.sphere",
+  "meas.volume.composite"
+ ],
+ "num": [
+  "num.integers.ops",
+  "num.absolute-value",
+  "num.hcf-lcm.relation",
+  "num.powers.laws",
+  "num.powers.integer",
+  "num.roots",
+  "num.roots.estimate",
+  "num.powers.fractional",
+  "num.rational",
+  "num.rational.ops",
+  "num.real",
+  "num.surds",
+  "num.surds.add-sub",
+  "num.surds.rationalise",
+  "num.standard-form"
+ ],
+ "ops": [
+  "ops.calculator",
+  "ops.properties.general"
+ ],
+ "pos": [
+  "pos.translation.vector",
+  "pos.transformations",
+  "pos.enlargement"
+ ],
+ "prob": [
+  "prob.sample-space",
+  "prob.equally-likely",
+  "prob.experimental",
+  "prob.large-numbers",
+  "prob.complement",
+  "prob.events-sets",
+  "prob.venn",
+  "prob.addition-rule",
+  "prob.combined",
+  "prob.two-way-tables",
+  "prob.tree-diagram",
+  "prob.independent"
+ ],
+ "ps": [
+  "ps.games"
+ ],
+ "ratio": [
+  "ratio.proportion.compound",
+  "ratio.proportion.graphs",
+  "ratio.proportion.equations",
+  "ratio.scale-drawings",
+  "ratio.speed",
+  "ratio.density",
+  "ratio.percent-change.multiplier",
+  "ratio.percent-change.find",
+  "ratio.percent-change.reverse"
+ ],
+ "seq": [
+  "seq.position-to-term",
+  "seq.geometric"
+ ],
+ "stat": [
+  "stat.data-collection.methods",
+  "stat.grouped-data",
+  "stat.relative-frequency",
+  "stat.cumulative-frequency",
+  "stat.histogram",
+  "stat.frequency-polygon",
+  "stat.mode",
+  "stat.median",
+  "stat.averages",
+  "stat.mean.grouped",
+  "stat.spread",
+  "stat.outliers",
+  "stat.compare-distributions",
+  "stat.mean-deviation",
+  "stat.scatter",
+  "stat.population-sample",
+  "stat.sampling.random"
+ ],
+ "trig": [
+  "trig.right-triangle",
+  "trig.solve-right-triangle",
+  "trig.special-angles",
+  "trig.equations"
+ ],
+ "vec": [
+  "vec.2d",
+  "vec.equal-opposite",
+  "vec.translation",
+  "vec.add-sub",
+  "vec.scalar-multiple",
+  "vec.unit-vectors",
+  "vec.applications-intro"
+ ]
+}
