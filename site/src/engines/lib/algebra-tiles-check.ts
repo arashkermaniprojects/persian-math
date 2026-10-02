@@ -49,7 +49,8 @@ export interface AlgebraState {
 
 /**
  * Every field is optional; the check passes when all the given ones hold, tested in this order:
- * expr → simplified (mat) → rectangle → grid → written → simplified (written). The first failure gives the code.
+ * expr → simplified (mat) → rectangle → grid → written → simplified (written) → solution/subject (balance). The first
+ * failure gives the code.
  */
 export interface AlgebraCheck {
   type: 'algebra';

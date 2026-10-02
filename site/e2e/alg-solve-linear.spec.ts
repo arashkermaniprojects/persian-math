@@ -63,7 +63,7 @@ test('fa-IR: try a value — the beam shows heavier and lighter; 2 + x is caught
   await expect(bal(page)).toHaveAttribute('data-tilt', '1'); // 17 > 13: the left pan goes down
   await expect(rel(page)).toHaveText('≠');
   await check(page, 'fa-IR');
-  await expect(no(page)).toContainText('پلهٔ چپ ۱۷'.replace('پلهٔ', 'کفهٔ')); // 2x is 6 + 6, not 2 + 6
+  await expect(no(page)).toContainText('کفهٔ چپ ۱۷'); // 2x is 6 + 6, not 2 + 6
 
   await at(page).locator('[data-k="try-"]').click();
   await check(page, 'fa-IR');
