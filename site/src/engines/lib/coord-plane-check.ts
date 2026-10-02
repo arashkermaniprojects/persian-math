@@ -1,7 +1,8 @@
 // The `coord` check: compares a <kg-coord-plane> state with what a mission asks for (docs/STUDIOS.md).
-// Pure, so lib/checks.ts can use it. Parts are tested in this order: table → points → line → graph; explicit
-// `traps` are tried first. Modules (e.g. `vectors`) add their own parts here when they are built.
+// Pure, so lib/checks.ts can use it. Parts are tested in this order: table → points → line → graph → vectors → pick →
+// shift; explicit `traps` are tried first. The vector parts (module `vectors`) live in coord-plane-vec.ts.
 import { compile, near, num, onLine, samePt, tidy, valueAt, xIntercept, type Line, type P } from './coord-plane-math';
+import { arrowTrap, checkArrows, checkPick, checkShift, vec, type Arrow, type Vec, type VecWant } from './coord-plane-vec';
 
 export interface CoordState {
   /** The learner's points (points mode), in placing order. */
@@ -14,6 +15,11 @@ export interface CoordState {
   table?: { x: number; y: number | null }[];
   /** Units per grid square [x, y], for the `scale` trap. */
   scale?: P;
+  /** Module `vectors`: the learner's arrows (tail → head), the choice arrows and which are picked, the image's shift. */
+  vectors?: Arrow[];
+  choices?: Arrow[];
+  picked?: number[];
+  shift?: P | null;
 }
 
 type Num = number | [number, number];
@@ -26,6 +32,9 @@ export interface CoordTrap {
   m?: Num;
   c?: Num;
   x?: number;
+  /** Module `vectors`: a learner arrow with this vector and/or these ends; the image shifted by this vector. */
+  arrow?: VecWant;
+  shift?: Vec;
   code: string;
 }
 
@@ -40,6 +49,12 @@ export interface CoordCheck {
   line?: { m?: Num; c?: Num; x?: number; through?: P[]; parallelTo?: Num; perpendicularTo?: Num };
   /** The learner's graph equals f (an expression in x) at the sample xs `at` (default −3 … 3). */
   graph?: { f: string; at?: number[] };
+  /** Module `vectors`: exactly these arrows, any order (coord-plane-vec.ts). */
+  vectors?: VecWant[];
+  /** Module `vectors`: the picked choice arrows are exactly those equal (or opposite) to a vector. */
+  pick?: { equal?: Vec; opposite?: Vec };
+  /** Module `vectors`: the shape's image is the shape moved by this vector. */
+  shift?: Vec;
   traps?: CoordTrap[];
 }
 
@@ -57,7 +72,9 @@ function trapped(check: CoordCheck, s: CoordState): string | undefined {
     if (t.point && !(s.points ?? []).some((p) => samePt(p, t.point!, check.tolerance))) return false;
     if (t.cell && !(s.table ?? []).some((r) => near(r.x, t.cell![0]) && r.y !== null && near(r.y, t.cell![1]))) return false;
     if ((t.m !== undefined || t.c !== undefined || t.x !== undefined) && !lineMatches(line, t)) return false;
-    return !!(t.point || t.cell || t.m !== undefined || t.c !== undefined || t.x !== undefined);
+    if (t.arrow && !arrowTrap(t.arrow, s.vectors)) return false;
+    if (t.shift && !(s.shift && samePt(s.shift, vec(t.shift)))) return false;
+    return !!(t.point || t.cell || t.m !== undefined || t.c !== undefined || t.x !== undefined || t.arrow || t.shift);
   })?.code;
 }
 
@@ -142,5 +159,8 @@ export function checkCoord(check: CoordCheck, state?: { plane?: CoordState }): R
   return (check.table ? checkTable(check.table, s) : null) ??
     (check.points ? checkPoints(check.points, s, check.tolerance) : null) ??
     (check.line ? checkLine(check.line, s) : null) ??
-    (check.graph ? checkGraph(check.graph, s) : null) ?? pass;
+    (check.graph ? checkGraph(check.graph, s) : null) ??
+    (check.vectors ? checkArrows(check.vectors, s.vectors ?? []) : null) ??
+    (check.pick ? checkPick(check.pick, s.choices ?? [], s.picked ?? []) : null) ??
+    (check.shift ? checkShift(check.shift, s.shift) : null) ?? pass;
 }
