@@ -146,6 +146,8 @@ describe('interval check', () => {
     expect(run({ value: '(-inf, -2]', flipped: true }, st('[-2, inf)')).code).toBe('sign-not-flipped');
     expect(run({ value: '(-inf, 4)' }, st('(-inf, 5)')).code).toBe('wrong-end');
     expect(run({ value: '(-inf, 4)' }, st('(-inf, 1) U (2, 3)')).code).toBe('pieces');
+    expect(run({ value: '(3, inf)' }, st('(3, 6]')).code).toBe('not-ray');
+    expect(run({ value: '[-2, 4)' }, st('[-2, 5)')).code).toBe('wrong-end');
     expect(run({ value: '(-inf, -2) U [1, inf)', poles: [-2] }, st('(-inf, -2] U [1, inf)')).code).toBe('pole-included');
   });
   it('traps come first', () => {

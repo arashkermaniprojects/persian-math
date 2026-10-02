@@ -268,5 +268,9 @@ export function checkInterval(c: IntervalCheck, s: IntervalState | undefined): R
   if (c.poles?.some((p) => inSet(got, p) && !inSet(want, p))) return fail('pole-included');
   if (shapeOf(got) === shapeOf(want)) return fail('open-closed');
   if (shapeOf(got) === shapeOf(complement(want))) return fail(c.flipped ? 'sign-not-flipped' : 'wrong-direction');
-  return fail(normalize(got).length !== normalize(want).length ? 'pieces' : 'wrong-end');
+  const g = normalize(got), w = normalize(want);
+  if (g.length !== w.length) return fail('pieces');
+  // a segment drawn where the numbers go on for ever ("the numbers stop at 5")
+  if (w.some((p) => p.from === null || p.to === null) && g.every((p) => p.from !== null && p.to !== null)) return fail('not-ray');
+  return fail('wrong-end');
 }
