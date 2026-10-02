@@ -1,0 +1,109 @@
+/* Styles for <kg-discrete-lab>. Loaded on every page via the glob in layouts/Base.astro. Logical properties only. */
+kg-discrete-lab {
+  --dl-a: #2f7fd1; --dl-b: #d9473b; --dl-c: #3a9a4f; --dl-hatch: var(--shade);
+  display: block;
+}
+@media (prefers-color-scheme: dark) {
+  kg-discrete-lab { --dl-a: #5c9ee6; --dl-b: #ef6a5c; --dl-c: #5cb870; }
+}
+kg-discrete-lab > * + * { margin-block-start: 0.9rem; }
+.kg-dl-live, .kg-dl-sr { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); margin: 0; }
+.kg-dl-m { white-space: nowrap; unicode-bidi: isolate; font-family: inherit; }
+
+/* instruction hint */
+.kg-dl-hint { display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin: 0; font-weight: 700; text-align: center; }
+.kg-dl-i { inline-size: 44px; block-size: 44px; flex: none; border-radius: 50%; background: var(--hint-bg); position: relative; }
+.kg-dl-i::before, .kg-dl-i::after { content: ''; position: absolute; inset-block: 13px; border-radius: 50%; border: 2.5px solid var(--dl-a); inline-size: 16px; }
+.kg-dl-i::before { inset-inline-start: 8px; }
+.kg-dl-i::after { inset-inline-end: 8px; border-color: var(--dl-b); }
+.kg-dl-i.i-shade::after { background: repeating-linear-gradient(45deg, var(--dl-hatch) 0 2px, transparent 2px 5px); }
+.kg-dl-i.i-write::before { inset-block: 12px; inset-inline: 10px; inline-size: auto; border-radius: 4px; border-color: var(--fg); }
+.kg-dl-i.i-write::after { display: none; }
+.kg-dl-i.i-pick::before { inset-block: 14px; inset-inline: 14px; inline-size: auto; border-radius: 6px; background: var(--accent); border-color: var(--accent); }
+.kg-dl-i.i-pick::after { display: none; }
+.kg-dl-i.i-nest::before { inset-block: 8px; inset-inline: 8px; inline-size: auto; }
+.kg-dl-i.i-nest::after { inset-block: 16px 12px; inset-inline: 16px 12px; inline-size: auto; }
+
+/* the diagram: an LTR box, the SVG drawing with cards and count boxes laid over it */
+.kg-dl-dia { position: relative; inline-size: 100%; max-inline-size: 420px; margin-inline: auto; aspect-ratio: 360 / 340; user-select: none; -webkit-user-select: none; }
+.kg-dl-dia.picking, .kg-dl-dia.shading { cursor: pointer; }
+.kg-dl-svg { display: block; inline-size: 100%; block-size: 100%; overflow: visible; }
+.kg-dl-u { fill: var(--cell); stroke: var(--fg); stroke-width: 2.5; }
+.kg-dl-oval { fill: none; stroke-width: 3.5; }
+.kg-dl-oval.o0 { stroke: var(--dl-a); } .kg-dl-oval.o1 { stroke: var(--dl-b); } .kg-dl-oval.o2 { stroke: var(--dl-c); }
+.kg-dl-dia.picking .kg-dl-oval { stroke-dasharray: 10 6; }
+.kg-dl-sname, .kg-dl-uname { font: 700 26px/1 system-ui, sans-serif; fill: var(--fg); text-anchor: middle; dominant-baseline: middle; }
+.kg-dl-uname { font-size: 22px; text-anchor: start; fill: var(--muted); }
+.kg-dl-svg .hb { fill: color-mix(in srgb, var(--dl-hatch) 22%, transparent); }
+.kg-dl-svg .hl { fill: var(--dl-hatch); }
+
+/* element cards */
+.kg-dl-card { display: inline-grid; place-items: center; inline-size: 44px; block-size: 44px; box-sizing: border-box; padding: 0 2px;
+  border-radius: 10px; border: 2px solid var(--border); background: var(--card); color: var(--fg); font: inherit; font-weight: 800; font-size: 1.15rem;
+  line-height: 1; cursor: grab; touch-action: none; }
+.kg-dl-dia .kg-dl-card, .kg-dl-dia .kg-dl-num, .kg-dl-dia .kg-dl-cnt.in { position: absolute; transform: translate(-50%, -50%); }
+.kg-dl-card.fixed { cursor: default; box-shadow: none; }
+.kg-dl-card.sel { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent); background: var(--hint-bg); }
+.kg-dl-card.drag { z-index: 2; cursor: grabbing; box-shadow: 0 6px 14px rgb(0 0 0 / 0.25); }
+.kg-dl-num { font-weight: 800; font-size: 1.3rem; background: var(--card); border-radius: 8px; padding: 0.1rem 0.4rem; border: 2px solid var(--border); }
+.kg-dl-card:focus-visible, .kg-dl-rbtn:focus-visible, .kg-dl-lay:focus-visible, .kg-dl-opt:focus-visible, .kg-dl-chip:focus-visible,
+.kg-dl-flip:focus-visible, .kg-dl-back:focus-visible, .kg-dl-cnt:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* the tray of cards not placed yet */
+.kg-dl-tray { display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center; align-items: center; min-block-size: 56px; padding: 0.4rem;
+  border: 2px dashed var(--border); border-radius: var(--radius); }
+.kg-dl-tray.drop { border-color: var(--accent); }
+.kg-dl-back, .kg-dl-flip { min-block-size: 44px; padding-inline: 0.9rem; border-radius: var(--radius); border: 2px solid var(--border); background: var(--card);
+  color: var(--fg); font: inherit; font-weight: 700; cursor: pointer; }
+.kg-dl-flip { display: block; margin-inline: auto; border-color: var(--accent); }
+
+/* region buttons (keyboard and screen readers; also a quick way to shade) and layout choices */
+.kg-dl-rbtns, .kg-dl-layouts { display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center; }
+.kg-dl-rbtn, .kg-dl-lay { display: inline-flex; align-items: center; gap: 0.4rem; min-block-size: 48px; min-inline-size: 44px; padding: 0.25rem 0.6rem;
+  border-radius: var(--radius); border: 2px solid var(--border); background: var(--card); color: var(--fg); font: inherit; font-weight: 600; cursor: pointer; }
+.kg-dl-rbtn[aria-pressed='true'], .kg-dl-lay[aria-checked='true'] { border-color: var(--accent); box-shadow: inset 0 0 0 2px var(--accent); background: var(--hint-bg); }
+.kg-dl-rbtn[aria-disabled='true'] { opacity: 0.65; }
+.kg-dl-mini { inline-size: 40px; block-size: 38px; flex: none; }
+.kg-dl-mini .kg-dl-u { stroke-width: 10; }
+.kg-dl-mini .kg-dl-oval { stroke-width: 14; }
+.kg-dl-mini .kg-dl-sname { font-size: 88px; }
+.kg-dl-mini .kg-dl-on { fill: var(--dl-hatch); }
+.kg-dl-lay .kg-dl-mini { inline-size: 50px; block-size: 47px; }
+
+/* count boxes and table cells */
+.kg-dl-cnt { inline-size: 3.2rem; block-size: 44px; box-sizing: border-box; text-align: center; font: inherit; font-weight: 800; font-size: 1.15rem;
+  border: 2px solid var(--accent); border-radius: 8px; background: var(--card); color: var(--fg); }
+.kg-dl-table { margin-inline: auto; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.kg-dl-table th, .kg-dl-table td { border: 1.5px solid var(--border); padding: 0.35rem 0.6rem; text-align: center; min-inline-size: 3rem; block-size: 44px; }
+.kg-dl-table tr:last-child, .kg-dl-table td:last-child { font-weight: 700; }
+.kg-dl-table th { background: var(--hint-bg); }
+.kg-dl-table tr:first-child td:first-child { border: none; }
+.kg-dl-table .kg-dl-cnt { inline-size: 3rem; }
+
+/* a set written in braces, and its tray */
+.kg-dl-write { display: flex; flex-direction: column; gap: 0.5rem; align-items: center; }
+.kg-dl-braces { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.2rem; margin: 0; font-size: 1.3rem; font-weight: 700;
+  min-block-size: 52px; padding: 0.2rem 0.6rem; border-radius: var(--radius); background: var(--hint-bg); max-inline-size: 100%; box-sizing: border-box; }
+.kg-dl-eq { white-space: pre; }
+.kg-dl-sep { margin-inline-end: 0.1rem; }
+.kg-dl-chip { min-inline-size: 44px; min-block-size: 44px; padding-inline: 0.3rem; border-radius: 10px; border: 2px solid var(--accent); background: var(--card);
+  color: var(--fg); font: inherit; font-weight: 800; cursor: pointer; }
+.kg-dl-wtray { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; }
+.kg-dl-wtray .kg-dl-card { cursor: pointer; touch-action: manipulation; }
+
+/* statement rows */
+.kg-dl-rows { display: flex; flex-direction: column; gap: 0.7rem; }
+.kg-dl-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.5rem 0.6rem;
+  border: 1.5px solid var(--border); border-radius: var(--radius); background: var(--card); }
+.kg-dl-row.txt { flex-direction: column; align-items: stretch; }
+.kg-dl-row.txt .kg-dl-opts { justify-content: flex-end; }
+.kg-dl-row.txt .kg-dl-opt { min-inline-size: 7rem; }
+.kg-dl-st { margin: 0; font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 0.45rem; }
+.kg-dl-slot { display: inline-grid; place-items: center; min-inline-size: 2.2rem; block-size: 2.2rem; border: 2px dashed var(--muted); border-radius: 8px; color: var(--muted); }
+.kg-dl-slot.on { border-style: solid; border-color: var(--accent); color: var(--fg); }
+.kg-dl-opts { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.kg-dl-opts.sym { direction: ltr; }
+.kg-dl-opt { min-inline-size: 48px; min-block-size: 44px; padding-inline: 0.6rem; border-radius: 10px; border: 2px solid var(--border); background: var(--card);
+  color: var(--fg); font: inherit; font-weight: 700; font-size: 1.15rem; cursor: pointer; }
+.kg-dl-opts:not(.sym) .kg-dl-opt { font-size: 1rem; }
+.kg-dl-opt[aria-checked='true'] { border-color: var(--accent); box-shadow: inset 0 0 0 2px var(--accent); background: var(--hint-bg); }

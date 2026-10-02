@@ -210,6 +210,14 @@ This guide sets the math notation for each of Kamangir's four locales. Every cla
 ## Decisions
 - **Digits (owner decision, 2026-10-02):** fa-IR, fa-AF and ps always use Persian digits ۰۱۲۳۴۵۶۷۸۹, at every grade, with no Latin-digit setting. This holds even though Afghan books switch to Latin digits from grade 7.
 
+## Sets
+Checked on rendered pages of G09_riazi_nohom.pdf ch.1 (PDF page = printed + 8) and AF_G07_riazi.pdf ch.1 (PDF page = printed + 7).
+- **Set notation runs left to right** in every locale: `A = {۲, ۳, ۵}`, `a ∈ A`, `۴ ∉ A`, `A ∩ B = {x | x ∈ A و x ∈ B}` (G09 p.10–11 [۲–۳], p.19 [۱۱]). In running text the books' bidi often puts `A` on the right (`{۲,۳,۵} = A`); we always isolate the notation (`{{set:…}}`, `bdi dir="ltr"`).
+- **Braces and separators.** Iran writes `{۲,۳,۵}` with `,`. Afghan G7 writes `{1,3,5,7,9}` with `,` and Latin digits. Because `,` is the Afghan decimal mark and we keep Persian digits, fa-AF and ps separate elements with the Arabic comma `،` (*our choice, not from a book*).
+- **Symbols.** ∈ / ∉ (Iran «عضو است / عضو نیست»; Afghan «عنصر»), ⊆ (Iran «زیرمجموعه»; Afghan «ست فرعی»), ∪ / ∩ / − («اجتماع / اشتراک / تفاضل»; Afghan «اتحاد / تقاطع / تفاضل»), ∅ or `{ }` («مجموعهٔ تهی»; Afghan «ست خالی»). Iran stresses that `{∅}` and `{۰}` are not empty (G09 p.12 [۴]).
+- **Universal set and complement.** `U` and `A′` in both countries (Iran G10 riazi1 «مجموعهٔ مرجع»، «متمم»; Afghan G7 «ست کلی»، «مکمله», which also prints `Ā`). We use `A′`.
+- **Venn diagrams** («نمودار ون»; Afghan «دیاگرام وین») are drawn left to right like charts; hatching («هاشور») marks a region (G09 p.19–21).
+
 ## Charts
 Checked on rendered pages of G02_riazi_dovom.pdf ch. 8 (PDF page = printed + 6), G03_riazi_sevom.pdf ch. 7 (PDF page = printed page) and G04_riazi_chaharom.pdf ch. 7.
 - **Charts run left to right in every locale, and the value axis is on the left and goes up.** This holds for both the axes and the order of the categories.

@@ -40,3 +40,19 @@ export function fracHTML(n: number | string, d: number | string, f: NumberFormat
   // Mixed number: whole part on the left in every locale (both countries' books do this), isolated LTR.
   return `<bdi dir="ltr" class="mixed"><span class="mixed-whole">${digitsOf(whole, f)}</span>${stack}</bdi>`;
 }
+
+/**
+ * Elements in set braces are separated by ", " (Iran G9, Afghan G7). Where "," is the decimal mark (fa-AF, ps) the
+ * Arabic comma "، " is used instead, so {۲، ۵} cannot be read as the decimal ۲,۵.
+ */
+export const setSep = (f: NumberFormat) => (f.decimal === ',' ? '، ' : ', ');
+
+/**
+ * Set notation, always left to right (A = {۲, ۴, ۶}, A ∪ B, ۴ ∈ A), with locale digits. Authored text writes the
+ * braces as [ ] because a placeholder cannot hold "}": {{set:A = [2, 4, 6]}}.
+ */
+export function setHTML(text: string, f: NumberFormat): string {
+  // (formula isolates added around "7 + 5 = 12" are dropped: the whole notation is one isolate)
+  const t = text.trim().replace(/[\u2066-\u2069]/g, '').replace(/\[/g, '{').replace(/\]/g, '}').replace(/\s*[,،]\s*/g, setSep(f));
+  return `<bdi dir="ltr" class="set">${digitsOf(t, f)}</bdi>`;
+}

@@ -1,0 +1,142 @@
+id: disc-sets-intro
+engine: discrete-lab
+strand: disc
+order: 1
+concepts: [disc.sets, disc.sets.subset, disc.sets.operations, disc.sets.complement, disc.sets.finite-infinite]
+# Pilot of discrete-lab (Venn mode). Iran G9 ch.1 «معرفی مجموعه» (G09_riazi_nohom pdf p.10–12: A = {۲,۳,۵}, عضو,
+# a ∈ A, مجموعهٔ تهی ∅ and «{∅} یا {۰} تهی نیستند»), «مجموعه‌های برابر و نمایش مجموعه‌ها» (p.14–15: order and
+# repeats don't matter, نمودار ون, ⊆), «اجتماع، اشتراک و تفاضل» (p.19–21: the football/volleyball class with F and V,
+# A ∩ B, A ∪ B, A − B ≠ B − A, hatched regions «هاشور»); complement and مجموعهٔ مرجع U, and finite/infinite sets,
+# from G10_riazi1 ch.1 and G9 gifted «بی‌شمارش». Afghan G7 ch.1 «ست» (AF_G07_riazi pdf p.10–30: عنصر, دیاگرام وین,
+# ست فرعی, تقاطع, اتحاد, تفاضل, ست کلی U and مکمله A′). UK KS3 "enumerate sets and unions/intersections".
+# Set notation is LTR in every locale; elements are cards with locale digits.
+missions:
+  # Sort the one-digit numbers: the even ones go in A. Then write A in braces from a card tray.
+  # Misconceptions: odd numbers in A, an even one left outside, an element written twice.
+  - id: members-braces
+    setup:
+      sets: [A]
+      items: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      place: out
+      instruction: drag
+      write: [{ key: A }]
+    check:
+      type: sets
+      regions: { A: [2, 4, 6, 8], out: [1, 3, 5, 7, 9] }
+      written: { A: [2, 4, 6, 8] }
+  # The same A, drawn. ∈ for one element, ⊆ for a set; order doesn't matter; ∅ is not {0}.
+  - id: element-or-subset
+    setup:
+      sets: [A]
+      items: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      place: { 1: out, 2: A, 3: out, 4: A, 5: out, 6: A, 7: out, 8: A, 9: out }
+      lock: true
+      define: { A: [2, 4, 6, 8] }
+      instruction: pick
+      rows:
+        - { key: el, left: '4', right: A, options: ['∈', '⊆'] }
+        - { key: sub, left: '{4}', right: A, options: ['∈', '⊆'] }
+        - { key: odd, left: '5', right: A, options: ['∈', '∉'] }
+        - { key: order, left: '{2, 4}', right: '{4, 2}', options: ['=', '≠'] }
+        - { key: empty, left: '∅', right: '{0}', options: ['=', '≠'] }
+    check:
+      type: sets
+      rows: true
+      traps:
+        - { row: order, pick: '≠', code: order-matters }
+        - { row: empty, pick: '=', code: empty-vs-zero }
+        - { row: odd, pick: '∈', code: five-odd }
+  # B = even one-digit numbers, C = multiples of 4. Sort the cards, see that "only C" stays empty, and draw C inside B.
+  - id: subset-nest
+    setup:
+      sets: [B, C]
+      items: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      layouts: [overlap, 'C⊆B', 'B⊆C', apart]
+      instruction: nest
+    check:
+      type: sets
+      regions: { BC: [4, 8], B: [2, 6], out: [1, 3, 5, 7, 9] }
+      subset: 'C⊆B'
+      traps:
+        - { layout: apart, code: they-share }
+        - { item: 2, region: BC, code: two-not-multiple }
+        - { item: 6, region: BC, code: two-not-multiple }
+  # A = factors of 6, B = factors of 8 in U = 1…10. Shade A ∩ B, then write A ∪ B.
+  - id: union-intersection
+    setup:
+      sets: [A, B]
+      items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+      place: { 1: AB, 2: AB, 3: A, 6: A, 4: B, 8: B, 5: out, 7: out, 9: out, 10: out }
+      lock: true
+      shade: true
+      instruction: shade
+      write: [{ key: A ∪ B }]
+      tray: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    check:
+      type: sets
+      shaded: A ∩ B
+      written: { A ∪ B: [1, 2, 3, 4, 6, 8] }
+      traps:
+        - { shaded: A ∪ B, code: union-intersection }
+        - { shaded: A, code: only-one-set }
+        - { written: A ∪ B, value: [1, 2], code: wrote-intersection }
+  # Same sets. Shade A − B (not B − A, not all of A), then write the complement A′ (do not forget 5, 7, 9, 10).
+  - id: difference-complement
+    setup:
+      sets: [A, B]
+      items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+      place: { 1: AB, 2: AB, 3: A, 6: A, 4: B, 8: B, 5: out, 7: out, 9: out, 10: out }
+      lock: true
+      shade: true
+      instruction: shade
+      write: [{ key: A′ }]
+      tray: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    check:
+      type: sets
+      shaded: A − B
+      written: { A′: [4, 5, 7, 8, 9, 10] }
+      traps:
+        - { shaded: B − A, code: difference-reversed }
+        - { shaded: A, code: only-vs-all }
+        - { shaded: A ∩ B, code: difference-common }
+        - { written: A′, value: [4, 8], code: outside-missed }
+        - { written: A′, value: [1, 2, 4, 8], code: complement-not-b }
+        - { written: A′, value: [3, 6], code: complement-not-difference }
+  # Iran G9 p.19's class: 20 pupils, 12 in the football team F, 8 in volleyball V, 5 in both.
+  # Type the count of each region, flip to the table to see the totals, then answer n(F ∪ V) = 15 (not 20).
+  - id: count-overlap
+    setup:
+      sets: [F, V]
+      counts: true
+      toTable: true
+      instruction: count
+    answer: integer
+    check:
+      type: sets
+      counts: { F: 7, FV: 5, V: 3, out: 5 }
+      answer: 15
+      traps:
+        - { count: F, value: 12, code: only-vs-all }
+        - { count: V, value: 8, code: only-vs-all }
+        - { count: out, value: 0, code: outside-missed }
+        - { answer: 20, code: overlap-twice }
+        - { answer: 25, code: overlap-twice }
+  # Finite or infinite? A very big set is still finite; the even numbers never end.
+  - id: finite-infinite
+    setup:
+      mode: none
+      instruction: pick
+      rows:
+        - { key: small, options: [finite, infinite], answer: finite }
+        - { key: evens, options: [finite, infinite], answer: infinite }
+        - { key: million, options: [finite, infinite], answer: finite }
+        - { key: school, options: [finite, infinite], answer: finite }
+        - { key: fives, options: [finite, infinite], answer: infinite }
+    check:
+      type: sets
+      rows: true
+      traps:
+        - { row: million, pick: infinite, code: big-not-infinite }
+        - { row: school, pick: infinite, code: big-not-infinite }
+        - { row: evens, pick: finite, code: no-last }
+        - { row: fives, pick: finite, code: no-last }
