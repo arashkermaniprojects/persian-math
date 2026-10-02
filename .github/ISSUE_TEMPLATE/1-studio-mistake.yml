@@ -1,0 +1,26 @@
+name: Mistake or suggestion in a studio · اشکال یا پیشنهاد در یک کارگاه
+description: A wrong answer, confusing text, wrong term, or a mission that doesn't fit the grade.
+labels: [content]
+body:
+  - type: input
+    id: studio
+    attributes:
+      label: Studio · کارگاه
+      description: The studio's name or the page address (e.g. /fa-IR/studio/frac-what-is/).
+    validations: { required: true }
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language · زبان
+      options: [Iranian Persian · فارسی, Dari · دری, Pashto · پښتو, English]
+    validations: { required: true }
+  - type: input
+    id: mission
+    attributes:
+      label: Mission number · شمارهٔ مأموریت
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong or could be better? · چه اشکالی دارد یا چه چیزی بهتر می‌شود؟
+      description: If you are a teacher, tell us the grade you teach and what children usually do here.
+    validations: { required: true }

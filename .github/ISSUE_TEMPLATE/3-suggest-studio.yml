@@ -1,0 +1,16 @@
+name: Suggest a studio or mission · پیشنهاد کارگاه یا مأموریت
+description: An idea for a new activity, or a common mistake children make that we should catch.
+labels: [idea]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: Topic and grade · موضوع و پایه
+      description: e.g. "Iran grade 3 — comparing fractions" or "Afghan صنف ۵ — LCM".
+    validations: { required: true }
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea · ایدهٔ شما
+      description: What should the child do? What mistakes do children usually make? Please describe it in your own words; don't copy from textbooks.
+    validations: { required: true }
