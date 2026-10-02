@@ -523,7 +523,7 @@ export class ChartBuilder extends HTMLElement {
       if (c.pick) return `<button type="button" class="kg-cb-pick" data-a="pick" data-i="${i}" aria-pressed="${this.picked === k.key}">${sw}</button>`;
       return `<span>${sw}</span>`;
     });
-    const said = this.cats.map((_, i) => `${this.name(i)}: ${this.num(this.state.values[i])}`).join('، ');
+    const said = this.cats.map((_, i) => `${this.name(i)}: ${this.num(this.state.values[i])}`).join(document.documentElement.dir === 'rtl' ? '، ' : ', ');
     return `<div class="kg-cb-chart kg-cb-pie" dir="ltr">${svg(2 * C, 2 * C, g, 'kg-cb-svg', ` role="${c.edit || c.pick ? 'group' : 'img'}" aria-label="${esc(this.L('label-chart') + (c.edit ? '' : ' — ' + said))}"`)}</div>` +
       `<div class="kg-cb-legend"${c.edit ? ` role="radiogroup" aria-label="${esc(this.L('label-brush'))}"` : ''}>${legend.join('')}</div>`;
   }

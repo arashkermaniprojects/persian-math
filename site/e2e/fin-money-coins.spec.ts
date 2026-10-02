@@ -50,7 +50,7 @@ test('fa-IR: the coins say rial, the price says toman', async ({ page }) => {
   await add(page, 50); // the 500-rial coin
   await check(page, 'fa-IR');
   await expect(page.locator('.feedback.no')).toContainText('نه ۵۰۰ تومان');
-  await page.locator('.kg-ccm-purse .kg-ccm-piece').first().click(); // take it out
+  await page.locator('.kg-ccm-purse-0').click(); // take it out
   await add(page, 500);
   await check(page, 'fa-IR');
   await expect(page.locator('.feedback.ok')).toContainText('۵۰۰۰ ریال');

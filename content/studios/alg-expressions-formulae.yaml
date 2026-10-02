@@ -38,6 +38,7 @@ missions:
         - { key: r2, value: 18, code: joined-digits }
         - { key: r3, value: 21, code: joined-digits }
         - { key: r4, value: 203, code: joined-digits }
+        - { key: r2, value: -4, code: bracket }
         - { key: r3, value: 2, code: bracket }
         - { key: r4, value: 6, code: bracket }
   # A formula: the perimeter of a square P = 4a (G7 p.34). Adding 4 instead of multiplying is the trap.
@@ -58,6 +59,8 @@ missions:
         - { key: r1, value: 7, code: added }
         - { key: r2, value: 11, code: added }
         - { key: r3, value: 19, code: added }
+        - { key: r1, value: 9, code: times-three }
+        - { key: r2, value: 21, code: times-three }
         - { key: r3, value: 45, code: times-three }
   # UK Y6: pairs of whole numbers with a + b = 10, as a machine b = 10 − a. Adding (a + 10) is the trap.
   - id: make-ten-pairs

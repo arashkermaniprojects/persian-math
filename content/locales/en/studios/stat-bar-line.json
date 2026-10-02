@@ -63,6 +63,7 @@
       "feedback": {
         "empty": "Drag the bars up with your finger.",
         "key-ignored": "Your bars are twice as tall! Each line on the axis is 2, not 1. Read the numbers on the axis.",
+        "half-needed": "One bar stops on a grid line, but its number is between two lines. Each line is 2: an odd number like 5 is half-way between 4 and 6.",
         "too-high": "One bar is taller than its number. Check it against the table.",
         "too-low": "One bar is shorter than its number. Check it against the table."
       }
@@ -94,6 +95,7 @@
       "feedback": {
         "empty": "Drag the points up with your finger.",
         "key-ignored": "Your points are twice as high! Each line on the axis is 2 cm.",
+        "half-needed": "One point is on a grid line, but its number is between two lines. Each line is 2 cm: 7 is half-way between 6 and 8.",
         "too-high": "One point is higher than its number. Check it against the table.",
         "too-low": "One point is lower than its number. Check it against the table."
       }

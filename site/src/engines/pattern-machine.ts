@@ -91,7 +91,8 @@ export class PatternMachine extends HTMLElement {
   private layer = 0;
   private focusCell = 0;
   private lines: Tok[][] = [];
-  private ordered = true;
+  /** One entry per step taken: was it the right next step? Undo pops it, so undoing a slip forgives it. */
+  private inOrder: boolean[] = [];
   private built = false;
 
   set config(c: PatternConfig) {
@@ -102,7 +103,7 @@ export class PatternMachine extends HTMLElement {
     this.rule = [null, null];
     this.tryIn = null;
     this.layer = 0;
-    this.ordered = true;
+    this.inOrder = [];
     const unit = c.unit ?? [];
     const task = c.task ?? 'continue';
     const len = c.length ?? unit.length * 2 + (c.blank ?? 3);
@@ -132,7 +133,7 @@ export class PatternMachine extends HTMLElement {
     if (c.mode === 'expr') {
       const last = this.lines[this.lines.length - 1];
       s.finished = last.length === 1;
-      s.ordered = this.ordered;
+      s.ordered = this.inOrder.every(Boolean);
       s.result = s.finished ? (last[0] as { v: number }).v : undefined;
     }
     return { pattern: s };
@@ -254,13 +255,12 @@ export class PatternMachine extends HTMLElement {
         break;
       case 'do': {
         const cur = this.lines[this.lines.length - 1];
-        if (!rightNext(cur).includes(i)) this.ordered = false;
+        this.inOrder.push(rightNext(cur).includes(i));
         this.lines.push(applyAt(cur, i));
         break;
       }
       case 'undo':
-        if (this.lines.length > 1) this.lines.pop();
-        this.ordered = this.lines.length > 1 ? this.ordered : true;
+        if (this.lines.length > 1) { this.lines.pop(); this.inOrder.pop(); }
         break;
       default:
         return;

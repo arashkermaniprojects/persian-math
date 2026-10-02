@@ -64,9 +64,10 @@ button.kg-pm-slot:hover:not(:disabled) { border-color: var(--accent); }
 .kg-pm-fig svg.sticks { stroke: var(--pm-orange); stroke-width: 4; stroke-linecap: round; }
 .kg-pm-fig svg.dots { fill: var(--pm-blue); }
 .kg-pm-fig svg.squares { fill: var(--shade); stroke: var(--pm-edge); stroke-width: 1; }
-.kg-pm-scroll { max-inline-size: 100%; overflow-x: auto; }
+/* Tables run left to right in every locale, so a table too wide for the phone scrolls from its row labels, not its far end. */
+.kg-pm-scroll { max-inline-size: 100%; overflow-x: auto; direction: ltr; }
 .kg-pm-tab { border-collapse: collapse; }
-.kg-pm-tab :is(th, td) { border: 1px solid var(--border); padding: 0.25rem 0.4rem; text-align: center; min-inline-size: 2.2rem; }
+.kg-pm-tab :is(th, td) { border: 1px solid var(--border); padding: 0.25rem 0.2rem; text-align: center; min-inline-size: 1.7rem; }
 .kg-pm-tab th { background: var(--hint-bg); font-size: 0.85rem; }
 
 /* typed numbers */
@@ -98,7 +99,7 @@ button.kg-pm-slot:hover:not(:disabled) { border-color: var(--accent); }
 .kg-pm-stage { font-size: 1.3rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px; background: var(--hint-bg); white-space: nowrap; }
 .kg-pm-cellin, .kg-pm-cellout { grid-column: 1; display: flex; align-items: center; gap: 0.3rem; font-size: 1.2rem; font-weight: 700; min-block-size: 44px; }
 .kg-pm-cellout { grid-column: 3; }
-.kg-pm-cellin::after, .kg-pm-cellout::before { content: '→'; color: var(--accent); font-weight: 400; }
+.kg-pm-cellin::after, .kg-pm-cellout::before { content: '→' / ''; color: var(--accent); font-weight: 400; }
 .kg-pm-try { padding-block-start: 0.4rem; border-block-start: 2px dotted var(--border); }
 .kg-pm-try output { min-inline-size: 2.6rem; min-block-size: 40px; display: grid; place-items: center; border-radius: 8px; background: var(--hint-bg); }
 .kg-pm-op { inline-size: 44px; block-size: 44px; border-radius: 10px; border: 2px solid var(--border); background: var(--card); font-size: 1.3rem; font-weight: 700; }
@@ -126,5 +127,5 @@ button.kg-pm-slot:hover:not(:disabled) { border-color: var(--accent); }
 .kg-pm-ex p.cur { color: var(--fg); font-weight: 700; }
 .kg-pm-ex p.end > span:last-child { padding: 0.1rem 0.6rem; border-radius: 8px; background: var(--ok-bg); color: var(--ok); }
 .kg-pm-ex .kg-pm-op { inline-size: auto; min-inline-size: 44px; }
-.kg-pm-ex .kg-pm-op.pow { min-inline-size: 36px; block-size: 44px; align-self: flex-start; }
+.kg-pm-ex .kg-pm-op.pow { min-inline-size: 44px; block-size: 44px; align-self: flex-start; }
 .kg-pm-q bdi { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 1.25rem; font-weight: 700; }

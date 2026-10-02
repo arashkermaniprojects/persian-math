@@ -10,7 +10,8 @@ concepts: [stat.bar-chart, stat.line-graph, stat.charts.choose-interpret]
 # follows the page direction (docs/NOTATION.md "Charts").
 missions:
   # Build a bar chart from a table: books borrowed from the class library on five school days. The axis goes
-  # up in 2s, so setting each bar to the number of grid lines (twice the value) is caught as key-ignored.
+  # up in 2s, so setting each bar to the number of grid lines (twice the value) is caught as key-ignored (max 16 leaves
+  # room for the doubled bars); an odd value left on a grid line next to it is half-needed.
   - id: build-bar
     setup:
       instruction: drag
@@ -24,7 +25,7 @@ missions:
       table: { head: day, tally: hide, count: show }
       chart: bar
       edit: true
-      max: 10
+      max: 16
       step: 2
       axes: [~, books]
     check: { type: chart, values: [5, 8, 3, 6, 7] }
@@ -53,7 +54,7 @@ missions:
         - { value: 15, code: not-difference }
         - { value: 9, code: misread }
   # Build a line graph: a bean plant's height measured every week. Points are dragged (or moved with the arrow
-  # keys); the line joins them left → right in time order.
+  # keys); the line joins them left → right in time order. Max 24 leaves room for points at twice the height (key-ignored).
   - id: build-line
     setup:
       instruction: drag
@@ -67,7 +68,7 @@ missions:
       table: { head: week, tally: hide, count: show }
       chart: line
       edit: true
-      max: 14
+      max: 24
       step: 2
       axes: [week, cm]
     check: { type: chart, values: [2, 4, 7, 9, 12] }

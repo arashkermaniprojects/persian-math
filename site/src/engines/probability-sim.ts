@@ -101,7 +101,7 @@ export class ProbabilitySim extends HTMLElement {
   }
   /** Name of an outcome: dice faces are digits, joint outcomes are joined with "، " / ", ". */
   private name = (key: string): string =>
-    key.split('-').map((k) => (/^\d+$/.test(k) ? this.d(k) : this.lab(`label-${k}`, k))).join(this.dir === 'rtl' ? '، ' : ', ');
+    key.split('-').map((k) => (/^\d+$/.test(k) ? this.d(k) : this.lab(`label-${k}`, k))).join(document.documentElement.dir === 'rtl' ? '، ' : ', ');
   private get dir() {
     return (this.closest('[dir]') ?? document.documentElement).getAttribute('dir') ?? 'ltr';
   }
@@ -223,7 +223,7 @@ export class ProbabilitySim extends HTMLElement {
     // bag
     const bag = dv.bag ?? {};
     const dots = dv.hidden ? '<b>?</b>' : Object.entries(bag).flatMap(([c, n]) => Array(n).fill(`<i class="c-${esc(c)}"></i>`)).join('');
-    const names = Object.entries(bag).filter(([, n]) => n).map(([c, n]) => `${this.d(n)} ${this.name(c)}`).join('، ');
+    const names = Object.entries(bag).filter(([, n]) => n).map(([c, n]) => `${this.d(n)} ${this.name(c)}`).join(document.documentElement.dir === 'rtl' ? '، ' : ', ');
     let h = `<div class="kg-ps-bagw"><div class="kg-ps-bag" role="img" aria-label="${label}${dv.hidden ? '' : ': ' + names}"><span>${dots}</span></div>` +
       (res ? `<div class="kg-ps-drawn${roll}" role="img" aria-label="${this.lab('label-result', 'Result')}: ${this.name(res)}">${this.chip(res)}</div>` : '') + '</div>';
     if (dv.edit) {

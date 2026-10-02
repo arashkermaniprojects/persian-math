@@ -1,11 +1,13 @@
 /* Styles for <kg-long-division>. Loaded on every page via the glob in layouts/Base.astro. */
 /* ---------- engine: long division ---------- */
-/* One LTR grid in both layouts; digit columns shrink (to ≥32px wide, always 44px tall) only when a sum is too wide for the phone. */
+/* One LTR grid in both layouts; digit columns shrink (to ≥24px wide, the WCAG 2.5.8 minimum; always 44px tall) only when a sum is too wide
+   for the phone: 2 ÷ 11 to four places in the Iranian layout needs 11 columns. */
 kg-long-division { container-type: inline-size; }
-.kg-ld-wrap { display: flex; justify-content: center; }
+/* Last resort: a sum too wide even at the narrowest columns scrolls in its own box (from the dividend's first digit), never the page. */
+.kg-ld-wrap { display: flex; justify-content: safe center; max-inline-size: 100%; overflow-x: auto; direction: ltr; }
 .kg-ld-sheet {
   --ld-s: 14px; --ld-m: 12px; --ld-b: 14px;
-  --ld-c: clamp(32px, calc((100cqi - 54px) / var(--ld-n)), 46px);
+  --ld-c: clamp(24px, calc((100cqi - 54px) / var(--ld-n)), 46px);
   display: grid; grid-auto-rows: 44px; row-gap: 4px; direction: ltr; font-size: 1.45rem; line-height: 1;
 }
 .kg-ld-sheet > [hidden] { display: none !important; }
