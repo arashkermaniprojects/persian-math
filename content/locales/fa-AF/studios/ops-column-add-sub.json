@@ -12,7 +12,7 @@
   ],
   "engine": {
     "carry": "above",
-    "placeholder": "shift",
+    "placeholder": "zero",
     "label-places": "یک‌ها|ده‌ها|صدها|هزارها|ده‌هزارها|صدهزارها",
     "label-dec-places": "دهم|صدم|هزارم",
     "label-place-names": "یک‌ها|ده‌ها|صدها|هزارها|ده‌هزارها|صدهزارها",

@@ -12,7 +12,7 @@
   ],
   "engine": {
     "carry": "above",
-    "placeholder": "shift",
+    "placeholder": "zero",
     "label-places": "یویز|لسیز|سلیز|زرګونی|لس زرګونی|سل زرګونی",
     "label-dec-places": "لسم|سلم|زرم",
     "label-place-names": "یویز|لسیز|سلیز|زرګونی|لس زرګونی|سل زرګونی",

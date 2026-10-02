@@ -11,7 +11,7 @@
   ],
   "engine": {
     "carry": "above",
-    "placeholder": "shift",
+    "placeholder": "zero",
     "label-places": "ی|د|ص|هـ|د هـ|ص هـ",
     "label-dec-places": "دهم|صدم|هزارم",
     "label-place-names": "یکان|دهگان|صدگان|هزارگان|ده‌هزارگان|صدهزارگان",

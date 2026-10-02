@@ -3,7 +3,8 @@
 // The sheet is LTR (ones on the right) in every locale, as in the Iranian, Afghan and UK books.
 //   Carries: written small ABOVE the next column in Iran and Afghanistan (G02 p.100, AF G02 p.37), BELOW the answer
 //   line in the UK. Borrowing: tap the digit on the left; it is crossed out and its new value written above it.
-//   Long multiplication: placeholder 0 in the UK, shifted rows in Iran/Afghanistan.
+//   Long multiplication: placeholder 0 in every locale (Iran G4 p.56–57, Afghan G4 p.58 and the UK all write it);
+//   'shift' (no zero, row moved left, as in Afghan G3 p.114) only when a mission asks for it.
 import { asciiDigits } from '../lib/fraction';
 import { borrowFrom, diagnose, inverse, parseNum, plan, subDigit, tapBorrow, type Cell, type Code, type Op, type Plan } from './lib/column-arithmetic-plan';
 
@@ -15,7 +16,7 @@ export interface ColumnArithmeticConfig {
   carries?: 'type' | 'show' | 'hide';
   /** Where carries go; 'auto' takes the locale's engine.carry label (above: fa-IR/fa-AF/ps; below: en). */
   carryAt?: 'auto' | 'above' | 'below';
-  /** Long multiplication; 'auto' takes the locale's engine.placeholder label (zero: en; shift: fa-IR/fa-AF/ps). */
+  /** Long multiplication; 'auto' takes the studio's engine.placeholder label, else 'zero'. */
   placeholder?: 'auto' | 'zero' | 'shift';
   /** Place-value table: column headings and lines (Iran «جدول ارزش مکانی»). */
   header?: boolean;
@@ -57,7 +58,7 @@ export class ColumnArithmetic extends HTMLElement {
     this.cfg = c;
     const rtl = document.documentElement.dir === 'rtl';
     const at = c.carryAt && c.carryAt !== 'auto' ? c.carryAt : this.dataset.carry ?? (rtl ? 'above' : 'below');
-    const ph = c.placeholder && c.placeholder !== 'auto' ? c.placeholder : this.dataset.placeholder ?? (rtl ? 'shift' : 'zero');
+    const ph = c.placeholder && c.placeholder !== 'auto' ? c.placeholder : this.dataset.placeholder ?? 'zero';
     this.above = at !== 'below';
     this.zero = ph === 'zero';
     this.dataset.caCarry = at;
