@@ -139,13 +139,16 @@ button.kg-at-cell:hover { border-color: var(--border); }
 .kg-at-steps li.bad { color: var(--no); }
 .kg-at-op { font-size: 0.85rem; padding: 0 0.4rem; border-radius: 999px; background: var(--hint-bg); color: var(--accent); white-space: nowrap; }
 .kg-at-op::before { content: '↓ '; }
-.kg-at-bal { --t: 0; position: relative; inline-size: 100%; padding-block: 16px 34px; box-sizing: border-box; }
+.kg-at[data-mode='balance'] > .kg-at-msg:not(.bal) { display: none; }
+.kg-at-bal { --t: 0; position: relative; inline-size: 100%; padding-block: 8px 30px; box-sizing: border-box; }
 .kg-at-beam {
-  position: absolute; inset-inline: 22% 22%; inset-block-start: 6px; block-size: 6px; border-radius: 3px; background: var(--muted);
+  position: absolute; z-index: 1; inset-inline: 20% 20%; inset-block-start: 6px; block-size: 6px; border-radius: 3px; background: var(--muted);
   transform: rotate(calc(var(--t) * -7deg)); transition: transform 0.4s ease;
 }
 .kg-at-pans { display: flex; align-items: flex-start; gap: 4px; }
 .kg-at-side-l, .kg-at-side-r { flex: 1 1 0; min-inline-size: 0; display: flex; flex-direction: column; align-items: stretch; gap: 2px; transition: transform 0.4s ease; }
+/* each pan hangs from its end of the beam */
+.kg-at-side-l::before, .kg-at-side-r::before { content: ''; align-self: center; inline-size: 2px; block-size: 12px; background: var(--muted); }
 .kg-at-side-l { transform: translateY(calc(var(--t) * 12px)); }
 .kg-at-side-r { transform: translateY(calc(var(--t) * -12px)); }
 .kg-at-pan {
@@ -156,10 +159,12 @@ button.kg-at-cell:hover { border-color: var(--border); }
 button.kg-at-pan:hover { border-color: var(--accent); border-block-end-color: var(--accent); }
 .kg-at-total { text-align: center; font-weight: 700; font-size: 1.1rem; }
 .kg-at-mid { flex: none; inline-size: 44px; align-self: stretch; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.kg-at-rel { display: grid; place-items: center; min-inline-size: 44px; min-block-size: 44px; font-size: 1.6rem; font-weight: 700; }
+.kg-at-rel { position: relative; z-index: 1; display: grid; place-items: center; min-inline-size: 44px; min-block-size: 44px; border-radius: 50%; background: var(--card); font-size: 1.6rem; font-weight: 700; }
 .kg-at-rel.bad { color: var(--no); }
 button.kg-at-rel { border: 2px solid var(--accent); border-radius: 50%; background: var(--card); padding: 0; }
-.kg-at-post { position: absolute; inset-block-end: 0; inset-inline-start: calc(50% - 16px); inline-size: 0; block-size: 0; border-inline: 16px solid transparent; border-block-end: 28px solid var(--muted); }
+/* the post: from the middle of the beam down to a foot */
+.kg-at-post { position: absolute; inset-block: 8px 0; inset-inline-start: calc(50% - 3px); inline-size: 6px; background: var(--muted); }
+.kg-at-post::after { content: ''; position: absolute; inset-block-end: 0; inset-inline-start: -21px; inline-size: 48px; block-size: 8px; border-radius: 4px 4px 0 0; background: var(--muted); }
 .kg-at-grp { display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2px; padding: 2px; border: 2px dashed var(--accent); border-radius: 6px; max-inline-size: 100%; box-sizing: border-box; }
 .kg-at-over { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; }
 .kg-at-top { display: flex; flex-wrap: wrap; justify-content: center; gap: 3px; padding-block-end: 3px; border-block-end: 3px solid var(--fg); }

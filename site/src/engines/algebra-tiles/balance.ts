@@ -58,7 +58,7 @@ export function mount(host: AlgebraHost, cfg: AlgebraConfig): AlgebraPart {
   const shows = () => trying && g !== null; // the letter tiles show the value tried
   const reset = () => {
     cur = { pans: [...first.pans], rel: first.rel };
-    steps = [{ eq: scaleText(first) }];
+    steps = [{ eq: String(c.equation ?? scaleText(first)) }]; // as the mission writes it: v = u + at
     undo = [];
     pending = [];
     ok = true;
@@ -105,7 +105,9 @@ export function mount(host: AlgebraHost, cfg: AlgebraConfig): AlgebraPart {
     const cls = `kg-at-t kg-at-lump d${Math.min(2, degreeOf(kind))}${cf < 0 ? ' neg' : ''}${syms.includes('y') ? ' y' : ''}${syms.some((s) => s !== 'x' && s !== 'y') ? ' sym' : ''}`;
     return `<span class="${cls}" aria-hidden="true">${host.alg(t)}</span>`;
   };
-  const tilesOf = (p: Poly) => kindsOf(p).map((kind) => {
+  // biggest tiles first, white before red: v and −u, not −u and v
+  const order = (p: Poly) => kindsOf(p).sort((a, b) => degreeOf(b) - degreeOf(a) || Math.sign(p[b]) - Math.sign(p[a]) || kindOrder(a, b));
+  const tilesOf = (p: Poly) => order(p).map((kind) => {
     const cf = p[kind];
     return Number.isInteger(cf) && Math.abs(cf) <= 20 && degreeOf(kind) <= 2 ? host.tile(kind, Math.sign(cf), shows()).repeat(Math.abs(cf)) : lump(kind, cf, shows());
   }).join('');
@@ -206,13 +208,13 @@ export function mount(host: AlgebraHost, cfg: AlgebraConfig): AlgebraPart {
     keypad: false,
     html() {
       if (g !== null) c.value = { [letters[0]]: g }; // the tiles show the value tried (the engine's flip picture)
-      return (trying ? '' : stepsHTML()) + scaleHTML() + (trying ? tryHTML() : opsHTML()) + `<p class="kg-at-msg" role="status">${msg}</p>`;
+      return (trying ? '' : stepsHTML()) + scaleHTML() + (trying ? tryHTML() : opsHTML()) + `<p class="kg-at-msg bal" role="status">${msg}</p>`;
     },
     act(d) {
       switch (d.a) {
         case 'b-op': {
           const o: Op = d.o === 'add' ? { op: 'add', q: { [d.kind!]: Number(d.s) } } : { op: d.o as 'mul' | 'div', k: /^-?\d+$/.test(d.n!) ? Number(d.n) : d.n! };
-          armed = armed && opKey(armed) === opKey(o) ? null : o;
+          armed = o; // stays chosen until another move is chosen: tap a pan, then the other, or Both pans again
           msg = armed ? host.lab(c.both === false ? 'label-pick-pan' : 'label-pick', c.both === false ? 'Now tap a pan.' : 'Now tap a pan, or both pans.') : '';
           break;
         }
