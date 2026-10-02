@@ -1,0 +1,97 @@
+id: alg-expressions-like-terms
+engine: algebra-tiles
+strand: alg
+order: 2
+concepts: [alg.expressions, alg.simplify, alg.substitution]
+# Iran G7 ch.3 «عبارت‌های جبری» (G07_riazi_haftom.pdf p.41 [۳۱]: «یک عبارت جبری، شامل یک یا چند عدد، متغیر و
+# عمل‌های ریاضی است») and «مقدار عددی یک عبارت جبری» (p.44 [۳۴]); G7 p.43 [۳۳] «جملات متشابه» collected with arrows;
+# G8 ch.4 «ساده کردن عبارت‌های جبری» (p.52) and «پیدا کردن مقدار یک عبارت جبری» (p.56); Afghan G8 ch.7 «مفهوم متحول،
+# افاده‌های الجبری، ساده کردن افاده‌های الجبری» (p.159); UK KS3 Algebra (simplify by collecting like terms, substitute).
+# Tiles: x² big square, x strip, 1 small square; red = negative. Letters are Latin and every expression runs left to
+# right in every locale (docs/NOTATION.md).
+missions:
+  # Build 2x + 3. The classic slips: 3x + 2 = 5x (five strips: unlike-added), 2x read as x × x (a big square:
+  # x-plus-x-is-x2), the numbers swapped (three strips and two squares), or only small squares (2 + 3 = 5).
+  - id: build-expression
+    setup:
+      mode: tiles
+      tray: [x^2, x, 1]
+      mat: ""
+      instruction: build
+    check:
+      type: algebra
+      expr: 2x + 3
+      traps:
+        - { expr: 3x + 2, code: swapped }
+        - { expr: "5", code: no-x }
+  # Read the tiles: x², x, three red 1s and one white 1. A white and a red small square make a zero pair; tapping a
+  # red strip and a white square together is refused ("different shapes"). Slips: the white 1 forgotten (−3), red
+  # read as white (+4), x² + x joined into x³.
+  - id: read-the-tiles
+    setup:
+      mode: tiles
+      mat: x^2 - 1 + x - 1 + 1 - 1
+      write: expr
+      instruction: read
+    check:
+      type: algebra
+      written: x^2 + x - 2
+      simplified: written
+      traps:
+        - { write: x^2 + x - 3, code: white-missed }
+        - { write: x^2 + x - 4, code: white-as-red }
+        - { write: x^2 + x + 4, code: red-as-white }
+        - { write: x^3 - 2, code: powers-added }
+  # Collect like terms: 2x² + 3x + 1 − x + x² − 4 = 3x² + 2x − 3 (Iran G7 p.33, G8 p.52). Slips: the minus of −x
+  # ignored (4x), a red strip "cancelled" with a white square (3x² + 3x − 4 or 3x² + x − 2), 2x² + 3x written 5x³
+  # (unlike-added, recognised by the check), 2x written x² (x-plus-x-is-x2).
+  - id: collect-like-terms
+    setup:
+      mode: tiles
+      mat: 2x^2 + 3x + 1 - x + x^2 - 4
+      write: expr
+      instruction: collect
+    check:
+      type: algebra
+      written: 3x^2 + 2x - 3
+      simplified: written
+      traps:
+        - { write: 3x^2 + 4x - 3, code: minus-ignored }
+        - { write: 3x^2 + 4x + 5, code: minus-ignored }
+        - { write: 3x^2 + 3x - 4, code: different-shapes }
+        - { write: 3x^2 + x - 2, code: different-shapes }
+        - { write: 5x^3 - 3, code: powers-added }
+  # Substitute x = 3 into 2x + 5 (Iran G7 p.34): flip the tiles, each strip shows 3, so 3 + 3 + 5 = 11.
+  # Slips: 2x read as the number 23 (23 + 5 = 28), 2x read as 2 + x (2 + 3 + 5 = 10).
+  - id: substitute
+    setup:
+      mode: tiles
+      mat: 2x + 5
+      lock: true
+      value: { x: 3 }
+      write: number
+      instruction: flip
+    check:
+      type: algebra
+      written: "11"
+      traps:
+        - { write: "28", code: joined-digits }
+        - { write: "10", code: coefficient-added }
+  # Substitute x = −3 into 4 − x²: the red big square shows −(−3)², so 4 − 9 = −5 (Iran G8 p.56, UK KS3).
+  # Slips: −x² taken as (−x)² = 9 (4 + 9 = 13), x² as 2x (4 + 6 = 10), the power ignored (4 + 3 = 7).
+  - id: substitute-negative
+    setup:
+      mode: tiles
+      mat: 4 - x^2
+      lock: true
+      value: { x: -3 }
+      write: number
+      instruction: flip
+    check:
+      type: algebra
+      written: "-5"
+      traps:
+        - { write: "13", code: minus-square }
+        - { write: "10", code: square-as-double }
+        - { write: "7", code: power-ignored }
+        - { write: "1", code: power-ignored }

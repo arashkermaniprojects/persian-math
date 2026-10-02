@@ -21,6 +21,20 @@ describe('rich', () => {
   });
 });
 
+describe('algebra', () => {
+  it('writes {{alg:…}} left to right with locale digits, − and raised powers; letters stay Latin', () => {
+    expect(rich('{{alg:3x^2 - 2x + 1}}', 'fa-IR')).toBe('<bdi dir="ltr" class="alg">۳x<sup>۲</sup> − ۲x + ۱</bdi>');
+    expect(rich('{{alg:x = -3}}', 'ps')).toBe('<bdi dir="ltr" class="alg">x = −۳</bdi>');
+    expect(rich('{{alg:4 - (-3)^2}}', 'en')).toBe('<bdi dir="ltr" class="alg">4 − (−3)<sup>2</sup></bdi>');
+    expect(rich('{{alg:2*3 < 7}}', 'en')).toBe('<bdi dir="ltr" class="alg">2×3 &lt; 7</bdi>');
+  });
+
+  it('is not broken by the formula isolates of RTL text', () => {
+    expect(rich('یعنی {{alg:2 + 3}} = ۵', 'fa-IR')).not.toMatch(/⁦[^⁩]*alg/);
+    expect(rich('{{alg:x + 2 + 3}}', 'fa-IR')).toBe('<bdi dir="ltr" class="alg">x + ۲ + ۳</bdi>');
+  });
+});
+
 describe('formula direction', () => {
   it('wraps operator expressions in RTL locales in left-to-right isolates', () => {
     const out = rich('{{frac:3/4}} − {{frac:1/3}} چقدر است؟', 'fa-IR');

@@ -153,3 +153,13 @@ describe('pattern check (kg-pattern-machine)', () => {
     expect(evaluate({ type: 'pattern', expr: true }, {}).code).toBe('empty');
   });
 });
+
+describe('algebra check (kg-algebra-tiles)', () => {
+  it('routes to the algebra-tiles check and its reason codes', () => {
+    const mat = [{ kind: 'x', sign: 1 as const }, { kind: 'x', sign: 1 as const }, { kind: '1', sign: 1 as const }];
+    expect(evaluate({ type: 'algebra', expr: '2x + 1' }, { state: { algebra: { mode: 'tiles', mat } } })).toEqual({ ok: true });
+    expect(evaluate({ type: 'algebra', expr: '2x + 3' }, { state: { algebra: { mode: 'tiles', mat } } }).code).toBe('wrong-1');
+    expect(evaluate({ type: 'algebra', written: '11', traps: [{ write: '28', code: 'joined-digits' }] }, { state: { algebra: { mode: 'tiles', written: '28' } } }).code).toBe('joined-digits');
+    expect(evaluate({ type: 'algebra', written: 'x' }, {}).code).toBe('empty');
+  });
+});

@@ -29,6 +29,34 @@ export function vecHTML(x: number | string, y: number | string, f: NumberFormat,
 }
 
 /**
+ * An algebra expression typed in ASCII ("3x^2 - 2x", "x = -3", "(-3)^2") as HTML, always left to right (docs/NOTATION.md):
+ * locale digits, − for -, × for *, powers raised; letters stay Latin in every locale. Binary + − = get spaces; a sign
+ * at the start or after "(" stays close: −۵, (−۳)².
+ */
+export function algHTML(src: string, digits = '0123456789'): string {
+  let out = '', prev = '';
+  for (let i = 0; i < src.length; i++) {
+    const ch = src[i];
+    if (ch === ' ' || /[⁦-⁩]/.test(ch)) continue;
+    const pow = ch === '^' && src.slice(i + 1).match(/^\d+/);
+    if (pow) {
+      out += `<sup>${digitsOf(pow[0], { digits, decimal: '.' })}</sup>`;
+      i += pow[0].length;
+      prev = '0';
+      continue;
+    }
+    if (/[-−+=<>≤≥]/.test(ch)) {
+      const sym = ch === '-' ? '−' : ch === '<' ? '&lt;' : ch === '>' ? '&gt;' : ch;
+      out += prev && !/[-−+=<>≤≥(×]/.test(prev) ? ` ${sym} ` : sym;
+    } else if (ch === '*' || ch === '×') out += '×';
+    else if (ch === '&') out += '&amp;';
+    else out += /[0-9]/.test(ch) ? digits[Number(ch)] : ch;
+    prev = ch === '*' ? '×' : ch;
+  }
+  return `<bdi dir="ltr" class="alg">${out}</bdi>`;
+}
+
+/**
  * Stacked fraction as HTML. Fractions are never written inline with "/" because
  * "/" is the decimal mark in Iranian books (docs/NOTATION.md).
  */
