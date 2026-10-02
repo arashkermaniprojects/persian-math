@@ -218,6 +218,13 @@ Checked on rendered pages of G09_riazi_nohom.pdf ch.1 (PDF page = printed + 8) a
 - **Universal set and complement.** `U` and `A′` in both countries (Iran G10 riazi1 «مجموعهٔ مرجع»، «متمم»; Afghan G7 «ست کلی»، «مکمله», which also prints `Ā`). We use `A′`.
 - **Venn diagrams** («نمودار ون»; Afghan «دیاگرام وین») are drawn left to right like charts; hatching («هاشور») marks a region (G09 p.19–21).
 
+## Inequalities and intervals
+Checked on rendered pages of G09_riazi_nohom.pdf ch.5 (PDF page = printed + 8) and the Pashto edition AF_G09_riazi_ps.pdf ch.6 (PDF page = printed + 7; the Dari PDF stops at ch.4).
+- **Inequalities run left to right** with Latin letters in both countries: `a<x<b`, `x > ۳` (Iran G9 p.90–92 [۹۸–۱۰۰]); `−1 < x ≤ 4` (Afghan G9 p.159–160). We write them with `{{alg:…}}`.
+- **On the line:** a hollow circle = the end is not included (`<`, `>`), a filled circle = included (`≤`, `≥`); the set is a shaded segment, or a ray with an arrowhead for ∞ (both books). The line increases left → right in every locale.
+- **Interval notation** is taught in Afghan G9 «فاصله یا انتروال‌ها» (Pashto «واټن یا انتروالونه»): `(−1, 4] = {x ∈ IR : −1 < x ≤ 4}`, `[a, ∞)`, `(−∞, a)`, with closed («بسته», Pashto «تړلی»), open («باز», «خلاص») and half-open («نیمه باز») intervals; Iran writes «بازه» from G10. UK KS3/GCSE uses inequalities only. Always left to right. Because "," is the Afghan decimal mark and we keep Persian digits, fa-AF and ps separate the ends with "،" as in set braces: `[−۲، ۴)` (*our choice, not from a book*; the Afghan book prints Latin digits with ",").
+- **Sign tables** (Afghan G9 «تعیین اشارهٔ بینوم … افادهٔ کسری», Iran G10 «تعیین علامت»): a row per factor under the critical values, +/− per cell; the number line above serves as the x row.
+
 ## Charts
 Checked on rendered pages of G02_riazi_dovom.pdf ch. 8 (PDF page = printed + 6), G03_riazi_sevom.pdf ch. 7 (PDF page = printed page) and G04_riazi_chaharom.pdf ch. 7.
 - **Charts run left to right in every locale, and the value axis is on the left and goes up.** This holds for both the axes and the order of the categories.

@@ -57,7 +57,7 @@ kg-number-line { display: flex; flex-direction: column; align-items: flex-start;
 .kg-nl-probe.ok path { fill: var(--ok); }
 .kg-nl-probe.ok line { stroke: var(--ok); }
 .kg-nl-probe:focus-visible .kg-nl-hit { stroke: var(--accent); stroke-width: 3; }
-.kg-nl-cap { fill: var(--muted); font-size: 13px; direction: ltr; text-anchor: start; }
+.kg-nl-cap { fill: var(--muted); font-size: 13px; direction: ltr; text-anchor: start; paint-order: stroke; stroke: var(--card); stroke-width: 5px; }
 .kg-nl-cell { fill: var(--cell); stroke: var(--border); stroke-width: 1.5; }
 .kg-nl-cell.res { stroke: var(--fg); }
 .kg-nl-c { cursor: pointer; outline: none; }
