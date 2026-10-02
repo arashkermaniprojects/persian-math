@@ -1,6 +1,6 @@
 // Server-side rendering of authored text: escapes HTML and expands placeholders (docs/STUDIOS.md).
 import { LOCALES, type LocaleCode } from '../i18n/locales';
-import { algHTML, fracHTML, formatDecimal, setHTML, vecHTML, type NumberFormat } from './display';
+import { algHTML, fracHTML, formatDecimal, intervalHTML, setHTML, vecHTML, type NumberFormat } from './display';
 import { term } from './i18n';
 
 export function numberFormat(locale: LocaleCode): NumberFormat {
@@ -54,6 +54,9 @@ export function rich(text: string, locale: LocaleCode): string {
       case 'set':
         // set notation, left to right: {{set:A = [2, 4]}} → A = {۲, ۴}
         return setHTML(arg, f);
+      case 'interval':
+        // interval notation, left to right: {{interval:[-2, 4)}} → [−۲, ۴)
+        return intervalHTML(arg, f);
       default:
         throw new Error(`Unknown placeholder ${m}`);
     }

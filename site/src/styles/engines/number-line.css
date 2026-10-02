@@ -37,3 +37,48 @@ kg-number-line { display: flex; flex-direction: column; align-items: flex-start;
 .kg-nl-i::before { inset-inline: 8px; inset-block-start: 30px; block-size: 3px; background: var(--fg); }
 .kg-nl-i.i-tap::after { inset-inline-start: 15px; inset-block-start: 24px; inline-size: 14px; block-size: 14px; border-radius: 50%; background: var(--accent); }
 .kg-nl-i.i-hop::after { inset-inline: 10px; inset-block: 10px 16px; border: 3px solid var(--accent); border-block-end: 0; border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
+/* ---------- intervals module (number-line/intervals.ts): shaded sets, dots, test point, sign rows ---------- */
+.kg-nl-band { stroke: var(--accent); stroke-width: 7; }
+.kg-nl-band.head { fill: var(--accent); stroke: none; }
+.kg-nl-end { fill: var(--accent); stroke: var(--accent); stroke-width: 3; }
+.kg-nl-end.open { fill: var(--card); }
+.kg-nl-end.g { fill: var(--muted); stroke: var(--muted); stroke-width: 2; }
+.kg-nl-end.g.open { fill: var(--card); }
+.kg-nl-h { cursor: grab; outline: none; }
+.kg-nl-h.active .kg-nl-hit { stroke: var(--fg); stroke-width: 1.5; stroke-dasharray: 3 3; }
+.kg-nl-h:focus-visible .kg-nl-hit { stroke: var(--accent); stroke-width: 3; stroke-dasharray: none; }
+.kg-nl-given { stroke: var(--muted); stroke-width: 4; }
+.kg-nl-given.head { fill: var(--muted); stroke: none; }
+.kg-nl-given.t1 { stroke: var(--ok); } .kg-nl-given.t1.head { fill: var(--ok); }
+.kg-nl-given.t2 { stroke: var(--shade); } .kg-nl-given.t2.head { fill: var(--shade); }
+.kg-nl-probe { cursor: grab; outline: none; }
+.kg-nl-probe path { fill: var(--no); }
+.kg-nl-probe line { stroke: var(--no); stroke-width: 2; stroke-dasharray: 3 3; }
+.kg-nl-probe.ok path { fill: var(--ok); }
+.kg-nl-probe.ok line { stroke: var(--ok); }
+.kg-nl-probe:focus-visible .kg-nl-hit { stroke: var(--accent); stroke-width: 3; }
+.kg-nl-cap { fill: var(--muted); font-size: 13px; direction: ltr; text-anchor: start; }
+.kg-nl-cell { fill: var(--cell); stroke: var(--border); stroke-width: 1.5; }
+.kg-nl-cell.res { stroke: var(--fg); }
+.kg-nl-c { cursor: pointer; outline: none; }
+.kg-nl-c:focus-visible .kg-nl-cell { stroke: var(--accent); stroke-width: 3; }
+.kg-nl-sign, .kg-nl-zero { fill: var(--fg); font-size: 22px; font-weight: 700; text-anchor: middle; }
+.kg-nl-sign.blank { fill: var(--muted); font-size: 16px; font-weight: 400; }
+.kg-nl-zero { font-size: 16px; paint-order: stroke; stroke: var(--card); stroke-width: 6px; }
+.kg-nl-crit { stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.kg-nl-band, .kg-nl-given, .kg-nl-crit, .kg-nl-cap, .kg-nl-sign, .kg-nl-zero, .kg-nl-svg > .kg-nl-end { pointer-events: none; }
+.kg-nl-iv { display: flex; flex-direction: column; gap: 0.5rem; align-self: stretch; }
+.kg-nl-row { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+.kg-nl-b { min-block-size: 44px; min-inline-size: 44px; padding-inline: 0.7rem; border-radius: var(--radius); border: 2px solid var(--border);
+  background: var(--card); color: var(--fg); display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.95rem; }
+.kg-nl-b[aria-pressed='true'] { border-color: var(--accent); background: var(--hint-bg); font-weight: 700; }
+.kg-nl-b:disabled { opacity: 0.45; }
+.kg-nl-b svg { inline-size: 40px; block-size: 24px; fill: var(--accent); stroke: var(--accent); stroke-width: 3; }
+.kg-nl-b svg path { fill: none; }
+.kg-nl-b.secondary { border-color: var(--accent); color: var(--accent); background: transparent; border-radius: 999px; }
+.kg-nl-ico { inline-size: 18px; block-size: 18px; border-radius: 50%; border: 3px solid var(--accent); background: var(--accent); flex: none; }
+.kg-nl-ico.open { background: var(--card); }
+.kg-nl-read { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; justify-content: center; margin: 0; font-weight: 700; font-size: 1.15rem; }
+.kg-nl-read bdi, .kg-nl-test bdi { white-space: nowrap; }
+.kg-nl-test { margin: 0; text-align: center; padding: 0.3rem 0.6rem; border-radius: var(--radius); background: var(--no-bg); color: var(--no); }
+.kg-nl-test.ok { background: var(--ok-bg); color: var(--ok); }

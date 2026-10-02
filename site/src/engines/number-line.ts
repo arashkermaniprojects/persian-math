@@ -1,5 +1,8 @@
 // <kg-number-line>: a number line the learner places points on by tapping, dragging or with the arrow keys.
 // Contract: docs/STUDIOS.md ("Engine contract"). The line always runs left → right, in every locale (docs/NOTATION.md).
+// On-demand module: number-line/intervals.ts (shaded intervals, interval/inequality readout, test point, sign rows),
+// loaded only when a mission's setup has `module: intervals` or `intervals`.
+import type { NlPart } from './number-line/intervals';
 import { digitsOf, formatDecimal, type NumberFormat } from '../lib/display';
 import { clamp, decimalString, hopText, labelStep, snap, tickKind, tickX, toTick, windowOf, type FracSpec } from './lib/number-line-math';
 
@@ -30,6 +33,10 @@ export interface NumberLineConfig {
   showValues?: boolean;
   /** Icon hint above the line, with the studio label `instruction-<key>`: tap, hop. */
   instruction?: string;
+  /** On-demand module: `intervals` (also loaded whenever `intervals` is given). */
+  module?: string;
+  /** Options of the intervals module (number-line/intervals.ts). */
+  intervals?: Record<string, unknown>;
 }
 
 const NS = 'http://www.w3.org/2000/svg';
@@ -39,18 +46,23 @@ const ARC = 46; // room above the line for hop arcs (up to 36px high) and their 
 const minus = (s: string) => s.replace(/-/g, '\u2212');
 
 export class NumberLine extends HTMLElement {
-  private cfg: NumberLineConfig = {};
-  private den = 1;
-  private lo = 0;
-  private hi = 1;
+  cfg: NumberLineConfig = {};
+  den = 1;
+  lo = 0;
+  hi = 1;
   /** Movable points, as tick indices (tick i = i / den). */
   private pts: number[] = [];
   private active = -1;
   private dragging = -1;
   private width = 320;
-  private svg = document.createElementNS(NS, 'svg');
+  svg = document.createElementNS(NS, 'svg');
   private ro?: ResizeObserver;
   private built = false;
+  /** The loaded module, if the mission asks for one. */
+  private mod?: NlPart;
+  private gen = 0;
+  /** Resolves once the module (if any) is loaded and drawn. */
+  ready: Promise<void> = Promise.resolve();
 
   set config(c: NumberLineConfig) {
     this.cfg = c;
@@ -58,14 +70,24 @@ export class NumberLine extends HTMLElement {
     [this.lo, this.hi] = windowOf(c.min ?? 0, c.max ?? 1, this.den, c.zoom);
     this.pts = (c.points ?? []).map((p) => clamp(toTick(p, this.den), this.lo, this.hi));
     this.active = this.pts.length - 1;
+    this.mod?.root.remove();
+    this.mod = undefined;
+    const gen = ++this.gen;
+    if (c.module === 'intervals' || c.intervals)
+      this.ready = import('./number-line/intervals').then((m) => {
+        if (gen !== this.gen) return; // a newer config arrived while loading
+        this.mod = m.mountIntervals(this, c.intervals ?? {});
+        if (this.built) this.append(this.mod.root);
+        this.render();
+      });
     this.render();
   }
 
   get state() {
-    return { points: this.pts.map((i): FracSpec => [i, this.den]) };
+    return { points: this.pts.map((i): FracSpec => [i, this.den]), ...this.mod?.state() };
   }
 
-  private get fmt(): NumberFormat {
+  get fmt(): NumberFormat {
     return { digits: this.dataset.digits ?? '0123456789', decimal: this.dataset.decimal ?? '.' };
   }
 
@@ -73,7 +95,7 @@ export class NumberLine extends HTMLElement {
     return (this.cfg.points?.length ?? 0) + (this.cfg.addPoints ?? 0);
   }
 
-  private get step() {
+  get step() {
     return Math.max(1, this.cfg.step ?? 1);
   }
 
@@ -107,9 +129,10 @@ export class NumberLine extends HTMLElement {
       });
       this.append(reset);
     }
+    if (this.mod) this.append(this.mod.root);
     this.svg.addEventListener('pointerdown', (e) => this.down(e));
-    this.svg.addEventListener('pointermove', (e) => this.dragging >= 0 && this.moveTo(this.dragging, this.xToTick(e)));
-    const up = () => (this.dragging = -1);
+    this.svg.addEventListener('pointermove', (e) => this.mod?.move(e) || (this.dragging >= 0 && this.moveTo(this.dragging, this.xToTick(e))));
+    const up = () => { this.dragging = -1; this.mod?.up(); };
     this.svg.addEventListener('pointerup', up);
     this.svg.addEventListener('pointercancel', up);
     this.svg.addEventListener('keydown', (e) => this.key(e));
@@ -127,21 +150,22 @@ export class NumberLine extends HTMLElement {
     this.ro?.disconnect();
   }
 
-  private changed() {
+  changed() {
     this.dispatchEvent(new CustomEvent('kg-change', { bubbles: true, detail: this.state }));
   }
 
-  private get x0() { return PAD; }
-  private get x1() { return Math.max(PAD + 40, this.width - PAD); }
-  private x(i: number) { return tickX(i, this.lo, this.hi, this.x0, this.x1); }
+  get x0() { return PAD; }
+  get x1() { return Math.max(PAD + 40, this.width - PAD); }
+  x(i: number) { return tickX(i, this.lo, this.hi, this.x0, this.x1); }
 
-  private xToTick(e: PointerEvent) {
+  xToTick(e: PointerEvent) {
     const r = this.svg.getBoundingClientRect();
     const x = ((e.clientX - r.left) * this.width) / (r.width || this.width);
     return snap(x, this.lo, this.hi, this.x0, this.x1, this.step);
   }
 
   private down(e: PointerEvent) {
+    if (this.mod?.down(e)) return;
     if (!this.interactive) return;
     const hit = (e.target as Element).closest('[data-p]');
     let p = hit ? Number(hit.getAttribute('data-p')) : -1;
@@ -176,6 +200,7 @@ export class NumberLine extends HTMLElement {
   }
 
   private key(e: KeyboardEvent) {
+    if (this.mod?.key(e)) return;
     const t = e.target as Element;
     if (t.classList.contains('kg-nl-track')) {
       if ((e.key === 'Enter' || e.key === ' ') && this.pts.length < this.maxPoints) {
@@ -208,7 +233,7 @@ export class NumberLine extends HTMLElement {
   }
 
   /** Plain-text value of tick i, for labels and aria-valuetext. */
-  private text(i: number): string {
+  text(i: number): string {
     const f = this.fmt;
     if (i % this.den === 0) return minus(digitsOf(i / this.den, f));
     const dec = this.decimal(i);
@@ -232,12 +257,12 @@ export class NumberLine extends HTMLElement {
       `<text class="kg-nl-lab" x="${x}" y="${y + 31}">${digitsOf(this.den, f)}</text></g>`;
   }
 
-  private render() {
+  render() {
     const { lo, hi, den, cfg } = this;
     const W = this.width;
     const zoom = !!cfg.zoom;
     const chain = cfg.jumps ? [...(cfg.jumps.from ? [toTick(cfg.jumps.from, den)] : []), ...this.pts] : [];
-    const y = (zoom ? 104 : 40) + (cfg.jumps ? ARC : 0); // the main line
+    const y = (zoom ? 104 : 40) + (cfg.jumps ? ARC : 0) + (this.mod?.top ?? 0); // the main line
     let H = y + 28; // grows to fit the labels drawn below the line
     const out: string[] = [];
 
@@ -305,6 +330,8 @@ export class NumberLine extends HTMLElement {
       if (this.pts.length) H = Math.max(H, y + 58);
     }
 
+    if (this.mod) H = Math.max(H, this.mod.draw(out, y));
+
     const name = this.dataset.labelPoint ?? 'Point';
     this.pts.forEach((i, p) => {
       const x = this.x(i);
@@ -319,12 +346,13 @@ export class NumberLine extends HTMLElement {
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
     svg.setAttribute('width', String(W));
     svg.setAttribute('height', String(H));
-    svg.setAttribute('class', 'kg-nl-svg' + (this.interactive ? ' interactive' : ''));
+    svg.setAttribute('class', 'kg-nl-svg' + (this.interactive || this.mod?.live ? ' interactive' : ''));
     svg.setAttribute('role', 'group');
     svg.setAttribute('aria-label', aria);
     svg.innerHTML = out.join('');
     // Keep keyboard focus on the point being moved (or just added) across re-renders.
-    if (hadFocus) (svg.querySelector<SVGElement>(`[data-p="${this.active}"]`) ?? svg.querySelector<SVGElement>('[tabindex]'))?.focus();
+    if (hadFocus) (this.mod?.focused() ?? svg.querySelector<SVGElement>(`[data-p="${this.active}"]`) ?? svg.querySelector<SVGElement>('[tabindex]'))?.focus();
+    this.mod?.after();
   }
 }
 
