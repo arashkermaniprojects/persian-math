@@ -57,7 +57,11 @@ def main(verbose):
     for f in glob.glob(os.path.join(ROOT, "content/concepts/*.yaml")):
         for n in yaml.safe_load(open(f, encoding="utf-8")) or []:
             nodes[n["id"]] = n
-    built = [yaml.safe_load(open(f, encoding="utf-8")) for f in glob.glob(os.path.join(ROOT, "content/studios/*.yaml"))]
+    allbuilt = [yaml.safe_load(open(f, encoding="utf-8")) for f in glob.glob(os.path.join(ROOT, "content/studios/*.yaml"))]
+    planned_ids = {s["id"] for s in yaml.safe_load(open(PLAN, encoding="utf-8"))["studios"]}
+    # Studios built FROM this plan are the plan being delivered, not clashes; only earlier studios are "built".
+    delivered = {b["id"]: b for b in allbuilt if b["id"] in planned_ids}
+    built = [b for b in allbuilt if b["id"] not in planned_ids]
     built_cov = {c for s in built for c in s.get("concepts") or []}
     T = json.load(open(TARGETS, encoding="utf-8"))
     target = {c for v in T.values() for c in v}
@@ -82,6 +86,14 @@ def main(verbose):
     E_ = [f"duplicate studio id {i}" for i, n in collections.Counter(sids).items() if n > 1]
     errs += E_
     errs += [f"studio id {s['id']} already built in content/studios/" for s in st if s["id"] in {b["id"] for b in built}]
+    # A delivered studio must match its plan entry (engine, strand, order, concepts).
+    for s in st:
+        b = delivered.get(s["id"])
+        if b:
+            errs += [f"{s['id']}: built {k} {b.get(k)!r} differs from the plan's {s[k]!r}" for k in ("engine", "strand", "order")
+                     if b.get(k) != s[k]]
+            if set(b.get("concepts") or []) != set(s["concepts"]):
+                errs.append(f"{s['id']}: built concepts {sorted(b.get('concepts') or [])} differ from the plan's {sorted(s['concepts'])}")
     errs += [f"{s['id']}: strand {s['strand']} is not the id prefix" for s in st if s["id"].split("-")[0] != s["strand"]]
     strands = {c.split(".")[0] for c in nodes}
     errs += [f"{s['id']}: unknown strand {s['strand']}" for s in st if s["strand"] not in strands]

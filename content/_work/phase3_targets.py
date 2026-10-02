@@ -41,9 +41,15 @@ def load_concepts():
 
 
 def covered_by_studios():
+    """Concepts taught by studios built before Phase 3. Studios built FROM this plan don't count, so the
+    targets stay the same as the pilots and waves land."""
+    plan = os.path.join(ROOT, "content/_work/phase3-studios.yaml")
+    phase3 = {s["id"] for s in yaml.safe_load(open(plan, encoding="utf-8"))["studios"]} if os.path.exists(plan) else set()
     cov = set()
     for f in glob.glob(os.path.join(ROOT, "content/studios/*.yaml")):
-        cov |= set((yaml.safe_load(open(f, encoding="utf-8")) or {}).get("concepts") or [])
+        s = yaml.safe_load(open(f, encoding="utf-8")) or {}
+        if s.get("id") not in phase3:
+            cov |= set(s.get("concepts") or [])
     return cov
 
 
