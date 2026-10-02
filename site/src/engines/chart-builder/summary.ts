@@ -85,7 +85,7 @@ export function mount(host: ChartHost, cfg: ChartBuilderConfig): ChartModule {
     const colW = ((W - 2 * M) / span) * unit;
     const r = Math.max(5, Math.min(11, colW / 2 - 1.5));
     const gap = 2 * r + 2;
-    const top = Math.max(3, ...sets.map((t) => Math.max(...t.given.map((v) => t.given.filter((w) => w === v).length)))) + (c.drag ? 1 : 0);
+    const top = Math.max(2, ...sets.map((t) => Math.max(...t.given.map((v) => t.given.filter((w) => w === v).length)))) + (c.drag ? 1 : 0);
     const named = sets.length > 1;
     const T = named ? 22 : 6;
     const y0 = T + top * gap + 6;
