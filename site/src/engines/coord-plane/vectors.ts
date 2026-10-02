@@ -87,8 +87,13 @@ export function mount(plane: CoordPlane, cfg: CoordPlaneConfig): PlaneModule {
     const [dx, dy] = vecOf(a), corner: P = [a.to[0], a.from[1]], o: string[] = [];
     const seg = (p: P, q: P, k: string) => `<line class="kg-cp-${k}" x1="${sx(p)}" y1="${sy(p)}" x2="${sx(q)}" y2="${sy(q)}"/>`;
     const txt = (x: number, y: number, s: string, k: string) => `<text class="kg-cp-num kg-cp-${k}" x="${x.toFixed(1)}" y="${y.toFixed(1)}">${esc(s)}</text>`;
-    if (dx) o.push(seg(a.from, corner, 'run'), txt((sx(a.from) + sx(corner)) / 2, sy(corner) + (dy > 0 ? 20 : -9), d(dx), 'runl'));
-    if (dy) o.push(seg(corner, a.to, 'rise'), txt(sx(corner) + (dx < 0 ? -14 : 14), (sy(corner) + sy(a.to)) / 2 + 5, d(dy), `risel${dx < 0 ? ' end' : ''}`));
+    // keep the two numbers off the axis numbers: slide them along their leg, away from the axes (as the step triangle)
+    const X = plane.sx(Math.min(Math.max(0, plane.x0), plane.x1)), Y = plane.sy(Math.min(Math.max(0, plane.y0), plane.y1));
+    let rx = (sx(a.from) + sx(corner)) / 2, ry = (sy(corner) + sy(a.to)) / 2 + 5;
+    if (Math.abs(rx - X) < 18) rx += rx < X ? -16 : 16;
+    if (Math.abs(ry - 5 - Y) < 18) ry += ry - 5 < Y ? -14 : 14;
+    if (dx) o.push(seg(a.from, corner, 'run'), txt(rx, sy(corner) + (dy > 0 ? 20 : -9), d(dx), 'runl'));
+    if (dy) o.push(seg(corner, a.to, 'rise'), txt(sx(corner) + (dx < 0 ? -14 : 14), ry, d(dy), `risel${dx < 0 ? ' end' : ''}`));
     return o.join('');
   };
   const poly = (pts: P[], cls: string, attrs = '') => `<polygon class="${cls}" points="${pts.map((p) => `${sx(p)},${sy(p)}`).join(' ')}" ${attrs}/>`;
@@ -106,7 +111,14 @@ export function mount(plane: CoordPlane, cfg: CoordPlaneConfig): PlaneModule {
       if (c.image) o.push(poly(img(c.image), 'kg-cp-shape img'));
       if (c.move) o.push(poly(img(shift), 'kg-cp-shape img move', `data-vs="0" data-focus="vs" tabindex="0" role="button" aria-label="${esc(lab('label-image', 'Image'))} ${esc(`${d(shift[0])}, ${d(shift[1])}`)}"`));
       if (c.corners) {
-        const put = (pts: P[], s: string) => pts.forEach((p, i) => o.push(`<text class="kg-cp-lt" x="${sx(p) - 12}" y="${sy(p) - 9}">${esc(L[i % L.length] + s)}</text>`));
+        // each letter sits outside its corner, away from the shape's centre
+        const put = (pts: P[], s: string) => {
+          const cx = pts.reduce((t, p) => t + sx(p), 0) / pts.length, cy = pts.reduce((t, p) => t + sy(p), 0) / pts.length;
+          pts.forEach((p, i) => {
+            const ux = sx(p) - cx, uy = sy(p) - cy, n = Math.hypot(ux, uy) || 1;
+            o.push(`<text class="kg-cp-lt" x="${(sx(p) + (ux / n) * 16).toFixed(1)}" y="${(sy(p) + (uy / n) * 16 + 6).toFixed(1)}">${esc(L[i % L.length] + s)}</text>`);
+          });
+        };
         put(c.shape, '');
         if (c.image || (c.move && moved)) put(img(c.move ? shift : c.image!), '′');
       }
@@ -257,7 +269,8 @@ export function mount(plane: CoordPlane, cfg: CoordPlaneConfig): PlaneModule {
       const f: string[] = [], a = items[active] ?? mine().at(-1);
       if (show.includes('readout') && a && a.kind !== 'fixed') {
         const n = nameOf(a);
-        f.push(`${n ? `<span class="kg-cp-vn">${esc(n)}</span> =` : esc(lab('label-arrow', 'Arrow'))} ${colHTML(vecOf(a))}`);
+        // a named vector reads left to right in every locale: AB = (5, 3)
+        f.push(n ? `<bdi dir="ltr" class="kg-cp-vr"><span class="kg-cp-vn">${esc(n)}</span> = ${colHTML(vecOf(a))}</bdi>` : `${esc(lab('label-arrow', 'Arrow'))} ${colHTML(vecOf(a))}`);
       }
       if (show.includes('shift') && c.move) f.push(`${esc(lab('label-shift', ''))} ${colHTML(shift)}`);
       return f;

@@ -63,5 +63,6 @@
   "home.strand.alg": "جبر",
   "home.strand.seq": "الگوها و دنباله‌ها",
   "home.strand.disc": "مجموعه و منطق",
-  "home.strand.coord": "مختصات و معادلهٔ خط"
+  "home.strand.coord": "مختصات و معادلهٔ خط",
+  "home.strand.vec": "بردار"
 }

@@ -102,7 +102,8 @@ kg-coord-plane [hidden] { display: none !important; }
 .kg-cp-vname text { fill: var(--c); stroke: var(--cell); stroke-width: 4; paint-order: stroke; font-size: 17px; font-weight: 700; font-style: italic; text-anchor: middle; }
 .kg-cp-vname path { fill: none; stroke: var(--c); stroke-width: 1.8; }
 .kg-cp-vband { fill: transparent; cursor: grab; outline: none; touch-action: none; }
-.kg-cp-vband[aria-pressed='true'] { fill: color-mix(in srgb, var(--accent) 18%, transparent); stroke: var(--accent); stroke-width: 2; }
+.kg-cp-vband[aria-pressed='true'] { fill: color-mix(in srgb, var(--accent) 14%, transparent); }
+.kg-cp-vr { display: inline-flex; align-items: center; gap: 0.3rem; }
 .kg-cp-vband:focus-visible { stroke: var(--accent); stroke-width: 3; stroke-dasharray: 5 4; }
 .kg-cp-vh { cursor: grab; outline: none; touch-action: none; }
 .kg-cp-vh .kg-cp-dot { fill: var(--card); stroke: var(--cp-line); stroke-width: 3; }
