@@ -164,7 +164,8 @@ export function mount(host: Host, cfg: TreeViewConfig): View {
   });
   ed.addEventListener('keydown', (e) => {
     if ((e.key === 'Escape' || (e.key === 'Enter' && (e.target as HTMLElement).tagName === 'INPUT')) && sel) {
-      dia.querySelector<HTMLElement>(`[data-k="${CSS.escape((sel.k === 'g' ? 'g' : sel.k) + sel.path)}"]`)?.focus();
+      e.preventDefault();
+      dia.querySelector<HTMLElement>(`[data-k="${CSS.escape(sel.k + sel.path)}"]`)?.focus();
     }
   });
 
