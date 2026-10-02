@@ -124,6 +124,10 @@ describe('checkSummary: best average and sentence frames', () => {
     expect(checkSummary(c, st(s, { best: 'mean' })).code).toBe('mean-pulled');
     expect(checkSummary(c, st(s, { best: 'mode' })).code).toBe('wrong-best');
     expect(checkSummary({ type: 'summary', best: ['median', 'mode'] }, st(s, { best: 'mode' }))).toEqual(ok);
+    // categorical data: no numbers on the engine, only the choice
+    expect(checkSummary({ type: 'summary', best: 'mode' }, st([], { best: 'mode' }))).toEqual(ok);
+    expect(checkSummary({ type: 'summary', mean: 3 }, st([])).code).toBe('empty');
+    expect(checkSummary({ type: 'summary', marked: 'mode' }, st([])).code).toBe('mark-empty');
   });
   it('checks comparison sentences slot by slot', () => {
     const c = {

@@ -118,3 +118,36 @@ kg-chart-builder .mini .pb { fill: var(--cell); stroke: var(--fg); stroke-width:
 .kg-cb-pool { font-weight: 700; }
 .kg-cb-say:empty { display: none; }
 .kg-cb-say { color: var(--no); font-weight: 700; }
+
+/* summary module: cards in a row and dot plots, always left → right */
+.kg-cbs-tools, .kg-cbs-best { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+.kg-cbs-best > p { inline-size: 100%; font-weight: 700; }
+.kg-cbs-tools .kg-cb-kind, .kg-cbs-best .kg-cb-kind { flex-direction: row; min-inline-size: 88px; justify-content: center; }
+.kg-cbs-line { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.kg-cbs-card {
+  min-inline-size: 44px; block-size: 52px; padding: 0 0.3rem; font: inherit; font-weight: 700; font-size: 1.15rem;
+  border: 2px solid var(--border); border-radius: 10px; background: var(--cell); color: var(--fg); transition: transform 0.12s;
+}
+.kg-cbs-card.on { background: var(--hint-bg); border-color: var(--accent); border-width: 3px; }
+.kg-cbs-card.up { transform: translateY(-5px); box-shadow: 0 5px 0 var(--accent); border-color: var(--accent); }
+.kg-cbs-dots { display: flex; flex-direction: column; gap: 0.4rem; }
+.kg-cbs-plot .dot { fill: var(--cb-blue); stroke: var(--card); stroke-width: 1.5; pointer-events: none; }
+.kg-cbs-plot .dot.on { fill: var(--cb-orange); }
+.kg-cbs-plot .dot.dr { fill: var(--accent); stroke: var(--fg); stroke-width: 2; }
+.kg-cbs-plot .dot.now { stroke-width: 3.5; }
+.kg-cbs-plot .hd { fill: transparent; cursor: ew-resize; touch-action: none; outline: none; }
+.kg-cbs-plot .hd:focus-visible { stroke: var(--accent); stroke-width: 3; }
+.kg-cbs-plot .stk { cursor: pointer; outline: none; rx: 6px; }
+.kg-cbs-plot .stk.on { fill: var(--hint-bg); stroke: var(--accent); stroke-width: 2; }
+.kg-cbs-plot .stk:focus-visible { stroke: var(--fg); stroke-width: 3; }
+.kg-cbs-plot .dev { stroke: var(--cb-red); stroke-width: 2; pointer-events: none; }
+.kg-cbs-plot .fulcrum { fill: var(--fg); pointer-events: none; }
+.kg-cbs-read { display: flex; flex-direction: column; gap: 0.2rem; }
+.kg-cbs-read p { display: flex; flex-wrap: wrap; gap: 0.2rem 0.9rem; }
+.kg-cbs-asks { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; }
+.kg-cbs-q { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 700; }
+.kg-cbs-q .kg-cb-num { inline-size: 4.5rem; }
+.kg-cbs-frame { line-height: 2.6; }
+.kg-cbs-frame select { font: inherit; min-block-size: 44px; margin-inline: 0.2rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--fg); max-inline-size: 100%; }
+.kg-cbs-say:empty { display: none; }
+.kg-cbs-say { font-weight: 700; }

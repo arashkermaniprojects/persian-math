@@ -148,13 +148,14 @@ function typedCode(k: Stat, v: number, s: SummarySet, tol: number): string {
  * averages compared, spread not), `compare-wrong`. Trap codes first wherever a trap matches.
  */
 export function checkSummary(c: SummaryCheck, st?: SummaryState): Result {
-  if (!st?.sets?.length) return fail('empty');
+  if (!st) return fail('empty');
   const s0 = st.sets[0];
   const setOf = (k?: string) => st.sets.find((s) => s.key === k) ?? s0;
   const tol = c.tolerance ?? 0.01;
-  if (c.ordered && s0.line && !isOrdered(s0.line))
+  if (c.ordered && s0?.line && !isOrdered(s0.line))
     return fail(c.marked === 'middle' && s0.marked.length ? 'unordered-median' : 'not-ordered');
   if (c.marked !== undefined) {
+    if (!s0) return fail('mark-empty');
     for (const s of st.sets) {
       const code = markCode(c.marked, s);
       if (code) return fail(code);
@@ -167,8 +168,8 @@ export function checkSummary(c: SummaryCheck, st?: SummaryState): Result {
     const per: [string | undefined, Want][] = typeof w === 'object' ? Object.entries(w) : [[undefined, w]];
     for (const [key, want] of per) {
       const s = setOf(key);
-      const v = st.typed[st.sets.length > 1 ? `${k}-${s.key}` : k];
-      if (v == null) return fail('empty');
+      const v = s && st.typed[st.sets.length > 1 ? `${k}-${s.key}` : k];
+      if (v == null || !s) return fail('empty');
       const ok = want === true ? (k === 'mode' ? modes(s.data) : [statOf(k, s.data)]) : [want];
       if (ok.some((x) => near(v, x, tol))) continue;
       const trap = c.traps?.find((t) => t.stat === k && (t.set === undefined || t.set === s.key) && t.value !== undefined && near(t.value, v, tol));

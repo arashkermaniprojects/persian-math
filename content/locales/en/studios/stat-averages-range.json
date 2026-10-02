@@ -1,0 +1,128 @@
+{
+  "title": "Mode, median, mean and range",
+  "summary": "Line up data cards to find the median, read the mode and range from a dot plot, watch the mean move when one value changes, and choose the best average.",
+  "guide": [
+    "This studio follows KS3 Statistics: the averages (mean, mode, median) and the range as a measure of spread.",
+    "The {{term:median}} is the middle value once the data is in order. With an even number of values there are two middle values, and the median is halfway between them.",
+    "The {{term:mode}} is the value that appears most often: the tallest stack on a dot plot. The {{term:range}} is the largest value minus the smallest: how spread out the data is.",
+    "The {{term:mean}} is what each value would be if everything were shared out equally (the levelled bars you met earlier): add up all the values and divide by how many there are. On a dot plot the mean is the point where the dots would balance (▲).",
+    "Ask: \"Which average tells you most about a typical value here, and why?\""
+  ],
+  "engine": {
+    "stat-mean": "Mean",
+    "stat-median": "Median",
+    "stat-mode": "Mode",
+    "stat-range": "Range",
+    "label-tools": "Tool",
+    "label-tool-move": "↔ Move",
+    "label-tool-mark": "✓ Mark",
+    "label-marked": "marked",
+    "label-cards": "Data cards",
+    "label-move-to": "Now tap the place where this card goes.",
+    "label-stack": "{v}: {n} dots",
+    "label-drag": "Drag this score",
+    "label-plot": "Dot plot:",
+    "label-best": "Which average describes the data best?",
+    "label-slot": "Gap {n}",
+    "axis-size": "shoe size",
+    "axis-score": "score",
+    "axis-wage": "daily pay (× £10)",
+    "cat-red": "red",
+    "cat-blue": "blue",
+    "cat-green": "green",
+    "cat-yellow": "yellow",
+    "head-colour": "Colour",
+    "col-count": "Pupils",
+    "label-chart": "Favourite colours"
+  },
+  "missions": {
+    "median-odd": {
+      "title": "The middle card",
+      "prompt": "Sara read for this many minutes each day last week. Line the cards up from smallest to largest (with \"Move\": tap a card, then its new place). Then choose \"Mark\" and tap the {{term:median}}.",
+      "hint": "First put the cards in order. With 7 cards the middle one has 3 cards on each side.",
+      "success": "Yes! In order: 15, 20, 25, 30, 35, 40, 45. The middle card is 30, so the median is 30 minutes.",
+      "why": "Why must the cards be in order before you look for the middle?",
+      "model": "The median is the middle of the values by size: half the values are smaller and half are larger. In the order they came, the middle card was 15, but 15 is the smallest value, not the middle one. Only in order does the middle card have as many smaller values as larger ones.",
+      "feedback": {
+        "not-ordered": "The cards are not in order yet. Choose \"Move\", tap a card, then tap where it should go.",
+        "unordered-median": "You marked a middle card, but the cards are not in order yet. The median is the middle value by size, so line the cards up first.",
+        "mark-empty": "The cards are in order. Now choose \"Mark\" and tap the middle card.",
+        "not-middle": "That is not the middle card. Count the same number of cards on each side."
+      }
+    },
+    "median-even": {
+      "title": "Two middle cards",
+      "prompt": "Six friends wrote down how many books they read this term. Put the cards in order, mark the middle (how many middle cards are there?), then type the {{term:median}}.",
+      "hint": "With 6 cards there is no single middle card: there are two, with 2 cards on each side. The median is halfway between them.",
+      "success": "Right! In order: 3, 4, 6, 7, 8, 9. The two middle cards are 6 and 7, and halfway between them is (6 + 7) ÷ 2 = {{num:6.5}}.",
+      "why": "The median is {{num:6.5}}, but nobody read {{num:6.5}} books. Does the median still make sense?",
+      "model": "Yes. The median does not have to be one of the values. It is the point in the middle of the ordered data: 3 friends read fewer than {{num:6.5}} books and 3 read more. With an even count, the middle falls between two values, so we take the number halfway between them.",
+      "feedback": {
+        "not-ordered": "Put the cards in order first: choose \"Move\", tap a card, then its new place.",
+        "unordered-median": "The cards (or the numbers you used) are not in order. Line the cards up first, then find the middle.",
+        "mark-empty": "Choose \"Mark\" and tap the middle cards.",
+        "even-middle": "With 6 cards there are two middle cards. The median is halfway between them, so mark both and use both.",
+        "not-middle": "Those are not the middle cards. There should be 2 cards on each side.",
+        "empty": "Type the median in the box.",
+        "too-big": "Too big. The median lies between the two middle cards.",
+        "too-small": "Too small. The median lies between the two middle cards."
+      }
+    },
+    "mode-range": {
+      "title": "Shoe sizes",
+      "prompt": "The dot plot shows the shoe sizes of 12 pupils. A shop wants to know which size to stock most of. Type the {{term:mode}} and the {{term:range}}. You can tap a stack to highlight it.",
+      "hint": "The mode is the size with the tallest stack. The range is the largest size minus the smallest size.",
+      "success": "Well done! The mode is size 38 (4 pupils), and the range is 41 − 36 = 5.",
+      "why": "Why is the mode the useful average for the shop?",
+      "model": "The shop sells whole shoe sizes. The mode is the size most pupils wear, so it is the size the shop will sell most of. A mean of about {{num:38.2}} is not a shoe size anyone can buy.",
+      "feedback": {
+        "empty": "Type both the mode and the range.",
+        "mode-is-frequency": "4 is how many pupils wear the most common size. The mode is the size itself: which size has the tallest stack?",
+        "range-is-max": "41 is the largest size. The range is how far apart the largest and smallest are: largest − smallest.",
+        "too-big": "One of your answers is too big. Check the tallest stack and the two ends of the plot.",
+        "too-small": "One of your answers is too small. Check the tallest stack and the two ends of the plot."
+      }
+    },
+    "mean-outlier": {
+      "title": "One score changes",
+      "prompt": "Sara's quiz scores are 12, 14, 14, 15 and 15. The ▲ shows the {{term:mean}}, the point where the dots balance. One 15 was copied wrongly: it should be 20. Drag that dot to 20, watch what moves, and type the new mean.",
+      "hint": "Add the five scores after the change: 12 + 14 + 14 + 15 + 20. Then divide by 5.",
+      "success": "Yes! 75 ÷ 5 = 15. The mean moved from 14 to 15, but the median stayed at 14.",
+      "why": "One score went up by 5. Why did the mean change but the median not?",
+      "model": "The mean uses every value: the total went up by 5, and shared between 5 scores that is 1 more each, so the mean went from 14 to 15. The median only looks at the middle value in order, and the middle score is still 14. That is why one very large or very small value pulls the mean but hardly moves the median.",
+      "feedback": {
+        "not-moved": "First drag the last dot (15) to 20.",
+        "empty": "Type the new mean in the box.",
+        "median-not-mean": "14 is the median: the middle score, which did not move. The mean uses every score: add them all up again.",
+        "total-only": "75 is the total. Now share it between the 5 scores: divide by 5.",
+        "too-big": "Too big. Is the dot at 20? Add the five scores and divide by 5.",
+        "too-small": "Too small. Is the dot at 20? Add the five scores and divide by 5."
+      }
+    },
+    "best-wages": {
+      "title": "Which average?",
+      "prompt": "Seven people work in a small workshop. The dot plot shows each person's daily pay in tens of pounds (3 means £30); the 32 is the owner. Which average best describes what a typical worker earns?",
+      "hint": "Look at the mean. How many of the seven earn more than it?",
+      "success": "Yes! The median (4, that is £40) is in the middle of what people earn. The owner's 32 pulls the mean up to 8 (£80), more than six of the seven earn.",
+      "why": "Why is the mean a poor choice for this data?",
+      "model": "One value (32) is far from the others. The mean adds it in, so it is pulled up to 8, and six of the seven people earn less than that. The median is the middle value in order, so one very large value does not move it: 4 is close to what most people earn.",
+      "feedback": {
+        "best-empty": "Choose one of the averages.",
+        "mean-pulled": "The mean is 8 (£80), but six of the seven earn less than that. One very large value has pulled it up.",
+        "mode-lowest": "The mode (3, that is £30) is the lowest pay here, so it is not in the middle. Which average shows the middle?"
+      }
+    },
+    "best-colours": {
+      "title": "Favourite colours",
+      "prompt": "20 pupils chose their favourite colour. Which average can you use for this data?",
+      "hint": "Can you add up \"red + blue\"? Can you put colours in order of size?",
+      "success": "Right! Colours are words, not numbers, so the only average is the mode: blue, chosen by 8 pupils.",
+      "why": "Why can't you find the mean or the median of the colours?",
+      "model": "The mean needs adding and dividing, and the median needs the values in order of size. You cannot add colours or say that one colour is bigger than another. You can only count which colour appears most often: that is the mode.",
+      "feedback": {
+        "best-empty": "Choose one of the averages.",
+        "categorical": "Colours are not numbers: you cannot add them or put them in order of size. Which average only needs counting?"
+      }
+    }
+  }
+}
