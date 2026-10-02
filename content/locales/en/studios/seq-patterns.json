@@ -1,0 +1,115 @@
+{
+  "title": "Repeating and number patterns",
+  "summary": "Shapes and numbers that follow a rule. Find the pattern, continue it and fix it.",
+  "guide": [
+    "This studio is for Years 2–3 (ages 7–9). The sentences are short; read them aloud if your child needs it. The small picture above each mission shows what to do.",
+    "In a repeating {{term:pattern}}, one chunk comes again and again. We call it the unit of repeat. Children should find the unit and use it to continue the pattern.",
+    "To place a shape, first tap an empty space, then tap a shape underneath. The chosen space has a thick outline.",
+    "In growing and number patterns, each figure or number comes from the one before by a rule, for example “add 4 each time”. Numbers and figures run from left to right.",
+    "Ask your child “How did you know?”. Saying the rule in their own words is the heart of spotting patterns."
+  ],
+  "engine": {
+    "color-red": "red",
+    "color-blue": "blue",
+    "color-yellow": "yellow",
+    "color-green": "green",
+    "color-purple": "purple",
+    "color-orange": "orange",
+    "shape-circle": "circle",
+    "shape-square": "square",
+    "shape-triangle": "triangle",
+    "shape-star": "star",
+    "shape-diamond": "diamond",
+    "shape-heart": "heart",
+    "label-empty": "empty",
+    "label-position": "space {n}",
+    "label-pattern": "pattern",
+    "label-palette": "shapes to place",
+    "label-figure": "figure {n}",
+    "label-figure-no": "figure",
+    "label-count": "matchsticks",
+    "label-count-of": "matchsticks in figure {n}",
+    "label-term": "number in space {n}",
+    "label-step": "How much is added each time?",
+    "instruction-continue": "Continue the pattern.",
+    "instruction-unit": "Where does it start again?",
+    "instruction-fix": "Find the mistake and fix it.",
+    "instruction-count": "Count, then predict.",
+    "instruction-jump": "Count on in jumps."
+  },
+  "missions": {
+    "continue-pattern": {
+      "title": "Continue the pattern",
+      "prompt": "Look at this pattern. The last three spaces are empty. Fill them with the shapes below.",
+      "hint": "Say it aloud: circle, triangle, triangle; circle, triangle, triangle; … What comes next?",
+      "success": "Well done! Red circle, blue triangle, blue triangle, and then it starts again.",
+      "why": "How did you know a circle comes after two triangles?",
+      "model": "Because these three repeat together: one red circle, then two blue triangles. After every two triangles, the circle comes back.",
+      "feedback": {
+        "not-finished": "There is still an empty space. Tap it and place a shape.",
+        "wrong-color": "The shape is right but not the colour. Look at the colours too.",
+        "wrong-shape": "The colour is right but not the shape. Circle or triangle?",
+        "wrong-item": "One shape does not fit. Read the pattern from the start and go along."
+      }
+    },
+    "find-the-unit": {
+      "title": "Find the unit of repeat",
+      "prompt": "One chunk of this pattern repeats. Tap the shape where the pattern <b>starts again</b>.",
+      "hint": "Two stars, two squares … what comes next? That is where the pattern starts again.",
+      "success": "Right! Star, star, square, square. That chunk repeats.",
+      "why": "Why is “star, star” on its own not the unit of repeat?",
+      "model": "Because after two stars another star does not come; a square does. The chunk that comes again and again has four shapes: star, star, square, square.",
+      "feedback": {
+        "empty": "Tap the shape where the pattern starts again.",
+        "unit-short": "Too soon! That chunk does not come again straight after. Go a bit further.",
+        "unit-long": "That is in the middle of the pattern. Find where star, star starts again.",
+        "unit-repeats": "Your chunk is the unit twice over. Make it shorter."
+      }
+    },
+    "fix-the-mistake": {
+      "title": "Fix the mistake",
+      "prompt": "One shape in this pattern is wrong. Tap it, then choose the right shape below.",
+      "hint": "The unit has three shapes: heart, circle, square. Check them one by one.",
+      "success": "Well done! Now the pattern is right: red heart, yellow circle, blue square.",
+      "why": "How did you find the wrong shape?",
+      "model": "After every red heart there should be a yellow circle. Space 5 had a blue circle. The shape was right but the colour was not.",
+      "feedback": {
+        "wrong-color": "One colour is still wrong. What colour are the circles?",
+        "wrong-shape": "One shape still does not fit. What shape comes after a heart?",
+        "wrong-item": "One space still does not fit. Read it from the start: heart, circle, square, …"
+      }
+    },
+    "matchsticks": {
+      "title": "Matchstick pattern",
+      "prompt": "We made squares from matchsticks. Each figure has one more square. How many matchsticks are in figure 4 and figure 10?",
+      "hint": "From figure 1 to figure 2, how many sticks were added? And from figure 2 to figure 3?",
+      "success": "Right! 3 sticks are added each time: 4, 7, 10, 13, … Figure 10 has 31 sticks.",
+      "why": "Why are 3 sticks added each time, not 4?",
+      "model": "The new square is joined to the one before it. One of its sides is already there, so it needs only 3 sticks. Figure 10: the first stick plus 10 lots of 3 sticks, so 1 + 30 = 31.",
+      "feedback": {
+        "empty": "Write a number in both spaces of the table.",
+        "four-each": "You counted 4 sticks for every square. But the squares share a side. Count figure 2 again.",
+        "forgot-first": "Close! You forgot the very first stick on the left.",
+        "doubled": "Figure 10 is not double figure 5: two separate figures would each have a first stick. Count on in 3s.",
+        "too-big": "Too many. Only 3 sticks are added each time.",
+        "too-small": "Too few. 3 sticks are added each time; count on from 10."
+      }
+    },
+    "number-jumps": {
+      "title": "Number jumps",
+      "prompt": "The numbers go up in equal jumps. Write the size of the jump and fill in the empty spaces.",
+      "hint": "How many from 3 to 7? And from 7 to 11?",
+      "success": "Well done! The numbers go up in 4s: 3, 7, 11, 15, 19, 23.",
+      "why": "If we carry on, will 40 be in this pattern? Why?",
+      "model": "No. The pattern goes 3, 7, 11, 15, 19, 23, 27, 31, 35, 39, 43. It has 39 and then 43. 40 is in between.",
+      "feedback": {
+        "empty": "Fill in every empty space, and the size of the jump too.",
+        "wrong-step": "The jump size is not right. Count from 3 to 7: 4, 5, 6, 7.",
+        "counted-start": "You counted the 11 itself. Count on four from 11: 12, 13, 14, 15.",
+        "added-one": "You only added one. The jumps are bigger.",
+        "too-big": "One of the numbers is too big. Look at the jump size.",
+        "too-small": "One of the numbers is too small. Look at the jump size."
+      }
+    }
+  }
+}

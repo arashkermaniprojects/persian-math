@@ -1,0 +1,45 @@
+id: ops-division
+engine: long-division
+strand: ops
+order: 9
+concepts: [ops.div.remainder, ops.div.short, ops.div.written, ops.check.mul-div]
+# Layout (gallows for fa-IR/fa-AF/ps, bus stop for en) comes from the locale file's engine.layout (docs/NOTATION.md §3).
+# Remainders follow Iran G3 «تقسیم با باقی‌مانده» (p.145: 17 flowers, 4 vases); one-digit divisors Iran G4 p.64 and
+# Afghan G3 p.117–121; two-digit divisors Iran G4 p.68 and Afghan G4 p.67–75; checking with
+# quotient × divisor + remainder is Afghan G4 p.87 «امتحان عملیهٔ تقسیم که باقیمانده داشته باشد».
+# The engine has one written layout, so "short division" is done as the long layout with one-digit divisors.
+missions:
+  # 17 ÷ 4 = 4 r 1: the remainder is what is left over and is smaller than the divisor.
+  - id: flowers
+    setup: { dividend: 17, divisor: 4 }
+    check: { type: steps-correct }
+  # 30 ÷ 4 = 7 r 2, but 8 cars are needed: the remainder decides the answer in context.
+  - id: cars
+    setup: { dividend: 30, divisor: 4 }
+    answer: integer
+    check:
+      type: answer-integer
+      value: 8
+      traps:
+        - { value: 7, code: dropped-remainder }
+        - { value: 2, code: gave-remainder }
+        - { value: 72, code: wrote-both }
+  # Three digits by one digit, with a remainder: 745 ÷ 3 = 248 r 1.
+  - id: three-digits
+    setup: { dividend: 745, divisor: 3 }
+    check: { type: steps-correct }
+  # A two-digit divisor: 296 ÷ 12 = 24 r 8.
+  - id: two-digit-divisor
+    setup: { dividend: 296, divisor: 12 }
+    check: { type: steps-correct }
+  # Check a division: 95 ÷ 4 = 23 r 3, so 23 × 4 + 3 must give back 95 (the whole sheet is given).
+  - id: check-it
+    setup: { dividend: 95, divisor: 4, given: 2 }
+    answer: integer
+    check:
+      type: answer-integer
+      value: 95
+      traps:
+        - { value: 92, code: forgot-remainder }
+        - { value: 89, code: took-remainder }
+        - { value: 27, code: added-divisor }

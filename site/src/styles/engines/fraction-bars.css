@@ -1,0 +1,48 @@
+/* Styles for <kg-fraction-bars>. Loaded on every page via the glob in layouts/Base.astro. */
+/* ---------- engine: fraction bars ---------- */
+kg-fraction-bars { display: flex; flex-direction: column; gap: 0.9rem; }
+.kg-fb-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
+.kg-fb-bar { flex: 1 1 16rem; display: grid; min-block-size: 56px; border: 2px solid var(--fg); border-radius: 6px; overflow: hidden; }
+.kg-fb-cell { border: 0; border-inline-end: 2px solid var(--fg); background: var(--cell); min-block-size: 56px; padding: 0; }
+.kg-fb-cell:last-child { border-inline-end: 0; }
+.kg-fb-cell.on { background: var(--shade); }
+button.kg-fb-cell:focus-visible { outline: 3px solid var(--accent); outline-offset: -5px; }
+.kg-fb-parts { display: flex; align-items: center; gap: 0.3rem; }
+.kg-fb-parts button { min-inline-size: 44px; min-block-size: 44px; border-radius: 50%; border: 2px solid var(--accent); background: transparent; color: var(--accent); font-size: 1.3rem; }
+.kg-fb-parts output { min-inline-size: 2ch; text-align: center; font-weight: 700; }
+.kg-fb-label { font-size: 1.3rem; min-inline-size: 2.5rem; text-align: center; }
+
+/* ---------- fraction bars: compare layout ---------- */
+.kg-fb-bar { position: relative; }
+/* keepAmount: where the starting amount ends, so the learner sees which partitions line up with it */
+.kg-fb-mark { position: absolute; inset-block: 0; inline-size: 4px; margin-inline-start: -2px; background: var(--accent); pointer-events: none; z-index: 1; }
+/* more than 12 parts: thin cell lines so the cells stay readable */
+.kg-fb-bar.many .kg-fb-cell { border-inline-end-width: 1px; }
+/* compare: every bar has the same width and starts at the same edge; +/− controls go under their bar */
+kg-fraction-bars[compare] { gap: 0.7rem; }
+kg-fraction-bars[compare] .kg-fb-bar { flex: 1 1 0; min-inline-size: 0; }
+kg-fraction-bars[compare] .kg-fb-label { flex: 0 0 3rem; }
+kg-fraction-bars[compare] .kg-fb-parts { order: 3; flex-basis: 100%; justify-content: center; }
+/* comparison statements such as "2/5 < 3/5" are formulas: always LTR, as in both countries' books (NOTATION.md §6) */
+.mission:has(kg-fraction-bars[compare]) .choices { direction: ltr; }
+.mission:has(kg-fraction-bars[compare]) .choice { unicode-bidi: isolate; }
+
+/* ---------- fraction bars: area model ---------- */
+/* given: cells pre-coloured in a second colour ("what you already have"); dotted so they differ by more than hue */
+kg-fraction-bars {
+  --given: #3b82c4;
+  --fb-dots: radial-gradient(circle, rgb(255 255 255 / 0.45) 1.6px, transparent 2.2px);
+  --fb-hatch: repeating-linear-gradient(135deg, color-mix(in srgb, var(--given) 55%, transparent) 0 3px, transparent 3px 10px);
+}
+@media (prefers-color-scheme: dark) {
+  kg-fraction-bars { --given: #5aa6e0; --fb-dots: radial-gradient(circle, rgb(0 0 0 / 0.35) 1.6px, transparent 2.2px); }
+}
+.kg-fb-cell.given { background-color: var(--given); background-image: var(--fb-dots); background-size: 10px 10px; }
+/* tint: the columns you take a fraction of (striped); shading on top keeps the stripes visible */
+.kg-fb-cell.tint { background-image: var(--fb-hatch); }
+.kg-fb-cell.tint.on { background-color: var(--shade); background-image: var(--fb-hatch); }
+/* area model: rows × columns of cells, separated by 2px lines */
+.kg-fb-bar.grid { gap: 2px; background: var(--fg); }
+.kg-fb-bar.grid .kg-fb-cell { border: 0; min-block-size: 44px; }
+/* linkParts: the one set of −/+ controls gets its own line, so every bar keeps the same width */
+kg-fraction-bars[link-parts] .kg-fb-parts { order: 3; flex-basis: 100%; justify-content: center; }

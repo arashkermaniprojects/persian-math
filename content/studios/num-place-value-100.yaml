@@ -1,0 +1,36 @@
+id: num-place-value-100
+engine: place-value
+strand: num
+order: 4
+concepts: [num.place-value.to-100, num.count.to-100, ops.add-sub.tens, ops.add-sub.regroup]
+# Grade 1. The view is auto: «چوت» abacus for fa-AF/ps (AF_G02_riazi.pdf p.60–62), blocks (tied ten-bundles) for fa-IR
+# and Dienes-style blocks for en; the learner can switch. Two columns: tens and ones (place-0, place-1 labels).
+missions:
+  # Bundle: ten loose ones become one ten. The value stays 14; only the exchange makes the check pass.
+  - id: make-a-ten
+    setup: { counts: [14, 0], instruction: bundle }
+    check: { type: place-value, value: 14, canonical: true }
+  # Read and write: a fixed picture of 4 tens and 7 ones, no table (that would give the answer away).
+  - id: read-the-number
+    setup: { value: 47, locked: true, table: false, views: [], instruction: read }
+    answer: integer
+    check:
+      type: answer-integer
+      value: 47
+      traps: [{ value: 74, code: reversed }, { value: 11, code: added-digits }]
+  # Add whole tens: 25 + 3 tens. Only the tens digit changes.
+  - id: add-tens
+    setup: { value: 25, instruction: add }
+    check:
+      type: place-value
+      value: 55
+      canonical: true
+      traps: [{ value: 28, code: added-ones }]
+  # Break a ten: 32 − 5 needs a ten opened into ten ones first (exchange down).
+  - id: break-a-ten
+    setup: { value: 32, instruction: break }
+    check:
+      type: place-value
+      value: 27
+      canonical: true
+      traps: [{ value: 30, code: only-two }, { value: 22, code: took-ten }, { value: 12, code: took-tens }]

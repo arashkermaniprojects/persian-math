@@ -1,0 +1,75 @@
+{
+  "title": "Ratio and sharing in a ratio",
+  "summary": "Use two-colour bars to see what 2 : 3 means, simplify ratios, and share an amount in a given ratio.",
+  "guide": [
+    "A {{term:ratio}} compares two amounts. 2 : 3 (\"2 to 3\") means for every 2 of the first, there are 3 of the second.",
+    "On the bar, shaded parts are the first thing and white parts are the second. A ratio of 2 : 3 is 2 shaded parts and 3 white parts, 5 parts altogether.",
+    "Careful: \"2 to 3\" is not \"2 out of 3\". In the ratio 2 : 3, the first thing is {{frac:2/5}} of the whole, not {{frac:2/3}}.",
+    "Equivalent ratios work like equivalent fractions: multiply or divide both numbers by the same number."
+  ],
+  "engine": {
+    "label-cell": "part"
+  },
+  "missions": {
+    "build-ratio": {
+      "title": "Squash, 2 : 3",
+      "prompt": "Maryam is making squash: the ratio of cordial to water is 2 : 3. That's 2 cups of cordial for every 3 cups of water. Use + and − to get the right number of parts on the bar. Then shade the cordial parts; the white parts are water.",
+      "hint": "Each cup is one part. How many cups altogether? Make the bar that many parts.",
+      "success": "Well done! 2 parts cordial and 3 parts water: 5 parts altogether. The cordial is {{frac:2/5}} of the drink.",
+      "why": "Reza says \"a ratio of 2 : 3 means the cordial is {{frac:2/3}} of the drink\". Is he right? Explain with the bar.",
+      "model": "No. {{frac:2/3}} means \"2 out of 3\", but the ratio 2 : 3 compares cordial with water, not with the whole drink. The drink is 2 + 3 = 5 parts, so the cordial is {{frac:2/5}} and the water is {{frac:3/5}}. With 4 cups of cordial and 6 of water it tastes the same, because 4 : 6 is equivalent to 2 : 3.",
+      "feedback": {
+        "too-big": "Too much cordial! With only 3 parts there is no room for 3 cups of water. How many parts do 2 cups of cordial and 3 cups of water make?",
+        "too-small": "Not enough cordial. For every 2 parts of cordial there should be only 3 parts of water.",
+        "empty": "First get the right number of parts, then shade the cordial."
+      }
+    },
+    "simplify-ratio": {
+      "title": "Simplify 6 : 9",
+      "prompt": "Zahra has 6 red beads (shaded) and 9 blue beads (white). The ratio of red to blue is 6 : 9. 6 : 9 = 2 : what? Predict first. Then use − to put the beads into bigger groups until there are 5 groups.",
+      "hint": "With 5 groups, how many groups are red and how many are blue?",
+      "success": "Correct! 6 : 9 = 2 : 3: every 3 beads made one group.",
+      "why": "Hassan says \"6 : 9 = 2 : 5, because I took 4 off both\". Why is that wrong?",
+      "model": "For equivalent ratios we multiply or divide both numbers by the same number; we don't subtract. 6 and 9 are both divisible by 3: 6 ÷ 3 = 2 and 9 ÷ 3 = 3. On the bar, every 3 beads became one group: 2 red groups and 3 blue groups. Taking 4 off both leaves 2 red and 5 blue, which has more blue for each red than before, so it isn't the same ratio.",
+      "feedback": {
+        "additive": "You took 4 off both numbers. For a ratio you divide: what did 6 get divided by to make 2? Divide 9 by the same number.",
+        "unchanged": "9 is all the blue beads. When 6 simplifies to 2, the 9 has to simplify too.",
+        "too-big": "Too big. 6 was divided by 3 to make 2. Divide 9 by 3 as well.",
+        "too-small": "Too small. 6 ÷ 3 = 2. What is 9 ÷ 3?",
+        "empty": "Type a number: 2 to what?"
+      }
+    },
+    "ratio-to-fraction": {
+      "title": "From ratio to fraction",
+      "prompt": "In a class the ratio of boys to girls is 3 : 4. What fraction of the class are girls? Predict first. Then build the bar and shade the girls' parts. Type the answer as a fraction.",
+      "hint": "For every 3 boys there are 4 girls. How many children are in one full group?",
+      "success": "Well done! In every 7 children, 4 are girls: the girls are {{frac:4/7}} of the class and the boys {{frac:3/7}}.",
+      "why": "If there are 28 children in the class, how many are girls? Explain with the 7-part bar.",
+      "model": "The bar has 7 parts and 28 children share into 7 parts: each part is 28 ÷ 7 = 4 children. The girls are 4 parts, so 4 × 4 = 16 girls. That is, {{frac:4/7}} of 28 is 16. The boys are 3 parts, 12 children, and 12 : 16 is the same as 3 : 4.",
+      "feedback": {
+        "ratio-as-fraction": "That fraction compares boys and girls with each other. But the question is what fraction of the whole class are girls. How many parts is the whole class?",
+        "boys": "{{frac:3/7}} is the fraction of boys. What fraction are girls?",
+        "too-big": "Too big. The denominator must be all the children: 3 boys and 4 girls.",
+        "too-small": "Too small. How many girls are in each group?",
+        "empty": "Type the fraction: numerator and denominator."
+      }
+    },
+    "share-in-ratio": {
+      "title": "Share 28 walnuts in the ratio 3 : 4",
+      "prompt": "Ali and Sara share 28 walnuts in the ratio 3 : 4. The 3 blue parts are Ali's share. Shade Sara's parts. First predict: how many walnuts does Sara get?",
+      "hint": "The bar has 7 parts altogether and shows 28 walnuts. How many walnuts in each part?",
+      "success": "Correct! Each part is 28 ÷ 7 = 4 walnuts. Sara has 4 parts: 4 × 4 = 16 walnuts. Ali gets 12, and 12 + 16 = 28.",
+      "why": "Ahmad divided 28 by 4 and said Sara's share is 7. Why do we divide by 7?",
+      "model": "The ratio 3 : 4 means the walnuts are split into 3 + 4 = 7 equal parts. So first divide 28 by 7 to find one part: 4 walnuts. Sara gets 4 parts: 16 walnuts. Dividing 28 by 4 treats the walnuts as only 4 parts and forgets Ali's share. Check: 12 + 16 = 28.",
+      "feedback": {
+        "other-share": "12 is Ali's share (3 parts). Sara's share is 4 parts.",
+        "divided-by-part": "You divided 28 by 4. But the walnuts are split into 3 + 4 = 7 equal parts.",
+        "one-part": "4 walnuts is just one part. Sara gets 4 parts.",
+        "halved": "You split them half and half. But the ratio is 3 : 4, not 1 : 1: Sara gets more than Ali.",
+        "too-big": "Too many. Ali gets 3 parts too; leave some for him.",
+        "too-small": "Too few. Sara gets 4 of the 7 parts, more than half.",
+        "empty": "Type a number: how many walnuts does Sara get?"
+      }
+    }
+  }
+}

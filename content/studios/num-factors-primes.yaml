@@ -1,0 +1,61 @@
+id: num-factors-primes
+engine: counters
+strand: num
+order: 9
+concepts: [num.factors-multiples, num.primes, num.prime-factorisation]
+# Arrays that keep n counters: the learner changes only the row length; when it is not a factor the last row is
+# short, so a factor = a row length that makes a full rectangle (Iran G7 «شمارنده‌ها»: ۱۲ دایره را دسته‌های مساوی
+# کنید; Afghan G5 «مفاهیم قاسم و مضرب»). A prime makes only the 1-row rectangle. Then a factor tree (Iran G7
+# «شمارندهٔ اول», Afghan G6 «تجزیه به اعداد اولیه»). Terms: Iran شمارنده, Afghan قاسم, UK factor.
+missions:
+  # 12 counters into 3 equal rows: how long is each row? 12 = 3 × 4.
+  - id: rectangles-of-twelve
+    setup:
+      instruction: tap
+      zones:
+        - { kind: array, cols: 1, keep: 12, maxCols: 12 }
+      sentence: "12 = 3 × ?"
+      pick: [1, 12]
+    check:
+      type: counters
+      rect: true
+      array: [3, 4]
+      pick: 4
+      traps: [{ pick: 9, code: subtracted }, { pick: 3, code: rows }]
+  # Every rectangle of 18: the row lengths that work are the factors. How many factors does 18 have?
+  - id: factors-of-eighteen
+    setup:
+      instruction: tap
+      zones:
+        - { kind: array, cols: 1, keep: 18, maxCols: 18 }
+      pick: [1, 18]
+    check:
+      type: counters
+      rect: true
+      pick: 6
+      traps: [{ pick: 3, code: pairs }, { pick: 4, code: forgot-ends }, { pick: 18, code: the-number }, { pick: 5, code: missed-one }]
+  # 13 makes only one rectangle (a single row or column): it has exactly 2 factors, so it is prime.
+  - id: prime-thirteen
+    setup:
+      instruction: tap
+      zones:
+        - { kind: array, cols: 1, keep: 13, maxCols: 13 }
+      pick: [1, 13]
+    check:
+      type: counters
+      rect: true
+      pick: 2
+      traps: [{ pick: 1, code: only-one }, { pick: 13, code: the-number }, { pick: 3, code: not-a-factor }, { pick: 4, code: not-a-factor }]
+  # Factor tree of 60 until every end is prime; 60 = 2 × 2 × 3 × 5.
+  - id: tree-of-sixty
+    setup:
+      instruction: tree
+      zones:
+        - { kind: tree, value: 60 }
+      sentence: "60 = 2 × 2 × 3 × ?"
+      pick: [1, 10]
+    check:
+      type: counters
+      tree: true
+      pick: 5
+      traps: [{ pick: 10, code: not-prime }, { pick: 6, code: not-prime }, { pick: 4, code: not-prime }]

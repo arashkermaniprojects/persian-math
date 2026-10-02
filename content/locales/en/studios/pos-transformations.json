@@ -1,0 +1,103 @@
+{
+  "title": "Reflection, rotation and rotational symmetry",
+  "summary": "Plot points in all four quadrants, reflect shapes in an axis, rotate them about a point, and find shapes with a centre of symmetry.",
+  "guide": [
+    "Extending both axes past 0 splits the grid into four {{term:quadrant}}s. A negative x-coordinate is left of the origin; a negative y-coordinate is below it. (−3, 2) means 3 left, then 2 up.",
+    "A {{term:reflection}} works like a mirror: every point ends up the same distance away on the other side of the mirror line. Reflecting in the y-axis changes the sign of x and keeps y. The classic slip is sliding the shape across instead of flipping it.",
+    "In a {{term:rotation}} the shape turns about a point, the centre of rotation. For 90°, turn the line from the centre to each vertex through a quarter turn. Tracing paper with a pencil point on the centre helps a lot. (Rotation is not in the KS2 curriculum; treat it as enrichment.)",
+    "A shape that fits onto itself after a half turn has {{term:rotational-symmetry}} of order 2 (also called {{term:point-symmetry}}), and the point it turns about is its centre of symmetry: parallelograms and rectangles are examples. An equilateral triangle fits onto itself after a third of a turn (order 3), but not after a half turn."
+  ],
+  "engine": {
+    "letters": "A B C D E F G H I J",
+    "label-board": "Coordinate grid",
+    "label-undo": "Undo",
+    "label-clear": "Clear",
+    "label-shape": "Shape",
+    "label-corners": "{n} vertices",
+    "label-coords": "({x}, {y})",
+    "label-parallelogram": "Orange parallelogram",
+    "label-triangle": "Green triangle",
+    "label-zed": "Blue shape",
+    "label-kite": "Red shape",
+    "label-rectangle": "Purple rectangle",
+    "label-trapezium": "Yellow trapezium",
+    "label-centre": "Centre",
+    "instruction-points": "Tap where the point goes.",
+    "instruction-mirror": "Draw the reflection, then tap the first vertex again.",
+    "instruction-draw": "Tap the vertices to draw.",
+    "instruction-tap": "Tap the shapes with a centre of symmetry."
+  },
+  "missions": {
+    "four-quadrants": {
+      "title": "Four quadrants",
+      "prompt": "Plot the point A{{vec:-3,2}}. Which quadrant is it in?",
+      "hint": "x is −3: go 3 to the <b>left</b> of the origin. y is 2: then go 2 up.",
+      "success": "Well done! A(−3, 2) is in the second quadrant: left of the y-axis and above the x-axis.",
+      "why": "Where is (3, 2)? How is it related to A?",
+      "model": "(3, 2) is in the first quadrant, 3 to the right of the origin. The two points are reflections of each other in the y-axis: same y-coordinate, opposite x-coordinates.",
+      "feedback": {
+        "empty": "Tap the grid to plot a point.",
+        "sign": "You left out the minus sign. x = −3 means 3 to the left of the origin, not the right.",
+        "sign-y": "x is right, but y = 2 is positive: the point is above the x-axis.",
+        "swapped": "You swapped x and y. The first number (−3) is across.",
+        "too-many": "Plot just one point. Tap a point again to remove it.",
+        "wrong-point": "That point is not (−3, 2). From the origin go 3 left, then 2 up."
+      }
+    },
+    "reflect-y-axis": {
+      "title": "Reflect in the y-axis",
+      "prompt": "Reflect triangle ABC in the y-axis (the dashed line). Predict first: where will the image of B{{vec:4,1}} be?",
+      "hint": "Each vertex goes the same distance to the other side of the mirror line. B is 4 to the right of the axis, so its image is 4 to the left, at the same height.",
+      "success": "Well done! That is the reflection. The triangle has flipped over, like a mirror image.",
+      "why": "Compare the coordinates of each vertex and its image. What changed, and what stayed the same?",
+      "model": "The x-coordinates changed sign and the y-coordinates stayed the same: A(1, 1) went to (−1, 1) and B(4, 1) went to (−4, 1). Reflecting in the y-axis only swaps left and right.",
+      "feedback": {
+        "empty": "Tap the grid to draw the reflection.",
+        "open": "Your shape is still open. Tap the first vertex to close it.",
+        "slid": "You slid the same triangle across. A reflection flips it: B, the vertex furthest from the axis, must be furthest on the other side too.",
+        "not-image": "That is not the reflection. Count how far each vertex is from the dashed line and go the same distance on the other side, at the same height."
+      }
+    },
+    "rotate-quarter": {
+      "title": "Rotate 90°",
+      "prompt": "Rotate triangle ABC 90° clockwise about the origin, and draw its image.",
+      "hint": "Turn the line from the origin to each vertex a quarter turn clockwise. C(1, 4) is above the origin; after the turn it is to the right: (4, −1).",
+      "success": "Well done! The triangle made a quarter turn clockwise, from the first quadrant to the fourth.",
+      "why": "Look at A(1, 1) and its image. Can you find a rule for this rotation?",
+      "model": "A(1, 1) went to (1, −1), B(3, 1) to (1, −3) and C(1, 4) to (4, −1). The old y-coordinate becomes the new x, and the old x with its sign changed becomes the new y: (x, y) → (y, −x).",
+      "feedback": {
+        "empty": "Tap the grid to draw the image.",
+        "open": "Your shape is still open. Tap the first vertex to close it.",
+        "wrong-way": "You turned it anticlockwise, into the second quadrant. Clockwise turns up towards the right.",
+        "not-image": "That is not the rotated triangle. Turn each vertex on its own: C(1, 4) goes to (4, −1). Each vertex must stay the same distance from the origin."
+      }
+    },
+    "centre-of-symmetry": {
+      "title": "Centre of symmetry",
+      "prompt": "Which shapes look exactly the same after a half turn about their middle? Tap all of them.",
+      "hint": "Imagine turning each shape upside down. Is it the same shape? In a shape with a centre of symmetry, every vertex has a partner straight across the middle.",
+      "success": "Well done! The parallelogram, the blue shape and the rectangle all have a centre of symmetry.",
+      "why": "The equilateral triangle fits onto itself after a third of a turn. So why did it not count?",
+      "model": "We wanted shapes that fit after a half turn. Turn the triangle half a turn and its point is at the bottom, so it does not fit. It has rotational symmetry of order 3, but not of order 2.",
+      "feedback": {
+        "empty": "Tap the shapes that look the same after a half turn.",
+        "third-turn": "The green triangle fits onto itself after a third of a turn, but a half turn leaves it upside down. It has no centre of symmetry.",
+        "line-only": "That shape has a line of symmetry, but no centre of symmetry. Turn it half a turn: its top and bottom are different.",
+        "extra": "One shape you tapped does not fit onto itself after a half turn. Tap it again to remove it.",
+        "missed": "There is another shape that fits onto itself after a half turn."
+      }
+    },
+    "complete-half-turn": {
+      "title": "Complete the shape",
+      "prompt": "The red dot is the centre of symmetry. Draw the other half. Start at the red dot; the line ends after 4 points.",
+      "hint": "In a half turn every point goes the same distance to the other side of the centre. A vertex 2 squares above the centre goes to 2 squares below it.",
+      "success": "Well done! The shape now looks the same after a half turn about the red dot.",
+      "why": "Where does the vertex at (7, 5) go when it is turned about the centre (4, 4)? How do you know?",
+      "model": "To (1, 3). From the centre to (7, 5) is 3 right and 1 up, so its image is 3 left and 1 down from the centre. The centre is the midpoint of each point and its image.",
+      "feedback": {
+        "empty": "Start at the red dot and draw the other half.",
+        "not-image": "That half is not a half turn. Did you reflect it in a line? A half turn sends up to down and right to left, both at once."
+      }
+    }
+  }
+}

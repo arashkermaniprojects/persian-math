@@ -1,0 +1,78 @@
+id: ratio-proportion
+engine: problem-canvas
+strand: ratio
+order: 2
+concepts: [ratio.unitary, ratio.rate, ratio.proportion, ratio.proportion.direct, ratio.proportion.inverse, ratio.problems]
+# The 'make a table' strategy with the proportion table («جدول تناسب»): given columns from the problem, cells the
+# learner fills, and computed columns that show what stays the same.
+# - Iran G5 «تناسب» p.88: milk and calcium (10 L → 12 g, 15 L → 18 g; 20 L → ?, ? → 6 g). The book draws the
+#   table with the quantities as rows; here they are columns (the engine's table), one case per row.
+# - Unitary method (UK; Iran «روش واحد»; Afghan «احدیت»): first one item, then seven.
+# - Iran G6 «کسر، نسبت و تناسب» p.112 [PDF 120]: honey 1 : water 3, a total column, 120 cups of drink.
+# - Afghan G6 «تناسب مستقیم و تناسب معکوس» p.123 [PDF 132]: 12 workers in 8 days, 6 in 16, 4 in 24. Last, as planned.
+missions:
+  # Direct proportion from two experiments; the classic mistake is additive (15 → 20 is +5, so 18 + 5 = 23).
+  - id: milk-calcium
+    setup:
+      understand:
+        known: [test-1, test-2, factory]
+        asked: [calcium-20, tests]
+      tools:
+        - kind: table
+          cols: [{ key: milk, given: [10, 15, 20, null] }, { key: calcium, given: [12, 18, null, 6] }]
+    check:
+      type: problem-canvas
+      known: [test-1, test-2]
+      asked: calcium-20
+      table: { cells: [[2, 1, 24], [3, 0, 5]] }
+  # Unitary method: the price of one pencil first (table), then of seven (answer).
+  - id: unit-price
+    setup:
+      understand:
+        known: [{ id: four-120, n: 120 }, { id: want-7, n: 7 }, { id: colours-12, n: 12 }]
+        asked: [price-7, price-4]
+      tools:
+        - kind: table
+          cols: [{ key: pencils, given: [4, 1] }, { key: price, given: [120, null] }]
+      answer: { key: price-7 }
+    check:
+      type: problem-canvas
+      known: [four-120, want-7]
+      asked: price-7
+      table: { cells: [[1, 1, 30]] }
+      answer: 210
+      traps: [{ value: 123, code: added }, { value: 840, code: skip-unit }, { value: 30, code: one-pencil }]
+  # A computed total column: honey + water. Wrong amounts show a total that is not 120.
+  - id: honey-drink
+    setup:
+      understand:
+        known: [recipe, cups-120, class-6]
+        asked: [honey, water-1]
+      tools:
+        - kind: table
+          cols: [{ key: honey, given: [1, 2, 3, null] }, { key: water, given: [3, 6, 9, null] }, { key: drink, expr: honey + water }]
+      answer: { key: honey }
+    check:
+      type: problem-canvas
+      known: [recipe, cups-120]
+      asked: honey
+      table: { cells: [[3, 0, 30], [3, 1, 90]] }
+      answer: 30
+      traps: [{ value: 40, code: thirds }]
+  # Inverse proportion: the computed column workers × days stays 96.
+  - id: workers-days
+    setup:
+      understand:
+        known: [twelve-8, wall-30]
+        asked: [days-3, workers-12]
+      tools:
+        - kind: table
+          cols: [{ key: workers, given: [12, 6, 4] }, { key: days, given: [8, null, null] }, { key: work, expr: workers * days }]
+      answer: { key: days-3 }
+    check:
+      type: problem-canvas
+      known: [twelve-8]
+      asked: days-3
+      table: { cells: [[1, 1, 16], [2, 1, 24]] }
+      answer: 32
+      traps: [{ value: 2, code: direct }, { value: 17, code: added }]

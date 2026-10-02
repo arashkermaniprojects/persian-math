@@ -1,0 +1,62 @@
+id: num-count-to-10
+engine: counters
+strand: num
+order: 1
+concepts: [num.count.pre-number, num.count.to-10, num.compare]
+# Grade 1 (ages 6–7): match one-to-one, count into a ten-frame, compare two rows, then <, > and =.
+# Every answer is a tap (a counter, a number tile or a sign); no typing and very little reading.
+missions:
+  # One-to-one: one apple on each plate place; the apples left over show "more apples than places".
+  - id: match
+    setup:
+      look: apple
+      instruction: move
+      zones:
+        - { kind: group, fill: 8, to: 1, slots: 8 }
+        - { kind: row, slots: 6, name: plates }
+      pick: [0, 10]
+    check:
+      type: counters
+      count: [2, 6]
+      pick: 2
+      traps: [{ pick: 8, code: counted-all }, { pick: 6, code: counted-placed }]
+  # Count a loose pile, build the same number in the ten-frame (5 and some more), then tap the numeral.
+  - id: count-frame
+    setup:
+      look: apple
+      instruction: tap
+      zones:
+        - { kind: group, fill: 7, name: pile }
+        - { kind: frame, act: fill, name: frame }
+      pick: [0, 10]
+    check:
+      type: counters
+      count: [null, 7]
+      pick: 7
+  # Compare two rows lined up one-to-one: circle the extras, then tap the bigger number.
+  - id: who-has-more
+    setup:
+      look: apple
+      instruction: ring
+      zones:
+        - { kind: row, slots: 8, fill: 5, name: ali }
+        - { kind: row, slots: 8, fill: [0, 8], act: ring, name: maryam }
+      pick: [0, 10]
+    check:
+      type: counters
+      marked: [0, 3]
+      pick: 8
+      traps: [{ pick: 5, code: picked-smaller }, { pick: 3, code: picked-extra }]
+  # Signs: the open side of < and > faces the bigger number. The rows stay on screen to circle the extras.
+  - id: signs
+    setup:
+      look: apple
+      instruction: ring
+      zones:
+        - { kind: row, slots: 9, fill: 6, act: ring, name: sara }
+        - { kind: row, slots: 9, fill: [0, 9], act: ring, name: reza }
+    answer: choice
+    check:
+      type: choice
+      options: ["{{num:6}} < {{num:9}}", "{{num:6}} > {{num:9}}", "{{num:6}} = {{num:9}}"]
+      correct: 0

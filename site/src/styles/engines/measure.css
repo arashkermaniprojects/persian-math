@@ -1,0 +1,103 @@
+/* Styles for <kg-measure>. Loaded on every page via the glob in layouts/Base.astro. */
+/* ---------- engine: measure ---------- */
+kg-measure {
+  display: flex; flex-direction: column; gap: 0.5rem;
+  --ms-wood: #f3d98b; --ms-water: #6fb3e6; --ms-metal: #c9ced6; --ms-leaf: #5fa55a; --ms-red: #d9483b;
+}
+@media (prefers-color-scheme: dark) {
+  kg-measure { --ms-wood: #8a7533; --ms-water: #2f7fbf; --ms-metal: #59606b; --ms-leaf: #3f8a3c; --ms-red: #c4473b; }
+}
+.kg-ms { inline-size: 100%; overflow: hidden; }
+.kg-ms-svg { display: block; inline-size: 100%; block-size: auto; direction: ltr; font-family: inherit; touch-action: pan-y; user-select: none; }
+.kg-ms-svg text:not([text-anchor]) { text-anchor: middle; }
+.kg-ms-svg text { fill: var(--fg); pointer-events: none; }
+.kg-ms-tip { display: flex; align-items: center; gap: 0.5rem; margin: 0; color: var(--muted); font-size: 0.95rem; }
+.kg-ms-tip svg { inline-size: 28px; block-size: 28px; flex: none; fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* scales: ticks and numbers */
+.kg-ms-t { stroke: var(--fg); stroke-width: 1.6; fill: none; }
+.kg-ms-t.minor { stroke-width: 1; }
+.kg-ms-lab { font-size: 14px; }
+.kg-ms-small { font-size: 11px; fill: var(--muted) !important; }
+.kg-ms-guide { stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 4 4; fill: none; pointer-events: none; }
+kg-measure [data-k] { outline: none; }
+kg-measure [data-k]:focus-visible > :first-child { stroke: var(--accent); stroke-width: 3; }
+
+/* ruler and the things it measures */
+.kg-ms-ruler { fill: var(--ms-wood); fill-opacity: 0.85; stroke: var(--fg); stroke-width: 1.5; }
+.kg-ms-rg.drag { cursor: grab; }
+.kg-ms-obj { fill: var(--shade); stroke: var(--fg); stroke-width: 1.2; }
+.kg-ms-eraser { fill: #e98ea0; stroke: var(--fg); stroke-width: 1.2; }
+.kg-ms-lead { fill: var(--fg); }
+.kg-ms-leaf { fill: var(--ms-leaf); stroke: var(--fg); stroke-width: 1; }
+.kg-ms-rib { stroke: var(--card); stroke-width: 1.2; fill: none; }
+.kg-ms-seg { stroke: var(--fg); stroke-width: 3; }
+.kg-ms-dot { fill: var(--fg); }
+.kg-ms-unit { fill: none; stroke: var(--accent); stroke-width: 2.5; }
+.kg-ms-unit.odd { stroke: #3b82c4; }
+rect.kg-ms-unit:not(.kg-ms-clip) { fill: color-mix(in srgb, var(--accent) 20%, transparent); }
+.kg-ms-count { font-size: 18px; font-weight: 700; }
+
+/* balance */
+.kg-ms-stand, .kg-ms-beam { stroke: var(--fg); stroke-width: 5; stroke-linecap: round; fill: none; }
+.kg-ms-beam { stroke-width: 6; transition: d 0.25s; }
+.kg-ms-pivot { fill: var(--accent); }
+.kg-ms-str { stroke: var(--muted); stroke-width: 1.5; }
+.kg-ms-dish { fill: var(--ms-metal); stroke: var(--fg); stroke-width: 1.5; }
+.kg-ms-apple { fill: var(--ms-red); stroke: var(--fg); stroke-width: 1; }
+.kg-ms-stem { stroke: #6b4a2b; stroke-width: 2; }
+.kg-ms-melon { fill: var(--ms-leaf); stroke: var(--fg); stroke-width: 1; }
+.kg-ms-bag { fill: #e8d7b4; stroke: #8a6d3b; stroke-width: 1.5; }
+.kg-ms-cube, .kg-ms-box, .kg-ms-book { fill: var(--shade); stroke: var(--fg); stroke-width: 1; }
+.kg-ms-wt { fill: #4b5563; stroke: var(--fg); stroke-width: 1; }
+.kg-ms-svg .kg-ms-wl { fill: #fff; font-size: 9.5px; font-weight: 700; }
+.kg-ms-ctl { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.kg-ms-ctl:empty { display: none; }
+.kg-ms-btn, .kg-ms-w {
+  min-block-size: 44px; min-inline-size: 44px; border-radius: 999px; border: 2px solid var(--accent);
+  background: transparent; color: var(--accent); font-size: 1.1rem; padding-inline: 0.8rem;
+}
+.kg-ms-btn { font-size: 1.5rem; line-height: 1; }
+.kg-ms-w { border-radius: 10px; border-color: var(--fg); color: var(--fg); font-weight: 700; }
+.kg-ms-w[aria-pressed='true'] { border-style: dashed; color: var(--muted); border-color: var(--muted); background: var(--bg); }
+
+/* dial scale */
+.kg-ms-plat { fill: var(--ms-metal); stroke: var(--fg); stroke-width: 1.2; }
+.kg-ms-stem2 { stroke: var(--fg); stroke-width: 4; }
+.kg-ms-body { fill: var(--ms-metal); stroke: var(--fg); stroke-width: 1.5; }
+.kg-ms-face { fill: var(--card); stroke: var(--fg); stroke-width: 1.5; }
+.kg-ms-needle path { stroke: var(--ms-red); stroke-width: 3; stroke-linecap: round; }
+.kg-ms-needle circle { fill: var(--fg); }
+.kg-ms-needle[data-k] { cursor: grab; }
+
+/* jug and thermometer */
+.kg-ms-jug, .kg-ms-handle { fill: none; stroke: var(--fg); stroke-width: 2.5; stroke-linejoin: round; }
+.kg-ms-handle { stroke-width: 7; stroke: var(--muted); }
+.kg-ms-water { fill: var(--ms-water); fill-opacity: 0.75; }
+.kg-ms-tube { fill: var(--card); stroke: var(--fg); stroke-width: 2; }
+.kg-ms-bulb { fill: var(--ms-red); stroke: var(--fg); stroke-width: 2; }
+.kg-ms-liquid { fill: var(--ms-red); }
+.kg-ms-level path { stroke: var(--accent); stroke-width: 2.5; stroke-dasharray: 6 3; }
+.kg-ms-level circle { fill: var(--accent); stroke: var(--card); stroke-width: 3; cursor: grab; }
+
+/* protractor */
+.kg-ms-prot { fill: #9fc5e8; fill-opacity: 0.35; stroke: var(--fg); stroke-width: 1.5; }
+.kg-ms-inner { fill: none; stroke: var(--muted); stroke-width: 1; }
+.kg-ms-pg.drag { cursor: grab; }
+.kg-ms-svg .kg-ms-o { font-size: 10px; }
+.kg-ms-svg .kg-ms-i { font-size: 9px; fill: var(--accent); }
+.kg-ms-ray { stroke: var(--fg); stroke-width: 3; stroke-linecap: round; pointer-events: none; }
+.kg-ms-ray.mov { stroke: var(--accent); }
+.kg-ms-arc { fill: var(--shade); fill-opacity: 0.45; stroke: var(--shade); pointer-events: none; }
+.kg-ms-hd circle:last-child { fill: var(--accent); stroke: var(--card); stroke-width: 3; cursor: grab; }
+.kg-ms-hit { fill: transparent; }
+.kg-ms-vx { fill: var(--fg); }
+
+/* conversion strip: reads in the page's direction, biggest unit first */
+.kg-ms-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; }
+.kg-ms-u { min-inline-size: 3rem; min-block-size: 44px; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--border); border-radius: 10px; padding-inline: 0.5rem; font-weight: 700; }
+.kg-ms-u.from { border-color: var(--accent); }
+.kg-ms-u.to { border-color: var(--accent); border-style: dashed; }
+.kg-ms-f { font-size: 0.85rem; color: var(--muted); unicode-bidi: isolate; direction: ltr; }
+.kg-ms-f.on { color: var(--accent); font-weight: 700; }
+.kg-ms-obj.ribbon { fill: #e98ea0; }

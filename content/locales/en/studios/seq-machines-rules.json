@@ -1,0 +1,107 @@
+{
+  "title": "Input–output machines and sequence rules",
+  "summary": "A number goes into a machine and another comes out. Find what the machine does, then find the rule of a number sequence.",
+  "guide": [
+    "This studio follows function machines (Years 3–6) and sequence rules (Year 6). A machine does the same thing to every number that goes in, for example \"add 7\".",
+    "The {{term:input}} is on the left and the {{term:output}} on the right. When we know the output and want the input, we run the machine backwards: instead of adding 7, we subtract 7.",
+    "In a two-step machine the order matters: first step one, then step two. To go backwards, start with the last step.",
+    "A {{term:sequence}} can be made from the number before (term-to-term, e.g. \"double it\") or from the position (position-to-term, e.g. \"3 × position + 2\"). The second kind lets you find the 20th term without writing all the others.",
+    "Ask \"how do you know?\" A rule must work for every row, not just one."
+  ],
+  "engine": {
+    "label-in": "In",
+    "label-out": "Out",
+    "label-machine": "machine",
+    "label-op": "what the machine does",
+    "label-rule-number": "machine number",
+    "label-row-in": "input of row {n}",
+    "label-row-out": "output of row {n}",
+    "label-try": "try a number",
+    "label-term": "term {n}",
+    "label-step": "Each number is the one before times",
+    "instruction-machine": "Fill in the gaps.",
+    "instruction-jump": "What happens from one number to the next?",
+    "instruction-type": "Find the rule, then type the term."
+  },
+  "missions": {
+    "machine-outputs": {
+      "title": "The add-7 machine",
+      "prompt": "This machine adds 7 to every number that goes in. Write the outputs. In the last row 30 came out. What went in?",
+      "hint": "For the last row ask yourself: which number becomes 30 when I add 7?",
+      "success": "Well done! 9 + 7 = 16 and 15 + 7 = 22. And because 23 + 7 = 30, the last input was 23.",
+      "why": "Why did you subtract 7 to find the last input?",
+      "model": "The machine added 7 to make 30. So before the machine the number was 7 less: 30 − 7 = 23. To go backwards we do the opposite of what the machine does.",
+      "feedback": {
+        "empty": "Fill in every gap.",
+        "went-forward": "You put 30 through the machine and got 37! But 30 is the output. Go backwards: which number makes 30 when you add 7?",
+        "subtracted": "This machine <b>adds</b> 7. It does not take 7 away.",
+        "too-big": "One of the numbers is too big. The machine only adds 7.",
+        "too-small": "One of the numbers is too small. The machine adds 7."
+      }
+    },
+    "find-the-rule": {
+      "title": "Find the rule",
+      "prompt": "This machine's rule is hidden. Three numbers went in and came out. Guess what it does: choose a sign and type its number.",
+      "hint": "\"Add 4\" turns 2 into 6. Does it turn 5 into 15 too? The rule must work for all three rows.",
+      "success": "Yes! The machine multiplies by 3: 2 × 3 = 6, 5 × 3 = 15 and 10 × 3 = 30.",
+      "why": "Why is \"add 4\" not the rule, even though it turns 2 into 6?",
+      "model": "Because \"add 4\" would turn 5 into 9, not 15. A rule is only right when it works for every row. \"Multiply by 3\" works for all three.",
+      "feedback": {
+        "empty": "Choose a sign (+, −, ×, ÷) and type a number.",
+        "one-row-only": "Your rule works for just one row. Test it on the other rows too.",
+        "fits-some": "That rule works for some rows, but not all. Test it on every row.",
+        "wrong-rule": "That rule doesn't fit any row. Look at how 2 became 6 and 5 became 15."
+      }
+    },
+    "two-step-machine": {
+      "title": "A two-step machine",
+      "prompt": "This machine has two steps: first it doubles the number, then it adds 3. Write the outputs. In the last row 13 came out. What went in?",
+      "hint": "For 4: first 4 × 2, then + 3. For the last row start at the end: take away 3 first, then halve.",
+      "success": "Well done! 4 × 2 + 3 = 11 and 10 × 2 + 3 = 23. For 13: 13 − 3 = 10 and 10 ÷ 2 = 5.",
+      "why": "To find the last input, why did you take away 3 first and halve after?",
+      "model": "The machine's last step was adding 3. Going backwards we start from the end: undo the adding first (13 − 3 = 10), then undo the doubling (10 ÷ 2 = 5). Like socks and shoes: you take the shoes off first.",
+      "feedback": {
+        "empty": "Fill in every gap.",
+        "order-swapped": "You did the steps the other way round! First × 2, then + 3.",
+        "went-forward": "You put 13 through the machine again. But 13 is the output: go backwards through the machine.",
+        "undo-order": "To go backwards, start with the <b>last</b> step: take away 3 first, then halve.",
+        "undo-sign": "The machine added 3; to go back you must <b>take away</b> 3.",
+        "too-big": "One of the numbers is too big. Do the steps one at a time.",
+        "too-small": "One of the numbers is too small. Do the steps one at a time."
+      }
+    },
+    "doubling-sequence": {
+      "title": "Double, double",
+      "prompt": "In this sequence each number is made from the one before. Type what each number is multiplied by, then fill the gaps.",
+      "hint": "3 then 6; 6 then 12. The gaps are not the same! 6 is how many times 3?",
+      "success": "Right! Each term is double the one before: 3, 6, 12, 24, 48, 96.",
+      "why": "Why do the gaps between the numbers get bigger in this sequence?",
+      "model": "Because we double each time instead of adding the same amount. Each time we add the number itself: 3 to 6 (add 3), 6 to 12 (add 6), 12 to 24 (add 12).",
+      "feedback": {
+        "empty": "Fill every gap, and type the multiplier too.",
+        "wrong-step": "From 3 to 6 and from 6 to 12, how many times bigger did the number get?",
+        "added-gap": "You did 12 + 6. But the gaps are not fixed: each term is double the one before, 12 × 2.",
+        "added-three": "You added 3. But from 6 to 12 the jump was 6! The rule is not adding.",
+        "too-big": "One of the numbers is too big. Just double.",
+        "too-small": "One of the numbers is too small. Each term is double the one before."
+      }
+    },
+    "position-to-term": {
+      "title": "The 20th term",
+      "prompt": "Look at the sequence 5, 8, 11, 14, … What are the 10th and 20th terms? Predict first, then find the rule.",
+      "hint": "The terms go up in 3s, like the 3 times table. Multiply the position by 3. How far off is it?",
+      "success": "Well done! The rule is 3 × position + 2. Term 10: 10 × 3 + 2 = 32. Term 20: 20 × 3 + 2 = 62.",
+      "why": "Why is the 20th term not double the 10th term?",
+      "model": "Each term is \"three times the position, plus 2\". Doubling 32 counts the 2 twice and gives 64. The right answer is 20 × 3 + 2 = 62. If we call the position n, the rule (nth term) is 3n + 2.",
+      "feedback": {
+        "empty": "Fill in both boxes.",
+        "forgot-add": "You only multiplied the position by 3. But term 1 is 5, not 3. How much do you need to add?",
+        "doubled": "You doubled the 10th term, so the added 2 was counted twice. Use the rule instead.",
+        "extra-jump": "You counted one jump too many. From term 4 to term 10 there are 6 jumps.",
+        "missing-jump": "You counted one jump too few. From term 4 to term 10 there are 6 jumps.",
+        "too-big": "Too big. Test your rule on term 1: it should give 5.",
+        "too-small": "Too small. Test your rule on term 1: it should give 5."
+      }
+    }
+  }
+}

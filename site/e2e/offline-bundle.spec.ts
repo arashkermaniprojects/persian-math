@@ -14,7 +14,7 @@ test('offline bundle works from file:// with no server', async ({ page }) => {
   await page.goto(pathToFileURL(`${root}/index.html`).href);
   await expect(page).toHaveURL(/fa-IR\/index\.html$/);
   await page.getByRole('link', { name: 'ایران' }).first().click();
-  await page.locator('.card').first().click();
+  await page.locator('a.card[data-studio="frac-what-is"]').click();
   await expect(page).toHaveURL(/studio\/frac-what-is\/index\.html$/);
   // The engine is interactive (classic-script runtime) and the font loaded from a relative path.
   const cells = page.locator('kg-fraction-bars .kg-fb-cell');

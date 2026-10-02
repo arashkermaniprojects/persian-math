@@ -1,0 +1,99 @@
+{
+  "title": "Large numbers, rounding and estimating",
+  "summary": "Read and build numbers in the millions in groups of three digits, round to the nearest 10, 100 or 1000 by looking at the next place, and estimate a sum before you work it out.",
+  "guide": [
+    "We split big numbers into groups of three digits from the right: ones, thousands and {{term:million}}s. The name of each group is written above the chart, and in a written number a comma separates the groups: 2,050,300.",
+    "To read a number, read each group like a 3-digit number and then say the group's name: \"two million, fifty thousand, three hundred\". If a place is empty, the number shows a 0.",
+    "Places bigger than the thousands show counters instead of blocks. Each counter is worth its column's value.",
+    "To {{term:round}} to the nearest hundred, find the nearest whole hundred. The place you round to is outlined, and the place to its right is dashed: look only at the dashed digit. 0 to 4: the outlined digit stays the same. 5 to 9: it goes up by one. Every place to the right becomes 0.",
+    "In Year 5 and 6 you round all the way to the nearest 1,000,000 in exactly the same way.",
+    "To {{term:estimate}} means to find an answer that is close, using rounded numbers, before working it out exactly. It tells you if your exact answer makes sense."
+  ],
+  "engine": {
+    "place-0": "ones",
+    "place-1": "tens",
+    "place-2": "hundreds",
+    "place-3": "thousands",
+    "place-4": "ten thousands",
+    "place-5": "hundred thousands",
+    "place-6": "millions",
+    "class-0": "ones",
+    "class-1": "thousands",
+    "class-2": "millions",
+    "label-add": "Add one to the {p}",
+    "label-remove": "Take one from the {p}",
+    "label-views": "View",
+    "label-blocks": "Base-ten blocks",
+    "label-abacus": "Abacus",
+    "label-number": "Number",
+    "instruction-add": "Build the number."
+  },
+  "missions": {
+    "build-million": {
+      "title": "Two million, fifty thousand, three hundred",
+      "prompt": "A house costs two million, fifty thousand, three hundred pounds. Build this number. Think first: which places will hold a 0?",
+      "hint": "Go group by group. Millions: 2. Thousands: 050 (fifty). Ones: 300 (three hundred).",
+      "success": "Well done! 2,050,300: two million, fifty thousand, three hundred.",
+      "why": "Why do we write \"fifty thousand\" as 050 in the thousands group, not just 50?",
+      "model": "Every group has three places: hundreds, tens and ones. In fifty thousand, the hundred thousands are empty, the ten thousands hold 5 and the thousands hold 0. Without the first 0, the 5 would land in the wrong place and the number would be 250,300, which is much smaller.",
+      "feedback": {
+        "dropped-zero": "This is 250,300: two hundred and fifty thousand. \"Two million\" means a 2 in the millions place.",
+        "zero-moved": "Your 5 is in the hundred thousands: that's five hundred thousand. Fifty thousand is a 5 in the ten thousands.",
+        "fifty-as-five": "That's five thousand. Fifty thousand is a 5 in the ten thousands.",
+        "too-big": "Too big. Check the groups one at a time.",
+        "too-small": "Not enough yet. Look at the millions and the thousands.",
+        "empty": "Use the + buttons to build the number."
+      }
+    },
+    "round-hundred": {
+      "title": "Round to the nearest hundred",
+      "prompt": "A school has 4682 books. Round this to the nearest hundred: change the number on the chart until it shows your answer. Predict first: 4600 or 4700?",
+      "hint": "Look at the dashed place (the tens): it's 8. 8 is 5 or more, so the hundreds go up by one, and the tens and ones become 0.",
+      "success": "That's right! 4682 is closer to 4700 than to 4600.",
+      "why": "Why do we only look at the tens digit when rounding to the nearest hundred?",
+      "model": "4682 is between 4600 and 4700. Halfway is 4650. The tens digit tells us whether we're past halfway: 8 tens means 4680, which is past 4650, so it's closer to 4700. The ones are too small to change the answer.",
+      "feedback": {
+        "rounded-down": "You wrote 4600. But the tens digit is 8, so we're past halfway (4650). The hundreds go up by one.",
+        "to-ten": "That's rounding to the nearest ten. We want the nearest <b>hundred</b>: both the tens and the ones become 0.",
+        "to-thousand": "That's rounding to the nearest thousand. We want the nearest hundred.",
+        "kept-rest": "You put the hundreds up correctly. Now make the tens and ones 0.",
+        "too-big": "Too big. Only the hundreds go up by one.",
+        "too-small": "Too small. Look at the dashed digit.",
+        "empty": "You cleared the number. Start again."
+      }
+    },
+    "round-thousand": {
+      "title": "Round to the nearest thousand",
+      "prompt": "A town has 352,481 people. Round this to the nearest thousand. Careful which place you look at!",
+      "hint": "The dashed place is the hundreds: 4. 4 is less than 5, so the thousands stay 2. The hundreds, tens and ones become 0.",
+      "success": "Well done! 352,481 is about 352,000.",
+      "why": "Hassan said, \"8 is big, so we round up\", and wrote 353,000. What would you tell him?",
+      "model": "When rounding to the nearest thousand, only the hundreds digit matters, because it shows whether we're past 352,500, halfway between 352,000 and 353,000. The hundreds digit is 4: 352,400 and a bit, not halfway yet. The 8 is in the tens, so it's only worth 80.",
+      "feedback": {
+        "rounded-up": "Did you look at the 8, like Hassan? Only the dashed place (the hundreds) matters: it's 4, so round down.",
+        "to-ten-thousand": "That's rounding to the nearest ten thousand. The thousands digit should stay.",
+        "to-ten": "That's rounding to the nearest ten. The hundreds, tens and ones should all become 0.",
+        "to-hundred": "That's rounding to the nearest hundred. We want the nearest thousand.",
+        "too-big": "Too big.",
+        "too-small": "Too small.",
+        "empty": "You cleared the number. Start again."
+      }
+    },
+    "estimate-sum": {
+      "title": "Estimate first",
+      "prompt": "Reza has 3890 points and Zahra has 2140. Before adding exactly, {{term:estimate}}: round each number to the nearest thousand and add. Write your estimate.",
+      "hint": "3890 is close to 4000 (the hundreds digit is 8). 2140 is close to 2000 (the hundreds digit is 1). Now 4000 + 2000.",
+      "success": "That's right! About 6000. The exact total is 6030. How close!",
+      "why": "Fatemeh added exactly and got 5030. How does your estimate help her?",
+      "model": "Our estimate is about 6000. 5030 is a whole thousand less, so Fatemeh probably forgot to carry from the hundreds into the thousands. An estimate is quick, and it tells us whether an exact answer makes sense.",
+      "feedback": {
+        "exact": "That's the exact total. Well worked out! But here we want the estimate: 4000 + 2000.",
+        "both-down": "Did you round 3890 to 3000? Its hundreds digit is 8, so it's closer to 4000.",
+        "rounded-one": "You rounded only one of the numbers. Round both to the nearest thousand.",
+        "too-big": "Too big. Round each number to the nearest thousand.",
+        "too-small": "Too small. Round each number to the nearest thousand.",
+        "empty": "Write your estimate in the box."
+      }
+    }
+  }
+}

@@ -49,5 +49,18 @@
   "pathpage.explorerIntro": "ټول کارځایونه، له اسانه تر ستونزمنه.",
   "pathpage.notTaught": "په دې نصاب کې نشته",
   "pathpage.done": "له {total} څخه {done}",
-  "nav.home": "کور"
+  "nav.home": "کور",
+  "home.strand.num": "عددونه او مقامي قیمت",
+  "home.strand.ops": "څلور ګونې عملیې",
+  "home.strand.ps": "د مسئلې د حل لارې",
+  "home.strand.ratio": "نسبت او تناسب",
+  "home.strand.fin": "پیسې او مالي حسابونه",
+  "home.strand.meas": "اندازه کول",
+  "home.strand.geo": "هندسه او شکلونه",
+  "home.strand.pos": "ځای، لوری او تناظر",
+  "home.strand.stat": "احصائیه او ګراف",
+  "home.strand.prob": "احتمال",
+  "home.strand.alg": "الجبر",
+  "home.strand.seq": "الګوګانې او ترادفونه",
+  "home.strand.disc": "سټ او منطق"
 }

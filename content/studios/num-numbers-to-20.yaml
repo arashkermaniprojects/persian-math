@@ -1,0 +1,62 @@
+id: num-numbers-to-20
+engine: counters
+strand: num
+order: 2
+concepts: [num.count.to-20, num.more-less, num.ordinal]
+# Grade 1 (ages 6–7): a teen number is one full ten-frame and some ones. Read one, build one, one more,
+# the number between, then ordinals in a numbered queue. Answers are taps; stays within 20.
+missions:
+  # Read a teen number from a double ten-frame: a full ten and 3 more.
+  - id: read-teen
+    setup:
+      zones:
+        - { kind: frame, slots: 20, fill: 13 }
+      pick: [0, 20]
+    check:
+      type: counters
+      pick: 13
+      traps: [{ pick: 3, code: only-ones }, { pick: 10, code: only-ten }, { pick: 4, code: one-and-three }]
+  # Build 16: fill one ten-frame, then 6 more in the second.
+  - id: make-teen
+    setup:
+      instruction: tap
+      zones:
+        - { kind: frame, slots: 20, act: fill }
+    check:
+      type: counters
+      count: 16
+  # One more: add one counter to 15, then tap the new number.
+  - id: one-more
+    setup:
+      instruction: tap
+      zones:
+        - { kind: frame, slots: 20, fill: 15, lock: 15, act: fill }
+      pick: [0, 20]
+    check:
+      type: counters
+      count: 16
+      pick: 16
+      traps: [{ pick: 14, code: one-less }, { pick: 15, code: same }]
+  # Between: the number that comes after 17 and before 19.
+  - id: between
+    setup:
+      zones:
+        - { kind: frame, slots: 20, fill: 17 }
+      sentence: "17 ? 19"
+      pick: [10, 20]
+    check:
+      type: counters
+      pick: 18
+      traps: [{ pick: 16, code: before }, { pick: 20, code: after }]
+  # Ordinals: a queue of 10 numbered places; paint the 7th child, then tap how many are in front of her.
+  - id: queue
+    setup:
+      instruction: paint
+      zones:
+        - { kind: row, slots: 10, fill: 10, numbers: true, act: paint, name: queue }
+      pick: [0, 10]
+    check:
+      type: counters
+      colors: [9, 1]
+      pick: 6
+      traps: [{ pick: 7, code: counted-her }, { pick: 3, code: counted-behind }]

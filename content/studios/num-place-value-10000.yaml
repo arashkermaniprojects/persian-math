@@ -1,0 +1,49 @@
+id: num-place-value-10000
+engine: place-value
+strand: num
+order: 5
+concepts: [num.place-value.to-1000, num.place-value.to-10000, num.place-value.expanded, num.roman]
+# Grades: Iran G2–3 (G03_riazi_sevom.pdf p.28–38: «معرفی عدد هزار»، «ارزش مکانی»، نمایش گسترده p.38), Afghan G2–4
+# (AF_G02 «یک‌ها، ده‌ها و صدها», AF_G04 p.33 «ارائه اعداد به شکل توسعه‌یی»), UK Y3–4. Four columns: ones..thousands.
+# View auto: «چوت» abacus for fa-AF/ps, blocks (cube, rod, flat, big cube) elsewhere.
+# The last mission (Roman numerals) is for en (Y3–4) and fa-AF/ps (AF_G06_riazi.pdf p.10 [۱] «ارقام رومی»); Iran's
+# primary books don't teach it, so it is hidden for fa-IR.
+missions:
+  # Ten hundreds make a thousand: 13 hundred-flats and 4 ones; exchange ten flats for a thousand-cube. Value stays 1304.
+  - id: ten-hundreds
+    setup: { counts: [4, 0, 13, 0], maxPlace: 3, instruction: bundle }
+    check: { type: place-value, value: 1304, canonical: true }
+  # Read a 4-digit number with an empty tens place: 3062. No table (it would give the answer away).
+  - id: read-with-zero
+    setup: { value: 3062, locked: true, table: false, views: [], instruction: read }
+    answer: integer
+    check:
+      type: answer-integer
+      value: 3062
+      traps:
+        - { value: 362, code: dropped-zero }
+        - { value: 3620, code: zero-moved }
+        - { value: 300062, code: as-heard }
+        - { value: 11, code: added-digits }
+  # Expanded form → number: 4000 + 700 + 5 = 4705 (the empty tens needs a 0).
+  - id: expanded-form
+    setup: { value: 0, maxPlace: 3, exchange: false, instruction: add }
+    check:
+      type: place-value
+      value: 4705
+      canonical: true
+      traps: [{ value: 475, code: no-zero }, { value: 4750, code: zero-moved }]
+  # Compare by the highest place: 3980 vs 4012. The highest place where they differ is outlined.
+  - id: compare-highest
+    setup: { value: 4012, compare: 3980, highlightDiff: true, locked: true, views: [] }
+    answer: choice
+    check: { type: choice, options: ["{{num:3980}}", "{{num:4012}}"], correct: 1 }
+  # Roman numerals as column symbols: counters carry C, X, I. Build CCXLVI = 246 (XL is 50 − 10).
+  - id: roman-columns
+    locales: [en, fa-AF, ps]
+    setup: { value: 0, maxPlace: 2, view: counters, views: [], roman: true, exchange: false, instruction: add }
+    check:
+      type: place-value
+      value: 246
+      canonical: true
+      traps: [{ value: 266, code: xl-added }, { value: 244, code: vi-swapped }]

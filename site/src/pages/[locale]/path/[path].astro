@@ -30,7 +30,9 @@ const studios = loadStudios().map((s) => ({
 
 // Group: by grade for a country path (untaught studios last), by strand order for Explorer.
 const groups = new Map<string, typeof studios>();
-for (const s of [...studios].sort((a, b) => (a.grade ?? 99) - (b.grade ?? 99) || a.def.order - b.def.order)) {
+const STRANDS = ['num', 'ops', 'frac', 'ratio', 'fin', 'meas', 'geo', 'pos', 'seq', 'alg', 'stat', 'prob', 'disc', 'ps'];
+const strandRank = (s: string) => (STRANDS.indexOf(s) + 1 || 99);
+for (const s of [...studios].sort((a, b) => (a.grade ?? 99) - (b.grade ?? 99) || strandRank(a.def.strand) - strandRank(b.def.strand) || a.def.order - b.def.order)) {
   const label = !cur
     ? t(`home.strand.${s.def.strand}`, locale)
     : s.grade === null
@@ -49,7 +51,8 @@ for (const s of [...studios].sort((a, b) => (a.grade ?? 99) - (b.grade ?? 99) ||
       <ul class="cards">
         {list.map((s) => (
           <li>
-            <a class="card" href={`${base}${locale}/studio/${s.def.id}/`} data-studio={s.def.id} data-total={s.def.missions.length}>
+            <a class="card" href={`${base}${locale}/studio/${s.def.id}/`} data-studio={s.def.id} data-total={s.def.missions.filter((m) => !m.locales || m.locales.includes(locale)).length}>
+              {cur && <span class="strand">{t(`home.strand.${s.def.strand}`, locale)}</span>}
               <strong set:html={rich(s.text.title, locale)} />
               <span class="muted" set:html={rich(s.text.summary, locale)} />
               <span class="progress" aria-live="off"></span>
@@ -78,5 +81,6 @@ for (const s of [...studios].sort((a, b) => (a.grade ?? 99) - (b.grade ?? 99) ||
   .card { display: flex; flex-direction: column; gap: 0.3rem; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; text-decoration: none; color: var(--fg); min-block-size: 100%; }
   .card strong { font-size: 1.15rem; color: var(--accent); }
   .progress { color: var(--ok); font-weight: 700; }
+  .strand { font-size: 0.8rem; color: var(--muted); }
   .progress:empty { display: none; }
 </style>

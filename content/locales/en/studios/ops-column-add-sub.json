@@ -1,0 +1,92 @@
+{
+  "title": "Column addition and subtraction",
+  "summary": "Write numbers in columns and add or subtract one column at a time: carry a ten to the next column, exchange from the column next door, and check your answer.",
+  "guide": [
+    "When numbers get bigger, we use the {{term:column-method}} for {{term:addition}} and {{term:subtraction}}. Write the numbers one under the other so that {{term:ones}} are under {{term:ones}}, {{term:tens}} under {{term:tens}} and {{term:hundreds}} under {{term:hundreds}}. This is what {{term:place-value}} columns are for.",
+    "Always start with the {{term:ones}} column on the right, and work left one column at a time. Each box holds just one {{term:digit}}.",
+    "If a column adds up to 10 or more, like 8 + 7 = 15, write the 5 in that column and carry the 1 ten to the next column: write a small 1 under the answer line. Add it in when you do that column.",
+    "In {{term:subtraction}}, if the top digit is smaller than the bottom digit, exchange one from the column on the left ({{term:borrowing}}): tap the top digit of that column. It goes down by one, gets crossed out, and its new value is written above it. Your column gets 10 more.",
+    "To {{term:check}} a subtraction, add the {{term:difference}} to the number you took away. If you get back the first number, your answer is right.",
+    "Every digit you get right turns green. If a digit isn't right yet, it gets a dotted border so you can work it out again. If you get stuck, press \"Show me this column\"."
+  ],
+  "engine": {
+    "carry": "below",
+    "placeholder": "zero",
+    "label-places": "O|T|H|Th|TTh|HTh",
+    "label-dec-places": "t|h|th",
+    "label-place-names": "ones|tens|hundreds|thousands|ten thousands|hundred thousands",
+    "label-dec-names": "tenths|hundredths|thousandths",
+    "label-result": "answer, {p} column",
+    "label-carry": "carried digit, {p} column",
+    "label-partial": "row {n}, {p} column",
+    "label-borrow": "{p} column, digit {v}: exchange",
+    "label-ask-sum": "{e} = ?",
+    "label-ask-carry": "How many tens are in {s}? Carry them to the next column.",
+    "label-ask-borrow": "{t} − {b}: {t} is smaller than {b}. Exchange from the column on the left: tap its top digit.",
+    "label-ask-zero": "This row multiplies by tens: write the placeholder 0.",
+    "label-reveal": "Show me this column",
+    "label-wrong": "Not yet! Work this digit out again.",
+    "label-done": "Finished! Every digit is right.",
+    "label-err-forgot-carry": "So close! Remember to add the digit you carried into this column.",
+    "label-err-tens-digit": "Only one digit fits in each box. Write the ones here and carry the ten to the next column.",
+    "label-err-carry-first": "Multiply first, then add the carried digit.",
+    "label-err-placeholder": "Write the placeholder 0 here.",
+    "label-err-smaller-from-larger": "Careful: we always take the bottom number away from the top one. The top digit is smaller, so exchange first.",
+    "label-err-mark-borrow": "You worked it out! Now show the exchange: tap the top digit in the column on the left.",
+    "label-err-old-digit": "This digit has given one away. Use the new number written above it.",
+    "label-err-no-borrow": "No need to exchange here: the top digit is big enough.",
+    "label-err-borrow-zero": "That digit is 0, so it has nothing to give. Exchange from the column to its left first.",
+    "label-err-too-far": "Exchange from the nearest column on the left.",
+    "label-inverse": "Check by adding",
+    "label-left": "Move the bottom number one column left",
+    "label-right": "Move the bottom number one column right",
+    "label-aligned": "Well done! The decimal points are lined up.",
+    "label-align-ask": "First move the bottom number so the decimal points line up."
+  },
+  "missions": {
+    "add-carry": {
+      "title": "58 + 27",
+      "prompt": "One box has 58 apples and another has 27. How many apples are there altogether? First, predict: will the answer be more or less than 80? Then start with the ones column and fill in the boxes.",
+      "hint": "8 + 7 = 15. Write only the 5 in the ones column. Carry the 1 ten into the tens column, then add the tens together with it.",
+      "success": "Well done! There are 85 apples altogether. Was your prediction right? 85 is more than 80.",
+      "why": "Why did you carry the 1 to the tens column instead of writing it in the ones column?",
+      "model": "Because 8 + 7 = 15, which is 1 ten and 5 ones. Only ones go in the ones column, so the 5 stays there. The 1 ten joins the other tens: 5 tens + 2 tens + 1 ten = 8 tens. So the answer is 85.",
+      "feedback": {
+        "wrong": "There are still some boxes to fill. Work one column at a time; if you get stuck, \"Show me this column\" will help."
+      }
+    },
+    "sub-borrow": {
+      "title": "52 − 27",
+      "prompt": "The class library had 52 books. The children took 27 books home. How many books are left? Before you start, look: can you take 7 away from 2 in the ones column?",
+      "hint": "2 is smaller than 7. Tap the 5 in the tens column to exchange a ten. The 5 becomes 4 and the 2 becomes 12. Now work out 12 − 7.",
+      "success": "That's right! There are 25 books left in the library.",
+      "why": "In the ones column, Ali did 7 − 2 = 5 instead of exchanging, and got 35. What was his mistake?",
+      "model": "In subtraction we always take the bottom number away from the top number; we can't swap them round. We have 2 ones and need to take away 7 ones, which isn't enough. So we exchange 1 ten for 10 ones: 12 − 7 = 5 and 4 − 2 = 2. The answer is 25, not 35. If you add 35 and 27 you get 62, not 52.",
+      "feedback": {
+        "wrong": "There are still some boxes to fill. If the top digit is smaller, tap the top digit on the left to exchange first."
+      }
+    },
+    "zero-and-check": {
+      "title": "Exchanging across a zero",
+      "prompt": "A school has 403 pupils. 168 of them go on a trip. How many are left at school? There is a 0 in the tens column: think about where you need to exchange from. When you've finished, check your answer by adding.",
+      "hint": "3 is smaller than 8, but there are 0 tens to exchange. First exchange from the 4 hundreds: 4 becomes 3 and 0 becomes 10. Then exchange from those 10 tens: 10 becomes 9 and 3 becomes 13.",
+      "success": "Brilliant! 235 pupils are left at school. And 235 + 168 = 403, so your answer is right.",
+      "why": "Why does adding 235 and 168 tell you that your subtraction was right?",
+      "model": "235 is the number who stayed and 168 is the number who went. Put the two groups back together and you must get all 403 pupils. Addition and subtraction undo each other: if 403 − 168 = 235, then 235 + 168 = 403.",
+      "feedback": {
+        "wrong": "There are still some boxes to fill. After the subtraction, finish the addition underneath to check your answer."
+      }
+    },
+    "line-up-marks": {
+      "title": "Adding decimals",
+      "prompt": "Fatima bought {{num:12.5}} kg of apples and {{num:3.75}} kg of oranges. How much fruit did she buy altogether? First use the buttons to move the bottom number until the {{term:decimal-point}}s line up. Then add.",
+      "hint": "Put the {{term:decimal-point}} under the {{term:decimal-point}}. Then the 5 tenths sit above the 7 tenths. Fill the empty hundredths place in {{num:12.5}} with a 0, because {{num:12.5}} = {{num:12.50}}.",
+      "success": "Well done! Fatima bought {{num:16.25}} kg of fruit altogether.",
+      "why": "Zahra lined up the last digits (the 5 under the 5). Why does that give the wrong answer?",
+      "model": "In {{num:12.5}} the 5 means 5 tenths, but in {{num:3.75}} the 5 means 5 hundredths. Tenths must be added to tenths and hundredths to hundredths, just as ones are added to ones. When the {{term:decimal-point}}s line up, every digit is in the column for its own place value.",
+      "feedback": {
+        "wrong": "Not finished yet. Line up the decimal points first, then fill in the boxes."
+      }
+    }
+  }
+}

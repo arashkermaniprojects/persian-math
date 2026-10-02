@@ -1,0 +1,99 @@
+{
+  "title": "Position, direction and turns",
+  "summary": "Find left and right, above, below and between. Then turn an arrow a quarter, a half and three quarters of a turn.",
+  "guide": [
+    "This studio is for Years 1 and 2. Read the sentences aloud; the small picture at the top also shows what to do.",
+    "Practise left and right with hands first: \"Put your left hand up.\" The board is like a sheet of paper, so left is always on the child's left-hand side.",
+    "Clockwise is the way the hands of a clock go (↻); anticlockwise is the other way (↺). A quarter turn clockwise from facing forwards leaves you facing right. Two quarter turns make a half turn, and four make a whole turn, which brings you back to where you started.",
+    "Let your child turn too: stand facing the door, make a quarter turn clockwise, and say what you are facing now."
+  ],
+  "engine": {
+    "label-board": "Board",
+    "label-undo": "Undo",
+    "label-clear": "Start again",
+    "label-shape": "Shape",
+    "label-triangle": "Orange triangle",
+    "label-circle": "Blue circle",
+    "label-square": "Green square",
+    "label-green": "Green square",
+    "label-blue": "Blue square",
+    "label-red": "Red square",
+    "label-tree": "Green tree",
+    "label-house": "Red house",
+    "label-ball": "Blue ball",
+    "label-box": "Yellow box",
+    "label-arrow": "Arrow",
+    "label-turn-cw": "Quarter turn clockwise",
+    "label-turn-acw": "Quarter turn anticlockwise",
+    "instruction-tap": "Tap a shape.",
+    "instruction-move": "Drag the red square.",
+    "instruction-compass": "Turn the arrow with ↻ or ↺."
+  },
+  "missions": {
+    "left-of": {
+      "title": "On the left",
+      "prompt": "Tap the shape that is <b>to the left of</b> the blue circle.",
+      "hint": "Put your left hand up. Find the shape on that side of the circle.",
+      "success": "Well done! The orange triangle is to the left of the circle.",
+      "why": "Where is the green square?",
+      "model": "The green square is to the right of the circle, on my right-hand side. The triangle is on the left, and the circle is between the triangle and the square.",
+      "feedback": {
+        "empty": "Tap a shape.",
+        "right-side": "The green square is on your right-hand side. Put your left hand up and look that way.",
+        "itself": "That is the circle itself. Tap the shape next to it on the left.",
+        "extra": "Tap just one shape. Tap it again to take it off."
+      }
+    },
+    "between": {
+      "title": "In between",
+      "prompt": "The green square is <b>above</b>. The blue square is <b>below</b>. Drag the red square so it is <b>between</b> them.",
+      "hint": "Between means in the middle of two things. Find the gap under the green square and over the blue square.",
+      "success": "Well done! The red square is between the green and blue squares: below the green one and above the blue one.",
+      "why": "Which square is the red square above now? Which is it below?",
+      "model": "The red square is above the blue square and below the green square. That is why we say it is between them.",
+      "feedback": {
+        "wrong-place": "The red square is not between them yet. It must be just below the green square and just above the blue square.",
+        "swapped": "The red square is not between them yet. It must be just below the green square and just above the blue square."
+      }
+    },
+    "quarter-turn": {
+      "title": "A quarter turn",
+      "prompt": "The arrow points at the tree. Guess first: after a <b>quarter turn clockwise</b>, what will it point at? Now press ↻.",
+      "hint": "Clock hands go from the top towards the right. Press ↻ once.",
+      "success": "Well done! A quarter turn clockwise took the arrow from the tree to the house.",
+      "why": "What would the arrow point at after a quarter turn anticlockwise?",
+      "model": "The yellow box. Anticlockwise is the other way, from the top towards the left.",
+      "feedback": {
+        "wrong-way": "The arrow points at the yellow box. That was anticlockwise. Press Start again, then ↻.",
+        "long-way": "The arrow points at the house, but you went the long way round. A quarter turn clockwise is just one ↻. Press Start again.",
+        "wrong-turn": "The arrow is not pointing at the house. Press Start again and press ↻ just once."
+      }
+    },
+    "half-turn": {
+      "title": "A half turn",
+      "prompt": "The arrow points at the tree. Turn it a <b>half turn clockwise</b>. A half turn is two quarter turns.",
+      "hint": "Press ↻ twice: tree, house, then …?",
+      "success": "Well done! After a half turn the arrow points at the ball, the opposite way.",
+      "why": "What happens if you make a half turn anticlockwise instead?",
+      "model": "It points at the ball too. A half turn either way faces the opposite way. Two half turns make a whole turn, and the arrow points at the tree again.",
+      "feedback": {
+        "long-way": "It points at the ball! A half turn either way gets there. But this time go clockwise: Start again, then ↻ twice.",
+        "wrong-way": "The arrow is not pointing at the ball. Press ↻ twice.",
+        "wrong-turn": "The arrow is not pointing at the ball. Press Start again and press ↻ twice: tree, house, ball."
+      }
+    },
+    "three-quarter-turn": {
+      "title": "Three quarters of a turn",
+      "prompt": "The arrow points at the tree. Turn it <b>three quarter turns anticlockwise</b>. Guess first what it will point at.",
+      "hint": "Press ↺ three times and count: box, ball, …",
+      "success": "Well done! Three quarter turns anticlockwise: tree, box, ball, house.",
+      "why": "The arrow points at the house. A shorter turn would get there too. Which one?",
+      "model": "A quarter turn clockwise. Three quarters of a turn one way ends in the same place as a quarter turn the other way, because together they make a whole turn.",
+      "feedback": {
+        "long-way": "The arrow points at the house, but you made a quarter turn clockwise. This time go anticlockwise: Start again, then ↺ three times.",
+        "wrong-way": "The arrow points at the yellow box. Three quarter turns anticlockwise go tree, box, ball, house. Press Start again, then ↺ three times.",
+        "wrong-turn": "That is not three quarter turns yet. Press Start again and press ↺ three times."
+      }
+    }
+  }
+}

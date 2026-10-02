@@ -1,0 +1,30 @@
+id: geo-circle-constructions
+engine: measure
+strand: geo
+order: 7
+# Measure-only part of the plan entry: radius, diameter, circumference and π. The ruler-and-compass constructions
+# (geo.construct.triangles, geo.construct.basic) move to the shape-board engine later.
+concepts: [geo.circle.parts, meas.circle.circumference]
+missions:
+  - id: radius
+    # A circle 4 cm across; the ruler starts 1 cm off. Measure the diameter (4), then halve it: radius 2.
+    # Traps: 4 (gave the diameter), 8 (doubled). Reading the end without sliding the ruler gives 3 (not-from-zero).
+    setup: { tool: ruler, object: circle, length: 4, max: 7, minor: 10, offset: -1, unit: cm }
+    answer: integer
+    check: { type: measure, value: 2, aligned: true, traps: [{ value: 4, code: diameter }, { value: 8, code: doubled }] }
+  - id: tape-around
+    # A tape wrapped once round a tin 3 cm across, unrolled on the ruler: 9.42 cm (accept 9.2–9.6).
+    setup: { tool: ruler, object: ribbon, length: 9.42, max: 10, minor: 10, offset: 0, unit: cm }
+    answer: decimal
+    check: { type: measure, value: 9.42, tolerance: 0.2, traps: [{ value: 3, code: diameter }, { value: 6, code: doubled }] }
+  - id: how-many-diameters
+    # The tape (9.42) above the diameter (3) on one ruler: the circumference is about 3.14 diameters (accept 3.08–3.2).
+    setup: { tool: ruler, objects: [{ object: ribbon, length: 9.42 }, { object: line, length: 3 }], max: 10, minor: 10, drag: false, unit: cm, instruction: none }
+    answer: decimal
+    check: { type: measure, value: 3.14, tolerance: 0.06, traps: [{ value: 3, code: whole-only }, { value: 0.32, code: upside-down }, { value: 0.3, code: upside-down }] }
+  - id: pool
+    # Radius 3 cm (as in Iran G5's table): diameter 6, circumference ≈ 6 × 3.14 = 18.84 (22/7 gives 18.86).
+    # Traps: 9.42 (π × radius), 28.26 (π × r², the area), 18 (forgot the 0.14).
+    setup: { tool: ruler, object: circle, length: 6, max: 8, minor: 10, offset: 0, unit: cm }
+    answer: decimal
+    check: { type: measure, value: 18.84, tolerance: 0.07, traps: [{ value: 9.42, code: used-radius }, { value: 28.26, code: area }, { value: 18, code: whole-pi }] }

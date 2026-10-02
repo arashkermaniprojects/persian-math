@@ -39,6 +39,10 @@ describe('learner input', () => {
     expect(parseInteger('٤٥')).toBe(45);
     expect(parseInteger(' 7 ')).toBe(7);
     expect(parseInteger('۳/۴')).toBe(null);
+    expect(parseInteger('۲٬۳۰۰٬۰۰۰')).toBe(2300000);
+    expect(parseInteger('2,300,000')).toBe(2300000);
+    expect(parseInteger('1 000')).toBe(1000);
+    expect(parseInteger('12,5')).toBe(null); // a decimal comma is not a thousands separator
   });
 });
 

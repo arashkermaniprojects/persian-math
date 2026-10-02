@@ -1,0 +1,42 @@
+id: num-large-rounding
+engine: place-value
+strand: num
+order: 6
+concepts: [num.place-value.large, num.rounding, ops.estimate]
+# Large numbers in three-digit classes (Iran G04_riazi_chaharom.pdf p.22 [۱۶] «معرفی میلیون»; Afghan AF_G04_riazi.pdf
+# p.35 [۲۸] «طبقه بندی… اعداد تا ملیارد» with طبقهٔ یک‌ها/هزارها/ملیون‌ها), rounding by looking at the next lower place
+# (Iran «تقریب»: G02 p.64, G03_riazi_sevom.pdf p.37), and estimating a sum first (Iran G04 «محاسبه‌های تقریبی» p.56).
+# The readout groups digits in threes: ٬ in fa-IR, a thin space in fa-AF/ps (their "," is the decimal mark), "," in en.
+missions:
+  # Build two million fifty thousand three hundred from words: two empty places inside the thousands class.
+  - id: build-million
+    setup: { value: 0, maxPlace: 6, classes: true, readout: number, exchange: false, instruction: add }
+    check:
+      type: place-value
+      value: 2050300
+      canonical: true
+      traps: [{ value: 250300, code: dropped-zero }, { value: 2503000, code: zero-moved }, { value: 2005300, code: fifty-as-five }]
+  # Round 4682 to the nearest hundred: the hundreds are outlined, the tens (the place to look at) dashed.
+  - id: round-hundred
+    setup: { value: 4682, maxPlace: 3, round: 2, exchange: false }
+    check:
+      type: place-value
+      value: 4700
+      canonical: true
+      traps: [{ value: 4600, code: rounded-down }, { value: 4680, code: to-ten }, { value: 5000, code: to-thousand }, { value: 4782, code: kept-rest }]
+  # Round 352 481 to the nearest thousand: the hundreds digit 4 says "down", even though 8 is big.
+  - id: round-thousand
+    setup: { value: 352481, round: 3, classes: true, readout: number, exchange: false }
+    check:
+      type: place-value
+      value: 352000
+      canonical: true
+      traps: [{ value: 353000, code: rounded-up }, { value: 350000, code: to-ten-thousand }, { value: 352480, code: to-ten }, { value: 352500, code: to-hundred }]
+  # Estimate 3890 + 2140 by rounding each to the nearest thousand: 4000 + 2000 = 6000 (exact: 6030).
+  - id: estimate-sum
+    setup: { value: 3890, compare: 2140, round: 3, locked: true, views: [] }
+    answer: integer
+    check:
+      type: answer-integer
+      value: 6000
+      traps: [{ value: 6030, code: exact }, { value: 5000, code: both-down }, { value: 5890, code: rounded-one }, { value: 6140, code: rounded-one }]

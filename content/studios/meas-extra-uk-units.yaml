@@ -1,0 +1,40 @@
+id: meas-extra-uk-units
+engine: measure
+strand: meas
+order: 8
+concepts: [meas.temperature, meas.units.imperial]
+# Extra studio. Temperature (°C) for every locale: the Iranian books use °C temperatures in their G3–G5 charts and the
+# thermometer prepares negative numbers. Imperial units are UK-only (locales: [en]).
+missions:
+  - id: read-thermometer
+    # Labels every 10 °C, a mark every 2 °C: the level is 3 marks above 20 = 26. Counting each mark as 1 gives 23.
+    setup: { tool: thermometer, min: -10, max: 40, major: 10, minorStep: 2, value: 26, unit: C }
+    answer: integer
+    check: { type: measure, value: 26, traps: [{ value: 23, code: mark-size }, { value: 30, code: rounded }, { value: 20, code: rounded }] }
+  - id: below-zero
+    # Set −6 °C. Setting +6 is the "wrong side of zero" mistake.
+    setup: { tool: thermometer, min: -20, max: 20, major: 10, minorStep: 2, value: 10, set: true, step: 2, unit: C }
+    check: { type: measure, value: -6, traps: [{ value: 6, code: above-zero }, { value: -4, code: counted-up }] }
+  - id: inches-to-cm
+    locales: [en]
+    # The pencil is 6 inches on an inch ruler (halves marked); 1 inch ≈ 2.5 cm, so ≈ 15 cm (exactly 15.24).
+    setup: { tool: ruler, object: pencil, length: 6, max: 8, minor: 2, offset: 0, unit: in }
+    answer: decimal
+    check: { type: measure, value: 15.24, tolerance: 0.3, traps: [{ value: 6, code: inches }, { value: 8.5, code: added }, { value: 2.4, code: divided }] }
+  - id: feet-and-inches
+    locales: [en]
+    # 4 ft 6 in = 48 + 6 = 54 in. 46 is the "feet and inches are like tens and ones" mistake.
+    setup: { tool: convert, units: [mile, yd, ft, in], from: ft, to: in }
+    answer: integer
+    check: { type: measure, value: 54, traps: [{ value: 46, code: base-ten }, { value: 406, code: base-ten }, { value: 24, code: wrong-factor }] }
+  - id: kg-to-pounds
+    locales: [en]
+    # The dial shows 2 kg; 1 kg ≈ 2.2 lb, so ≈ 4.4 lb (accept 4.2–4.6).
+    setup: { tool: scale, object: bag, max: 5, major: 1, minorStep: 0.5, value: 2, unit: kg }
+    answer: decimal
+    check: { type: measure, value: 4.4, tolerance: 0.2, traps: [{ value: 2, code: wrote-kg }, { value: 0.9, code: divided }] }
+  - id: pint-of-milk
+    locales: [en]
+    # A pint is about 568 ml: pour to the nearest mark, 550 ml (marks every 50 ml).
+    setup: { tool: jug, max: 1000, major: 200, minorStep: 50, value: 0, set: true, step: 50, unit: ml }
+    check: { type: measure, value: 568, tolerance: 20, traps: [{ value: 500, code: half-litre }, { value: 1000, code: litre }] }

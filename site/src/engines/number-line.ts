@@ -1,7 +1,7 @@
 // <kg-number-line>: a number line the learner places points on by tapping, dragging or with the arrow keys.
 // Contract: docs/STUDIOS.md ("Engine contract"). The line always runs left → right, in every locale (docs/NOTATION.md).
 import { digitsOf, formatDecimal, type NumberFormat } from '../lib/display';
-import { clamp, decimalString, labelStep, snap, tickKind, tickX, toTick, windowOf, type FracSpec } from './number-line-math';
+import { clamp, decimalString, hopText, labelStep, snap, tickKind, tickX, toTick, windowOf, type FracSpec } from './lib/number-line-math';
 
 export interface NumberLineConfig {
   min?: number;
@@ -20,11 +20,23 @@ export interface NumberLineConfig {
   decimal?: boolean;
   /** Show only this part of min..max, magnified, under a small overview of the whole line. */
   zoom?: { from: FracSpec; to: FracSpec };
+  /** Points snap to multiples of `step` ticks, and only those ticks are drawn (e.g. step 10 on a 200–600 line). */
+  step?: number;
+  /** Ticks per labelled group: multiples of `major` are tall (and labelled with labels: 'whole'), halves of it medium. */
+  major?: number;
+  /** Hop arcs over the line from `from` (drawn as a start dot) through the movable points in order; `labels` writes each hop's size (+۲۰, −۵). */
+  jumps?: { from?: FracSpec; labels?: boolean };
+  /** Write each movable point's value under the line. */
+  showValues?: boolean;
+  /** Icon hint above the line, with the studio label `instruction-<key>`: tap, hop. */
+  instruction?: string;
 }
 
 const NS = 'http://www.w3.org/2000/svg';
 const PAD = 26; // keeps end labels inside the drawing
 const HIT = 22; // hit radius: 44px touch targets
+const ARC = 46; // room above the line for hop arcs (up to 36px high) and their labels
+const minus = (s: string) => s.replace(/-/g, '\u2212');
 
 export class NumberLine extends HTMLElement {
   private cfg: NumberLineConfig = {};
@@ -61,6 +73,10 @@ export class NumberLine extends HTMLElement {
     return (this.cfg.points?.length ?? 0) + (this.cfg.addPoints ?? 0);
   }
 
+  private get step() {
+    return Math.max(1, this.cfg.step ?? 1);
+  }
+
   private get interactive() {
     return this.maxPoints > 0;
   }
@@ -72,6 +88,13 @@ export class NumberLine extends HTMLElement {
     wrap.dir = 'ltr';
     wrap.className = 'kg-nl';
     wrap.append(this.svg);
+    if (this.cfg.instruction) {
+      const hint = document.createElement('p');
+      hint.className = 'kg-nl-hint';
+      hint.innerHTML = `<span class="kg-nl-i i-${this.cfg.instruction.replace(/\W/g, '')}" aria-hidden="true"></span>`;
+      hint.append(this.dataset[`instruction${this.cfg.instruction.replace(/^\w/, (c) => c.toUpperCase())}`] ?? '');
+      this.append(hint);
+    }
     this.append(wrap);
     if (this.interactive && (this.cfg.addPoints ?? 0) > 0) {
       const reset = document.createElement('button');
@@ -115,7 +138,7 @@ export class NumberLine extends HTMLElement {
   private xToTick(e: PointerEvent) {
     const r = this.svg.getBoundingClientRect();
     const x = ((e.clientX - r.left) * this.width) / (r.width || this.width);
-    return snap(x, this.lo, this.hi, this.x0, this.x1);
+    return snap(x, this.lo, this.hi, this.x0, this.x1, this.step);
   }
 
   private down(e: PointerEvent) {
@@ -169,8 +192,8 @@ export class NumberLine extends HTMLElement {
     const i = this.pts[p];
     // Right/Up always mean "bigger": the line runs left → right even on RTL pages.
     const step: Record<string, number> = {
-      ArrowRight: i + 1, ArrowUp: i + 1, ArrowLeft: i - 1, ArrowDown: i - 1,
-      PageUp: i + this.den, PageDown: i - this.den, Home: this.lo, End: this.hi,
+      ArrowRight: i + this.step, ArrowUp: i + this.step, ArrowLeft: i - this.step, ArrowDown: i - this.step,
+      PageUp: i + Math.max(this.den, this.step), PageDown: i - Math.max(this.den, this.step), Home: this.lo, End: this.hi,
     };
     if (e.key in step) {
       e.preventDefault();
@@ -187,7 +210,7 @@ export class NumberLine extends HTMLElement {
   /** Plain-text value of tick i, for labels and aria-valuetext. */
   private text(i: number): string {
     const f = this.fmt;
-    if (i % this.den === 0) return digitsOf(i / this.den, f);
+    if (i % this.den === 0) return minus(digitsOf(i / this.den, f));
     const dec = this.decimal(i);
     return dec ?? `${i}/${this.den}`;
   }
@@ -195,7 +218,7 @@ export class NumberLine extends HTMLElement {
   /** Decimal label in the locale's mark, or null if not in decimal mode (or i/den has no finite decimal). */
   private decimal(i: number): string | null {
     const dec = this.cfg.decimal ? decimalString(i, this.den) : null;
-    return dec && formatDecimal(dec, this.fmt).replace(/<[^>]+>/g, '');
+    return dec && minus(formatDecimal(dec, this.fmt).replace(/<[^>]+>/g, ''));
   }
 
   private label(i: number, y: number): string {
@@ -213,7 +236,8 @@ export class NumberLine extends HTMLElement {
     const { lo, hi, den, cfg } = this;
     const W = this.width;
     const zoom = !!cfg.zoom;
-    const y = zoom ? 104 : 40; // the main line
+    const chain = cfg.jumps ? [...(cfg.jumps.from ? [toTick(cfg.jumps.from, den)] : []), ...this.pts] : [];
+    const y = (zoom ? 104 : 40) + (cfg.jumps ? ARC : 0); // the main line
     let H = y + 28; // grows to fit the labels drawn below the line
     const out: string[] = [];
 
@@ -225,7 +249,7 @@ export class NumberLine extends HTMLElement {
       out.push(`<line class="kg-nl-axis kg-nl-over" x1="${this.x0}" x2="${this.x1}" y1="${oy}" y2="${oy}"/>`);
       for (let u = a; u <= b; u += den)
         out.push(`<line class="kg-nl-tick" x1="${ox(u)}" x2="${ox(u)}" y1="${oy - 6}" y2="${oy + 6}"/>` +
-          `<text class="kg-nl-lab kg-nl-small" x="${ox(u)}" y="${oy - 11}">${digitsOf(u / den, this.fmt)}</text>`);
+          `<text class="kg-nl-lab kg-nl-small" x="${ox(u)}" y="${oy - 11}">${minus(digitsOf(u / den, this.fmt))}</text>`);
       const w0 = ox(lo), w1 = Math.max(ox(hi), w0 + 3);
       out.push(`<rect class="kg-nl-win" x="${w0 - 1.5}" y="${oy - 8}" width="${w1 - w0 + 3}" height="16" rx="3"/>`,
         `<path class="kg-nl-funnel" d="M${w0} ${oy + 9}L${this.x0} ${y - 22}M${w1} ${oy + 9}L${this.x1} ${y - 22}"/>`);
@@ -240,10 +264,12 @@ export class NumberLine extends HTMLElement {
     // Labels: 'all' thins out to every k-th tick when crowded; the window ends are labelled when zoomed.
     const spacing = (this.x1 - this.x0) / (hi - lo);
     const gap = 12 + 8 * Math.max(...[lo, hi, (lo + hi) >> 1, lo + 1].map((i) => (this.decimal(i) ?? String(i)).length));
-    const step = cfg.labels === 'all' ? labelStep(spacing, gap, den) : 0;
+    const s = this.step;
+    const step = cfg.labels === 'all' ? s * labelStep(spacing * s, gap, den % s === 0 ? den / s : 1) : 0;
     const roomy = (i: number) => spacing * Math.min(...[1, -1].map((s) => { let j = i; while (j % step) j += s; return Math.abs(j - i) || step; })) >= gap;
     for (let i = lo; i <= hi; i++) {
-      const k = tickKind(i, den);
+      if (i % s && i !== lo && i !== hi) continue;
+      const k = tickKind(i, den, cfg.major);
       const h = k === 'whole' ? 13 : k === 'mid' ? 9 : 6;
       const x = this.x(i).toFixed(1);
       out.push(`<line class="kg-nl-tick kg-nl-${k}" data-tick="${i}" x1="${x}" x2="${x}" y1="${y - h}" y2="${y + h}"/>`);
@@ -258,6 +284,25 @@ export class NumberLine extends HTMLElement {
     for (const f of cfg.fixedPoints ?? []) {
       const i = toTick(f, den);
       if (i >= lo && i <= hi) out.push(`<circle class="kg-nl-fixed" cx="${this.x(i)}" cy="${y}" r="9"><title>${this.dataset.labelGiven ?? ''}</title></circle>`);
+    }
+
+    // Hops: arcs over the line, each ending in an arrowhead on the point it lands on.
+    for (let k = 1; k < chain.length; k++) {
+      const a = this.x(chain[k - 1]), b = this.x(chain[k]);
+      if (a === b) continue;
+      const h = Math.min(36, Math.max(14, Math.abs(b - a) * 0.45)), top = y - 14;
+      out.push(`<path class="kg-nl-jump" d="M${a} ${top}C${a} ${top - h * 1.33} ${b} ${top - h * 1.33} ${b} ${top}"/>` +
+        `<path class="kg-nl-head" d="M${b - 5} ${top - 9}L${b + 5} ${top - 9}L${b} ${top}Z"/>`);
+      const t = cfg.jumps!.labels && hopText(chain[k - 1], chain[k], den, cfg.decimal);
+      if (t) out.push(`<text class="kg-nl-lab kg-nl-hop" x="${(a + b) / 2}" y="${top - h - 6}">${minus(digitsOf(t, this.fmt).replace('.', this.fmt.decimal))}</text>`);
+    }
+    if (cfg.jumps?.from) {
+      const i = toTick(cfg.jumps.from, den);
+      if (i >= lo && i <= hi) out.push(`<circle class="kg-nl-fixed kg-nl-start" cx="${this.x(i)}" cy="${y}" r="9"/>`);
+    }
+    if (cfg.showValues) {
+      for (const i of this.pts) out.push(`<text class="kg-nl-lab kg-nl-val" x="${this.x(i)}" y="${y + 50}">${this.text(i)}</text>`);
+      if (this.pts.length) H = Math.max(H, y + 58);
     }
 
     const name = this.dataset.labelPoint ?? 'Point';

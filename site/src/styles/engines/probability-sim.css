@@ -1,0 +1,118 @@
+/* Styles for <kg-probability-sim>. Loaded on every page via the glob in layouts/Base.astro. Logical properties only. */
+kg-probability-sim {
+  --ps-red: #d9473b; --ps-blue: #2f7fd1; --ps-green: #3a9a4f; --ps-yellow: #f2c232; --ps-white: #ffffff;
+  --ps-black: #2b2b2b; --ps-orange: #ef8a2b; --ps-purple: #8a5cc2; --ps-edge: rgb(0 0 0 / 0.35);
+  --ps-gold: #e6b84a; --ps-silver: #c9cdd3;
+  display: block;
+}
+@media (prefers-color-scheme: dark) {
+  kg-probability-sim { --ps-red: #ef6a5c; --ps-blue: #5c9ee6; --ps-green: #5cb870; --ps-white: #f4f4f4; --ps-black: #0d0d0d; --ps-edge: rgb(255 255 255 / 0.35); }
+}
+.kg-ps-body { display: flex; flex-direction: column; gap: 0.9rem; align-items: stretch; }
+.kg-ps-live, .kg-ps-sr { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); margin: 0; }
+
+/* colours: counters, sectors and chips */
+kg-probability-sim .c-red { --c: var(--ps-red); } kg-probability-sim .c-blue { --c: var(--ps-blue); } kg-probability-sim .c-green { --c: var(--ps-green); } kg-probability-sim .c-yellow { --c: var(--ps-yellow); }
+kg-probability-sim .c-white { --c: var(--ps-white); } kg-probability-sim .c-black { --c: var(--ps-black); } kg-probability-sim .c-orange { --c: var(--ps-orange); } kg-probability-sim .c-purple { --c: var(--ps-purple); }
+.kg-ps-spin path[class^='c-'] { fill: var(--c, var(--border)); stroke: var(--card); stroke-width: 1.2; }
+.kg-ps-spin path[data-a] { cursor: pointer; }
+.kg-ps-spin path[data-a]:focus-visible { outline: none; stroke: var(--fg); stroke-width: 3; }
+
+/* instruction hint */
+.kg-ps-hint { display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin: 0; font-weight: 700; }
+.kg-ps-i { inline-size: 44px; block-size: 44px; flex: none; border-radius: 50%; background: var(--hint-bg); position: relative; }
+.kg-ps-i::before { content: ''; position: absolute; inset: 11px; border-radius: 50%; background: conic-gradient(var(--ps-red) 0 25%, var(--ps-blue) 0 50%, var(--ps-green) 0 75%, var(--ps-yellow) 0); }
+.kg-ps-i.i-draw::before { inset: 10px 9px 8px; border-radius: 30% 30% 45% 45%; background: #b08a5a; }
+.kg-ps-i.i-roll::before { inset: 11px; border-radius: 5px; background: var(--card) radial-gradient(circle, var(--fg) 0 3px, transparent 4px); border: 2px solid var(--fg); }
+.kg-ps-i.i-flip::before { background: var(--ps-gold); }
+.kg-ps-i.i-place::before { inset: 19px 6px; border-radius: 4px; background: linear-gradient(90deg, var(--ps-red), var(--ps-yellow), var(--ps-green)); }
+.kg-ps-i.i-tap::before, .kg-ps-i.i-edit::before { background: var(--ps-red); box-shadow: 0 0 0 4px var(--hint-bg), 0 0 0 7px var(--accent); }
+
+/* devices */
+.kg-ps-devs { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+.kg-ps-dev { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; min-inline-size: 0; }
+.kg-ps-coin { inline-size: 92px; block-size: 92px; border-radius: 50%; display: grid; place-items: center; background: var(--ps-gold);
+  border: 4px double #9b7420; color: #4a3608; font-weight: 800; font-size: 1.05rem; text-align: center; }
+.kg-ps-coin.tails { background: var(--ps-silver); border-color: #7c828b; color: #2c3036; }
+.kg-ps-die { inline-size: 84px; block-size: 84px; padding: 10px; box-sizing: border-box; border-radius: 14px; background: var(--card); border: 3px solid var(--fg);
+  display: grid; grid-template-columns: repeat(3, 1fr); place-items: center; }
+.kg-ps-die i { inline-size: 14px; block-size: 14px; border-radius: 50%; }
+.kg-ps-die i.p { background: var(--fg); }
+.kg-ps-die b { grid-column: 1 / -1; grid-row: 1 / -1; font-size: 2rem; }
+.kg-ps-spin svg { inline-size: min(220px, 62vw); block-size: auto; display: block; overflow: visible; }
+.kg-ps-ptr { transform-box: view-box; transform-origin: 50px 50px; transition: transform 1s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.kg-ps-ptr path { stroke: var(--fg); stroke-width: 3.5; stroke-linecap: round; fill: var(--fg); }
+.kg-ps-ptr circle { fill: var(--fg); stroke: var(--card); stroke-width: 1.5; }
+
+.kg-ps-bagw { display: flex; align-items: center; gap: 0.8rem; }
+.kg-ps-bag { inline-size: 150px; min-block-size: 112px; padding: 26px 12px 14px; box-sizing: border-box; position: relative;
+  background: #c79a62; border: 3px solid #8a6436; border-radius: 30% 30% 45% 45% / 22% 22% 60% 60%; display: grid; place-items: center; }
+.kg-ps-bag::before { content: ''; position: absolute; inset-block-start: -10px; inset-inline: 38%; block-size: 16px; background: #a87e4a; border-radius: 6px; border: 2px solid #8a6436; }
+.kg-ps-bag > span { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; }
+.kg-ps-bag i { inline-size: 18px; block-size: 18px; border-radius: 50%; background: var(--c); border: 1.5px solid var(--ps-edge); }
+.kg-ps-bag b { font-size: 2.4rem; color: #fff; }
+.kg-ps-drawn .kg-ps-chip { inline-size: 44px; block-size: 44px; }
+.kg-ps-edit { display: flex; flex-direction: column; gap: 0.3rem; }
+.kg-ps-row { display: flex; align-items: center; gap: 0.5rem; }
+.kg-ps-row .kg-ps-nm { min-inline-size: 3.5rem; }
+.kg-ps-row output { min-inline-size: 1.8rem; text-align: center; font-weight: 700; font-size: 1.15rem; }
+
+/* a played trial bounces once */
+kg-probability-sim .roll { animation: kg-ps-roll 0.5s ease-out; }
+.kg-ps-coin.roll { animation-name: kg-ps-flip; }
+@keyframes kg-ps-roll { 0% { transform: rotate(-25deg) scale(0.7); } 60% { transform: rotate(10deg) scale(1.08); } 100% { transform: none; } }
+@keyframes kg-ps-flip { 0% { transform: scaleX(1); } 25% { transform: scaleX(0.05); } 50% { transform: scaleX(1); } 75% { transform: scaleX(0.05); } 100% { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { kg-probability-sim .roll { animation: none; } .kg-ps-ptr { transition: none; } }
+
+/* chips: a counter, a coin face or a die face */
+.kg-ps-chip { display: inline-grid; place-items: center; inline-size: 24px; block-size: 24px; border-radius: 50%; flex: none; vertical-align: middle;
+  background: var(--c, var(--border)); border: 2px solid var(--ps-edge); box-sizing: border-box; font-size: 0.8rem; font-weight: 800; }
+.kg-ps-chip.num { border-radius: 6px; background: var(--card); border-color: var(--fg); }
+.kg-ps-chip.coin { background: var(--ps-gold); color: #4a3608; }
+.kg-ps-chip.coin.tails { background: var(--ps-silver); color: #2c3036; }
+
+/* buttons */
+.kg-ps-btn { min-inline-size: 44px; min-block-size: 44px; padding-inline: 0.7rem; border-radius: var(--radius); border: 2px solid var(--border);
+  background: var(--card); color: var(--fg); font: inherit; font-weight: 700; cursor: pointer; }
+.kg-ps-btn.go { border-color: var(--accent); }
+.kg-ps-btn:disabled { opacity: 0.45; cursor: default; }
+.kg-ps-btn:focus-visible, .kg-ps-tile:focus-visible, .kg-ps-stops button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.kg-ps-run { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+
+/* results table */
+.kg-ps-tally { inline-size: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.kg-ps-tally caption { font-weight: 700; padding-block-end: 0.3rem; }
+.kg-ps-tally th, .kg-ps-tally td { padding: 0.3rem 0.35rem; border-block-end: 1px solid var(--border); text-align: center; }
+.kg-ps-tally thead th, .kg-ps-tally tr:first-child th { font-size: 0.8rem; color: var(--muted); font-weight: 600; }
+.kg-ps-tally th[scope='row'] { text-align: start; white-space: nowrap; font-weight: 600; }
+.kg-ps-tally th[scope='row'] .kg-ps-nm { margin-inline-start: 0.35rem; }
+.kg-ps-marks { inline-size: 45%; text-align: start !important; letter-spacing: 1px; font-weight: 700; line-height: 1.2; }
+.kg-ps-marks i { font-style: normal; display: inline-block; position: relative; margin-inline-end: 0.4rem; direction: ltr; }
+.kg-ps-marks i.g5::after { content: ''; position: absolute; inset: 45% -2px auto; block-size: 2px; background: var(--fg); transform: rotate(-20deg); }
+.kg-ps-bar { display: block; position: relative; block-size: 12px; border-radius: 6px; background: var(--hint-bg); overflow: visible; }
+.kg-ps-bar b { display: block; block-size: 100%; border-radius: 6px; background: var(--shade); }
+.kg-ps-bar i { position: absolute; inset-block: -4px; inline-size: 3px; margin-inline-start: -1px; background: var(--fg); }
+
+/* outcome tiles (sample space, choose) */
+.kg-ps-tiles { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+.kg-ps-tile { display: inline-flex; align-items: center; gap: 0.45rem; min-block-size: 48px; min-inline-size: 44px; padding-inline: 0.75rem;
+  border-radius: 999px; border: 2px solid var(--border); background: var(--card); color: var(--fg); font: inherit; font-weight: 700; cursor: pointer; }
+.kg-ps-tile[aria-pressed='true'], .kg-ps-tile[aria-checked='true'] { border-color: var(--accent); box-shadow: inset 0 0 0 2px var(--accent); background: var(--hint-bg); }
+.kg-ps-tile[aria-pressed='true']::after, .kg-ps-tile[aria-checked='true']::after { content: '✓'; color: var(--accent); }
+
+/* likelihood line: always impossible (0) on the left, certain (1) on the right */
+.kg-ps-scale { display: flex; flex-direction: column; gap: 0.6rem; }
+.kg-ps-line, .kg-ps-stops { display: grid; grid-template-columns: repeat(var(--n), 1fr); }
+.kg-ps-line { position: relative; padding-block-start: 16px; }
+.kg-ps-line::before { content: ''; position: absolute; inset-block-start: 2px; inset-inline: calc(50% / var(--n)); block-size: 8px; border-radius: 4px;
+  background: linear-gradient(90deg, var(--ps-red), var(--ps-yellow), var(--ps-green)); }
+.kg-ps-line .lv { display: flex; flex-direction: column; align-items: center; text-align: center; font-size: 0.8rem; font-weight: 700; line-height: 1.25; position: relative; padding-inline: 2px; }
+.kg-ps-line .lv::before { content: ''; position: absolute; inset-block-start: -18px; inline-size: 3px; block-size: 14px; background: var(--fg); }
+.kg-ps-line .num { color: var(--muted); }
+.kg-ps-ev { border-block-start: 1px dashed var(--border); padding-block-start: 0.4rem; }
+.kg-ps-ev p { margin: 0 0 0.3rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; }
+.kg-ps-pics { display: inline-flex; gap: 2px; }
+.kg-ps-stops { justify-items: center; }
+.kg-ps-stops button { inline-size: 44px; block-size: 44px; border-radius: 50%; border: 2px dashed var(--border); background: var(--card); cursor: pointer; padding: 0; position: relative; }
+.kg-ps-stops button[aria-checked='true'] { border: 3px solid var(--accent); background: var(--hint-bg); }
+.kg-ps-stops button[aria-checked='true']::after { content: ''; position: absolute; inset: 9px; border-radius: 50%; background: var(--accent); }

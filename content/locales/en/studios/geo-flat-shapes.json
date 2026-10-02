@@ -1,0 +1,104 @@
+{
+  "title": "Flat shapes and {{term:symmetry}}",
+  "summary": "Make a {{term:triangle}} and a {{term:square-shape}} on the pinboard, find the triangles, and draw a {{term:line-of-symmetry}}.",
+  "guide": [
+    "This studio is for Year 1. Children draw by tapping dots, so no typing is needed. Read the sentences aloud if your child is not reading yet; the small picture at the top also shows what to do.",
+    "The dotty board works like a pinboard and elastic band: each tap joins a new dot to the last one. To finish a shape, tap the first dot again. Undo removes the last dot.",
+    "A {{term:triangle}} has three straight {{term:side}}s and three corners, whichever way up it is. A shape that is not closed is not a triangle. A {{term:square-shape}} has four equal sides and four square corners; a {{term:rectangle}} has square corners too, but its sides are not all equal.",
+    "A {{term:line-of-symmetry}} is a fold line: fold the shape along it and the two halves match exactly. The diagonal of a rectangle is not a line of symmetry; folding a paper rectangle shows why."
+  ],
+  "engine": {
+    "letters": "A B C D E F G H I J",
+    "label-board": "Dotty board",
+    "label-undo": "Undo",
+    "label-clear": "Clear",
+    "label-shape": "Shape",
+    "label-corners": "{n} dots",
+    "label-shape-a": "Orange shape",
+    "label-shape-b": "Green shape",
+    "label-shape-c": "Blue shape",
+    "label-shape-d": "Red shape",
+    "label-shape-e": "Purple shape",
+    "label-shape-f": "Yellow shape",
+    "instruction-draw": "Tap the dots. Then tap the first dot.",
+    "instruction-tap": "Tap the triangles.",
+    "instruction-fold": "Tap two dots to draw the fold line.",
+    "instruction-mirror": "Draw the other half."
+  },
+  "missions": {
+    "make-triangle": {
+      "title": "Make a triangle",
+      "prompt": "Draw a {{term:triangle}}. Tap three dots. Then tap the first dot to close it.",
+      "hint": "A triangle has 3 corners. Choose 3 dots that are not in one straight line.",
+      "success": "Well done! That is a triangle. It has 3 sides and 3 corners.",
+      "why": "Why is this shape called a triangle? Count its sides and corners.",
+      "model": "It has 3 {{term:side}}s and 3 corners. \"Tri\" means three. Every triangle, big or small, straight or tipped over, has 3 sides and 3 corners.",
+      "feedback": {
+        "empty": "Tap the dots to draw a shape.",
+        "open": "Your shape is still open. Tap the first dot to close it.",
+        "too-many-sides": "Your shape has more than 3 corners. A triangle has only 3. Press Clear and try again.",
+        "too-few-sides": "A triangle has 3 corners. You need 3 dots that are not in a straight line.",
+        "crossed": "The lines cross over each other. Draw it again."
+      }
+    },
+    "make-square": {
+      "title": "Make a square",
+      "prompt": "Draw a {{term:square-shape}}. All its sides must be the same length.",
+      "hint": "Count the gaps between dots. If one side is 2, the other sides must be 2 as well.",
+      "success": "Well done! Four equal sides and four square corners. That is a square.",
+      "why": "How do you know your shape is a square and not a rectangle?",
+      "model": "A square has 4 sides that are all the same length, and its corners are square, like the corner of a book. A rectangle also has square corners, but two of its sides are longer.",
+      "feedback": {
+        "empty": "Tap the dots to draw a shape.",
+        "open": "Your shape is still open. Tap the first dot to close it.",
+        "not-equal": "That is a {{term:rectangle}}: two sides are longer. In a square every side is the same length. Look at the numbers by the sides.",
+        "not-square": "That shape has 4 sides, but its corners are not square like the corner of a book. Try again.",
+        "too-many-sides": "A square has only 4 corners. Press Clear and try again.",
+        "too-few-sides": "A square has 4 corners. You need one more dot.",
+        "crossed": "The lines cross over each other. Tap the dots in order, all the way round."
+      }
+    },
+    "find-triangles": {
+      "title": "Find the triangles",
+      "prompt": "Tap all the triangles.",
+      "hint": "Count the corners of each shape. A triangle has 3 corners and is closed. It can be upside down or long and thin.",
+      "success": "Well done! You found all three triangles, even the upside-down one and the long thin one.",
+      "why": "The blue triangle is upside down. Is it still a triangle? Why?",
+      "model": "Yes. If we turn a shape round, it still has 3 sides and 3 corners. Turning a shape does not change its name.",
+      "feedback": {
+        "empty": "Tap the triangles.",
+        "open-shape": "The yellow shape is not closed: it has a gap. A triangle must be closed.",
+        "round": "The red shape is a {{term:circle}}. It has no corners. A triangle has 3 corners.",
+        "four-sides": "The green shape has 4 corners. A triangle has only 3.",
+        "extra": "One of the shapes you tapped is not a triangle. Count its corners. Tap it again to take it away.",
+        "missed": "There is another triangle. Triangles can be upside down or long and thin."
+      }
+    },
+    "fold-line": {
+      "title": "The fold line",
+      "prompt": "If we fold this rectangle along one line, the two halves match. Draw that line.",
+      "hint": "The line must cut the shape into two halves that are exactly the same. Go through the middle of the sides, not through the corners.",
+      "success": "Well done! That is a {{term:line-of-symmetry}}: the two halves fold exactly onto each other.",
+      "why": "This rectangle has one more line of symmetry. Where is it?",
+      "model": "One line goes up through the middle, and one goes across through the middle. Both cut the rectangle into two matching halves. A line from corner to corner is not a line of symmetry.",
+      "feedback": {
+        "empty": "Tap two dots to draw a line.",
+        "diagonal": "That line goes from corner to corner. If you fold a paper rectangle like that, the corners do not meet. Go through the middle of the sides.",
+        "not-symmetry": "The two sides of your line are not the same size. The line must go through the middle of the shape."
+      }
+    },
+    "mirror-house": {
+      "title": "The other half of the house",
+      "prompt": "The dashed line is a mirror. Draw the other half of the house so both sides match.",
+      "hint": "The wall is 2 squares away from the dashed line. On the other side, draw it 2 squares away too.",
+      "success": "Well done! The house is symmetrical. The dashed line is its line of symmetry.",
+      "why": "How did you know where to draw the wall?",
+      "model": "In a mirror, every point goes the same distance to the other side of the line. The wall was 2 squares to the left of the dashed line, so I drew it 2 squares to the right.",
+      "feedback": {
+        "empty": "Tap the dots to draw the other half.",
+        "slid": "You copied the same half. In a mirror the shape is flipped. The roof must reach the dashed line.",
+        "not-image": "The two sides do not match yet. Count how far each corner is from the dashed line, and go the same distance on the other side."
+      }
+    }
+  }
+}

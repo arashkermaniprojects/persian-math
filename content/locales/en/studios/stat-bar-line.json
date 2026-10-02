@@ -1,0 +1,134 @@
+{
+  "title": "Bar charts and line graphs",
+  "summary": "Draw bar charts and line graphs from a table, read them, and choose the right chart for a question.",
+  "guide": [
+    "This studio covers bar charts (Years 2–4), line graphs (Year 5) and choosing a suitable chart.",
+    "Charts are drawn left to right, with the value axis on the left going up.",
+    "To build a chart, drag a bar or point up and down with your finger, or use the arrow keys.",
+    "A bar chart compares several groups. A line graph shows how one thing changes over time. When the value axis does not start at 0, we draw a break mark on it.",
+    "Ask your child: \"What does this chart tell us?\""
+  ],
+  "engine": {
+    "cat-d1": "Mon",
+    "cat-d2": "Tue",
+    "cat-d3": "Wed",
+    "cat-d4": "Thu",
+    "cat-d5": "Fri",
+    "cat-ali": "Ali",
+    "cat-sara": "Sara",
+    "cat-maryam": "Maryam",
+    "cat-reza": "Reza",
+    "cat-w1": "1",
+    "cat-w2": "2",
+    "cat-w3": "3",
+    "cat-w4": "4",
+    "cat-w5": "5",
+    "cat-a6": "6",
+    "cat-a7": "7",
+    "cat-a8": "8",
+    "cat-a9": "9",
+    "cat-a10": "10",
+    "cat-h8": "8 am",
+    "cat-h10": "10 am",
+    "cat-h12": "noon",
+    "cat-h14": "2 pm",
+    "cat-h16": "4 pm",
+    "head-day": "Day",
+    "head-week": "Week",
+    "head-hour": "Time",
+    "col-count": "Number",
+    "axis-books": "books",
+    "axis-pages": "pages",
+    "axis-cm": "cm",
+    "label-chart": "Chart",
+    "label-choose": "Which chart?",
+    "chart-pictogram": "pictogram",
+    "chart-bar": "bar chart",
+    "chart-line": "line graph",
+    "chart-pie": "pie chart",
+    "instruction-drag": "Drag the bars or points up and down.",
+    "instruction-read": "Read the chart.",
+    "instruction-choose": "Choose the best chart.",
+    "axis-age": "age",
+    "axis-week": "week"
+  },
+  "missions": {
+    "build-bar": {
+      "title": "Draw a bar chart",
+      "prompt": "The table shows how many books were borrowed from the class library each day. Predict which bar will be tallest. Then drag each bar up to the right number.",
+      "hint": "The axis goes up in 2s: 0, 2, 4, … 5 is half-way between 4 and 6.",
+      "success": "Well done! Tuesday, with 8 books, has the tallest bar and Wednesday, with 3, the shortest.",
+      "why": "Without reading the numbers, how can you tell from the chart which day had the most books borrowed?",
+      "model": "I look for the tallest bar. All bars start at 0 and are the same width, so a taller bar means more books. Tuesday has the tallest bar.",
+      "feedback": {
+        "empty": "Drag the bars up with your finger.",
+        "key-ignored": "Your bars are twice as tall! Each line on the axis is 2, not 1. Read the numbers on the axis.",
+        "half-needed": "One bar stops on a grid line, but its number is between two lines. Each line is 2: an odd number like 5 is half-way between 4 and 6.",
+        "too-high": "One bar is taller than its number. Check it against the table.",
+        "too-low": "One bar is shorter than its number. Check it against the table."
+      }
+    },
+    "read-bar": {
+      "title": "Read a bar chart",
+      "prompt": "This chart shows how many pages each child read in a week. How many more pages did Maryam read than Sara?",
+      "hint": "The top of Sara's bar is between 6 and 8; Maryam's is between 14 and 16. Read each one exactly, then subtract.",
+      "success": "Right! Maryam read 15 pages and Sara 7: 15 − 7 = 8.",
+      "why": "Sara's bar stops between two lines. How did you know it was 7?",
+      "model": "The lines go up in 2s: 6 and 8. Sara's bar stops exactly half-way between them, and half-way between 6 and 8 is 7. In the same way Maryam's bar is half-way between 14 and 16, so 15.",
+      "feedback": {
+        "empty": "Type your answer.",
+        "counted-steps": "You counted the squares between the bars. But each square is 2 pages, not 1.",
+        "added": "You added the two children's pages. \"How many more\" means subtract.",
+        "not-difference": "That is all of Maryam's pages. We want to know <b>how many more</b> than Sara she read.",
+        "misread": "You read Sara's bar as 6. Its top is half-way between 6 and 8.",
+        "too-big": "Too big. Read the bars again: each line is 2 pages.",
+        "too-small": "Too small. Read the bars again: each line is 2 pages."
+      }
+    },
+    "build-line": {
+      "title": "Draw a line graph",
+      "prompt": "Maryam measured a bean plant every week. Drag each week's point up to the right height. The line joins the points.",
+      "hint": "Each line on the axis is 2 cm. 7 is half-way between 6 and 8.",
+      "success": "Well done! The plant got taller every week: 2, 4, 7, 9 and 12 cm.",
+      "why": "Looking at the line, in which week did the plant grow most? How can you tell?",
+      "model": "Where the line is steepest. From week 2 to 3 it grew 3 cm, and from week 4 to 5 also 3 cm; the other weeks 2 cm. The steeper the line goes up, the more it grew.",
+      "feedback": {
+        "empty": "Drag the points up with your finger.",
+        "key-ignored": "Your points are twice as high! Each line on the axis is 2 cm.",
+        "half-needed": "One point is on a grid line, but its number is between two lines. Each line is 2 cm: 7 is half-way between 6 and 8.",
+        "too-high": "One point is higher than its number. Check it against the table.",
+        "too-low": "One point is lower than its number. Check it against the table."
+      }
+    },
+    "read-line": {
+      "title": "An axis that doesn't start at 0",
+      "prompt": "This graph shows Sara's height from age 6 to age 10. The axis starts at 100. How tall was Sara at age 6, in centimetres?",
+      "hint": "The break mark at the bottom of the axis means the numbers start at 100. The point for age 6 is between 110 and 120. Where exactly?",
+      "success": "Right! The point is exactly half-way between 110 and 120: 115 cm.",
+      "why": "Why does this graph's axis start at 100 instead of 0?",
+      "model": "Because all the heights are between 110 and 140. Starting at 0 would leave most of the graph empty and make the changes look tiny. The break mark reminds us that the bottom of the axis is not 0.",
+      "feedback": {
+        "empty": "Type your answer.",
+        "axis-start": "You took the bottom of the axis as 0. But the axis starts at 100! Look at the break mark.",
+        "grid-line": "The point is not on a line; it is between two lines. What is half-way between 110 and 120?",
+        "too-big": "Too big. Read the point for age 6 again.",
+        "too-small": "Too small. Read the point for age 6 again."
+      }
+    },
+    "choose-chart": {
+      "title": "Choose a chart",
+      "prompt": "Reza measured the temperature in the school yard every two hours (in °C). He wants to show how the temperature changed during the day. Which chart is best?",
+      "hint": "The temperature went up and down as the hours passed. Which chart shows change with a line?",
+      "success": "Right! A line graph shows the temperature rising until 2 pm and then falling.",
+      "why": "Why is a pie chart not suitable for this data?",
+      "model": "A pie chart shows the parts of one whole, like how many children in a class like each fruit. Temperatures are not parts of a whole, and adding them up means nothing. We want change over time, which is what a line graph shows.",
+      "feedback": {
+        "empty": "Choose one of the charts.",
+        "not-whole": "A pie chart is for the parts of a whole. Do the temperatures make up a whole?",
+        "bar-change": "A bar chart compares the temperatures, but a line shows change over time better.",
+        "picto-measure": "Pictures are for counting things. Temperature is measured, not counted.",
+        "wrong-chart": "Think again: the question is about change over time."
+      }
+    }
+  }
+}

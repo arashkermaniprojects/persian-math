@@ -1,0 +1,93 @@
+id: seq-machines-rules
+engine: pattern-machine
+strand: seq
+order: 2
+concepts: [seq.input-output, seq.term-to-term, seq.arithmetic]
+# Iran G3 «ماشین‌های ورودی ـ خروجی» (G03_riazi_sevom.pdf p.13: a «+۵» machine, then ۹، ۱۵، ۲۳ through «+۷» with
+# one output given and its input asked) and G4 p.12 [PDF 18] (×۲ and +۳ machines, then a two-step machine);
+# Afghan «رابطه و تابع» (AF_G08 ch. 9); UK Y6 sequences and "find the rule". Machines and sequences run left to
+# right in every locale: inputs on the left, outputs on the right, as the books draw them.
+missions:
+  # A «+۷» machine, as in G3 p.13. One example row, two outputs to work out, and one row where the output is
+  # given and the input is asked: 30 came out, so 23 went in. Adding 7 again (37) is the classic slip.
+  - id: machine-outputs
+    setup:
+      mode: machine
+      rule: [['+', 7]]
+      rows: [{ ex: 2 }, 9, 15, { out: 30 }]
+      instruction: machine
+    check:
+      type: pattern
+      answers: true
+      traps:
+        - { key: r4, value: 37, code: went-forward }
+        - { key: r2, value: 2, code: subtracted }
+        - { key: r3, value: 8, code: subtracted }
+  # The rule is hidden; three examples are shown. 2 → 6 alone fits "+ 4" (and 5 → 15 fits "+ 10") as well as "× 3", so the learner
+  # must test the rule on every row.
+  - id: find-the-rule
+    setup:
+      mode: machine
+      rule: [['×', 3]]
+      rows: [{ ex: 2 }, { ex: 5 }, { ex: 10 }]
+      hide: true
+      instruction: machine
+    check:
+      type: pattern
+      rule: true
+      traps:
+        - { rule: ['+', 4], code: one-row-only }
+        - { rule: ['+', 10], code: one-row-only }
+  # A two-step machine (G4 p.12): first × 2, then + 3. Doing the steps the other way round gives 14 for 4
+  # and 26 for 10. The last row is asked backwards: undo + 3 first, then × 2.
+  - id: two-step-machine
+    setup:
+      mode: machine
+      rule: [['×', 2], ['+', 3]]
+      rows: [{ ex: 1 }, 4, 10, { out: 13 }]
+      instruction: machine
+    check:
+      type: pattern
+      answers: true
+      traps:
+        - { key: r2, value: 14, code: order-swapped }
+        - { key: r3, value: 26, code: order-swapped }
+        - { key: r4, value: 29, code: went-forward }
+        - { key: r4, value: 3.5, code: undo-order }
+        - { key: r4, value: 8, code: undo-sign }
+  # Term-to-term: every number is double the one before (3, 6, 12, …). The gaps grow (3, 6, 12), so adding
+  # the last gap again (12 + 6 = 18) is the trap.
+  - id: doubling-sequence
+    setup:
+      mode: numbers
+      start: 3
+      op: '*'
+      step: 2
+      show: 6
+      ask: [4, 5, 6]
+      askStep: true
+      instruction: jump
+    check:
+      type: pattern
+      answers: true
+      traps:
+        - { key: t4, value: 18, code: added-gap }
+        - { key: t4, value: 15, code: added-three }
+  # Position-to-term (UK Y6, Iran G7 «جملهٔ عمومی»): 5, 8, 11, 14, … is 3 × position + 2. Term 10 = 32 and
+  # term 20 = 62. Traps: 3 × position only, doubling term 10, and one jump too many or too few from term 4.
+  - id: position-to-term
+    setup:
+      mode: numbers
+      rule: "3n + 2"
+      show: 4
+      ask: [10, 20]
+      instruction: type
+    check:
+      type: pattern
+      answers: true
+      traps:
+        - { key: t10, value: 30, code: forgot-add }
+        - { key: t20, value: 60, code: forgot-add }
+        - { key: t20, value: 64, code: doubled }
+        - { key: t10, value: 35, code: extra-jump }
+        - { key: t10, value: 29, code: missing-jump }

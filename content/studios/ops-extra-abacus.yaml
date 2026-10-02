@@ -1,0 +1,43 @@
+id: ops-extra-abacus
+engine: place-value
+strand: ops
+order: 10
+extra: true
+concepts: [ops.add-sub.abacus, ops.add-sub.regroup]
+# Extra studio: the Afghan G2 lessons «جمع کردن اعداد با چوت» and «تفریق اعداد توسط چوت» (AF_G02_riazi.pdf p.60–62
+# [۵۳–۵۵]). The book adds 11 + 13 by putting 13 beads on the ones rod, then swapping ten ones for one bead on the tens
+# rod; it subtracts 25 − 12 by taking beads off. Its exercises (15 + 8, 28 + 13, 25 − 12, 15 − 8) are used here.
+# Always the abacus, in every locale (featured for fa-AF/ps, optional elsewhere); no view switch.
+missions:
+  # 15 + 8: eight beads on the ones rod make 13; ten of them become one bead on the tens rod.
+  - id: add-exchange
+    setup: { value: 15, view: abacus, views: [], instruction: add }
+    check:
+      type: place-value
+      value: 23
+      canonical: true
+      traps: [{ value: 95, code: on-tens }, { value: 22, code: lost-one }]
+  # 28 + 13: one bead on the tens rod and three on the ones rod; 11 ones need an exchange.
+  - id: add-two-digit
+    setup: { value: 28, view: abacus, views: [], instruction: add }
+    check:
+      type: place-value
+      value: 41
+      canonical: true
+      traps: [{ value: 31, code: forgot-tens }, { value: 38, code: forgot-ones }, { value: 40, code: lost-one }]
+  # 25 − 12: take 2 beads off the ones rod and 1 off the tens rod (the book's example).
+  - id: sub-beads
+    setup: { value: 25, view: abacus, views: [], instruction: sub }
+    check:
+      type: place-value
+      value: 13
+      canonical: true
+      traps: [{ value: 37, code: added }, { value: 23, code: forgot-ones }, { value: 15, code: forgot-tens }]
+  # 42 − 17: only 2 beads on the ones rod; break one tens bead into ten ones first.
+  - id: sub-exchange
+    setup: { value: 42, view: abacus, views: [], instruction: break }
+    check:
+      type: place-value
+      value: 25
+      canonical: true
+      traps: [{ value: 35, code: smaller-from-larger }, { value: 32, code: only-tens }, { value: 40, code: only-two }]

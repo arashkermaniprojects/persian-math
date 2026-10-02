@@ -9,7 +9,7 @@
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { buildSync } from 'esbuild';
+import { build } from 'esbuild';
 
 const DIST = 'dist';
 const OUT = 'bundles';
@@ -45,6 +45,19 @@ function rewrite(file, root) {
   writeFileSync(file, s);
 }
 
+/** esbuild plugin: replace the Vite glob registry with a static one listing every engine. */
+const staticEngineRegistry = {
+  name: 'static-engine-registry',
+  setup(build) {
+    build.onResolve({ filter: /engines-registry$/ }, () => ({ path: 'engines-registry', namespace: 'kg' }));
+    build.onLoad({ filter: /.*/, namespace: 'kg' }, () => {
+      const names = readdirSync('src/engines').filter((f) => f.endsWith('.ts') && !f.endsWith('.test.ts')).map((f) => f.slice(0, -3));
+      const entries = names.map((n) => `${JSON.stringify(n)}: () => import(${JSON.stringify('./src/engines/' + n + '.ts')})`);
+      return { contents: `export const ENGINES = { ${entries.join(', ')} };`, resolveDir: process.cwd(), loader: 'ts' };
+    });
+  },
+};
+
 if (!existsSync(DIST)) throw new Error('Run `npm run build` first.');
 rmSync(OUT, { recursive: true, force: true });
 mkdirSync(OUT);
@@ -59,7 +72,14 @@ for (const locale of LOCALES) {
     `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=./${locale}/index.html"><a href="./${locale}/index.html">Kamangir</a>`
   );
   // Classic-script build of the studio runtime with every engine inlined (no dynamic import over file://).
-  buildSync({ entryPoints: ['src/client/studio.ts'], bundle: true, format: 'iife', minify: true, outfile: join(root, '_offline/studio.js') });
+  await build({
+    entryPoints: ['src/client/studio.ts'],
+    bundle: true,
+    format: 'iife',
+    minify: true,
+    outfile: join(root, '_offline/studio.js'),
+    plugins: [staticEngineRegistry],
+  });
   for (const f of walk(root)) {
     if (/\.(html|css)$/.test(f)) rewrite(f, root);
     if (f.endsWith('.html')) {

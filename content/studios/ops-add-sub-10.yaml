@@ -1,0 +1,66 @@
+id: ops-add-sub-10
+engine: counters
+strand: ops
+order: 1
+concepts: [ops.add.concept, ops.sub.concept, ops.add-sub.within-10]
+# Grade 1: every mission is "do it with the counters, then tap the number". No typing, very little reading.
+missions:
+  # Join two groups: move every apple into the basket (ten-frame), then tap the total.
+  - id: join
+    setup:
+      look: apple
+      instruction: move
+      zones:
+        - { kind: group, fill: 3, to: 2, slots: 5 }
+        - { kind: group, fill: [0, 4], to: 2, slots: 5 }
+        - { kind: frame, name: basket }
+      sentence: "3 + 4 = ?"
+      pick: [0, 10]
+    check:
+      type: counters
+      count: [0, 0, 7]
+      pick: 7
+      traps: [{ pick: 3, code: one-group }, { pick: 4, code: one-group }, { pick: 1, code: took-away }]
+  # Take away: cross out the apples that were eaten, then tap how many are left.
+  - id: take-away
+    setup:
+      look: apple
+      instruction: cross
+      zones:
+        - { kind: frame, fill: 8, act: cross }
+      sentence: "8 − 3 = ?"
+      pick: [0, 10]
+    check:
+      type: counters
+      marked: 3
+      pick: 5
+      traps: [{ pick: 3, code: counted-taken }, { pick: 8, code: counted-start }]
+  # Compare: two rows lined up one-to-one; circle the apples that have no partner, then tap the difference.
+  - id: compare
+    setup:
+      look: apple
+      instruction: ring
+      zones:
+        - { kind: row, slots: 7, fill: 7, act: ring, name: sara }
+        - { kind: row, slots: 7, fill: [0, 4], name: reza }
+      sentence: "7 − 4 = ?"
+      pick: [0, 10]
+    check:
+      type: counters
+      marked: [3, 0]
+      pick: 3
+      traps: [{ pick: 7, code: bigger-row }, { pick: 4, code: smaller-row }]
+  # Number bond of 10: keep 6 red, paint the rest yellow, then tap the missing part.
+  - id: bond-10
+    setup:
+      instruction: paint
+      zones:
+        - { kind: frame, fill: 10, act: paint }
+      bond: [10, 6, "?"]
+      sentence: "6 + ? = 10"
+      pick: [0, 10]
+    check:
+      type: counters
+      colors: [6, 4]
+      pick: 4
+      traps: [{ pick: 6, code: same-part }, { pick: 10, code: whole }]

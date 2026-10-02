@@ -1,0 +1,80 @@
+{
+  "title": "Column multiplication",
+  "summary": "Multiply in columns: short multiplication by a 1-digit number with carried digits, long multiplication with two rows and a placeholder 0, and then decimals.",
+  "guide": [
+    "In the {{term:column-method}} for {{term:multiplication}}, start with the ones column. Multiply each digit of the top number by the bottom number. If you get 10 or more, write the ones and carry the tens to the next column: write them small under the answer line.",
+    "Add the carried digit <b>after</b> you multiply: in 47 × 6, first 4 × 6 = 24, then 24 + 4 = 28. Never multiply the carried digit.",
+    "Long multiplication, like 67 × 32, has two rows: the first row is 67 × 2 and the second is 67 × 30. Because we multiply by 30, the second row starts with a placeholder 0 in the ones column. Then add the two rows.",
+    "To multiply a {{term:decimal}}, multiply as if there were no decimal point. Then count the decimal places in the numbers you multiplied: the answer has the same number of decimal places.",
+    "Every digit you get right turns green. If you get stuck, press \"Show me this column\"."
+  ],
+  "engine": {
+    "carry": "below",
+    "placeholder": "zero",
+    "label-places": "O|T|H|Th|TTh|HTh",
+    "label-dec-places": "t|h|th",
+    "label-place-names": "ones|tens|hundreds|thousands|ten thousands|hundred thousands",
+    "label-dec-names": "tenths|hundredths|thousandths",
+    "label-result": "answer, {p} column",
+    "label-carry": "carried digit, {p} column",
+    "label-partial": "row {n}, {p} column",
+    "label-ask-sum": "{e} = ?",
+    "label-ask-carry": "How many tens are in {s}? Carry them to the next column.",
+    "label-ask-zero": "This row multiplies by the tens digit, so it multiplies by tens: write the placeholder 0 in the ones column.",
+    "label-reveal": "Show me this column",
+    "label-wrong": "Not yet! Work this digit out again.",
+    "label-done": "Finished! Every digit is right.",
+    "label-err-forgot-carry": "So close! Remember to add the digit you carried into this column.",
+    "label-err-tens-digit": "Only one digit fits in each box. Write the ones here and carry the ten to the next column.",
+    "label-err-carry-first": "Multiply first, then add the carried digit. Don't multiply the carried digit.",
+    "label-err-placeholder": "Write the placeholder 0 here."
+  },
+  "missions": {
+    "short-mul": {
+      "title": "47 × 6",
+      "prompt": "A hall has 6 rows of 47 chairs. How many chairs are there? Estimate first: 47 is close to 50, and 50 × 6 = 300. Then multiply in the table.",
+      "hint": "7 × 6 = 42. Write the 2 in the ones and carry the 4. Then 4 × 6 = 24, and 24 + 4 = 28.",
+      "success": "Well done! 47 × 6 = 282 chairs. Close to your estimate of 300.",
+      "why": "Why did you carry the 4 instead of multiplying it straight away?",
+      "model": "7 × 6 = 42 is 4 tens and 2 ones. The 4 tens wait with the tens. Then the 4 tens of 47 times 6 make 24 tens, and we add the 4 tens we carried: 28 tens. Those carried tens were already multiplied, so we don't multiply them again.",
+      "feedback": {
+        "wrong": "There are still some boxes to fill. Work one column at a time; if you get stuck, \"Show me this column\" will help."
+      }
+    },
+    "three-by-one": {
+      "title": "238 × 4",
+      "prompt": "A bike shop has 238 wheels in each of its 4 stores. How many wheels is that? This time you'll carry twice.",
+      "hint": "8 × 4 = 32. Then 3 × 4 = 12, and 12 + 3 = 15. Then 2 × 4 = 8, and 8 + 1 = 9.",
+      "success": "That's right! 238 × 4 = 952.",
+      "why": "Ali worked out the tens as (3 + 3) × 4 = 24. Why is that wrong?",
+      "model": "The carried 3 is 3 tens that came from 8 × 4: they have already been multiplied. Adding them first and then multiplying by 4 multiplies them twice. The right way is 3 × 4 = 12, then 12 + 3 = 15.",
+      "feedback": {
+        "wrong": "There are still some boxes to fill. Remember: multiply first, then add the carried digit."
+      }
+    },
+    "long-mul": {
+      "title": "67 × 32",
+      "prompt": "A book has 67 pages. Each of 32 pupils has a copy. How many pages is that altogether? Write 67 × 2 first, then 67 × 30, then add them.",
+      "hint": "First row: 67 × 2 = 134. Second row: 67 × 30. We're multiplying by tens, so write the placeholder 0 in the ones first, then 67 × 3 = 201 in front of it: 2010.",
+      "success": "Well done! 67 × 32 = 134 + 2010 = 2144 pages.",
+      "why": "Why did you write a 0 in the ones column of the second row?",
+      "model": "The 3 in 32 means 3 tens, which is 30. 67 × 30 = 2010, not 201. A number of tens has no ones, so the placeholder 0 holds the ones place and every other digit sits in its right column. Without it, 201 would go under 134 and the answer would be far too small: 335.",
+      "feedback": {
+        "wrong": "There are still some boxes to fill. First the row for 67 × 2, then the row for 67 × 30 (placeholder 0 first), then add."
+      }
+    },
+    "decimal-mul": {
+      "title": "2.45 × 3",
+      "prompt": "Maryam buys 3 pieces of ribbon, each 2.45 m long. How much ribbon is that? Work out 245 × 3 in columns first. Then place the decimal point and type the answer in the box.",
+      "hint": "245 × 3 = 735. 2.45 has two decimal places and 3 has none, so the answer has two decimal places. Estimate: about 2 and a half metres, three times, is about 7 m.",
+      "success": "That's right! 2.45 × 3 = 7.35 m.",
+      "why": "How did you know where the decimal point goes in 735?",
+      "model": "2.45 is 245 hundredths. 245 hundredths × 3 = 735 hundredths, which is 7.35. That's why the answer has as many decimal places as the numbers we multiplied. The estimate helps too: three lots of about 2.5 m is about 7 m, not 73 or 735.",
+      "feedback": {
+        "too-big": "That's far too big. Estimate: what are three lots of about 2.5 m? Put the decimal point two places from the right.",
+        "too-small": "That's too small. 2.45 has only two decimal places.",
+        "empty": "Finish the multiplication first, then type the answer with its decimal point."
+      }
+    }
+  }
+}

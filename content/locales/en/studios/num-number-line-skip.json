@@ -1,0 +1,81 @@
+{
+  "title": "Number lines, counting in steps, odd and even",
+  "summary": "Find numbers on a number line, count in 2s, 5s and 10s, and discover odd and even numbers.",
+  "guide": [
+    "This studio is for Years 1 and 2. Your child answers by tapping the line, so no writing is needed. If they can't read yet, read the sentences to them.",
+    "On a {{term:number-line}}, 0 is on the left and the numbers get bigger to the right.",
+    "When we count in steps, every jump is the same size. The arc over the line shows each jump, and the number on the arc says how far it went, e.g. +2.",
+    "Counting in 2s from 0 lands on 2, 4, 6, 8 and 10: these are the {{term:even-number}}s. The numbers in between, 1, 3, 5, 7 and 9, are the {{term:odd-number}}s."
+  ],
+  "engine": {
+    "label-line": "Number line: tap to place a point",
+    "label-point": "Point",
+    "label-given": "Start",
+    "label-clear": "Clear points",
+    "instruction-tap": "Tap the line.",
+    "instruction-hop": "Tap where each jump lands."
+  },
+  "missions": {
+    "find-15": {
+      "title": "Where is 15?",
+      "prompt": "Only 0, 10 and 20 are written on this line. Where is 15? Tap it.",
+      "hint": "15 is 10 and 5 more. From 10, go along 5 small marks.",
+      "success": "Well done! 15 is exactly halfway between 10 and 20.",
+      "why": "Why is 15 exactly halfway between 10 and 20?",
+      "model": "From 10 to 15 is 5 steps, and from 15 to 20 is 5 steps too. Both sides are the same size.",
+      "feedback": {
+        "count": "Put one point on the line. Just tap the line.",
+        "too-small": "Go a bit further. 15 comes after 10: 10 and 5 more.",
+        "too-big": "Too far. 15 comes before 20. From 10, go along just 5 marks."
+      }
+    },
+    "hop-2s": {
+      "title": "Count in 2s",
+      "prompt": "The rabbit starts at 0 and jumps 2 each time. Tap where each jump lands until it reaches 10.",
+      "hint": "From 0 go along 2: that's 2. Another 2: 4. Keep going.",
+      "success": "Great! 2, 4, 6, 8, 10. These are {{term:even-number}}s.",
+      "why": "The rabbit never lands on 5. Why not?",
+      "model": "It jumps 2 each time. From 4, one jump takes it to 6, right over 5. 5 is odd, and this rabbit only lands on even numbers.",
+      "feedback": {
+        "count": "From 0 to 10 in 2s is 5 jumps. Count your points: there should be 5.",
+        "wrong": "One of the jumps isn't a 2. Every arc should say +2."
+      }
+    },
+    "odd-hops": {
+      "title": "Odd or even?",
+      "prompt": "This time the rabbit starts at 1 and jumps 2 each time again. Tap where it lands until it reaches 9.",
+      "hint": "From 1 go along 2: 3. Then 5 …",
+      "success": "Well done! 1, 3, 5, 7, 9. These are {{term:odd-number}}s.",
+      "why": "Will a rabbit that starts at 1 ever land on 6? Why?",
+      "model": "No. It lands on 5 and then 7. 6 is even: a rabbit starting at 0 lands there. Every odd number is one more than an even number.",
+      "feedback": {
+        "count": "From 1 to 9 in 2s is 4 jumps. Put down 4 points.",
+        "wrong": "One of the jumps isn't a 2. Every arc should say +2."
+      }
+    },
+    "hop-5s": {
+      "title": "Count in 5s",
+      "prompt": "Jump in 5s from 0 until you reach 20. Tap where each jump lands.",
+      "hint": "Each jump is 5 small marks. The first one lands on the taller mark halfway between 0 and 10.",
+      "success": "Great! 5, 10, 15, 20. Four jumps of 5 make 20.",
+      "why": "How many jumps of 5 does it take to get to 20? Use the line to explain.",
+      "model": "4 jumps: 5, 10, 15, 20. Two jumps of 5 make 10, so 20 needs four jumps.",
+      "feedback": {
+        "count": "From 0 to 20 in 5s is 4 jumps. There should be 4 points.",
+        "wrong": "One of the jumps isn't a 5. Every arc should say +5. Count the small marks in each jump."
+      }
+    },
+    "hop-10s": {
+      "title": "Count in 10s",
+      "prompt": "This line goes from 0 to 100. Jump in 10s and make 5 jumps. Predict first: where will you be after 5 jumps?",
+      "hint": "Each small mark is 10: 10, 20, 30 …",
+      "success": "Well done! 5 jumps of 10 took you to 50, exactly halfway along the line.",
+      "why": "Why is 50 exactly halfway between 0 and 100?",
+      "model": "From 0 to 50 is five jumps of 10, and from 50 to 100 is another five jumps of 10. The two halves are the same size.",
+      "feedback": {
+        "count": "Make 5 jumps: there should be 5 points on the line.",
+        "wrong": "One of the jumps isn't a 10. Every arc should say +10. Count the marks from 0: 10, 20, 30 …"
+      }
+    }
+  }
+}

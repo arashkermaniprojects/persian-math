@@ -1,0 +1,113 @@
+/* Styles for <kg-problem-canvas>. Loaded on every page via the glob in layouts/Base.astro. Logical properties only. */
+kg-problem-canvas {
+  --pc-a: #4f8fd6;   /* known parts */
+  --pc-b: #f0a43a;   /* second row / difference */
+  --pc-q: #e7eef8;   /* the unknown */
+  --pc-ink: #1f2a37;
+  display: flex; flex-direction: column; gap: 0.8rem; min-inline-size: 0;
+}
+@media (prefers-color-scheme: dark) {
+  kg-problem-canvas { --pc-a: #3b78bd; --pc-b: #c98321; --pc-q: #2a3442; --pc-ink: #f3f5f7; }
+}
+kg-problem-canvas button { font: inherit; color: inherit; cursor: pointer; }
+kg-problem-canvas button:focus-visible, kg-problem-canvas input:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* instruction hint: an icon with a very short label */
+.kg-pc-hint { display: flex; align-items: center; gap: 0.6rem; margin: 0; font-weight: 700; }
+
+/* the four steps */
+.kg-pc-step { display: flex; flex-direction: column; gap: 0.6rem; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); min-inline-size: 0; }
+.kg-pc-step h3 { display: flex; align-items: center; gap: 0.5rem; margin: 0; font-size: 1rem; }
+.kg-pc-num { display: inline-grid; place-items: center; inline-size: 1.8rem; block-size: 1.8rem; border-radius: 50%; background: var(--accent); color: #fff; font-size: 0.95rem; flex: none; }
+.kg-pc-q { margin: 0; font-weight: 600; }
+
+/* chips: facts, questions, strategies, tray numbers */
+.kg-pc-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.kg-pc-chips.col { flex-direction: column; }
+.kg-pc-fact, .kg-pc-strat, .kg-pc-chip, .kg-pc-item, .kg-pc-tile, .kg-pc-btn, .kg-pc-op {
+  min-block-size: 44px; min-inline-size: 44px; padding: 0.35rem 0.8rem; border: 2px solid var(--border); border-radius: 999px; background: var(--card);
+}
+.kg-pc-fact { text-align: start; border-radius: 12px; }
+.kg-pc-fact[aria-pressed='true'] { border-color: var(--pc-a); background: color-mix(in srgb, var(--pc-a) 18%, var(--card)); }
+.kg-pc-fact[aria-pressed='true']::before { content: '✓ ' / ''; font-weight: 700; }
+.kg-pc-fact[aria-checked='true'], .kg-pc-strat[aria-checked='true'], .kg-pc-tile[aria-checked='true'] { border-color: var(--accent); background: var(--accent); color: #fff; }
+.kg-pc-fact.ask[aria-checked='true']::before { content: '? ' / ''; }
+.kg-pc-strat { display: inline-flex; align-items: center; gap: 0.4rem; border-radius: 12px; }
+
+.kg-pc-tool { display: flex; flex-direction: column; gap: 0.6rem; min-inline-size: 0; }
+.kg-pc-tray { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; }
+.kg-pc-chip { font-weight: 700; font-size: 1.1rem; }
+.kg-pc-chip[aria-pressed='true'] { background: var(--accent); border-color: var(--accent); color: #fff; transform: translateY(-3px); box-shadow: 0 3px 0 rgb(0 0 0 / 0.25); }
+
+/* bar model («رسم شکل»): whole over its parts, or two rows and their difference */
+.kg-pc-bar { display: flex; flex-direction: column; gap: 0.35rem; min-inline-size: 0; }
+.kg-pc-row { display: flex; gap: 2px; min-inline-size: 0; flex: 1; }
+.kg-pc-grow { display: flex; min-inline-size: 44px; flex-basis: 0; }
+.kg-pc-seg {
+  flex: 1; min-block-size: 48px; min-inline-size: 44px; padding: 0 0.3rem; border: 2px solid var(--pc-ink); border-radius: 6px;
+  background: var(--pc-a); color: #fff; font-weight: 700; font-size: 1.15rem;
+}
+.kg-pc-seg.whole { background: var(--pc-q); color: var(--pc-ink); }
+.kg-pc-seg.diff { background: var(--pc-b); border-style: dashed; color: var(--pc-ink); }
+.kg-pc-seg.empty { background: var(--cell, var(--card)); border-style: dashed; border-color: var(--border); }
+.kg-pc-seg.lock { cursor: default; }
+/* unit squares inside a segment of up to 30 */
+.kg-pc-grow.u > .kg-pc-seg:not(.empty) {
+  background-image: linear-gradient(to right, rgb(255 255 255 / 0.55) 2px, transparent 2px);
+  background-size: calc((100% + 2px) / var(--u)) 100%; background-position: -2px 0;
+}
+/* the brace under the whole */
+.kg-pc-brace { block-size: 12px; margin-inline: 4px; border: 2px solid var(--pc-ink); border-block-start: 0; border-radius: 0 0 10px 10px; }
+.kg-pc-line { display: flex; align-items: center; gap: 0.4rem; min-inline-size: 0; }
+.kg-pc-name { flex: none; inline-size: 4.2rem; font-weight: 700; overflow-wrap: anywhere; }
+.kg-pc-pm { display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+.kg-pc-pm output { min-inline-size: 2rem; text-align: center; font-weight: 700; }
+.kg-pc-btn { align-self: center; border-radius: 12px; }
+.kg-pc-btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 700; }
+
+/* table and guess log */
+.kg-pc-scroll { max-inline-size: 100%; overflow-x: auto; }
+.kg-pc-table { border-collapse: collapse; margin-inline: auto; }
+.kg-pc-table th, .kg-pc-table td { border: 1px solid var(--border); padding: 0.25rem 0.4rem; text-align: center; min-inline-size: 3rem; }
+.kg-pc-table th { background: var(--hint-bg, var(--card)); font-size: 0.9rem; }
+.kg-pc-table td.calc { background: color-mix(in srgb, var(--pc-a) 12%, transparent); font-weight: 700; }
+.kg-pc-table td.given { font-weight: 700; }
+.kg-pc-table .hop { min-inline-size: 2.4rem; border: 0; color: var(--accent); font-size: 0.85rem; font-weight: 700; }
+.kg-pc-table td.cmp.big, .kg-pc-table td.cmp.small { color: var(--no); }
+.kg-pc-table td.cmp.hit { color: var(--ok); font-weight: 700; }
+.kg-pc-in { inline-size: 4.2rem; min-block-size: 44px; padding: 0 0.3rem; border: 2px solid var(--border); border-radius: 8px; background: var(--card); color: inherit; font: inherit; font-size: 1.1rem; text-align: center; }
+.kg-pc-table .kg-pc-in { inline-size: 3.6rem; }
+.kg-pc-try { display: flex; gap: 0.5rem; justify-content: center; align-items: center; }
+
+/* eliminate: tap to cross out */
+.kg-pc-list { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+.kg-pc-item { border-radius: 10px; font-weight: 700; font-size: 1.1rem; position: relative; }
+.kg-pc-item.x { opacity: 0.5; text-decoration: line-through; }
+.kg-pc-item.x::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom right, transparent 46%, var(--no) 46% 54%, transparent 54%); }
+
+/* number sentence: always left to right */
+.kg-pc-sent, .kg-pc-solve { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.25rem; margin: 0; font-size: 1.3rem; font-weight: 700; }
+.kg-pc-seg.num { flex: none; inline-size: auto; min-inline-size: 46px; color: inherit; background: var(--pc-q); }
+.kg-pc-seg.num.empty { background: transparent; }
+.kg-pc-op { border-radius: 50%; padding: 0; inline-size: 44px; font-size: 1.3rem; font-weight: 700; }
+.kg-pc-fix { min-inline-size: 1rem; text-align: center; }
+
+/* the answer */
+.kg-pc-answer { display: flex; flex-direction: column; gap: 0.5rem; padding-block-start: 0.6rem; border-block-start: 1px dashed var(--border); }
+.kg-pc-answer p { margin: 0; line-height: 2.6; }
+.kg-pc-blank { display: inline-block; min-inline-size: 2.4rem; border-block-end: 2px solid var(--fg); text-align: center; }
+.kg-pc-pick { display: flex; flex-wrap: wrap; gap: 0.35rem; justify-content: center; }
+.kg-pc-tile { border-radius: 10px; padding: 0; font-size: 1.1rem; }
+
+/* icons: plain shapes drawn with CSS, no images */
+.kg-pc-i { inline-size: 32px; block-size: 32px; flex: none; position: relative; border-radius: 8px; background: var(--hint-bg, var(--card)); }
+.kg-pc-i::before, .kg-pc-i::after { content: ''; position: absolute; }
+.kg-pc-i.i-draw::before, .kg-pc-i.i-understand::before { inset: 7px 4px 17px; background: var(--pc-q); border: 2px solid var(--pc-ink); }
+.kg-pc-i.i-draw::after, .kg-pc-i.i-understand::after { inset: 17px 4px 5px; background: linear-gradient(to right, var(--pc-a) 60%, var(--pc-b) 60%); border: 2px solid var(--pc-ink); }
+.kg-pc-i.i-model::before, .kg-pc-i.i-simpler::before { inset: 5px; background: linear-gradient(var(--pc-ink) 0 0) 50% 0 / 2px 100% no-repeat, linear-gradient(var(--pc-ink) 0 0) 0 50% / 100% 2px no-repeat; border: 2px solid var(--pc-ink); }
+.kg-pc-i.i-pattern::before { inset: 12px 4px; background: radial-gradient(circle, var(--pc-a) 3px, transparent 4px) 0 0 / 8px 8px; }
+.kg-pc-i.i-guess::before { inset: 4px; content: '?'; font-weight: 800; text-align: center; line-height: 24px; color: var(--accent); }
+.kg-pc-i.i-eliminate::before { inset: 14px 5px; background: var(--no); transform: rotate(-35deg); block-size: 3px; }
+.kg-pc-i.i-symbolic::before { inset: 9px; border: 2px solid var(--pc-ink); }
+.kg-pc-i.i-sub::before { inset: 6px 4px 18px 16px; background: var(--pc-a); }
+.kg-pc-i.i-sub::after { inset: 18px 16px 6px 4px; background: var(--pc-b); }

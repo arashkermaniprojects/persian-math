@@ -1,0 +1,107 @@
+{
+  "title": "Within 20: bridging ten and fact families",
+  "summary": "Fill the ten first, then put the rest. Add three numbers, swap the numbers round and find the four facts in a family.",
+  "guide": [
+    "This studio is for Year 1. Your child works with apples and counters and answers by tapping a number. If they can't read yet, read the sentences to them.",
+    "The key strategy is bridging ten: for 8 + 5, 2 of the 5 fill the first frame (10), and 3 are left: 13. Subtraction goes back the same way: for 13 − 5, take 3 to get to 10, then 2 more.",
+    "When adding three numbers, first add the two that make 10. In addition you can swap the numbers round ({{term:commutative-property}}). 9, 6 and 15 are a fact family: 9 + 6 = 15, 6 + 9 = 15, 15 − 9 = 6, 15 − 6 = 9."
+  ],
+  "engine": {
+    "label-counter": "counter",
+    "label-red": "red",
+    "label-yellow": "yellow",
+    "label-crossed": "crossed out",
+    "label-empty": "empty space",
+    "label-answer": "answer",
+    "label-bond": "whole and two parts",
+    "label-box": "box",
+    "instruction-move": "Tap each apple.",
+    "instruction-cross": "Tap an apple to cross it out.",
+    "instruction-paint": "Tap a counter to change its colour."
+  },
+  "missions": {
+    "make-ten": {
+      "title": "Fill the ten first",
+      "prompt": "There are 8 apples in the box. Put the other 5 in the box. How many now?",
+      "hint": "The first frame has 10 spaces. 8 and 2 make 10. How many go in the second frame?",
+      "success": "Well done! 8 and 2 make 10, and 3 more: 13. 8 + 5 = 13",
+      "why": "Why do we fill the first frame first?",
+      "model": "Because 10 is an easy number. With 10 and 3 we know it's 13 without counting.",
+      "feedback": {
+        "too-many": "There are still apples on the plate. Tap them to move them to the box.",
+        "too-few": "There are still apples on the plate. Tap them to move them to the box.",
+        "only-extra": "3 is only the second frame. Count the full frame too: 10 and 3.",
+        "stopped-at-ten": "10 is only the first frame. Add the apples in the second frame.",
+        "one-group": "5 was just the apples on the plate. Count all the apples in the box.",
+        "too-big": "Too many. Start at 10 and count the second frame.",
+        "too-small": "Too few. Start at 10 and count the second frame.",
+        "empty": "Now tap the number for your answer."
+      }
+    },
+    "back-to-ten": {
+      "title": "Back to 10 first",
+      "prompt": "We have 13 apples. Cross out 5 apples. How many are left?",
+      "hint": "First cross out the 3 in the second frame; 10 are left. Then 2 more from the 10.",
+      "success": "Well done! 13 − 3 = 10 and 10 − 2 = 8. So 13 − 5 = 8",
+      "why": "Why did we break 5 into 3 and 2?",
+      "model": "Because 3 takes us exactly to 10, and taking away from 10 is easy: 10 − 2 = 8.",
+      "feedback": {
+        "marked-too-few": "Cross out 5 apples. Count the crossed-out ones.",
+        "marked-too-many": "You crossed out too many. Only 5. Tap an apple again to remove its cross.",
+        "counted-taken": "5 is the apples you crossed out. Count the apples <b>without</b> a cross.",
+        "counted-start": "There were 13 at the start. We took 5 away, so fewer are left.",
+        "stopped-at-ten": "10 is after crossing out 3. You crossed out 2 more as well.",
+        "too-big": "Count the apples <b>without</b> a cross again.",
+        "too-small": "Count the apples <b>without</b> a cross again.",
+        "empty": "Now tap the number for your answer."
+      }
+    },
+    "three-numbers": {
+      "title": "Add three numbers",
+      "prompt": "Three plates of apples: 4, 7 and 6. Put them all in the box. First put the two plates that make 10.",
+      "hint": "4 and 6 make 10. Empty those two plates first. Then the other 7.",
+      "success": "Well done! 4 + 6 = 10 and 10 + 7 = 17. So 4 + 7 + 6 = 17",
+      "why": "We changed the order and added 4 and 6 first. Why didn't the answer change?",
+      "model": "They are the same apples; only the order we put them in changed. 4 and 6 make 10, and 10 and 7 is easily 17.",
+      "feedback": {
+        "too-many": "There are still apples on a plate. Move them all to the box.",
+        "stopped-at-ten": "10 is just 4 and 6. Add the other 7 apples too.",
+        "two-only": "That's only two plates. Count the apples from all three plates.",
+        "too-big": "Too many. The full frame is 10; count the second frame.",
+        "too-small": "Too few. The full frame is 10; count the second frame.",
+        "empty": "Now tap the number for your answer."
+      }
+    },
+    "swap": {
+      "title": "Swap them round",
+      "prompt": "2 red counters and 9 yellow counters. What number goes in the box?",
+      "hint": "Count the row once from the red end and once from the yellow end. They are still the same counters.",
+      "success": "Well done! 2 + 9 = 9 + 2. Both are 11.",
+      "why": "For 2 + 9, which is easier: counting on from 2 or from 9? Why?",
+      "model": "From 9. We say 9, then 10, 11: only 2 steps. Because you can swap the numbers in an addition, the answer is the same.",
+      "feedback": {
+        "total": "11 is all the counters. We want the number that is added to 9.",
+        "same-number": "9 is already there. What is the other number? Count the red counters.",
+        "too-big": "Count the red counters.",
+        "too-small": "Count the red counters.",
+        "empty": "Tap the number for your answer."
+      }
+    },
+    "fact-family": {
+      "title": "A fact family",
+      "prompt": "We have 15 counters. Keep 9 red and make the rest yellow. What is 15 − 9?",
+      "hint": "A full frame is 10. 10 − 9 = 1, plus the 5 in the second frame. How many are yellow?",
+      "success": "Well done! 15 − 9 = 6. So 9 + 6 = 15 is true as well.",
+      "why": "Write four number sentences with 9, 6 and 15.",
+      "model": "9 + 6 = 15, 6 + 9 = 15, 15 − 9 = 6, 15 − 6 = 9. All four are one picture: 15 counters, 9 red and 6 yellow.",
+      "feedback": {
+        "wrong-colors": "9 counters should be red and 6 yellow. Look at the diagram below.",
+        "same-part": "9 is the red ones. We want the number of <b>yellow</b> ones.",
+        "whole": "15 is all the counters. Count only the yellow ones.",
+        "too-big": "Count the yellow counters again.",
+        "too-small": "Count the yellow counters again.",
+        "empty": "Now tap the number for your answer."
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+id: ops-add-sub-20
+engine: counters
+strand: ops
+order: 2
+concepts: [ops.add-sub.within-20, ops.add.three-addends, ops.add.properties, ops.add-sub.inverse]
+# Grade 1–2: bridge through ten on a double ten-frame (add and take away), add three numbers by finding a
+# ten first, swap the addends, and the four facts of one part-whole family. Answers are taps.
+missions:
+  # 8 + 5: moving the yellow apples fills the first ten (8 + 2), then 3 more go into the second.
+  - id: make-ten
+    setup:
+      look: apple
+      instruction: move
+      zones:
+        - { kind: frame, slots: 20, fill: 8, name: box }
+        - { kind: group, fill: [0, 5], to: 0, slots: 5 }
+      sentence: "8 + 5 = ?"
+      pick: [0, 20]
+    check:
+      type: counters
+      count: [13, 0]
+      pick: 13
+      traps: [{ pick: 3, code: only-extra }, { pick: 10, code: stopped-at-ten }, { pick: 5, code: one-group }]
+  # 13 − 5: cross out 3 to get back to 10, then 2 more.
+  - id: back-to-ten
+    setup:
+      look: apple
+      instruction: cross
+      zones:
+        - { kind: frame, slots: 20, fill: 13, act: cross }
+      sentence: "13 − 5 = ?"
+      pick: [0, 20]
+    check:
+      type: counters
+      marked: 5
+      pick: 8
+      traps: [{ pick: 5, code: counted-taken }, { pick: 13, code: counted-start }, { pick: 10, code: stopped-at-ten }]
+  # 4 + 7 + 6: put 4 and 6 in first (they make 10), then 7 more.
+  - id: three-numbers
+    setup:
+      look: apple
+      instruction: move
+      zones:
+        - { kind: group, fill: 4, to: 3, slots: 7 }
+        - { kind: group, fill: [0, 7], to: 3, slots: 7 }
+        - { kind: group, fill: 6, to: 3, slots: 7 }
+        - { kind: frame, slots: 20, name: box }
+      sentence: "4 + 7 + 6 = ?"
+      pick: [0, 20]
+    check:
+      type: counters
+      count: [0, 0, 0, 17]
+      pick: 17
+      traps: [{ pick: 10, code: stopped-at-ten }, { pick: 11, code: two-only }, { pick: 13, code: two-only }]
+  # Swap the addends: the same row of counters read from the other end.
+  - id: swap
+    setup:
+      zones:
+        - { kind: row, slots: 11, fill: [2, 9] }
+      sentence: "2 + 9 = 9 + ?"
+      pick: [0, 20]
+    check:
+      type: counters
+      pick: 2
+      traps: [{ pick: 11, code: total }, { pick: 9, code: same-number }]
+  # Fact family 9, 6, 15: paint 6 of the 15 yellow, then 15 − 9 from the part-whole model.
+  - id: fact-family
+    setup:
+      instruction: paint
+      zones:
+        - { kind: frame, slots: 20, fill: 15, act: paint }
+      bond: ["*", "*", "*"]
+      sentence: "15 − 9 = ?"
+      pick: [0, 20]
+    check:
+      type: counters
+      colors: [9, 6]
+      pick: 6
+      traps: [{ pick: 9, code: same-part }, { pick: 15, code: whole }]

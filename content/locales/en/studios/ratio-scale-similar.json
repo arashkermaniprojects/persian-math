@@ -1,0 +1,92 @@
+{
+  "title": "Scale factors and {{term:similar}} shapes",
+  "summary": "Enlarge a shape by a scale factor, spot similar shapes, find a scale factor, and draw a similar shape from one side.",
+  "guide": [
+    "Two shapes are {{term:similar}} when one is an enlargement of the other: matching angles are equal and every side is multiplied by the same number. That number is the {{term:scale-factor}}.",
+    "The classic mistake at this age is adding instead of multiplying. Adding 2 to each side of a 3 × 1 rectangle gives 5 × 3, which is a different shape: no longer long and thin. To enlarge, multiply every side.",
+    "Turning or flipping a shape does not stop it being similar. A scale factor does not have to be a whole number: 1.5 is fine."
+  ],
+  "engine": {
+    "label-board": "Squared grid",
+    "label-undo": "Undo",
+    "label-clear": "Clear",
+    "label-shape": "Shape",
+    "label-corners": "{n} vertices",
+    "label-answer": "Scale factor",
+    "label-orange": "Orange rectangle",
+    "label-green": "Green rectangle",
+    "label-blue": "Blue rectangle",
+    "label-red": "Red rectangle",
+    "label-purple": "Purple rectangle",
+    "instruction-draw": "Tap the vertices, then the first one again.",
+    "instruction-tap": "Tap the shapes similar to the orange rectangle."
+  },
+  "missions": {
+    "enlarge": {
+      "title": "Enlarge by 2",
+      "prompt": "Enlarge the orange rectangle by scale factor 2 and draw the enlargement. Predict the side lengths first.",
+      "hint": "Multiply each side by 2: the side of 3 becomes 6. What does the short side become?",
+      "success": "Well done! 3 × 2 = 6 and 1 × 2 = 2. The 6 by 2 rectangle is the same shape, twice as big.",
+      "why": "Why doesn't adding 2 to each side make a similar rectangle?",
+      "model": "Adding 2 gives a 5 by 3 rectangle. In the original the long side is 3 times the short side, but 5 is not 3 times 3, so the shape is fatter. Multiplying by 2 keeps that: 6 is still 3 times 2.",
+      "feedback": {
+        "empty": "Tap the grid to draw the enlargement.",
+        "open": "Your shape is still open. Tap the first vertex to close it.",
+        "crossed": "The sides cross. Tap the vertices in order round the shape.",
+        "too-many-sides": "A rectangle has only 4 vertices. Press Clear and try again.",
+        "too-few-sides": "A rectangle has 4 vertices. You need one more.",
+        "too-many": "Draw just one rectangle.",
+        "not-similar": "That rectangle is not similar to the orange one. Did you add 2 to each side? To enlarge, multiply each side by 2.",
+        "wrong-factor": "Right shape, wrong size. The side of 3 must become 6."
+      }
+    },
+    "which-similar": {
+      "title": "Which are similar?",
+      "prompt": "Tap every rectangle that is similar to the orange 2 by 1 rectangle.",
+      "hint": "For each rectangle, how many times longer is the long side than the short side? In the orange one it is 2 times.",
+      "success": "Well done! The green (4 by 2) and purple (2 by 4) rectangles are similar to the orange one; the purple one is just standing up.",
+      "why": "The blue rectangle (3 by 2) is 1 square bigger each way than the orange one. Why isn't it similar?",
+      "model": "Because 1 was added to each side instead of multiplying. The side of 2 became 3 (1.5 times) but the side of 1 became 2 (2 times). The sides did not grow by the same factor, so the shape changed.",
+      "feedback": {
+        "empty": "Tap the similar rectangles.",
+        "added": "The blue rectangle is 3 by 2: 1 was added to each side. Its long side is not 2 times its short side, so it is not similar.",
+        "one-way": "The red rectangle is 4 by 1: only one side was doubled. Both sides must be multiplied by the same number.",
+        "extra": "One rectangle you tapped is not similar. Tap it again to remove it.",
+        "missed": "There is another similar rectangle. It might be turned round."
+      }
+    },
+    "scale-factor": {
+      "title": "Find the scale factor",
+      "prompt": "These two triangles are similar. What is the scale factor from the small triangle to the big one? Choose a number.",
+      "hint": "Compare matching sides: what do you multiply 2 by to get 6?",
+      "success": "Well done! The scale factor is 3: 2 × 3 = 6 and 1 × 3 = 3.",
+      "why": "Why isn't the answer 4? After all, 6 − 2 = 4.",
+      "model": "4 is the difference between two sides, not the factor. The other side only grew by 2 (3 − 1 = 2), so the differences don't match. But both sides were multiplied by 3: 6 ÷ 2 = 3 and 3 ÷ 1 = 3.",
+      "feedback": {
+        "empty": "Choose a number.",
+        "difference": "That is a difference: you subtracted. The scale factor says how many <b>times</b> bigger each side is.",
+        "side": "6 is a side length of the big triangle. The scale factor says how many times bigger the small side got.",
+        "too-big": "Too big. The side of 1 is 3 in the big triangle.",
+        "too-small": "Too small. What do you multiply 2 by to get 6?"
+      }
+    },
+    "draw-similar": {
+      "title": "Draw a similar rectangle",
+      "prompt": "Draw a rectangle similar to the orange 2 by 4 rectangle, with a short side of 3. Predict the long side first.",
+      "hint": "In the orange rectangle, how many times longer is the long side than the short side? The new one must be the same.",
+      "success": "Well done! A 3 by 6 rectangle. The scale factor is 1.5: 2 × 1.5 = 3 and 4 × 1.5 = 6.",
+      "why": "How did you work out the long side?",
+      "model": "In the orange rectangle the long side is 2 times the short side (4 = 2 × 2). So in the new one the long side is 2 times 3, which is 6. Or use the scale factor: 3 ÷ 2 = 1.5 and 4 × 1.5 = 6.",
+      "feedback": {
+        "empty": "Tap the grid to draw the rectangle.",
+        "open": "Your shape is still open. Tap the first vertex to close it.",
+        "crossed": "The sides cross. Tap the vertices in order round the shape.",
+        "too-many-sides": "A rectangle has only 4 vertices. Press Clear and try again.",
+        "too-few-sides": "A rectangle has 4 vertices. You need one more.",
+        "too-many": "Draw just one rectangle.",
+        "not-similar": "That rectangle is not similar. Did you draw 3 by 5? The short side grew by 1, but the long side must grow by the same factor, not the same amount.",
+        "wrong-factor": "It is similar, but its short side is not 3. Count the squares."
+      }
+    }
+  }
+}

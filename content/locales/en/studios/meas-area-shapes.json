@@ -1,0 +1,99 @@
+{
+  "title": "Area of triangles, parallelograms, trapezia and circles",
+  "summary": "Move pieces to see why the area of a parallelogram is base × height, why a triangle is half of that, complete a trapezium with a copy of itself, and estimate the area of a circle.",
+  "guide": [
+    "This studio follows the cut-and-move method of the Iranian grade 4 to 6 books: cut a triangle off a parallelogram and slide it across to make a rectangle; two equal triangles make a parallelogram; two equal trapezia make a parallelogram; and the area of a circle is estimated by counting squares. In England, parallelograms and triangles are Year 6; trapezia and circles come later (Key Stage 3).",
+    "Drag a piece to move it; the ↺ and ↻ buttons give it a quarter turn. With a keyboard, move to a piece and use the arrow keys. Each piece must fit exactly into the dashed gap.",
+    "The height is always at right angles to the base. Common mistakes are to multiply by the slanted side instead of the height, and to forget to halve for a triangle. Moving the pieces shows that the area does not change."
+  ],
+  "engine": {
+    "letters": "A B C D E F G H I J",
+    "label-board": "Squared grid",
+    "label-undo": "Undo",
+    "label-clear": "Start again",
+    "label-shape": "Shape",
+    "label-piece": "Cut-off piece",
+    "label-turn-acw": "Turn anticlockwise",
+    "label-turn-cw": "Turn clockwise",
+    "instruction-move": "Drag the piece into the dashed gap."
+  },
+  "missions": {
+    "slide-triangle": {
+      "title": "Turn a parallelogram into a rectangle",
+      "prompt": "A triangle has been cut off this {{term:parallelogram}}. Drag the triangle into the dashed gap. What shape do you make?",
+      "hint": "Slide the triangle to the right until its slanted side sits against the slanted side at the other end.",
+      "success": "Well done! The parallelogram has become a 4 by 3 {{term:rectangle}}.",
+      "why": "Did the area change when you moved the triangle? What is the area of the parallelogram?",
+      "model": "No. Nothing was added or taken away; one piece just moved. The rectangle is 4 × 3 = 12, so the parallelogram is 12 too. The rectangle's length is the parallelogram's base and its width is the parallelogram's height: area of a parallelogram = base × height.",
+      "feedback": {
+        "not-fit": "The triangle does not fit the dashed gap yet. Slide it to the right until the gap is completely filled."
+      }
+    },
+    "parallelogram-area": {
+      "title": "Base × height",
+      "prompt": "This parallelogram has a base of 6 and a slanted side of 5. The red dashed line is its height. What is its area in square units?",
+      "hint": "Count the squares to find the height. Remember: area of a parallelogram = base × height, not base × slanted side.",
+      "success": "Well done! 6 × 4 = 24 square units.",
+      "why": "Why don't we multiply the base by the slanted side (5)?",
+      "model": "If we cut off the triangle at the side and move it across, we get a rectangle 4 tall, not 5. The slanted side leans over, so it does not show how tall the shape is; the height, at right angles to the base, does.",
+      "feedback": {
+        "empty": "Type the area.",
+        "slant": "6 × 5 = 30. You used the slanted side. The height is the dashed line at right angles to the base: count its squares.",
+        "perimeter": "22 is the perimeter: 6 + 5 + 6 + 5. We want the area.",
+        "halved": "Halving is only for a triangle. Moving one piece turns a parallelogram into a whole rectangle.",
+        "too-big": "That is more than the area. Multiply the base by the height.",
+        "too-small": "That is less than the area. Multiply the base by the height."
+      }
+    },
+    "two-triangles": {
+      "title": "Two equal triangles",
+      "prompt": "Here are two equal {{term:triangle}}s. Turn the top one and drag it into the dashed gap. What shape do the two triangles make?",
+      "hint": "The triangle needs a half turn: press a turn button twice, then drag it down.",
+      "success": "Well done! Two equal triangles make a {{term:parallelogram}}.",
+      "why": "The triangle has a base of 4 and a height of 3. What is the area of one triangle? Why?",
+      "model": "Together the two triangles make a parallelogram with base 4 and height 3, so its area is 4 × 3 = 12. One triangle is half of that: 4 × 3 ÷ 2 = 6. So area of a triangle = base × height ÷ 2.",
+      "feedback": {
+        "not-fit": "The triangle does not fit the dashed gap yet. If it is not upside down, turn it twice; then move it until it sits exactly on the dashed outline."
+      }
+    },
+    "house": {
+      "title": "The area of a house",
+      "prompt": "This house is a rectangle (the wall) and a triangle (the roof). The dashed line is the height of the roof. What is the area of the whole house in square units?",
+      "hint": "Find the area of the wall first, then the roof. Area of a triangle = base × height ÷ 2. Then add the two areas.",
+      "success": "Well done! Wall 6 × 3 = 18, roof 6 × 3 ÷ 2 = 9, whole house 18 + 9 = 27 square units.",
+      "why": "Why did you halve the area of the roof but not the area of the wall?",
+      "model": "The roof is a triangle, and a triangle is half of a parallelogram (or rectangle) with the same base and height. If we draw a 6 by 3 rectangle round the roof, the roof fills exactly half of it. The wall is already a rectangle, so there is nothing to halve.",
+      "feedback": {
+        "empty": "Type the area.",
+        "not-halved": "18 + 18 = 36. You did not halve the roof. The roof is a triangle: base × height ÷ 2.",
+        "walls-only": "18 is just the wall. Add the roof too.",
+        "roof-only": "9 is just the roof. Add the wall too.",
+        "too-big": "That is more than the area of the house. Work out each part on its own and add them.",
+        "too-small": "That is less than the area of the house. Work out each part on its own and add them."
+      }
+    },
+    "two-trapezia": {
+      "title": "Two equal trapezia",
+      "prompt": "This {{term:trapezium}} has parallel sides of 5 and 2 and a height of 2. Turn the top trapezium and drag it into the dashed gap. What shape do the two trapezia make?",
+      "hint": "It needs a half turn: press a turn button twice. Then drag it until its slanted side sits against the slanted side of the bottom trapezium.",
+      "success": "Well done! The two trapezia make a {{term:parallelogram}}.",
+      "why": "What is the area of one trapezium? Use the parallelogram you made.",
+      "model": "The parallelogram's base is 5 + 2 = 7 and its height is 2, so its area is 7 × 2 = 14. Each trapezium is half of it: 14 ÷ 2 = 7. So area of a trapezium = (sum of the parallel sides) × height ÷ 2.",
+      "feedback": {
+        "not-fit": "The trapezium does not fit the dashed gap yet. If it is not upside down, turn it twice; then move it."
+      }
+    },
+    "circle-estimate": {
+      "title": "Estimate the area of a circle",
+      "prompt": "This {{term:circle}} has a radius of 3. The big square round it has 36 squares and the dashed diamond inside has 18. Which number is closest to the area of the circle?",
+      "hint": "The circle is bigger than the diamond and smaller than the square. Count the whole squares inside it and count part squares two for one.",
+      "success": "Well done! The area is about 28 square units: radius × radius × π = 3 × 3 × 3.14 = 28.26",
+      "why": "Why is 9 (radius × radius) not the answer?",
+      "model": "3 × 3 = 9 is the area of a small 3 by 3 square, only a quarter of the big square. The circle is bigger than the 18-square diamond. For the area of a circle we multiply radius × radius by π (about 3.14).",
+      "feedback": {
+        "empty": "Choose one of the numbers.",
+        "wrong": "Look again: the circle is bigger than the dashed diamond (18), but it does not fill the whole square (36). And 9 is only radius × radius."
+      }
+    }
+  }
+}

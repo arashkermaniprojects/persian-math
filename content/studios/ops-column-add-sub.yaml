@@ -1,0 +1,24 @@
+id: ops-column-add-sub
+engine: column-arithmetic
+strand: ops
+order: 7
+concepts: [ops.add-sub.written, ops.add-sub.written-large, ops.check.add-sub, frac.decimal.add-sub]
+# Carries go above the next column in fa-IR/fa-AF/ps and below the answer line in en (engine.carry in the locale file).
+# Borrowing: the learner taps the top digit on the left; it is crossed out and its new value written above it.
+missions:
+  # 58 + 27 in the place-value table: one carry into the tens.
+  - id: add-carry
+    setup: { op: add, terms: [58, 27], header: true }
+    check: { type: steps-correct }
+  # 52 − 27 in the place-value table: one borrow (7 can't come out of 2).
+  - id: sub-borrow
+    setup: { op: sub, terms: [52, 27], header: true }
+    check: { type: steps-correct }
+  # 403 − 168: borrowing through a zero, then checking by adding back (Afghan «امتحان»): 235 + 168 = 403.
+  - id: zero-and-check
+    setup: { op: sub, terms: [403, 168], inverse: true }
+    check: { type: steps-correct }
+  # 12.5 + 3.75: the learner first slides 3.75 so the decimal marks line up, then adds (12.50 padded with a 0).
+  - id: line-up-marks
+    setup: { op: add, terms: ["12.5", "3.75"], align: true }
+    check: { type: steps-correct }

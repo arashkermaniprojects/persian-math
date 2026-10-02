@@ -1,0 +1,97 @@
+{
+  "title": "Numbers to 20: a ten and some ones",
+  "summary": "Read and build the numbers 10 to 20 with two ten-frames. One more, the number between, and first, second, third.",
+  "guide": [
+    "This studio is for Year 1. Your child answers by tapping counters and numbers, so no writing is needed. If they can't read yet, read the sentences to them.",
+    "The big idea: 11 to 19 are \"one full ten and some more\". 13 is one full frame and 3 counters. Children should see that the 1 in 13 means one ten, not one counter.",
+    "In the last mission children stand in a queue and we meet {{term:ordinal-number}}s (first, second, third…). \"Seventh\" means the seventh place in the queue; 6 people are in front."
+  ],
+  "engine": {
+    "label-counter": "counter",
+    "label-red": "red",
+    "label-yellow": "yellow",
+    "label-empty": "empty space",
+    "label-answer": "answer",
+    "label-queue": "queue",
+    "instruction-tap": "Tap an empty space.",
+    "instruction-paint": "Tap a counter to change its colour."
+  },
+  "missions": {
+    "read-teen": {
+      "title": "What number is this?",
+      "prompt": "One frame is full. How many counters are there? Tap the number.",
+      "hint": "A full frame is 10. Then count on: 11, 12, …",
+      "success": "Well done! One ten and 3 make 13. 10 + 3 = 13",
+      "why": "In 13, what does the 1 show?",
+      "model": "The 1 means one ten: one full frame of 10 counters. The 3 means 3 more counters.",
+      "feedback": {
+        "only-ones": "3 is only the second frame. Count the full frame too.",
+        "only-ten": "10 is only the full frame. Add the counters in the second frame.",
+        "one-and-three": "A full frame is not one counter, it's 10. What do 10 and 3 make?",
+        "too-big": "Too many. Start at 10 and count the second frame.",
+        "too-small": "Too few. Start at 10 and count the second frame.",
+        "empty": "Tap the number for your answer."
+      }
+    },
+    "make-teen": {
+      "title": "Make 16",
+      "prompt": "Put 16 counters. Fill one frame first.",
+      "hint": "A full frame is 10. 16 is 10 and 6 more.",
+      "success": "Well done! One ten and 6 ones. That's 16.",
+      "why": "Ali made 16 with only 7 counters: 1 and 6. What went wrong?",
+      "model": "The 1 in 16 means one ten, so 10 counters, not one. 10 and 6 make 16.",
+      "feedback": {
+        "too-few": "Too few. A full frame is 10. Then put 6 more.",
+        "too-many": "Too many. Tap a counter to take it away. 16 is 10 and 6."
+      }
+    },
+    "one-more": {
+      "title": "One more",
+      "prompt": "Here are 15 counters. Put one more. How many now?",
+      "hint": "What comes after 15? 14, 15, …",
+      "success": "Well done! One more than 15 is 16.",
+      "why": "What is one less than 15? How do you know?",
+      "model": "14. One less means taking one away, so we say the number before: 14, 15.",
+      "feedback": {
+        "too-many": "Add just <b>one</b> counter. Tap the extra one to take it away.",
+        "too-few": "You haven't added a counter yet. Tap an empty space.",
+        "one-less": "14 is one <b>less</b>. We want one more.",
+        "same": "15 was the start. We added one, so now there are more.",
+        "too-big": "We only added one. Go one on from 15.",
+        "too-small": "We added one, so the number must be bigger than 15.",
+        "empty": "Now tap the number for your answer."
+      }
+    },
+    "between": {
+      "title": "The number between",
+      "prompt": "Which number is between 17 and 19?",
+      "hint": "Count: 17, … , 19. Which one is missing?",
+      "success": "Well done! 17, 18, 19. 18 is between them.",
+      "why": "18 is one more than which number? One less than which?",
+      "model": "18 is one more than 17 and one less than 19. That's why it's between them.",
+      "feedback": {
+        "before": "16 comes before 17. We want the number <b>after</b> 17.",
+        "after": "20 comes after 19. We want the number <b>before</b> 19.",
+        "too-big": "That number is bigger than 19.",
+        "too-small": "That number is smaller than 17.",
+        "empty": "Tap the number for your answer."
+      }
+    },
+    "queue": {
+      "title": "Seventh in the queue",
+      "prompt": "The children are in a queue. The queue starts at number 1. Sara is seventh. Make Sara yellow. How many children are in front of Sara?",
+      "hint": "Each counter has its number under it. Make counter 7 yellow. Then count the counters before it.",
+      "success": "Well done! Sara is seventh and 6 children are in front of her.",
+      "why": "Why aren't there 7 children in front of the seventh child?",
+      "model": "Because Sara herself is in the seventh place. In front of her are only places 1 to 6: 6 children.",
+      "feedback": {
+        "wrong-colors": "Only <b>one</b> counter should be yellow: Sara, in place 7.",
+        "counted-her": "You counted Sara too. Count only the children <b>in front of</b> her.",
+        "counted-behind": "Those are behind Sara. Count the children in front of her, starting at 1.",
+        "too-big": "Count only the children in front of Sara.",
+        "too-small": "Count only the children in front of Sara.",
+        "empty": "Now tap the number for your answer."
+      }
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "title": "Proportion and the unitary method",
+  "summary": "Use a proportion table to find a missing amount: first the amount for one, then for any number. Inverse proportion comes last.",
+  "guide": [
+    "This studio practises the \"make a table\" strategy for proportion problems, using the proportion table of the Iranian Year 5–6 books. Some cells are given by the problem, some your child fills in, and some columns work themselves out (such as \"drink\" or \"workers × days\").",
+    "Two equal ratios make a {{term:proportion}}. In the first mission (milk and calcium, from the Iranian Year 5 lesson) the common mistake is to add instead of multiply: \"15 to 20 is 5 more, so 18 + 5\". In a proportion both amounts are multiplied by the same number.",
+    "The {{term:unitary-method}}: first find the amount for one (the price of one pencil), then for any number. The third mission comes from the Iranian Year 6 book: a drink made with 1 cup of honey to 3 cups of water, with a \"drink\" column that adds itself up and checks the answer.",
+    "The last mission is {{term:inverse-proportion}} (Afghan Grade 6): the more workers, the fewer days. The \"workers × days\" column shows what stays the same."
+  ],
+  "engine": {
+    "step-understand": "Understand the problem",
+    "step-solve": "Proportion table and answer",
+    "label-known": "What do we know? Tap the facts you need.",
+    "label-asked": "What is the question?",
+    "label-your-answer": "answer",
+    "fact-test-1": "In the first test, 10 litres of milk had 12 g of calcium.",
+    "fact-test-2": "In the second test, 15 litres of milk had 18 g of calcium.",
+    "fact-factory": "The factory lab opens at 8 in the morning.",
+    "ask-calcium-20": "How much calcium is in 20 litres? And how much milk gives 6 g of calcium?",
+    "ask-tests": "How much milk was in the first test?",
+    "col-milk": "milk (litres)",
+    "col-calcium": "calcium (g)",
+    "fact-four-120": "4 pencils cost 120p.",
+    "fact-want-7": "Sara wants 7 of the same pencils.",
+    "fact-colours-12": "The pencils come in 12 colours.",
+    "ask-price-7": "How much will Sara pay for 7 pencils?",
+    "ask-price-4": "How much do 4 pencils cost?",
+    "answer-price-7": "7 pencils cost {n}p.",
+    "col-pencils": "pencils",
+    "col-price": "price (p)",
+    "fact-recipe": "The drink is made with 1 cup of honey and 3 cups of water.",
+    "fact-cups-120": "The school party needs 120 cups of drink.",
+    "fact-class-6": "Year 6 are making the drink.",
+    "ask-honey": "How many cups of honey are needed?",
+    "ask-water-1": "How much water goes with 1 cup of honey?",
+    "answer-honey": "{n} cups of honey are needed.",
+    "col-honey": "honey (cups)",
+    "col-water": "water (cups)",
+    "col-drink": "drink (cups)",
+    "fact-twelve-8": "12 workers build a wall in 8 days.",
+    "fact-wall-30": "The wall is 30 m long.",
+    "ask-days-3": "How many days would 3 workers take to build the same wall?",
+    "ask-workers-12": "How many workers build the wall in 8 days?",
+    "answer-days-3": "3 workers would take {n} days.",
+    "col-workers": "workers",
+    "col-days": "days",
+    "col-work": "workers × days"
+  },
+  "missions": {
+    "milk-calcium": {
+      "title": "Milk and calcium",
+      "prompt": "A dairy's lab measured the calcium in its milk: 10 litres had 12 g of calcium and 15 litres had 18 g. The ratio of calcium to milk is always the same. Complete the table: how much calcium is in 20 litres? How much milk gives 6 g of calcium?",
+      "hint": "10 litres have 12 g. How many times 10 litres is 20 litres? The calcium is multiplied by the same number. 6 g is half of 12 g.",
+      "success": "Well done! 20 litres is twice 10 litres, so 2 × 12 = 24 g of calcium. 6 g is half of 12 g, so half of 10 litres: 5 litres.",
+      "why": "Why isn't the answer 23, even though 15 to 20 litres is 5 more?",
+      "model": "Because the calcium is multiplied with the milk, not added on. Each litre has the same amount of calcium, so 5 more litres means 6 g more, not 5 g: 18 + 6 = 24. The ratios are equal too: {{frac:12/10}} = {{frac:18/15}} = {{frac:24/20}} = {{frac:6/5}}.",
+      "feedback": {
+        "known-missing": "You missed a fact you need: the results of both tests.",
+        "known-extra": "Does the time the lab opens change the amount of calcium?",
+        "asked-empty": "Choose the question.",
+        "asked-wrong": "The problem already tells us that: 10 litres. What don't we know?",
+        "table-empty": "Fill the empty cells: the calcium in 20 litres, and the milk for 6 g.",
+        "table-wrong": "In a proportion both amounts are <b>multiplied</b> by the same number. If the milk doubles, the calcium doubles; adding 5 doesn't work."
+      }
+    },
+    "unit-price": {
+      "title": "The unitary method: pencils",
+      "prompt": "4 pencils cost 120p. Sara wants 7 of the same pencils. How much will she pay? First find the price of 1 pencil in the table.",
+      "hint": "4 pencils cost 120p. 1 pencil is a quarter of that: 120 ÷ 4. Then multiply the price of 1 pencil by 7. You can use the third row of the table for 7 pencils.",
+      "success": "Well done! 1 pencil costs 120 ÷ 4 = 30p and 7 pencils cost 7 × 30 = 210p (£2.10).",
+      "why": "Why did you find the price of 1 pencil first?",
+      "model": "From the price of 1 pencil I can work out the price of any number of pencils: I just multiply. 7 pencils = 7 × 30 = 210p. Check: 4 pencils = 4 × 30 = 120p, as the problem said.",
+      "feedback": {
+        "known-missing": "You missed a fact you need: the price of 4 pencils and how many Sara wants.",
+        "known-extra": "Does the number of colours change the price?",
+        "asked-empty": "Choose the question.",
+        "asked-wrong": "The problem already tells us the price of 4 pencils. What don't we know?",
+        "table-empty": "Write the price of 1 pencil in the table.",
+        "table-wrong": "1 pencil is a quarter of 4 pencils, so its price is a quarter of 120.",
+        "added": "120 + 3 would mean 3 more pencils cost only 3p more! Each pencil costs 30p.",
+        "skip-unit": "120 × 7 would be seven lots of 4 pencils, 28 pencils! Find the price of 1 pencil first.",
+        "one-pencil": "30p is the price of 1 pencil. Sara wants 7.",
+        "too-big": "Multiply the price of 1 pencil by 7.",
+        "too-small": "Multiply the price of 1 pencil by 7.",
+        "empty": "Type your answer in the gap."
+      }
+    },
+    "honey-drink": {
+      "title": "Honey drink for the party",
+      "prompt": "The drink is made with 1 cup of honey and 3 cups of water. The school party needs 120 cups of drink. How many cups of honey and of water are needed? Fill the last row of the table so that the \"drink\" column shows 120.",
+      "hint": "1 cup of honey and 3 cups of water make 4 cups of drink. How many times 4 is 120? The honey and the water are multiplied by the same number.",
+      "success": "Well done! 120 ÷ 4 = 30, so 30 cups of honey and 3 × 30 = 90 cups of water. 30 + 90 = 120.",
+      "why": "Why isn't the honey 120 ÷ 3 = 40 cups?",
+      "model": "Because 3 is the cups of water, not the whole drink. Every 4 cups of drink have 1 cup of honey, so the honey is {{frac:1/4}} of the drink: 120 ÷ 4 = 30. The \"drink\" column shows 30 + 90 = 120.",
+      "feedback": {
+        "known-missing": "You missed a fact you need: the recipe and how much drink is needed.",
+        "known-extra": "Does it matter which class makes the drink?",
+        "asked-empty": "Choose the question.",
+        "asked-wrong": "The recipe already tells us that. What don't we know?",
+        "table-empty": "In the last row, write the honey and the water.",
+        "table-wrong": "Look at the \"drink\" column: it must be 120, and the water is always 3 times the honey.",
+        "thirds": "3 is the cups of water, not the whole drink. Every 4 cups of drink have 1 cup of honey.",
+        "too-big": "Write the number from the honey column here too.",
+        "too-small": "Write the number from the honey column here too.",
+        "empty": "Type your answer in the gap."
+      }
+    },
+    "workers-days": {
+      "title": "Inverse proportion: workers and days",
+      "prompt": "12 workers build a wall in 8 days. How long would 6 workers take? And 4 workers? Fill the table. Then say how many days 3 workers would take to build the same wall.",
+      "hint": "Fewer workers means <b>more</b> days. 6 workers is half of 12, so the days double. Look at the \"workers × days\" column: it is always 96.",
+      "success": "Well done! 6 workers take 16 days and 4 workers take 24 days. 3 workers: 96 ÷ 3 = 32 days.",
+      "why": "Why do the days go up when the workers go down? What stays the same?",
+      "model": "The job is the same wall: 12 workers × 8 days = 96 \"worker-days\". If there are half as many workers, each must work twice as many days. So workers × days stays 96: 3 × 32 = 96. This is called {{term:inverse-proportion}}.",
+      "feedback": {
+        "known-missing": "You missed a fact you need: 12 workers in 8 days.",
+        "known-extra": "Do you need the length of the wall to compare the days? It is the same wall.",
+        "asked-empty": "Choose the question.",
+        "asked-wrong": "The problem already tells us that: 12 workers in 8 days. What don't we know?",
+        "table-empty": "Write the days for 6 workers and for 4 workers in the table.",
+        "table-wrong": "Fewer workers, more days! The \"workers × days\" column must be 96 in every row.",
+        "direct": "3 workers are fewer than 12, so the job takes <b>longer</b>, not less time.",
+        "added": "The workers went down by 9, but the days don't go up by 9. Workers × days must stay 96.",
+        "too-big": "Test your answer: 3 × your answer must be 96.",
+        "too-small": "Test your answer: 3 × your answer must be 96.",
+        "empty": "Type your answer in the gap."
+      }
+    }
+  }
+}

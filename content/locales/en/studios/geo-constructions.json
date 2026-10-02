@@ -1,0 +1,95 @@
+{
+  "title": "Ruler-and-compass constructions",
+  "summary": "Use {{term:compasses}} and a ruler to meet chords and arcs, construct a {{term:perpendicular-bisector}} and an {{term:angle-bisector}}, and build triangles from their sides.",
+  "guide": [
+    "This studio is for Year 6 and up (KS3 constructions; Afghan Grade 6 «ترسیمات هندسی»; Iran's Grade 10 geometry).",
+    "The {{term:compasses}} tool: tap Compasses, then the centre, then a point the circle should pass through. Wherever two circles, or a circle and a line, cross, a new point appears that the pencil snaps to. Tap Pencil to draw lines again.",
+    "In every task the point you need is not one of the board's dots, so you can only reach it by constructing it, not by eye.",
+    "Why do the constructions work? Every point on the perpendicular bisector is the same distance from both ends of the segment, and two equal circles drawn from the ends cross exactly at such points. In the equilateral triangle, both radii are the side itself, so all three sides come out equal."
+  ],
+  "engine": {
+    "letters": "A B C D E F G H I J",
+    "label-board": "Dotty board",
+    "label-undo": "Undo",
+    "label-clear": "Clear",
+    "label-shape": "Shape",
+    "label-corners": "{n} dots",
+    "label-pen": "Pencil",
+    "label-compass": "Compasses",
+    "instruction-compass": "Compasses: tap the centre, then a point the circle goes through."
+  },
+  "missions": {
+    "chord-arc": {
+      "title": "Chords and arcs",
+      "prompt": "1. With the compasses, draw a {{term:circle}}: tap a dot for the {{term:centre}}, then a dot 2 away. 2. With the pencil, draw a {{term:chord}}: a segment with both ends on the circle that does not go through the centre.",
+      "hint": "Both ends of the segment must be exactly on the circle. The dots 2 away from the centre are on it: above, below, left and right.",
+      "success": "Well done! Segment AB is a chord. It cuts the circle into two {{term:arc}}s: a minor arc and a major arc.",
+      "why": "Your chord cuts the circle into two arcs. Which one is longer? Where would you draw a chord to make the two arcs equal?",
+      "model": "The arc on the same side as the centre is longer. If the chord goes through the centre it is a {{term:diameter}}, and it cuts the circle into two equal arcs: two semicircles. The diameter is the longest chord of a circle.",
+      "feedback": {
+        "no-circle": "First draw a circle with the compasses: tap Compasses, then the centre, then a dot further out.",
+        "empty": "Now tap Pencil and draw a segment with both ends on the circle.",
+        "not-chord": "One end of your segment is not on the circle. A chord goes from one point of the circle to another.",
+        "is-diameter": "This segment goes through the centre: it is a {{term:diameter}}, the longest chord. This time, draw a chord that misses the centre."
+      }
+    },
+    "perpendicular-bisector": {
+      "title": "Perpendicular bisector",
+      "prompt": "Construct the {{term:perpendicular-bisector}} of segment AB. 1. With the compasses, draw a circle with centre A through B. 2. Draw a circle with centre B through A. 3. With the pencil, draw a line through the two points where the circles cross.",
+      "hint": "The two circles cross at two points, one above AB and one below. When the pencil gets near them, it snaps onto them.",
+      "success": "Well done! Your line cuts AB exactly in half and is perpendicular to it.",
+      "why": "Why are the crossing points the same distance from A and from B?",
+      "model": "Every point on the first circle is one radius from A, and every point on the second is the same radius from B. A crossing point is on both circles, so it is the same distance from A and B. All the points that are equally far from A and B lie on the perpendicular bisector.",
+      "feedback": {
+        "empty": "Draw the two circles first, then tap Pencil and draw a line through the crossings.",
+        "not-perpendicular": "Your line is not perpendicular to AB. Make it go through both crossing points of the circles.",
+        "not-through": "Your line does not go through the middle of AB. Do not draw it by eye; put it through the two points where the circles cross."
+      }
+    },
+    "angle-bisector": {
+      "title": "Angle bisector",
+      "prompt": "Construct the {{term:angle-bisector}} of angle ABC. 1. Draw a circle with centre B that crosses both arms. 2. From each of those two crossing points, draw a circle through the other one. 3. With the pencil, draw a ray from B through the point where these two circles cross.",
+      "hint": "For step 1, tap B, then a dot on arm BA, say 2 along. The circle crosses arm BC at a point too.",
+      "success": "Well done! Your ray splits the angle into two equal angles.",
+      "why": "Why does your ray cut the angle exactly in half?",
+      "model": "The two points on the arms are the same distance from B. The crossing of the next two circles is the same distance from both of those points. So the two triangles we make from B have equal sides and match exactly; that is why the two angles at B are equal.",
+      "feedback": {
+        "empty": "Draw the circles, then tap Pencil and draw a ray from B.",
+        "not-through": "Your ray does not halve the angle. Start it at the vertex B and make it go through the crossing of the last two circles."
+      }
+    },
+    "equilateral": {
+      "title": "Equilateral triangle",
+      "prompt": "Construct an {{term:equilateral-triangle}} on segment AB. 1. Draw a circle with centre A through B. 2. Draw a circle with centre B through A. 3. With the pencil, draw triangle ABC, where C is a crossing of the two circles.",
+      "hint": "AB is 3 long. Every point on the first circle is 3 from A, and every point on the second is 3 from B. The third corner must be on both.",
+      "success": "Well done! All three sides are 3. The compasses did what your eye could not.",
+      "why": "How can you be sure all three sides of your triangle are equal?",
+      "model": "AC is a radius of the first circle, so it equals AB. BC is a radius of the second circle, so it also equals AB. So all three sides are equal.",
+      "feedback": {
+        "empty": "Draw the circles, then tap Pencil and tap A, B, the crossing point and A again.",
+        "open": "The triangle is still open. Tap A again to close it.",
+        "crossed": "The sides cross over each other. Press Clear and try again.",
+        "too-many-sides": "A triangle has only three vertices: A, B and the crossing of the circles.",
+        "too-few-sides": "You need three vertices: A, B and the crossing of the circles.",
+        "not-equilateral": "The sides are not equal. A dot that looks right by eye is not enough. Put the third corner exactly on the crossing of the two circles.",
+        "wrong-lengths": "Your triangle is equilateral, but it is not built on AB. Start from A and B."
+      }
+    },
+    "three-sides": {
+      "title": "A triangle from three sides",
+      "prompt": "Construct a triangle with sides 4, 3 and 2. AB is the side of 4. With the compasses, draw a circle with centre A and radius 3, and a circle with centre B and radius 2. The third corner is where they cross.",
+      "hint": "For radius 3: tap A, then the third dot along AB. For radius 2: tap B, then the second dot towards A.",
+      "success": "Well done! The sides of your triangle are 4, 3 and 2.",
+      "why": "Could you build a triangle with sides 4, 1 and 2? Explain with the circles.",
+      "model": "No. A circle of radius 1 from A and a circle of radius 2 from B never meet, because 1 + 2 = 3 is less than 4. The two shorter sides together must be longer than the longest side.",
+      "feedback": {
+        "empty": "Draw the circles, then tap Pencil and draw the triangle.",
+        "open": "The triangle is still open. Tap the first corner again to close it.",
+        "crossed": "The sides cross over each other. Press Clear and try again.",
+        "too-many-sides": "A triangle has only three vertices: A, B and the crossing of the circles.",
+        "too-few-sides": "You need three vertices: A, B and the crossing of the circles.",
+        "wrong-lengths": "The sides are not 4, 3 and 2. Check the radii of your circles, and put the third corner exactly on their crossing, not on a dot nearby."
+      }
+    }
+  }
+}

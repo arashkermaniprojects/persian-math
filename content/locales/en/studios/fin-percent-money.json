@@ -1,0 +1,76 @@
+{
+  "title": "Percent in money: discounts, profit and loss",
+  "summary": "Use a 100% bar to see how much a discount takes off a price, and what percentage of the cost a seller gains or loses.",
+  "guide": [
+    "In each problem the whole bar is 100%: the original price or the cost. With 10 parts each part is 10%; with 4 parts, 25%; with 5 parts, 20%.",
+    "A {{term:discount}} is the amount taken off the {{term:price}}. 20% off means you pay 80% of the price.",
+    "A seller buys something (the cost) and sells it. Selling for more makes a {{term:profit}}; selling for less makes a {{term:loss}}. The percentage profit or loss is always worked out from the cost.",
+    "This is not in the Key Stage 2 curriculum: it is extra, for when you are ready (Key Stage 3)."
+  ],
+  "engine": {
+    "label-cell": "part",
+    "label-bar": "bar"
+  },
+  "missions": {
+    "pay-after-discount": {
+      "title": "20% off",
+      "prompt": "A football costs £80 and has 20% {{term:discount}}. The bar is the full price (100%) in 10 parts. First predict what percentage of the price you pay. Then shade the part you pay.",
+      "hint": "Each part is 10%. The discount is 2 parts. You pay the rest.",
+      "success": "Well done! You pay 80% of the price. Each part is £8, so 8 parts is £64.",
+      "why": "How many pounds is the discount? Why are there two ways to work out the new price?",
+      "model": "The discount is 2 parts: 2 × £8 = £16. One way: take the discount off the price, £80 − £16 = £64. Another way: work out 80% of the price straight away, 8 × £8 = £64. They match, because 100% − 20% = 80%.",
+      "feedback": {
+        "too-small": "If you shaded 2 parts, that's the discount: the money you don't pay. Shade the part you do pay.",
+        "too-big": "Too much. With a discount you pay less than the full price.",
+        "empty": "Nothing is shaded yet. Shade the parts you pay."
+      }
+    },
+    "sale-price": {
+      "title": "The sale price",
+      "prompt": "A bike costs £240. In the sale it has 25% off. The bar is the full price in 4 parts. Predict first. Then type the sale price in pounds.",
+      "hint": "25% is {{frac:1/4}}. How many pounds is each part? How many parts do you pay?",
+      "success": "Correct! Each part is £240 ÷ 4 = £60. You pay 3 parts: £180.",
+      "why": "Ali says \"25% off means £25 cheaper\". Why is he wrong?",
+      "model": "25% means 25 in every 100, which is {{frac:1/4}} of the price, not £25. For a £240 bike, {{frac:1/4}} of the price is £60. The more something costs, the more money 25% of it is.",
+      "feedback": {
+        "gave-discount": "£60 is the discount. What is the new price?",
+        "minus-25": "You took 25 off the price. But 25% means {{frac:1/4}} of the price, not £25.",
+        "added": "You added the discount. A discount makes the price smaller.",
+        "too-big": "Too much. You pay 3 of the 4 parts.",
+        "too-small": "Too little. Only 1 part is the discount; you pay 3 parts.",
+        "empty": "Type a number: how many pounds?"
+      }
+    },
+    "profit-percent": {
+      "title": "Percentage profit",
+      "prompt": "A bike shop buys a bike for £500 and sells it for £600. The first bar is the cost (100%), and each part is 20%. Shade the profit on the second bar. First predict: what is the percentage profit?",
+      "hint": "Each part is £100. How many pounds is the profit? How many parts?",
+      "success": "Well done! The profit is £100, which is 1 of the 5 parts of the cost: {{frac:1/5}} = 20%. The selling price is 120% of the cost.",
+      "why": "Another seller buys a bag for £200 and sells it for £300. That's also £100 profit. Is it also 20% profit?",
+      "model": "No. That profit is £100 out of £200, which is {{frac:1/2}} of the cost, or 50%. The bike shop's profit was £100 out of £500, which is 20%. The money is the same, but the percentage depends on the cost. Percentage profit tells you how much was gained for every £100 spent.",
+      "feedback": {
+        "sale-percent": "120% is the selling price compared with the cost. The profit is only the extra part.",
+        "wrote-money": "£100 is the profit in money. What percentage of the cost is it?",
+        "too-big": "Too big. The profit is only 1 of the 5 parts of the cost.",
+        "too-small": "Too small. What percentage is each of the 5 parts?",
+        "empty": "Type a number: what percentage?"
+      }
+    },
+    "loss-percent": {
+      "title": "Percentage loss",
+      "prompt": "A seller bought a watch for £500 but had to sell it for £400. The bar is the cost. Tap the part that was lost so it is no longer shaded. First predict: what is the percentage loss?",
+      "hint": "The loss is £100. How many of the 5 parts of the cost is that?",
+      "success": "Correct! The loss is {{frac:1/5}} of the cost: 20%.",
+      "why": "Sara worked out \"100 out of 400 is 25%\". Why do we use £500, not £400, for the percentage loss?",
+      "model": "Percentage profit and loss are always compared with the cost: the money the seller spent at the start, £500. The loss is 100 out of 500: {{frac:100/500}} = {{frac:1/5}} = 20%. Sara compared it with the selling price, which only exists after the loss.",
+      "feedback": {
+        "of-sale-price": "You compared the loss with £400, the selling price. Use the cost (£500).",
+        "sale-percent": "80% is the selling price compared with the cost. What percentage is the loss?",
+        "wrote-money": "£100 is the loss in money. What percentage of the cost is it?",
+        "too-big": "Too big. The loss is only 1 of the 5 parts.",
+        "too-small": "Too small. Each of the 5 parts is 20%.",
+        "empty": "Type a number: what percentage?"
+      }
+    }
+  }
+}

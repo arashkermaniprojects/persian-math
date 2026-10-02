@@ -1,0 +1,89 @@
+{
+  "title": "Decimal division and recurring decimals",
+  "summary": "Turn a decimal division into a division of whole numbers, keep dividing until you see digits repeat, and turn a {{term:recurring-decimal}} back into a fraction.",
+  "guide": [
+    "If you multiply the {{term:dividend}} and the {{term:divisor}} by the same number, the {{term:quotient}} does not change: 6 ÷ 2 = 3 and 60 ÷ 20 = 3. So for 7.5 ÷ 0.25, multiply both by 100 and work out 750 ÷ 25 instead.",
+    "You can count a decimal in tenths: 9.6 is 96 tenths. 96 tenths ÷ 4 = 24 tenths, which is 2.4.",
+    "Some divisions never end. As soon as a {{term:remainder}} comes back, everything after it repeats, so the digits of the {{term:quotient}} repeat too. This is a {{term:recurring-decimal}}: 1 ÷ 3 = 0.333… We write it with a dot over the repeating digit: 0.3̇. For 0.1818… the dots go over the first and last digits of the repeating block: 0.1̇8̇.",
+    "Every right digit turns green. If you get stuck, press “Show me this step”."
+  ],
+  "engine": {
+    "layout": "busstop",
+    "label-sheet": "{a} divided by {b}",
+    "label-quotient": "quotient",
+    "label-product": "product",
+    "label-remainder": "remainder",
+    "label-step": "step",
+    "label-digit": "digit",
+    "label-reveal": "Show me this step",
+    "label-wrong": "Not yet! Work this digit out again.",
+    "label-done": "Finished! Every step is right.",
+    "label-ask-q": "How many {b}s go into {a}?",
+    "label-ask-p": "{q} × {b} = ?",
+    "label-ask-r": "{a} − {p} = ?"
+  },
+  "missions": {
+    "make-it-whole": {
+      "title": "7.5 ÷ 0.25",
+      "prompt": "A 7.5 m rope is cut into pieces 0.25 m long. How many pieces are there? Multiply both numbers by 100, then divide 750 by 25.",
+      "hint": "25 doesn't go into 7, so look at 75: 3 × 25 = 75.",
+      "success": "Well done! 750 ÷ 25 = 30, so 7.5 ÷ 0.25 = 30 too: 30 pieces of rope.",
+      "why": "Why didn't the answer change when you multiplied both numbers by 100? And why is the answer bigger than 7.5?",
+      "model": "Multiplying both by 100 is like measuring in centimetres instead: a 750 cm rope cut into 25 cm pieces. The rope and the pieces are just as long as before, so there are just as many pieces. The answer is bigger than 7.5 because each piece is shorter than 1 m: 4 pieces fit in every metre.",
+      "feedback": {
+        "wrong": "Some boxes are still empty. After 75, bring down the 0: how many 25s go into 0?"
+      }
+    },
+    "tenths": {
+      "title": "9.6 ÷ 4",
+      "prompt": "9.6 litres of water are shared equally between 4 bottles. 9.6 is 96 tenths. Divide 96 by 4 to find how many tenths of a litre each bottle gets. Then type the answer in litres, as a decimal.",
+      "hint": "96 ÷ 4 = 24. That is 24 tenths, not 24 litres. How many ones and tenths is 24 tenths?",
+      "success": "Right! 24 tenths is 2.4, so each bottle holds 2.4 litres.",
+      "why": "How can you tell, without dividing, that the answer is close to 2½ and not 24?",
+      "model": "9.6 is close to 10, and 10 ÷ 4 = 2.5, so the answer must be a little less than 2.5. 24 litres is far too much: 4 bottles of 24 litres would be 96 litres, not 9.6.",
+      "feedback": {
+        "too-big": "Too big. It is 24 tenths, not 24 ones. 10 tenths make 1; how many ones and tenths is 24 tenths?",
+        "too-small": "Too small. Write 24 tenths again: 2 ones and 4 tenths.",
+        "empty": "Type the answer as a decimal, like 1.5."
+      }
+    },
+    "one-third": {
+      "title": "1 ÷ 3 never ends",
+      "prompt": "Fatima shares 1 cake equally between 3 people. Divide 1 by 3. The first step (0 and the decimal point) is done for you. Carry on to four decimal places and watch the {{term:remainder}}s.",
+      "hint": "1 is 10 tenths. How many 3s go into 10? 3 × 3 = 9, remainder 1.",
+      "success": "Well done! The {{term:quotient}} is 0.3333 and there is still 1 left over. This division never ends: 3 after 3 after 3. It is a {{term:recurring-decimal}}, 0.3̇.",
+      "why": "How can you be sure that even after a hundred digits you would still get 3?",
+      "model": "At every step the {{term:remainder}} is 1. Bringing down a 0 makes 10 again, and 10 ÷ 3 is 3 remainder 1 again. The same numbers come round again and again, so the {{term:quotient}} gets a 3 every time.",
+      "feedback": {
+        "wrong": "Some boxes are still empty. After each subtraction, bring down a 0 next to the {{term:remainder}}."
+      }
+    },
+    "two-elevenths": {
+      "title": "2 ÷ 11: which digits repeat?",
+      "prompt": "Divide 2 by 11 and watch the {{term:remainder}}s. Which block of digits repeats over and over after the decimal point?",
+      "hint": "Read the {{term:remainder}}s: first 9, then 2, then 9 again… The digits of the {{term:quotient}} take turns in the same way.",
+      "success": "Right! 2 ÷ 11 = 0.181818…, written 0.1̇8̇.",
+      "why": "Why do two digits repeat here, but only one digit in 1 ÷ 3?",
+      "model": "In 1 ÷ 3 only one {{term:remainder}} (1) kept coming back. In 2 ÷ 11 two {{term:remainder}}s take turns: 9 and 2. A remainder of 9 gives the digit 8, and a remainder of 2 gives the digit 1. So the block 18 repeats.",
+      "feedback": {
+        "wrong": "Read the {{term:quotient}} digit by digit: 1, 8, 1, 8… Which block comes back again and again?",
+        "empty": "Choose one of the answers."
+      }
+    },
+    "back-to-fraction": {
+      "title": "From a recurring decimal to a fraction",
+      "prompt": "The division above shows 4 ÷ 9 = 0.444… Now write 0.777… (7s for ever) as a fraction.",
+      "hint": "Call the number x. Then 10x = 7.777… If you take x away from 10x, all the 7s after the point cancel out.",
+      "success": "Well done! 0.777… = {{frac:7/9}}, just as {{frac:4/9}} = 0.444…",
+      "why": "Why is the denominator 9? Start from 10 times the number.",
+      "model": "If x = 0.777…, then 10x = 7.777… Subtracting, the never-ending 7s cancel exactly: 10x − x = 9x = 7. So x = 7 ÷ 9 = {{frac:7/9}}. The denominator is 9 because 10 lots minus 1 lot leaves 9 lots.",
+      "feedback": {
+        "only-tenths": "{{frac:7/10}} is 0.7, which stops. Our number has more 7s after the first one, so it is a little bigger.",
+        "cut-off": "That fraction only covers the first few digits and then stops. The 7s never stop; look at 4 ÷ 9 above.",
+        "too-big": "Too big. 0.777… is less than 1, but not by much.",
+        "too-small": "Too small. Look at the division: 4 ÷ 9 gave 0.444… So which division gives 7s for ever?",
+        "empty": "Fill in the numerator and the denominator."
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+id: geo-triangles-quads
+engine: shape-board
+strand: geo
+order: 4
+concepts: [geo.triangles, geo.quadrilaterals.types, geo.quadrilaterals.properties]
+# Iran G4 «چهارضلعی‌ها» (p.126–127, drawn on dot paper) and G5 diagonals (p.120–121); Afghan G5 «اقسام مثلث از لحاظ
+# زاویه / اضلاع» (p.67–72) and G6 «معین»، «ذوزنقه». Classes are inclusive (a square is a rectangle and a rhombus).
+# The trapezium mission asks for one that is "not a parallelogram", which is right under both the Iranian (exactly
+# one pair of parallel sides) and the "at least one pair" definitions.
+missions:
+  # Sort: tap the isosceles triangles, including a tilted one (legs 2-across-1-up and 1-across-2-up) and a right-angled one.
+  - id: find-isosceles
+    setup:
+      x: [0, 8]
+      y: [0, 5]
+      mode: select
+      instruction: tap
+      shapes:
+        - { pts: [[0, 0], [2, 0], [1, 2]], tone: 0, name: shape-a }
+        - { pts: [[3, 0], [5, 1], [4, 2]], tone: 1, name: shape-b }
+        - { pts: [[6, 0], [8, 0], [6, 1]], tone: 2, name: shape-c }
+        - { pts: [[0, 3], [3, 3], [4, 5]], tone: 3, name: shape-d }
+        - { pts: [[5, 3], [7, 3], [5, 5]], tone: 4, name: shape-e }
+    check:
+      type: shape-board
+      selected: [0, 1, 4]
+      traps: [{ select: 3, code: not-equal-sides }, { select: 2, code: not-equal-sides }]
+  # Draw a triangle that is right-angled and isosceles at once.
+  - id: right-isosceles
+    setup:
+      x: [0, 5]
+      y: [0, 5]
+      mode: polygon
+      instruction: draw
+      show: [lengths, right]
+    check:
+      type: shape-board
+      shape: [right-angled, isosceles]
+  # The rectangle family: a square, and a tilted square, are rectangles too. The slanted parallelogram is not.
+  - id: find-rectangles
+    setup:
+      x: [0, 8]
+      y: [0, 6]
+      mode: select
+      instruction: tap
+      show: [right]
+      shapes:
+        - { pts: [[0, 0], [2, 0], [2, 2], [0, 2]], tone: 0, name: shape-a }
+        - { pts: [[3, 0], [7, 0], [7, 2], [3, 2]], tone: 1, name: shape-b }
+        - { pts: [[0, 3], [2, 3], [3, 5], [1, 5]], tone: 2, name: shape-c }
+        - { pts: [[5, 3], [7, 4], [6, 6], [4, 5]], tone: 4, name: shape-e }
+    check:
+      type: shape-board
+      selected: [0, 1, 3]
+      traps: [{ select: 2, code: no-right-angles }]
+  # Draw a trapezium that is not a parallelogram: exactly one pair of parallel sides.
+  - id: draw-trapezium
+    setup:
+      x: [0, 6]
+      y: [0, 4]
+      mode: polygon
+      instruction: draw
+      show: [lengths]
+    check:
+      type: shape-board
+      shape: trapezium
+      not: [parallelogram]
+  # Diagonals of a tilted rhombus: draw the second one; it crosses the first at a right angle, halfway along both.
+  - id: rhombus-diagonals
+    setup:
+      mode: segment
+      instruction: line
+      shapes:
+        - { pts: [[1, 1], [4, 2], [5, 5], [2, 4]], tone: 1, labels: true }
+        - { pts: [[1, 1], [5, 5]], line: segment, tone: 2, dash: true }
+    check:
+      type: shape-board
+      line: { perpendicular: 1, through: [[4, 2], [2, 4]] }

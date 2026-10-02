@@ -1,0 +1,106 @@
+/* Styles for <kg-clock-calendar-money>. Loaded on every page via the glob in layouts/Base.astro. Logical properties only. */
+kg-clock-calendar-money { display: block; }
+.kg-ccm-icon { inline-size: 1.6rem; block-size: 1.6rem; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.kg-ccm-icon.sun { color: var(--shade); fill: var(--shade); }
+.kg-ccm-icon.moon { color: var(--muted); fill: var(--muted); }
+.kg-ccm-tip { display: flex; align-items: center; justify-content: center; gap: 0.4rem; margin: 0 0 0.5rem; color: var(--muted); font-weight: 700; }
+.kg-ccm-sr { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); margin: 0; white-space: nowrap; }
+
+/* ---------- clock ---------- */
+.kg-ccm-clocks { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+.kg-ccm-clock { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; max-inline-size: 100%; }
+.kg-ccm-clock figcaption { font-weight: 700; }
+.kg-ccm-face { inline-size: min(260px, 100%); aspect-ratio: 1; display: block; direction: ltr; overflow: visible; }
+.kg-ccm-face.live { touch-action: none; cursor: grab; }
+.kg-ccm-rim { fill: var(--cell); stroke: var(--fg); stroke-width: 3; }
+.kg-ccm-tick { stroke: var(--muted); stroke-width: 1; }
+.kg-ccm-tick.big { stroke: var(--fg); stroke-width: 2.5; }
+.kg-ccm-num, .kg-ccm-min { fill: var(--fg); font-size: 16px; font-weight: 700; text-anchor: middle; dominant-baseline: central; user-select: none; }
+.kg-ccm-min { fill: var(--accent); font-size: 11px; }
+.kg-ccm-hand line { stroke-linecap: round; }
+.kg-ccm-hand .hit { stroke: transparent; stroke-width: 26; pointer-events: stroke; }
+.kg-ccm-hand.hour .arm { stroke: var(--fg); stroke-width: 10; }
+.kg-ccm-hand.minute .arm { stroke: var(--accent); stroke-width: 5; }
+.kg-ccm-hand { outline: none; }
+.kg-ccm-hand:focus-visible .hit { stroke: var(--shade); stroke-opacity: 0.35; }
+.kg-ccm-pin { fill: var(--fg); }
+.kg-ccm-badge { display: inline-flex; align-items: center; gap: 0.35rem; margin: 0; padding: 0.15rem 0.8rem; border-radius: 999px; background: var(--hint-bg); font-weight: 700; }
+.kg-ccm-digital {
+  display: flex; align-items: center; justify-content: center; gap: 0.25rem; direction: ltr;
+  padding: 0.3rem 0.9rem; border-radius: var(--radius); background: var(--fg); color: var(--bg);
+  font-size: 1.9rem; font-weight: 700; line-height: 1.2; font-variant-numeric: tabular-nums; min-block-size: 44px;
+}
+.kg-ccm-digital:has(.kg-ccm-spin) { padding: 0.3rem; }
+.kg-ccm-spin { display: flex; flex-direction: column; align-items: center; gap: 0.15rem; }
+.kg-ccm-step {
+  min-inline-size: 44px; min-block-size: 44px; border: 0; border-radius: 8px; background: transparent; color: var(--bg); font-size: 1rem; line-height: 1;
+}
+.kg-ccm-step:hover { background: color-mix(in srgb, var(--bg) 18%, transparent); }
+.kg-ccm-step:focus-visible, .kg-ccm-digit:focus-visible { outline: 3px solid var(--shade); outline-offset: 1px; }
+.kg-ccm-digit {
+  inline-size: 3.2ch; block-size: 48px; padding: 0; border: 2px solid var(--muted); border-radius: 8px; text-align: center;
+  font: inherit; background: var(--bg); color: var(--fg);
+}
+
+/* ---------- calendar ---------- */
+.kg-ccm-cal { max-inline-size: 26rem; margin-inline: auto; }
+.kg-ccm-cal-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-block-end: 0.4rem; }
+.kg-ccm-cal-title { flex: 1; margin: 0; text-align: center; font-weight: 700; font-size: 1.2rem; }
+.kg-ccm-nav { min-inline-size: 44px; min-block-size: 44px; border: 1px solid var(--border); border-radius: 999px; background: var(--card); color: var(--fg); font-size: 1.2rem; }
+.kg-ccm-grid { display: flex; flex-direction: column; gap: 2px; }
+.kg-ccm-row { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 2px; }
+.kg-ccm-wd { text-align: center; font-size: 0.9rem; font-weight: 700; color: var(--muted); }
+.kg-ccm-wd.we, .kg-ccm-day.we .kg-ccm-date { color: var(--no); }
+.kg-ccm-date {
+  position: relative; inline-size: 100%; min-block-size: 44px; padding: 0; border: 1px solid var(--border); border-radius: 8px;
+  background: var(--cell); color: var(--fg); font-size: 1.05rem; font-variant-numeric: tabular-nums;
+}
+.kg-ccm-date:disabled { cursor: default; }
+.kg-ccm-date:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+.kg-ccm-date.today { border: 3px solid var(--accent); font-weight: 700; }
+.kg-ccm-date.mark::after { content: ''; position: absolute; inset-block-end: 4px; inset-inline-start: calc(50% - 3px); inline-size: 6px; block-size: 6px; border-radius: 50%; background: var(--shade); }
+.kg-ccm-day .kg-ccm-date[aria-pressed='true'] { background: var(--accent); border-color: var(--accent); color: var(--bg); font-weight: 700; }
+
+/* ---------- money: plain shapes with values, never pictures of real coins or notes ---------- */
+.kg-ccm-money { display: flex; flex-direction: column; gap: 0.75rem; }
+.kg-ccm-items { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+.kg-ccm-item { display: flex; flex-direction: column; align-items: center; padding: 0.4rem 0.8rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--cell); }
+.kg-ccm-pic { font-size: 2.2rem; line-height: 1.2; }
+.kg-ccm-price { font-weight: 700; }
+.kg-ccm-pile { padding: 0.4rem 0.6rem; border: 2px dashed var(--border); border-radius: var(--radius); }
+.kg-ccm-pile.purse { border-color: var(--muted); }
+.kg-ccm-cap { margin: 0 0 0.3rem; font-size: 0.9rem; font-weight: 700; color: var(--muted); }
+.kg-ccm-pieces { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; min-block-size: 50px; }
+.kg-ccm-total { margin: 0.3rem 0 0; font-weight: 700; }
+.kg-ccm-total:empty { display: none; }
+.kg-ccm-bank { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.5rem; }
+.kg-ccm-piece {
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center; flex: none; padding: 0;
+  color: #1f2328; line-height: 1.05; border: 2px solid rgb(0 0 0 / 0.28); font: inherit; font-variant-numeric: tabular-nums;
+}
+.kg-ccm-piece b { font-size: 0.95rem; }
+.kg-ccm-piece small { font-size: 0.62rem; }
+.kg-ccm-piece.coin b { font-size: 0.82rem; }
+.kg-ccm-piece.inl { flex-direction: row; }
+.kg-ccm-piece.inl small { font-size: 0.8rem; font-weight: 700; }
+button.kg-ccm-piece { cursor: pointer; }
+button.kg-ccm-piece:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.kg-ccm-piece.coin { inline-size: calc(46px + var(--r, 0) * 5px); aspect-ratio: 1; border-radius: 50%; box-shadow: inset 0 0 0 4px rgb(255 255 255 / 0.35); }
+.kg-ccm-piece.coin.t0 { background: #d39a63; }
+.kg-ccm-piece.coin.t1 { background: #c9ced5; }
+.kg-ccm-piece.coin.t2 { background: #e2bf55; }
+.kg-ccm-piece.coin.t3 { background: #b9c6b0; }
+.kg-ccm-piece.coin.t4 { background: #e7d08a; }
+.kg-ccm-piece.note { inline-size: 84px; min-block-size: 46px; border-radius: 6px; outline: 1px dashed rgb(0 0 0 / 0.3); outline-offset: -6px; }
+.kg-ccm-piece.note.t0 { background: #cfe8d4; }
+.kg-ccm-piece.note.t1 { background: #d6e2f5; }
+.kg-ccm-piece.note.t2 { background: #f3d9c6; }
+.kg-ccm-piece.note.t3 { background: #e4d4ef; }
+.kg-ccm-piece.note.t4 { background: #efe3ad; }
+button.kg-ccm-piece.note:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.kg-ccm-groups { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+.kg-ccm-choice { min-block-size: 44px; min-inline-size: 44px; padding: 0.3rem; border: 2px solid var(--border); border-radius: var(--radius); background: var(--card); color: var(--fg); max-inline-size: 100%; }
+.kg-ccm-choice .kg-ccm-pile { border: 0; padding: 0.2rem; }
+.kg-ccm-choice.same { padding-inline: 1rem; font-weight: 700; }
+.kg-ccm-choice[aria-checked='true'] { border-color: var(--accent); background: var(--hint-bg); }
+.kg-ccm-choice:disabled { cursor: default; }

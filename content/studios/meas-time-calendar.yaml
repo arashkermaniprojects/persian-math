@@ -1,0 +1,28 @@
+id: meas-time-calendar
+engine: clock-calendar-money
+strand: meas
+order: 3
+concepts: [meas.time, meas.time.24h, meas.time.units, meas.time.calendar]
+# Clocks: geared hands (the short hand follows the long one), 12-hour face; the digital readout can be 24-hour.
+# Calendars: Solar Hijri (fa-IR, fa-AF, ps) or Gregorian (en) from the page locale, so each calendar mission gives the
+# month to show under solar: and gregorian:, and checks are written so they hold in both (day 12, month 1 day 1).
+missions:
+  - id: three-oclock
+    setup: { mode: clock, time: "12:00", interactive: hands }
+    check: { type: time-equals, value: "3:00" }
+  - id: half-past-seven
+    setup: { mode: clock, time: "12:00", interactive: hands }
+    check: { type: time-equals, value: "7:30" }
+  - id: afternoon
+    # Iran G3 «ساعت در بعدازظهر»: the wall clock says 4:30, the phone says 16:30.
+    setup: { mode: clock, time: "16:30", interactive: digital, h24: true, start: "12:00", badge: afternoon }
+    check: { type: time-equals, value: "16:30", h24: true }
+  - id: one-week-later
+    # 5 Mehr 1405 is a Sunday, 5 October 2026 a Monday; one week later is the 12th in both.
+    setup: { mode: calendar, solar: { year: 1405, month: 7 }, gregorian: { year: 2026, month: 10 }, today: 5 }
+    check: { type: date-equals, day: 12 }
+  - id: new-year
+    # From the last month of the year to the first day of the next: Esfand 1404 → 1 Farvardin 1405 (Nowruz),
+    # December 2025 → 1 January 2026.
+    setup: { mode: calendar, solar: { year: 1404, month: 12 }, gregorian: { year: 2025, month: 12 }, navigate: true }
+    check: { type: date-equals, month: 1, day: 1 }

@@ -1,0 +1,87 @@
+{
+  "title": "Converting units",
+  "summary": "Convert metres to centimetres, grams to kilograms and litres to millilitres. The conversion strip helps you.",
+  "guide": [
+    "The conversion strip shows units from biggest to smallest. Between two units it says how many of the smaller unit make one of the bigger unit.",
+    "From a big unit to a small unit: multiply. 1 {{term:metre}} = 100 {{term:centimetre}}s, so 3 m = 300 cm.",
+    "From a small unit to a big unit: divide. 1000 {{term:gram}}s = 1 {{term:kilogram}}.",
+    "Sense-check: is the new unit smaller? Then the number must get bigger.",
+    "We measure {{term:area}} in {{term:square-centimetre}}s (cm²) and {{term:square-metre}}s (m²). A square metre is a square with sides of 1 m."
+  ],
+  "engine": {
+    "unit-km": "km",
+    "unit-m": "m",
+    "unit-cm": "cm",
+    "unit-mm": "mm",
+    "unit-kg": "kg",
+    "unit-g": "g",
+    "unit-l": "l",
+    "unit-ml": "ml",
+    "instruction-convert": "Look at the strip."
+  },
+  "missions": {
+    "metres-to-cm": {
+      "title": "The classroom door",
+      "prompt": "The classroom door is 3 m 45 cm tall. First estimate: is that more or less than 300 cm? Now write how many centimetres it is.",
+      "hint": "Look at the strip: how many centimetres are in 1 metre? Change 3 m to centimetres first, then add 45.",
+      "success": "Well done! 3 m = 300 cm, and 300 + 45 = 345 cm.",
+      "why": "Why is 3 m 45 cm equal to 345 cm, and not 34 or 3045?",
+      "model": "Each metre is 100 cm, so 3 m = 3 × 100 = 300 cm. There are 45 cm more: 300 + 45 = 345. You get 3045 if you think a metre is 1000 cm.",
+      "feedback": {
+        "thousand": "1 m is not 1000 cm. Look at the strip: what is written between m and cm?",
+        "extra-zero": "You wrote one zero too many. 3 m = 300 cm. Now add 45.",
+        "added": "You added 3 and 45, but they are in different units. Change 3 m to centimetres first.",
+        "too-big": "Your number is too big. How many centimetres are in 3 m?",
+        "too-small": "Your number is too small. A centimetre is smaller than a metre, so the number must get bigger.",
+        "empty": "Write your answer in centimetres."
+      }
+    },
+    "grams-to-kg": {
+      "title": "A bag of flour",
+      "prompt": "A bag of flour weighs 2500 {{term:gram}}s. How many {{term:kilogram}}s is that? (Use a decimal point, e.g. 1.5.)",
+      "hint": "1000 g = 1 kg. A kilogram is the bigger unit, so divide: 2500 ÷ 1000.",
+      "success": "Well done! 2500 g = 2.5 kg, two and a half kilograms.",
+      "why": "When we change grams to kilograms, why does the number get smaller?",
+      "model": "A kilogram is a bigger unit. Every 1000 g make 1 kg, so there are fewer kilograms: 2500 ÷ 1000 = 2.5.",
+      "feedback": {
+        "wrong-way": "You multiplied. From a small unit to a big unit, divide.",
+        "factor": "1 kg is 1000 g, not 10 or 100. Divide by 1000.",
+        "too-big": "Your number is too big. 2500 g is less than 3 kg.",
+        "too-small": "Your number is too small. 2500 g is more than 2 kg.",
+        "empty": "Write your answer in kilograms."
+      }
+    },
+    "juice-glasses": {
+      "title": "How many glasses of juice?",
+      "prompt": "Zahra has a 1.5 {{term:litre}} bottle of juice. She pours 250 {{term:millilitre}}s into each glass. How many glasses can she fill?",
+      "hint": "First change litres to millilitres: 1 l = 1000 ml. Then see how many 250s fit into it.",
+      "success": "Well done! 1.5 l = 1500 ml, and 1500 ÷ 250 = 6 glasses.",
+      "why": "Why must you change the litres to millilitres first?",
+      "model": "Because the glass is measured in millilitres. We can only divide when both amounts are in the same unit: 1500 ÷ 250 = 6. Four glasses make 1 litre, so 1.5 litres make 6 glasses.",
+      "feedback": {
+        "stopped": "1500 ml is right, but the question asks for the number of glasses. Divide 1500 by 250.",
+        "factor": "1 l is not 100 ml. It is 1000 ml.",
+        "too-big": "That is too many glasses. Four glasses make 1 litre.",
+        "too-small": "She can fill more glasses than that. Four glasses make 1 litre.",
+        "empty": "Write the number of glasses."
+      }
+    },
+    "square-metre": {
+      "title": "One square metre",
+      "prompt": "The strip says 1 m = 100 cm. Now think: how many {{term:square-centimetre}}s are in 1 {{term:square-metre}}?",
+      "hint": "Imagine a square with sides of 1 m, which is 100 cm. How many 1 cm squares fit in one row? How many rows are there?",
+      "success": "Well done! 100 rows of 100 squares: 100 × 100 = 10000 cm².",
+      "why": "Why is 1 m² not 100 cm²?",
+      "model": "Area has two dimensions: length and width. Each side of the square is 100 cm, so there are 100 rows with 100 small squares in each. 100 × 100 = 10000.",
+      "feedback": {
+        "length-factor": "100 is just one row, the length. But the square has 100 rows. How many small squares altogether?",
+        "factor": "We find the area by multiplying length by width: 100 × 100.",
+        "perimeter": "400 cm is the distance round the square, the perimeter. We want the area.",
+        "separator": "Type the number without commas, e.g. 25000.",
+        "too-big": "Your number is too big. Think of 100 rows of 100 squares.",
+        "too-small": "Your number is too small. Think of 100 rows of 100 squares.",
+        "empty": "Write your answer in square centimetres."
+      }
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "title": "Times tables",
+  "summary": "Learn the times tables with pictures and practise them in a short game: 2, 5 and 10 first, then 0 and 1, then the rest up to 12 × 12.",
+  "guide": [
+    "3 × 4 means 3 rows of 4. That is why every fact comes with a picture: rows of little dots. If you forget a fact, count the dots or go down row by row: 4, 8, 12.",
+    "You can also say a {{term:multiplication-table}} out loud, in order: \"one five is five, two fives are ten, three fives are fifteen…\". Each time, one more row of 5 joins the picture.",
+    "Type your answer with the number buttons and press ✓. If it is wrong, that's fine: look at the picture and try again. That fact will come back a few questions later so it sticks.",
+    "Facts you get wrong are remembered on this device only, and come back first next time. Nothing is sent over the internet.",
+    "The ⏱ button turns on a gentle timer (6 seconds, like the Year 4 multiplication check). If time runs out, your answer is not marked wrong; we just practise that fact more. Leave it off if you prefer."
+  ],
+  "engine": {
+    "up-to": "12",
+    "label-answer": "answer",
+    "label-ok": "OK",
+    "label-delete": "delete",
+    "label-picture": "Show me a picture",
+    "label-timer": "Gentle timer",
+    "label-array": "{a} rows of {b}",
+    "label-progress": "{n} of {t}",
+    "label-right": "Yes! {f}",
+    "label-fixed": "Now you've got it: {f}",
+    "label-retype": "Look at the picture and try again.",
+    "label-slow": "No rush. Take your time.",
+    "label-done": "{n} of {t} right first time!",
+    "label-recite-done": "You said the whole table! {n} of {t} right first time.",
+    "label-practise": "Practise these again:",
+    "label-again": "Play again",
+    "label-split-up": "Move the line up",
+    "label-split-down": "Move the line down",
+    "label-fb-zero": "Anything times zero is zero: there is nothing to count.",
+    "label-fb-one": "Times 1 leaves a number the same.",
+    "label-fb-add": "You added {a} and {b}. Times means {a} rows of {b}.",
+    "label-fb-near": "So close! It looks like one row or one column too many or too few.",
+    "label-fb-off-one": "So close! You are one out.",
+    "label-fb-wrong": "Not yet."
+  },
+  "missions": {
+    "say-five-table": {
+      "title": "Say the 5 times table",
+      "prompt": "Say the 5 times table in order and type each answer: 1 × 5, 2 × 5, 3 × 5… Each time, a new row of 5 joins the picture.",
+      "hint": "Look at the number at the end of each row: 5, 10, 15… Each answer is 5 more than the one before.",
+      "success": "Well done! You said the 5 times table.",
+      "why": "Why is each answer in the 5 times table exactly 5 more than the one before?",
+      "model": "Because each step adds one more row of 5 to the picture. 4 × 5 is 4 rows of 5, and 5 × 5 has one more row of 5, so it is 20 + 5 = 25.",
+      "feedback": {
+        "empty": "Start with 1 × 5 and type the answer with the buttons.",
+        "not-finished": "Keep going! The table isn't finished yet.",
+        "too-few": "A few were wrong the first time. Press \"Play again\" and say the table once more."
+      }
+    },
+    "two-five-ten": {
+      "title": "Times 2, 5 and 10",
+      "prompt": "10 questions from the 2, 5 and 10 times tables. Quick, but no rush! Look at the picture if you need to.",
+      "hint": "Times 10: the digits move up a place (8 × 10 = 80). Times 5: half of times 10. Times 2: double the number.",
+      "success": "Great! You know your 2, 5 and 10 times tables.",
+      "why": "If you know 10 × 8 = 80, how can you find 5 × 8? Why does that work?",
+      "model": "5 rows are half of 10 rows. So 5 × 8 is half of 10 × 8: half of 80 is 40.",
+      "feedback": {
+        "empty": "Answer the question first: type it with the buttons and press ✓.",
+        "not-finished": "Keep going! There are a few questions left.",
+        "too-few": "Fewer than 8 were right the first time this round. Press \"Play again\": the facts you missed come first."
+      }
+    },
+    "zero-and-one": {
+      "title": "Times 0 and times 1",
+      "prompt": "Look at the pictures. 7 × 1 is 7 rows of 1. 7 × 0 is 7 empty rows! Now answer.",
+      "hint": "If one number is 0, there is nothing to count. If one number is 1, the answer is the other number.",
+      "success": "Well done! You found the rules for 0 and 1.",
+      "why": "Why is 9 × 0 equal to 0, but 9 + 0 equal to 9?",
+      "model": "9 + 0 means you have 9 and add nothing, so you still have 9. 9 × 0 means 9 rows with nothing in each, so altogether you have nothing: 0.",
+      "feedback": {
+        "empty": "Answer the question first.",
+        "not-finished": "Keep going! There are a few questions left.",
+        "too-few": "Play another round and look closely at the pictures: how many dots are in an empty row?"
+      }
+    },
+    "split-six-sevens": {
+      "title": "6 × 7 from facts you know",
+      "prompt": "This picture is 6 rows of 7. Move the line up and down to split it into two facts you know. Then type what 6 × 7 is.",
+      "hint": "Put the line under 5 rows: 5 × 7 = 35, and one more row of 7. Or put it in the middle: two lots of 3 × 7.",
+      "success": "Right! 6 × 7 = 42.",
+      "why": "How did 5 × 7 help you find 6 × 7? Why does that work?",
+      "model": "6 rows of 7 is 5 rows of 7 and one more row of 7. 5 × 7 = 35, then add one more 7: 35 + 7 = 42. No dots are lost; we only cut the picture into two parts.",
+      "feedback": {
+        "empty": "Type your answer in the box.",
+        "added": "You added 6 and 7. But the picture is 6 rows of 7: count all the rows.",
+        "one-more-row": "That's one row of 7 too many. 5 × 7 and one more row makes only 6 rows.",
+        "one-less-row": "That is 5 × 7. There is one more row of 7 to add!",
+        "near": "So close! Each row has 7 dots, not 6 or 8. Try again.",
+        "too-big": "Too big. Put the line under 5 rows and work out the two parts separately.",
+        "too-small": "Too small. Put the line under 5 rows and work out the two parts separately."
+      }
+    },
+    "the-rest": {
+      "title": "The rest of the tables",
+      "prompt": "12 questions from the 3, 4, 6, 7, 8, 9, 11 and 12 times tables. If you don't know a fact, use one you do know. Turn on the gentle timer ⏱ if you like.",
+      "hint": "Double: 4 × 7 is double 2 × 7. Near ten: 9 × 6 is 10 × 6 take away one 6. Times 11 and 12: 10 lots, then 1 or 2 more lots.",
+      "success": "Well done! You know your times tables.",
+      "why": "Find 9 × 6 using 10 × 6. Why does that work?",
+      "model": "9 rows of 6 is 10 rows of 6 take away one row. 10 × 6 = 60, then take away one 6: 60 − 6 = 54. So 9 × 6 = 54.",
+      "feedback": {
+        "empty": "Answer the question first.",
+        "not-finished": "Keep going! There are a few questions left.",
+        "too-few": "Fewer than 10 were right the first time this round. Press \"Play again\": the facts you missed come first."
+      }
+    }
+  }
+}

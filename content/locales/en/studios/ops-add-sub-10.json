@@ -1,0 +1,95 @@
+{
+  "title": "Adding and taking away within 10",
+  "summary": "Put apples together, take some away and compare. Then make 10 from two numbers.",
+  "guide": [
+    "This studio is for Year 1. Your child works with counters and answers by tapping a number, so no writing is needed. If they can't read yet, read the sentences to them.",
+    "A ten-frame has two rows of 5. When counters sit in it, a child can see that 7 is \"5 and 2 more\" without counting every one.",
+    "{{term:addition}} means putting two groups together. {{term:subtraction}} means taking away, or comparing two groups (how many more?). The last mission splits 10 into two parts: these are the number bonds of 10."
+  ],
+  "engine": {
+    "label-counter": "counter",
+    "label-red": "red",
+    "label-yellow": "yellow",
+    "label-crossed": "crossed out",
+    "label-ringed": "circled",
+    "label-empty": "empty space",
+    "label-drop": "put one here",
+    "label-answer": "answer",
+    "label-bond": "whole and two parts",
+    "label-basket": "basket",
+    "label-sara": "Sara",
+    "label-reza": "Reza",
+    "instruction-move": "Tap each apple.",
+    "instruction-cross": "Tap an apple to cross it out.",
+    "instruction-ring": "Circle the apples with no partner.",
+    "instruction-paint": "Tap a counter to change its colour."
+  },
+  "missions": {
+    "join": {
+      "title": "How many altogether?",
+      "prompt": "Ali has 3 apples. Sara has 4 apples. Put all the apples in the basket. How many apples are in the basket?",
+      "hint": "Tap each apple to move it to the basket. One row of the basket holds 5. 5 and how many more?",
+      "success": "Well done! 3 apples and 4 apples make 7 apples. 3 + 4 = 7",
+      "why": "If you put the 4 yellow apples in first and then the 3 red ones, do you still get 7? Why?",
+      "model": "Yes. They are the same apples, just in a different order. So 4 + 3 = 7 and 3 + 4 = 7.",
+      "feedback": {
+        "too-many": "There are still apples on a plate. Tap them to move them to the basket.",
+        "one-group": "That's only the apples from one plate. Count all the apples in the basket.",
+        "took-away": "We put the apples together; we didn't take any away. Putting together makes more.",
+        "too-big": "That's too many. Count each apple only once.",
+        "too-small": "That's too few. Touch each apple as you count it.",
+        "empty": "Now tap the number for your answer."
+      }
+    },
+    "take-away": {
+      "title": "How many are left?",
+      "prompt": "Zahra had 8 apples. She ate 3. Cross out 3 apples. How many apples are left?",
+      "hint": "Cross out 3 apples. Then count only the apples without a cross.",
+      "success": "Well done! 5 apples are left. 8 − 3 = 5",
+      "why": "How can you tell your answer is right? Put the crossed-out apples back and count.",
+      "model": "5 apples are left and 3 were eaten. 5 + 3 = 8. That's the 8 apples we started with, so the answer is right.",
+      "feedback": {
+        "marked-too-few": "Zahra ate 3 apples. Cross out 3.",
+        "marked-too-many": "You crossed out too many. Only 3. Tap an apple again to remove its cross.",
+        "counted-taken": "Zahra ate those 3. Count the apples that are <b>left</b>.",
+        "counted-start": "There were 8 at the start. Zahra ate 3, so fewer are left now.",
+        "too-big": "Count the apples <b>without</b> a cross again.",
+        "too-small": "Count the apples <b>without</b> a cross again.",
+        "empty": "Now tap the number for your answer."
+      }
+    },
+    "compare": {
+      "title": "How many more?",
+      "prompt": "Sara has 7 apples. Reza has 4 apples. Circle Sara's apples that have no partner. How many more apples does Sara have?",
+      "hint": "Each of Sara's apples pairs with the apple under it. Which ones have an empty space under them?",
+      "success": "Well done! Sara has 3 more apples. 7 − 4 = 3",
+      "why": "How many more apples does Reza need to have as many as Sara? Why?",
+      "model": "3 apples, because 3 of Sara's apples have no partner. If Reza gets 3 more, they all pair up: 4 + 3 = 7.",
+      "feedback": {
+        "marked-too-few": "There's still an apple with no partner. Which of Sara's apples has an empty space under it?",
+        "marked-too-many": "You circled an apple that has a partner. Circle only the ones with no partner.",
+        "bigger-row": "7 is all of Sara's apples. We want to know how many <b>more</b> she has.",
+        "smaller-row": "4 is Reza's apples. Count the apples with no partner.",
+        "too-big": "Count the apples you circled.",
+        "too-small": "Count the apples you circled.",
+        "empty": "Now tap the number for your answer."
+      }
+    },
+    "bond-10": {
+      "title": "Split 10 in two",
+      "prompt": "Here are 10 counters. Keep 6 red. Make the rest yellow. How many are yellow?",
+      "hint": "Tap a counter to make it yellow. One row is 5, so 6 is one row and one more.",
+      "success": "Well done! 6 and 4 make 10. 6 + 4 = 10",
+      "why": "Can you make 10 from two other numbers? Say one and show it.",
+      "model": "Yes. For example 7 and 3, 5 and 5, or 9 and 1. Each time some counters are red and the rest are yellow, and together there are always 10.",
+      "feedback": {
+        "wrong-colors": "6 counters should be red and the rest yellow. Count the red ones.",
+        "same-part": "6 are red. We want the number of <b>yellow</b> counters.",
+        "whole": "10 is all the counters. Count only the yellow ones.",
+        "too-big": "Count the yellow counters again.",
+        "too-small": "Count the yellow counters again.",
+        "empty": "Now tap the number for your answer."
+      }
+    }
+  }
+}

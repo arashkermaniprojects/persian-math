@@ -1,0 +1,36 @@
+/* Styles for <kg-long-division>. Loaded on every page via the glob in layouts/Base.astro. */
+/* ---------- engine: long division ---------- */
+/* One LTR grid in both layouts; digit columns shrink (to ≥24px wide, the WCAG 2.5.8 minimum; always 44px tall) only when a sum is too wide
+   for the phone: 2 ÷ 11 to four places in the Iranian layout needs 11 columns. */
+kg-long-division { container-type: inline-size; }
+/* Last resort: a sum too wide even at the narrowest columns scrolls in its own box (from the dividend's first digit), never the page. */
+.kg-ld-wrap { display: flex; justify-content: safe center; max-inline-size: 100%; overflow-x: auto; direction: ltr; }
+.kg-ld-sheet {
+  --ld-s: 14px; --ld-m: 12px; --ld-b: 14px;
+  --ld-c: clamp(24px, calc((100cqi - 54px) / var(--ld-n)), 46px);
+  display: grid; grid-auto-rows: 44px; row-gap: 4px; direction: ltr; font-size: 1.45rem; line-height: 1;
+}
+.kg-ld-sheet > [hidden] { display: none !important; }
+.kg-ld-d { display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
+.kg-ld-added, .kg-ld-down { color: var(--muted); }
+.kg-ld-mark { font-weight: 700; color: var(--accent); }
+.kg-ld-minus { justify-content: flex-end; padding-inline-end: 2px; }
+.kg-ld-rule { border-block-end: 2px solid var(--fg); margin-block-end: -3px; pointer-events: none; }
+.kg-ld-bar { justify-self: center; inline-size: 2px; background: var(--fg); margin-block-end: -4px; }
+.kg-ld-divrule { margin-inline-start: -8px; }
+.kg-ld-bracket { border-inline-end: 2px solid var(--fg); border-start-end-radius: 14px 22px; border-end-end-radius: 6px; margin-inline-end: 4px; }
+.kg-ld-over { border-block-start: 2px solid var(--fg); pointer-events: none; }
+.kg-ld-box {
+  inline-size: calc(100% - 4px); justify-self: center; block-size: 44px; padding: 0; text-align: center; font: inherit; font-size: 1.35rem;
+  border: 2px solid var(--muted); border-radius: 8px; background: var(--bg); color: var(--fg); position: relative; z-index: 1;
+}
+.kg-ld-box:focus-visible, .kg-ld-box:focus { outline: 3px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.kg-ld-box.no { border-style: dashed; border-color: var(--no); background: var(--no-bg); }
+.kg-ld-box.ok { border-color: transparent; background: transparent; color: var(--fg); }
+.kg-ld-box.typed { color: var(--ok); font-weight: 700; }
+.kg-ld-box.shown { color: var(--accent); }
+.kg-ld-tools { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; margin-block-start: 0.6rem; text-align: center; }
+.kg-ld-ask { margin: 0; font-size: 1.15rem; min-block-size: 1.8em; }
+.kg-ld-ask bdi[dir='ltr'] { unicode-bidi: isolate; }
+.kg-ld-status { margin: 0; min-block-size: 1.8em; color: var(--no); }
+.kg-ld-status.ok { color: var(--ok); font-weight: 700; }

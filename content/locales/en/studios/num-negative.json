@@ -1,0 +1,69 @@
+{
+  "title": "Negative numbers and integers",
+  "summary": "Carry the number line on to the left of zero. Show temperatures below zero and depths below sea level, then add and subtract with jumps.",
+  "guide": [
+    "Numbers to the right of zero are {{term:positive-number}}s and numbers to the left of zero are {{term:negative-number}}s. Zero is neither positive nor negative. Together they are the {{term:integer}}s.",
+    "The minus sign always goes on the left: {{num:-4}} is \"negative four\" (or \"minus four\"). A temperature of 4 degrees below zero is written {{num:-4}} °C. 4 and {{num:-4}} are the same distance from zero, on opposite sides.",
+    "On the number line, numbers get bigger from left to right. So the further left a number is, the smaller it is: {{num:-8}} is less than {{num:-3}}.",
+    "Adding a positive number is a jump to the right. Subtracting a positive number is a jump to the left. The arc over the line shows the jump."
+  ],
+  "engine": {
+    "label-line": "Number line: tap to place a point",
+    "label-point": "Point",
+    "label-given": "Given point",
+    "label-clear": "Clear points"
+  },
+  "missions": {
+    "below-zero": {
+      "title": "4 degrees below zero",
+      "prompt": "On a cold winter night, the {{term:temperature}} was 4 degrees below zero. Show it on the line. Predict first: is it left or right of zero?",
+      "hint": "Temperatures below zero are negative and sit to the left of zero. Go 4 steps left from 0.",
+      "success": "Well done! 4 degrees below zero is {{num:-4}} °C.",
+      "why": "{{num:-4}} and 4 are both 4 steps from zero. So what is the difference?",
+      "model": "{{num:-4}} is to the left of zero and 4 is to the right. They are the same distance from zero, but in opposite directions.",
+      "feedback": {
+        "count": "Put one point on the line.",
+        "too-big": "Your point is too far right. Below zero means left of zero. Go exactly 4 steps left from 0.",
+        "too-small": "Too far left. {{num:-4}} is between {{num:-5}} and 0. Go only 4 steps left from 0."
+      }
+    },
+    "deeper": {
+      "title": "Which is lower?",
+      "prompt": "Call sea level zero. A fish is 8 m below the surface ({{num:-8}}) and a turtle is 3 m below the surface ({{num:-3}}). Both are marked on the line. Which number is smaller?",
+      "hint": "On the number line, the number further left is smaller.",
+      "success": "Correct! {{num:-8}} is less than {{num:-3}} because it is further left. The fish is lower.",
+      "why": "8 is bigger than 3. So why is {{num:-8}} smaller than {{num:-3}}?",
+      "model": "For negative numbers, the bigger the number after the sign, the further it is from zero, to the left. 8 m under water is lower than 3 m under water, so {{num:-8}} is smaller.",
+      "feedback": {
+        "empty": "Choose one of the two numbers.",
+        "wrong": "8 is bigger than 3, but {{num:-8}} is to the left of {{num:-3}}. On the number line, the number further left is smaller."
+      }
+    },
+    "warmer": {
+      "title": "Getting warmer",
+      "prompt": "In the morning it was {{num:-3}} °C. By midday it was 5 degrees warmer. Jump 5 steps from {{num:-3}} and tap where you land. What is {{num:-3}} + 5?",
+      "hint": "Warmer means the temperature goes up: jump to the right. 3 steps to get to zero, then 2 more.",
+      "success": "Great! {{num:-3}} + 5 = 2. At midday it was 2 °C.",
+      "why": "You started at a negative number, but the answer is positive. Why?",
+      "model": "From {{num:-3}} to zero is only 3 steps. We jumped 5, so we went 2 more steps past zero and landed on 2.",
+      "feedback": {
+        "count": "Put one point where the 5-step jump lands.",
+        "too-small": "Adding a positive number means jumping right. Go 5 steps right from {{num:-3}}; the arc should say +5.",
+        "too-big": "Too far. Start at {{num:-3}}, not 3: 3 steps to zero, then 2 more."
+      }
+    },
+    "colder": {
+      "title": "Getting colder",
+      "prompt": "In the evening it was 3 °C. By midnight it was 7 degrees colder. Jump 7 steps left from 3. What is 3 − 7?",
+      "hint": "3 steps to zero, then 4 more to the left.",
+      "success": "Well done! 3 − 7 = {{num:-4}}. At midnight it was 4 degrees below zero.",
+      "why": "Zahra said 3 − 7 = 4. Why is that wrong?",
+      "model": "She took 3 away from 7. But we start at 3 and go 7 steps left: 3 steps to zero and 4 steps past it. So we land on {{num:-4}}, not 4.",
+      "feedback": {
+        "count": "Put one point where the 7-step jump lands.",
+        "too-big": "Not far enough left. From 3, go 7 steps left: after 3 steps you reach zero and there are still 4 to go. Keep going past zero.",
+        "too-small": "Too far. Start at 3 and go just 7 steps left; the arc should say −7."
+      }
+    }
+  }
+}

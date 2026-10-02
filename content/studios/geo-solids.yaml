@@ -1,0 +1,61 @@
+id: geo-solids
+engine: shape-board
+strand: geo
+order: 2
+concepts: [geo.shapes.3d.recognise, geo.solids.2d-representations, geo.solids.properties, geo.solids.nets]
+# Pictures of solids to tap (UK Y1–2: cube, cuboid, sphere, cylinder, cone, pyramid), then faces and edges
+# (Iran G7 «حجم‌های هندسی» p.70–71: وجه، یال، رأس، قاعده; Afghan G6 «اجسام» p.191–198), and a cube net
+# (Afghan G6 p.192 shape 32; Iran «گسترده»). Shapes in the pictures have neutral colour names so the accessible
+# labels do not give the answer away.
+missions:
+  # Tap the cube. The cuboid (a "long cube") is the usual slip.
+  - id: find-cube
+    setup:
+      mode: select
+      instruction: tap
+      solids:
+        - { kind: cuboid, tone: 0, name: solid-a }
+        - { kind: sphere, tone: 1, name: solid-b }
+        - { kind: cube, tone: 2, name: solid-c }
+        - { kind: cylinder, tone: 3, name: solid-d }
+        - { kind: pyramid, tone: 4, name: solid-e }
+        - { kind: cone, tone: 5, name: solid-f }
+    check: { type: shape-board, selected: [2], traps: [{ select: 0, code: cuboid }, { select: 4, code: pyramid }] }
+  # Tap every solid that can roll (it has a curved surface): sphere, cylinder, cone.
+  - id: can-roll
+    setup:
+      mode: select
+      instruction: tap
+      solids:
+        - { kind: cylinder, tone: 0, name: solid-a }
+        - { kind: cube, tone: 1, name: solid-b }
+        - { kind: cone, tone: 2, name: solid-c }
+        - { kind: prism, tone: 3, name: solid-d }
+        - { kind: sphere, tone: 4, name: solid-e }
+        - { kind: pyramid, tone: 5, name: solid-f }
+    check: { type: shape-board, selected: [0, 2, 4], traps: [{ select: 3, code: flat }, { select: 5, code: flat }, { select: 1, code: flat }] }
+  # Faces of a cube: 6. Traps: 3 (only the faces in the picture), 4 (the sides round it, not top and bottom).
+  - id: cube-faces
+    setup:
+      instruction: points
+      solids: [{ kind: cube, tone: 2, name: solid-c }]
+      pick: [1, 8]
+    check: { type: shape-board, pick: 6, traps: [{ pick: 3, code: seen-only }, { pick: 4, code: sides-only }] }
+  # Edges of a square-based pyramid: 4 round the base + 4 up to the top = 8. Traps: 5 (only the solid lines;
+  # the dashed ones are hidden edges), 4 (the base only).
+  - id: pyramid-edges
+    setup:
+      instruction: points
+      solids: [{ kind: pyramid, tone: 4, name: solid-e }]
+      pick: [3, 10]
+    check: { type: shape-board, pick: 8, traps: [{ pick: 5, code: solid-lines }, { pick: 4, code: base-only }] }
+  # Shade 6 squares that fold into a cube. Six in a row, or a 2 × 3 block, is not a net.
+  - id: cube-net
+    setup:
+      x: [0, 6]
+      y: [0, 4]
+      grid: lines
+      mode: cells
+      instruction: cells
+      show: [count]
+    check: { type: shape-board, net: cube }

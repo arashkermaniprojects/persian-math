@@ -1,0 +1,118 @@
+{
+  "title": "Divisibility, HCF, LCM and powers",
+  "summary": "Shade multiples on a hundred square to discover divisibility rules. Then common multiples and factors, square numbers and powers.",
+  "guide": [
+    "This studio covers Years 5–6: multiples, factors, common multiples and factors, and square and cube numbers, with the divisibility tests.",
+    "The hundred square has two colours, red and blue. Choose a colour, then tap numbers. A number in both colours is shown half red, half blue. Tap two numbers and \"keep jumping\" shades the rest with the same gap.",
+    "The tests: a number divides by 2 if its last digit is even; by 5 if it ends in 0 or 5; by 10 if it ends in 0; by 3 or 9 if its digits add up to a multiple of 3 or 9.",
+    "The {{term:lcm}} is the smallest number in both lists of multiples; the {{term:hcf}} is the largest number that divides both numbers.",
+    "5 × 5 is \"5 squared\", written 5², and 4 × 4 × 4 is \"4 cubed\", 4³. In 4³ the 3 is the index (or exponent): how many 4s are multiplied."
+  ],
+  "engine": {
+    "label-square": "hundred square",
+    "label-layers": "colour",
+    "label-layer-1": "red",
+    "label-layer-2": "blue",
+    "label-jumps": "Keep jumping",
+    "label-clear": "Clear",
+    "label-figure": "figure {n}",
+    "label-figure-no": "figure",
+    "label-count": "squares",
+    "label-count-of": "squares in figure {n}",
+    "label-out": "Out",
+    "label-machine": "machine",
+    "label-row-out": "output of row {n}",
+    "instruction-shade": "Choose a colour, then tap numbers.",
+    "instruction-count": "Count, then predict.",
+    "instruction-machine": "Write the outputs."
+  },
+  "missions": {
+    "two-five-ten": {
+      "title": "Multiples of 2 and 5",
+      "prompt": "Shade the {{term:multiple}}s of 2 in red and the multiples of 5 in blue. Predict which numbers will get both colours.",
+      "hint": "Choose red, tap 2 and 4, then \"Keep jumping\". Then choose blue and tap 5 and 10.",
+      "success": "Well done! Multiples of 2 end in 0, 2, 4, 6 or 8. Multiples of 5 end in 0 or 5. The two-colour numbers end in 0: they are the multiples of 10.",
+      "why": "Without dividing, how can you tell that 378 divides by 2 but not by 5?",
+      "model": "I only look at the ones digit. 378 ends in 8, which is even, so it divides by 2. It doesn't end in 0 or 5, so it doesn't divide by 5. Why only the last digit? Because 370 is made of tens, and tens always divide by 2 and by 5.",
+      "feedback": {
+        "empty": "Choose a colour and tap some numbers. You need both colours.",
+        "missing": "Some multiples are not shaded yet. \"Keep jumping\" helps. Check the other colour too.",
+        "extra": "You shaded a number that is not a multiple. Tap it again with the same colour to clear it."
+      }
+    },
+    "three-and-nine": {
+      "title": "Multiples of 3 and 9",
+      "prompt": "Shade the multiples of 3 in red and the multiples of 9 in blue. Then add up the digits of the blue numbers. What do you notice?",
+      "hint": "Red: 3, 6, then \"Keep jumping\". Blue: 9, 18, then \"Keep jumping\".",
+      "success": "Right! Every blue number is red too: every multiple of 9 is a multiple of 3. And their digits add up to 9: 1 + 8 = 9, 2 + 7 = 9, 5 + 4 = 9 (for 99, 9 + 9 = 18).",
+      "why": "Does 745 divide by 3? Use its digits to explain.",
+      "model": "7 + 4 + 5 = 16. 16 is not a multiple of 3, so 745 does not divide by 3. If the digit sum were a multiple of 3 (like 744: 7 + 4 + 4 = 15), the number would divide by 3.",
+      "feedback": {
+        "empty": "Choose a colour and tap some numbers. You need both colours.",
+        "missing": "Some multiples are not shaded yet. Remember to shade the multiples of 9 in blue even if they are already red.",
+        "extra": "You shaded a number that is not a multiple. Add its digits and see."
+      }
+    },
+    "lcm-together": {
+      "title": "Together again",
+      "prompt": "Ali waters the plants every 4 days and Sara every 6 days. Today they both watered. In how many days will they both water again on the same day? You can shade the multiples on the square.",
+      "hint": "Shade the multiples of 4 in red and of 6 in blue. Which is the first number in both colours?",
+      "success": "Well done! 12 is the first common multiple of 4 and 6. It is called the {{term:lcm}}.",
+      "why": "Why isn't the answer 4 × 6 = 24?",
+      "model": "24 is a multiple of 4 and of 6, but it isn't the first one. 12 = 3 × 4 and 12 = 2 × 6, so on day 12 they both water, which is sooner than day 24.",
+      "feedback": {
+        "empty": "Type your answer.",
+        "product": "24 is a common multiple, but not the <b>lowest</b>. Look at the square: is there a two-colour number before 24?",
+        "not-smallest": "That is a common multiple, but not the lowest. Find the first two-colour number.",
+        "common-factor": "2 divides both 4 and 6: that is a common factor. We want a common multiple: a day when both water.",
+        "added": "You did 4 + 6. But Sara doesn't water on day 10; her days are 6, 12, 18.",
+        "too-big": "Too big. They are both watering on an earlier day.",
+        "too-small": "Too small. They don't both water on that day."
+      }
+    },
+    "hcf-share": {
+      "title": "Equal packs",
+      "prompt": "We have 18 pencils and 24 rubbers and want to make identical packs with nothing left over. Shade the factors of 18 in red and the factors of 24 in blue. Predict the largest number of packs.",
+      "hint": "Find the factors of 18 in pairs: 1 × 18, 2 × 9, 3 × 6. Do the same for 24.",
+      "success": "Right! The common factors are 1, 2, 3 and 6. The largest is 6, the {{term:hcf}}. So we make 6 packs, each with 3 pencils and 4 rubbers.",
+      "why": "Why can't we make 8 packs?",
+      "model": "8 is a factor of 24 but not of 18: 18 ÷ 8 leaves a remainder. The number of packs must divide both numbers. The largest two-colour number is 6.",
+      "feedback": {
+        "empty": "Choose a colour and tap some numbers. You need both colours.",
+        "missing": "A factor is missing. Don't forget 1 and the number itself!",
+        "extra": "You shaded a number that is not a factor. Does 18 or 24 divide by it?"
+      }
+    },
+    "square-numbers": {
+      "title": "Square numbers",
+      "prompt": "Each square grows by one row and one column. How many small squares are in figure 5 and in figure 10?",
+      "hint": "Figure 3 is three rows of three: 3 × 3. What is figure 5?",
+      "success": "Well done! 5 × 5 = 25 and 10 × 10 = 100. These are {{term:square-number}}s: 1, 4, 9, 16, 25, …",
+      "why": "Why do we call 10 × 10 \"10 squared\" and write 10²?",
+      "model": "Because 10 is multiplied by itself, and the picture is a square with 10 rows of 10. The small 2 says how many 10s are multiplied together.",
+      "feedback": {
+        "empty": "Type a number in both boxes.",
+        "doubled-n": "You doubled the figure number. But figure 5 is five rows of five, not two rows.",
+        "doubled-figure": "Figure 10 is not double figure 5! Both the rows and the columns double: 10 × 10.",
+        "same-jump": "The jumps are not the same: 3, 5, 7, … two more each time. How many are added after 16?",
+        "too-big": "Too big. Count the rows and columns, then multiply.",
+        "too-small": "Too small. Count the rows and columns, then multiply."
+      }
+    },
+    "cube-machine": {
+      "title": "The cube machine",
+      "prompt": "This machine cubes every number: it multiplies the number by itself three times. Write the outputs.",
+      "hint": "2³ means 2 × 2 × 2 = 8. For 3: 3 × 3 × 3.",
+      "success": "Right! 3 × 3 × 3 = 27, 4 × 4 × 4 = 64 and 10 × 10 × 10 = 1000. These are the cube numbers.",
+      "why": "What is the difference between 4³ and 4 × 3?",
+      "model": "4 × 3 means 4 + 4 + 4 = 12. But 4³ means 4 × 4 × 4 = 64. A power is short for repeated multiplication, just as multiplying is short for repeated adding. 64 small cubes make a 4 by 4 by 4 cube.",
+      "feedback": {
+        "empty": "Write every output.",
+        "times-three": "You multiplied by 3. But cubing means multiplying <b>the number itself</b> three times: 4 × 4 × 4.",
+        "squared": "You multiplied the number by itself twice. Cubing is three times: 4 × 4 × 4.",
+        "too-big": "Too big. Multiply the number by itself just three times.",
+        "too-small": "Too small. Multiply the number by itself three times."
+      }
+    }
+  }
+}

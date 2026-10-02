@@ -1,0 +1,29 @@
+id: meas-length-mass-capacity
+engine: measure
+strand: meas
+order: 2
+concepts: [meas.length, meas.mass, meas.capacity, meas.estimate, meas.accuracy.precision]
+missions:
+  - id: pencil-from-zero
+    # The pencil starts 2 cm before the ruler's 0: reading its end gives 5 (not-from-zero). Slide the ruler, read 7.
+    setup: { tool: ruler, object: pencil, length: 7, max: 10, minor: 1, offset: -2, unit: cm }
+    answer: integer
+    check: { type: measure, value: 7, aligned: true }
+  - id: balance-apples
+    # Three apples weigh 600 g: 500 + 100 balances them. The pan with the weights goes down when they are too heavy.
+    setup: { tool: balance, left: [{ item: apple, count: 3, mass: 600 }], weights: [500, 200, 100, 100, 50], unit: g }
+    check: { type: measure, value: 600 }
+  - id: jug-fill
+    # Labels every 200 ml, marks every 100 ml: 700 ml is the unlabelled mark between 600 and 800.
+    setup: { tool: jug, max: 1000, major: 200, minorStep: 100, value: 0, set: true, unit: ml }
+    check: { type: measure, value: 700 }
+  - id: dial-rice
+    # A mark every 50 g between the 100 g numbers: the needle is one mark after 600. Reading the mark as 10 or 1 is a trap.
+    setup: { tool: scale, object: bag, max: 1000, major: 100, minorStep: 50, value: 650, unit: g }
+    answer: integer
+    check: { type: measure, value: 650, traps: [{ value: 610, code: mark-size }, { value: 601, code: mark-size }, { value: 605, code: mark-size }, { value: 700, code: rounded }, { value: 600, code: rounded }] }
+  - id: leaf-mm
+    # 6 cm 4 mm = 64 mm. Writing 6 (cm) or rounding to 60/70 has its own feedback.
+    setup: { tool: ruler, object: leaf, length: 6.4, max: 8, minor: 10, offset: 0, unit: cm }
+    answer: integer
+    check: { type: measure, value: 64, aligned: true, traps: [{ value: 6, code: wrote-cm }, { value: 7, code: wrote-cm }, { value: 60, code: nearest-cm }, { value: 70, code: nearest-cm }, { value: 46, code: reversed }] }

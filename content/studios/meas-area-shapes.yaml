@@ -1,0 +1,94 @@
+id: meas-area-shapes
+engine: shape-board
+strand: meas
+order: 6
+concepts: [meas.area.triangle-parallelogram, meas.area.rhombus-trapezium, meas.area.circle, meas.area.composite]
+# Cut and rearrange, as in Iran G4 «مساحت متوازی‌الاضلاع و مثلث» (p.131–132: cut the triangle off a parallelogram
+# and slide it across to make a rectangle; two equal triangles make a parallelogram), Iran G5 «مساحت لوزی و ذوزنقه»
+# (p.161: two equal trapezia make a parallelogram) and Iran G6 «مساحت دایره» (p.98: estimate on squared paper,
+# then radius × radius × 3.14). Afghan G6 p.172 counts squares for the triangle. The move missions use `fits`:
+# the piece must exactly fill the dashed outline. Trapezium and circle area are not in UK KS2 (extension in en).
+missions:
+  # Slide the cut-off triangle (the only piece) along to the dashed gap: the parallelogram becomes a 4 × 3 rectangle.
+  - id: slide-triangle
+    setup:
+      x: [0, 7]
+      y: [0, 4]
+      grid: lines
+      mode: move
+      instruction: move
+      shapes:
+        - { pts: [[2, 0], [4, 0], [6, 3], [2, 3]], tone: 1, select: false }
+        - { pts: [[0, 0], [2, 0], [2, 3]], tone: 0, move: true, name: piece }
+        - { pts: [[4, 0], [6, 0], [6, 3]], tone: 5, dash: true, select: false }
+    check: { type: shape-board, fits: 2 }
+  # Base 6, slanted side 5, height 4 (the dashed line): 6 × 4 = 24. Traps: 30 (base × slanted side),
+  # 22 (perimeter), 12 (halved, as for a triangle).
+  - id: parallelogram-area
+    setup:
+      x: [0, 9]
+      y: [0, 5]
+      grid: lines
+      mode: view
+      show: [lengths]
+      shapes:
+        - { pts: [[0, 0.5], [6, 0.5], [9, 4.5], [3, 4.5]], tone: 1 }
+        - { pts: [[3, 4.5], [3, 0.5]], line: segment, dash: true, tone: 3 }
+    answer: integer
+    check: { type: answer-integer, value: 24, traps: [{ value: 30, code: slant }, { value: 22, code: perimeter }, { value: 12, code: halved }] }
+  # Turn the copy of the triangle half a turn (two quarter turns) and slide it into the dashed gap: two equal
+  # triangles make a parallelogram, so one triangle is half of base × height.
+  - id: two-triangles
+    setup:
+      x: [0, 6]
+      y: [0, 7]
+      grid: lines
+      mode: move
+      instruction: move
+      shapes:
+        - { pts: [[0, 0], [4, 0], [1, 3]], tone: 0, select: false }
+        - { pts: [[0, 4], [4, 4], [1, 7]], tone: 0, move: true, turn: true, pivot: [2, 5], name: piece }
+        - { pts: [[5, 3], [1, 3], [4, 0]], tone: 5, dash: true, select: false }
+    check: { type: shape-board, fits: 2 }
+  # Composite: walls 6 × 3 = 18, roof 6 × 3 ÷ 2 = 9, total 27. Traps: 36 (roof not halved = the whole 6 × 6 box),
+  # 18 (walls only), 9 (roof only).
+  - id: house
+    setup:
+      x: [0, 6]
+      y: [0, 6]
+      grid: lines
+      mode: view
+      shapes:
+        - { pts: [[0, 0], [6, 0], [6, 3], [0, 3]], tone: 1 }
+        - { pts: [[0, 3], [6, 3], [3, 6]], tone: 3 }
+        - { pts: [[3, 6], [3, 3]], line: segment, dash: true, tone: 4 }
+    answer: integer
+    check: { type: answer-integer, value: 27, traps: [{ value: 36, code: not-halved }, { value: 18, code: walls-only }, { value: 9, code: roof-only }] }
+  # Two equal trapezia (bases 5 and 2, height 2) make a parallelogram with base 5 + 2 = 7: area 14, so one
+  # trapezium is 14 ÷ 2 = 7. The copy turns about its middle.
+  - id: two-trapezia
+    setup:
+      x: [0, 8]
+      y: [0, 6]
+      grid: lines
+      mode: move
+      instruction: move
+      show: [lengths]
+      shapes:
+        - { pts: [[0, 0], [5, 0], [3, 2], [1, 2]], tone: 4, select: false }
+        - { pts: [[0, 4], [5, 4], [3, 6], [1, 6]], tone: 4, move: true, turn: true, pivot: [3, 5], name: piece }
+        - { pts: [[8, 2], [3, 2], [5, 0], [7, 0]], tone: 5, dash: true, select: false }
+    check: { type: shape-board, fits: 2 }
+  # Radius 3: the square round the circle is 36, the diamond inside it 18; the circle is about 3 × 3 × 3.14 = 28.26.
+  # 9 is radius × radius without 3.14.
+  - id: circle-estimate
+    setup:
+      x: [0, 6]
+      y: [0, 6]
+      grid: lines
+      mode: view
+      shapes:
+        - { circle: [3, 3, 3], tone: 2 }
+        - { pts: [[3, 0], [6, 3], [3, 6], [0, 3]], tone: 5, dash: true }
+    answer: choice
+    check: { type: choice, options: ["{{num:9}}", "{{num:18}}", "{{num:28}}", "{{num:36}}"], correct: 2 }

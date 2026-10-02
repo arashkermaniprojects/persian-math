@@ -1,0 +1,110 @@
+{
+  "title": "Measuring {{term:length}}, {{term:mass}} and {{term:capacity}}",
+  "summary": "Measure with a ruler, scales and a measuring jug. Estimate first, then measure.",
+  "guide": [
+    "We measure length with a {{term:ruler}}. Always start from the 0 on the ruler, not from its edge.",
+    "Each big space on the ruler is one {{term:centimetre}} (cm). Each centimetre has 10 small spaces. Each small space is one {{term:millimetre}} (mm).",
+    "We measure mass with scales. When both pans of a balance hold the same mass, the balance is level. 1 {{term:kilogram}} = 1000 {{term:gram}}s.",
+    "We measure capacity with a measuring jug. 1 {{term:litre}} = 1000 {{term:millilitre}}s.",
+    "Some marks on a scale have no number. First work out what each mark is worth, then count on.",
+    "Drag the ruler with your finger, or tap it and move it with the arrow keys."
+  ],
+  "engine": {
+    "label-ruler": "Ruler; drag to move it",
+    "label-reading": "start at {s}, end at {e}",
+    "label-balance": "Pan balance",
+    "label-level": "the balance is level",
+    "label-left-down": "the apples' pan is lower",
+    "label-right-down": "the weights' pan is lower",
+    "label-jug": "Measuring jug",
+    "label-scale": "Dial scale",
+    "label-up": "Pour in more water",
+    "label-down": "Pour some water out",
+    "unit-cm": "cm",
+    "unit-mm": "mm",
+    "unit-g": "g",
+    "unit-kg": "kg",
+    "unit-ml": "ml",
+    "unit-l": "l",
+    "instruction-ruler": "Drag the ruler.",
+    "instruction-balance": "Add weights.",
+    "instruction-jug": "Pour water.",
+    "instruction-scale": "Read the needle."
+  },
+  "missions": {
+    "pencil-from-zero": {
+      "title": "How long is the pencil?",
+      "prompt": "First estimate: how many {{term:centimetre}}s long is the pencil? Now drag the ruler so its 0 is at the start of the pencil. Write the length.",
+      "hint": "Put the 0 of the ruler right under the start of the pencil. Then see which number the end of the pencil reaches.",
+      "success": "Well done! The pencil is 7 cm long.",
+      "why": "Why must the 0 of the ruler be at the start of the pencil?",
+      "model": "Because we count from 0. If the pencil does not start at 0, the number at its end is not its length. If the pencil starts at 2 and ends at 9, it is 9 − 2 = 7 cm long.",
+      "feedback": {
+        "not-from-zero": "You read the end of the pencil, but the pencil does not start at 0. First drag the ruler so the 0 is under the start of the pencil.",
+        "not-aligned": "The 0 of the ruler is not under the start of the pencil yet. Drag the ruler.",
+        "too-big": "Your number is too big. Look at the end of the pencil again.",
+        "too-small": "Your number is too small. Look at the end of the pencil again.",
+        "empty": "Write the length of the pencil as a number."
+      }
+    },
+    "balance-apples": {
+      "title": "How heavy are the apples?",
+      "prompt": "First estimate: how many {{term:gram}}s do three apples weigh? Now add weights until the balance is level.",
+      "hint": "Start with the biggest weight. If the apples' pan is still lower, add a smaller weight.",
+      "success": "Well done! The balance is level. The apples weigh 600 g: 500 + 100 = 600.",
+      "why": "How do you know the apples and the weights have the same mass?",
+      "model": "When both pans hold the same mass, the balance is level. It was level with 500 g and 100 g, so the apples weigh 500 + 100 = 600 g.",
+      "feedback": {
+        "too-big": "The weights' pan went down, so the weights are heavier. Take one off.",
+        "too-small": "The apples' pan is still lower. Add another weight.",
+        "empty": "Put some weights on the balance."
+      }
+    },
+    "jug-fill": {
+      "title": "700 ml of water",
+      "prompt": "The jug only shows 200, 400, 600 and 800. What are the marks in between worth? Now pour in 700 {{term:millilitre}}s.",
+      "hint": "There is one mark between 600 and 800. That mark is 700.",
+      "success": "Well done! The water is at the 700 mark.",
+      "why": "The 700 mark has no number. How did you know it was 700?",
+      "model": "From 600 to 800 is 200 ml, and one mark sits halfway. So each mark is worth 100 ml, and the mark after 600 is 700.",
+      "feedback": {
+        "too-big": "That is too much water. Pour some out.",
+        "too-small": "Not enough water yet. Pour in a little more.",
+        "empty": "Pour some water in."
+      }
+    },
+    "dial-rice": {
+      "title": "A bag of rice",
+      "prompt": "Look at the needle. First estimate: is it more or less than 600 {{term:gram}}s? Now write the mass of the bag in grams.",
+      "hint": "There is one small mark between 600 and 700, exactly halfway. What is halfway between 600 and 700?",
+      "success": "Well done! The bag weighs 650 g.",
+      "why": "What is each small mark on this scale worth? How do you know?",
+      "model": "From 600 to 700 is 100 g, and one small mark splits it in half. Half of 100 is 50, so each small mark is 50 g and the needle points to 650.",
+      "feedback": {
+        "mark-size": "Each small mark is not 1 g or 10 g. Count how many marks there are between 600 and 700.",
+        "rounded": "The needle is not exactly on a number. It is between two numbers. Use the small mark.",
+        "too-big": "Your number is too big. The needle has not reached 700.",
+        "too-small": "Your number is too small. The needle is past 600.",
+        "empty": "Write the mass of the bag as a number."
+      }
+    },
+    "leaf-mm": {
+      "title": "Measuring more accurately",
+      "prompt": "The leaf is a bit longer than 6 cm. Measure it more accurately in {{term:millimetre}}s. How many millimetres long is the leaf?",
+      "hint": "Each centimetre is 10 mm, so 6 cm is 60 mm. Then count the small marks after 6.",
+      "success": "Well done! The leaf is 6 cm and 4 mm, which is 64 mm.",
+      "why": "Why is 6 cm and 4 mm the same as 64 mm?",
+      "model": "Each centimetre is 10 mm, so 6 cm is 60 mm, and 60 + 4 = 64 mm. Millimetres are smaller than centimetres, so the measurement is more accurate.",
+      "feedback": {
+        "wrote-cm": "That is the number of centimetres. We asked for millimetres. Each centimetre is 10 mm.",
+        "nearest-cm": "That is the length to the nearest centimetre. Be more accurate: count the small marks after 6 too.",
+        "reversed": "The digits are swapped. Centimetres first: 6 cm is 60 mm.",
+        "not-from-zero": "The leaf does not start at 0. Move the ruler back so the 0 is under the start of the leaf.",
+        "not-aligned": "The 0 of the ruler is not under the start of the leaf. Move the ruler back.",
+        "too-big": "Your number is too big. Count the small marks again.",
+        "too-small": "Your number is too small. Count the small marks again.",
+        "empty": "Write the length of the leaf in millimetres."
+      }
+    }
+  }
+}

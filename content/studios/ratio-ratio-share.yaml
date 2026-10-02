@@ -1,0 +1,39 @@
+id: ratio-ratio-share
+engine: fraction-bars
+strand: ratio
+order: 1
+concepts: [ratio.ratio, ratio.simplify, ratio.ratio-fraction, ratio.share]
+# Ratio with a bar: the shaded and unshaded parts are the two kinds. Iran G5 «نسبت» (p.78: «۳ به ۵ یا ۳/۵», no colon
+# seen), Afghan G6 «نسبت» (fraction, : or ÷) and G8 «تقسیم به اجزای متناسبه», UK Y6 «a : b». So fa-IR writes «۲ به ۳»,
+# fa-AF/ps and en write ۲:۳ / 2 : 3 (no spaces round the colon in RTL text, so the bidi algorithm keeps it LTR).
+missions:
+  # Juice: 2 cups of syrup to 3 cups of water. Build the bar: 5 parts, 2 shaded (4/10 is the same drink).
+  # Classic: 2 : 3 read as the fraction 2/3 of the drink.
+  - id: build-ratio
+    setup: { bars: [{ parts: 1, interactive: both, maxParts: 12 }], label: true }
+    check: { type: shaded-equals, value: [2, 5] }
+  # 6 red : 9 blue beads = 2 : ? Re-group the 15-part bar into 5 groups (partsStep 5). Classic (additive): 2 : 5.
+  - id: simplify-ratio
+    setup:
+      bars: [{ parts: 15, shaded: 6, interactive: parts, keepAmount: true, partsStep: 5, minParts: 5, maxParts: 15 }]
+    answer: integer
+    check:
+      type: answer-integer
+      value: 3
+      traps: [{ value: 5, code: additive }, { value: 9, code: unchanged }]
+  # Boys : girls = 3 : 4. What fraction of the class are girls? 4/7. Classic: 4/3 (the ratio as the fraction).
+  - id: ratio-to-fraction
+    setup: { bars: [{ parts: 1, interactive: both, maxParts: 12 }], label: true }
+    answer: fraction
+    check:
+      type: answer-equals
+      value: [4, 7]
+      traps: [{ value: [4, 3], code: ratio-as-fraction }, { value: [3, 4], code: ratio-as-fraction }, { value: [3, 7], code: boys }]
+  # Share 28 walnuts in the ratio 3 : 4 (Ali : Sara). Ali's 3 parts are given (blue); 7 parts of 4 → Sara gets 16.
+  - id: share-in-ratio
+    setup: { bars: [{ parts: 7, given: 3, interactive: shade }] }
+    answer: integer
+    check:
+      type: answer-integer
+      value: 16
+      traps: [{ value: 12, code: other-share }, { value: 7, code: divided-by-part }, { value: 4, code: one-part }, { value: 14, code: halved }]

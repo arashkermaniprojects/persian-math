@@ -1,0 +1,90 @@
+{
+  "title": "{{term:counting}} and comparing to 10",
+  "summary": "Match apples one to one, count them and compare. Then meet the signs <, > and =.",
+  "guide": [
+    "This studio is for Year 1. Your child works with apples and counters and answers by tapping a number or a sign. If they can't read yet, read the sentences to them.",
+    "It starts with matching: one apple for each place. Even without counting, a child can see which group has more. Then they count into a ten-frame; a row holds 5, so 7 is \"5 and 2 more\".",
+    "Finally two rows are compared with <, > or =. The open mouth of the sign always faces the bigger number."
+  ],
+  "engine": {
+    "label-counter": "apple",
+    "label-red": "red",
+    "label-yellow": "yellow",
+    "label-ringed": "circled",
+    "label-empty": "empty space",
+    "label-answer": "answer",
+    "label-plates": "plates",
+    "label-pile": "apples",
+    "label-frame": "ten-frame",
+    "label-ali": "Ali",
+    "label-maryam": "Maryam",
+    "label-sara": "Sara",
+    "label-reza": "Reza",
+    "instruction-move": "Tap each apple.",
+    "instruction-tap": "Tap an empty space.",
+    "instruction-ring": "Circle the apples with no partner."
+  },
+  "missions": {
+    "match": {
+      "title": "One apple on each plate",
+      "prompt": "Put just one apple on each plate. How many apples are left over?",
+      "hint": "Tap an apple to put it on a plate. When every plate has one, count the apples that are left.",
+      "success": "Well done! 2 apples are left over. There were more apples than plates.",
+      "why": "Without counting, how did you know there were more apples?",
+      "model": "Every plate got one apple and there were still apples left. So there are more apples. You don't need to count to compare: matching is enough.",
+      "feedback": {
+        "too-few": "There is still an empty plate. Put one apple on it.",
+        "too-many": "There is still an empty plate. Put one apple on it.",
+        "counted-all": "8 is all the apples. Count only the apples that are not on a plate.",
+        "counted-placed": "6 are on the plates. Count the apples that didn't fit.",
+        "too-big": "Count the apples that are not on a plate again.",
+        "too-small": "Count the apples that are not on a plate again.",
+        "empty": "Now tap the number for your answer."
+      }
+    },
+    "count-frame": {
+      "title": "Count and build",
+      "prompt": "Count the apples. Put the same number in the ten-frame. Then tap the number.",
+      "hint": "One row of the frame has 5 spaces. Fill one row. How many more do you need?",
+      "success": "Well done! 7 apples: one row of 5 and 2 more.",
+      "why": "In the ten-frame, how can you tell it's 7 without counting one by one?",
+      "model": "The top row is full, so that's 5. There are 2 in the bottom row. 5 and 2 make 7.",
+      "feedback": {
+        "too-many": "Too many in the frame. Tap an apple to take it away.",
+        "too-few": "Too few in the frame. Count the apples on the plate again.",
+        "too-big": "That number is too big. Count the apples in the frame.",
+        "too-small": "That number is too small. Count the apples in the frame.",
+        "empty": "Now tap the number for your answer."
+      }
+    },
+    "who-has-more": {
+      "title": "Who has more?",
+      "prompt": "Ali has 5 apples. Maryam has 8 apples. Circle Maryam's apples with no partner. Tap the bigger number.",
+      "hint": "Each of Ali's apples pairs with the apple under it. Which of Maryam's apples have no partner?",
+      "success": "Well done! 8 is more than 5. Maryam has 3 more apples.",
+      "why": "If Maryam's apples were big and Ali's were tiny, would Maryam still have more? Why?",
+      "model": "Yes. We compare how many, not how big. Maryam has 3 apples with no partner, so she has more apples.",
+      "feedback": {
+        "marked-too-few": "There's still an apple with no partner. Which of Maryam's apples has no apple of Ali's above it?",
+        "marked-too-many": "You circled an apple that has a partner. Tap it again.",
+        "picked-smaller": "5 is Ali's number. Ali has fewer. Tap the <b>bigger</b> number.",
+        "picked-extra": "3 is how many have no partner. We want the bigger number: how many apples does Maryam have?",
+        "too-big": "Count Maryam's apples.",
+        "too-small": "Count Maryam's apples.",
+        "empty": "Now tap the bigger number."
+      }
+    },
+    "signs": {
+      "title": "<, > or =",
+      "prompt": "Sara has 6 apples. Reza has 9 apples. Which one is right?",
+      "hint": "The open mouth of the sign faces the bigger number. The point faces the smaller one.",
+      "success": "Well done! 6 < 9: 6 is less than 9.",
+      "why": "If we swap 6 and 9, which sign do you use? Why?",
+      "model": "9 > 6. The mouth still opens towards 9, because 9 is bigger.",
+      "feedback": {
+        "wrong": "Match the apples. Who has more? The open mouth of the sign must face their number.",
+        "empty": "Tap one of the sentences."
+      }
+    }
+  }
+}

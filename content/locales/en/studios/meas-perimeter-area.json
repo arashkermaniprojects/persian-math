@@ -1,0 +1,102 @@
+{
+  "title": "{{term:perimeter}} and {{term:area}}",
+  "summary": "Walk round a shape to find its {{term:perimeter}}, cover it with unit squares to find its {{term:area}}, and see that shapes with the same area can have different perimeters.",
+  "guide": [
+    "This studio matches perimeter and area in Year 3 to Year 5 (Iran grade 3, Afghanistan grades 2 to 4).",
+    "{{term:perimeter}} is the distance all the way round a shape: how far would an ant walk to get back where it started? It is measured in units of length. {{term:area}} is the amount of surface: how many unit squares cover the shape? It is measured in square units.",
+    "A common mistake is to count the squares along the edge to find the perimeter. A corner square has two sides on the edge, so this gives too small an answer. Ask your child to count the little sides on the boundary, not the squares.",
+    "Area of a rectangle = length × width. Cut an L-shape into two rectangles and add their areas. The last mission shows that the same area does not mean the same perimeter."
+  ],
+  "engine": {
+    "letters": "A B C D E F G H I J",
+    "label-board": "Squared grid",
+    "label-undo": "Undo",
+    "label-clear": "Clear",
+    "label-shape": "Shape",
+    "label-corners": "{n} corners",
+    "label-area": "Area: {n}",
+    "label-perimeter": "Perimeter: {n}",
+    "instruction-cells": "Tap the squares inside the shape.",
+    "instruction-draw": "Tap corners on the grid lines. Then tap the first corner."
+  },
+  "missions": {
+    "cover-shape": {
+      "title": "Cover the shape",
+      "prompt": "Each small square is one unit square. Shade every square inside the blue shape. What is the {{term:area}} of the shape in unit squares?",
+      "hint": "Go row by row so you do not miss one. Tap a square again to unshade it.",
+      "success": "Well done! 12 unit squares cover the shape. Its area is 12 square units.",
+      "why": "Why do we measure area with squares and not with circles?",
+      "model": "Squares fit together with no gaps and no overlaps, so they cover the whole surface. Circles leave gaps between them, so counting them does not give the true size.",
+      "feedback": {
+        "empty": "Tap the squares inside the shape to shade them.",
+        "outside": "A square outside the shape is shaded. Only cover the blue shape. Tap that square again to unshade it.",
+        "too-few": "There is still a white square inside the shape. Check row by row.",
+        "too-many": "That is too many squares. Check you have not counted one twice."
+      }
+    },
+    "walk-around": {
+      "title": "Walk round the shape",
+      "prompt": "An ant starts at a corner and walks along the lines all the way round the shape, back to where it started. Each square has sides of 1 unit. What is the {{term:perimeter}} of the shape in units?",
+      "hint": "Start at a corner and count the little sides on the edge one by one, not the squares. Stop when you are back at the start.",
+      "success": "Well done! The perimeter is 16 units: 4 + 2 + 2 + 2 + 2 + 4 = 16",
+      "why": "The area of this shape was 12 and its perimeter is 16. Why are the two numbers different?",
+      "model": "Area tells us how many squares fit inside the shape; perimeter tells us how long the path round it is. One measures the surface and the other measures the length of the edge, so the numbers and the units are different.",
+      "feedback": {
+        "empty": "Type the perimeter.",
+        "area": "12 is the number of squares inside the shape: that is the area. The perimeter is the length of the path round it. Count the sides on the edge.",
+        "edge-squares": "You counted the squares along the edge. A corner square has two sides on the edge, so it must count twice. Count the sides, not the squares.",
+        "too-big": "That is more than the perimeter. You may have counted some sides twice. Start at one corner and go round once.",
+        "too-small": "That is less than the perimeter. Remember the sides inside the dent of the L."
+      }
+    },
+    "rectangle-area": {
+      "title": "Length × width",
+      "prompt": "This {{term:rectangle}} has no squares drawn on it, but its length and width are marked. How many unit squares would cover it? Type its area.",
+      "hint": "How many squares fit along the bottom row? How many rows like that fit on top of each other?",
+      "success": "Well done! 4 rows of 6: 6 × 4 = 24. The area is 24 square units.",
+      "why": "Why do we multiply the length by the width to find the area of a rectangle?",
+      "model": "Each row holds as many squares as the length (6), and there are as many rows as the width (4). 4 rows of 6 is 6 × 4. So area of a rectangle = length × width.",
+      "feedback": {
+        "empty": "Type the area.",
+        "perimeter": "20 is the perimeter: 6 + 4 + 6 + 4. We want the number of squares inside it.",
+        "added": "You added the length and the width. But there are 4 rows with 6 squares in each, so multiply.",
+        "too-big": "That is more than the area. Each row has 6 squares and there are 4 rows.",
+        "too-small": "That is less than the area. Each row has 6 squares and there are 4 rows."
+      }
+    },
+    "l-shape-area": {
+      "title": "An L-shape",
+      "prompt": "This shape is not a rectangle, but you can cut it into two rectangles. What is the area of the whole shape in square units?",
+      "hint": "Imagine a line that cuts it into a bottom rectangle and a top rectangle. Find the area of each and add them.",
+      "success": "Well done! 6 × 2 = 12 and 3 × 3 = 9, so the area is 12 + 9 = 21 square units.",
+      "why": "A friend cut the shape a different way: a 3 × 5 rectangle and a 3 × 2 rectangle. Do they get 21 too?",
+      "model": "Yes: 15 + 6 = 21. However we cut the shape, as long as the pieces do not overlap and leave no gaps, the areas of the pieces add up to the area of the whole shape.",
+      "feedback": {
+        "empty": "Type the area.",
+        "whole-box": "6 × 5 = 30 is the big rectangle round the shape. But the top right corner is empty and does not count.",
+        "overlap": "You counted one part twice. If the bottom is 6 × 2, the top part is only 3 units tall, not 5.",
+        "perimeter": "22 is the perimeter. We want the area: the number of squares inside.",
+        "too-big": "That is more than the area. Cut the shape into two rectangles that do not overlap.",
+        "too-small": "That is less than the area. Work out both parts and add them."
+      }
+    },
+    "same-area": {
+      "title": "Same area, different perimeter",
+      "prompt": "Sara's rug is a 4 by 3 rectangle: its area is 12 and its perimeter is 14. Draw a shape on the grid lines whose area is also 12 but whose perimeter is 16.",
+      "hint": "The area and perimeter of your shape appear under the grid. Make the rectangle longer and thinner, or draw an L-shape. You can drag a corner to move it.",
+      "success": "Well done! Your shape has area 12, like Sara's rug, but its perimeter is 16.",
+      "why": "Ali says: \"If two shapes have the same area, they have the same perimeter.\" Is he right? Why?",
+      "model": "No. The 4 by 3 rug and my shape both cover 12 squares, but one has perimeter 14 and the other 16. The longer and thinner the shape, the more square sides lie on the edge, so the bigger the perimeter.",
+      "feedback": {
+        "empty": "Tap corners on the grid lines and close the shape.",
+        "open": "Your shape is still open. Tap the first corner to close it.",
+        "crossed": "The lines cross over each other. Tap the corners in order round the shape.",
+        "not-rectilinear": "The sides must run along the grid lines, not slant. Press Clear and draw it again.",
+        "area-too-big": "Your shape's area is more than 12. Count the squares inside it.",
+        "area-too-small": "Your shape's area is less than 12. Count the squares inside it.",
+        "perimeter-too-small": "The area is right, but the perimeter is less than 16. Make the shape longer and thinner.",
+        "perimeter-too-big": "The area is right, but the perimeter is more than 16. Make the shape a little more compact."
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+id: ps-multistep-listing
+engine: problem-canvas
+strand: ps
+order: 4
+concepts: [ps.simpler-problem, ps.sub-problems, ps.systematic-listing, disc.counting.listing, ps.choose-strategy]
+# Iran G2 «حل مسئله» lessons:
+# - زیر مسئله (G2 p.98 [PDF 104] no. 1): a 395-page book, 150 pages read in week one and 130 in week two; the book
+#   splits it in two steps «الف) ابتدا حساب کنید چند صفحه … خوانده شده است؟ ب) حالا تعداد صفحات باقی‌مانده …».
+# - حل مسئلهٔ ساده‌تر (G2 p.116 [PDF 122] no. 1): Reza is 147 cm, Hamid 11 cm shorter; «به جای ۱۴۷ عدد ۱۵۰ و به جای
+#   ۱۱ عدد ۱۰ را درنظر بگیرید» to decide between + and −.
+# - فهرست منظم (G2 p.26 [PDF 32] no. 1, «الگوسازی»): every two-digit number from a set of tens and ones digits, in order.
+# - Last mission: the learner chooses a strategy (draw or guess and check) for a "3 times as many" problem.
+missions:
+  # Two number sentences; the box solved in the first joins the second one's numbers.
+  - id: sub-problems
+    setup:
+      instruction: sub
+      understand:
+        known: [{ id: book-395, n: 395 }, { id: week1-150, n: 150 }, { id: week2-130, n: 130 }, { id: stories-12, n: 12 }]
+        asked: [left, read]
+      tools:
+        - { kind: sentence, form: '_ o _ = _', ops: ['+', '-'], solve: true }
+        - { kind: sentence, form: '_ o _ = _', ops: ['+', '-'], solve: true }
+      answer: { key: left }
+    check:
+      type: problem-canvas
+      known: [book-395, week1-150, week2-130]
+      asked: left
+      sentence: [{ box: 280, uses: [150, 130], solve: true }, { box: 115, uses: [395, 280], solve: true }]
+      answer: 115
+      traps: [{ value: 245, code: one-week }, { value: 265, code: one-week }, { value: 675, code: added-all }]
+  # Simpler numbers first (150 and 10), to see that "shorter" means take away; then the real numbers.
+  - id: simpler-numbers
+    setup:
+      instruction: simpler
+      understand:
+        known: [{ id: reza-147, n: 147 }, { id: shorter-11, n: 11 }, { id: younger-2, n: 2 }]
+        asked: [ahmad, difference]
+      tools:
+        - { kind: sentence, form: '_ o _ = _', ops: ['+', '-'], tray: [150, 10], solve: true }
+        - { kind: sentence, form: '_ o _ = _', ops: ['+', '-'], tray: [147, 11], solve: true }
+      answer: { key: ahmad }
+    check:
+      type: problem-canvas
+      known: [reza-147, shorter-11]
+      asked: ahmad
+      sentence: [{ box: 140, uses: [150, 10], solve: true }, { box: 136, uses: [147, 11], solve: true }]
+      answer: 136
+      traps: [{ value: 158, code: added }, { value: 140, code: simple-answer }]
+  # A systematic list: tens digit 5 or 7, ones digit 3, 4 or 8. The number column works itself out.
+  - id: list-numbers
+    setup:
+      instruction: model
+      understand:
+        known: [tens-57, ones-348, cards-red]
+        asked: [how-many, tens]
+      tools:
+        - kind: table
+          cols: [{ key: tens }, { key: ones }, { key: number, expr: tens * 10 + ones }]
+          rows: 2
+          extend: true
+          maxRows: 8
+      answer: { key: how-many }
+    check:
+      type: problem-canvas
+      known: [tens-57, ones-348]
+      asked: how-many
+      table: { list: [[5, 3], [5, 4], [5, 8], [7, 3], [7, 4], [7, 8]], cols: [0, 1] }
+      answer: 6
+      traps: [{ value: 5, code: missed-one }, { value: 4, code: missed-two }]
+  # Choose a strategy: draw equal parts (1 for Ali, 3 for Fatima) or guess and check. Both work.
+  - id: choose-strategy
+    setup:
+      understand:
+        known: [{ id: times-3, n: 3 }, { id: together-24, n: 24 }, { id: age-10, n: 10 }]
+        asked: [ali, together]
+      strategies: [draw, guess]
+      tools:
+        - { kind: bar, for: draw, model: groups, parts: 2, resize: true, maxParts: 6, tray: [3, 24] }
+        - kind: guess
+          for: guess
+          cols: [{ key: fatima, expr: 3*x }, { key: total, expr: x + fatima }]
+          target: 24
+      answer: { key: ali }
+    check:
+      type: problem-canvas
+      known: [times-3, together-24]
+      asked: ali
+      strategy: [draw, guess]
+      answer: 6
+      traps: [{ value: 18, code: fatima }, { value: 8, code: three-parts }, { value: 21, code: minus-three }]

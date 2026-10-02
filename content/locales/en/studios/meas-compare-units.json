@@ -1,0 +1,89 @@
+{
+  "title": "Comparing: longer, heavier, fuller",
+  "summary": "Which is longer? Which is heavier? Measure with paper clips, hand spans and cups.",
+  "guide": [
+    "To compare two things, line up their starts. Then see whose end goes further.",
+    "Look at the balance. The heavier pan goes down. The lighter pan goes up.",
+    "We can also measure with paper clips, hand spans or cups. These are {{term:non-standard-unit}}s.",
+    "Put the clips end to end. No gaps. No overlaps."
+  ],
+  "engine": {
+    "label-balance": "Pan balance",
+    "label-level": "the balance is level",
+    "label-left-down": "the melon's pan is lower",
+    "label-right-down": "the apples' pan is lower",
+    "label-jug": "Jug",
+    "label-up": "Add one",
+    "label-down": "Take one away",
+    "unit-cup": "cups",
+    "instruction-look": "Look carefully.",
+    "instruction-clips": "Add clips.",
+    "instruction-spans": "Add hand spans.",
+    "instruction-jug": "Pour in cups."
+  },
+  "missions": {
+    "which-longer": {
+      "title": "Which is longer?",
+      "prompt": "Look at the pencil and the ribbon. Which is longer? Careful: they do not start in the same place.",
+      "hint": "The ribbon starts further along. Imagine sliding the ribbon back so it starts where the pencil starts.",
+      "success": "Well done! The pencil is longer. The ribbon just starts further along.",
+      "why": "The ribbon's end goes further. So why is the ribbon not longer?",
+      "model": "Because the ribbon starts in a different place. To compare, we must line up the starts. If we slide the ribbon back to start where the pencil starts, the pencil's end goes further.",
+      "feedback": {
+        "wrong": "The ribbon's end is further along because it starts further along. Line up the starts in your head.",
+        "empty": "Tap one."
+      }
+    },
+    "which-heavier": {
+      "title": "Which is heavier?",
+      "prompt": "Look at the balance. Is the melon heavier, or the three apples?",
+      "hint": "Which pan has gone down? The heavier thing pulls its pan down.",
+      "success": "Well done! The melon's pan is down, so the melon is heavier.",
+      "why": "How do you know the melon is heavier?",
+      "model": "The melon's pan has gone down. The heavier thing pulls its pan down. The lighter pan goes up.",
+      "feedback": {
+        "wrong": "The apples' pan is up. The lighter pan goes up, not the heavier one.",
+        "empty": "Tap one."
+      }
+    },
+    "clips-pencil": {
+      "title": "How many clips long?",
+      "prompt": "First estimate: how many paper clips long is the pencil? Now put clips end to end until you reach the end of the pencil.",
+      "hint": "Press + to add a clip. Stop when the clips reach the end of the pencil.",
+      "success": "Well done! The pencil is 6 clips long.",
+      "why": "Why must the clips go end to end, with no gaps?",
+      "model": "If we leave gaps, we do not count the empty spaces. If the clips overlap, we count some places twice. So the clips must touch, end to end.",
+      "feedback": {
+        "too-big": "The clips go past the end of the pencil. Take one away.",
+        "too-small": "The clips do not reach the end of the pencil yet. Add another.",
+        "empty": "Add some clips."
+      }
+    },
+    "spans-book": {
+      "title": "How many hand spans?",
+      "prompt": "Ali measures the book with his hand span. Add spans until you reach the end of the book.",
+      "hint": "Press + to add a span. Go to the end of the book.",
+      "success": "Well done! The book is 3 of Ali's spans.",
+      "why": "Sara's hand is bigger than Ali's. Would she measure more spans or fewer? Why?",
+      "model": "Fewer. Sara's span is bigger, so fewer spans reach the end of the book. That is why people get different numbers when they measure with hand spans.",
+      "feedback": {
+        "too-big": "The spans go past the end of the book. Take one away.",
+        "too-small": "The spans do not reach the end of the book yet. Add another.",
+        "empty": "Add some spans."
+      }
+    },
+    "cups-jug": {
+      "title": "4 cups of water",
+      "prompt": "Maryam pours 4 cups of water into the jug. You pour 4 cups too.",
+      "hint": "Each time you press +, you pour in one cup. Count to 4.",
+      "success": "Well done! There are 4 cups of water in the jug.",
+      "why": "Reza uses a smaller cup. Does he need more cups or fewer to fill the same jug?",
+      "model": "More. A small cup holds less water, so Reza has to pour more cups.",
+      "feedback": {
+        "too-big": "Too much water. Pour one cup out.",
+        "too-small": "Not enough water. Pour in another cup.",
+        "empty": "Pour some water."
+      }
+    }
+  }
+}

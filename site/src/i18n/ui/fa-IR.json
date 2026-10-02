@@ -49,5 +49,18 @@
   "pathpage.explorerIntro": "همهٔ کارگاه‌ها، از ساده به سخت.",
   "pathpage.notTaught": "در این برنامه نیست",
   "pathpage.done": "{done} از {total}",
-  "nav.home": "خانه"
+  "nav.home": "خانه",
+  "home.strand.num": "عددها و ارزش مکانی",
+  "home.strand.ops": "چهار عمل اصلی",
+  "home.strand.ps": "راهبردهای حل مسئله",
+  "home.strand.ratio": "نسبت و تناسب",
+  "home.strand.fin": "پول و حساب‌های مالی",
+  "home.strand.meas": "اندازه‌گیری",
+  "home.strand.geo": "هندسه و شکل‌ها",
+  "home.strand.pos": "مکان، جهت و تقارن",
+  "home.strand.stat": "آمار و نمودار",
+  "home.strand.prob": "احتمال",
+  "home.strand.alg": "جبر",
+  "home.strand.seq": "الگوها و دنباله‌ها",
+  "home.strand.disc": "مجموعه و منطق"
 }

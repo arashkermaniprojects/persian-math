@@ -1,0 +1,74 @@
+id: geo-flat-shapes
+engine: shape-board
+strand: geo
+order: 1
+concepts: [geo.shapes.2d.recognise, geo.shapes.2d.properties, geo.symmetry.line]
+# Grade 1: draw on a dot geoboard by tapping pins, tap shapes to sort them, and fold/mirror for symmetry
+# (Iran G1 §9–10 and §14, G2 «تقارن»). Very little reading: each mission has an icon hint.
+missions:
+  # Draw any triangle: tap three pins, then the first pin again to close it.
+  - id: make-triangle
+    setup:
+      x: [0, 4]
+      y: [0, 4]
+      mode: polygon
+      instruction: draw
+    check:
+      type: shape-board
+      shape: triangle
+  # Draw a square. A rectangle (sides not all equal) is the usual slip; the side lengths show as pins are counted.
+  - id: make-square
+    setup:
+      x: [0, 4]
+      y: [0, 4]
+      mode: polygon
+      instruction: draw
+      show: [lengths]
+    check:
+      type: shape-board
+      shape: square
+      traps: [{ shape: rectangle, code: not-equal }]
+  # Sort: tap every triangle, including the upside-down and the long thin one; the open shape is not a triangle.
+  - id: find-triangles
+    setup:
+      x: [0, 9]
+      y: [0, 6]
+      grid: none
+      mode: select
+      instruction: tap
+      shapes:
+        - { pts: [[0.5, 3.6], [2.7, 3.6], [1.6, 5.6]], tone: 0, name: shape-a }
+        - { pts: [[3.6, 3.6], [5.4, 3.6], [5.4, 5.4], [3.6, 5.4]], tone: 1, name: shape-b }
+        - { pts: [[6.4, 5.6], [8.6, 5.6], [7.5, 3.6]], tone: 2, name: shape-c }
+        - { circle: [1.6, 1.5, 1.05], tone: 3, name: shape-d }
+        - { pts: [[3.2, 0.5], [5.9, 0.9], [3.7, 2.6]], tone: 4, name: shape-e }
+        - { pts: [[7.2, 2.0], [6.4, 0.5], [8.6, 0.5], [7.6, 2.5]], open: true, tone: 5, name: shape-f }
+    check:
+      type: shape-board
+      selected: [0, 2, 4]
+      traps: [{ select: 5, code: open-shape }, { select: 3, code: round }, { select: 1, code: four-sides }]
+  # Fold line: draw the line that folds the rectangle onto itself (the diagonal is the classic wrong answer).
+  - id: fold-line
+    setup:
+      x: [0, 6]
+      y: [0, 4]
+      mode: line
+      instruction: fold
+      shapes:
+        - { pts: [[1, 1], [5, 1], [5, 3], [1, 3]], tone: 2, select: false }
+    check:
+      type: shape-board
+      line: { symmetryOf: 0 }
+  # Mirror: finish the house so both halves match across the dashed line.
+  - id: mirror-house
+    setup:
+      x: [0, 6]
+      y: [0, 5]
+      mode: path
+      instruction: mirror
+      mirror: [[3, 0], [3, 5]]
+      shapes:
+        - { pts: [[3, 0], [1, 0], [1, 3], [3, 5]], open: true, tone: 0 }
+    check:
+      type: shape-board
+      image: { reflect: [[3, 0], [3, 5]] }

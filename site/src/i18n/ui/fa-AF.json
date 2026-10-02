@@ -49,5 +49,18 @@
   "pathpage.explorerIntro": "تمام کارگاه‌ها، از ساده به مشکل.",
   "pathpage.notTaught": "در این نصاب نیست",
   "pathpage.done": "{done} از {total}",
-  "nav.home": "خانه"
+  "nav.home": "خانه",
+  "home.strand.num": "اعداد و قیمت مقامی",
+  "home.strand.ops": "عملیه‌های چهارگانه",
+  "home.strand.ps": "روش‌های حل مسئله",
+  "home.strand.ratio": "نسبت و تناسب",
+  "home.strand.fin": "پول و محاسبات مالی",
+  "home.strand.meas": "اندازه‌گیری",
+  "home.strand.geo": "هندسه و اشکال",
+  "home.strand.pos": "موقعیت، جهت و تناظر",
+  "home.strand.stat": "احصائیه و گراف",
+  "home.strand.prob": "احتمال",
+  "home.strand.alg": "الجبر",
+  "home.strand.seq": "الگوها و ترادف‌ها",
+  "home.strand.disc": "ست و منطق"
 }

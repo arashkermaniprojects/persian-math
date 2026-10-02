@@ -1,0 +1,84 @@
+id: fin-shopping-change
+engine: clock-calendar-money
+strand: fin
+order: 2
+concepts: [meas.money.calculate, fin.money.change, fin.money.decimal]
+# Money mode: coins and notes are plain shapes with their values, never pictures of real money.
+# Amounts differ by currency, so every mission gives them under IRR: (fa-IR), AFN: (fa-AF, ps) and GBP: (en).
+# Iran: prices in toman, but the coins and notes are printed in rial (face: rial), as real Iranian money is
+# (Iran G3 «ارزش پول» p.34–35: «با ۵۰۰۰ ریال چه چیزی می‌توان خرید؟ با ۱۰۰۰ تومان …»). The engine's default toman
+# set (1000, 2000, 5000 rial coins; 10 000 – 100 000 rial notes) matches the money in use today.
+# Iranian and Afghan prices are whole numbers; decimal money (£3.45) is UK only, so that mission is en only.
+missions:
+  # Total a basket of two things and pay exactly.
+  - id: pay-the-total
+    setup:
+      mode: money
+      interactive: make
+      IRR: { face: rial, items: [{ pic: "📒", price: 1500, label: notebook }, { pic: "🖊️", price: 2000, label: pen }] }
+      AFN: { items: [{ pic: "📒", price: 35, label: notebook }, { pic: "🖊️", price: 20, label: pen }] }
+      GBP: { denominations: [1, 2, 5, 10, 20, 50, 100], items: [{ pic: "📒", price: 35, label: notebook }, { pic: "🖊️", price: 20, label: pen }] }
+    check:
+      type: money-equals
+      value: { IRR: 3500, AFN: 55, GBP: 55 }
+      traps:
+        - { value: { IRR: 1500, AFN: 35, GBP: 35 }, code: one-item }
+        - { value: { IRR: 2000, AFN: 20, GBP: 20 }, code: one-item }
+  # Paid with one note: give the change.
+  - id: change
+    setup:
+      mode: money
+      interactive: make
+      IRR: { face: rial, items: [{ pic: "🧃", price: 3500, label: juice }], paid: [5000] }
+      AFN: { items: [{ pic: "🧃", price: 35, label: juice }], paid: [50] }
+      GBP: { denominations: [1, 2, 5, 10, 20, 50, 100], items: [{ pic: "🧃", price: 35, label: juice }], paid: [50] }
+    check:
+      type: money-equals
+      value: { IRR: 1500, AFN: 15, GBP: 15 }
+      traps:
+        - { value: { IRR: 3500, AFN: 35, GBP: 35 }, code: gave-price }
+        - { value: { IRR: 5000, AFN: 50, GBP: 50 }, code: gave-paid }
+  # Count up from the price to the money paid, with as few pieces as possible.
+  - id: count-up
+    setup:
+      mode: money
+      interactive: make
+      IRR: { face: rial, items: [{ pic: "🍞", price: 2700, label: bread }], paid: [5000] }
+      AFN: { items: [{ pic: "🍞", price: 65, label: bread }], paid: [100] }
+      GBP: { denominations: [1, 2, 5, 10, 20, 50, 100], items: [{ pic: "🍞", price: 65, label: bread }], paid: [100] }
+    check:
+      type: money-equals
+      value: { IRR: 2300, AFN: 35, GBP: 35 }
+      fewest: true
+      traps:
+        - { value: { IRR: 2700, AFN: 65, GBP: 65 }, code: gave-price }
+        - { value: { IRR: 3300, AFN: 45, GBP: 45 }, code: forgot-borrow }
+  # Two things bought with one big note: how much is left?
+  - id: money-left
+    setup:
+      mode: money
+      interactive: make
+      IRR: { face: rial, items: [{ pic: "📕", price: 4500, label: book }, { pic: "✏️", price: 1500, label: pencil }], paid: [10000] }
+      AFN: { items: [{ pic: "📕", price: 45, label: book }, { pic: "✏️", price: 15, label: pencil }], paid: [100] }
+      GBP: { denominations: [1, 2, 5, 10, 20, 50, 100], items: [{ pic: "📕", price: 45, label: book }, { pic: "✏️", price: 15, label: pencil }], paid: [100] }
+    check:
+      type: money-equals
+      value: { IRR: 4000, AFN: 40, GBP: 40 }
+      traps:
+        - { value: { IRR: 6000, AFN: 60, GBP: 60 }, code: gave-spent }
+        - { value: { IRR: 5500, AFN: 55, GBP: 55 }, code: one-item }
+        - { value: { IRR: 8500, AFN: 85, GBP: 85 }, code: one-item }
+  # UK: decimal money. £5 for a £3.45 book: the change is £1.55.
+  - id: pounds-and-pence
+    locales: [en]
+    setup:
+      mode: money
+      interactive: make
+      GBP: { items: [{ pic: "📚", price: 345, label: book }], paid: [500] }
+    check:
+      type: money-equals
+      value: { GBP: 155 }
+      fewest: true
+      traps:
+        - { value: { GBP: 345 }, code: gave-price }
+        - { value: { GBP: 265 }, code: forgot-borrow }

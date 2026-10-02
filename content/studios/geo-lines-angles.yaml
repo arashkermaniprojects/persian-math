@@ -1,0 +1,77 @@
+id: geo-lines-angles
+engine: shape-board
+strand: geo
+order: 3
+concepts: [geo.lines.basic, geo.lines.parallel-perpendicular, geo.angles.basic]
+# Iran G3 «خط، نیم‌خط و پاره‌خط» (p.82) and G4 «زاویه» (p.78–80) and «عمود ـ موازی» (p.122–125, on dot paper);
+# Afghan G3 «نقطه، قطعه خط، نیم خط و خط مستقیم» and «اقسام زاویه», G5–G6 «وضعیت دو خط مستقیم».
+# Lines and rays are drawn with arrowheads where they leave the board, as in the books.
+missions:
+  # Sort: tap the rays. A line (goes on both ways) and a segment (two ends) are the usual slips.
+  - id: find-rays
+    setup:
+      x: [0, 8]
+      y: [0, 6]
+      grid: none
+      mode: select
+      instruction: tap
+      shapes:
+        - { pts: [[1, 5.3], [5, 5.3]], line: segment, tone: 0, name: fig-a }
+        - { pts: [[6.5, 4.2], [4.5, 4.2]], line: ray, tone: 1, name: fig-b }
+        - { pts: [[2, 3.1], [5, 3.1]], line: line, tone: 2, name: fig-c }
+        - { pts: [[1.5, 2], [3.5, 2]], line: ray, tone: 3, name: fig-d }
+        - { pts: [[3, 0.9], [7, 0.9]], line: segment, tone: 4, name: fig-e }
+    check:
+      type: shape-board
+      selected: [1, 3]
+      traps: [{ select: 2, code: is-line }, { select: 0, code: is-segment }, { select: 4, code: is-segment }]
+  # Parallel on dot paper: copy the slant (3 across, 1 up) through the red dot. A level line "looks" parallel.
+  - id: parallel-line
+    setup:
+      mode: line
+      instruction: line
+      shapes:
+        - { pts: [[1, 1], [4, 2]], line: segment, tone: 2, labels: true }
+        - { circle: [1, 4, 0.13], tone: 3, select: false }
+    check:
+      type: shape-board
+      line: { parallel: 0, through: [[1, 4]] }
+  # Perpendicular to a slanted segment through a point on it. "Perpendicular = straight up" is the classic slip.
+  - id: perpendicular-line
+    setup:
+      mode: line
+      instruction: line
+      shapes:
+        - { pts: [[1, 2], [5, 4]], line: segment, tone: 2, labels: true }
+        - { circle: [3, 3, 0.13], tone: 3, select: false }
+    check:
+      type: shape-board
+      line: { perpendicular: 0, through: [[3, 3]] }
+  # Draw an obtuse angle (arm, corner, arm) and compare it with the square-corner card.
+  - id: draw-obtuse
+    setup:
+      y: [0, 5]
+      mode: path
+      corners: 3
+      instruction: draw
+      show: [corner]
+    check:
+      type: shape-board
+      angle: obtuse
+  # Which angle is biggest? The one with the shortest arms opens widest; long arms do not make an angle bigger.
+  - id: biggest-angle
+    setup:
+      x: [0, 7]
+      y: [0, 6]
+      grid: none
+      mode: select
+      instruction: tap
+      shapes:
+        - { pts: [[4.2, 1], [0.5, 1], [3.9, 2.7]], open: true, tone: 0, name: angle-a }
+        - { pts: [[6.6, 1], [5.6, 1], [5, 1.8]], open: true, tone: 1, name: angle-b }
+        - { pts: [[3, 3.6], [1, 3.6], [1, 5.6]], open: true, tone: 2, name: angle-c }
+        - { pts: [[6.6, 3.6], [4.4, 3.6], [6.1, 5.3]], open: true, tone: 4, name: angle-d }
+    check:
+      type: shape-board
+      selected: [1]
+      traps: [{ select: 0, code: long-arms }, { select: 2, code: right-angle }, { select: 3, code: small-angle }]

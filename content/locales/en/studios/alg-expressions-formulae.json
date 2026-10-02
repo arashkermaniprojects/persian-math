@@ -1,0 +1,93 @@
+{
+  "title": "Order of operations, letters and formulae",
+  "summary": "Work out expressions step by step in the right order. Then let a letter stand for a number and use formulae.",
+  "guide": [
+    "This studio follows Year 6: the order of operations (BIDMAS), simple formulae, and pairs of numbers that satisfy an equation such as a + b = 10.",
+    "BIDMAS: Brackets first, then Indices (powers), then Division and Multiplication from left to right, then Addition and Subtraction from left to right.",
+    "Tap the operation you want to do first. Each step writes a new line, as in an exercise book. A wrong order is allowed but recorded; use \"Undo\" to take a step back.",
+    "In algebra a letter such as n or a stands for a number. 2n means 2 × n: if n = 5, then 2n is 10, not 25.",
+    "A {{term:formula}} such as P = 4a works like a machine: the side of a square (a) goes in and the perimeter (P) comes out."
+  ],
+  "engine": {
+    "label-do": "Do {n}",
+    "label-undo": "Undo",
+    "label-in": "In",
+    "label-out": "Out",
+    "label-machine": "machine",
+    "label-row-out": "output of row {n}",
+    "label-try": "try a number",
+    "instruction-order": "Tap the operation to do first.",
+    "instruction-machine": "Fill in the gaps."
+  },
+  "missions": {
+    "brackets-first": {
+      "title": "Brackets first",
+      "prompt": "Work out this expression step by step. Predict the answer first. Then each time, tap the operation that comes next.",
+      "hint": "Brackets first. Then, between adding and multiplying, which comes first?",
+      "success": "Well done! 6 − 2 = 4, then 4 × 4 = 16, then 3 + 16 = 19.",
+      "why": "Why shouldn't we work out 3 + 4 first?",
+      "model": "Because multiplication comes before addition. 4 × 4 means four 4s, and the 3 is added separately: 3 + 16 = 19. Doing 3 + 4 first gives 7 × 4 = 28, which counts the 3 four times.",
+      "feedback": {
+        "not-finished": "Not finished yet. Keep going until only one number is left.",
+        "wrong-order": "You reached an answer, but the order was wrong. Use \"Undo\" to go back. Remember: brackets, then × and ÷, then + and −."
+      }
+    },
+    "powers-and-left-to-right": {
+      "title": "Indices, multiplying, then left to right",
+      "prompt": "This expression has a power, a multiplication, a subtraction and an addition. Predict the answer, then work it out step by step.",
+      "hint": "Index first: 3² means 3 × 3. Then multiply. Finally subtract and add from left to right.",
+      "success": "Right! 3² = 9, 2 × 9 = 18, then from left to right: 20 − 18 = 2 and 2 + 4 = 6.",
+      "why": "Why did you do 20 − 18 first and then add 4, instead of 18 + 4?",
+      "model": "Addition and subtraction have the same rank, so they go from left to right: 20 − 18 = 2, then 2 + 4 = 6. Doing 18 + 4 = 22 first would subtract the 4 instead of adding it: 20 − 22 is a different answer.",
+      "feedback": {
+        "not-finished": "Not finished yet. Keep going until only one number is left.",
+        "wrong-order": "The order was not right. Use \"Undo\" to go back. Indices first, then ×, then − and + from left to right."
+      }
+    },
+    "letter-machine": {
+      "title": "A letter for a number",
+      "prompt": "This machine works out the expression 2n − 7. Put the input in place of n and write the output.",
+      "hint": "2n means 2 × n. For n = 5: first 2 × 5, then take away 7.",
+      "success": "Well done! 2 × 5 − 7 = 3, 2 × 8 − 7 = 9 and 2 × 10 − 7 = 13.",
+      "why": "When n = 5, why is 2n not 25?",
+      "model": "Because 2n means 2 multiplied by n, not the digit 2 written next to the digit 5. So 2n = 2 × 5 = 10, and 2n − 7 = 10 − 7 = 3. In algebra we leave out the × sign, but it is still a multiplication.",
+      "feedback": {
+        "empty": "Write every output.",
+        "joined-digits": "You wrote the 2 next to n! But 2n means 2 × n. For n = 5, 2n is 10.",
+        "bracket": "You took away 7 first and multiplied after. But multiplying comes first: 2 × n, then − 7.",
+        "too-big": "One of the outputs is too big. First 2 × n, then take away 7.",
+        "too-small": "One of the outputs is too small. First 2 × n, then take away 7."
+      }
+    },
+    "square-formula": {
+      "title": "The perimeter formula",
+      "prompt": "The perimeter of a square is P = 4a, where a is the length of a side. Write the perimeters. In the last row try any side you like.",
+      "hint": "4a means 4 × a. A square has 4 equal sides: a + a + a + a.",
+      "success": "Right! 4 × 3 = 12, 4 × 7 = 28 and 4 × 15 = 60.",
+      "why": "Why is the perimeter of a square 4 × a?",
+      "model": "A square has 4 equal sides, and the perimeter is all the sides added: a + a + a + a. Four lots of a is 4 × a, written 4a.",
+      "feedback": {
+        "empty": "Write the perimeter of all three squares.",
+        "added": "You added 4. But 4a means 4 <b>multiplied by</b> a: four sides, each a long.",
+        "times-three": "A square has 4 sides, not 3. The perimeter adds all 4 sides.",
+        "too-big": "One perimeter is too big. Work out 4 × a.",
+        "too-small": "One perimeter is too small. Work out 4 × a."
+      }
+    },
+    "make-ten-pairs": {
+      "title": "Pairs that make 10",
+      "prompt": "a + b = 10. For each a, find the b that makes the equation true. The machine shows b = 10 − a. How many pairs of whole numbers are there from a = 0 to a = 10?",
+      "hint": "If a = 4, what must you add to 4 to make 10?",
+      "success": "Well done! 1 + 9, 4 + 6, 6 + 4 and 10 + 0 all make 10. With a from 0 to 10 there are 11 pairs.",
+      "why": "Why is b smaller when a is bigger?",
+      "model": "The two numbers must always add up to 10. If a goes up by 1, b has to go down by 1 to keep the total at 10. So every pair is a, 10 − a.",
+      "feedback": {
+        "empty": "Write every b.",
+        "added": "You added 10 to a. But a + b must be 10, so b = 10 − a.",
+        "same": "If a = 10 and b = 10, then a + b = 20. What must b be?",
+        "too-big": "One b is too big: check that a + b makes exactly 10.",
+        "too-small": "One b is too small: check that a + b makes exactly 10."
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
 // <kg-fraction-bars>: equal-part bars the learner can shade and re-partition.
 // Contract: docs/STUDIOS.md ("Engine contract").
 import { digitsOf, fracHTML, type NumberFormat } from '../lib/display';
-import { cellsFor, nextParts } from './fraction-bars-amount';
-import { isTinted, nextPartsShowing, nextRows, totalCells } from './fraction-bars-grid';
+import { cellsFor, nextParts } from './lib/fraction-bars-amount';
+import { isTinted, nextPartsShowing, nextRows, totalCells } from './lib/fraction-bars-grid';
 
 export interface BarConfig {
   parts: number;

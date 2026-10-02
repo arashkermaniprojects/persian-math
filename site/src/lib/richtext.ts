@@ -1,6 +1,6 @@
 // Server-side rendering of authored text: escapes HTML and expands placeholders (docs/STUDIOS.md).
 import { LOCALES, type LocaleCode } from '../i18n/locales';
-import { fracHTML, formatDecimal, type NumberFormat } from './display';
+import { fracHTML, formatDecimal, vecHTML, type NumberFormat } from './display';
 import { term } from './i18n';
 
 export function numberFormat(locale: LocaleCode): NumberFormat {
@@ -11,8 +11,9 @@ const escape = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').rep
 /** Authored text may use these tags only (no attributes); everything else stays escaped. */
 const allowTags = (s: string) => s.replace(/&lt;(\/?)(b|i|br)\s*\/?&gt;/g, '<$1$2>');
 
-// A math operand: a placeholder fraction/mixed/number, or plain digits in any script (optionally with a decimal mark).
-const OPERAND = String.raw`(?:\{\{(?:frac|mixed|num):[^}]+\}\}|[0-9۰-۹]+(?:[/.,٫][0-9۰-۹]+)?)`;
+// A math operand: a placeholder fraction/mixed/number, or plain digits in any script (optionally with a decimal mark),
+// optionally followed by a percent sign (۲۵٪ = {{frac:1/4}}).
+const OPERAND = String.raw`(?:\{\{(?:frac|mixed|num):[^}]+\}\}|[0-9۰-۹]+(?:[/.,٫][0-9۰-۹]+)?)[٪%]?`;
 const OPERATOR = String.raw`[+\-−×÷=<>≤≥]`;
 const EXPRESSION = new RegExp(`${OPERAND}(?:\\s*${OPERATOR}\\s*${OPERAND})+`, 'g');
 
@@ -42,6 +43,11 @@ export function rich(text: string, locale: LocaleCode): string {
       }
       case 'num':
         return formatDecimal(arg.trim(), f);
+      case 'vec': {
+        // a coordinate pair / vector: a column in fa-IR (as in Iran's books), (x, y) elsewhere
+        const [x, y] = arg.split(',');
+        return vecHTML(x, y, f, locale === 'fa-IR');
+      }
       default:
         throw new Error(`Unknown placeholder ${m}`);
     }

@@ -1,0 +1,26 @@
+id: num-negative
+engine: number-line
+strand: num
+order: 7
+concepts: [num.negative, num.integers.add-sub]
+# The line goes on left of zero (Iran G6 p.16–17 «معرفی اعداد صحیح», Afghan G7 p.77 «اعداد تام»): it still
+# increases left → right in every locale, and the minus sign stays on the left of the digits (docs/NOTATION.md §5).
+# Adding and subtracting are hops: + moves right, − moves left (Iran G7 operations, Afghan G7, UK Y4–6).
+missions:
+  # Temperature: 4 degrees below zero.
+  - id: below-zero
+    setup: { min: -10, max: 10, major: 5, labels: whole, addPoints: 1, showValues: true }
+    check: { type: point-equals, values: [[-4, 1]] }
+  # Sea level: which is lower, −8 or −3? (The classic mistake: 8 > 3, so −8 > −3.)
+  - id: deeper
+    setup: { min: -10, max: 10, major: 5, labels: whole, fixedPoints: [[-8, 1], [-3, 1]] }
+    answer: choice
+    check: { type: choice, options: ["{{num:-8}}", "{{num:-3}}"], correct: 0 }
+  # −3 + 5: start at −3, hop 5 to the right.
+  - id: warmer
+    setup: { min: -10, max: 10, major: 5, labels: whole, addPoints: 1, showValues: true, jumps: { from: [-3, 1], labels: true } }
+    check: { type: point-equals, values: [[2, 1]] }
+  # 3 − 7: start at 3, hop 7 to the left, past zero.
+  - id: colder
+    setup: { min: -10, max: 10, major: 5, labels: whole, addPoints: 1, showValues: true, jumps: { from: [3, 1], labels: true } }
+    check: { type: point-equals, values: [[-4, 1]] }

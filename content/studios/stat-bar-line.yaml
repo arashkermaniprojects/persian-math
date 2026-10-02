@@ -1,0 +1,121 @@
+id: stat-bar-line
+engine: chart-builder
+strand: stat
+order: 2
+concepts: [stat.bar-chart, stat.line-graph, stat.charts.choose-interpret]
+# Iran G2 «نمودار ستونی» (G02_riazi_dovom.pdf p.137 [۱۳۱]: days of the week left → right), G4 «نمودار خط شکسته»
+# (G04_riazi_chaharom.pdf p.150–151 [۱۴۴–۱۴۵]: a value axis that starts at ۱۰۰ with a break mark) and G3
+# «انتخاب نمودار» (G03_riazi_sevom.pdf p.127); Afghan G8 «گراف میله‌ای، گراف خط منکسر»; UK Y2–Y5 block and bar
+# charts, line graphs. Charts run left → right with the value axis on the left in every locale; only the table
+# follows the page direction (docs/NOTATION.md "Charts").
+missions:
+  # Build a bar chart from a table: books borrowed from the class library on five school days. The axis goes
+  # up in 2s, so setting each bar to the number of grid lines (twice the value) is caught as key-ignored (max 16 leaves
+  # room for the doubled bars); an odd value left on a grid line next to it is half-needed.
+  - id: build-bar
+    setup:
+      instruction: drag
+      categories:
+        - { key: d1, icon: book, color: blue }
+        - { key: d2, icon: book, color: blue }
+        - { key: d3, icon: book, color: blue }
+        - { key: d4, icon: book, color: blue }
+        - { key: d5, icon: book, color: blue }
+      values: [5, 8, 3, 6, 7]
+      table: { head: day, tally: hide, count: show }
+      chart: bar
+      edit: true
+      max: 16
+      step: 2
+      axes: [~, books]
+    check: { type: chart, values: [5, 8, 3, 6, 7] }
+  # Read a bar chart with no table: pages read in a week. The axis goes up in 2s, so 7 and 15 sit between grid
+  # lines. Maryam − Sara = 15 − 7 = 8. Traps: counting grid steps (4), adding, giving one child's total.
+  - id: read-bar
+    setup:
+      instruction: read
+      categories:
+        - { key: ali, color: orange }
+        - { key: sara, color: green }
+        - { key: maryam, color: purple }
+        - { key: reza, color: red }
+      values: [12, 7, 15, 10]
+      chart: bar
+      max: 16
+      step: 2
+      axes: [~, pages]
+    answer: integer
+    check:
+      type: answer-integer
+      value: 8
+      traps:
+        - { value: 4, code: counted-steps }
+        - { value: 22, code: added }
+        - { value: 15, code: not-difference }
+        - { value: 9, code: misread }
+  # Build a line graph: a bean plant's height measured every week. Points are dragged (or moved with the arrow
+  # keys); the line joins them left → right in time order. Max 24 leaves room for points at twice the height (key-ignored).
+  - id: build-line
+    setup:
+      instruction: drag
+      categories:
+        - { key: w1, color: green }
+        - { key: w2, color: green }
+        - { key: w3, color: green }
+        - { key: w4, color: green }
+        - { key: w5, color: green }
+      values: [2, 4, 7, 9, 12]
+      table: { head: week, tally: hide, count: show }
+      chart: line
+      edit: true
+      max: 24
+      step: 2
+      axes: [week, cm]
+    check: { type: chart, values: [2, 4, 7, 9, 12] }
+  # Read a line graph whose value axis starts at 100 with a break mark (G4 p.151): a child's height from age 6
+  # to 10. At 6 the point is half-way between 110 and 120: 115. Traps: reading from 0 at the break (15), the
+  # grid line below or above (110, 120).
+  - id: read-line
+    setup:
+      instruction: read
+      categories:
+        - { key: a6, color: purple }
+        - { key: a7, color: purple }
+        - { key: a8, color: purple }
+        - { key: a9, color: purple }
+        - { key: a10, color: purple }
+      values: [115, 120, 130, 135, 140]
+      chart: line
+      min: 100
+      max: 140
+      step: 10
+      axes: [age, cm]
+    answer: integer
+    check:
+      type: answer-integer
+      value: 115
+      traps:
+        - { value: 15, code: axis-start }
+        - { value: 110, code: grid-line }
+        - { value: 120, code: grid-line }
+  # Choose a chart (Iran G3 p.127): the temperature in the yard every two hours shows change over time, so a
+  # line graph fits best. A pie needs parts of one whole.
+  - id: choose-chart
+    setup:
+      instruction: choose
+      categories:
+        - { key: h8, color: orange }
+        - { key: h10, color: orange }
+        - { key: h12, color: orange }
+        - { key: h14, color: orange }
+        - { key: h16, color: orange }
+      values: [12, 16, 21, 23, 19]
+      table: { head: hour, tally: hide, count: show }
+      choose: [pictogram, bar, line, pie]
+    check:
+      type: chart
+      chosen: line
+      traps:
+        - { chosen: pie, code: not-whole }
+        - { chosen: bar, code: bar-change }
+        - { chosen: pictogram, code: picto-measure }
