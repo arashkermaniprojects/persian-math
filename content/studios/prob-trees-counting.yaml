@@ -1,0 +1,125 @@
+id: prob-trees-counting
+engine: discrete-lab
+strand: prob
+order: 5
+concepts: [prob.tree-diagram, prob.independent, disc.counting]
+# Pilot of the discrete-lab module `tree` (site/src/engines/discrete-lab/tree.ts, loaded only by `setup.tree`).
+# Iran G10 ریاضی ۱ ch.6 «شمارش، بدون شمردن» (G10_riazi1_math_science pdf p.125–127 = printed ۱۱۹–۱۲۱: «اصل ضرب»,
+# m × n, the Tehran → Qom → Isfahan roads drawn as branches). Afghan G8 ch.11 «دیاگرام درختی، قاعدهٔ اول مسیر (حاصل
+# ضرب)» (AF_G08_riazi pdf p.258–259 = printed ۲۵۱–۲۵۲: a bag «خریطه» of beads «مهره», drawn twice and put back, the
+# tree drawn left to right with stacked fractions on the branches and P(path) = product at each leaf; exercise: a coin
+# tossed three times, «شیر» and «خط»), G9 ch.9 «اصل شمارش» p.221. UK GCSE P8 (tree diagrams, with and without
+# replacement, frequency trees) and N5 (the product rule for counting).
+# The tree runs left to right in every locale; fractions are stacked (never a/b, the Iranian decimal mark).
+missions:
+  # 3 shirts × 2 trousers: grow the tree, count the leaves. 3 + 2 = 5 is caught (sum-not-product, worked out by the check).
+  - id: outfits
+    setup:
+      instruction: grow
+      tree:
+        stages: [{ outcomes: [red, blue, green] }, { outcomes: [black, grey] }]
+        colors: { red: red, blue: blue, green: green, black: black, grey: grey }
+        grow: true
+    answer: integer
+    check:
+      type: sets
+      tree: { grown: true }
+      answer: 6
+      traps:
+        - { answer: 3, code: one-stage }
+        - { answer: 2, code: one-stage }
+  # First and second place among three runners: the learner chooses each node's branches. A runner cannot come second
+  # after coming first, so each second stage has 2 branches: 3 × 2 = 6, not 3 × 3 = 9.
+  - id: race-places
+    setup:
+      instruction: grow
+      tree:
+        bag: { zahra: 1, sara: 1, maryam: 1 }
+        draws: 2
+        replace: false
+        grow: choose
+        show: { p: false }
+    answer: integer
+    check:
+      type: sets
+      tree: { grown: true }
+      answer: 6
+      traps:
+        - { answer: 9, code: replacement-ignored }
+  # A coin tossed twice: write the second toss's probabilities, multiply along each path. The coin has no memory.
+  - id: two-coins
+    setup:
+      instruction: branch
+      tree:
+        stages:
+          - { outcomes: [h, t], p: [[1, 2], [1, 2]] }
+          - { outcomes: [h, t], p: [[1, 2], [1, 2]] }
+        ask: { p: [2], product: all }
+      rows:
+        - { key: memory, options: ['yes', 'no'], answer: 'no' }
+    check:
+      type: sets
+      rows: true
+      tree: { branches: true, products: true }
+      traps:
+        - { row: memory, pick: 'yes', code: dependence-assumed }
+  # A bag of 3 red and 2 blue beads; draw one, put it back, draw again. Fill the second draw, pick "both the same
+  # colour" and add the two paths: 9/25 + 4/25 = 13/25.
+  - id: with-replacement
+    setup:
+      instruction: branch
+      tree:
+        bag: { r: 3, b: 2 }
+        draws: 2
+        colors: { r: red, b: blue }
+        ask: { p: [2] }
+        pick: true
+    answer: fraction
+    check:
+      type: sets
+      tree: { branches: true, event: [r.r, b.b] }
+      probability: [13, 25]
+      traps:
+        - { leaves: [r.b, b.r], code: different-not-same }
+        - { leaves: [r.r], code: one-path }
+        - { value: [9, 25], code: one-path }
+        - { value: [4, 25], code: one-path }
+        - { value: [6, 5], code: added-along-branch }
+        - { value: [4, 5], code: added-along-branch }
+  # The same bag without putting the bead back: the second draw changes. P(two red) = 3/5 × 2/4 = 6/20.
+  - id: without-replacement
+    setup:
+      instruction: branch
+      tree:
+        bag: { r: 3, b: 2 }
+        draws: 2
+        replace: false
+        colors: { r: red, b: blue }
+        ask: { p: [2] }
+    answer: fraction
+    check:
+      type: sets
+      tree: { branches: true }
+      probability: [6, 20]
+      traps:
+        - { value: [9, 25], code: replacement-ignored }
+        - { value: [11, 10], code: added-along-branch }
+        - { value: [2, 4], code: one-branch }
+  # UK frequency tree: 80 club members, 35 under 18; 20 of them and 12 adults play tennis. Fill the missing counts.
+  - id: frequency-tree
+    locales: [en]
+    setup:
+      instruction: branch
+      tree:
+        stages: [{ outcomes: [young, adult] }, { outcomes: [tennis, none] }]
+        values: { '': 80, young: 35, adult: 45, young.tennis: 20, young.none: 15, adult.tennis: 12, adult.none: 33 }
+        ask: { count: [adult, young.none, adult.none] }
+    answer: integer
+    check:
+      type: sets
+      tree: { counts: true }
+      answer: 32
+      traps:
+        - { node: adult, value: 35, code: copied-branch }
+        - { answer: 20, code: one-branch }
+        - { answer: 12, code: one-branch }
