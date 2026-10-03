@@ -1,0 +1,72 @@
+id: stat-grouped-histogram
+engine: chart-builder
+strand: stat
+order: 6
+concepts: [stat.grouped-data, stat.histogram, stat.frequency-polygon, stat.relative-frequency]
+# Pilot of the chart-builder `grouped` module (site/src/engines/chart-builder/grouped.ts, loaded on demand).
+# Iran G8 ch.8 «دسته‌بندی داده‌ها» p.120: heights sorted into classes «۱۳۰ ≤ x < ۱۴۵» with tally and «فراوانی»,
+# then a bar graph of the classes; «مرکز دسته» p.124. Afghan G8 ch.10 «کثرت نسبی، گراف میله‌ای، گراف خط منکسر» p.227
+# («سرحد پایینی/بالایی»، «طول دسته»، «وسط دسته»، «کثرت نسبی» = کثرت ÷ تعداد کل), G9 ch.8 «روش دسته‌بندی Data …
+# پیوسته» and «گراف مستطیلی» p.195; UK KS3 "grouped data … charts for … grouped numerical data". Classes are closed
+# on the left (the Iranian «۱۴۰ ≤ x < ۱۴۵»), all of equal width (unequal widths are GCSE Higher, Phase 4).
+# Graphs and cards run left to right in every locale (docs/NOTATION.md "Charts"); the table follows the page.
+missions:
+  # 20 heights (cm): 140 ≤ x < 145 … 165 ≤ x < 170 → 3 4 5 4 3 1. Four cards sit on a boundary (145, 150, 155,
+  # 160): each goes in the class it starts, never the one it ends. Slip: 145 put in 140–145 (boundary-left).
+  - id: sort-heights
+    setup:
+      module: grouped
+      grouped:
+        head: height
+        classes: [140, 145, 150, 155, 160, 165, 170]
+        data: [152, 145, 141, 158, 150, 162, 147, 155, 143, 153, 160, 149, 167, 156, 151, 144, 164, 146, 157, 154]
+        sort: true
+        columns: { f: show }
+        total: true
+    check: { type: grouped, sorted: true }
+  # Minutes to get to school, 20 pupils, classes 0 ≤ x < 10 … 30 ≤ x < 40 → 4 7 6 3; relative frequencies
+  # 0.2 0.35 0.3 0.15, total 1. Slips: 10, 20, 30 counted in both classes (5 8 7: boundary-twice); the frequency
+  # written again as the relative frequency (rel-is-f); a total that is not 1 (rel-not-one).
+  - id: relative
+    setup:
+      module: grouped
+      grouped:
+        head: minutes
+        classes: [0, 10, 20, 30, 40]
+        data: [12, 25, 5, 30, 18, 10, 22, 8, 35, 15, 20, 3, 28, 11, 24, 32, 9, 14, 21, 19]
+        columns: { f: edit, rel: edit }
+        total: true
+    check: { type: grouped, table: true }
+  # The heights again: choose the graph for grouped heights (bars that touch), then build it: 3 4 5 4 3 1.
+  # Slip: a bar chart with gaps between the bars (gap-bars).
+  - id: histogram
+    setup:
+      module: grouped
+      grouped:
+        head: height
+        classes: [140, 145, 150, 155, 160, 165, 170]
+        freq: [3, 4, 5, 4, 3, 1]
+        columns: { f: show }
+        choose: [bars, histogram]
+        draw: histogram
+        max: 6
+        step: 1
+        axes: [height, count]
+    check: { type: grouped, chosen: histogram, histogram: true }
+  # Midpoints 142.5 147.5 … 167.5, then the frequency polygon over the histogram: one point at each class midpoint,
+  # at its frequency. Slips: the class width (5) written as the midpoint (width-not-midpoint), a class end
+  # (mid-is-end); points at the class ends (polygon-at-ends). Zeros at 137.5 and 172.5 may close it (Iran).
+  - id: polygon
+    setup:
+      module: grouped
+      grouped:
+        head: height
+        classes: [140, 145, 150, 155, 160, 165, 170]
+        freq: [3, 4, 5, 4, 3, 1]
+        columns: { f: show, mid: edit }
+        show: [histogram]
+        draw: polygon
+        max: 6
+        step: 1
+        axes: [height, count]
+    check: { type: grouped, table: true, polygon: true }

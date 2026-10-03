@@ -1,5 +1,6 @@
 // The `grouped` module of <kg-chart-builder>, loaded only by missions with `module: grouped`: grouped data.
-//   cards   the raw data; the learner taps a card, then its class (classes are closed on the left: 140 ≤ x < 145)
+//   cards   the raw data; the learner taps a card, then its class (classes are closed on the left: 140 ≤ x < 145);
+//           without `sort` the data is a plain list to count from
 //   table   per class: frequency, relative frequency, midpoint, midpoint × frequency, running total, each shown or
 //           typed, with a total row; or named rows with a value each (a weighted mean of two classes' averages)
 //   graph   an equal-width histogram (bars touch), a frequency polygon at the midpoints, a cumulative frequency
@@ -19,10 +20,12 @@ export interface GroupedConfig {
   last?: boolean;
   /** Named rows instead of classes (label `row-<key>`), each with its value (shown in the `mid` column) and frequency. */
   rows?: { key: string; x: number; f: number }[];
-  /** The raw data, one card each, in the order dealt. */
+  /** The raw data, in the order dealt: cards to sort (`sort`), else a list to count from. */
   data?: number[];
   /** Frequencies per class when there is no `data`. */
   freq?: number[];
+  /** Names the first column: label `head-<head>` (default `col-class`). */
+  head?: string;
   /** The learner sorts the data cards into the classes. */
   sort?: boolean;
   /** Table columns, shown or typed: f, rel, mid, fx, cum (labels `col-<key>`). */
@@ -129,7 +132,7 @@ export function mount(host: ChartHost, cfg: ChartBuilderConfig): ChartModule {
 
   function table() {
     const th = (s: string) => `<th scope="col">${esc(s)}</th>`;
-    let h = `<div class="kg-cbg-wrap"><table class="kg-cb-table kg-cbg-table"><thead><tr>${th(L('col-class'))}${c.sort ? th(L('col-cards')) : ''}${cols.map((col) => th(colName(col))).join('')}</tr></thead><tbody>`;
+    let h = `<div class="kg-cbg-wrap"><table class="kg-cb-table kg-cbg-table"><thead><tr>${th(L(c.head ? `head-${c.head}` : 'col-class'))}${c.sort ? th(L('col-cards')) : ''}${cols.map((col) => th(colName(col))).join('')}</tr></thead><tbody>`;
     for (let i = 0; i < k; i++) {
       h += '<tr>' + (c.sort
         ? `<th scope="row"><button type="button" class="kg-cbg-row" data-a="g-row" data-i="${i}" data-k="row-${i}" aria-label="${esc(fill(L('label-put', '{c}'), { c: plain(i) }))}">${classText(i)}</button></th>`
@@ -220,7 +223,7 @@ export function mount(host: ChartHost, cfg: ChartBuilderConfig): ChartModule {
   return {
     html() {
       let h = '';
-      if (c.sort && data.length) h += tray();
+      if (data.length) h += c.sort ? tray() : `<p class="kg-cbg-data" dir="ltr" aria-label="${esc(L('label-cards'))}">${data.map((v) => `<span>${host.num(v)}</span>`).join('')}</p>`;
       if (k) h += table();
       if (c.choose) h += choose();
       if (graphs.size && b.length) h += graph();

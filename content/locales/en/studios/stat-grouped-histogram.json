@@ -1,0 +1,102 @@
+{
+  "title": "Grouped data, {{term:histogram}}s and {{term:frequency-polygon}}s",
+  "summary": "Sort heights into equal classes, build a frequency table with relative frequencies, draw a histogram whose bars touch and join the class midpoints into a frequency polygon.",
+  "guide": [
+    "This studio follows KS3 Statistics (\"grouped data … charts for grouped numerical data\"); the histograms here have equal class widths, so the height of each bar is the frequency.",
+    "When there are many different values, we group them into classes of equal width. Each class is closed on the left: {{alg:145 ≤ x < 150}} contains 145 but not 150, so a value on a boundary belongs to exactly one class.",
+    "The {{term:frequency}} of a class is how many values are in it. The {{term:relative-frequency}} is the frequency divided by the total; the relative frequencies always add up to 1.",
+    "In a {{term:histogram}} the bars touch, because the classes run on into each other with no gaps on the number line. A {{term:frequency-polygon}} joins the midpoints of the tops of the bars: the midpoint stands for every value in its class.",
+    "Ask: \"Which class gets exactly 145? Why can't it go in both?\""
+  ],
+  "engine": {
+    "head-height": "Height (cm)",
+    "head-minutes": "Minutes",
+    "col-cards": "Cards",
+    "col-f": "Frequency",
+    "col-rel": "Relative frequency",
+    "col-mid": "Midpoint",
+    "label-class": "{a} ≤ x < {b}",
+    "label-cards": "Data",
+    "label-all-sorted": "✓ Every card is in a class.",
+    "label-put": "Put the card in {c}",
+    "label-take": "Take {v} back",
+    "label-pick-class": "Now tap the class this card belongs in.",
+    "label-pick-card": "First tap a card.",
+    "label-total": "Total",
+    "label-choose": "Which graph?",
+    "chart-bars": "Bar chart",
+    "chart-histogram": "Histogram",
+    "label-chart": "Heights of 20 pupils",
+    "label-points": "Frequency polygon. Tap to put a point or take it away; with the keyboard, arrows move the cursor and Enter puts a point.",
+    "label-at": "({x}, {y})",
+    "axis-height": "height (cm)",
+    "axis-count": "frequency"
+  },
+  "missions": {
+    "sort-heights": {
+      "title": "Which class?",
+      "prompt": "These are the heights of 20 pupils in cm. Tap a card, then the class it belongs in. Watch out for cards like 145 that sit exactly on a boundary!",
+      "hint": "{{alg:145 ≤ x < 150}} means \"145 or more, but less than 150\". So 145 is in that class, and 150 is in the next one.",
+      "success": "Well done! Frequencies 3, 4, 5, 4, 3, 1: all 20 pupils, each in exactly one class.",
+      "why": "Why does 145 go in {{alg:145 ≤ x < 150}} and not in {{alg:140 ≤ x < 145}}? Could it go in both?",
+      "model": "The class {{alg:140 ≤ x < 145}} stops just before 145: \"less than 145\" leaves 145 out. The next class starts at 145 and includes it (≤). If 145 went in both classes, that pupil would be counted twice and the frequencies would add up to more than 20. Every value must be in exactly one class.",
+      "feedback": {
+        "cards-left": "Some cards are not in a class yet. Tap a card, then its class.",
+        "boundary-left": "A card that sits on a boundary is in the wrong class. A class includes its first number (≤) but not its last (<): 145 goes in {{alg:145 ≤ x < 150}}.",
+        "card-wrong": "One card is in the wrong class. Check that each card is at least the first number and less than the second."
+      }
+    },
+    "relative": {
+      "title": "Relative frequency",
+      "prompt": "20 pupils wrote how many minutes it takes them to get to school. Count the {{term:frequency}} of each class, then work out each {{term:relative-frequency}} (frequency ÷ 20) and the totals.",
+      "hint": "Values on a boundary (10, 20, 30) belong to the class that starts there. A relative frequency is the frequency divided by the total number of pupils.",
+      "success": "Correct! Frequencies 4, 7, 6, 3 (total 20); relative frequencies 0.2, 0.35, 0.3, 0.15, which add up to 1.",
+      "why": "Why do the relative frequencies always add up to 1?",
+      "model": "Each relative frequency is the share of all the pupils that falls in its class: frequency ÷ 20. Every pupil is in exactly one class, so the shares together make up the whole group: 20 ÷ 20 = 1. If they add up to more than 1, a value has been counted twice.",
+      "feedback": {
+        "table-empty": "Fill in every box, the totals too.",
+        "boundary-twice": "That frequency is too big: a value on a boundary has been counted in two classes. 10 belongs only to {{alg:10 ≤ x < 20}}.",
+        "boundary-left": "A value on a boundary is in the class that starts there, not the one that ends there: 10 goes in {{alg:10 ≤ x < 20}}.",
+        "f-wrong": "Count that class again: values at least the first number and less than the second.",
+        "rel-is-f": "That is the frequency again. Relative frequency = frequency ÷ total (20).",
+        "rel-wrong": "Divide the frequency by the total, 20. For example 4 ÷ 20 = 0.2.",
+        "rel-not-one": "The relative frequencies of all the classes together always make 1 (the whole group).",
+        "total-wrong": "Add up the frequency column again: it should be the number of pupils."
+      }
+    },
+    "histogram": {
+      "title": "Bars that touch",
+      "prompt": "Which graph shows grouped heights? Choose it, then drag each bar up to its {{term:frequency}} (or use the arrow keys).",
+      "hint": "Heights run on with no gaps: 145 comes straight after 144.9. The bars should meet just like the classes do.",
+      "success": "Yes! In a {{term:histogram}} each bar stands on its whole class, from one boundary to the next, so the bars touch.",
+      "why": "In a bar chart of favourite fruits the bars have gaps. Why do the bars of a histogram touch?",
+      "model": "Fruits are separate categories, so a gap between them means nothing is in between. Heights are continuous: every height between 140 and 170 cm belongs to one of the classes, so there is no empty space on the axis. Each bar covers its class from one boundary to the next, so neighbouring bars meet.",
+      "feedback": {
+        "choose-empty": "First choose a graph.",
+        "gap-bars": "In a bar chart the bars have gaps. Heights have no gaps: after 145 comes 145.1, then 145.2… Which graph has bars that touch?",
+        "wrong-chart": "Choose the graph with bars.",
+        "bars-empty": "Now drag each bar up to its frequency.",
+        "bar-wrong": "One bar is not at its frequency. Read the frequency column again."
+      }
+    },
+    "polygon": {
+      "title": "Frequency polygon",
+      "prompt": "Write the midpoint of each class. Then make the {{term:frequency-polygon}}: tap the graph to put a point above each midpoint, at the top of its bar. Tap a point again to take it away.",
+      "hint": "The midpoint is halfway between the ends of the class: for {{alg:140 ≤ x < 145}} it is {{alg:(140 + 145) ÷ 2}}. The points go in the middle of the tops of the bars.",
+      "success": "Well done! The midpoints are 142.5, 147.5, 152.5, 157.5, 162.5 and 167.5, and the polygon joins the middles of the bar tops.",
+      "why": "Why are the points of a frequency polygon put at the midpoints of the classes, and not at their ends?",
+      "model": "We only know how many pupils are in each class, not their exact heights. The midpoint stands for all the values in a class: some are below it and some above. A point at 145 would say the 3 pupils are all 145 cm, but none of them are; they are between 140 and 145.",
+      "feedback": {
+        "table-empty": "Write every midpoint.",
+        "width-not-midpoint": "5 is the class width (145 − 140). The midpoint is the number halfway between the ends: {{alg:(140 + 145) ÷ 2}}.",
+        "mid-is-end": "That is an end of the class. The midpoint is halfway between the two ends.",
+        "mid-wrong": "Add the two ends of the class and halve the sum.",
+        "points-empty": "Tap the graph to put the points.",
+        "polygon-at-ends": "A point is on a class boundary. The points of a frequency polygon go above the midpoints, in the middle of each bar.",
+        "point-wrong": "A point is at the wrong height: it should be at the top of its bar (the frequency).",
+        "points-missing": "Every class needs a point, even the last one.",
+        "points-extra": "There is an extra point. One point per class, at its midpoint (and, if you like, a 0 just outside each end)."
+      }
+    }
+  }
+}
