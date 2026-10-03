@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { checkAlgebra, diagnose, type AlgebraCheck, type AlgebraState } from './algebra-tiles-check';
+import { makeBoard } from './algebra-tiles-factors';
 import { tilesOf } from './algebra-tiles-mat';
 import { poly } from './algebra-tiles-poly';
 
@@ -133,5 +134,29 @@ describe('algebra check: grid', () => {
     expect(code({ grid: { cells: true, remainder: '3' } }, { ...t, remainder: null })).toBe('remainder-empty');
     expect(code({ grid: { cells: true } }, { ...t, remainder: '4' })).toBe('wrong-total');
     expect(code({ grid: { cells: true } }, { ...t, total: 'x^2 + 3x + 2', remainder: null })).toBe('ok');
+  });
+});
+
+describe('algebra check: factors', () => {
+  it('the typed result first (traps by form or value), then the board', () => {
+    const chips = makeBoard([{ top: ['2^3', '2^4'] }]);
+    const c = { factors: { result: '2^7', expanded: true }, traps: [{ write: '4^7', code: 'base-multiplied' }] };
+    expect(code(c, { mode: 'factors' })).toBe('empty');
+    expect(code(c, { chips, written: '4^7' })).toBe('base-multiplied');
+    expect(code(c, { chips, written: '128' })).toBe('form');
+    expect(code(c, { chips, written: '2^7' })).toBe('not-expanded');
+    const done = makeBoard([{ top: ['2', '2', '2', '2', '2', '2', '2'] }]);
+    expect(code(c, { chips: done, written: '2^7' })).toBe('ok');
+  });
+  it('the values not allowed come first', () => {
+    const chips = makeBoard([{ top: ['x - 3'], bottom: [] }]);
+    const c = { factors: { excluded: [-3], result: 'x - 3' } };
+    expect(code(c, { chips, excluded: [null], written: 'x - 3' })).toBe('excluded-empty');
+    expect(code(c, { chips, excluded: ['3'], written: 'x - 3' })).toBe('excluded-sign');
+    expect(code(c, { chips, excluded: ['-3'], written: 'x - 3' })).toBe('ok');
+  });
+  it('board only: fully cancelled, rational', () => {
+    expect(code({ factors: { fullyCancelled: true } }, { chips: makeBoard([{ top: ['a', 'a'], bottom: ['a'] }]) })).toBe('not-cancelled');
+    expect(code({ factors: { rational: true } }, { chips: makeBoard([{ top: ['1'], bottom: ['√2'] }]) })).toBe('root-below');
   });
 });

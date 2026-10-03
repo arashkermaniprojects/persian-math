@@ -3,14 +3,17 @@ import { add, coef, equal, isCollected, keyOf, kindOrder, kindsOf, mul, parse, p
 import { matPoly, zeroPairs, type Tile } from './algebra-tiles-mat';
 import { cellOf, gridTotal, sameSides } from './algebra-tiles-frame';
 import { aloneCode, parseScale, readAlone, sameScale, type Pan, type Rel } from './algebra-tiles-balance';
+import { boardCode, judgeExcluded, judgeResult, type Frac } from './algebra-tiles-factors';
 
 /**
  * One learner action, in order. `unlike` = a red and a white tile of different shapes put together (refused).
  * balance: `add` (a tile, `tile: "-1"`), `mul`/`div` (`k`), `expand`, `undo`, `clear`, `try` (`k` = the value tried),
  * `rel` (the relation sign turned); `pan` = which pan the move was done to (left, right, both).
+ * factors: `split` (`tile` = the chip), `cancel` (`tile` = the chip), `pair` (out of a root), `roots` (two roots
+ * joined), `by` (top and bottom × `tile`), `refuse` (`k` = why: cancel-terms, split-first, not-equal, other-fraction).
  */
 export interface Move {
-  do: 'add' | 'remove' | 'zero' | 'unlike' | 'sort' | 'clear' | 'flip' | 'side' | 'paint' | 'mul' | 'div' | 'expand' | 'undo' | 'try' | 'rel';
+  do: 'add' | 'remove' | 'zero' | 'unlike' | 'sort' | 'clear' | 'flip' | 'side' | 'paint' | 'mul' | 'div' | 'expand' | 'undo' | 'try' | 'rel' | 'split' | 'cancel' | 'pair' | 'roots' | 'by' | 'refuse';
   tile?: string;
   k?: string;
   pan?: 'left' | 'right' | 'both';
@@ -45,11 +48,16 @@ export interface AlgebraState {
   turned?: boolean;
   tried?: number | null;
   steps?: string[];
+  /** factors: the fraction bars and their chips (`out` = cancelled, `root` = chips under a root), the board read as
+   * ASCII ("a*a*a", "1/(2*2*2)", "2*√3"), and the typed values that are not allowed. */
+  chips?: Frac[];
+  result?: string;
+  excluded?: (string | null)[];
 }
 
 /**
  * Every field is optional; the check passes when all the given ones hold, tested in this order:
- * expr → simplified (mat) → rectangle → grid → written → simplified (written) → solution/subject (balance). The first
+ * expr → simplified (mat) → rectangle → grid → written → simplified (written) → solution/subject (balance) → factors. The first
  * failure gives the code.
  */
 export interface AlgebraCheck {
@@ -79,6 +87,13 @@ export interface AlgebraCheck {
    * scale as it stands (`scale: "x/9 = 4/3"`, either way round) or the value tried (`try`).
    */
   traps?: { expr?: string; write?: string; sides?: [string, string]; scale?: string; try?: number; code: string }[];
+  /**
+   * factors (the fraction bar of chips): `excluded` the typed values that are not allowed, any order; `result` the
+   * typed answer read as factors with indices (2^7, 2^-3 = 1/2^3, 2√3, x - 3; `write` traps match it by form or
+   * value); then the board: `expanded` (no chip left that splits), `fullyCancelled` (no equal factor above and
+   * below, none hidden in an unsplit chip, no pair under a root), `rational` (no root below the bar), `sameBottom`.
+   */
+  factors?: { result?: string; excluded?: (number | string)[]; expanded?: boolean; fullyCancelled?: boolean; rational?: boolean; sameBottom?: boolean };
 }
 
 type Result = { ok: boolean; code?: string };
@@ -213,8 +228,29 @@ const balancePart: Part = (c, s) => {
   return null;
 };
 
-/** The parts, in order. A module adds its own part here: balance adds `solution`/`subject`; factors to come. */
-export const PARTS: Part[] = [matPart, rectPart, gridPart, writtenPart, balancePart];
+/**
+ * factors: the values not allowed (excluded-empty, excluded-sign, excluded-missing, excluded-wrong), the typed result
+ * (judgeResult: empty, syntax, a trap, form, not-simplified, zero-power-zero, negative-power-negative, wrong-index,
+ * wrong-result), then the board (not-expanded, not-cancelled, not-split, pair-in-root, root-below, bottoms-differ).
+ */
+const factorsPart: Part = (c, s) => {
+  const f = c.factors;
+  if (!f) return null;
+  if (!s.chips) return 'empty';
+  if (f.excluded) {
+    const why = judgeExcluded(s.excluded ?? [], f.excluded);
+    if (why) return why;
+  }
+  if (f.result !== undefined) {
+    const traps = (c.traps ?? []).filter((t) => t.write !== undefined).map((t) => ({ write: String(t.write), code: t.code }));
+    const why = judgeResult(s.written, String(f.result), traps);
+    if (why) return why;
+  }
+  return boardCode(s.chips, f);
+};
+
+/** The parts, in order. A module adds its own part here: balance adds `solution`/`subject`, factors `factors`. */
+export const PARTS: Part[] = [matPart, rectPart, gridPart, writtenPart, balancePart, factorsPart];
 
 export function checkAlgebra(c: AlgebraCheck, state?: { algebra?: AlgebraState }): Result {
   const s = state?.algebra;

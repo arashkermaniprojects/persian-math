@@ -2,7 +2,7 @@
 // Build an expression, put like terms together, take off zero pairs (a red and a white tile of the SAME shape), flip
 // the tiles to show a letter's value, and write the answer on a small keypad (no keyboard switching on a phone).
 // Modes: tiles (here); rectangle and grid (./algebra-tiles/frame.ts) and the equation balance
-// (./algebra-tiles/balance.ts), each loaded on demand; later modules plug into MODULES below. Contract: docs/STUDIOS.md ("Engine options → algebra-tiles"). Logic: ./lib/algebra-tiles-*.
+// (./algebra-tiles/balance.ts) and the factor board (./algebra-tiles/factors.ts), each loaded on demand; later modules plug into MODULES below. Contract: docs/STUDIOS.md ("Engine options → algebra-tiles"). Logic: ./lib/algebra-tiles-*.
 // The mat, the keypad and every expression run left to right in every locale, as written algebra does.
 import { algHTML } from '../lib/display';
 import type { AlgebraState, Move } from './lib/algebra-tiles-check';
@@ -10,7 +10,7 @@ import { matPoly, pairOf, sortTiles, tileValueText, tilesOf, zeroPairs, type Til
 import { degreeOf, format, powsOf } from './lib/algebra-tiles-poly';
 
 export interface AlgebraConfig {
-  mode?: 'tiles' | 'rectangle' | 'grid' | 'balance';
+  mode?: 'tiles' | 'rectangle' | 'grid' | 'balance' | 'factors';
   /** Icon hint above the engine with the studio label `instruction-<key>` (build, collect, read, flip, write). */
   instruction?: string;
   /** tiles: the mat at the start, as written and not combined ("2x^2 + 3x + 1 - x"). */
@@ -31,7 +31,7 @@ export interface AlgebraConfig {
   write?: 'expr' | 'number';
   /** Letter keys on the keypad (default: the letters of the tray and mat, else x). */
   letters?: string[];
-  /** Extra keys: "(", ")". */
+  /** Extra keys: "(", ")", "^" (any index: 2^7, a^-3), "/" (a fraction: 1/2^3), "√". */
   keys?: string[];
   [k: string]: unknown;
 }
@@ -60,14 +60,12 @@ export interface AlgebraPart {
 }
 type Mount = { mount(host: AlgebraHost, c: AlgebraConfig): AlgebraPart };
 
-/**
- * Parts loaded only when a mission's `mode` asks for them (each its own chunk, within the size budget).
- * Planned:  factors: () => import('./algebra-tiles/factors')  (num-index-laws, num-surds, alg-algebraic-fractions).
- */
+/** Parts loaded only when a mission's `mode` asks for them (each its own chunk, within the size budget). */
 const MODULES: Record<string, () => Promise<Mount>> = {
   rectangle: () => import('./algebra-tiles/frame'),
   grid: () => import('./algebra-tiles/frame'),
   balance: () => import('./algebra-tiles/balance'),
+  factors: () => import('./algebra-tiles/factors'),
 };
 
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
@@ -310,9 +308,12 @@ export class AlgebraTiles extends HTMLElement implements AlgebraHost {
   private keypadHTML() {
     const names: Record<string, [string, string]> = {
       '^2': ['label-key-square', 'squared'], '^3': ['label-key-cube', 'cubed'], '+': ['label-key-plus', 'plus'], '-': ['label-key-minus', 'minus'],
+      '^': ['label-key-power', 'to the power'], '/': ['label-key-over', 'over'], '√': ['label-key-root', 'root'],
     };
     const keys = this.keyset().map((k) => {
-      const face = k.startsWith('^') ? `□<sup>${this.plain(k.slice(1))}</sup>` : this.plain(k);
+      // "/" is a fraction, never a slash (Iran's decimal mark): a little stacked fraction on the key
+      const face = k === '^' ? '□<sup>□</sup>' : k === '/' ? '<span class="frac"><span class="frac-n">□</span><span class="frac-d">□</span></span>'
+        : k.startsWith('^') ? `□<sup>${this.plain(k.slice(1))}</sup>` : this.plain(k);
       const n = names[k];
       return `<button type="button" class="kg-at-key${/\d/.test(k) && k.length === 1 ? ' dig' : ''}" data-a="key" data-v="${esc(k)}" data-k="k${esc(k)}"${n ? ` aria-label="${this.lab(n[0], n[1])}"` : ''}>${face}</button>`;
     });

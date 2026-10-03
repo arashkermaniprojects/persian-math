@@ -185,3 +185,36 @@ button.kg-at-rel { border: 2px solid var(--accent); border-radius: 50%; backgrou
 .kg-at-i.i-balance::after { inset-block-start: 18px; inset-inline-start: 14px; border-inline: 8px solid transparent; border-block-end: 16px solid var(--accent); }
 .kg-at-i.i-try::before { inset: 12px 10px; background: var(--at-x); border-radius: 3px; }
 .kg-at-i.i-try::after { content: '?'; inset: 12px 10px; display: grid; place-items: center; color: #fff; font-weight: 700; }
+
+/* factors (module, algebra-tiles/factors.ts): a fraction bar with factor chips above and below it */
+.kg-at[data-mode='factors'] > .kg-at-msg:not(.fx) { display: none; }
+.kg-at-fx { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.5rem; inline-size: 100%; padding: 0.6rem 0.3rem; box-sizing: border-box; border: 2px dashed var(--border); border-radius: var(--radius); background: var(--cell); }
+.kg-at-fr { display: flex; flex-direction: column; align-items: stretch; max-inline-size: 100%; }
+.kg-at-fr-t, .kg-at-fr-b { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2px 1px; padding: 4px 2px; min-block-size: 48px; }
+.kg-at-fr.bar .kg-at-fr-t { border-block-end: 4px solid var(--fg); }
+.kg-at-chip {
+  min-inline-size: 44px; min-block-size: 44px; padding: 0 0.4rem; box-sizing: border-box; display: inline-grid; place-items: center;
+  border: 2px solid var(--at-x2); border-radius: 10px; background: var(--card); font-size: 1.15rem; font-weight: 700;
+}
+.kg-at-chip.in { border-color: var(--at-sym); }
+.kg-at-chip.sel, .kg-at-rs.sel { border-color: var(--accent); background: var(--hint-bg); box-shadow: 0 0 0 2px var(--accent); }
+.kg-at-chip.out {
+  border-style: dashed; border-color: var(--border); color: var(--muted); font-weight: 400;
+  background: linear-gradient(to top right, transparent calc(50% - 1.5px), var(--no) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px));
+}
+.kg-at-times { color: var(--muted); font-size: 1rem; padding-inline: 1px; }
+.kg-at-join { font-size: 1.5rem; padding-inline: 2px; }
+.kg-at-one { font-size: 1.2rem; font-weight: 700; min-block-size: 44px; display: grid; place-items: center; }
+/* a root: the √ sign is a button (tap two roots to join them); its bar runs over the chips under it */
+.kg-at-root { display: inline-flex; align-items: stretch; }
+.kg-at-rs { min-inline-size: 44px; min-block-size: 44px; padding: 0; border: 2px solid transparent; border-radius: 8px; background: transparent; font-size: 1.6rem; line-height: 1; }
+.kg-at-rad { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 1px; padding: 3px 2px 0; border-block-start: 3px solid var(--fg); }
+.kg-at-excl { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; font-size: 1.15rem; }
+.kg-at-ex { display: inline-flex; align-items: center; gap: 0.3rem; }
+.kg-at-ex .kg-at-field { min-inline-size: 3.2rem; }
+.kg-at-key .frac { font-size: 0.7em; }
+/* hint icons: a chip over a bar (split); a struck chip over a bar (cancel) */
+.kg-at-i.i-split::before { inset: 9px 15px 25px; border: 2px solid var(--at-x2); border-radius: 3px; }
+.kg-at-i.i-split::after { inset: 21px 8px 21px; background: var(--fg); }
+.kg-at-i.i-cancel::before { inset: 9px 15px 25px; border: 2px solid var(--at-x2); border-radius: 3px; background: linear-gradient(to top right, transparent 45%, var(--no) 45% 55%, transparent 55%); }
+.kg-at-i.i-cancel::after { inset: 21px 8px 21px; background: var(--fg); }
