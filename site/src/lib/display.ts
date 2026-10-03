@@ -32,7 +32,8 @@ export function vecHTML(x: number | string, y: number | string, f: NumberFormat,
  * An algebra expression typed in ASCII ("3x^2 - 2x", "x = -3", "(-3)^2") as HTML, always left to right (docs/NOTATION.md):
  * locale digits, − for -, × for *, powers raised; letters stay Latin in every locale. Binary + − = ≠ get spaces; a sign
  * at the start or after "(" stays close: −۵, (−۳)². "a/b" is stacked, never inline ("/" is Iran's decimal mark): each
- * side is a bracket (dropped) or a run of letters and digits: x/3, (v - u)/a.
+ * side is a bracket (dropped) or a run of letters and digits: x/3, (v - u)/a. Powers: a^2, a^-3, a^n, and a bracketed
+ * index a^(1/2), a^(m + n) (the bracket is dropped; a fraction in it is stacked small).
  */
 export function algHTML(src: string, digits = '0123456789'): string {
   return `<bdi dir="ltr" class="alg">${algInner(src, digits)}</bdi>`;
@@ -43,6 +44,11 @@ const unbracket = (s: string) => s.replace(/^\((.*)\)$/, '$1');
 
 function algInner(src: string, digits: string): string {
   const fr: string[] = [];
+  // a bracketed index first, so a fraction inside it stays inside it: 9^(1/2)
+  src = src.replace(/\^\(([^()]*)\)/g, (_, e: string) => {
+    fr.push(`<sup>${algInner(e, digits)}</sup>`);
+    return `\u0001${fr.length - 1}\u0002`;
+  });
   src = src.replace(ALG_FRAC, (_, n: string, d: string) => {
     fr.push(`<span class="frac"><span class="frac-n">${algInner(unbracket(n), digits)}</span><span class="frac-d">${algInner(unbracket(d), digits)}</span></span>`);
     return `\u0001${fr.length - 1}\u0002`;
@@ -58,9 +64,9 @@ function algInner(src: string, digits: string): string {
       prev = 'x';
       continue;
     }
-    const pow = ch === '^' && src.slice(i + 1).match(/^\d+/);
+    const pow = ch === '^' && src.slice(i + 1).match(/^-?\d+|^[a-z]/);
     if (pow) {
-      out += `<sup>${digitsOf(pow[0], { digits, decimal: '.' })}</sup>`;
+      out += `<sup>${digitsOf(pow[0].replace('-', '−'), { digits, decimal: '.' })}</sup>`;
       i += pow[0].length;
       prev = '0';
       continue;

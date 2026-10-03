@@ -49,6 +49,10 @@ describe('algebra', () => {
     expect(rich('{{alg:x = -3}}', 'ps')).toBe('<bdi dir="ltr" class="alg">x = −۳</bdi>');
     expect(rich('{{alg:4 - (-3)^2}}', 'en')).toBe('<bdi dir="ltr" class="alg">4 − (−3)<sup>2</sup></bdi>');
     expect(rich('{{alg:2*3 < 7}}', 'en')).toBe('<bdi dir="ltr" class="alg">2×3 &lt; 7</bdi>');
+    // index laws: negative, letter and bracketed indices (the bracket dropped, a fraction in it stacked)
+    expect(rich('{{alg:2^-3}}', 'fa-IR')).toBe('<bdi dir="ltr" class="alg">۲<sup>−۳</sup></bdi>');
+    expect(rich('{{alg:a^m * a^n = a^(m + n)}}', 'en')).toBe('<bdi dir="ltr" class="alg">a<sup>m</sup>×a<sup>n</sup> = a<sup>m + n</sup></bdi>');
+    expect(rich('{{alg:9^(1/2)}}', 'en')).toBe('<bdi dir="ltr" class="alg">9<sup><span class="frac"><span class="frac-n">1</span><span class="frac-d">2</span></span></sup></bdi>');
   });
 
   it('is not broken by the formula isolates of RTL text', () => {
