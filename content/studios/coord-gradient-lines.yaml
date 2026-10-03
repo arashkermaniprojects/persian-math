@@ -2,6 +2,7 @@ id: coord-gradient-lines
 engine: coord-plane
 strand: coord
 order: 1
+grades: { iran: 9, af: 8, uk: 9 }
 concepts: [coord.gradient, coord.line-equation, func.linear-graphs]
 # Pilot of coord-plane. Gradient as rise ÷ run on a step triangle, m and c on sliders, plotting from a table of values on
 # an axis that counts in twos, the equation through two points, and y = 3 vs x = 3 (Iran G9 ch.6 «معادلهٔ خط» p.96 and

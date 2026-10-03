@@ -17,6 +17,8 @@ id: frac-what-is
 engine: fraction-bars
 strand: frac
 concepts: [frac.halves-quarters, frac.concept]   # concept-graph ids; grades per curriculum are derived from them
+# grades: { iran: 7, af: null, uk: 10 }   # optional: the plan's grades, overriding the derived ones (null = not taught);
+#                                          # Phase 3 studios get it from content/_work/sync_grades.py
 order: 1                                          # position within the strand's studio list
 missions:
   - id: shade-three-quarters

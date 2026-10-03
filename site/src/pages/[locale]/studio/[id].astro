@@ -4,7 +4,7 @@ import { LOCALES, visibleLocales, type LocaleCode } from '../../../i18n/locales'
 import { t } from '../../../lib/i18n';
 import { rich, numberFormat } from '../../../lib/richtext';
 import { digitsOf } from '../../../lib/display';
-import { assertConceptsExist, gradeFor, loadStudioText, loadStudios, type Curriculum, type StudioDef } from '../../../lib/content';
+import { assertConceptsExist, studioGrade, loadStudioText, loadStudios, type Curriculum, type StudioDef } from '../../../lib/content';
 
 export function getStaticPaths() {
   const studios = loadStudios();
@@ -21,7 +21,7 @@ const r = (s?: string) => (s ? rich(s, locale) : undefined);
 // Show where this is taught, with the learner's own curriculum first.
 const order: Curriculum[] = LOCALES[locale].defaultPath === 'afghanistan' ? ['af', 'iran', 'uk'] : locale === 'en' ? ['uk', 'iran', 'af'] : ['iran', 'af', 'uk'];
 const badges = order
-  .map((cur) => ({ cur, grade: gradeFor(studio.concepts, cur) }))
+  .map((cur) => ({ cur, grade: studioGrade(studio, cur) }))
   .filter((b) => b.grade !== null)
   .map((b) => t(`grade.${b.cur}`, locale).replace('{n}', digitsOf(b.grade!, fmt)));
 

@@ -2,6 +2,7 @@ id: alg-solve-linear
 engine: algebra-tiles
 strand: alg
 order: 3
+grades: { iran: 7, af: 8, uk: 8 }
 concepts: [alg.equation.concept, alg.linear-equations, alg.formulae.rearrange]
 # Iran G7 ch.3 «معادله» (G07_riazi_haftom.pdf p.47–48 [۳۷–۳۸]): «به یک تساوی جبری که به ازای بعضی از عددها به تساوی
 # عددی تبدیل می‌شود، معادله می‌گویند»; first by «حدس و آزمایش», then the same number added to / multiplied on both

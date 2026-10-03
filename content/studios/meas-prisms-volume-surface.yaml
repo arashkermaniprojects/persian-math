@@ -2,6 +2,7 @@ id: meas-prisms-volume-surface
 engine: solid-viewer
 strand: meas
 order: 9
+grades: { iran: 7, af: 8, uk: 8 }
 concepts: [meas.volume.prisms, meas.surface-area.prisms, geo.solids.nets]
 # Pilot of solid-viewer. Iran G7 ch.6 «حجم‌های هندسی» p.70, «محاسبهٔ حجم‌های منشوری» p.73 (volume = base area ×
 # height, layer by layer), «مساحت جانبی و کل» p.76–77 (the cylinder's side opens into a rectangle; nets of prisms),

@@ -2,6 +2,7 @@ id: prob-trees-counting
 engine: discrete-lab
 strand: prob
 order: 5
+grades: { iran: 10, af: 8, uk: 10 }
 concepts: [prob.tree-diagram, prob.independent, disc.counting]
 # Pilot of the discrete-lab module `tree` (site/src/engines/discrete-lab/tree.ts, loaded only by `setup.tree`).
 # Iran G10 ریاضی ۱ ch.6 «شمارش، بدون شمردن» (G10_riazi1_math_science pdf p.125–127 = printed ۱۱۹–۱۲۱: «اصل ضرب»,

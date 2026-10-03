@@ -2,6 +2,7 @@ id: vec-directed-segments
 engine: coord-plane
 strand: vec
 order: 1
+grades: { iran: 7, af: null, uk: 10 }
 concepts: [vec.2d, vec.equal-opposite, vec.translation, pos.translation.vector]
 # Pilot of the coord-plane `vectors` module (engines/coord-plane/vectors.ts, loaded only here). Arrows are drawn tail →
 # head and read as column vectors, x on top (Iran G7 ch.8 «پاره‌خط جهت‌دار» p.98: ابتدا، انتها، اندازه، راستا، جهت;

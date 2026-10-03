@@ -2,6 +2,7 @@ id: geo-parallel-angles
 engine: shape-board
 strand: geo
 order: 9
+grades: { iran: 7, af: 7, uk: 8 }
 concepts: [geo.angles.parallel-lines, geo.triangles.angle-sum]
 # Pilot of the shape-board `dynamic` module (shape-board/dynamic.ts). Two parallel lines AB ∥ CD and a transversal
 # through E and F that the learner slides (E) and turns (the ring handle); B turns both lines together. Live angle

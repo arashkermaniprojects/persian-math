@@ -2,6 +2,7 @@ id: disc-sets-intro
 engine: discrete-lab
 strand: disc
 order: 1
+grades: { iran: 9, af: 7, uk: 8 }
 concepts: [disc.sets, disc.sets.subset, disc.sets.operations, disc.sets.complement, disc.sets.finite-infinite]
 # Pilot of discrete-lab (Venn mode). Iran G9 ch.1 «معرفی مجموعه» (G09_riazi_nohom pdf p.10–12: A = {۲,۳,۵}, عضو,
 # a ∈ A, مجموعهٔ تهی ∅ and «{∅} یا {۰} تهی نیستند»), «مجموعه‌های برابر و نمایش مجموعه‌ها» (p.14–15: order and

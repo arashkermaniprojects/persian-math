@@ -2,6 +2,7 @@ id: alg-expressions-like-terms
 engine: algebra-tiles
 strand: alg
 order: 2
+grades: { iran: 7, af: 8, uk: 7 }
 concepts: [alg.expressions, alg.simplify, alg.substitution]
 # Iran G7 ch.3 «عبارت‌های جبری» (G07_riazi_haftom.pdf p.41 [۳۱]: «یک عبارت جبری، شامل یک یا چند عدد، متغیر و
 # عمل‌های ریاضی است») and «مقدار عددی یک عبارت جبری» (p.44 [۳۴]); G7 p.43 [۳۳] «جملات متشابه» collected with arrows;

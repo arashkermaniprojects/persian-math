@@ -2,6 +2,7 @@ id: alg-inequalities
 engine: number-line
 strand: alg
 order: 7
+grades: { iran: 9, af: 9, uk: 9 }
 concepts: [alg.inequalities.concept, alg.inequalities.linear]
 # Pilot of the number-line `intervals` module (site/src/engines/number-line/intervals.ts, loaded only by these missions).
 # Iran G9 ch.5 «نابرابری‌ها و نامعادله‌ها» (G09_riazi_nohom.pdf p.98–100 = printed ۹۰–۹۲): a < x < b drawn as a segment

@@ -23,6 +23,8 @@ export interface StudioDef {
   strand: string;
   concepts: string[];
   order: number;
+  /** The plan's grade per curriculum (null = not taught there); overrides the grade worked out from the concepts. */
+  grades?: Partial<Record<'iran' | 'af' | 'uk', number | null>>;
   missions: MissionDef[];
 }
 
@@ -91,6 +93,12 @@ export type Curriculum = 'iran' | 'af' | 'uk';
 export function gradeFor(conceptIds: string[], cur: Curriculum): number | null {
   const grades = conceptIds.flatMap((id) => (concepts().get(id)?.align?.[cur] ?? []).map(gradeOfKey)).filter((g): g is number => g !== null);
   return grades.length ? Math.min(...grades) : null;
+}
+
+/** The studio's own grade where it states one, else the lowest grade of its concepts. */
+export function studioGrade(studio: Pick<StudioDef, 'concepts' | 'grades'>, cur: Curriculum): number | null {
+  const own = studio.grades?.[cur];
+  return own !== undefined ? own : gradeFor(studio.concepts, cur);
 }
 
 export function assertConceptsExist(studio: StudioDef): void {

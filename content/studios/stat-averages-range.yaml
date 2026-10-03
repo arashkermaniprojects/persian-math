@@ -2,6 +2,7 @@ id: stat-averages-range
 engine: chart-builder
 strand: stat
 order: 4
+grades: { iran: 10, af: 7, uk: 7 }
 concepts: [stat.mode, stat.median, stat.spread, stat.averages, stat.mean]
 # Pilot of the chart-builder `summary` module (site/src/engines/chart-builder/summary.ts, loaded on demand).
 # Afghan G7 ch.7 «مد (Mode)» p.187 and G9 ch.8 «میانه، ساحهٔ تحول» p.195; Iran G8 ch.8 «میانگین داده‌ها» p.124

@@ -5,7 +5,7 @@ import { visibleLocales, type LocaleCode } from '../../../i18n/locales';
 import { t } from '../../../lib/i18n';
 import { rich, numberFormat } from '../../../lib/richtext';
 import { digitsOf } from '../../../lib/display';
-import { gradeFor, loadStudioText, loadStudios, type Curriculum } from '../../../lib/content';
+import { studioGrade, loadStudioText, loadStudios, type Curriculum } from '../../../lib/content';
 
 const PATHS = { iran: 'iran', afghanistan: 'af', uk: 'uk', explorer: null } as const;
 type PathId = keyof typeof PATHS;
@@ -25,7 +25,7 @@ const gradeKey = { iran: 'pathpage.gradeIran', af: 'pathpage.gradeAf', uk: 'path
 const studios = loadStudios().map((s) => ({
   def: s,
   text: loadStudioText(s.id, locale).text,
-  grade: cur ? gradeFor(s.concepts, cur) : null,
+  grade: cur ? studioGrade(s, cur) : null,
 }));
 
 // Group: by grade for a country path (untaught studios last), by strand order for Explorer.
