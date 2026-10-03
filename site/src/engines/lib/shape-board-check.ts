@@ -31,6 +31,8 @@ export interface ShapeBoardState {
    * positions explored by dragging, the "what stayed the same?" choice, and whether built points are locked.
    */
   dyn?: { pts: Record<string, P | null>; values: Record<string, number | null>; dragged: number; chosen: string | null; locked: boolean };
+  /** Proof panel (module shape-board/proof.ts): rows written, criterion chosen, correspondence slots (check type `proof`). */
+  proof?: import('./shape-board-proof').ProofState;
 }
 
 type LineRef = number | Seg;

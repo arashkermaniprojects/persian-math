@@ -192,3 +192,12 @@ describe('summary check (kg-chart-builder summary module)', () => {
     expect(evaluate({ type: 'summary', median: 7 }, {}).code).toBe('empty');
   });
 });
+
+describe('proof check (kg-shape-board proof module)', () => {
+  it('routes to the proof check and its reason codes', () => {
+    const board = { proof: { rows: [], criterion: 'ssa', corr: ['F', 'D', 'E'] } };
+    expect(evaluate({ type: 'proof', correspondence: 'F D E' }, { state: { board } })).toEqual({ ok: true });
+    expect(evaluate({ type: 'proof', criterion: 'sas' }, { state: { board } }).code).toBe('ssa');
+    expect(evaluate({ type: 'proof', criterion: 'sas' }, {}).code).toBe('empty');
+  });
+});

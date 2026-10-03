@@ -18,6 +18,7 @@ import { checkSolid, type SolidCheck, type SolidState } from '../engines/lib/sol
 import { checkAlgebra, type AlgebraCheck, type AlgebraState } from '../engines/lib/algebra-tiles-check';
 import { checkSummary, type SummaryCheck, type SummaryState } from '../engines/lib/chart-builder-summary';
 import { checkInterval, type IntervalCheck, type IntervalState } from '../engines/lib/number-line-intervals';
+import { checkProof, type ProofCheck } from '../engines/lib/shape-board-proof';
 
 type FracSpec = [number, number];
 
@@ -67,7 +68,9 @@ export type Check =
   /** <kg-chart-builder> `summary` module: cards in order, marked middle/mode/ends, typed averages and range, best average, comparison sentences (engines/lib/chart-builder-summary.ts). */
   | SummaryCheck
   /** <kg-number-line> `intervals` module: the drawn set (intervals, unions), sign rows (engines/lib/number-line-intervals.ts). */
-  | IntervalCheck;
+  | IntervalCheck
+  /** <kg-shape-board> `proof` module: criterion, vertex correspondence, proof rows with reasons, counterexample (engines/lib/shape-board-proof.ts). */
+  | ProofCheck;
 
 export interface Attempt {
   /** Engine state (shape depends on the engine). */
@@ -200,5 +203,7 @@ export function evaluate(check: Check, a: Attempt): Result {
       return checkSummary(check, a.state?.summary);
     case 'interval':
       return checkInterval(check, a.state);
+    case 'proof':
+      return checkProof(check, a.state?.board);
   }
 }
