@@ -1,0 +1,57 @@
+id: num-integer-operations
+engine: number-line
+strand: num
+order: 11
+concepts: [num.integers.ops, num.absolute-value, ops.properties.general, num.integers.add-sub]
+# Iran G7 ch.2 «ضرب و تقسیم عددهای صحیح» (G07_riazi_haftom.pdf p.33 = printed ۲۳): 3 × (−2) as hops on the line, then
+# the patterns 3 × (−3) … 0 × (−3) … (−4) × (−3) continued past zero. Afghan G7 ch.3 «اعداد تام»: «قیمت مطلقهٔ یک عدد
+# تام», «ضرب و تقسیم» and «خواص عملیه‌ها». UK KS3 Number: the four operations with negative numbers. |x| is the distance
+# from zero (Iran G9 ch.2). Contexts: temperature and lift floors (no debt for children).
+# Negative answers are placed on the line, never typed: a phone's number keypad often has no minus key.
+missions:
+  # Bridge from num-negative: −3 + (−4). Slips: "two minuses make a plus" (7), or hopping right (1).
+  - id: add-a-negative
+    setup: { min: -10, max: 10, major: 5, labels: whole, addPoints: 1, showValues: true, jumps: { from: [-3, 1], labels: true } }
+    check:
+      type: point-equals
+      values: [[-7, 1]]
+      traps: [{ values: [[7, 1]], code: two-minuses }, { values: [[1, 1]], code: hopped-right }]
+  # 3 × (−2) is three hops of −2 from zero (Iran G7 p.23 «فعالیت ۱»). Slip: hopping +2 (sign dropped).
+  - id: three-hops
+    setup: { min: -10, max: 10, major: 5, labels: whole, addPoints: 3, jumps: { from: [0, 1], labels: true } }
+    check:
+      type: point-equals
+      values: [[-2, 1], [-4, 1], [-6, 1]]
+      traps: [{ values: [[2, 1], [4, 1], [6, 1]], code: hopped-right }]
+  # The sign pattern: 3 × (−2), 2 × (−2), 1 × (−2), 0 × (−2) are marked (−6, −4, −2, 0); carry on for (−1), (−2), (−3) × (−2).
+  # Slip: "a minus times anything stays minus" (−2, −4, −6 again, or further left).
+  - id: sign-pattern
+    setup: { min: -10, max: 10, major: 5, labels: whole, addPoints: 3, fixedPoints: [[-6, 1], [-4, 1], [-2, 1], [0, 1]], jumps: { from: [0, 1], labels: true } }
+    check:
+      type: point-equals
+      values: [[2, 1], [4, 1], [6, 1]]
+      traps: [{ values: [[-2, 1], [-4, 1], [-6, 1]], code: minus-stays }]
+  # Division undoes multiplication: the temperature falls 12 degrees in 3 equal steps, (−12) ÷ 3. Slips: the sign lost (4),
+  # or −12 + 3 (−9).
+  - id: share-the-drop
+    setup: { min: -15, max: 5, major: 5, labels: whole, addPoints: 1, showValues: true, fixedPoints: [[-12, 1]], jumps: { from: [0, 1], labels: true } }
+    check:
+      type: point-equals
+      values: [[-4, 1]]
+      traps: [{ values: [[4, 1]], code: sign-lost }, { values: [[-9, 1]], code: added }]
+  # |x| = 5: every floor 5 floors from the ground floor. Two answers; the why takes on |−7| = −7.
+  - id: distance-from-zero
+    setup: { min: -10, max: 10, major: 5, labels: whole, addPoints: 2, showValues: true }
+    check:
+      type: point-equals
+      values: [[5, 1], [-5, 1]]
+      traps: [{ values: [[5, 1], [5, 1]], code: one-side }, { values: [[-5, 1], [-5, 1]], code: one-side }]
+  # Afghan «خواص عملیه‌ها»: 8 − 5 = 3 and 5 − 8 = −3 are marked. Which one keeps its answer when the numbers swap?
+  - id: order-matters
+    setup: { min: -10, max: 10, major: 5, labels: whole, fixedPoints: [[3, 1], [-3, 1]] }
+    answer: choice
+    check:
+      type: choice
+      options: ["{{alg:8 - 5}}", "{{alg:12 ÷ (-3)}}", "{{alg:(-4) × 3}}"]
+      correct: 2
+      traps: [{ choice: 0, code: subtraction-swapped }, { choice: 1, code: division-swapped }]

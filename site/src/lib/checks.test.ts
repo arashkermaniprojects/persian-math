@@ -43,6 +43,16 @@ describe('evaluate', () => {
     expect(evaluate({ type: 'point-equals', values: [[1, 2]] }, { state: { points: [[3, 4]] } }).code).toBe('too-big');
   });
 
+  it('point-equals gives a trap code for a known wrong set of points', () => {
+    const add = { type: 'point-equals', values: [[-7, 1]], traps: [{ values: [[7, 1]], code: 'two-minuses' }] } as const;
+    expect(evaluate(add, { state: { points: [[7, 1]] } }).code).toBe('two-minuses');
+    expect(evaluate(add, { state: { points: [[6, 1]] } }).code).toBe('too-big');
+    expect(evaluate(add, { state: { points: [[-14, 2]] } }).ok).toBe(true);
+    const hops = { type: 'point-equals', values: [[-2, 1], [-4, 1], [-6, 1]], traps: [{ values: [[2, 1], [4, 1], [6, 1]], code: 'sign' }] } as const;
+    expect(evaluate(hops, { state: { points: [[6, 1], [2, 1], [4, 1]] } }).code).toBe('sign');
+    expect(evaluate(hops, { state: { points: [[2, 1], [4, 1], [4, 1]] } }).code).toBe('wrong');
+  });
+
   it('answer-decimal compares exactly', () => {
     const check = { type: 'answer-decimal', value: '0.3' } as const;
     expect(evaluate(check, { decimal: new Frac(3, 10) }).ok).toBe(true);
@@ -52,6 +62,9 @@ describe('evaluate', () => {
 
   it('choice and integer answers', () => {
     expect(evaluate({ type: 'choice', options: ['a', 'b'], correct: 1 }, { choice: 1 }).ok).toBe(true);
+    const pick = { type: 'choice', options: ['a', 'b', 'c'], correct: 1, traps: [{ choice: 2, code: 'goes-on' }] } as const;
+    expect(evaluate(pick, { choice: 2 }).code).toBe('goes-on');
+    expect(evaluate(pick, { choice: 0 }).code).toBe('wrong');
     expect(evaluate({ type: 'answer-integer', value: 12 }, { integer: 9 }).code).toBe('too-small');
   });
 

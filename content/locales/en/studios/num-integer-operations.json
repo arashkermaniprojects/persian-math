@@ -1,0 +1,102 @@
+{
+  "title": "Multiplying and dividing integers; absolute value",
+  "summary": "Multiply and divide negative numbers with hops on the number line, find the pattern behind the signs, and measure distance from zero.",
+  "guide": [
+    "Adding a negative number is a hop to the left: {{alg:-3 + (-4)}} starts at {{num:-3}} and hops 4 to the left.",
+    "Multiplying is repeated hops from zero: {{alg:3 × (-2)}} is three hops of {{num:-2}}, so it lands on {{num:-6}}.",
+    "When a pattern goes down by one each time, the answers change by the same amount each time. Following the pattern past zero shows why a {{term:negative-number}} times a negative number is positive.",
+    "Division undoes multiplication: {{alg:(-12) ÷ 3}} asks \"3 times what makes {{num:-12}}?\". The answer is {{num:-4}}, because {{alg:3 × (-4) = -12}}.",
+    "The {{term:absolute-value}} of a number is its distance from zero, so it is never negative: {{alg:|-7| = 7}} and {{alg:|7| = 7}}."
+  ],
+  "engine": {
+    "label-line": "Number line: tap to place a point",
+    "label-point": "Point",
+    "label-given": "Given point",
+    "label-clear": "Clear points"
+  },
+  "missions": {
+    "add-a-negative": {
+      "title": "Adding a negative",
+      "prompt": "At night it was {{num:-3}} °C, and by dawn the temperature had changed by {{num:-4}} degrees. Start at {{num:-3}} (the grey dot) and tap where you land. First predict: will you end up left or right of {{num:-3}}? What is {{alg:-3 + (-4)}}?",
+      "hint": "Adding {{num:-4}} is a hop of 4 to the left. From {{num:-3}}, count 4 steps left.",
+      "success": "Well done! {{alg:-3 + (-4) = -7}}. Adding a negative number moves you left, so dawn was colder.",
+      "why": "Sara says \"two minuses make a plus\", so {{alg:-3 + (-4) = 7}}. What is wrong with her reasoning?",
+      "model": "The rule about two minuses is for multiplying, not adding. Adding {{num:-4}} is a hop of 4 to the left, so from {{num:-3}} we go further below zero and land on {{num:-7}}. A temperature that drops by 4 cannot suddenly become warm.",
+      "feedback": {
+        "count": "Put one point where the hop lands.",
+        "two-minuses": "\"Two minuses make a plus\" is a rule for multiplying. Here you are adding {{num:-4}}: hop 4 to the left of {{num:-3}}.",
+        "hopped-right": "You hopped right. That would be {{alg:-3 + 4}}. Adding {{num:-4}} means hopping to the left.",
+        "too-big": "Not far enough left. Start at {{num:-3}} and hop exactly 4 to the left; the arc should say −4.",
+        "too-small": "Too far left. Hop just 4 steps from {{num:-3}}; the arc should say −4."
+      }
+    },
+    "three-hops": {
+      "title": "Three hops of −2",
+      "prompt": "A lift starts at the ground floor (0) and goes down 2 floors, three times. Make three hops of {{num:-2}} from zero: tap where each hop lands. Then predict: what is {{alg:3 × (-2)}}?",
+      "hint": "Each hop goes 2 to the left. Tap {{num:-2}}, then the next landing, then the next.",
+      "success": "Right! Three hops of {{num:-2}} land on {{num:-6}}, so {{alg:3 × (-2) = -6}}. The lift is on floor {{num:-6}}.",
+      "why": "Why is {{alg:3 × (-2)}} the same as {{alg:(-2) + (-2) + (-2)}}?",
+      "model": "Multiplying by 3 means taking a number three times. Taking {{num:-2}} three times is {{alg:(-2) + (-2) + (-2)}}: three hops of 2 to the left, which land on {{num:-6}}.",
+      "feedback": {
+        "count": "Put three points: one where each hop of {{num:-2}} lands.",
+        "hopped-right": "Your hops go to the right. That is {{alg:3 × 2}}. A hop of {{num:-2}} goes 2 to the left.",
+        "wrong": "Every hop must be exactly 2 to the left of the last one: {{num:-2}}, then {{num:-4}}, then … ."
+      }
+    },
+    "sign-pattern": {
+      "title": "Follow the pattern",
+      "prompt": "The dark dots show {{alg:3 × (-2) = -6}}, {{alg:2 × (-2) = -4}}, {{alg:1 × (-2) = -2}} and {{alg:0 × (-2) = 0}}. Each time the first number goes down by 1, the answer goes up by 2. Carry the pattern on: place {{alg:(-1) × (-2)}}, then {{alg:(-2) × (-2)}}, then {{alg:(-3) × (-2)}}.",
+      "hint": "From {{num:-6}} to {{num:-4}} to {{num:-2}} to 0, each answer is 2 more. So the next one is 2 more than 0.",
+      "success": "Excellent! The pattern carries on past zero: 2, 4, 6. So {{alg:(-3) × (-2) = 6}}.",
+      "why": "Use the pattern to explain why a negative number times a negative number is positive.",
+      "model": "In the list {{alg:3 × (-2)}}, {{alg:2 × (-2)}}, {{alg:1 × (-2)}}, {{alg:0 × (-2)}} the answers go up by 2 each time: {{num:-6}}, {{num:-4}}, {{num:-2}}, 0. The pattern doesn't stop at zero, so the next answers are 2, 4, 6. That means {{alg:(-1) × (-2) = 2}} and {{alg:(-3) × (-2) = 6}}.",
+      "feedback": {
+        "count": "Put three points: the answers to {{alg:(-1) × (-2)}}, {{alg:(-2) × (-2)}} and {{alg:(-3) × (-2)}}.",
+        "minus-stays": "Look at the dark dots: the answers are climbing towards zero, 2 more each time. The pattern doesn't turn back at zero; it keeps climbing.",
+        "wrong": "Keep adding 2: after 0 come 2, then 4, then 6."
+      }
+    },
+    "share-the-drop": {
+      "title": "Share the drop",
+      "prompt": "Over 3 hours the temperature fell by 12 degrees, the same amount each hour. That is {{alg:(-12) ÷ 3}}. The dark dot is {{num:-12}}. Tap where one hour's change lands, starting from 0.",
+      "hint": "Three equal hops from 0 must reach {{num:-12}}. How big is one hop? Ask: 3 times what is {{num:-12}}?",
+      "success": "Right! {{alg:(-12) ÷ 3 = -4}}, because {{alg:3 × (-4) = -12}}. The temperature fell 4 degrees each hour.",
+      "why": "How can you check {{alg:(-12) ÷ 3 = -4}} with multiplication? And is {{alg:12 ÷ 3}} the same as {{alg:3 ÷ 12}}?",
+      "model": "Division undoes multiplication: {{alg:3 × (-4) = -12}}, so {{alg:(-12) ÷ 3 = -4}}. Swapping the numbers changes a division: {{alg:12 ÷ 3 = 4}}, but {{alg:3 ÷ 12}} is only a quarter.",
+      "feedback": {
+        "count": "Put one point: the change in one hour.",
+        "sign-lost": "The temperature is falling, so each hour's change is negative. Check: {{alg:3 × 4 = 12}}, not {{num:-12}}.",
+        "added": "That is {{alg:-12 + 3}}. We need to share {{num:-12}} into 3 equal steps.",
+        "too-big": "Not far enough. Three hops of this size wouldn't reach {{num:-12}}.",
+        "too-small": "Too far. Three hops of this size would go past {{num:-12}}."
+      }
+    },
+    "distance-from-zero": {
+      "title": "Five floors away",
+      "prompt": "Ali's lift is 5 floors away from the ground floor (0), but he doesn't say whether it is up or down. Place every floor it could be on. Then use the {{term:absolute-value}}: which numbers have {{alg:|x| = 5}}?",
+      "hint": "Being 5 away from zero can mean 5 steps to the right or 5 steps to the left.",
+      "success": "Well done! 5 and {{num:-5}} are both 5 away from zero, so {{alg:|5| = 5}} and {{alg:|-5| = 5}}.",
+      "why": "Reza wrote {{alg:|-7| = -7}}. Why is this wrong?",
+      "model": "{{alg:|-7|}} is the distance from {{num:-7}} to zero. A distance is never negative: it is 7 steps. So {{alg:|-7| = 7}}. Likewise {{alg:-(-5)}} is the opposite of {{num:-5}}, which is 5, not {{num:-5}}.",
+      "feedback": {
+        "count": "There are two floors that are 5 away from 0. Place both.",
+        "one-side": "Both of your points are on the same floor. Look on the other side of zero too.",
+        "wrong": "Count 5 steps from 0 to the right, and 5 steps from 0 to the left."
+      }
+    },
+    "order-matters": {
+      "title": "Does the order matter?",
+      "prompt": "The dots show {{alg:8 - 5 = 3}} and {{alg:5 - 8 = -3}}: swapping the numbers changed the answer. Which of these gives the same answer when you swap the two numbers?",
+      "hint": "Work each one out both ways. For example, {{alg:12 ÷ (-3)}} and {{alg:(-3) ÷ 12}}.",
+      "success": "Correct! {{alg:(-4) × 3 = -12}} and {{alg:3 × (-4) = -12}}. Multiplication (and addition) are {{term:commutative-property}}: order does not matter.",
+      "why": "Why can you swap the numbers in a multiplication but not in a subtraction?",
+      "model": "{{alg:(-4) × 3}} and {{alg:3 × (-4)}} are both three lots of {{num:-4}}, so they are equal. But {{alg:8 - 5}} starts at 8 and hops left 5, landing on 3, while {{alg:5 - 8}} starts at 5 and hops left 8, landing on {{num:-3}}. Subtraction and division do not have the commutative property.",
+      "feedback": {
+        "empty": "Choose one of the three.",
+        "subtraction-swapped": "Look at the dots: {{alg:8 - 5 = 3}} but {{alg:5 - 8 = -3}}. Subtraction gives the opposite answer when you swap.",
+        "division-swapped": "{{alg:12 ÷ (-3) = -4}}, but {{alg:(-3) ÷ 12}} is only a quarter of {{num:-1}}. Division changes when you swap.",
+        "wrong": "Try each one both ways round."
+      }
+    }
+  }
+}

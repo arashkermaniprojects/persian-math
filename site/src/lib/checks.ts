@@ -24,7 +24,8 @@ type FracSpec = [number, number];
 export type Check =
   /** `bar`: check only that bar (by index), e.g. when another bar is a reference to copy. */
   | { type: 'shaded-equals'; value: FracSpec; exact?: boolean; bar?: number }
-  | { type: 'point-equals'; values: FracSpec[] }
+  /** `traps`: known wrong placements (the same set of points, any order) with their own feedback code, e.g. 7 for −3 + (−4). */
+  | { type: 'point-equals'; values: FracSpec[]; traps?: { values: FracSpec[]; code: string }[] }
   /**
    * `traps`: known wrong answers (compared by value) with their own feedback code, e.g. 2/1 for ¾ − ⅓ from
    * subtracting tops and bottoms. `mixed`: the answer must be written as a mixed number (whole part, proper fraction).
@@ -34,7 +35,8 @@ export type Check =
   | { type: 'answer-integer'; value: number; traps?: { value: number; code: string }[] }
   /** value is written with "." in the YAML, e.g. "2.5"; compared exactly. */
   | { type: 'answer-decimal'; value: string }
-  | { type: 'choice'; options: string[]; correct: number }
+  /** `traps`: a wrong option (by index) with its own feedback code, e.g. 0.333… picked as irrational. */
+  | { type: 'choice'; options: string[]; correct: number; traps?: { choice: number; code: string }[] }
   | { type: 'steps-correct' }
   /** <kg-counters>: counts, marks, colours, equal groups, arrays, factor trees, picked number (engines/lib/counters-check.ts). */
   | CountersCheck
@@ -128,8 +130,10 @@ export function evaluate(check: Check, a: Attempt): Result {
       if (pts.length !== check.values.length) return fail('count');
       const wanted = check.values.map((v) => Frac.of(v));
       const got = pts.map((p) => Frac.of(p));
-      const allFound = wanted.every((w) => got.some((g) => g.equals(w)));
-      if (allFound) return pass;
+      const same = (want: Frac[]) => want.every((w) => got.some((g) => g.equals(w))) && got.every((g) => want.some((w) => w.equals(g)));
+      if (wanted.every((w) => got.some((g) => g.equals(w)))) return pass;
+      const trap = check.traps?.find((t) => t.values.length === got.length && same(t.values.map((v) => Frac.of(v))));
+      if (trap) return fail(trap.code);
       if (got.length === 1) return fail(sizeCode(got[0], wanted[0]));
       return fail('wrong');
     }
@@ -161,7 +165,8 @@ export function evaluate(check: Check, a: Attempt): Result {
     }
     case 'choice': {
       if (a.choice == null) return fail('empty');
-      return a.choice === check.correct ? pass : fail('wrong');
+      if (a.choice === check.correct) return pass;
+      return fail(check.traps?.find((t) => t.choice === a.choice)?.code ?? 'wrong');
     }
     case 'steps-correct':
       return a.state?.stepsCorrect ? pass : fail('wrong');

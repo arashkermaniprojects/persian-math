@@ -12,6 +12,8 @@ describe('rich', () => {
     expect(rich('{{num:2.5}}', 'fa-IR')).toBe('۲/۵');
     expect(rich('{{num:2.5}}', 'fa-AF')).toBe('۲,۵');
     expect(rich('{{num:2.5}}', 'en')).toBe('2.5');
+    // a decimal that goes on is isolated, so the dots stay after its digits in RTL text
+    expect(rich('{{num:0.333…}}', 'fa-IR')).toBe('<bdi dir="ltr">۰/۳۳۳…</bdi>');
   });
 
   it('writes coordinate pairs as a column in fa-IR and as (x, y) elsewhere', () => {
@@ -54,6 +56,9 @@ describe('algebra', () => {
   it('is not broken by the formula isolates of RTL text', () => {
     expect(rich('یعنی {{alg:2 + 3}} = ۵', 'fa-IR')).not.toMatch(/⁦[^⁩]*alg/);
     expect(rich('{{alg:x + 2 + 3}}', 'fa-IR')).toBe('<bdi dir="ltr" class="alg">x + ۲ + ۳</bdi>');
+    // absolute value bars: the sign after an opening bar stays close, the operator after a closing bar gets spaces
+    expect(rich('{{alg:|-7| = 7}}', 'fa-IR')).toBe('<bdi dir="ltr" class="alg">|−۷| = ۷</bdi>');
+    expect(rich('{{alg:|-3| - |5|}}', 'en')).toBe('<bdi dir="ltr" class="alg">|−3| − |5|</bdi>');
   });
 });
 

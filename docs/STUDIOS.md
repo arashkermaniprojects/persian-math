@@ -36,11 +36,11 @@ missions:
 | type | passes when | options |
 |---|---|---|
 | `shaded-equals` | the bar(s) show `value` | `exact: true` also requires the same denominator |
-| `point-equals` | every number-line point is on one of `values` | |
+| `point-equals` | every number-line point is on one of `values` | `traps: [{ values: [[7, 1]], code: two-minuses }]` (a known wrong set of points, any order, gets its own feedback code). Codes: `count`, `too-big`/`too-small` (one point), `wrong` |
 | `answer-equals` | the typed fraction equals `value` | `simplest: true`; `denominator: n`; `mixed: true` (must be a mixed number, else `not-mixed`); `traps: [{ value: [2, 1], code: tops-and-bottoms }]` (a known wrong answer gets its own feedback code) |
 | `answer-integer` | the typed whole number equals `value` | `traps: [{ value: 74, code: reversed }]` (a known wrong number gets its own feedback code) |
 | `answer-decimal` | the typed decimal equals `value` exactly (`value` uses `.` in YAML) | the learner types the locale mark: ۲/۵ (fa-IR), ۲,۵ (fa-AF, ps) or 2.5 (en) |
-| `choice` | the chosen option index is `correct` | `options` is a list of placeholders, e.g. `"{{frac:2/3}}"` |
+| `choice` | the chosen option index is `correct` | `options` is a list of placeholders, e.g. `"{{frac:2/3}}"`; `traps: [{ choice: 2, code: goes-on }]` (a known wrong option gets its own feedback code, else `wrong`) |
 | `steps-correct` | every step of a written method (long division) is right | |
 | `counters` | every given condition on the `counters` engine holds, tested in this order: `count` → `marked` → `left` → `equal` → `each` → `colors` → `array`/`rect` → `tree` → `pick` | `count`/`marked`: a total over the zones in `in`, or one entry per zone (`null` = any); `left` (count − marked); `equal` (all zones in `in` the same size); `each: n`; `colors: [red, yellow]`; `array: [rows, cols]`; `rect`; `anyOrder` (colours/array either way round); `tree` (factor tree ends in primes); `pick` (number tapped) with `traps: [{ pick: 3, code: … }]`. Codes: `too-many`/`too-few`, `marked-too-many`/`marked-too-few`, `not-equal`, `wrong-colors`, `wrong-array`, `not-rect`, `tree-unfinished`, `empty` (nothing picked), `too-big`/`too-small` (pick) |
 | `place-value` | the number shown on the `place-value` engine equals `value` (a number, or a decimal string such as `"3.45"`) | `canonical: true` (every place holds one digit; else `needs-exchange`); `counts: [14, 2]` (exactly these counts per place, lowest first; else `wrong-counts`); `traps: [{ value: 22, code: took-ten }]`. Other codes: `too-big`/`too-small`, `empty` (nothing shown) |
@@ -92,8 +92,8 @@ A failed check returns a **reason code** (e.g. `not-simplest`, `too-big`, `wrong
 - `{{term:id}}`: a glossary term in the page's locale.
 - `{{frac:3/4}}`: a stacked fraction. **Never write a/b inline**, because `/` is the Iranian decimal mark.
 - `{{mixed:2 1/3}}`: a mixed number.
-- `{{num:2.5}}`: a number with locale digits and decimal mark.
-- `{{alg:3x^2 - 2x + 1}}`: an algebra expression or equation (`x = -3`, `(-3)^2`), always left to right with locale digits, − and raised powers; letters stay Latin in every locale (docs/NOTATION.md). Use it for every expression with a letter in RTL text.
+- `{{num:2.5}}`: a number with locale digits and decimal mark. A negative number, or a decimal that goes on (`{{num:0.333…}}`), is isolated left to right.
+- `{{alg:3x^2 - 2x + 1}}`: an algebra expression or equation (`x = -3`, `(-3)^2`), always left to right with locale digits, − and raised powers; letters stay Latin in every locale (docs/NOTATION.md). Use it for every expression with a letter in RTL text, and for signed fractions (`{{alg:-3/4}}`, `{{alg:(-2/3) × 3/4}}`); `|` writes absolute value bars (`{{alg:|-7| = 7}}`). Decimals in it keep `.`, so write decimals with `{{num:…}}`.
 - `{{vec:4,2}}`: a coordinate pair or translation vector, x first. fa-IR writes it as a column in square brackets with x on top, as Iran's G6 «محورهای مختصات» and G7 «بردار انتقال» do; fa-AF, ps and en write `(4, 2)` (Afghan G8 «مختصات یک نقطه در مستوی»).
 - `{{interval:[-2, 4)}}`: interval notation, left to right in every locale with − and locale digits: [−۲, ۴), `{{interval:(-inf, 1] U (3, inf)}}` → (−∞, ۱] ∪ (۳, ∞). The ends are separated by ", ", or "، " in fa-AF and ps (as in sets). Write inequalities with `{{alg:-2 ≤ x < 4}}`.
 - `{{col:4,-3}}`: a column vector (vectors studios). fa-IR: a column in square brackets (Iran G7 ch.8); en: a column in round brackets (UK GCSE); fa-AF, ps: `(4, −3)`, as the Afghan G9 «وکتور انتقال» page writes it.

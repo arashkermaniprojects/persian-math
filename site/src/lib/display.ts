@@ -13,8 +13,10 @@ export function formatDecimal(value: number | string, f: NumberFormat): string {
   const s = String(value);
   const neg = s.startsWith('-');
   const body = (neg ? s.slice(1) : s).replace('.', f.decimal);
-  // The minus sign is isolated LTR so it stays on the left in RTL text, as in both countries' books.
-  return neg ? `<bdi dir="ltr">-${digitsOf(body, f)}</bdi>` : digitsOf(body, f);
+  // The minus sign is isolated LTR so it stays on the left in RTL text, as in both countries' books; so is a decimal
+  // that goes on (۰/۳۳۳…), so the dots stay after its last digit.
+  if (neg) return `<bdi dir="ltr">-${digitsOf(body, f)}</bdi>`;
+  return s.includes('…') ? `<bdi dir="ltr">${digitsOf(body, f)}</bdi>` : digitsOf(body, f);
 }
 
 /**
@@ -47,10 +49,16 @@ function algInner(src: string, digits: string): string {
     fr.push(`<span class="frac"><span class="frac-n">${algInner(unbracket(n), digits)}</span><span class="frac-d">${algInner(unbracket(d), digits)}</span></span>`);
     return `\u0001${fr.length - 1}\u0002`;
   });
-  let out = '', prev = '';
+  let out = '', prev = '', bars = 0;
   for (let i = 0; i < src.length; i++) {
     const ch = src[i];
     if (ch === ' ' || /[⁦-⁩]/.test(ch)) continue;
+    if (ch === '|') {
+      // absolute value bars: an opening bar keeps a sign after it close, as "(" does (|−۷|); a closing one ends an operand
+      out += ch;
+      prev = bars++ % 2 ? 'x' : '(';
+      continue;
+    }
     if (ch === '\u0001') {
       const end = src.indexOf('\u0002', i);
       out += fr[Number(src.slice(i + 1, end))];
