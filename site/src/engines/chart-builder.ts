@@ -2,6 +2,7 @@
 // line graphs and pie charts. All SVG, no libraries. Contract: docs/STUDIOS.md ("Engine contract", "Engine options").
 // Charts run left → right with values going up (or right) in every locale; tables follow the page direction
 // (docs/NOTATION.md "Charts").
+// Extension point: on-demand modules (chart-builder/<name>.ts, e.g. `summary`) plug in through MODULES / ChartModule.
 import { digitsOf } from '../lib/display';
 import { asciiDigits } from '../lib/fraction';
 import { lerp, level, mean, niceStep, paintedValues, paintFrom, sectorPath, slices, snapTo, symbols, tallyGroups, ticks, twoLines } from './lib/chart-builder-model';
@@ -12,7 +13,7 @@ interface Cat { key: string; icon?: string; color?: string }
 
 export interface ChartBuilderConfig {
   /** Category keys (label = studio engine label `cat-<key>`), or { key, icon, color }. */
-  categories: (string | Cat)[];
+  categories?: (string | Cat)[];
   /** Picture for every category without its own (pictogram symbol, survey cards). */
   icon?: string;
   /** Survey: one card per answer (category keys). The learner tallies every card. */
@@ -57,7 +58,44 @@ export interface ChartBuilderConfig {
   meanLine?: boolean;
   /** Icon hint above the engine + label `instruction-<name>` (sort, tally, count, build, drag, paint, pick, choose, level). */
   instruction?: string;
+  /** An on-demand module (see MODULES), e.g. `summary`; its options sit under a key of the same name. */
+  module?: string;
 }
+
+/** What the engine offers a module. */
+export interface ChartHost extends HTMLElement {
+  readonly width: number;
+  /** Engine label (`label-x` → dataset.labelX), or `fb`. */
+  L(k: string, fb?: string): string;
+  /** A number in the locale's digits and decimal mark. */
+  num(n: number): string;
+  /** Tell the studio something changed (and redraw when `render`). */
+  changed(render?: boolean): void;
+}
+/** What an on-demand module (chart-builder/<name>.ts) plugs into the engine. Elements it draws carry `data-k` (a
+ *  stable key, so focus survives a redraw); `data-a` clicks the engine does not know go to `act` (prefix a module's
+ *  actions, e.g. `s-card`, so they never meet the engine's own: card, add, del, less, more, brush, sector, pick, kind). */
+export interface ChartModule {
+  /** HTML drawn after the engine's own table and chart. */
+  html(): string;
+  /** A click on a [data-a] element the engine does not handle; true = changed (redraw + kg-change). */
+  act?(t: HTMLElement): boolean;
+  /** A key pressed inside the engine; true = handled. */
+  key?(e: KeyboardEvent): boolean;
+  /** Pointer down not on an engine slider; true = the module took it (then move/up follow). */
+  down?(e: PointerEvent): boolean;
+  move?(e: PointerEvent): void;
+  up?(): void;
+  /** An input or select of the module changed; true = changed (kg-change, no redraw). */
+  input?(t: HTMLInputElement | HTMLSelectElement): boolean;
+  /** Merged into the engine state (e.g. { summary: {...} }). */
+  state(): Record<string, unknown>;
+}
+type ModuleLoader = () => Promise<{ mount(host: ChartHost, cfg: ChartBuilderConfig): ChartModule }>;
+/** On-demand modules, loaded only when a mission's setup names them (each its own chunk). Planned: grouped. */
+export const MODULES: Record<string, ModuleLoader> = {
+  summary: () => import('./chart-builder/summary'),
+};
 
 const NS = 'http://www.w3.org/2000/svg';
 const COLORS = ['blue', 'orange', 'green', 'purple', 'red', 'yellow', 'pink', 'brown'];
@@ -108,14 +146,17 @@ export class ChartBuilder extends HTMLElement {
   private marks: number[][] = [];
   private brush = 0;
   private drag = -1;
-  private width = 340;
+  width = 340;
   private say = '';
   private ro?: ResizeObserver;
   private built = false;
+  private mod?: ChartModule;
+  private gen = 0;
+  ready: Promise<void> = Promise.resolve();
 
   set config(c: ChartBuilderConfig) {
     this.cfg = c;
-    this.cats = c.categories.map((k, i) => {
+    this.cats = (c.categories ?? []).map((k, i) => {
       const o = typeof k === 'string' ? { key: k } : k;
       return { ...o, icon: o.icon ?? c.icon ?? 'square', color: o.color ?? COLORS[i % COLORS.length] };
     });
@@ -131,6 +172,14 @@ export class ChartBuilder extends HTMLElement {
     this.brush = 0;
     if (c.chart === 'pie' && c.sectors) this.paint = c.edit ? Array(c.sectors).fill(-1) : paintFrom(c.values ?? [], c.sectors, this.key);
     this.vals = (c.edit ? c.start : c.values)?.slice() ?? z();
+    this.mod = undefined;
+    const load = c.module ? MODULES[c.module] : undefined, gen = ++this.gen;
+    if (c.module && !load) throw new Error(`Unknown chart-builder module ${c.module}`);
+    if (load) this.ready = load().then((m) => {
+      if (gen !== this.gen) return; // a newer config arrived while this one was loading
+      this.mod = m.mount(this, c);
+      this.render();
+    });
     this.render();
   }
 
@@ -146,6 +195,7 @@ export class ChartBuilder extends HTMLElement {
       left: this.used.filter((u) => u < 0).length,
       cat: this.picked,
       chart: this.kind,
+      ...this.mod?.state(),
     };
   }
 
@@ -163,11 +213,11 @@ export class ChartBuilder extends HTMLElement {
   /** Smallest change of a bar, point or pictogram row. */
   private get inc() { return this.cfg.chart === 'pictogram' ? this.key / this.part : this.cfg.snap ?? 1; }
 
-  private L(k: string, fb = '') {
+  L(k: string, fb = '') {
     return this.dataset[k.replace(/-(\w)/g, (_, ch: string) => ch.toUpperCase())] ?? fb;
   }
   private name(i: number) { return this.L(`cat-${this.cats[i].key}`, this.cats[i].key); }
-  private num(n: number) {
+  num(n: number) {
     return digitsOf(String(+n.toFixed(2)).replace('.', this.dataset.decimal ?? '.'), { digits: this.dataset.digits ?? '0123456789', decimal: '.' });
   }
   private fill(t: string, i: number, n?: number) {
@@ -187,14 +237,14 @@ export class ChartBuilder extends HTMLElement {
     this.built = true;
     this.addEventListener('click', (e) => this.click(e));
     this.addEventListener('pointerdown', (e) => this.down(e));
-    this.addEventListener('pointermove', (e) => this.drag >= 0 && this.setFrom(this.drag, e));
-    const up = () => (this.drag = -1);
+    this.addEventListener('pointermove', (e) => (this.drag >= 0 ? this.setFrom(this.drag, e) : this.mod?.move?.(e)));
+    const up = () => ((this.drag = -1), this.mod?.up?.());
     this.addEventListener('pointerup', up);
     this.addEventListener('pointercancel', up);
     this.addEventListener('keydown', (e) => this.key_(e));
     this.addEventListener('input', (e) => {
       const t = e.target as HTMLInputElement;
-      if (!t.dataset.count) return;
+      if (!t.dataset.count) return this.mod?.input?.(t) && this.changed();
       const v = asciiDigits(t.value.trim());
       this.typed[+t.dataset.count] = /^\d+$/.test(v) ? +v : null;
       this.changed();
@@ -211,7 +261,7 @@ export class ChartBuilder extends HTMLElement {
 
   disconnectedCallback() { this.ro?.disconnect(); }
 
-  private changed(render = false) {
+  changed(render = false) {
     if (render) this.render();
     this.dispatchEvent(new CustomEvent('kg-change', { bubbles: true, detail: this.state }));
   }
@@ -264,7 +314,7 @@ export class ChartBuilder extends HTMLElement {
         this.kind = c.choose![i];
         break;
       default:
-        return;
+        if (!this.mod?.act?.(t)) return;
     }
     this.changed(true);
   }
@@ -294,7 +344,10 @@ export class ChartBuilder extends HTMLElement {
 
   private down(e: PointerEvent) {
     const t = (e.target as Element).closest<SVGElement | HTMLElement>('[data-s]');
-    if (!t) return;
+    if (!t) {
+      if (this.mod?.down?.(e)) (e.preventDefault(), this.setPointerCapture?.(e.pointerId));
+      return;
+    }
     e.preventDefault();
     this.drag = Number(t.dataset.s);
     this.setPointerCapture?.(e.pointerId); // the host survives re-renders while dragging
@@ -314,6 +367,7 @@ export class ChartBuilder extends HTMLElement {
 
   private key_(e: KeyboardEvent) {
     const a = e.target as HTMLElement;
+    if (this.mod?.key?.(e)) return e.preventDefault();
     // SVG sectors and columns act as buttons
     if ((e.key === 'Enter' || e.key === ' ') && a.dataset?.a && a.tagName !== 'BUTTON') {
       e.preventDefault();
@@ -341,7 +395,7 @@ export class ChartBuilder extends HTMLElement {
     const c = this.cfg;
     const d = (document.activeElement as HTMLElement | null)?.dataset ?? {};
     const had = this.contains(document.activeElement);
-    const f = d.s ? `[data-s="${d.s}"]` : d.count ? `[data-count="${d.count}"]` : d.a ? `[data-a="${d.a}"][data-i="${d.i}"]` : '';
+    const f = d.k ? `[data-k="${d.k}"]` : d.s ? `[data-s="${d.s}"]` : d.count ? `[data-count="${d.count}"]` : d.a ? `[data-a="${d.a}"][data-i="${d.i}"]` : '';
     let h = '';
     if (c.instruction)
       h += `<p class="kg-cb-hint"><span class="kg-cb-i" aria-hidden="true">${this.hintIcon(c.instruction)}</span>${esc(this.L(`instruction-${c.instruction}`))}</p>`;
@@ -350,6 +404,7 @@ export class ChartBuilder extends HTMLElement {
     if (c.chart === 'pie') h += this.pie();
     else if (c.chart && !this.rows) h += this.columns();
     if (c.chart === 'pictogram') h += this.keyLine();
+    if (this.mod) h += this.mod.html();
     if (c.level) h += `<p class="kg-cb-pool" role="status">${esc(this.fill(this.L('label-pool', '{n}'), 0, this.pool))}</p>`;
     if (c.choose) h += this.choose();
     h += `<p class="kg-cb-say" role="status">${esc(this.say)}</p>`;

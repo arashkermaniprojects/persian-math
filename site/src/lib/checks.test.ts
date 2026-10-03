@@ -183,3 +183,12 @@ describe('algebra check (kg-algebra-tiles)', () => {
     expect(evaluate({ type: 'algebra', written: 'x' }, {}).code).toBe('empty');
   });
 });
+
+describe('summary check (kg-chart-builder summary module)', () => {
+  it('routes to the summary check and its reason codes', () => {
+    const summary = { sets: [{ key: 'a', given: [7, 3, 9], data: [7, 3, 9], line: [3, 7, 9], marked: [7] }], typed: { range: 9 }, best: null, compare: {} };
+    expect(evaluate({ type: 'summary', ordered: true, marked: 'middle' }, { state: { summary } })).toEqual({ ok: true });
+    expect(evaluate({ type: 'summary', range: 6 }, { state: { summary } }).code).toBe('range-is-max');
+    expect(evaluate({ type: 'summary', median: 7 }, {}).code).toBe('empty');
+  });
+});

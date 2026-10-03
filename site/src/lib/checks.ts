@@ -16,6 +16,7 @@ import { checkCoord, type CoordCheck, type CoordState } from '../engines/lib/coo
 import { checkSets, type SetsCheck, type SetsState } from '../engines/lib/discrete-lab-check';
 import { checkSolid, type SolidCheck, type SolidState } from '../engines/lib/solid-viewer-check';
 import { checkAlgebra, type AlgebraCheck, type AlgebraState } from '../engines/lib/algebra-tiles-check';
+import { checkSummary, type SummaryCheck, type SummaryState } from '../engines/lib/chart-builder-summary';
 
 type FracSpec = [number, number];
 
@@ -61,7 +62,9 @@ export type Check =
   /** <kg-solid-viewer>: faces picked, turned, net opened, layers filled, typed volume/area with its unit (engines/lib/solid-viewer-check.ts). */
   | SolidCheck
   /** <kg-algebra-tiles>: the mat, zero pairs, rectangle, grid, the typed answer (engines/lib/algebra-tiles-check.ts). */
-  | AlgebraCheck;
+  | AlgebraCheck
+  /** <kg-chart-builder> `summary` module: cards in order, marked middle/mode/ends, typed averages and range, best average, comparison sentences (engines/lib/chart-builder-summary.ts). */
+  | SummaryCheck;
 
 export interface Attempt {
   /** Engine state (shape depends on the engine). */
@@ -79,7 +82,7 @@ export interface Attempt {
     answered?: number;
     correct?: number;
     done?: boolean;
-  } & CcmState & MeasureState & { pattern?: PatternState } & ChartState & { chance?: ChanceState } & { board?: ShapeBoardState } & { plane?: CoordState } & { sets?: SetsState } & { solid?: SolidState } & { algebra?: AlgebraState };
+  } & CcmState & MeasureState & { pattern?: PatternState } & ChartState & { chance?: ChanceState } & { board?: ShapeBoardState } & { plane?: CoordState } & { sets?: SetsState } & { solid?: SolidState } & { algebra?: AlgebraState } & { summary?: SummaryState };
   fraction?: WrittenFrac | null;
   integer?: number | null;
   /** Typed decimal, already parsed exactly (null if unparseable). */
@@ -190,5 +193,7 @@ export function evaluate(check: Check, a: Attempt): Result {
       return checkSolid(check, a.state?.solid);
     case 'algebra':
       return checkAlgebra(check, a.state);
+    case 'summary':
+      return checkSummary(check, a.state?.summary);
   }
 }

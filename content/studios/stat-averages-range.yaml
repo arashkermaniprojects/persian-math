@@ -1,0 +1,105 @@
+id: stat-averages-range
+engine: chart-builder
+strand: stat
+order: 4
+concepts: [stat.mode, stat.median, stat.spread, stat.averages, stat.mean]
+# Pilot of the chart-builder `summary` module (site/src/engines/chart-builder/summary.ts, loaded on demand).
+# Afghan G7 ch.7 «مد (Mode)» p.187 and G9 ch.8 «میانه، ساحهٔ تحول» p.195; Iran G8 ch.8 «میانگین داده‌ها» p.124
+# (with «دامنهٔ تغییرات», G08_riazi_hashtom.pdf p.129) and G10 آمار for median and mode; UK KS3 Statistics "measures
+# of central tendency (mean, mode, median) and spread (range …)". The median is found by writing the data in order
+# first, as every book does; for an even count it is halfway between the two middle values. The mean links back to
+# the levelled bars of stat-pie-mean (Iran G5 «میانگین»): ▲ marks the balance point of the dots.
+# Cards and dot plots run left to right in every locale (docs/NOTATION.md "Charts").
+missions:
+  # Seven days of reading, in minutes, dealt in the order of the week: 35 20 45 15 40 25 30. In order:
+  # 15 20 25 30 35 40 45, so the median is 30. The classic slip: the middle card of the unordered row (15).
+  - id: median-odd
+    setup:
+      module: summary
+      summary:
+        numbers: [35, 20, 45, 15, 40, 25, 30]
+        view: line
+        order: true
+        mark: true
+    check: { type: summary, ordered: true, marked: middle }
+  # Six friends' books read in a term: 8 3 9 6 4 7. In order 3 4 6 7 8 9: two middle cards, 6 and 7, so the
+  # median is 6.5. Slips: one middle card only (6 or 7: even-middle), the middle of the unordered row (9 and 6 → 7.5).
+  - id: median-even
+    setup:
+      module: summary
+      summary:
+        numbers: [8, 3, 9, 6, 4, 7]
+        view: line
+        order: true
+        mark: true
+        ask: [median]
+    check: { type: summary, ordered: true, marked: middle, median: 6.5 }
+  # Shoe sizes of 12 pupils on a dot plot: 36 37 37 37 38 38 38 38 39 39 40 41. Mode 38 (4 pupils), range
+  # 41 − 36 = 5. Slips: the mode given as its frequency (4), the range as the largest value (41).
+  - id: mode-range
+    setup:
+      module: summary
+      summary:
+        numbers: [38, 37, 39, 38, 40, 36, 38, 37, 39, 38, 41, 37]
+        min: 35
+        max: 42
+        mark: true
+        axis: size
+        ask: [mode, range]
+    check: { type: summary, mode: 38, range: 5 }
+  # Sara's quiz scores: 12 14 14 15 15 (mean 14 = median 14). The last 15 was a mistake: it is 20. Dragging it
+  # moves ▲ (the balance point, the mean) but not the median: new mean 75 ÷ 5 = 15. Slips: not dragged, the old
+  # mean or the median (14), the total (75).
+  - id: mean-outlier
+    setup:
+      module: summary
+      summary:
+        numbers: [12, 14, 14, 15, 15]
+        min: 10
+        max: 20
+        drag: [4]
+        axis: score
+        show: [median, range, balance]
+        ask: [mean]
+    check: { type: summary, moved: true, mean: 15 }
+  # Daily pay in a small workshop (in thousands): 3 3 3 4 5 6 32 (the owner). Mean 56 ÷ 7 = 8, median 4, mode 3.
+  # Six of the seven earn less than the mean, so the median describes a typical worker best.
+  - id: best-wages
+    setup:
+      module: summary
+      summary:
+        numbers: [3, 3, 3, 4, 5, 6, 32]
+        min: 0
+        max: 32
+        step: 4
+        axis: wage
+        show: [mean, median, mode]
+        best: [mean, median, mode]
+    check:
+      type: summary
+      best: median
+      traps:
+        - { best: mean, code: mean-pulled }
+        - { best: mode, code: mode-lowest }
+  # Favourite colours of 20 pupils: words, not numbers (categorical data). Only the mode makes sense: blue.
+  - id: best-colours
+    setup:
+      module: summary
+      categories:
+        - { key: red, icon: square, color: red }
+        - { key: blue, icon: square, color: blue }
+        - { key: green, icon: square, color: green }
+        - { key: yellow, icon: square, color: yellow }
+      values: [5, 8, 4, 3]
+      table: { head: colour, tally: hide, count: show }
+      chart: bar
+      max: 10
+      step: 2
+      summary:
+        best: [mean, median, mode]
+    check:
+      type: summary
+      best: mode
+      traps:
+        - { best: mean, code: categorical }
+        - { best: median, code: categorical }
