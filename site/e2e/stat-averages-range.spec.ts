@@ -184,6 +184,7 @@ test('en mean-outlier with the keyboard: arrow keys move the dot and the balance
   await tab(page, 3);
   const handle = cb(page).locator('circle.hd');
   const fulcrum = cb(page).locator('path.fulcrum');
+  await expect(fulcrum).toBeVisible();
   const x0 = (await fulcrum.boundingBox())!.x;
   await handle.focus();
   for (let k = 0; k < 5; k++) await page.keyboard.press('ArrowRight');
