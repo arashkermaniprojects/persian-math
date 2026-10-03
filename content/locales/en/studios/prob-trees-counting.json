@@ -1,0 +1,155 @@
+{
+  "title": "Tree diagrams, the product rule and independent events",
+  "summary": "Grow tree diagrams to count outfits and race results, write probabilities on the branches, multiply along a path, add paths, and see what changes when the bead is not put back.",
+  "guide": [
+    "This studio follows the counting and probability chapters of Iran's Year 10 (\"counting without counting\", the {{term:counting-principle}}), Afghanistan's Year 8 (the {{term:tree-diagram}} and the first rule of paths, the product) and Year 9, and GCSE tree diagrams and frequency trees in England.",
+    "Your child grows a tree by tapping + on a point, or by choosing which branches grow. Tapping a ? on a branch opens a box under the diagram to write a fraction. Leaves can be tapped to choose the {{term:outcome}}s of an {{term:event}}.",
+    "Common mistakes this studio works on: adding the choices (3 shirts and 2 trousers make \"5\" outfits), adding along a branch instead of multiplying, branch probabilities that do not add up to 1, forgetting that the second draw changes when the bead is not put back, and thinking a coin \"remembers\" the first toss."
+  ],
+  "engine": {
+    "label-then": "{a}, then {b}",
+    "label-start": "the start",
+    "label-frac": "{n} over {d}",
+    "label-empty": "empty",
+    "label-branch": "probability on the branch {b}",
+    "label-path": "probability of {b}",
+    "label-node": "number for {b}",
+    "label-grow": "branches from {b}",
+    "label-grown": "{n} branches grew from {b}",
+    "label-num": "numerator",
+    "label-den": "denominator",
+    "item-red": "red",
+    "item-blue": "blue",
+    "item-green": "green",
+    "item-black": "black",
+    "item-grey": "grey",
+    "item-zahra": "Zahra",
+    "item-sara": "Sara",
+    "item-maryam": "Maryam",
+    "item-h": "heads",
+    "item-t": "tails",
+    "item-r": "red",
+    "item-b": "blue",
+    "item-young": "under 18",
+    "item-adult": "18 or over",
+    "item-tennis": "tennis",
+    "item-none": "no tennis",
+    "opt-yes": "yes",
+    "opt-no": "no",
+    "row-memory": "Does the first toss change the chances for the second toss?",
+    "instruction-grow": "Tap + to grow the branches.",
+    "instruction-branch": "Tap each ? and write the number."
+  },
+  "missions": {
+    "outfits": {
+      "title": "How many outfits?",
+      "prompt": "Sara has 3 shirts (red, blue, green) and 2 pairs of trousers (black, grey). Grow the {{term:tree-diagram}}: first the shirt, then the trousers. How many different outfits can she wear?",
+      "hint": "Every shirt can go with every pair of trousers. Grow the branches from every shirt, then count the ends of the tree.",
+      "success": "Well done! 3 shirts, and 2 trousers for each one: 3 × 2 = 6 outfits. Each end of the tree is one outfit.",
+      "why": "Why do we multiply 3 × 2 and not add 3 + 2?",
+      "model": "Because the trousers are chosen after the shirt, and for each of the 3 shirts there are 2 trousers. So there are 2 + 2 + 2 = 3 × 2 outcomes. This is the {{term:counting-principle}}: if the first step can be done in m ways and the second in n ways, both together can be done in m × n ways. Adding is for choosing one thing OR the other, not one AND the other.",
+      "feedback": {
+        "not-grown": "The tree is not finished. Tap + on every shirt so its trousers grow.",
+        "sum-not-product": "3 + 2 = 5 counts the shirts and the trousers, not the outfits. Count the ends of the tree: every shirt goes with 2 trousers.",
+        "one-stage": "That is only one stage. An outfit is a shirt AND trousers: count the ends of the tree.",
+        "empty": "Write how many outfits there are.",
+        "too-big": "Too many. Count the ends of the tree.",
+        "too-small": "Too few. Count every end of the tree."
+      }
+    },
+    "race-places": {
+      "title": "First and second place",
+      "prompt": "Zahra, Sara and Maryam run a race. In how many ways can first and second place be won? Tap + to choose the branches: first place, then second place.",
+      "hint": "Can the girl who came first also come second? After first place, how many runners are left?",
+      "success": "Well done! 3 runners can come first, and then 2 are left for second: 3 × 2 = 6 ways.",
+      "why": "Why are there 2 branches after each first place, not 3?",
+      "model": "The runner who won first place cannot also come second. So for second place only the other 2 runners are left, and the second stage has 2 branches: 3 × 2 = 6. If the same person could be chosen again (like putting a card back), it would be 3 × 3 = 9.",
+      "feedback": {
+        "not-grown": "The tree is not finished. Tap + on every point and choose its branches.",
+        "replacement-ignored": "Someone came first and second at the same time! The winner of first place cannot also be second. Tap the point again and take that branch away.",
+        "branch-missing": "A runner is missing. After first place, every other runner can still come second.",
+        "branch-extra": "There is a branch that cannot happen.",
+        "sum-not-product": "3 + 2 adds the choices. Count the ends of the tree: for each first place there are 2 second places.",
+        "empty": "Write the number of ways.",
+        "too-big": "Too many. A runner cannot take two places.",
+        "too-small": "Too few. Count every end of the tree."
+      }
+    },
+    "two-coins": {
+      "title": "Two coin tosses",
+      "prompt": "A coin is tossed twice. The {{term:probability}} of heads on the first toss is {{frac:1/2}}. Write the probabilities for the second toss on the branches, then the probability of each path at the end of the tree. Then answer the question under the tree.",
+      "hint": "The probability of a path is the probabilities along it multiplied together. A coin does not remember what it did before.",
+      "success": "Well done! Each branch is {{frac:1/2}}, and each path is {{frac:1/2}} × {{frac:1/2}} = {{frac:1/4}}. The four paths add up to 1.",
+      "why": "Why is the probability of heads, then heads {{frac:1/4}} and not {{frac:1/2}} + {{frac:1/2}}?",
+      "model": "Heads, then heads happens in only one quarter of the cases: in half of the tries the first toss is heads, and in half of those the second is heads too. Half of a half is {{frac:1/2}} × {{frac:1/2}} = {{frac:1/4}}. Adding gives 1, which would mean it always happens. The two tosses are {{term:independent-events}}: the first one does not change the second.",
+      "feedback": {
+        "rows-unanswered": "Answer the question under the tree too.",
+        "dependence-assumed": "A coin has no memory. Whatever the first toss was, the second toss is still {{frac:1/2}} heads and {{frac:1/2}} tails. These are {{term:independent-events}}.",
+        "branch-empty": "Some branches still have a ?. Tap each one and write its probability.",
+        "branches-not-one": "The branches from one point must add up to 1: one of them always happens.",
+        "branch-wrong": "A branch is not right. On the second toss heads and tails are still equally likely.",
+        "product-empty": "Write the probability of each path at the end of the tree.",
+        "added-along-branch": "You added along the path. Along a path we multiply: {{frac:1/2}} × {{frac:1/2}}.",
+        "product-wrong": "A path probability is not right. Multiply the branches along the path."
+      }
+    },
+    "with-replacement": {
+      "title": "Putting the bead back",
+      "prompt": "A bag has 3 red beads and 2 blue beads. Ali takes a bead, looks at it, puts it back, and takes another. Write the probabilities for the second draw. Then tap the ends of the paths where both beads are the same colour, and write the probability of that {{term:event}}.",
+      "hint": "After the bead is put back, the bag is the same as at the start. For \"same colour\" there are two paths: multiply along each one, then add the two paths.",
+      "success": "Well done! P(same colour) = {{frac:3/5}} × {{frac:3/5}} + {{frac:2/5}} × {{frac:2/5}} = {{frac:9/25}} + {{frac:4/25}} = {{frac:13/25}}.",
+      "why": "Why do we add the two paths here, after multiplying along each one?",
+      "model": "Along one path, two things happen one after the other (red AND red), so we multiply. But \"the same colour\" can happen in two separate ways: red-red OR blue-blue. These paths never happen together, so we add their probabilities: {{frac:9/25}} + {{frac:4/25}} = {{frac:13/25}}.",
+      "feedback": {
+        "branch-empty": "Some branches still have a ?. Tap each one and write its probability.",
+        "branches-not-one": "The branches from one point must add up to 1.",
+        "branch-wrong": "A branch is not right. The bead was put back, so there are 3 red and 2 blue again.",
+        "replacement-ignored": "The bead was put back, so the bag is full again: there are 5 beads.",
+        "event-empty": "Tap the ends of the paths where both beads are the same colour.",
+        "different-not-same": "Those are the paths with two different colours. Choose red, then red and blue, then blue.",
+        "one-path": "There is another way to get the same colour: red twice OR blue twice. Add both paths.",
+        "event-missing": "A path with the same colour is missing.",
+        "event-extra": "You chose a path where the colours are different.",
+        "added-along-branch": "Along a path we multiply, not add. Then add the two paths.",
+        "empty": "Write the probability as a fraction.",
+        "prob-wrong": "Not right yet. Multiply along each of the two paths, then add."
+      }
+    },
+    "without-replacement": {
+      "title": "Not putting the bead back",
+      "prompt": "The same bag: 3 red beads and 2 blue beads. This time Ali does not put the first bead back. Write the probabilities for the second draw. Then write the probability that both beads are red.",
+      "hint": "After a red bead is taken out, how many beads are left? How many of them are red?",
+      "success": "Well done! After a red one there are 4 beads, 2 of them red. P(red, red) = {{frac:3/5}} × {{frac:2/4}} = {{frac:6/20}} = {{frac:3/10}}.",
+      "why": "Why is the second branch {{frac:2/4}} here, and not {{frac:3/5}} as before?",
+      "model": "The first red bead is not put back. There are now only 4 beads in the bag, and only 2 of them are red, so the second branch is {{frac:2/4}}. The second draw depends on the first: these events are not independent. With replacement the bag would be the same again and the branch would be {{frac:3/5}}.",
+      "feedback": {
+        "branch-empty": "Some branches still have a ?. Tap each one and write its probability.",
+        "replacement-ignored": "The bead was not put back! After the first draw there are only 4 beads left. Count the colours again.",
+        "branches-not-one": "The branches from one point must add up to 1. With 4 beads left, the denominators are 4.",
+        "branch-wrong": "A branch is not right. After the first bead, how many of each colour are left?",
+        "added-along-branch": "Along a path we multiply: {{frac:3/5}} × {{frac:2/4}}.",
+        "one-branch": "That is only the second branch. Red, then red is both branches multiplied together.",
+        "empty": "Write the probability as a fraction.",
+        "prob-wrong": "Not right yet. Multiply the two branches along the red, then red path."
+      }
+    },
+    "frequency-tree": {
+      "title": "A frequency tree",
+      "prompt": "A sports club has 80 members. 35 are under 18. 20 of the under-18s play tennis, and 12 of the adults play tennis. Fill in the missing numbers in the frequency tree. Then say how many members play tennis.",
+      "hint": "The two branches from a box add up to that box: 35 + ? = 80.",
+      "success": "Well done! 45 adults, 15 under-18s and 33 adults who do not play tennis. 20 + 12 = 32 members play tennis.",
+      "why": "Why must the two numbers at the end of the branches from a box add up to that box?",
+      "model": "Every member in that box goes down exactly one of the branches: they either play tennis or they do not. No one is lost and no one is counted twice, so the branches add up to the box. The probability that a member plays tennis is then {{frac:32/80}}.",
+      "feedback": {
+        "count-empty": "Some boxes are still empty. Tap each ? and write the number.",
+        "copied-branch": "The adults are the members who are not under 18: 80 − 35.",
+        "parts-not-total": "The branches from a box must add up to that box.",
+        "count-wrong": "A number is not right. Use the totals.",
+        "empty": "Write how many members play tennis.",
+        "one-branch": "That is only one group. Add the tennis players under 18 and the adult ones.",
+        "too-big": "Too many. Add only the two tennis boxes.",
+        "too-small": "Too few. Add both tennis boxes."
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 // Answer checking for <kg-discrete-lab> (check type `sets`, docs/STUDIOS.md). Pure, so lib/checks.ts can use it.
 import { exprRegions, inRegion, OUT, repeats, sameSet, setsOf, symbolFamily, type Region } from './discrete-lab-sets';
+import { checkTree, type TreeCheck, type TreeState, type TreeTrap } from './discrete-lab-tree';
 
 type Val = string | number;
 
@@ -22,6 +23,11 @@ export interface SetsTrap {
   pick?: string;
   /** The typed whole number. */
   answer?: number;
+  /** Module `tree`: a branch probability, a path product or a frequency count written as `value`; leaves picked for the event. */
+  branch?: string;
+  product?: string;
+  node?: string;
+  leaves?: string[];
 }
 
 export interface SetsCheck {
@@ -46,6 +52,8 @@ export interface SetsCheck {
   answer?: number;
   /** The typed fraction (`answer: fraction`), e.g. a probability read from the table. */
   probability?: [number, number];
+  /** Module `tree`: grown, branch probabilities, path products, frequency counts, the event's leaves (lib/discrete-lab-tree.ts). */
+  tree?: TreeCheck;
   traps?: SetsTrap[];
 }
 
@@ -65,8 +73,8 @@ export interface SetsState {
   written?: Record<string, string[]>;
   rows?: SetsRow[];
   table?: { cells: Record<string, number | null>; truth: Record<string, number> };
-  /** Module `tree` (prob-trees-counting) reports its branches here; checked by its own `tree` condition. */
-  tree?: unknown;
+  /** Module `tree`: the learner's tree, the probabilities and counts written, the leaves picked (lib/discrete-lab-tree.ts). */
+  tree?: TreeState;
 }
 
 export interface SetsInput { integer?: number | null; fraction?: { n: number; d: number; whole?: number } | null }
@@ -88,7 +96,7 @@ function checkLayout(check: SetsCheck, layout = 'overlap'): Result | null {
 
 /**
  * Conditions are tested in this order (a wrong nesting or separation of the ovals comes first):
- * regions → members → counts → subset → shaded → written → rows → table → answer → probability. */
+ * regions → members → counts → subset → shaded → written → rows → table → tree → answer → probability. */
 export function checkSets(check: SetsCheck, s: SetsState = {}, input: SetsInput = {}): Result {
   const traps = check.traps ?? [];
   const subset = checkLayout(check, s.layout);
@@ -180,17 +188,23 @@ export function checkSets(check: SetsCheck, s: SetsState = {}, input: SetsInput 
       return fail(bad.some((k) => k.includes('t')) ? 'total-wrong' : 'table-wrong');
     }
   }
+  if (check.tree) {
+    const r = checkTree(check.tree, s.tree, traps as TreeTrap[]);
+    if (r) return r;
+  }
   if (check.answer !== undefined) {
     const n = input.integer;
     if (n == null) return fail('empty');
-    if (n !== check.answer) return fail(traps.find((t) => t.answer === n)?.code ?? (n > check.answer ? 'too-big' : 'too-small'));
+    // 3 shirts and 2 trousers make 5 outfits: the stages added instead of multiplied.
+    const sum = s.tree && n === s.tree.sum ? 'sum-not-product' : undefined;
+    if (n !== check.answer) return fail(traps.find((t) => t.answer === n)?.code ?? sum ?? (n > check.answer ? 'too-big' : 'too-small'));
   }
   if (check.probability) {
     const f = input.fraction;
     if (!f || !f.d) return fail('empty');
     const n = f.n + (f.whole ?? 0) * f.d, [a, b] = check.probability;
     if (n * b !== a * f.d) {
-      const t = traps.find((t) => Array.isArray(t.value) && t.value.length === 2 && !t.written && n * +t.value[1] === +t.value[0] * f.d);
+      const t = traps.find((t) => Array.isArray(t.value) && t.value.length === 2 && !t.written && !t.branch && !t.product && n * +t.value[1] === +t.value[0] * f.d);
       return fail(t?.code ?? 'prob-wrong');
     }
   }

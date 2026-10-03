@@ -1,8 +1,10 @@
-// <kg-discrete-lab>: sets, Venn diagrams and two-way tables (later: probability trees).
+// <kg-discrete-lab>: sets, Venn diagrams, two-way tables and tree diagrams.
 //   venn:  element cards and set ovals inside the universal rectangle. Drag (or tap, then tap a region; or use the
 //          region buttons from the keyboard) cards into regions, nest one oval in another for ⊆, tap regions to shade
 //          A ∪ B, A ∩ B, A − B, A′, type region counts, and flip the same data into a two-way table (discrete-lab/venn.ts)
 //   table: a two-way table with totals; the learner fills cells or totals (discrete-lab/table.ts)
+//   tree:  module `tree`, loaded only when a mission's setup has `tree`: grow branches, write probabilities on them,
+//          multiply along a path, pick the leaves of an event, frequency trees (discrete-lab/tree.ts)
 // Every mode can add, under the view: sets written in braces from a card tray, and statement rows such as
 // "{۴} ☐ A" with ∈ / ⊆ / = buttons, or "is this set finite?" (discrete-lab/panels.ts).
 // Contract: docs/STUDIOS.md ("Engine contract", "Engine options → discrete-lab"). Maths and checks:
@@ -10,29 +12,30 @@
 // locale (docs/NOTATION.md "Sets").
 //
 // Extension point for modules: a mode is a file in discrete-lab/ exporting mount(host, cfg) → View; add it to MODES.
-// The `tree` module (prob-trees-counting) plugs in as `tree: () => import('./discrete-lab/tree')`, puts its state
-// under `sets.tree` and its condition `tree` into lib/discrete-lab-check.ts.
+// Each is its own chunk, so a page loads only the view its missions use.
 import type { SetsState } from './lib/discrete-lab-check';
 import { setSep } from '../lib/display';
 import { camel, esc, type Host, type View } from './discrete-lab/dom';
 import { mountPanels, type PanelsConfig } from './discrete-lab/panels';
 import type { VennConfig } from './discrete-lab/venn';
 import type { TableConfig } from './discrete-lab/table';
+import type { TreeViewConfig } from './discrete-lab/tree';
 
 type Mount = { mount(host: Host, cfg: DiscreteConfig): View };
 const MODES: Record<string, () => Promise<Mount>> = {
   venn: () => import('./discrete-lab/venn'),
   table: () => import('./discrete-lab/table'),
+  tree: () => import('./discrete-lab/tree'),
   /** Only the panels (statement rows, sets in braces), no drawing. */
   none: async () => ({ mount: () => ({ root: document.createElement('div'), state: () => ({}) }) }),
 };
 
 export type DiscreteConfig = {
-  /** Default: table if `table` is given, else venn. `none`: only the panels (statement rows, sets in braces). */
-  mode?: 'venn' | 'table' | 'none' | string;
+  /** Default: tree if `tree` is given, table if `table` is given, else venn. `none`: only the panels (statement rows, sets in braces). */
+  mode?: 'venn' | 'table' | 'tree' | 'none' | string;
   /** Icon hint + label `instruction-<name>`: drag, shade, write, pick, count, nest, fill. */
   instruction?: string;
-} & VennConfig & TableConfig & PanelsConfig;
+} & VennConfig & TableConfig & TreeViewConfig & PanelsConfig;
 
 let uid = 0;
 
@@ -45,7 +48,7 @@ export class DiscreteLab extends HTMLElement implements Host {
   ready: Promise<void> = Promise.resolve();
 
   set config(c: DiscreteConfig) {
-    const mode = c.mode ?? (c.table ? 'table' : 'venn');
+    const mode = c.mode ?? (c.tree ? 'tree' : c.table ? 'table' : 'venn');
     this.dataset.mode = mode;
     this.view = this.panels = undefined;
     this.live.className = 'kg-dl-live';
