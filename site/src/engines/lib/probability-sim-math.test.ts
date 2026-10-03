@@ -134,3 +134,15 @@ it('tally marks in fives', () => {
   expect(tallyGroups(5)).toEqual([5]);
   expect(tallyGroups(12)).toEqual([5, 5, 2]);
 });
+
+describe('weights: a bent coin and a biased die', () => {
+  it('weights change the probabilities and the draws', () => {
+    expect(probTable(outcomesOf({ kind: 'coin', weights: [3, 2] }))).toEqual({ heads: [3, 5], tails: [2, 5] });
+    const die: DeviceConfig = { kind: 'dice', weights: [1, 1, 1, 1, 1, 5] };
+    expect(probTable(outcomesOf(die))['6']).toEqual([1, 2]);
+    expect(sampleSpace([die])).toEqual(['1', '2', '3', '4', '5', '6']);
+    const { tally } = runTrials([die], rng(4), 1000);
+    expect(tally['6']).toBeGreaterThan(430);
+    expect(tally['6']).toBeLessThan(570);
+  });
+});

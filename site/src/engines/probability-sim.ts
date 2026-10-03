@@ -31,8 +31,12 @@ export interface ProbConfig extends Partial<DeviceConfig> {
   limit?: number;
   /** Results table (default on when there are trials): `fractions` (count over trials), `theory` (theoretical probability). */
   tally?: boolean | { fractions?: boolean; theory?: boolean };
-  /** Tap every outcome that can happen. `options`: the tiles in order (default: the sample space, then `extra`). */
-  space?: boolean | { options?: string[]; extra?: string[] };
+  /**
+   * Tap every outcome that can happen. `options`: the tiles in order (default: the sample space, then `extra`).
+   * `grid` (two devices): the outcomes as a table, first device down the side, second across the top, one tap cell each;
+   * `sums` writes the total of two number faces in each cell (two dice).
+   */
+  space?: boolean | { options?: string[]; extra?: string[]; grid?: boolean; sums?: boolean };
   /** "Which is most likely?": tap one outcome (true = the device's outcomes, or a list). */
   choose?: boolean | string[];
   /** Likelihood line with 3 or 5 levels; each event's level is computed from `outcomes` or given as `level`. `numbers`: 0, ½, 1. */
@@ -45,6 +49,9 @@ const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const camel = (k: string) => k.replace(/-(\w)/g, (_, c: string) => c.toUpperCase());
 const PIPS: Record<number, number[]> = { 1: [4], 2: [0, 8], 3: [0, 4, 8], 4: [0, 2, 6, 8], 5: [0, 2, 4, 6, 8], 6: [0, 2, 3, 5, 6, 8] };
 const PALETTE = ['red', 'blue', 'green', 'yellow'];
+const COLOURS = new Set(['red', 'blue', 'green', 'yellow', 'white', 'black', 'orange', 'purple']);
+/** Keys that have a picture (a colour, a coin face, a die face, or several of them); other keys are words only. */
+const pictured = (key: string) => key.split('-').every((k) => /^\d+$/.test(k) || k === 'heads' || k === 'tails' || COLOURS.has(k));
 
 export class ProbabilitySim extends HTMLElement {
   private cfg: ProbConfig = {};
@@ -67,7 +74,7 @@ export class ProbabilitySim extends HTMLElement {
 
   set config(c: ProbConfig) {
     this.cfg = c;
-    const one: DeviceDef = { kind: c.kind ?? 'coin', sides: c.sides, sectors: c.sectors, bag: c.bag, edit: c.edit, hidden: c.hidden, max: c.max };
+    const one: DeviceDef = { kind: c.kind ?? 'coin', sides: c.sides, sectors: c.sectors, bag: c.bag, weights: c.weights, edit: c.edit, hidden: c.hidden, max: c.max };
     this.devs = (c.devices ?? [one]).map((d) => ({ ...d, bag: d.bag && { ...d.bag }, sectors: d.sectors && [...d.sectors] }));
     this.rand = rng(c.seed ?? 1);
     this.tally = {};
@@ -240,7 +247,18 @@ export class ProbabilitySim extends HTMLElement {
 
   private tiles(a: string, keys: string[], on: (k: string) => boolean, radio: boolean, label: string) {
     return `<div class="kg-ps-tiles" role="${radio ? 'radiogroup' : 'group'}" aria-label="${label}">${keys.map((k) =>
-      `<button type="button" class="kg-ps-tile" data-a="${a}" data-k2="${esc(k)}" data-k="${a}${esc(k)}" ${radio ? 'role="radio" aria-checked' : 'aria-pressed'}="${on(k)}">${this.chip(k)}${this.label(k)}</button>`).join('')}</div>`;
+      `<button type="button" class="kg-ps-tile${pictured(k) ? '' : ' txt'}" data-a="${a}" data-k2="${esc(k)}" data-k="${a}${esc(k)}" ${radio ? 'role="radio" aria-checked' : 'aria-pressed'}="${on(k)}">${pictured(k) ? this.chip(k) + this.label(k) : this.name(k)}</button>`).join('')}</div>`;
+  }
+
+  /** Two devices' outcomes as a table of tap cells: first device down the side, second across the top. */
+  private grid(sums: boolean): string {
+    const [rows, cols] = this.devs.map((d) => outcomesOf(d).map((o) => o.key));
+    const head = `<span class="kg-ps-gh" aria-hidden="true"></span>${cols.map((k) => `<span class="kg-ps-gh" aria-hidden="true">${this.chip(k)}</span>`).join('')}`;
+    const body = rows.map((r) => `<span class="kg-ps-gh" aria-hidden="true">${this.chip(r)}</span>${cols.map((cl) => {
+      const k = `${r}-${cl}`, sum = sums && /^\d+$/.test(r) && /^\d+$/.test(cl) ? this.d(Number(r) + Number(cl)) : '';
+      return `<button type="button" class="kg-ps-cell" data-a="space" data-k2="${esc(k)}" data-k="space${esc(k)}" aria-pressed="${this.listed.includes(k)}" aria-label="${this.name(k)}">${sum}</button>`;
+    }).join('')}`).join('');
+    return `<div class="kg-ps-grid" role="group" style="--n:${cols.length}" aria-label="${this.lab('label-space', 'What can happen?')}">${head}${body}</div>`;
   }
 
   private tallyHTML(): string {
@@ -293,8 +311,9 @@ export class ProbabilitySim extends HTMLElement {
         `<button type="button" class="kg-ps-btn" data-a="reset" data-k="reset" aria-label="${this.lab('label-reset', 'Start again')}">⟲</button></div>`;
       if (c.tally !== false) h += this.tallyHTML();
     }
-    if (c.space) {
-      const o = typeof c.space === 'object' ? c.space : {};
+    const o = typeof c.space === 'object' ? c.space : {};
+    if (c.space && o.grid && this.devs.length === 2) h += this.grid(!!o.sums);
+    else if (c.space) {
       const keys = o.options ?? [...sampleSpace(this.devs), ...(o.extra ?? [])];
       h += this.tiles('space', keys, (k) => this.listed.includes(k), false, this.lab('label-space', 'What can happen?'));
     }

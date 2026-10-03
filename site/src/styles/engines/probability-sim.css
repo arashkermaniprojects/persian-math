@@ -97,6 +97,9 @@ kg-probability-sim .roll { animation: kg-ps-roll 0.5s ease-out; }
 .kg-ps-tiles { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
 .kg-ps-tile { display: inline-flex; align-items: center; gap: 0.45rem; min-block-size: 48px; min-inline-size: 44px; padding-inline: 0.75rem;
   border-radius: 999px; border: 2px solid var(--border); background: var(--card); color: var(--fg); font: inherit; font-weight: 700; cursor: pointer; }
+/* word-only tiles (e.g. sampling methods) stack as full-width cards */
+.kg-ps-tiles:has(.txt) { flex-direction: column; align-items: stretch; }
+.kg-ps-tile.txt { border-radius: var(--radius); justify-content: space-between; text-align: start; padding-block: 0.5rem; line-height: 1.4; }
 .kg-ps-tile[aria-pressed='true'], .kg-ps-tile[aria-checked='true'] { border-color: var(--accent); box-shadow: inset 0 0 0 2px var(--accent); background: var(--hint-bg); }
 .kg-ps-tile[aria-pressed='true']::after, .kg-ps-tile[aria-checked='true']::after { content: '✓'; color: var(--accent); }
 
@@ -116,3 +119,12 @@ kg-probability-sim .roll { animation: kg-ps-roll 0.5s ease-out; }
 .kg-ps-stops button { inline-size: 44px; block-size: 44px; border-radius: 50%; border: 2px dashed var(--border); background: var(--card); cursor: pointer; padding: 0; position: relative; }
 .kg-ps-stops button[aria-checked='true'] { border: 3px solid var(--accent); background: var(--hint-bg); }
 .kg-ps-stops button[aria-checked='true']::after { content: ''; position: absolute; inset: 9px; border-radius: 50%; background: var(--accent); }
+
+/* two-device grid (space.grid): first device down the side, second across the top; each cell is a toggle */
+.kg-ps-grid { display: grid; grid-template-columns: 28px repeat(var(--n), minmax(44px, 52px)); gap: 3px; justify-content: center; align-items: center; }
+.kg-ps-gh { display: grid; place-items: center; }
+.kg-ps-cell { min-inline-size: 44px; block-size: 44px; padding: 0; border-radius: 8px; border: 2px solid var(--border); background: var(--card); color: var(--fg);
+  font: inherit; font-weight: 700; cursor: pointer; font-variant-numeric: tabular-nums; }
+.kg-ps-cell[aria-pressed='true'] { border-color: var(--accent); background: var(--hint-bg); box-shadow: inset 0 0 0 2px var(--accent); }
+.kg-ps-cell[aria-pressed='true']:empty::after { content: '✓'; color: var(--accent); }
+.kg-ps-cell:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }

@@ -10,6 +10,8 @@ export interface DeviceConfig {
   sectors?: (string | { color: string; size?: number })[];
   /** Bag: counters per colour, e.g. { red: 5, white: 1 }. */
   bag?: Record<string, number>;
+  /** Coin or dice: a whole-number weight per side/face (a bent coin, a biased die); default 1 each. */
+  weights?: number[];
 }
 
 export type Frac = [number, number];
@@ -27,9 +29,9 @@ export function reduce(n: number, d: number): Frac {
 export function outcomesOf(d: DeviceConfig): Outcome[] {
   switch (d.kind) {
     case 'coin':
-      return [{ key: 'heads', w: 1 }, { key: 'tails', w: 1 }];
+      return [{ key: 'heads', w: d.weights?.[0] ?? 1 }, { key: 'tails', w: d.weights?.[1] ?? 1 }];
     case 'dice':
-      return Array.from({ length: d.sides ?? 6 }, (_, i) => ({ key: String(i + 1), w: 1 }));
+      return Array.from({ length: d.sides ?? 6 }, (_, i) => ({ key: String(i + 1), w: d.weights?.[i] ?? 1 }));
     case 'spinner': {
       const out: Outcome[] = [];
       for (const s of d.sectors ?? []) {

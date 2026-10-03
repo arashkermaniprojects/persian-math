@@ -86,3 +86,41 @@ describe('chance check: chosen and trials', () => {
     expect(run(all, { probs: { red: [1, 1] }, listed: ['red'], space: ['red'], chosen: 'red' }).code).toBe('few-trials');
   });
 });
+
+describe('chance check: event, typed answer, estimate', () => {
+  const t = (check: Omit<ChanceCheck, 'type'>, s: ChanceState, typed: number | null = null) => checkChance({ type: 'chance', ...check }, s, typed);
+  it('event: the tapped cells are exactly the event', () => {
+    const c = { event: ['1-6', '6-1', '2-5'], traps: [{ listed: '3-3', code: 'sum-six' }] };
+    expect(t(c, { listed: [] }).code).toBe('event-empty');
+    expect(t(c, { listed: ['1-6', '2-5'] }).code).toBe('event-missing');
+    expect(t(c, { listed: ['1-6', '6-1', '2-5', '3-3'] }).code).toBe('sum-six');
+    expect(t(c, { listed: ['1-6', '6-1', '2-5', '4-4'] }).code).toBe('event-extra');
+    expect(t(c, { listed: ['2-5', '6-1', '1-6'] }).ok).toBe(true);
+  });
+  it('answer: equivalent fractions pass, traps and sizes', () => {
+    const c = { answer: [1, 6] as [number, number], traps: [{ value: [1, 11] as [number, number], code: 'sums-equal' }] };
+    expect(t(c, {}).code).toBe('answer-empty');
+    expect(t(c, {}, 6 / 36).ok).toBe(true);
+    expect(t(c, {}, 1 / 11).code).toBe('sums-equal');
+    expect(t(c, {}, 1 / 2).code).toBe('too-big');
+    expect(t(c, {}, 1 / 12).code).toBe('too-small');
+  });
+  it('answer comes after the other parts (event first)', () => {
+    expect(t({ event: ['a'], answer: [1, 2] }, { listed: [] }, 0.5).code).toBe('event-empty');
+  });
+  it("estimate: the relative frequency of the learner's own trials", () => {
+    const c = { estimate: { outcome: 'heads', within: 0.01 } };
+    const s = { trials: 100, tally: { heads: 61, tails: 39 } };
+    expect(t(c, { trials: 0 }, 0.5).code).toBe('few-trials');
+    expect(t(c, s).code).toBe('estimate-empty');
+    expect(t(c, s, 61).code).toBe('estimate-count');
+    expect(t(c, s, 0.5).code).toBe('estimate-far');
+    expect(t(c, s, 0.61).ok).toBe(true);
+    expect(t(c, s, 0.6).ok).toBe(true);
+    // the default tolerance is tight: the learner's own fraction
+    expect(t({ estimate: { outcome: 'heads' } }, s, 0.6).code).toBe('estimate-far');
+    expect(t({ estimate: { outcome: 'heads' } }, { trials: 10, tally: { tails: 10 } }, 0).ok).toBe(true);
+    // a trials minimum is tested first
+    expect(t({ trials: 1000, estimate: { outcome: 'heads' } }, s, 0.61).code).toBe('few-trials');
+  });
+});

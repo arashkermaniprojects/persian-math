@@ -1,0 +1,103 @@
+id: prob-experiments
+engine: probability-sim
+strand: prob
+order: 2
+concepts: [prob.experimental, prob.large-numbers, prob.equally-likely]
+# Iran G7 ch.9 «احتمال و تجربه» (pdf p.131–132): a coin flipped 10 times and the class's results pooled; "in 500 flips,
+# could heads come 400 times?"; a die rolled 30 times ("does each number come exactly 5 times?"); a spinner of a half
+# and two quarters. Afghan G7 ch.8 «تجربه کردن یک اتفاق», G8 ch.11 «کثرت نسبی و احتمال», «چانس برابر و نابرابر»;
+# UK KS3 randomness, fairness, equally and unequally likely outcomes.
+# Relative frequency is written as a fraction of the trials (Iran: «در چه کسری از آزمایش‌ها»). No gambling contexts.
+# The plan's drawing pin is a bottle cap here: a coin with unequal weights (no symmetry, so no theory to work out).
+missions:
+  # The book's spinner: red is half, blue and yellow a quarter each. Three colours are not equally likely.
+  # Spin 100+ times and watch red's fraction settle near the theory tick; then write P(red).
+  - id: unequal-spinner
+    setup:
+      kind: spinner
+      sectors: [{ color: red, size: 2 }, blue, yellow]
+      run: [1, 10, 100, 1000]
+      limit: 3000
+      seed: 21
+      tally: { fractions: true, theory: true }
+      instruction: spin
+    answer: fraction
+    check:
+      type: chance
+      trials: 100
+      answer: [1, 2]
+      traps: [{ value: [1, 3], code: equal-sectors }, { value: [2, 1], code: upside-down }]
+  # A bottle cap lands top up or top down. Nobody can work its chance out from its shape: we can only estimate it
+  # from many throws. The estimate must come from at least 1000 throws, and be the learner's own relative frequency.
+  - id: bottle-cap
+    setup:
+      kind: coin
+      weights: [7, 13]
+      run: [1, 10, 100, 1000]
+      limit: 3000
+      seed: 8
+      tally: { fractions: true }
+      instruction: flip
+    answer: fraction
+    check:
+      type: chance
+      trials: 1000
+      estimate: { outcome: heads }
+  # A fair die: roll 600 or more; the fraction of sixes comes near 1/6 but almost never exactly 1/6.
+  # Type the fraction of sixes in your own rolls.
+  - id: fair-die
+    setup:
+      kind: dice
+      run: [1, 10, 100, 1000]
+      limit: 3000
+      seed: 30
+      tally: { fractions: true, theory: true }
+      instruction: roll
+    answer: fraction
+    check:
+      type: chance
+      trials: 600
+      estimate: { outcome: '6' }
+  # A die that looks normal but is weighted towards 6 (3 times as likely as each other face, so 3/8).
+  # After 10 rolls any face can lead; after hundreds the 6 stands out. Pick the face this die favours.
+  - id: biased-die
+    setup:
+      kind: dice
+      weights: [1, 1, 1, 1, 1, 3]
+      run: [1, 10, 100, 1000]
+      limit: 3000
+      seed: 4
+      tally: { fractions: true }
+      instruction: roll
+      choose: true
+    check:
+      type: chance
+      trials: 300
+      chosen: '6'
+  # The gambler's fallacy: after five tails in a row, heads is not "due". A coin has no memory.
+  - id: no-memory
+    setup:
+      kind: coin
+      run: [1, 10]
+      seed: 5
+      tally: false
+      instruction: place
+      scale:
+        levels: 5
+        numbers: true
+        events:
+          - { key: heads-next, level: even }
+          - { key: tails-next, level: even }
+          - { key: six-next, level: unlikely }
+    check:
+      type: chance
+      scale: true
+      traps:
+        - { event: heads-next, level: likely, code: heads-due }
+        - { event: heads-next, level: certain, code: heads-due }
+        - { event: tails-next, level: likely, code: streak }
+        - { event: tails-next, level: unlikely, code: heads-due }
+        - { event: tails-next, level: impossible, code: heads-due }
+        - { event: six-next, level: likely, code: six-due }
+        - { event: six-next, level: even, code: six-due }
+        - { event: six-next, level: certain, code: six-due }

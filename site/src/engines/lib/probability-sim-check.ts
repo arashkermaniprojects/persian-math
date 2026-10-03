@@ -7,14 +7,20 @@ export interface ChanceCheck {
   prob?: { outcomes: string[]; value?: Frac; level?: string };
   /** The outcomes the learner tapped are exactly the sample space. */
   space?: boolean;
+  /** The outcomes the learner tapped (tiles or grid cells) are exactly these: an event, e.g. the cells with total 7. */
+  event?: string[];
   /** Every event is placed at its right level on the likelihood line. */
   scale?: boolean;
   /** The outcome the learner chose ("which is most likely?"): one key or a list of acceptable keys. */
   chosen?: string | string[];
   /** At least this many trials run (e.g. "spin 10 times to test your guess"). */
   trials?: number;
-  /** Known wrong answers with their own feedback code: a chosen outcome, an event placed at a level, or a tapped outcome. */
-  traps?: { chosen?: string; event?: string; level?: string; listed?: string; code: string }[];
+  /** The typed probability (`answer: fraction` or `decimal`) equals this fraction (equivalent fractions accepted). */
+  answer?: Frac;
+  /** The typed estimate is the relative frequency of `outcome` in the learner's own trials, ± `within` (default 0.005). */
+  estimate?: { outcome: string; within?: number };
+  /** Known wrong answers with their own feedback code: a chosen outcome, an event placed at a level, a tapped outcome, or a typed value. */
+  traps?: { chosen?: string; event?: string; level?: string; listed?: string; value?: Frac; code: string }[];
 }
 
 export interface ChanceState {
@@ -41,8 +47,8 @@ const RANGE: Record<string, [number, number, boolean]> = {
 type Result = { ok: boolean; code?: string };
 const fail = (code: string): Result => ({ ok: false, code });
 
-/** Conditions are tested in this order: prob → space → scale → chosen → trials. */
-export function checkChance(check: ChanceCheck, s: ChanceState = {}): Result {
+/** Conditions are tested in this order: prob → space → event → scale → chosen → trials → answer → estimate. `typed` is the typed number. */
+export function checkChance(check: ChanceCheck, s: ChanceState = {}, typed: number | null = null): Result {
   const traps = check.traps ?? [];
   if (check.prob) {
     const probs = Object.entries(s.probs ?? {});
@@ -63,6 +69,13 @@ export function checkChance(check: ChanceCheck, s: ChanceState = {}): Result {
     if (extra !== undefined) return fail(traps.find((t) => t.listed === extra)?.code ?? 'space-extra');
     if (space.some((k) => !listed.includes(k))) return fail('space-missing');
   }
+  if (check.event) {
+    const listed = s.listed ?? [], want = check.event;
+    if (!listed.length) return fail('event-empty');
+    const extra = listed.find((k) => !want.includes(k));
+    if (extra !== undefined) return fail(traps.find((t) => t.listed === extra)?.code ?? 'event-extra');
+    if (want.some((k) => !listed.includes(k))) return fail('event-missing');
+  }
   if (check.scale) {
     const evs = s.events ?? [];
     if (!evs.length || evs.some((e) => !e.placed)) return fail('scale-unplaced');
@@ -80,5 +93,22 @@ export function checkChance(check: ChanceCheck, s: ChanceState = {}): Result {
     if (!ok) return fail(traps.find((t) => t.chosen === s.chosen)?.code ?? 'choose-wrong');
   }
   if (check.trials && (s.trials ?? 0) < check.trials) return fail('few-trials');
+  const e = 1e-9;
+  if (check.answer) {
+    if (typed === null || !Number.isFinite(typed)) return fail('answer-empty');
+    const want = check.answer[0] / check.answer[1];
+    if (Math.abs(typed - want) > e) {
+      const trap = traps.find((t) => t.value && Math.abs(typed - t.value[0] / t.value[1]) < e);
+      return fail(trap?.code ?? (typed > want ? 'too-big' : 'too-small'));
+    }
+  }
+  if (check.estimate) {
+    const n = s.trials ?? 0, hits = s.tally?.[check.estimate.outcome] ?? 0;
+    if (!n) return fail('few-trials');
+    if (typed === null || !Number.isFinite(typed)) return fail('estimate-empty');
+    // The count itself typed (e.g. 61 rather than 61/100) is the classic slip.
+    if (Math.abs(typed - hits) < e && Math.abs(typed - hits / n) > e) return fail('estimate-count');
+    if (Math.abs(typed - hits / n) > (check.estimate.within ?? 0.005) + e) return fail('estimate-far');
+  }
   return { ok: true };
 }

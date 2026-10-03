@@ -183,7 +183,7 @@ export function evaluate(check: Check, a: Attempt): Result {
     case 'chart':
       return checkChart(check, a.state);
     case 'chance':
-      return checkChance(check, a.state?.chance);
+      return checkChance(check, a.state?.chance, a.fraction ? (a.fraction.d ? writtenValue(a.fraction).valueOf() : null) : a.decimal ? a.decimal.valueOf() : null);
     case 'shape-board':
       return checkShapeBoard(check, a.state?.board, a.integer ?? (a.decimal ? a.decimal.valueOf() : null));
     case 'problem-canvas':

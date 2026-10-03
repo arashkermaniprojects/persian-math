@@ -1,0 +1,120 @@
+{
+  "title": "{{term:experimental-probability}} and {{term:theoretical-probability}}",
+  "summary": "Spin a spinner, throw a bottle cap and roll dice: 10 times, 100 times, 1000 times. Watch the relative frequency settle near the probability.",
+  "guide": [
+    "This studio follows Iran's Year 7 lesson «احتمال و تجربه» and the KS3 work on randomness and fairness. The {{term:theoretical-probability}} comes from the shape of the thing: favourable outcomes divided by possible outcomes, as long as the outcomes are {{term:equally-likely}}. The {{term:experimental-probability}} (the {{term:relative-frequency}}) comes from trials: how many times it happened divided by the number of trials.",
+    "The big idea: with 10 trials the results jump about a lot. With 1000 trials the relative frequency is usually close to the theoretical probability, but almost never exactly equal to it. In the table, the small black tick on each bar marks the theoretical probability.",
+    "Common mistakes: \"tails has come up a lot, so heads is due\" (a coin has no memory); \"10 rolls are enough to tell whether a dice is fair\"; \"there are three colours, so each has a probability of {{frac:1/3}}\" (when the sections are different sizes); \"the relative frequency isn't exactly {{frac:1/6}}, so the dice is biased\". Each mission works on one of these. The bottle cap stands for anything whose probability can't be worked out from its shape, only estimated by experiment (a drawing pin is the textbook example)."
+  ],
+  "engine": {
+    "label-red": "red",
+    "label-blue": "blue",
+    "label-yellow": "yellow",
+    "label-heads": "heads",
+    "label-tails": "tails",
+    "label-coin": "coin",
+    "label-spinner": "spinner",
+    "label-dice": "dice",
+    "label-run-spinner": "Spin",
+    "label-run-coin": "Throw",
+    "label-run-dice": "Roll",
+    "label-times": "{n} times",
+    "label-reset": "Start again",
+    "label-result": "Result",
+    "label-trials": "Trials: {n}",
+    "label-outcome": "Outcome",
+    "label-tally": "Chart",
+    "label-count": "Frequency",
+    "label-experiment": "Relative frequency",
+    "label-theory": "Theoretical probability",
+    "label-choose": "Which number does this dice favour?",
+    "label-scale": "probability scale",
+    "level-impossible": "impossible",
+    "level-unlikely": "unlikely",
+    "level-even": "even chance",
+    "level-likely": "likely",
+    "level-certain": "certain",
+    "event-heads-next": "The next throw is heads.",
+    "event-tails-next": "The next throw is tails again.",
+    "event-six-next": "A fair dice: no 6 in the last 10 rolls; the next roll is a 6.",
+    "instruction-spin": "Spin 10 times, 100 times, then 1000 times.",
+    "instruction-flip": "Throw 10 times first, then many more.",
+    "instruction-roll": "Roll and watch the table.",
+    "instruction-place": "Put each sentence on the scale."
+  },
+  "missions": {
+    "unequal-spinner": {
+      "title": "Three colours, three different chances",
+      "prompt": "Half of this spinner is red, a quarter is blue and a quarter is yellow. Guess first: what is the {{term:probability}} of landing on red? Then spin at least 100 times and compare the relative frequency with the black tick. Finally, type the theoretical probability of red.",
+      "hint": "Split the spinner into equal parts: the red part is the size of two blue parts. How many equal parts are there? How many are red?",
+      "success": "Well done! Red is 2 of 4 equal parts, so its probability is {{frac:1/2}}. You saw red's relative frequency get closer to {{frac:1/2}} as the number of spins grew.",
+      "why": "Zahra says, \"There are three colours, so the probability of red is {{frac:1/3}}.\" What is her mistake?",
+      "model": "\"Favourable outcomes over possible outcomes\" only works when the outcomes are equally likely. These three colours aren't, because the red section is twice the size of each of the others. Split the spinner into 4 equal parts and 2 of them are red: {{frac:2/4}} = {{frac:1/2}}. The experiment agrees: red comes up in about half the spins, not a third.",
+      "feedback": {
+        "equal-sectors": "There are three colours, but they aren't the same size. How many times bigger than the blue part is the red part? Look at your results too: is red near a third?",
+        "upside-down": "That fraction is upside down. A probability is never more than 1.",
+        "too-big": "Too big. Red isn't the whole spinner, only half of it.",
+        "too-small": "Too small. What fraction of the circle is red?",
+        "answer-empty": "Type the probability of red as a fraction.",
+        "few-trials": "Spin at least 100 times first and see where red's relative frequency settles."
+      }
+    },
+    "bottle-cap": {
+      "title": "The bottle cap",
+      "prompt": "When you throw a bottle cap it lands top up (call it heads) or top down (tails). The two aren't equally likely, and you can't work the probability out from the shape. Throw it 10 times first. Then keep going until you have at least 1000 trials. Type the {{term:experimental-probability}} of heads as a fraction.",
+      "hint": "{{term:experimental-probability}} = number of heads ÷ total number of trials. Both numbers are in the table.",
+      "success": "Well done! That is your estimate of the probability of heads. With 1000 trials it is a much better estimate than with 10.",
+      "why": "Ali threw the bottle cap only 10 times and got 5 heads. He says, \"The probability of heads is {{frac:1/2}}.\" Why is your estimate better?",
+      "model": "With 10 trials, luck plays a big part: you might get 5 heads, or 2, or 7, just by chance. The more trials there are, the less these ups and downs matter, and the closer the relative frequency gets to the true probability. That's why an estimate from 1000 trials is more reliable.",
+      "feedback": {
+        "few-trials": "10 trials aren't enough for an estimate; the result is too much down to luck. Use the buttons until you have at least 1000 trials.",
+        "estimate-count": "That's the number of heads. Divide it by the total number of trials to get a fraction.",
+        "estimate-far": "That fraction doesn't match your table. Numerator: the number of heads. Denominator: the total number of trials (above the table).",
+        "estimate-empty": "Type the fraction: number of heads over number of trials."
+      }
+    },
+    "fair-die": {
+      "title": "A fair dice: exactly {{frac:1/6}}?",
+      "prompt": "This dice is fair: the theoretical probability of each number is {{frac:1/6}}. Roll it at least 600 times. In what fraction of the trials did a 6 come up? Type the fraction.",
+      "hint": "Find the frequency of 6 in the table and divide it by the total number of trials.",
+      "success": "Well done! The relative frequency of 6 is close to {{frac:1/6}}, but probably not exactly equal to it. That's normal.",
+      "why": "Reza rolled a dice 600 times and got 94 sixes, not exactly 100. He says, \"The dice is biased.\" Is he right? Why?",
+      "model": "No. Even a fair dice doesn't give a 6 in exactly one sixth of the rolls; results always vary a little. 94 is very close to 100. If one number came up far more often, say 200 times in 600, and kept doing so with more rolls, then we could suspect the dice.",
+      "feedback": {
+        "few-trials": "10 or 100 rolls are too few. Keep rolling until you have at least 600 trials.",
+        "estimate-count": "That's the number of sixes. Divide it by the total number of trials.",
+        "estimate-far": "Use your own table: numerator the frequency of 6, denominator the number of trials. It doesn't have to be {{frac:1/6}}.",
+        "estimate-empty": "Type the relative frequency of 6: number of sixes over number of trials."
+      }
+    },
+    "biased-die": {
+      "title": "Is this dice fair?",
+      "prompt": "This dice looks normal, but it may not be fair. Roll it until you are sure (at least 300 times). Which number does this dice give more often than the others? Tap it.",
+      "hint": "For a fair dice, the relative frequency of each number gets close to {{frac:1/6}}. After a few hundred trials, which bar is much longer than the others?",
+      "success": "Well done! After hundreds of trials, 6 has come up far more often than {{frac:1/6}} of the time. This dice is biased towards 6.",
+      "why": "After 10 rolls Sara said, \"3 came up most, so the dice is biased towards 3.\" Why shouldn't you judge from 10 rolls?",
+      "model": "In 10 rolls, even with a fair dice, one number can come up 3 or 4 times by chance. With so few trials you can't tell luck from a real difference. With hundreds of trials the random ups and downs shrink; if one number still comes up far more often, the difference is real.",
+      "feedback": {
+        "few-trials": "Test your guess with more trials. 10 rolls can't tell you whether a dice is fair: roll at least 300 times.",
+        "choose-wrong": "Look at the table after a few hundred trials. Which number has come up most, by a long way?",
+        "choose-empty": "Tap the number you think this dice favours."
+      }
+    },
+    "no-memory": {
+      "title": "Is heads due?",
+      "prompt": "Maryam threw a fair coin 5 times and got tails every time. Put each sentence on the probability scale. Then throw the coin a few times yourself.",
+      "hint": "The coin doesn't remember what came before. Every new throw has the same two equally likely outcomes. A dice is the same.",
+      "success": "Well done! Heads and tails are each still {{frac:1/2}}, and a 6 on the next roll is still {{frac:1/6}}. Earlier throws have no effect on the next one.",
+      "why": "Fatemeh says, \"Tails has come up 5 times, so now heads has to come up to even things out.\" Is she right? Why?",
+      "model": "No. A coin has no memory and doesn't know what came before. The probability of heads is {{frac:1/2}} on every throw, before and after 5 tails. Over a very large number of throws the relative frequencies get close to {{frac:1/2}}, not because the coin \"evens things out\" but because those 5 tails become a tiny part of thousands of throws.",
+      "feedback": {
+        "heads-due": "The coin doesn't know it landed on tails 5 times. Heads and tails are still equally likely on the next throw.",
+        "streak": "Five tails in a row isn't a habit. The coin is fair, so heads and tails have an even chance on the next throw too.",
+        "six-due": "The dice doesn't know 6 is \"late\". On the next roll a 6 is still 1 outcome out of 6: unlikely.",
+        "scale-unplaced": "Put all three sentences on the scale.",
+        "scale-high": "One sentence is too high. Forget the earlier throws and just think about the coin or the dice.",
+        "scale-low": "One sentence is too low. Forget the earlier throws and just think about the coin or the dice."
+      }
+    }
+  }
+}
