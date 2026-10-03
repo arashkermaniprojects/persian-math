@@ -192,3 +192,13 @@ describe('summary check (kg-chart-builder summary module)', () => {
     expect(evaluate({ type: 'summary', median: 7 }, {}).code).toBe('empty');
   });
 });
+
+describe('grouped check (kg-chart-builder grouped module)', () => {
+  it('routes to the grouped check and its reason codes', () => {
+    const grouped = { data: [], cards: [], bounds: [140, 145, 150], last: false, freq: [2, 3], x: [142.5, 147.5], typed: { 'mid-0': 5 }, bars: [], points: [] as [number, number][], chosen: 'bars' };
+    expect(evaluate({ type: 'grouped', table: true }, { state: { grouped } }).code).toBe('width-not-midpoint');
+    expect(evaluate({ type: 'grouped', chosen: 'histogram' }, { state: { grouped } }).code).toBe('gap-bars');
+    expect(evaluate({ type: 'grouped', polygon: true }, { state: { grouped: { ...grouped, points: [[142.5, 2], [147.5, 3]] } } })).toEqual({ ok: true });
+    expect(evaluate({ type: 'grouped', mean: true }, {}).code).toBe('empty');
+  });
+});

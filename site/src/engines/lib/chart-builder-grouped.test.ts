@@ -129,7 +129,7 @@ describe('checkGrouped: mean and median', () => {
     expect(checkGrouped(c, st({ typed: { mean: 3065 } })).code).toBe('fx-total-only');
     expect(checkGrouped(c, st({ typed: { mean: 3065 / 6 } })).code).toBe('fx-over-classes');
     expect(checkGrouped(c, st({ typed: { mean: 150.75 } })).code).toBe('mean-uses-ends');
-    expect(checkGrouped(c, st({ typed: { mean: 154 } })).code).toBe("too-big");
+    expect(checkGrouped(c, st({ typed: { mean: 154 } })).code).toBe('too-big');
     expect(x.length).toBe(6);
   });
   it('weights named rows (the mean of two classes’ averages)', () => {

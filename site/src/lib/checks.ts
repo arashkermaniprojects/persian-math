@@ -17,6 +17,7 @@ import { checkSets, type SetsCheck, type SetsState } from '../engines/lib/discre
 import { checkSolid, type SolidCheck, type SolidState } from '../engines/lib/solid-viewer-check';
 import { checkAlgebra, type AlgebraCheck, type AlgebraState } from '../engines/lib/algebra-tiles-check';
 import { checkSummary, type SummaryCheck, type SummaryState } from '../engines/lib/chart-builder-summary';
+import { checkGrouped, type GroupedCheck, type GroupedState } from '../engines/lib/chart-builder-grouped';
 import { checkInterval, type IntervalCheck, type IntervalState } from '../engines/lib/number-line-intervals';
 
 type FracSpec = [number, number];
@@ -66,6 +67,8 @@ export type Check =
   | AlgebraCheck
   /** <kg-chart-builder> `summary` module: cards in order, marked middle/mode/ends, typed averages and range, best average, comparison sentences (engines/lib/chart-builder-summary.ts). */
   | SummaryCheck
+  /** <kg-chart-builder> `grouped` module: cards sorted into classes, the typed table, the chosen graph, histogram bars, polygon and cumulative points, the grouped mean and median (engines/lib/chart-builder-grouped.ts). */
+  | GroupedCheck
   /** <kg-number-line> `intervals` module: the drawn set (intervals, unions), sign rows (engines/lib/number-line-intervals.ts). */
   | IntervalCheck;
 
@@ -85,7 +88,7 @@ export interface Attempt {
     answered?: number;
     correct?: number;
     done?: boolean;
-  } & CcmState & MeasureState & { pattern?: PatternState } & ChartState & { chance?: ChanceState } & { board?: ShapeBoardState } & { plane?: CoordState } & { sets?: SetsState } & { solid?: SolidState } & { algebra?: AlgebraState } & { summary?: SummaryState } & IntervalState;
+  } & CcmState & MeasureState & { pattern?: PatternState } & ChartState & { chance?: ChanceState } & { board?: ShapeBoardState } & { plane?: CoordState } & { sets?: SetsState } & { solid?: SolidState } & { algebra?: AlgebraState } & { summary?: SummaryState } & { grouped?: GroupedState } & IntervalState;
   fraction?: WrittenFrac | null;
   integer?: number | null;
   /** Typed decimal, already parsed exactly (null if unparseable). */
@@ -198,6 +201,8 @@ export function evaluate(check: Check, a: Attempt): Result {
       return checkAlgebra(check, a.state);
     case 'summary':
       return checkSummary(check, a.state?.summary);
+    case 'grouped':
+      return checkGrouped(check, a.state?.grouped);
     case 'interval':
       return checkInterval(check, a.state);
   }

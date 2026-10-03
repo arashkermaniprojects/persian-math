@@ -92,9 +92,10 @@ export interface ChartModule {
   state(): Record<string, unknown>;
 }
 type ModuleLoader = () => Promise<{ mount(host: ChartHost, cfg: ChartBuilderConfig): ChartModule }>;
-/** On-demand modules, loaded only when a mission's setup names them (each its own chunk). Planned: grouped. */
+/** On-demand modules, loaded only when a mission's setup names them (each its own chunk). */
 export const MODULES: Record<string, ModuleLoader> = {
   summary: () => import('./chart-builder/summary'),
+  grouped: () => import('./chart-builder/grouped'),
 };
 
 const NS = 'http://www.w3.org/2000/svg';
