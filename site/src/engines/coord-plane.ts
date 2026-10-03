@@ -53,8 +53,9 @@ export interface CoordPlaneConfig {
   show?: string[];
   /** Icon hint + engine label `instruction-<key>`: points, drag, slide, trace. */
   instruction?: string;
-  /** An on-demand module (see MODULES), e.g. `vectors`. */
+  /** An on-demand module (see MODULES), e.g. `vectors` (its options sit under their own key, e.g. `vectors: {…}`). */
   module?: string;
+  vectors?: unknown;
 }
 
 /** What an on-demand module (coord-plane/<name>.ts) plugs into the plane. */
@@ -71,10 +72,15 @@ export interface PlaneModule {
   tools?(): string;
   /** Merged into state.plane (e.g. { vectors: [...] }). */
   state(): Record<string, unknown>;
+  /** Readouts (HTML) added under the plane, and what the live region says (empty = the plane's own text). */
+  facts?(): string[];
+  live?(cursor: P): string;
 }
 type ModuleLoader = () => Promise<{ mount(plane: CoordPlane, cfg: CoordPlaneConfig): PlaneModule }>;
-/** On-demand modules, loaded only when a mission's setup names them. The vectors pilot adds: vectors: () => import('./coord-plane/vectors'). */
-export const MODULES: Record<string, ModuleLoader> = {};
+/** On-demand modules, loaded only when a mission's setup names them (each is its own chunk). */
+export const MODULES: Record<string, ModuleLoader> = {
+  vectors: () => import('./coord-plane/vectors'),
+};
 
 const NS = 'http://www.w3.org/2000/svg';
 const HIT = 23; // 46px touch targets (≥ 44 after rounding)
@@ -115,7 +121,8 @@ export class CoordPlane extends HTMLElement {
     this.mod = undefined;
     const load = c.module ? MODULES[c.module] : undefined;
     if (c.module && !load) throw new Error(`Unknown coord-plane module ${c.module}`);
-    if (load) this.ready = load().then((m) => { this.mod = m.mount(this, c); this.render(); });
+    // a stale load (the mission changed while it was loading) is dropped; build() adds the module's tools
+    if (load) this.ready = load().then((m) => { if (this.cfg === c) { this.mod = m.mount(this, c); this.build(); } });
     this.build();
   }
 
@@ -263,7 +270,7 @@ export class CoordPlane extends HTMLElement {
 
   private down(e: PointerEvent) {
     const m = this.mode;
-    if (m === 'view') return;
+    if (m === 'view' && !this.mod) return;
     const q = this.toPlane(e), t = (e.target as Element).closest('[data-p],[data-h]');
     const grab = (kind: 'p' | 'h' | 'm' | 't', i: number, fresh = false) => {
       e.preventDefault();
@@ -338,8 +345,9 @@ export class CoordPlane extends HTMLElement {
       }
       return;
     }
-    if (t !== this.svg) return;
+    // a module sees keys on its own items as well as on the plane
     if (this.mod?.key?.(e, this.cursor)) return;
+    if (t !== this.svg) return;
     if (dir[k]) {
       e.preventDefault();
       if (this.traceX !== null) this.traceX = snapTo(this.traceX + dir[k][0], a, this.x0, this.x1);
@@ -441,7 +449,7 @@ export class CoordPlane extends HTMLElement {
       const y = valueAt(this.toks[g0], this.traceX, this.vals);
       if (Number.isFinite(y)) o.push(this.seg([this.traceX, this.y0], [this.traceX, this.y1], 'kg-cp-tline'), `<circle class="kg-cp-trace" cx="${this.sx(this.traceX)}" cy="${this.sy(y)}" r="8"/>`);
     }
-    if (this.mode === 'points' && this.svg.matches(':focus-visible'))
+    if ((this.mode === 'points' || this.mod) && this.svg.matches(':focus-visible'))
       o.push(`<circle class="kg-cp-cur" cx="${this.sx(this.cursor[0])}" cy="${this.sy(this.cursor[1])}" r="15"/>`);
     this.svg.setAttribute('viewBox', `0 0 ${W.toFixed(1)} ${H.toFixed(1)}`);
     this.svg.setAttribute('width', W.toFixed(1));
@@ -482,7 +490,7 @@ export class CoordPlane extends HTMLElement {
   render() {
     if (!this.parts) return;
     const p = this.parts, c = this.cfg, show = c.show ?? [];
-    const a = document.activeElement, keep = a && this.svg.contains(a) && a !== this.svg ? [...a.attributes].filter((x) => /^data-[ph]$/.test(x.name)).map((x) => `[${x.name}="${this.active}"]`).join('') : '';
+    const a = document.activeElement, keep = a && this.svg.contains(a) && a !== this.svg ? (a.getAttribute('data-focus') ? `[data-focus="${a.getAttribute('data-focus')}"]` : [...a.attributes].filter((x) => /^data-[ph]$/.test(x.name)).map((x) => `[${x.name}="${this.active}"]`).join('')) : '';
     const svg = this.svg;
     svg.innerHTML = this.draw().join('');
     svg.setAttribute('class', `kg-cp-svg m-${this.mode}`);
@@ -504,10 +512,11 @@ export class CoordPlane extends HTMLElement {
       const y = valueAt(this.toks[g0], this.traceX, this.vals);
       if (Number.isFinite(y)) facts.push(this.coords([this.traceX, tidy(y)]));
     }
+    if (this.mod?.facts) facts.push(...this.mod.facts());
     p.facts.innerHTML = facts.map((f) => `<span>${f}</span>`).join('');
     // keep the readout's room while it is empty, so the plane never jumps under a dragging finger
-    p.facts.hidden = !show.length && !c.trace;
-    p.live.textContent = svg.matches(':focus') && this.mode === 'points' ? `${this.d(this.cursor[0])}, ${this.d(this.cursor[1])}` : at ? `${this.d(at[0])}, ${this.d(at[1])}` : '';
+    p.facts.hidden = !show.length && !c.trace && !this.mod?.facts;
+    p.live.textContent = this.mod?.live?.(this.cursor) || (svg.matches(':focus') && this.mode === 'points' ? `${this.d(this.cursor[0])}, ${this.d(this.cursor[1])}` : at ? `${this.d(at[0])}, ${this.d(at[1])}` : '');
   }
 }
 

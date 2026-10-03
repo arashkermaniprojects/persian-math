@@ -88,3 +88,40 @@ kg-coord-plane [hidden] { display: none !important; }
 .kg-cp-tools { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 0; }
 .kg-cp-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 .kg-cp-live { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); margin: 0; }
+
+/* module `vectors` (engines/coord-plane/vectors.ts): arrows tail → head, a dot at the tail */
+.kg-cp-vec { --c: var(--cp-t0); stroke: var(--c); fill: var(--c); pointer-events: none; }
+.kg-cp-vec line { stroke-width: 3.5; stroke-linecap: round; }
+.kg-cp-vec polygon, .kg-cp-vec circle { stroke: none; }
+.kg-cp-vec.t1 { --c: var(--cp-t1); } .kg-cp-vec.t2 { --c: var(--cp-t2); } .kg-cp-vec.t3 { --c: var(--cp-t3); }
+.kg-cp-vec.t4 { --c: var(--cp-t4); } .kg-cp-vec.t5 { --c: var(--cp-t5); } .kg-cp-vec.tm { --c: var(--cp-line); }
+.kg-cp-vec.dash line { stroke-dasharray: 8 6; }
+.kg-cp-vec.trail { --c: var(--muted); }
+.kg-cp-vec.trail line { stroke-width: 2; stroke-dasharray: 5 5; }
+.kg-cp-vec.picked line { stroke-width: 6; }
+.kg-cp-vname text { fill: var(--c); stroke: var(--cell); stroke-width: 4; paint-order: stroke; font-size: 17px; font-weight: 700; font-style: italic; text-anchor: middle; }
+.kg-cp-vname path { fill: none; stroke: var(--c); stroke-width: 1.8; }
+.kg-cp-vband { fill: transparent; cursor: grab; outline: none; touch-action: none; }
+.kg-cp-vband[aria-pressed='true'] { fill: color-mix(in srgb, var(--accent) 14%, transparent); }
+.kg-cp-vr { display: inline-flex; align-items: center; gap: 0.3rem; }
+.kg-cp-vband:focus-visible { stroke: var(--accent); stroke-width: 3; stroke-dasharray: 5 4; }
+.kg-cp-vh { cursor: grab; outline: none; touch-action: none; }
+.kg-cp-vh .kg-cp-dot { fill: var(--card); stroke: var(--cp-line); stroke-width: 3; }
+.kg-cp-vh.on .kg-cp-dot { stroke: var(--fg); }
+.kg-cp-vh:focus-visible .kg-cp-hit { stroke: var(--accent); stroke-width: 3; stroke-dasharray: 5 4; }
+.kg-cp-pend { fill: none; stroke: var(--accent); stroke-width: 3; stroke-dasharray: 4 3; pointer-events: none; }
+.kg-cp-risel.end { text-anchor: end; }
+.kg-cp-shape { fill: color-mix(in srgb, var(--cp-t1) 22%, transparent); stroke: var(--cp-t1); stroke-width: 2.5; pointer-events: none; }
+.kg-cp-shape.img { fill: color-mix(in srgb, var(--cp-t4) 30%, transparent); stroke: var(--cp-t4); }
+.kg-cp-shape.move { pointer-events: auto; cursor: grab; outline: none; touch-action: none; }
+.kg-cp-shape.move:focus-visible { stroke: var(--accent); stroke-width: 4; stroke-dasharray: 6 4; }
+.kg-cp-vn { font-style: italic; font-weight: 700; position: relative; padding-block-start: 0.35em; direction: ltr; unicode-bidi: isolate; }
+.kg-cp-vn::after { content: '→'; position: absolute; inset-inline-start: 50%; inset-block-start: -0.35em; transform: translateX(-50%); font-size: 0.7em; font-style: normal; }
+/* hint icons (drawn left to right, like the plane): an arrow; a shape and its moved copy; a tap */
+.kg-cp-i.i-arrow, .kg-cp-i.i-move { direction: ltr; }
+.kg-cp-i.i-arrow::before { inset-block: 21px; inset-inline: 8px 16px; background: var(--cp-line); }
+.kg-cp-i.i-arrow::after { inset-block-start: 15px; inset-inline-end: 7px; inline-size: 0; block-size: 0; border-block: 7px solid transparent; border-inline-start: 12px solid var(--cp-line); }
+.kg-cp-i.i-move::before { inset: 8px 18px 18px 8px; border: 3px solid var(--cp-t1); }
+.kg-cp-i.i-move::after { inset: 18px 8px 8px 18px; background: color-mix(in srgb, var(--cp-t4) 45%, transparent); border: 3px solid var(--cp-t4); }
+.kg-cp-i.i-pick::before { inset: 12px; border-radius: 50%; border: 3px solid var(--accent); }
+.kg-cp-i.i-pick::after { inset: 18px; border-radius: 50%; background: var(--accent); }

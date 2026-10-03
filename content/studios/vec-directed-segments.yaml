@@ -1,0 +1,89 @@
+id: vec-directed-segments
+engine: coord-plane
+strand: vec
+order: 1
+concepts: [vec.2d, vec.equal-opposite, vec.translation, pos.translation.vector]
+# Pilot of the coord-plane `vectors` module (engines/coord-plane/vectors.ts, loaded only here). Arrows are drawn tail →
+# head and read as column vectors, x on top (Iran G7 ch.8 «پاره‌خط جهت‌دار» p.98: ابتدا، انتها، اندازه، راستا، جهت;
+# «بردارهای مساوی و قرینه» p.101: equal = هم‌راستا، هم‌اندازه و هم‌جهت; «مختصات» p.104; «بردار انتقال» p.107:
+# مختصات انتها = مختصات ابتدا + مختصات بردار; UK GCSE G24 column vectors). The plane is LTR in every locale. Vectors in
+# text are {{col:x,y}}: a bracketed column in fa-IR, a round-bracket column in en (UK), (x, y) in fa-AF/ps as in the
+# Afghan G9 «وکتور انتقال» page; the engine's readout follows `label-vec` the same way. Points and vectors are named
+# with Latin letters in every locale, as in both countries' vector chapters.
+# Trap codes that come from the coord check itself: tail-head (reversed), components-swapped, sign, one-component,
+# same-direction (the opposite drawn the same way), wrong-tail, length / direction (picks), not-moved.
+missions:
+  # Draw the arrow from A to B and read its column: [5, 3]. Drawn from B to A is caught as tail-head.
+  - id: directed-segment
+    setup:
+      module: vectors
+      x: [-5, 5]
+      y: [-5, 5]
+      given: [[-3, -2], [2, 1]]
+      labels: true
+      instruction: arrow
+      vectors: { draw: 1, names: [AB], show: [readout, components] }
+    check:
+      type: coord
+      vectors: [{ from: [-3, -2], to: [2, 1] }]
+  # Tap every arrow equal to a. Two equal arrows sit far from a; the distractors are the opposite (tail-head),
+  # [1, 3] (components-swapped), [6, 2] (length: same direction, longer) and [3, −1] (direction: same length).
+  - id: equal-vectors
+    setup:
+      module: vectors
+      x: [-5, 5]
+      y: [-5, 5]
+      instruction: pick
+      vectors:
+        given: [{ from: [-5, 4], v: [3, 1], name: a, tone: 0 }]
+        choices:
+          - { from: [1, 4], v: [3, 1], name: b }
+          - { from: [4, 2], v: [-3, -1], name: c }
+          - { from: [-5, -2], v: [3, 1], name: d }
+          - { from: [3, -3], v: [1, 3], name: e }
+          - { from: [-5, -4], v: [6, 2], name: f }
+          - { from: [-5, 2], v: [3, -1], name: g }
+    check:
+      type: coord
+      pick: { equal: [3, 1] }
+  # Draw b, the opposite of a = [2, −3], starting at A. Drawing a again (same-direction), [3, −2] (components swapped)
+  # and the right arrow elsewhere (wrong-tail) are caught.
+  - id: opposite-vector
+    setup:
+      module: vectors
+      x: [-5, 5]
+      y: [-5, 5]
+      given: [[3, -2]]
+      labels: true
+      instruction: arrow
+      vectors:
+        given: [{ from: [-4, 4], v: [2, -3], name: a, tone: 0 }]
+        draw: 1
+        names: [b]
+    check:
+      type: coord
+      vectors: [{ opposite: [2, -3], from: [3, -2] }]
+  # Drag the copy of triangle ABC by the vector [3, −4]. Dashed arrows join each corner to its image.
+  # [−4, 3] (components-swapped), [−3, 4] (tail-head) and [3, 4] (sign) all fit on the plane and are caught.
+  - id: translate
+    setup:
+      module: vectors
+      x: [-5, 5]
+      y: [-5, 5]
+      instruction: move
+      vectors: { shape: [[-1, -1], [1, -1], [-1, 1]], corners: true, move: true, show: [trail] }
+    check:
+      type: coord
+      shift: [3, -4]
+  # The triangle ABC was moved to A′B′C′. Draw the translation vector (from A to A′) and read it: [−5, 2].
+  # Drawn from A′ back to A (tail-head) and [2, −5] (components-swapped) are caught.
+  - id: describe-translation
+    setup:
+      module: vectors
+      x: [-5, 5]
+      y: [-5, 5]
+      instruction: arrow
+      vectors: { shape: [[2, -4], [4, -3], [3, -1]], image: [-5, 2], corners: true, draw: 1, show: [readout] }
+    check:
+      type: coord
+      vectors: [{ v: [-5, 2] }]

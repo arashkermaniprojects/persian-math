@@ -30,7 +30,7 @@ const studios = loadStudios().map((s) => ({
 
 // Group: by grade for a country path (untaught studios last), by strand order for Explorer.
 const groups = new Map<string, typeof studios>();
-const STRANDS = ['num', 'ops', 'frac', 'ratio', 'fin', 'meas', 'geo', 'pos', 'seq', 'alg', 'coord', 'stat', 'prob', 'disc', 'ps'];
+const STRANDS = ['num', 'ops', 'frac', 'ratio', 'fin', 'meas', 'geo', 'pos', 'seq', 'alg', 'coord', 'vec', 'stat', 'prob', 'disc', 'ps'];
 const strandRank = (s: string) => (STRANDS.indexOf(s) + 1 || 99);
 for (const s of [...studios].sort((a, b) => (a.grade ?? 99) - (b.grade ?? 99) || strandRank(a.def.strand) - strandRank(b.def.strand) || a.def.order - b.def.order)) {
   const label = !cur

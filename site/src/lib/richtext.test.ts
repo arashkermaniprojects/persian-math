@@ -18,6 +18,9 @@ describe('rich', () => {
     expect(rich('{{vec:4,2}}', 'fa-IR')).toBe('<span class="vec" role="math" aria-label="(4, 2)"><span>۴</span><span>۲</span></span>');
     expect(rich('{{vec:-3, 1}}', 'fa-AF')).toBe('<bdi dir="ltr" class="pair">(<bdi dir="ltr">-۳</bdi>, ۱)</bdi>');
     expect(rich('{{vec:4,2}}', 'en')).toBe('<bdi dir="ltr" class="pair">(4, 2)</bdi>');
+    expect(rich('{{col:4,-3}}', 'en')).toBe('<span class="vec round" role="math" aria-label="(4, -3)"><span>4</span><span><bdi dir="ltr">-3</bdi></span></span>');
+    expect(rich('{{col:4,2}}', 'fa-IR')).toBe('<span class="vec" role="math" aria-label="(4, 2)"><span>۴</span><span>۲</span></span>');
+    expect(rich('{{col:4,2}}', 'ps')).toBe('<bdi dir="ltr" class="pair">(۴, ۲)</bdi>');
   });
 });
 

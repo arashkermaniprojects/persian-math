@@ -1,0 +1,112 @@
+{
+  "title": "Directed segments, {{term:vector}}s and translation vectors",
+  "summary": "Draw vectors from tail to head and read them as column vectors, find equal and opposite vectors, and translate a shape by a vector.",
+  "guide": [
+    "A line segment with a direction is a {{term:vector}}. It starts at its tail and ends at its head, and the arrowhead is always at the head. The vector AB starts at A and ends at B. The vector BA is the same segment, the other way round.",
+    "We write a vector as a column vector. The top number is the move across: right, or left if it is negative. The bottom number is the move up, or down if it is negative. So {{col:4,-3}} means 4 right and 3 down.",
+    "Two vectors are equal when they have the same length and the same direction, wherever they are on the grid. The negative of a vector has the same length but points the opposite way: the negative of {{col:2,-3}} is {{col:-2,3}}. In a {{term:translation}}, every point of the shape moves by the same vector, the translation vector. Head = tail + vector."
+  ],
+  "engine": {
+    "letters": "A B C D E F G H",
+    "label-plane": "Coordinate grid",
+    "label-point": "Point",
+    "label-vec": "({x}\n{y})",
+    "label-arrow": "Vector",
+    "label-tail": "Tail of {name}",
+    "label-head": "Head of {name}",
+    "label-slide": "Move {name}",
+    "label-image": "Image of the shape",
+    "label-shift": "Translation vector",
+    "label-from": "Tail at",
+    "label-clear-arrows": "Clear vector",
+    "instruction-arrow": "Drag from tail to head.",
+    "instruction-pick": "Tap the vectors.",
+    "instruction-move": "Drag the purple triangle."
+  },
+  "missions": {
+    "directed-segment": {
+      "title": "The directed segment AB",
+      "prompt": "Draw the vector AB: start at A and drag to B. First predict: how far right and how far up is it from A to B? What is the column vector of AB?",
+      "hint": "Put your finger on A and drag to B (or tap A, then tap B). The arrowhead must be on B, because B is the head of the vector.",
+      "success": "Well done! AB = {{col:5,3}}: 5 right and 3 up. The top number is the move across and the bottom number is the move up.",
+      "why": "How is the vector BA different from AB? What is its column vector?",
+      "model": "AB and BA are the same segment, but they point opposite ways. AB starts at A and ends at B: 5 right and 3 up, so {{col:5,3}}. BA starts at B and goes back to A: 5 left and 3 down, so {{col:-5,-3}}. In a vector the order of the letters matters: the tail first, then the head.",
+      "feedback": {
+        "empty": "You haven't drawn a vector yet. Start at A and drag to B.",
+        "tail-head": "Your arrow starts at B and ends at A: that is the vector BA. In AB, A is the tail and B is the head: start at A so the arrowhead lands on B.",
+        "wrong-tail": "Your vector has the right length and direction, but it doesn't start at A. Put its tail on A.",
+        "wrong-head": "The tail is right, but the arrowhead is not on B.",
+        "components-swapped": "You swapped the two moves: your arrow goes 3 right and 5 up. From A to B is 5 right and 3 up.",
+        "sign": "One direction is the wrong way round. B is to the right of A and above it, so both numbers are positive.",
+        "one-component": "One of the two numbers is right, but not the other. Put the arrowhead exactly on B.",
+        "wrong-vector": "Your arrow doesn't go from A to B. Put the tail on A and the head on B."
+      }
+    },
+    "equal-vectors": {
+      "title": "Equal vectors",
+      "prompt": "The orange vector a = {{col:3,1}}. Tap every vector that is equal to a. First predict: can a vector somewhere else on the grid be equal to a?",
+      "hint": "For each vector, count from tail to head: how far right, how far up? Every vector that is {{col:3,1}} is equal to a. Where it is doesn't matter.",
+      "success": "Well done! b and d are equal to a: all three are {{col:3,1}}, with the same length and the same direction. Where a vector sits on the grid doesn't matter.",
+      "why": "c is as long as a and lies along the same line. Why is it not equal to a? What about f?",
+      "model": "Two vectors are equal when they have the same length and the same direction. c has the same length but points the opposite way: {{col:-3,-1}}, so c is the negative of a. f points the same way as a but is twice as long: {{col:6,2}}. So equal vectors have exactly the same column vector, wherever they are.",
+      "feedback": {
+        "pick-empty": "You haven't tapped any vectors yet. Choose the ones that are equal to a.",
+        "tail-head": "One vector you chose points the opposite way to a: {{col:-3,-1}}. That is the negative of a, not equal to it. Look at the arrowheads.",
+        "components-swapped": "One vector you chose is {{col:1,3}}: 1 right and 3 up. a is {{col:3,1}}; the order of the numbers matters.",
+        "length": "One vector you chose points the same way as a but is longer: {{col:6,2}}. Equal vectors must have the same length too.",
+        "direction": "One vector you chose is as long as a but goes in another direction: down instead of up. Count the squares again.",
+        "missed": "Good choices, but there is another equal vector. Position doesn't matter: find every {{col:3,1}}, even far away from a.",
+        "wrong-pick": "One vector you chose is not equal to a. Count its moves."
+      }
+    },
+    "opposite-vector": {
+      "title": "The negative of a vector",
+      "prompt": "The orange vector a = {{col:2,-3}}. Draw b, the negative of a, starting at point A. First predict: what is the column vector of −a?",
+      "hint": "The negative of a has the same length as a but points the opposite way. a goes 2 right and 3 down, so b goes 2 left and 3 up from A.",
+      "success": "Well done! b = {{col:-2,3}}: the same length as a, the opposite direction. b = −a.",
+      "why": "If you move by a and then by −a, where do you end up? Why?",
+      "model": "The negative of a vector changes the sign of both numbers: {{col:2,-3}} becomes {{col:-2,3}}. a takes you 2 right and 3 down, and −a brings you 2 left and 3 up, so you end where you started.",
+      "feedback": {
+        "empty": "Draw a vector starting at point A.",
+        "same-direction": "Your vector is equal to a, not its negative: it points the same way. The negative must point the opposite way: 2 left and 3 up.",
+        "wrong-tail": "Your column vector is right, but it doesn't start at A. Put its tail on A.",
+        "components-swapped": "You swapped the numbers: your vector goes 3 across and 2 up or down. The negative of {{col:2,-3}} is {{col:-2,3}}: 2 left and 3 up.",
+        "sign": "You only turned one direction round. In the negative both numbers change sign: left–right and up–down.",
+        "one-component": "One of the two numbers is right, but not the other. −a = {{col:-2,3}}.",
+        "wrong-vector": "That is not the negative of a. a goes 2 right and 3 down; −a goes 2 left and 3 up."
+      }
+    },
+    "translate": {
+      "title": "Translate by a vector",
+      "prompt": "Drag the purple triangle to translate triangle ABC by the vector {{col:3,-4}}. First predict: where does corner A go?",
+      "hint": "The top number means 3 right and the bottom number means 4 down. Move every corner that much: A goes from (−1, −1) to (2, −5).",
+      "success": "Well done! Every corner moved 3 right and 4 down, so A′ is at (2, −5). The dashed arrows from each corner to its image are all equal to {{col:3,-4}}.",
+      "why": "How are the dashed arrows from A to A′, B to B′ and C to C′ related? Why?",
+      "model": "In a translation every point of the shape moves by the same vector, so the three arrows have the same length and direction: all three are {{col:3,-4}}. To find a corner of the image, add the vector to the corner: for A, x is −1 + 3 = 2 and y is −1 − 4 = −5.",
+      "feedback": {
+        "not-moved": "The purple triangle is still on top of ABC. Drag it to move it.",
+        "components-swapped": "You swapped the numbers: the triangle moved 4 left and 3 up. The top number is the move across (3 right) and the bottom number the move up or down (4 down).",
+        "tail-head": "The triangle moved exactly the opposite way: 3 left and 4 up. {{col:3,-4}} means 3 right and 4 down.",
+        "sign": "One direction is the wrong way round. 3 is positive: right. −4 is negative: down.",
+        "one-component": "One of the two moves is right, but not the other. The triangle should move 3 right and 4 down.",
+        "wrong-shift": "Not yet. Follow corner A: 3 right, then 4 down."
+      }
+    },
+    "describe-translation": {
+      "title": "Find the translation vector",
+      "prompt": "Triangle ABC has been translated to A′B′C′. Draw the translation vector from A to A′. First predict: what is its column vector?",
+      "hint": "The tail is at A and the head is at A′. How far left and how far up is it from A to A′? Moving left gives a negative number.",
+      "success": "Well done! The translation vector is {{col:-5,2}}: 5 left and 2 up. It is the same from B to B′ and from C to C′.",
+      "why": "Why does the translation vector start at A and end at A′, and not the other way round?",
+      "model": "A translation vector says where the shape moved from and to: its tail is on the object and its head on the image. From A to A′ is 5 left and 2 up: {{col:-5,2}}. The vector from A′ back to A is {{col:5,-2}}: the reverse translation, from the image back to the object.",
+      "feedback": {
+        "empty": "Draw a vector from A to A′.",
+        "tail-head": "Your vector starts at A′ and ends at A: that is the reverse translation. The tail is on the object: start at A and drag to A′.",
+        "components-swapped": "Your numbers are swapped: 2 across and 5 up or down. From A to A′ is 5 across and 2 up.",
+        "sign": "One direction is the wrong way round. A′ is to the left of A and above it: left is negative, up is positive.",
+        "one-component": "One of the two numbers is right, but not the other. Count the squares from A to A′ again.",
+        "wrong-vector": "That vector doesn't take A to A′. Start at A and drag to A′."
+      }
+    }
+  }
+}

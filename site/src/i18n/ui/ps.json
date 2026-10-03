@@ -63,5 +63,6 @@
   "home.strand.alg": "الجبر",
   "home.strand.seq": "الګوګانې او ترادفونه",
   "home.strand.disc": "سټ او منطق",
-  "home.strand.coord": "مختصات او د مستقیمې کرښې معادله"
+  "home.strand.coord": "مختصات او د مستقیمې کرښې معادله",
+  "home.strand.vec": "وکتورونه"
 }
