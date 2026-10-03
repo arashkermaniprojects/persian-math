@@ -1,0 +1,110 @@
+{
+  "title": "Inequalities, intervals and solving them",
+  "summary": "Show the solutions of an inequality on a number line: filled or hollow circle, segment or arrow. Then solve inequalities and see why multiplying by a negative number turns the sign round.",
+  "guide": [
+    "This studio follows KS3 \"vocabulary of inequalities\" and GCSE A22: solve linear inequalities and show the solution set on a number line.",
+    "{{alg:x > 3}} means every number greater than 3: not just 4, 5 and 6, but {{num:3.1}} and {{num:3.01}} too. So we shade one unbroken piece of the {{term:number-line}}.",
+    "A filled circle means the number itself is a solution (≤ or ≥). A hollow circle means it is not (< or >).",
+    "Tap the line to draw a piece. Choose its shape with the buttons: arrow to the left, segment, or arrow to the right. Drag the circles to move them, and tap a circle to make it filled or hollow.",
+    "Solve an {{term:inequality}} like an equation: add or subtract the same number on both sides, multiply or divide both sides by the same positive number. But if you multiply or divide by a negative number, the inequality sign turns round.",
+    "The triangle above the line is a test number: drag it and see whether the inequality is true or false there."
+  ],
+  "engine": {
+    "notation": "inequality",
+    "label-line": "Number line",
+    "label-shape": "Shape of the solution",
+    "label-left": "Arrow to the left",
+    "label-segment": "Segment",
+    "label-right": "Arrow to the right",
+    "label-end": "End circle",
+    "label-closed": "Filled: included",
+    "label-open": "Hollow: not included",
+    "label-add-piece": "Draw on the line",
+    "label-remove-piece": "Remove",
+    "label-or": "or",
+    "label-test": "Test number",
+    "label-true": "true",
+    "label-false": "false"
+  },
+  "missions": {
+    "greater-than-three": {
+      "title": "Show {{alg:x > 3}}",
+      "prompt": "Show the numbers that satisfy {{alg:x > 3}} on the number line. First think: is 3 itself a solution? Which way do the solutions go? Then tap the line and set the shape and the circle.",
+      "hint": "Bigger numbers are to the right, and they never stop: an arrow to the right. 3 is not greater than 3, so the circle at 3 is hollow.",
+      "success": "Well done! A hollow circle at 3 and an arrow to the right: every number greater than 3.",
+      "why": "Why is the circle at 3 hollow? Why don't we just mark the points 4, 5 and 6?",
+      "model": "Because {{alg:3 > 3}} is false: 3 equals itself, it is not bigger. So 3 is not a solution and its circle stays empty. But any number just above 3, like {{num:3.1}} or {{num:3.001}}, is a solution, so the solutions are not only whole numbers: they fill every point to the right of 3.",
+      "feedback": {
+        "empty": "Nothing is on the line yet. Tap at 3 to draw a piece.",
+        "open-closed": "A filled circle means 3 itself is a solution. Is {{alg:3 > 3}} true? Tap the circle to make it hollow.",
+        "wrong-direction": "You shaded the numbers less than 3. \"Greater than\" is to the right of 3.",
+        "not-ray": "The solutions never stop: 10 and 100 are greater than 3 too. Choose the arrow to the right.",
+        "wrong-end": "Where is the boundary? The circle must be exactly at 3.",
+        "pieces": "Only one piece is needed."
+      }
+    },
+    "read-the-picture": {
+      "title": "Read the picture",
+      "prompt": "Which inequality does this picture show? Look closely at the two circles: which is filled and which is hollow?",
+      "hint": "The circle at {{num:-2}} is filled: {{num:-2}} is a solution, so ≤. The circle at 4 is hollow: 4 is not, so <.",
+      "success": "Right! {{alg:-2 ≤ x < 4}}.",
+      "why": "Is {{num:3.5}} in this set? How many numbers are in it?",
+      "model": "Yes, because {{alg:-2 ≤ 3.5 < 4}} is true. The integers in it are only {{num:-2}}, {{num:-1}}, 0, 1, 2 and 3, but between any two numbers there are infinitely many others, so the set has infinitely many numbers. That is why we shade the whole piece of line, not dots.",
+      "feedback": {
+        "wrong": "Look at the circles again: filled means ≤ (the number is included), hollow means < (it is not)."
+      }
+    },
+    "one-at-least-x": {
+      "title": "Show {{alg:1 ≥ x}}",
+      "prompt": "Show the numbers that satisfy {{alg:1 ≥ x}}. Read it aloud: \"1 is greater than or equal to x\". So is x bigger or smaller than 1? Under the line you can see which inequality your picture shows.",
+      "hint": "If 1 is greater than or equal to x, then x is less than or equal to 1: {{alg:x ≤ 1}}. The open side of the sign always faces the bigger number.",
+      "success": "Well done! {{alg:1 ≥ x}} is the same as {{alg:x ≤ 1}}: a filled circle at 1 and an arrow to the left.",
+      "why": "Why do {{alg:1 ≥ x}} and {{alg:x ≤ 1}} say the same thing? Try a number such as 0.",
+      "model": "Both say that x is not more than 1. When the two sides swap places the sign turns round too, just as \"5 is greater than 2\" is the same as \"2 is less than 5\". For 0: {{alg:1 ≥ 0}} is true and {{alg:0 ≤ 1}} is true.",
+      "feedback": {
+        "empty": "Tap at 1 to draw a piece.",
+        "wrong-direction": "Read under the line: your picture is {{alg:x ≥ 1}}. But in {{alg:1 ≥ x}}, 1 is the bigger one, so x is smaller and the solutions are to the left of 1.",
+        "open-closed": "≥ means \"greater than or equal to\", so x = 1 is a solution too and the circle is filled.",
+        "not-ray": "The solutions never stop going left: {{num:-10}} and {{num:-100}} are less than 1 too. Choose an arrow.",
+        "wrong-end": "The boundary is at 1.",
+        "pieces": "Only one piece is needed."
+      }
+    },
+    "solve-two-steps": {
+      "title": "Solve {{alg:2x - 1 < 7}}",
+      "prompt": "Solve {{alg:2x - 1 < 7}} and show the solutions on the line. First drag the test triangle: for which numbers is the inequality true? Where is the boundary?",
+      "hint": "Add 1 to both sides: {{alg:2x < 8}}. Divide both sides by 2 (a positive number): {{alg:x < 4}}. 4 itself is not a solution, because {{alg:7 < 7}} is false.",
+      "success": "Right! {{alg:x < 4}}: a hollow circle at 4 and an arrow to the left.",
+      "why": "Why did the inequality sign stay the same when you divided both sides by 2?",
+      "model": "Dividing by a positive number keeps numbers in the same order: if {{alg:2x < 8}}, half of {{alg:2x}} is less than half of 8. The test triangle showed it too: for 3, {{alg:5 < 7}} is true; for 4, {{alg:7 < 7}} is false; for 5, {{alg:9 < 7}} is false.",
+      "feedback": {
+        "empty": "Nothing is on the line yet. Solve the inequality first, then tap the boundary.",
+        "subtracted": "You took 1 away from 7. But in {{alg:2x - 1}} the 1 is subtracted, so add 1 to both sides to remove it: {{alg:2x < 8}}.",
+        "not-divided": "{{alg:2x < 8}} is right, but that is still {{alg:2x}}, not x. Divide both sides by 2.",
+        "open-closed": "Put the test triangle on 4: {{alg:7 < 7}} is false. So 4 is not a solution and its circle is hollow.",
+        "wrong-direction": "Put the test triangle on 0: {{alg:-1 < 7}} is true. So the solutions are to the left of the boundary.",
+        "not-ray": "The solutions never stop going left. Put the triangle on {{num:-3}} and see.",
+        "wrong-end": "Find the boundary: for which x is {{alg:2x - 1}} exactly 7?",
+        "pieces": "Only one piece is needed."
+      }
+    },
+    "times-a-negative": {
+      "title": "Dividing by a negative number",
+      "prompt": "Solve {{alg:-3x ≥ 6}} and show the solutions. First predict: is x = 0 a solution? Then drag the test triangle and see which side the solutions are on.",
+      "hint": "Divide both sides by {{num:-3}}. Because it is negative, the sign turns round: {{alg:x ≤ -2}}.",
+      "success": "Well done! {{alg:x ≤ -2}}: a filled circle at {{num:-2}} and an arrow to the left.",
+      "why": "Why did ≥ turn into ≤ when you divided both sides by {{num:-3}}?",
+      "model": "Multiplying or dividing by a negative number reverses the order of numbers: 2 is less than 5, but {{num:-2}} is greater than {{num:-5}}. If we don't turn the sign round we get {{alg:x ≥ -2}}, which is false for 0: {{alg:-3 × 0 = 0}}, and 0 is less than 6. The test triangle showed the solutions are to the left of {{num:-2}}.",
+      "feedback": {
+        "empty": "Nothing is on the line yet. Solve the inequality first, then tap the boundary.",
+        "sign-not-flipped": "You drew {{alg:x ≥ -2}}. Put the triangle on 0: {{alg:0 ≥ 6}} is false! Dividing by a negative number turns the inequality sign round.",
+        "minus-lost": "The minus sign of {{alg:-3x}} has gone missing. Divide by {{num:-3}}: {{alg:6 ÷ (-3) = -2}}.",
+        "open-closed": "≥ means the boundary is a solution too: {{alg:-3 × (-2) = 6}} and {{alg:6 ≥ 6}} is true. Make the circle filled.",
+        "wrong-direction": "Put the test triangle on 0 and see whether the inequality is true.",
+        "not-ray": "The solutions never stop: {{num:-10}} is a solution too. Choose an arrow.",
+        "wrong-end": "The boundary is where {{alg:-3x}} is exactly 6.",
+        "pieces": "Only one piece is needed."
+      }
+    }
+  }
+}

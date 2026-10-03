@@ -1,0 +1,75 @@
+id: alg-inequalities
+engine: number-line
+strand: alg
+order: 7
+concepts: [alg.inequalities.concept, alg.inequalities.linear]
+# Pilot of the number-line `intervals` module (site/src/engines/number-line/intervals.ts, loaded only by these missions).
+# Iran G9 ch.5 «نابرابری‌ها و نامعادله‌ها» (G09_riazi_nohom.pdf p.98–100 = printed ۹۰–۹۲): a < x < b drawn as a segment
+# with hollow dots, then «خاصیت ۳»: × a negative turns the inequality round, and 2x + 1 > 7 solved to x > 3 with its
+# ray. Afghan G9 ch.6 «نامساوات، حل نامساوات‌های خطی» and «فاصله یا انتروال‌ها» (Pashto edition AF_G09_riazi_ps.pdf
+# p.166–167 = printed ۱۵۹–۱۶۰): (−1, 4] = {x ∈ IR : −1 < x ≤ 4}, filled dot = included, hollow = not included, rays
+# with arrows. UK KS3 "vocabulary of inequalities", GCSE A22 (solve linear inequalities, show the set on a number line).
+# The line increases left → right in every locale; inequalities and [a, b) are written left to right. The live readout
+# follows the studio's engine label `notation`: interval notation and inequalities for fa-IR/fa-AF/ps (Iran G10, Afghan
+# G9), inequalities only for en.
+missions:
+  # Draw x > 3. Tap the line to put down a piece, make it a ray to the right, make the dot at 3 hollow.
+  # Slips: filled dot (3 taken in: open-closed), ray to the left (wrong-direction), a segment that stops (not-ray).
+  - id: greater-than-three
+    setup:
+      min: -3
+      max: 8
+      labels: whole
+      intervals: { max: 1, notation: none }
+    check: { type: interval, value: "(3, inf)" }
+  # Read a picture: [−2, 4). Which inequality? Slips: both dots read the same way, or filled/hollow swapped.
+  # The "why" asks whether 3.5 is in it and how many numbers are: not just the whole numbers −2 … 3.
+  - id: read-the-picture
+    setup:
+      min: -5
+      max: 6
+      labels: whole
+      intervals: { start: ["[-2, 4)"], lock: true, max: 1 }
+    answer: choice
+    check:
+      type: choice
+      options: ["{{alg:-2 < x < 4}}", "{{alg:-2 ≤ x < 4}}", "{{alg:-2 ≤ x ≤ 4}}", "{{alg:-2 < x ≤ 4}}"]
+      correct: 1
+  # Draw 1 ≥ x ("1 is greater than or equal to x"), i.e. x ≤ 1. The classic slip reads it left to right as "x ≥ 1"
+  # and draws the ray the wrong way; the live readout shows what was drawn.
+  - id: one-at-least-x
+    setup:
+      min: -5
+      max: 5
+      labels: whole
+      intervals: { max: 1, notation: auto }
+    check: { type: interval, value: "(-inf, 1]" }
+  # Solve 2x − 1 < 7 (add 1, divide by 2): x < 4. The test point checks numbers on the line.
+  # Slips: 1 subtracted (2x < 6, x < 3), not divided (x < 8), x ≤ 4 (open-closed).
+  - id: solve-two-steps
+    setup:
+      min: -3
+      max: 9
+      labels: whole
+      intervals: { max: 1, notation: auto, test: { ineq: "2x - 1 < 7", at: 0 } }
+    check:
+      type: interval
+      value: "(-inf, 4)"
+      traps:
+        - { value: "(-inf, 3)", code: subtracted }
+        - { value: "(-inf, 8)", code: not-divided }
+  # Solve −3x ≥ 6: divide by −3 and turn the sign round, x ≤ −2 (Iran G9 «خاصیت ۳», Afghan G9, GCSE A22).
+  # Slips: sign not turned (x ≥ −2: sign-not-flipped), the minus lost (x ≥ 2 or x ≤ 2), x < −2 (open-closed).
+  - id: times-a-negative
+    setup:
+      min: -6
+      max: 4
+      labels: whole
+      intervals: { max: 1, notation: auto, test: { ineq: "-3x >= 6", at: 0 } }
+    check:
+      type: interval
+      value: "(-inf, -2]"
+      flipped: true
+      traps:
+        - { value: "[2, inf)", code: minus-lost }
+        - { value: "(-inf, 2]", code: minus-lost }

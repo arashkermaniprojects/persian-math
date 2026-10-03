@@ -104,3 +104,13 @@ export function setHTML(text: string, f: NumberFormat): string {
   const t = text.trim().replace(/[\u2066-\u2069]/g, '').replace(/\[/g, '{').replace(/\]/g, '}').replace(/\s*[,،]\s*/g, setSep(f));
   return `<bdi dir="ltr" class="set">${digitsOf(t, f)}</bdi>`;
 }
+
+/**
+ * Interval notation, always left to right as in Afghan G9 «انتروال» and Iran G10 «بازه»: [−۲, ۴), (−∞, ۱], unions with ∪.
+ * Authored as {{interval:[-2, 4)}}, {{interval:(-inf, 1] U (3, inf)}}. The ends are separated as set elements are.
+ */
+export function intervalHTML(text: string, f: NumberFormat): string {
+  const t = text.trim().replace(/[⁦-⁩]/g, '').replace(/\binf\b|∞/g, '∞').replace(/\s*\bU\b\s*|\s*∪\s*/g, ' ∪ ')
+    .replace(/-/g, '−').replace(/(\d)\.(\d)/g, `$1${f.decimal}$2`).replace(/\s*[,،]\s*/g, setSep(f));
+  return `<bdi dir="ltr" class="set">${digitsOf(t, f)}</bdi>`;
+}

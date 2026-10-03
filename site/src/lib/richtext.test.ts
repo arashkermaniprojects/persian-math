@@ -31,6 +31,15 @@ describe('set notation', () => {
   });
 });
 
+describe('interval notation', () => {
+  it('runs left to right with −, ∞, ∪ and the locale separator and decimal mark', () => {
+    expect(rich('بازهٔ {{interval:[-2, 4)}}', 'fa-IR')).toBe('بازهٔ <bdi dir="ltr" class="set">[−۲, ۴)</bdi>');
+    expect(rich('{{interval:[-2, 4)}}', 'fa-AF')).toBe('<bdi dir="ltr" class="set">[−۲، ۴)</bdi>');
+    expect(rich('{{interval:(-inf, 1.5] U (3, inf)}}', 'en')).toBe('<bdi dir="ltr" class="set">(−∞, 1.5] ∪ (3, ∞)</bdi>');
+    expect(rich('{{interval:(-inf, 1.5]}}', 'fa-IR')).toBe('<bdi dir="ltr" class="set">(−∞, ۱/۵]</bdi>');
+  });
+});
+
 describe('algebra', () => {
   it('writes {{alg:…}} left to right with locale digits, − and raised powers; letters stay Latin', () => {
     expect(rich('{{alg:3x^2 - 2x + 1}}', 'fa-IR')).toBe('<bdi dir="ltr" class="alg">۳x<sup>۲</sup> − ۲x + ۱</bdi>');

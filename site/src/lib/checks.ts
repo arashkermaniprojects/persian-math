@@ -17,6 +17,7 @@ import { checkSets, type SetsCheck, type SetsState } from '../engines/lib/discre
 import { checkSolid, type SolidCheck, type SolidState } from '../engines/lib/solid-viewer-check';
 import { checkAlgebra, type AlgebraCheck, type AlgebraState } from '../engines/lib/algebra-tiles-check';
 import { checkSummary, type SummaryCheck, type SummaryState } from '../engines/lib/chart-builder-summary';
+import { checkInterval, type IntervalCheck, type IntervalState } from '../engines/lib/number-line-intervals';
 
 type FracSpec = [number, number];
 
@@ -64,7 +65,9 @@ export type Check =
   /** <kg-algebra-tiles>: the mat, zero pairs, rectangle, grid, the typed answer (engines/lib/algebra-tiles-check.ts). */
   | AlgebraCheck
   /** <kg-chart-builder> `summary` module: cards in order, marked middle/mode/ends, typed averages and range, best average, comparison sentences (engines/lib/chart-builder-summary.ts). */
-  | SummaryCheck;
+  | SummaryCheck
+  /** <kg-number-line> `intervals` module: the drawn set (intervals, unions), sign rows (engines/lib/number-line-intervals.ts). */
+  | IntervalCheck;
 
 export interface Attempt {
   /** Engine state (shape depends on the engine). */
@@ -82,7 +85,7 @@ export interface Attempt {
     answered?: number;
     correct?: number;
     done?: boolean;
-  } & CcmState & MeasureState & { pattern?: PatternState } & ChartState & { chance?: ChanceState } & { board?: ShapeBoardState } & { plane?: CoordState } & { sets?: SetsState } & { solid?: SolidState } & { algebra?: AlgebraState } & { summary?: SummaryState };
+  } & CcmState & MeasureState & { pattern?: PatternState } & ChartState & { chance?: ChanceState } & { board?: ShapeBoardState } & { plane?: CoordState } & { sets?: SetsState } & { solid?: SolidState } & { algebra?: AlgebraState } & { summary?: SummaryState } & IntervalState;
   fraction?: WrittenFrac | null;
   integer?: number | null;
   /** Typed decimal, already parsed exactly (null if unparseable). */
@@ -195,5 +198,7 @@ export function evaluate(check: Check, a: Attempt): Result {
       return checkAlgebra(check, a.state);
     case 'summary':
       return checkSummary(check, a.state?.summary);
+    case 'interval':
+      return checkInterval(check, a.state);
   }
 }
