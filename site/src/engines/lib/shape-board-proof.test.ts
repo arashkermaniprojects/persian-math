@@ -86,6 +86,7 @@ describe('proof steps', () => {
   });
   it('a false statement, a wrong reason (or its trap), steps out of order', () => {
     expect(checkProof(kiteProof, board({ rows: [...given, { s: 'A B = B C', r: 'common' }] })).code).toBe('false-statement');
+    expect(checkProof(kiteProof, board({ rows: [...given, { s: 'A B C ≅ A C D', r: 'sss' }] })).code).toBe('order');
     const swap = right.map((r) => (r.r === 'sss' ? { ...r, r: 'sas' } : r));
     expect(checkProof(kiteProof, board({ rows: swap })).code).toBe('wrong-reason');
     expect(checkProof({ ...kiteProof, traps: [{ reason: 'sas', code: 'no-angle' }] }, board({ rows: swap })).code).toBe('no-angle');

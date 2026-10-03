@@ -132,3 +132,35 @@ button.kg-sb-solid[aria-pressed='true'] { border-color: var(--fg); border-width:
 /* drag: a handle (a dot in a ring) */
 .kg-sb-i.i-drag::before { inset: 17px; border-radius: 50%; background: var(--accent); }
 .kg-sb-i.i-drag::after { inset: 9px; border-radius: 50%; border: 3px dashed var(--accent); }
+
+/* proof panel (shape-board/proof.ts): tappable sides and angles, correspondence slots, criteria, proof rows */
+.kg-sb-arc2 { fill: none; }
+.kg-pf-part { cursor: pointer; outline: none; }
+.kg-pf-hit { stroke: transparent; stroke-width: 30; stroke-linecap: round; }
+.kg-pf-hl { stroke: transparent; stroke-width: 9; stroke-linecap: round; pointer-events: none; }
+.kg-pf-sector { fill: transparent; }
+.kg-pf-part:hover .kg-pf-hl, .kg-pf-part:focus-visible .kg-pf-hl { stroke: var(--accent); stroke-opacity: 0.35; }
+.kg-pf-part:hover .kg-pf-sector, .kg-pf-part:focus-visible .kg-pf-sector { fill: var(--accent); fill-opacity: 0.2; }
+.kg-pf-part:focus-visible .kg-pf-sector { stroke: var(--accent); stroke-dasharray: 5 4; stroke-width: 2; }
+.kg-pf-part.on .kg-pf-hl { stroke: var(--accent); stroke-opacity: 0.8; }
+.kg-pf-part.on .kg-pf-sector { fill: var(--accent); fill-opacity: 0.45; }
+.kg-pf { inline-size: 100%; max-inline-size: 32rem; }
+.kg-pf-claim { margin: 0; padding: 0.5rem 0.8rem; border-inline-start: 6px solid var(--accent); background: var(--hint-bg); border-radius: var(--radius); font-weight: 700; inline-size: 100%; box-sizing: border-box; }
+.kg-pf-corr { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.kg-pf-tri { font-size: 1.4rem; font-weight: 700; white-space: nowrap; }
+.kg-pf-slot { display: inline-block; min-inline-size: 1.3em; margin-inline: 1px; border-block-end: 3px solid var(--accent); text-align: center; }
+.kg-pf-slot.empty { color: var(--muted); }
+.kg-pf-keys { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; }
+.kg-pf-keys .kg-sb-tile:disabled { opacity: 0.45; }
+.kg-pf-crit .kg-sb-tile { min-inline-size: 64px; }
+.kg-pf-rows { list-style: none; margin: 0; padding: 0; inline-size: 100%; display: flex; flex-direction: column; gap: 0.4rem; }
+.kg-pf-rows li { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.6rem; padding: 0.3rem 0.6rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); }
+.kg-pf-n { color: var(--muted); font-weight: 700; }
+.kg-pf-rows li.given { background: var(--hint-bg); }
+.kg-pf-st { font-weight: 700; font-size: 1.15rem; white-space: nowrap; }
+.kg-pf-why { margin-inline-start: auto; color: var(--muted); }
+.kg-pf-rows select { margin-inline-start: auto; min-block-size: 44px; max-inline-size: 100%; font: inherit; border: 2px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--fg); padding-inline: 0.4rem; }
+.kg-pf-rows select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.kg-pf-x { min-inline-size: 44px; }
+.kg-pf-build { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.4rem 0.6rem; margin: 0; color: var(--muted); text-align: center; }
+.kg-pf-build .kg-pf-st { color: var(--fg); }

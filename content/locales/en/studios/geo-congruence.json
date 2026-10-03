@@ -1,0 +1,146 @@
+{
+  "title": "Congruent shapes and congruent triangles",
+  "summary": "Slide, turn and flip a shape onto another. Then match the corresponding vertices of two triangles, choose the congruence condition, write a proof line by line, and drag a counterexample that shows SSA is not a condition.",
+  "guide": [
+    "This studio is for Years 8–9 (KS3 \"criteria for congruence of triangles\": SSS, SAS, ASA, RHS).",
+    "Two shapes are {{term:congruent}} if one can be slid, turned or flipped to fit exactly on the other. Then corresponding sides and angles are equal. The order of the letters in {{alg:△ABC ≅ △DEF}} matters: A goes onto D, B onto E and C onto F.",
+    "You don't need to check all six parts. These conditions are enough: three sides (SSS), two sides and the angle between them (SAS), two angles and the side between them (ASA), and for right-angled triangles the hypotenuse and one side (RHS). Three angles (AAA), or two sides and an angle that is not between them (SSA), are not enough.",
+    "In a proof every line has a statement and a reason: given, common side, vertically opposite angles, a congruence condition, or corresponding parts of congruent triangles. \"It looks equal in the picture\" is not a reason."
+  ],
+  "engine": {
+    "label-board": "Figure",
+    "instruction-move": "Drag, turn or flip the orange triangle.",
+    "instruction-drag": "Drag point F along the ray.",
+    "label-target": "Dashed triangle",
+    "label-copy": "Orange triangle; move it with the arrow keys",
+    "label-turn-acw": "Turn anticlockwise",
+    "label-turn-cw": "Turn clockwise",
+    "label-flip": "Flip over (mirror image)",
+    "label-undo": "Undo",
+    "label-clear": "Start again",
+    "label-handle": "{p}; move it with the arrow keys",
+    "name-F": "Point F on the ray",
+    "label-corr": "Letters of the second triangle",
+    "label-erase": "Erase the last letter",
+    "label-criterion": "Congruence condition",
+    "crit-sss": "SSS",
+    "crit-sas": "SAS",
+    "crit-asa": "ASA",
+    "crit-rhs": "RHS",
+    "crit-ssa": "SSA",
+    "crit-aaa": "AAA",
+    "crit-none": "Can't tell",
+    "label-rows": "Proof",
+    "label-reason": "Reason",
+    "label-choose": "Reason?",
+    "label-remove": "Remove line",
+    "label-cancel": "Cancel",
+    "label-tap": "Tap two sides or two angles on the figure.",
+    "label-full": "The proof is full.",
+    "label-add-congruence": "+ congruence",
+    "label-side": "side {p}",
+    "label-angle": "angle {p}",
+    "reason-given": "Given",
+    "reason-common": "Common side",
+    "reason-vertical": "Vertically opposite angles",
+    "reason-sss": "SSS",
+    "reason-sas": "SAS",
+    "reason-asa": "ASA",
+    "reason-cpct": "Corresponding parts of congruent triangles",
+    "reason-looks": "It looks equal in the picture",
+    "claim-ssa": "Claim: \"If two sides and an angle that is not between them are equal in two triangles, the triangles are congruent.\"",
+    "watch-bc": "BC = {v}",
+    "watch-ef": "EF = {v}",
+    "watch-ac": "AC = {v}",
+    "watch-df": "DF = {v}"
+  },
+  "missions": {
+    "copy": {
+      "title": "Fit it on top",
+      "prompt": "Drag the orange triangle to slide it, turn it with ↺ and ↻ and flip it with ⇋. Put it exactly on top of the dashed triangle. If two shapes fit exactly, they are {{term:congruent}}.",
+      "hint": "Turning alone won't work. Press ⇋ to flip the triangle like its reflection in a mirror, then slide it.",
+      "success": "Well done! The flipped triangle fits exactly on the other one, so the two triangles are congruent, even though one is a mirror image of the other.",
+      "why": "A friend says: \"These two triangles aren't congruent, because one is the wrong way round.\" What would you tell them?",
+      "model": "Flipping a shape doesn't change its side lengths or angles; it only changes which way it faces. When we slid, turned or flipped the shape and it fitted exactly on the other one, all the corresponding sides and angles were equal. So the triangles are congruent.",
+      "feedback": {
+        "not-fit": "They don't fit exactly yet. If turning doesn't work, try the ⇋ button."
+      }
+    },
+    "match": {
+      "title": "Corresponding vertices",
+      "prompt": "Sides with the same number of dashes are equal. Triangle DEF is triangle ABC flipped over. Fill in the gaps: first the vertex that matches A, then B, then C.",
+      "hint": "Side AB has one dash. Which side of triangle DEF has one dash? Its two ends match A and B. Now find side BC, with two dashes.",
+      "success": "Correct! {{alg:△ABC ≅ △EFD}}: A goes onto E, B onto F and C onto D.",
+      "why": "The triangles are congruent. So why is it wrong to write {{alg:△ABC ≅ △DEF}} here?",
+      "model": "The order of the letters says which vertex goes onto which. {{alg:△ABC ≅ △DEF}} would mean {{alg:AB = DE}}, but AB has one dash and DE has three. The side equal to AB is EF, so A matches E and B matches F, and C matches D.",
+      "feedback": {
+        "empty": "Fill in all three gaps.",
+        "alphabet": "The triangles are congruent, but the order of the letters matters. AB has one dash; does DE have one dash too?",
+        "order": "The right letters, but not in the right order. First find the side with one dash, like AB.",
+        "wrong-correspondence": "Use each of D, E and F once."
+      }
+    },
+    "which-case": {
+      "title": "Which condition?",
+      "prompt": "The marks show which sides and angles are equal. Which condition shows that the two triangles are {{term:congruent}}?",
+      "hint": "Where is the marked angle: between the two marked sides, or somewhere else?",
+      "success": "Well done! Two sides and the angle between them are equal: SAS. So {{alg:△ABC ≅ △DEF}}.",
+      "why": "Why does the angle in SAS have to be between the two sides?",
+      "model": "If you know two sides and the angle between them, there is only one way to make the triangle: put the two sides together at that angle and join their free ends; the third side has no choice. If the angle is not between the two sides, sometimes two different triangles can be made.",
+      "feedback": {
+        "empty": "Choose one of the conditions.",
+        "ssa": "Look carefully: angle A is between sides AB and AC. That is SAS. And SSA is not a congruence condition at all.",
+        "angle-not-side": "Only one pair of angles is marked, but ASA needs two pairs of angles.",
+        "wrong-criterion": "Count the marks: how many pairs of equal sides, and how many pairs of equal angles?"
+      }
+    },
+    "angles-only": {
+      "title": "Three equal angles",
+      "prompt": "In these two triangles all three pairs of angles are equal (arcs of the same colour). Is that enough to say the triangles are {{term:congruent}}?",
+      "hint": "Look at the sizes of the two triangles. Could one fit exactly on the other?",
+      "success": "Correct! Three equal angles are not enough: these triangles are the same shape, but one is bigger. AAA is not a congruence condition.",
+      "why": "Why is AAA not a congruence condition?",
+      "model": "If you enlarge or shrink a triangle (like enlarging a photo), its angles stay the same but its sides change. So two triangles with equal angles can be different sizes and not fit on top of each other. Congruence needs at least one pair of equal sides.",
+      "feedback": {
+        "empty": "Choose one of the options.",
+        "aaa": "The three angles are equal, but look: DEF is bigger than ABC! One cannot fit on the other.",
+        "wrong-criterion": "No sides are marked equal, so the conditions with an S in them don't apply here."
+      }
+    },
+    "kite-proof": {
+      "title": "A proof, line by line",
+      "prompt": "In quadrilateral ABCD, {{alg:AB = AD}} and {{alg:CB = CD}} (given). Prove that {{alg:∠B = ∠D}}. For each line, tap two sides or two angles on the figure and choose the reason. For the congruence line, fill in the gaps above the proof and press \"+ congruence\".",
+      "hint": "Diagonal AC splits the shape into triangles ABC and ADC. Compare their sides. AC is in both triangles: tap AC twice.",
+      "success": "Well done! All three sides are equal, so {{alg:△ABC ≅ △ADC}} (SSS), and the corresponding angles B and D are equal.",
+      "why": "Why can't we just write \"{{alg:∠B = ∠D}} because they look equal in the picture\"?",
+      "model": "A picture may not be drawn accurately, and our eyes can be fooled. In a proof every statement must come from what is given or from something already proved. Here {{alg:AB = AD}} and {{alg:CB = CD}} are given and AC is a common side, so {{alg:△ABC ≅ △ADC}} by SSS, and therefore {{alg:∠B = ∠D}} because they are corresponding parts.",
+      "feedback": {
+        "empty": "You haven't written a line yet. Tap two sides or two angles on the figure.",
+        "no-reason": "Choose a reason for every line.",
+        "looks-equal": "\"It looks equal\" is not a reason! The picture may not be accurate. Take your reason from what is given or from the congruence.",
+        "circular": "{{alg:∠B = ∠D}} is what you have to prove, so you can't use it as given or as a reason. Write the congruence of the two triangles first.",
+        "not-given": "That statement isn't given. Only {{alg:AB = AD}} and {{alg:CB = CD}} are given.",
+        "false-statement": "Those two are not equal. Look at the dashes on the figure again.",
+        "order": "The vertices are in the wrong order. A goes onto A; where does B go?",
+        "missing-step": "A step is missing. Have you written the common side, the congruence of the triangles, and {{alg:∠B = ∠D}}?",
+        "wrong-reason": "One of the reasons isn't right. Think again about each line.",
+        "sas-no-angle": "SAS needs an equal angle between two sides; here we have three equal sides.",
+        "step-order": "The order matters: each line may only use the lines above it."
+      }
+    },
+    "ssa-counter": {
+      "title": "A counterexample",
+      "prompt": "Read the claim above. In the figure {{alg:AB = DE}} and {{alg:∠A = ∠D}}. Drag point F along the ray until {{alg:EF = BC}}, but so that the triangles are not {{term:congruent}}. That is a {{term:counterexample}}.",
+      "hint": "There are two places on the ray where {{alg:EF = BC}}. In one, DF equals AC; in the other it doesn't.",
+      "success": "Well done! {{alg:AB = DE}}, {{alg:EF = BC}} and {{alg:∠A = ∠D}}, but DF is not equal to AC: the triangles are not congruent. So the claim is false.",
+      "why": "Is one counterexample enough to show a claim is false? Why?",
+      "model": "The claim says it is always true. If we find even one example where the conditions hold but the conclusion is false, it is not always true. We made two triangles with two sides and a non-included angle equal that are not congruent, so SSA is not a congruence condition.",
+      "feedback": {
+        "not-dragged": "First drag point F along the ray.",
+        "hypothesis-broken": "EF is not equal to BC yet. Move F and watch the numbers under the figure.",
+        "conclusion-holds": "Here {{alg:DF = AC}} and the triangles are congruent; this example agrees with the claim, so it is not a counterexample. There is another place where {{alg:EF = BC}}.",
+        "empty": "First drag point F along the ray."
+      }
+    }
+  }
+}

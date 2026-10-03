@@ -1,7 +1,8 @@
 // <kg-shape-board>: a dot geoboard / square grid / coordinate grid. The learner taps points to draw polygons, paths,
 // segments, lines and rays, places points, shades cells, taps shapes to pick them, slides and turns pieces, and draws
 // circles with a compass. The 3D views (cube builder on isometric dots, solid shapes) load on demand from
-// shape-board/iso.ts, and dynamic geometry (drag a figure, watch live readouts) from shape-board/dynamic.ts. Geometry and the check: engines/lib/shape-board-*.ts. Contract: docs/STUDIOS.md.
+// shape-board/iso.ts, dynamic geometry (drag a figure, watch live readouts) from shape-board/dynamic.ts, and the proof
+// panel (statements, reasons, congruence, counterexamples) from shape-board/proof.ts. Geometry and the check: engines/lib/shape-board-*.ts. Contract: docs/STUDIOS.md.
 // The board is LTR in every locale (x grows to the right, y upwards, as on both countries' coordinate grids).
 import { angles, area, circleCircle, classify, clean, lineCircle, lineLine, perimeter, rotate, samePt, translate, type Circle, type P, type Seg } from './lib/shape-board-geom';
 import type { Drawn, DrawnKind, ShapeBoardState } from './lib/shape-board-check';
@@ -21,9 +22,10 @@ export interface Given {
   dash?: boolean;
   /** select mode: false = not tappable. */
   select?: boolean;
-  /** move mode: a piece the learner slides; `turn` = and turns in quarter turns about `pivot` (default its first corner). */
+  /** move mode: a piece the learner slides; `turn` = and turns in quarter turns about `pivot` (default its first corner); `flip` = and flips over (mirror image). */
   move?: boolean;
   turn?: boolean;
+  flip?: boolean;
   pivot?: P;
 }
 
@@ -60,11 +62,13 @@ export interface ShapeBoardConfig {
   solids?: unknown;
   /** Dynamic geometry: draggable points with attached constructions and live readouts (shape-board/dynamic.ts). */
   dynamic?: unknown;
+  /** A proof panel under a dynamic figure (shape-board/proof.ts). */
+  proof?: unknown;
 }
 
 const NS = 'http://www.w3.org/2000/svg';
 const U = 44; // svg units per board unit
-type Piece = { at: P; turn: number };
+type Piece = { at: P; turn: number; flip?: boolean };
 interface Snap { drawn: Drawn[]; points: P[]; cells: P[]; selected: number[]; pieces: Piece[]; circles: Circle[] }
 type Parts = Record<'hint' | 'main' | 'tools' | 'facts' | 'pick' | 'live', HTMLElement>;
 const copy = <T>(v: T): T => JSON.parse(JSON.stringify(v));
@@ -101,6 +105,11 @@ export class ShapeBoard extends HTMLElement {
     if (c.cubes || c.solids)
       this.ready = import('./shape-board/iso').then((m) => {
         this.iso = m.mountIso(this, c);
+        this.render();
+      });
+    else if (c.proof)
+      this.ready = import('./shape-board/proof').then((m) => {
+        if (this.cfg === c) this.iso = m.mountProof(this, c);
         this.render();
       });
     else if (c.dynamic)
@@ -153,7 +162,9 @@ export class ShapeBoard extends HTMLElement {
 
   private piecePts(i: number): P[] {
     const g = (this.cfg.shapes ?? []).filter((s) => s.move)[i], p = this.s.pieces[i];
-    return g.pts!.map((q) => translate(rotate(q, g.pivot ?? g.pts![0], p.turn), p.at));
+    const o = g.pivot ?? g.pts![0];
+    // a flipped piece is mirrored in the upright line through its pivot, then turned
+    return g.pts!.map((q) => translate(rotate(p.flip ? [2 * o[0] - q[0], q[1]] : q, o, p.turn), p.at));
   }
 
   /** The grid point, or construction point, nearest a board position. */
@@ -307,6 +318,13 @@ export class ShapeBoard extends HTMLElement {
       else if (a === 'clear') this.clear();
       else if (a === 'pen' || a === 'compass') { this.tool = a; this.centre = null; this.render(); }
       else if (a === 'cw' || a === 'acw') { this.save(); this.movePiece(this.active, this.s.pieces[this.active]?.at ?? [0, 0], a === 'cw' ? -90 : 90); }
+      else if (a === 'flip' && this.s.pieces[this.active]) {
+        // mirror what is seen in the upright line through the pivot: flip, and the turn goes the other way
+        const p = this.s.pieces[this.active];
+        this.save();
+        p.flip = !p.flip;
+        this.movePiece(this.active, p.at, -2 * p.turn);
+      }
       else if (a === 'pick') { this.picked = Number(b!.dataset.n); this.changed(); }
     });
   }
@@ -547,6 +565,7 @@ export class ShapeBoard extends HTMLElement {
     let tools = '';
     if (c.compass) for (const t of ['pen', 'compass']) tools += btn(t, esc(this.lab(`label-${t}`, t)), ` aria-pressed="${this.tool === t}"`);
     if (m === 'move' && (c.shapes ?? []).some((g) => g.turn)) tools += btn('acw', '↺', ` aria-label="${esc(this.lab('label-turn-acw', 'Turn anticlockwise'))}"`) + btn('cw', '↻', ` aria-label="${esc(this.lab('label-turn-cw', 'Turn clockwise'))}"`);
+    if (m === 'move' && (c.shapes ?? []).some((g) => g.flip)) tools += btn('flip', '⇋', ` aria-label="${esc(this.lab('label-flip', 'Flip over'))}"`);
     if (m !== 'view' && !this.iso) tools += btn('undo', esc(this.lab('label-undo', 'Undo'))) + btn('clear', esc(this.lab('label-clear', 'Clear')));
     set(p.tools, tools);
     // readouts about the closed shape drawn last (or the cells shaded)

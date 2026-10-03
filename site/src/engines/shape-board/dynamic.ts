@@ -8,9 +8,11 @@ import { dpOf, Figure, readings, toks, type CircleSpec, type DynamicConfig, type
 import { parallel, type P, type Seg } from '../lib/shape-board-geom';
 
 const U = 44;
-type Item = { seg?: Names; line?: LineSpec; ray?: Names; poly?: Names; circle?: CircleSpec; angle?: string; tone?: number; dash?: boolean; arrows?: number; ticks?: number; text?: string; watch?: string; right?: boolean };
+type Item = { seg?: Names; line?: LineSpec; ray?: Names; poly?: Names; circle?: CircleSpec; angle?: string; tone?: number; dash?: boolean; arrows?: number; ticks?: number; arcs?: number; text?: string; watch?: string; right?: boolean };
+/** Board-to-SVG mapping, for a module that draws on top of the figure (shape-board/proof.ts). */
+export type Map = { sx: (x: number) => number; sy: (y: number) => number; pts: Pts };
 
-export function mountDynamic(host: ShapeBoard, cfg: ShapeBoardConfig) {
+export function mountDynamic(host: ShapeBoard, cfg: ShapeBoardConfig, over?: (m: Map) => string) {
   const dc = cfg.dynamic as DynamicConfig, f = new Figure(dc);
   const x0 = cfg.x?.[0] ?? 0, x1 = cfg.x?.[1] ?? 6, y0 = cfg.y?.[0] ?? 0, y1 = cfg.y?.[1] ?? 6, step = cfg.step ?? 1;
   const M = cfg.axes ? 32 : 22, W = (x1 - x0) * U + 2 * M, H = (y1 - y0) * U + 2 * M;
@@ -112,6 +114,8 @@ export function mountDynamic(host: ShapeBoard, cfg: ShapeBoardConfig) {
         o.push(it.right
           ? `<polygon class="kg-sb-arc t${it.tone ?? 2}" points="${cx},${cy} ${at(t0, 16)} ${at(mid, 16 * Math.SQRT2)} ${at(t1, 16)}"/>`
           : `<path class="kg-sb-arc t${it.tone ?? 2}" d="M${cx},${cy}L${at(t0, r)}A${r},${r} 0 0 ${d > 0 ? 1 : 0} ${at(t1, r)}Z"/>`);
+        // equal angles: as many arcs as the books draw (arcs: 2, 3)
+        for (let k = 1; k < (it.arcs ?? 1); k++) { const rr = r + 5 * k; o.push(`<path class="kg-sb-arc kg-sb-arc2 t${it.tone ?? 2}" d="M${at(t0, rr)}A${rr},${rr} 0 0 ${d > 0 ? 1 : 0} ${at(t1, rr)}"/>`); }
         const label = hidden ? '?' : it.watch ? `${value(it.watch, vals[it.watch])}°` : it.text ? host.d(it.text) : '';
         if (label) { const [lx, ly] = at(mid, it.watch ? 44 : 36).split(',').map(Number); o.push(`<text class="kg-sb-ang" x="${lx}" y="${ly + 5}">${label}</text>`); }
       } else {
@@ -123,6 +127,7 @@ export function mountDynamic(host: ShapeBoard, cfg: ShapeBoardConfig) {
         if (it.ticks) o.push(marks(seen2, it.ticks, false, `kg-sb-mk t${it.tone ?? 2}`));
       }
     }
+    if (over) o.push(over({ sx, sy, pts }));
     // letters away from the middle of the figure
     const vis = Object.keys(pts).filter((n) => pts[n] && shown(n)), ps = vis.map((n) => pts[n]!);
     const c: P = [ps.reduce((s, p) => s + p[0], 0) / (ps.length || 1), ps.reduce((s, p) => s + p[1], 0) / (ps.length || 1)];
@@ -133,9 +138,10 @@ export function mountDynamic(host: ShapeBoard, cfg: ShapeBoardConfig) {
         o.push(`<g class="kg-sb-handle${grab?.n === n ? ' on' : ''}" data-p="${n}" tabindex="0" role="button" aria-label="${host.lab('label-handle', '{p}', { p: name(n) })}"><circle class="kg-sb-hh" cx="${sx(p[0])}" cy="${sy(p[1])}" r="26"/><circle class="kg-sb-h${d.hide ? ' ring' : ''}" cx="${sx(p[0])}" cy="${sy(p[1])}" r="10"/></g>${lt}`);
       else o.push(`<circle class="kg-sb-gv" cx="${sx(p[0])}" cy="${sy(p[1])}" r="5"/>${lt}`);
     }
-    const focus = (document.activeElement as Element | null)?.getAttribute?.('data-p');
+    const fa = document.activeElement as Element | null, focus = fa?.getAttribute?.('data-p'), fpart = fa?.getAttribute?.('data-part');
     svg.innerHTML = o.join('');
     if (focus) svg.querySelector<SVGElement>(`[data-p="${focus}"]`)?.focus();
+    else if (fpart) svg.querySelector<SVGElement>(`[data-part="${fpart}"]`)?.focus();
 
     // readouts, the choice and the lock
     const chip = (k: string, tone = 2) => `<span class="kg-sb-w t${tone}"><bdi dir="ltr">${host.lab(`watch-${k}`, `${k} = {v}`, { v: value(k, vals[k]) })}</bdi></span>`;
@@ -143,7 +149,7 @@ export function mountDynamic(host: ShapeBoard, cfg: ShapeBoardConfig) {
     html = html ? `<p class="kg-sb-watch" aria-live="polite">${html}</p>` : '';
     if (dc.ask) html += `<div class="kg-sb-ask" role="radiogroup" aria-label="${host.lab('label-ask', '')}">${dc.ask.map((k) => `<button type="button" role="radio" class="kg-sb-tile" data-ask="${k}" aria-checked="${chosen === k}">${host.lab(`ask-${k}`, k)}</button>`).join('')}</div>`;
     if (dc.lock?.length) html += `<button type="button" class="secondary kg-sb-btn" data-lock aria-pressed="${f.locked}">${host.lab('label-lock', 'Lock')}</button>`;
-    const fa = document.activeElement as HTMLElement | null, keep = fa && info.contains(fa) ? (fa.dataset.ask ? `[data-ask="${fa.dataset.ask}"]` : '[data-lock]') : '';
+    const fe = document.activeElement as HTMLElement | null, keep = fe && info.contains(fe) ? (fe.dataset.ask ? `[data-ask="${fe.dataset.ask}"]` : '[data-lock]') : '';
     if (info.innerHTML !== html) info.innerHTML = html;
     if (keep) info.querySelector<HTMLElement>(keep)?.focus();
   };
@@ -183,7 +189,7 @@ export function mountDynamic(host: ShapeBoard, cfg: ShapeBoardConfig) {
     if (tryMove(n, () => f.nudge(n, d[0], d[1], step))) settle();
   });
   info.addEventListener('click', (e) => {
-    const b = (e.target as Element).closest<HTMLElement>('button');
+    const b = (e.target as Element).closest<HTMLElement>('button[data-ask], button[data-lock]');
     if (!b) return;
     if (b.dataset.ask) chosen = b.dataset.ask;
     else {
@@ -197,6 +203,8 @@ export function mountDynamic(host: ShapeBoard, cfg: ShapeBoardConfig) {
   return {
     root,
     redraw: draw,
+    figure: f,
+    pts: () => pts,
     state: (): Partial<ShapeBoardState> => ({
       dyn: { pts: Object.fromEntries(Object.entries(pts).map(([k, p]) => [k, round(p)])), values: readings(dc.watch, pts), dragged: seen.size - 1, chosen, locked: f.locked },
     }),

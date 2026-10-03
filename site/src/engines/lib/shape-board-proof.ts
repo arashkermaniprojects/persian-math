@@ -116,7 +116,8 @@ export function checkProof(c: ProofCheck, b: ShapeBoardState | undefined): Resul
       if (r.r === 'given' && !facts.has(s)) return fail(s === goal ? 'circular' : trap((t) => t.reason === 'given') ?? 'not-given');
       if (r.r === 'goal') return fail('circular');
       if (r.r === 'looks') return fail(trap((t) => t.reason === 'looks') ?? 'looks-equal');
-      if (d?.pts && holds(r.s, d.pts) === false) return fail('false-statement');
+      // a false congruence is almost always the vertices matched in the wrong order
+      if (d?.pts && holds(r.s, d.pts) === false) return fail(r.s.includes('≅') ? 'order' : 'false-statement');
     }
     const at = (s: string) => all.findIndex((r) => canon(r.s) === canon(s));
     for (const st of c.steps) {

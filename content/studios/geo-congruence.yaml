@@ -1,0 +1,190 @@
+id: geo-congruence
+engine: shape-board
+strand: geo
+order: 11
+concepts: [geo.congruence, geo.congruence.triangles]
+# Pilot of the shape-board `proof` module (shape-board/proof.ts, on a `dynamic` figure). Move, turn and flip a copy onto
+# a shape (Iran G7 ch.4 «شکل‌های مساوی (هم‌نهشت)» p.51, G8 ch.6 «شکل‌های هم‌نهشت» p.88); then two triangles with
+# marked equal sides and angles: name the correspondence ABC ≅ …, pick the criterion, and write a short proof with a
+# reason on every row (Iran G8 ch.6 «مثلث‌های هم‌نهشت» p.92, «هم‌نهشتی مثلث‌های قائم‌الزاویه» p.96, G9 ch.3
+# «هم‌نهشتی مثلث‌ها» p.44; Afghan G7 ch.5 «اشکال انطباق‌پذیر», «حالات انطباق‌پذیری مثلث‌ها» p.119; UK KS3 SSS, SAS,
+# ASA, RHS). Both countries' books letter vertices with Latin capitals, so every locale uses A, B, C; the criterion and
+# reason names are per-locale labels. Misconceptions: a mirror image "not congruent" (copy), vertices matched in the
+# wrong order (order), the included angle not between the sides (ssa), AAA as a test (aaa), "it looks equal" as a
+# reason (looks-equal), the conclusion used as a reason (circular), SSA believed (a counterexample is dragged).
+missions:
+  # Explore: slide, turn or flip the orange copy onto the dashed triangle. Turning alone never fits: it is a mirror image.
+  - id: copy
+    setup:
+      x: [0, 9]
+      y: [0, 4]
+      grid: dots
+      mode: move
+      instruction: move
+      shapes:
+        - { pts: [[5, 1], [8, 1], [7, 3]], tone: 1, dash: true, name: target }
+        - { pts: [[1, 1], [4, 1], [2, 3]], tone: 0, move: true, turn: true, flip: true, name: copy }
+    check:
+      type: shape-board
+      fits: 0
+  # Name the correspondence from the equal-side ticks. DEF is a mirror image with its letters mixed up.
+  - id: match
+    setup:
+      x: [0, 9]
+      y: [0, 4]
+      grid: none
+      dynamic:
+        points:
+          A: [0.5, 0.5]
+          B: [4, 0.5]
+          C: [1.5, 3.5]
+          D: [7.5, 3.5]
+          E: [8.5, 0.5]
+          F: [5, 0.5]
+        draw:
+          - { poly: A B C, tone: 2 }
+          - { poly: D E F, tone: 1 }
+          - { seg: A B, tone: 2, ticks: 1 }
+          - { seg: B C, tone: 2, ticks: 2 }
+          - { seg: C A, tone: 2, ticks: 3 }
+          - { seg: E F, tone: 1, ticks: 1 }
+          - { seg: F D, tone: 1, ticks: 2 }
+          - { seg: D E, tone: 1, ticks: 3 }
+      proof:
+        corr: { of: A B C, from: D E F }
+    check:
+      type: proof
+      correspondence: E F D
+      traps: [{ corr: D E F, code: alphabet }]
+  # Two sides and the angle between them: SAS. SSA (the angle not between) and ASA are the slips.
+  - id: which-case
+    setup:
+      x: [0, 9.5]
+      y: [0, 4]
+      grid: none
+      dynamic:
+        points:
+          A: [0.5, 0.5]
+          B: [4, 0.5]
+          C: [1, 3.5]
+          D: [9, 3.5]
+          E: [5.5, 3.5]
+          F: [8.5, 0.5]
+        draw:
+          - { poly: A B C, tone: 2 }
+          - { poly: D E F, tone: 1 }
+          - { seg: A B, tone: 2, ticks: 1 }
+          - { seg: A C, tone: 2, ticks: 2 }
+          - { seg: D E, tone: 1, ticks: 1 }
+          - { seg: D F, tone: 1, ticks: 2 }
+          - { angle: B A C, tone: 3 }
+          - { angle: E D F, tone: 3 }
+      proof:
+        criteria: [sss, sas, asa, rhs, ssa, none]
+    check:
+      type: proof
+      criterion: sas
+      traps: [{ criterion: asa, code: angle-not-side }]
+  # Three pairs of equal angles, different sizes: not congruent (AAA is not a test).
+  - id: angles-only
+    setup:
+      x: [0, 9.5]
+      y: [0, 4]
+      grid: none
+      dynamic:
+        points:
+          A: [0.5, 0.5]
+          B: [3.5, 0.5]
+          C: [1.5, 2.5]
+          D: [4.5, 0.5]
+          E: [9, 0.5]
+          F: [6, 3.5]
+        draw:
+          - { poly: A B C, tone: 2 }
+          - { poly: D E F, tone: 1 }
+          - { angle: B A C, tone: 3 }
+          - { angle: E D F, tone: 3 }
+          - { angle: A B C, tone: 0, arcs: 2 }
+          - { angle: D E F, tone: 0, arcs: 2 }
+          - { angle: A C B, tone: 4, arcs: 3 }
+          - { angle: D F E, tone: 4, arcs: 3 }
+      proof:
+        criteria: [sss, sas, asa, aaa, none]
+    check:
+      type: proof
+      criterion: none
+  # A proof in rows: in kite ABCD, AB = AD and CB = CD (given). Prove ∠B = ∠D.
+  - id: kite-proof
+    setup:
+      x: [0, 8]
+      y: [0, 5.5]
+      grid: none
+      dynamic:
+        points:
+          A: { at: [4, 5], off: [0, 0.4] }
+          B: { at: [1.5, 3], off: [-0.4, 0] }
+          C: { at: [4, 0.5], off: [0, -0.42] }
+          D: { at: [6.5, 3], off: [0.4, 0] }
+        draw:
+          - { poly: A B C D, tone: 2 }
+          - { seg: A C, tone: 0 }
+          - { seg: A B, tone: 2, ticks: 1 }
+          - { seg: A D, tone: 2, ticks: 1 }
+          - { seg: C B, tone: 2, ticks: 2 }
+          - { seg: C D, tone: 2, ticks: 2 }
+          - { angle: A B C, tone: 3, text: '?' }
+          - { angle: A D C, tone: 3, text: '?' }
+      proof:
+        parts: [A B, A D, B C, C D, A C, A B C, A D C, B A C, D A C]
+        corr: { of: A B C, from: A B C D }
+        reasons: [given, common, vertical, sss, sas, asa, cpct, looks]
+        rows: 4
+        given:
+          - { s: A B = A D, r: given }
+          - { s: C B = C D, r: given }
+    check:
+      type: proof
+      facts: [A B = A D, C B = C D]
+      conclusion: A B C = A D C
+      steps:
+        - { s: A C = A C, r: common }
+        - { s: A B C ≅ A D C, r: sss, after: [A C = A C] }
+        - { s: A B C = A D C, r: cpct, after: [A B C ≅ A D C] }
+      traps: [{ reason: sas, code: sas-no-angle }]
+  # Counterexample: SSA. AB = DE and ∠A = ∠D; slide F along its ray until EF = BC — in a place where the triangles differ.
+  - id: ssa-counter
+    setup:
+      x: [0, 9.5]
+      y: [0, 5]
+      grid: none
+      step: 0.5
+      instruction: drag
+      dynamic:
+        points:
+          A: [0.5, 0.5]
+          B: [4.5, 0.5]
+          C: [2, 3.0980762]
+          D: [5, 0.5]
+          E: [9, 0.5]
+          F: { on: { through: D, deg: 60 }, clamp: ray, at: [7, 3.9641016] }
+        drag: [F]
+        draw:
+          - { poly: A B C, tone: 2 }
+          - { poly: D E F, tone: 1 }
+          - { seg: A B, tone: 2, ticks: 1 }
+          - { seg: D E, tone: 1, ticks: 1 }
+          - { angle: B A C, tone: 3, watch: a }
+          - { angle: E D F, tone: 3, watch: d }
+        watch:
+          - { key: a, angle: B A C, show: figure }
+          - { key: d, angle: E D F, show: figure }
+          - { key: bc, length: B C, tone: 2 }
+          - { key: ef, length: E F, tone: 1 }
+          - { key: ac, length: A C, tone: 2 }
+          - { key: df, length: D F, tone: 1 }
+      proof:
+        claim: ssa
+    check:
+      type: proof
+      dragged: 1
+      counterexample: { hypothesis: [[ef, bc]], conclusion: [[df, ac]] }

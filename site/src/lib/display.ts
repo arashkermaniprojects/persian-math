@@ -65,9 +65,9 @@ function algInner(src: string, digits: string): string {
       prev = '0';
       continue;
     }
-    if (/[-−+=<>≤≥≠]/.test(ch)) {
+    if (/[-−+=<>≤≥≠≅]/.test(ch)) {
       const sym = ch === '-' ? '−' : ch === '<' ? '&lt;' : ch === '>' ? '&gt;' : ch;
-      out += prev && !/[-−+=<>≤≥≠(×]/.test(prev) ? ` ${sym} ` : sym;
+      out += prev && !/[-−+=<>≤≥≠≅(×]/.test(prev) ? ` ${sym} ` : sym;
     } else if (ch === '*' || ch === '×') out += '×';
     else if (ch === '&') out += '&amp;';
     else out += /[0-9]/.test(ch) ? digits[Number(ch)] : ch;

@@ -49,6 +49,7 @@ describe('algebra', () => {
     expect(rich('{{alg:x = -3}}', 'ps')).toBe('<bdi dir="ltr" class="alg">x = −۳</bdi>');
     expect(rich('{{alg:4 - (-3)^2}}', 'en')).toBe('<bdi dir="ltr" class="alg">4 − (−3)<sup>2</sup></bdi>');
     expect(rich('{{alg:2*3 < 7}}', 'en')).toBe('<bdi dir="ltr" class="alg">2×3 &lt; 7</bdi>');
+    expect(rich('{{alg:△ABC ≅ △DEF}}', 'fa-IR')).toBe('<bdi dir="ltr" class="alg">△ABC ≅ △DEF</bdi>');
   });
 
   it('is not broken by the formula isolates of RTL text', () => {
