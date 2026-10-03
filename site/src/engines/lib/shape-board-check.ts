@@ -26,13 +26,19 @@ export interface ShapeBoardState {
   picked?: number | null;
   /** 3D cube builder: total cubes, height per plan square, and [length, width, height] when it is one full cuboid. */
   cubes?: { count: number; heights: number[][]; box: [number, number, number] | null };
+  /**
+   * Dynamic figure (module shape-board/dynamic.ts): named points, live readouts by watch key (rounded as shown),
+   * positions explored by dragging, the "what stayed the same?" choice, and whether built points are locked.
+   */
+  dyn?: { pts: Record<string, P | null>; values: Record<string, number | null>; dragged: number; chosen: string | null; locked: boolean };
 }
 
 type LineRef = number | Seg;
 /**
  * Every field is optional; the check passes when all the given ones hold. Tested in this order (the first failure
  * gives the code): drawing (open/crossed, `sides`, `shape`/`not`, `area`, `perimeter`, `lengths`) → `count` → `image`
- * → `similar` → `line` → `chord` → `angle` → `points` → `selected` → `cells`/`within`/`net` → `fits` → `piece` → `cubes`/`box` → `pick`.
+ * → `similar` → `line` → `chord` → `angle` → `points` → `selected` → `cells`/`within`/`net` → `fits` → `piece` → `cubes`/`box` → `pick`
+ * → `dragged` → `invariant` → `watch` (dynamic figures).
  */
 export interface ShapeBoardCheck {
   type: 'shape-board';
@@ -79,8 +85,20 @@ export interface ShapeBoardCheck {
   /** The cubes form one full cuboid with these sides (any order). */
   box?: [number, number, number];
   pick?: number;
-  /** Known wrong answers with their own code: a shape class drawn, a shape tapped, a number picked, a point placed. */
-  traps?: { shape?: string; select?: number; pick?: number; point?: P; code: string }[];
+  /** Dynamic figure: the learner dragged it into at least n different positions before answering. */
+  dragged?: number;
+  /** Dynamic figure: the "what stayed the same?" choice (a key of the setup's `ask`). */
+  invariant?: string;
+  /**
+   * Dynamic figure: readout `key` now `equals` a number (drag until…), and/or the typed answer (`answer: integer` or
+   * `decimal`) equals the readout (`typed: true`; the readout may be hidden, so the learner predicts it). ± `tolerance`.
+   */
+  watch?: { key: string; equals?: number; typed?: boolean; tolerance?: number };
+  /**
+   * Known wrong answers with their own code: a shape class drawn, a shape tapped, a number picked, a point placed;
+   * dynamic figures: a choice (`chosen`), a typed number (`typed`), or a typed number equal to another readout (`watch`).
+   */
+  traps?: { shape?: string; select?: number; pick?: number; point?: P; chosen?: string; typed?: number; watch?: string; code: string }[];
 }
 
 type Result = { ok: true } | { ok: false; code: string };
@@ -96,7 +114,7 @@ for (const t of ['triangle', 'equilateral', 'isosceles', 'scalene', 'right-angle
 const segsOf = (d: Drawn[]): Seg[] => d.flatMap((s) => edges(s.pts, s.kind === 'polygon' && s.closed !== false));
 const lineOf = (ref: LineRef, given: Drawn[]): Seg => (typeof ref === 'number' ? [given[ref].pts[0], given[ref].pts[1]] : ref);
 
-export function checkShapeBoard(c: ShapeBoardCheck, s: ShapeBoardState | undefined): Result {
+export function checkShapeBoard(c: ShapeBoardCheck, s: ShapeBoardState | undefined, typed: number | null = null): Result {
   const drawn = (s?.drawn ?? []).filter((d) => d.pts.length > 1 || d.kind === 'polygon');
   const given = s?.given ?? [];
   const polys = drawn.filter((d) => d.kind === 'polygon' && d.pts.length);
@@ -234,6 +252,32 @@ export function checkShapeBoard(c: ShapeBoardCheck, s: ShapeBoardState | undefin
     const p = s?.picked;
     if (p == null) return fail('empty');
     if (p !== c.pick) return fail(trap((x) => x.pick === p) ?? (p > c.pick ? 'too-big' : 'too-small'));
+  }
+  if (c.dragged !== undefined || c.invariant !== undefined || c.watch) return checkDynamic(c, s?.dyn, typed);
+  return { ok: true };
+}
+
+/**
+ * The dynamic-figure parts, `dragged` → `invariant` → `watch`. Codes: `not-dragged`, `empty` (nothing chosen or
+ * typed), `wrong-invariant`, `no-reading` (the figure cannot be measured), `watch-too-big`/`-small`, `too-big`/`too-small`.
+ */
+function checkDynamic(c: ShapeBoardCheck, d: ShapeBoardState['dyn'], typed: number | null): Result {
+  if (!d) return fail('empty');
+  const trap = (f: (t: NonNullable<ShapeBoardCheck['traps']>[number]) => boolean) => c.traps?.find(f)?.code;
+  if (c.dragged !== undefined && d.dragged < c.dragged) return fail('not-dragged');
+  if (c.invariant !== undefined && d.chosen !== c.invariant) return fail(d.chosen == null ? 'empty' : trap((t) => t.chosen === d.chosen) ?? 'wrong-invariant');
+  const w = c.watch;
+  if (!w) return { ok: true };
+  const v = d.values[w.key], tol = w.tolerance ?? 1e-6;
+  if (v == null) return fail('no-reading');
+  if (w.equals !== undefined && !near(v, w.equals, tol)) return fail(size(v, w.equals, 'watch'));
+  if (w.typed) {
+    if (typed == null) return fail('empty');
+    if (!near(typed, v, tol)) {
+      const other = (k: string) => d.values[k] ?? NaN;
+      const t = trap((x) => (x.typed !== undefined && near(typed, x.typed, tol)) || (x.watch !== undefined && near(typed, other(x.watch), tol)));
+      return fail(t ?? (typed > v ? 'too-big' : 'too-small'));
+    }
   }
   return { ok: true };
 }
