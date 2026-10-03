@@ -1,8 +1,8 @@
 // <kg-algebra-tiles>: algebra tiles on a mat (x², x, 1 and their red negatives; y, xy, y² and labelled tiles too).
 // Build an expression, put like terms together, take off zero pairs (a red and a white tile of the SAME shape), flip
 // the tiles to show a letter's value, and write the answer on a small keypad (no keyboard switching on a phone).
-// Modes: tiles (here); rectangle and grid (./algebra-tiles/frame.ts, loaded on demand); later modules plug into
-// MODULES below. Contract: docs/STUDIOS.md ("Engine options → algebra-tiles"). Logic: ./lib/algebra-tiles-*.
+// Modes: tiles (here); rectangle and grid (./algebra-tiles/frame.ts) and the equation balance
+// (./algebra-tiles/balance.ts), each loaded on demand; later modules plug into MODULES below. Contract: docs/STUDIOS.md ("Engine options → algebra-tiles"). Logic: ./lib/algebra-tiles-*.
 // The mat, the keypad and every expression run left to right in every locale, as written algebra does.
 import { algHTML } from '../lib/display';
 import type { AlgebraState, Move } from './lib/algebra-tiles-check';
@@ -10,7 +10,7 @@ import { matPoly, pairOf, sortTiles, tileValueText, tilesOf, zeroPairs, type Til
 import { degreeOf, format, powsOf } from './lib/algebra-tiles-poly';
 
 export interface AlgebraConfig {
-  mode?: 'tiles' | 'rectangle' | 'grid';
+  mode?: 'tiles' | 'rectangle' | 'grid' | 'balance';
   /** Icon hint above the engine with the studio label `instruction-<key>` (build, collect, read, flip, write). */
   instruction?: string;
   /** tiles: the mat at the start, as written and not combined ("2x^2 + 3x + 1 - x"). */
@@ -54,19 +54,20 @@ export interface AlgebraPart {
   html(): string;
   act(d: DOMStringMap): boolean;
   state(): Partial<AlgebraState>;
-  /** The keypad is shown for this part's own fields (grid cells) even without `write`. */
+  /** The keypad is shown for this part's own fields (grid cells) even without `write`; `false` = the part has no
+   * fields of its own, so `write: number` keeps the number keypad (balance). */
   keypad?: boolean;
 }
 type Mount = { mount(host: AlgebraHost, c: AlgebraConfig): AlgebraPart };
 
 /**
  * Parts loaded only when a mission's `mode` asks for them (each its own chunk, within the size budget).
- * Planned modules plug in here:  balance: () => import('./algebra-tiles/balance')  (alg-solve-linear),
- * factors: () => import('./algebra-tiles/factors')  (num-index-laws, num-surds, alg-algebraic-fractions).
+ * Planned:  factors: () => import('./algebra-tiles/factors')  (num-index-laws, num-surds, alg-algebraic-fractions).
  */
 const MODULES: Record<string, () => Promise<Mount>> = {
   rectangle: () => import('./algebra-tiles/frame'),
   grid: () => import('./algebra-tiles/frame'),
+  balance: () => import('./algebra-tiles/balance'),
 };
 
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
@@ -302,7 +303,7 @@ export class AlgebraTiles extends HTMLElement implements AlgebraHost {
   /** Keys of the keypad in order, six to a row: 1–5 and a sign, 6–0 and a sign, then letters and powers. */
   private keyset(): string[] {
     const a = ['1', '2', '3', '4', '5'], b = ['6', '7', '8', '9', '0'];
-    if (this.c.write === 'number' && !this.part) return [...a, '-', ...b];
+    if (this.c.write === 'number' && (!this.part || this.part.keypad === false)) return [...a, '-', ...b];
     return [...a, '+', ...b, '-', ...this.letters(), '^2', '^3', ...(this.c.keys ?? [])];
   }
 

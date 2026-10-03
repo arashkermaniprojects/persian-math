@@ -30,14 +30,34 @@ export function vecHTML(x: number | string, y: number | string, f: NumberFormat,
 
 /**
  * An algebra expression typed in ASCII ("3x^2 - 2x", "x = -3", "(-3)^2") as HTML, always left to right (docs/NOTATION.md):
- * locale digits, − for -, × for *, powers raised; letters stay Latin in every locale. Binary + − = get spaces; a sign
- * at the start or after "(" stays close: −۵, (−۳)².
+ * locale digits, − for -, × for *, powers raised; letters stay Latin in every locale. Binary + − = ≠ get spaces; a sign
+ * at the start or after "(" stays close: −۵, (−۳)². "a/b" is stacked, never inline ("/" is Iran's decimal mark): each
+ * side is a bracket (dropped) or a run of letters and digits: x/3, (v - u)/a.
  */
 export function algHTML(src: string, digits = '0123456789'): string {
+  return `<bdi dir="ltr" class="alg">${algInner(src, digits)}</bdi>`;
+}
+
+const ALG_FRAC = /(\([^()]*\)|[\w√.^]+)\/(\([^()]*\)|[\w√.^]+)/g;
+const unbracket = (s: string) => s.replace(/^\((.*)\)$/, '$1');
+
+function algInner(src: string, digits: string): string {
+  const fr: string[] = [];
+  src = src.replace(ALG_FRAC, (_, n: string, d: string) => {
+    fr.push(`<span class="frac"><span class="frac-n">${algInner(unbracket(n), digits)}</span><span class="frac-d">${algInner(unbracket(d), digits)}</span></span>`);
+    return `\u0001${fr.length - 1}\u0002`;
+  });
   let out = '', prev = '';
   for (let i = 0; i < src.length; i++) {
     const ch = src[i];
     if (ch === ' ' || /[⁦-⁩]/.test(ch)) continue;
+    if (ch === '\u0001') {
+      const end = src.indexOf('\u0002', i);
+      out += fr[Number(src.slice(i + 1, end))];
+      i = end;
+      prev = 'x';
+      continue;
+    }
     const pow = ch === '^' && src.slice(i + 1).match(/^\d+/);
     if (pow) {
       out += `<sup>${digitsOf(pow[0], { digits, decimal: '.' })}</sup>`;
@@ -45,15 +65,15 @@ export function algHTML(src: string, digits = '0123456789'): string {
       prev = '0';
       continue;
     }
-    if (/[-−+=<>≤≥]/.test(ch)) {
+    if (/[-−+=<>≤≥≠]/.test(ch)) {
       const sym = ch === '-' ? '−' : ch === '<' ? '&lt;' : ch === '>' ? '&gt;' : ch;
-      out += prev && !/[-−+=<>≤≥(×]/.test(prev) ? ` ${sym} ` : sym;
+      out += prev && !/[-−+=<>≤≥≠(×]/.test(prev) ? ` ${sym} ` : sym;
     } else if (ch === '*' || ch === '×') out += '×';
     else if (ch === '&') out += '&amp;';
     else out += /[0-9]/.test(ch) ? digits[Number(ch)] : ch;
     prev = ch === '*' ? '×' : ch;
   }
-  return `<bdi dir="ltr" class="alg">${out}</bdi>`;
+  return out;
 }
 
 /**

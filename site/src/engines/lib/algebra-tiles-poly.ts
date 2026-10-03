@@ -111,16 +111,16 @@ function tokenize(src: string): Tok[] | null {
   const s = normalize(src), out: Tok[] = [];
   for (let i = 0; i < s.length; ) {
     const rest = s.slice(i);
-    const m = rest.match(/^\d+(\.\d+)?/) ?? rest.match(/^√(\d+|[a-zA-Z])/) ?? rest.match(/^[a-zA-Z]/) ?? rest.match(/^[-+*^()]/);
+    const m = rest.match(/^\d+(\.\d+)?/) ?? rest.match(/^√(\d+|[a-zA-Z])/) ?? rest.match(/^[a-zA-Z]/) ?? rest.match(/^[-+*^()/]/);
     if (!m) return null;
     const v = m[0];
-    out.push(/^\d/.test(v) ? { t: 'n', v: Number(v) } : /^[-+*^()]$/.test(v) ? { t: 'o', v } : { t: 's', v });
+    out.push(/^\d/.test(v) ? { t: 'n', v: Number(v) } : /^[-+*^()/]$/.test(v) ? { t: 'o', v } : { t: 's', v });
     i += v.length;
   }
   return out;
 }
 
-/** Recursive descent: sum := [±] term (± term)*; term := power ([*] power)*; power := atom [^ n]; atom := n | s | ( sum ). */
+/** Recursive descent: sum := [±] term (± term)*; term := power ([*|/] power)* (/ a number only); power := atom [^ n]; atom := n | s | ( sum ). */
 function parser(toks: Tok[]) {
   let i = 0;
   const peek = () => toks[i];
@@ -140,6 +140,14 @@ function parser(toks: Tok[]) {
     let p = power();
     for (;;) {
       if (isOp('*')) { i++; p = mul(p, power()); continue; }
+      if (isOp('/')) {
+        // only by a number (x/3, (x + 1)/2): the balance's thirds; a letter below the bar is not a polynomial
+        i++;
+        const d = power(), ks = Object.keys(d);
+        if (ks.length !== 1 || ks[0] !== '1') throw new Error('/');
+        p = mul(p, { '1': 1 / d['1'] });
+        continue;
+      }
       const k = peek();
       if (k && (k.t === 'n' || k.t === 's' || (k.t === 'o' && k.v === '('))) { p = mul(p, power()); continue; }
       return p;

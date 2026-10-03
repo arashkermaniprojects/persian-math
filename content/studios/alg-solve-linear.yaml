@@ -1,0 +1,113 @@
+id: alg-solve-linear
+engine: algebra-tiles
+strand: alg
+order: 3
+concepts: [alg.equation.concept, alg.linear-equations, alg.formulae.rearrange]
+# Iran G7 ch.3 «معادله» (G07_riazi_haftom.pdf p.47–48 [۳۷–۳۸]): «به یک تساوی جبری که به ازای بعضی از عددها به تساوی
+# عددی تبدیل می‌شود، معادله می‌گویند»; first by «حدس و آزمایش», then the same number added to / multiplied on both
+# sides of a true equality (arrow diagrams: 2x − 1 = 7 → 2x = 8 → x = 4); G8 ch.4 «معادله» (p.64); Afghan G8 ch.8
+# «مفهوم معادله، عملیه‌های جمع و تفریق در مساوات، … ضرب و تقسیم» (p.183); UK KS3 "solve linear equations in one
+# variable, including all forms that require rearrangement" and "change the subject of a formula".
+# The balance module (algebra-tiles/balance.ts): two pans; a move is chosen, then done to one pan or to both; a
+# one-sided move tips the beam. Letters are Latin and the scale runs left to right in every locale.
+missions:
+  # Guess and check (Iran G7 p.37): put a value on every x strip; the beam shows which side is heavier. Is x = 4 a
+  # solution of 2x + 5 = 13? Slips: 2x read as 2 + x (x = 6 makes 2 + 6 + 5 = 13), stopping at a heavy side.
+  - id: try-a-value
+    setup:
+      mode: balance
+      equation: 2x + 5 = 13
+      try: true
+      instruction: try
+    check:
+      type: algebra
+      solution: 4
+      traps:
+        - { try: 6, code: coefficient-added }
+  # 3x + 2 = 14, pan by pan (no «both pans» button): a move on one pan tips the beam, the same move on the other
+  # levels it. Predict x first. Slips: 3x = 12 → x = 9 (3 taken away, not divided), x = 12 (the 3 forgotten),
+  # x = 36 (multiplied), x = 16/3 hidden as 16 (the 2 added, "move it across" with the wrong sign).
+  - id: pan-by-pan
+    setup:
+      mode: balance
+      equation: 3x + 2 = 14
+      both: false
+      ops: [tiles, divide]
+      write: number
+      instruction: balance
+    check:
+      type: algebra
+      written: "4"
+      solution: 4
+      traps:
+        - { write: "9", code: subtract-coefficient }
+        - { write: "12", code: coefficient-kept }
+        - { write: "36", code: multiplied }
+        - { write: "16", code: wrong-sign-across }
+  # x on both pans (Iran G8 p.64; Afghan G8 p.189): 5x − 3 = 2x + 12. Add 3 white squares to both pans (zero pairs
+  # with the red ones), take away 2 strips from both, then ÷3. Slips: the red tiles forgotten (3x = 9 → 3), x
+  # collected onto the wrong side with a sign error (−3x = 15 → −5), stopping at 3x = 15.
+  - id: unknown-both-sides
+    setup:
+      mode: balance
+      equation: 5x - 3 = 2x + 12
+      write: number
+      instruction: balance
+    check:
+      type: algebra
+      written: "5"
+      solution: 5
+      traps:
+        - { write: "3", code: negative-forgotten }
+        - { write: "-5", code: wrong-side-sign }
+        - { write: "15", code: coefficient-kept }
+  # x/3 + 1 = 5: take away 1, then the strip is a third of x, so × 3 (Iran G7 p.38 multiplies by ½). Slips:
+  # x/3 = 4 → x = 4/3 (divided again: the scale shows x/9 = 4/3), x = 4 (the thirds forgotten), x = 18 (sign),
+  # x = 14 (only the x/3 multiplied by 3, not the 1).
+  - id: undo-a-division
+    setup:
+      mode: balance
+      equation: x/3 + 1 = 5
+      write: number
+      instruction: balance
+    check:
+      type: algebra
+      written: "12"
+      solution: 12
+      traps:
+        - { scale: x/9 = 4/3, code: divided-not-multiplied }
+        - { scale: x/9 + 1/3 = 5/3, code: divided-not-multiplied }
+        - { write: "4", code: fraction-kept }
+        - { write: "18", code: wrong-sign-across }
+        - { write: "14", code: one-term-multiplied }
+  # 2(x + 3) = 16: two equal groups; ÷ 2 keeps one group (x + 3 = 8), or open the brackets (2x + 6 = 16).
+  # Slips: the 2 ignored (x + 3 = 16 → 13), 8 + 3 = 11 (sign), stopping at x + 3 = 8.
+  - id: brackets
+    setup:
+      mode: balance
+      equation: 2(x + 3) = 16
+      write: number
+      instruction: balance
+    check:
+      type: algebra
+      written: "5"
+      solution: 5
+      traps:
+        - { write: "13", code: factor-ignored }
+        - { write: "11", code: wrong-sign-across }
+        - { write: "8", code: stopped-early }
+  # UK KS3 only: change the subject of v = u + at with the same moves (letter tiles; ÷ a letter puts a bar under the
+  # pan). Hidden in fa-IR, fa-AF and ps.
+  - id: change-the-subject
+    locales: [en]
+    setup:
+      mode: balance
+      equation: v = u + at
+      tray: [u]
+      by: [a]
+      ops: [tiles]
+      weights: { u: 2, a: 3, t: 4, v: 14 }
+      instruction: balance
+    check:
+      type: algebra
+      subject: t
